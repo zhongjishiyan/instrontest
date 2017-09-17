@@ -1,0 +1,911 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55B6A26A-F691-4906-B0B7-7175BE76F618}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>142.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>AppleLabJ</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TabHeaderDemo</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>TabHeaderDemo.FormMainLab</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ManifestCertificateThumbprint>2BC86318C915CA08BA1410E1A20FFFF6F4794CD7</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TabHeaderDemo_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;TowAxis</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DoPENet">
+      <HintPath>..\..\..\shiwei编程\DOPE\DoPE\DoPENet.dll</HintPath>
+    </Reference>
+    <Reference Include="IP.Components, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IPToolbox_src\IPToolbox\bin\Release\IP.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="MCTBuffer, Version=1.0.1.0, Culture=neutral, PublicKeyToken=3c6f10d5f3df8ab7, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0" />
+    <Reference Include="NationalInstruments.Common, Version=12.0.35.253, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a" />
+    <Reference Include="SourceGrid2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=ad929b4064585aea, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TabText1\SourceGrid2.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceLibrary, Version=1.2.0.0, Culture=neutral, PublicKeyToken=96907d46c0a9af87">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TabText1\SourceLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Doc, Version=5.0.14.54035, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Spire.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.2.35, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=2.9.29.54035, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UserControl扭转.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl扭转.Designer.cs">
+      <DependentUpon>UserControl扭转.cs</DependentUpon>
+    </Compile>
+    <Content Include="142.ico" />
+    <Content Include="App.ico" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassSys.cs" />
+    <Compile Include="Controls\AuthorAttribute.cs" />
+    <Compile Include="ClassPrint.cs" />
+    <Compile Include="FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form仿真.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form仿真.Designer.cs">
+      <DependentUpon>Form仿真.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMima.Designer.cs">
+      <DependentUpon>FrmMima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Form循环执行.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Form循环执行.Designer.cs">
+      <DependentUpon>Form循环执行.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Form控制参数.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Form控制参数.Designer.cs">
+      <DependentUpon>Form控制参数.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Form新建程序文件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Form新建程序文件.Designer.cs">
+      <DependentUpon>Form新建程序文件.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Form登录.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Form登录.Designer.cs">
+      <DependentUpon>Form登录.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Form跳转条件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Form跳转条件.Designer.cs">
+      <DependentUpon>Form跳转条件.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmPosTransducer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmPosTransducer.Designer.cs">
+      <DependentUpon>FrmPosTransducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmExtTransducer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmExtTransducer.Designer.cs">
+      <DependentUpon>FrmExtTransducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Frm围压控制参数.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Frm围压控制参数.Designer.cs">
+      <DependentUpon>Frm围压控制参数.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\form围压跳转条件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\form围压跳转条件.Designer.cs">
+      <DependentUpon>form围压跳转条件.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListExt.designer.cs">
+      <DependentUpon>ListExt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListReport.Designer.cs">
+      <DependentUpon>ListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\UserControl缺省表格.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\UserControl缺省表格.Designer.cs">
+      <DependentUpon>UserControl缺省表格.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\UserControl文件设置.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\UserControl文件设置.Designer.cs">
+      <DependentUpon>UserControl文件设置.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\UserControl报告常规.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\UserControl报告常规.Designer.cs">
+      <DependentUpon>UserControl报告常规.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SControls\ButtonExNew.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SControls\ButtonExNew.Designer.cs">
+      <DependentUpon>ButtonExNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OpenFileDialogEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OpenFileDialogEx.Designer.cs">
+      <DependentUpon>OpenFileDialogEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainLab.Designer.cs">
+      <DependentUpon>FormMainLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlotSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlotSet.Designer.cs">
+      <DependentUpon>FormPlotSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobeVal.cs" />
+    <Compile Include="helper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HelpPainter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IPaint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JMeter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JMeter.Designer.cs">
+      <DependentUpon>JMeter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OS\Enums.cs" />
+    <Compile Include="OS\structs.cs" />
+    <Compile Include="OS\Win32.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TabButtonExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TabDragHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TabHeader.cs" />
+    <Compile Include="TableLayoutPanelExT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolBox.cs" />
+    <Compile Include="TreeListEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TreeListEx.Designer.cs">
+      <DependentUpon>TreeListEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TxtOpenFileDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TxtOpenFileDialog.designer.cs">
+      <DependentUpon>TxtOpenFileDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlGraph.Designer.cs">
+      <DependentUpon>UserControlGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlInputNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlInputNumber.Designer.cs">
+      <DependentUpon>UserControlInputNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlInputText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlInputText.Designer.cs">
+      <DependentUpon>UserControlInputText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMeter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMeter.Designer.cs">
+      <DependentUpon>UserControlMeter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlResult.Designer.cs">
+      <DependentUpon>UserControlResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSpe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSpe.Designer.cs">
+      <DependentUpon>UserControlSpe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlTop.Designer.cs">
+      <DependentUpon>UserControlTop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain.Designer.cs">
+      <DependentUpon>UserControlMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDynSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDynSet.Designer.cs">
+      <DependentUpon>UserControlDynSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlTest.Designer.cs">
+      <DependentUpon>UserControlTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMethod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMethod.Designer.cs">
+      <DependentUpon>UserControlMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlHelp.Designer.cs">
+      <DependentUpon>UserControlHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlWizard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlWizard.Designer.cs">
+      <DependentUpon>UserControlWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl常规.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl常规.Designer.cs">
+      <DependentUpon>UserControl常规.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl测试提示.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl测试提示.Designer.cs">
+      <DependentUpon>UserControl测试提示.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl试样.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl试样.Designer.cs">
+      <DependentUpon>UserControl试样.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl轴向.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl轴向.Designer.cs">
+      <DependentUpon>UserControl轴向.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl操作面板.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl操作面板.Designer.cs">
+      <DependentUpon>UserControl操作面板.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserReport.Designer.cs">
+      <DependentUpon>UserReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserManage.Designer.cs">
+      <DependentUpon>UserManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlPretest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlPretest.Designer.cs">
+      <DependentUpon>UserControlPretest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSizeInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserSizeInput.Designer.cs">
+      <DependentUpon>UserSizeInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl控制.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl控制.Designer.cs">
+      <DependentUpon>UserControl控制.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl计算.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl计算.Designer.cs">
+      <DependentUpon>UserControl计算.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl结果.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl结果.Designer.cs">
+      <DependentUpon>UserControl结果.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserTextInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserTextInput.Designer.cs">
+      <DependentUpon>UserTextInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserComboInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserComboInput.Designer.cs">
+      <DependentUpon>UserComboInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl控制台.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl控制台.Designer.cs">
+      <DependentUpon>UserControl控制台.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl额外显示.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl额外显示.Designer.cs">
+      <DependentUpon>UserControl额外显示.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl曲线.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl曲线.Designer.cs">
+      <DependentUpon>UserControl曲线.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\UserControl原始数据.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\UserControl原始数据.Designer.cs">
+      <DependentUpon>UserControl原始数据.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\UserControl系统信息.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage\UserControl系统信息.Designer.cs">
+      <DependentUpon>UserControl系统信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\UserControl系统安全.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage\UserControl系统安全.Designer.cs">
+      <DependentUpon>UserControl系统安全.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\UserControl系统选项.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage\UserControl系统选项.Designer.cs">
+      <DependentUpon>UserControl系统选项.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\UserControl系统设置.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage\UserControl系统设置.Designer.cs">
+      <DependentUpon>UserControl系统设置.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlOpenMethod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlOpenMethod.Designer.cs">
+      <DependentUpon>UserControlOpenMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListExtObject.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListExtObject.Designer.cs">
+      <DependentUpon>ListExtObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlRawdata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlRawdata.Designer.cs">
+      <DependentUpon>UserControlRawdata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SControls\ButtonEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SControls\ButtonEx.Designer.cs">
+      <DependentUpon>ButtonEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MethodOpenFileDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MethodOpenFileDialog.designer.cs">
+      <DependentUpon>MethodOpenFileDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User围压.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User围压.Designer.cs">
+      <DependentUpon>User围压.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\OpenFileDialogEx.resx">
+      <DependentUpon>OpenFileDialogEx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainLab.resx">
+      <DependentUpon>FormMainLab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlotSet.resx">
+      <DependentUpon>FormPlotSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form仿真.resx">
+      <DependentUpon>Form仿真.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMima.resx">
+      <DependentUpon>FrmMima.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Form循环执行.resx">
+      <DependentUpon>Form循环执行.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Form控制参数.resx">
+      <DependentUpon>Form控制参数.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Form新建程序文件.resx">
+      <DependentUpon>Form新建程序文件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Form登录.resx">
+      <DependentUpon>Form登录.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Form跳转条件.resx">
+      <DependentUpon>Form跳转条件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmPosTransducer.resx">
+      <DependentUpon>FrmPosTransducer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmExtTransducer.resx">
+      <DependentUpon>FrmExtTransducer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Frm围压控制参数.resx">
+      <DependentUpon>Frm围压控制参数.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\form围压跳转条件.resx">
+      <DependentUpon>form围压跳转条件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="helper.resources" />
+    <EmbeddedResource Include="helper.resx">
+      <DependentUpon>helper.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpPainter.resx">
+      <DependentUpon>HelpPainter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageButton.resx">
+      <DependentUpon>ImageButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JMeter.resx">
+      <DependentUpon>JMeter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl缺省表格.resx">
+      <DependentUpon>UserControl缺省表格.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl文件设置.resx">
+      <DependentUpon>UserControl文件设置.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl报告常规.resx">
+      <DependentUpon>UserControl报告常规.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabButtonExtender.resx">
+      <DependentUpon>TabButtonExtender.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableLayoutPanelExT.resx">
+      <DependentUpon>TableLayoutPanelExT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Toolbox.resx">
+      <DependentUpon>ToolBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TxtOpenFileDialog.resx">
+      <DependentUpon>TxtOpenFileDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlGraph.resx">
+      <DependentUpon>UserControlGraph.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlInputNumber.resx">
+      <DependentUpon>UserControlInputNumber.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlInputText.resx">
+      <DependentUpon>UserControlInputText.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMeter.resx">
+      <DependentUpon>UserControlMeter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlResult.resx">
+      <DependentUpon>UserControlResult.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSpe.resx">
+      <DependentUpon>UserControlSpe.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlTop.resx">
+      <DependentUpon>UserControlTop.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain.resx">
+      <DependentUpon>UserControlMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDynSet.resx">
+      <DependentUpon>UserControlDynSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlTest.resx">
+      <DependentUpon>UserControlTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMethod.resx">
+      <DependentUpon>UserControlMethod.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlHelp.resx">
+      <DependentUpon>UserControlHelp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlWizard.resx">
+      <DependentUpon>UserControlWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl常规.resx">
+      <DependentUpon>UserControl常规.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl测试提示.resx">
+      <DependentUpon>UserControl测试提示.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl试样.resx">
+      <DependentUpon>UserControl试样.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl轴向.resx">
+      <DependentUpon>UserControl轴向.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl操作面板.resx">
+      <DependentUpon>UserControl操作面板.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserReport.resx">
+      <DependentUpon>UserReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManage.resx">
+      <DependentUpon>UserManage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlPretest.resx">
+      <DependentUpon>UserControlPretest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSizeInput.resx">
+      <DependentUpon>UserSizeInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl控制.resx">
+      <DependentUpon>UserControl控制.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl计算.resx">
+      <DependentUpon>UserControl计算.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl结果.resx">
+      <DependentUpon>UserControl结果.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserTextInput.resx">
+      <DependentUpon>UserTextInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserComboInput.resx">
+      <DependentUpon>UserComboInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl控制台.resx">
+      <DependentUpon>UserControl控制台.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl额外显示.resx">
+      <DependentUpon>UserControl额外显示.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl曲线.resx">
+      <DependentUpon>UserControl曲线.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl原始数据.resx">
+      <DependentUpon>UserControl原始数据.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\UserControl系统信息.resx">
+      <DependentUpon>UserControl系统信息.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\UserControl系统安全.resx">
+      <DependentUpon>UserControl系统安全.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\UserControl系统选项.resx">
+      <DependentUpon>UserControl系统选项.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\UserControl系统设置.resx">
+      <DependentUpon>UserControl系统设置.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlOpenMethod.resx">
+      <DependentUpon>UserControlOpenMethod.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlRawdata.resx">
+      <DependentUpon>UserControlRawdata.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MethodOpenFileDialog.resx">
+      <DependentUpon>MethodOpenFileDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User围压.resx">
+      <DependentUpon>User围压.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl扭转.resx">
+      <DependentUpon>UserControl扭转.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\app.manifest" />
+    <None Include="TabHeaderDemo_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\clsstaticstation\ClsStaticStation\ClsStaticStation\ClsStaticStation.csproj">
+      <Project>{7C7EF8B1-969F-4912-8216-A42D3E3E8CC6}</Project>
+      <Name>ClsStaticStation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TabText1\Tabtext1\AppleLab.csproj">
+      <Project>{7768F9F9-3650-4AA7-9687-1AEAFFAAF78C}</Project>
+      <Name>AppleLab</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
