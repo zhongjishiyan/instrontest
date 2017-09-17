@@ -11,57 +11,57 @@ using System.Windows.Forms;
 
 namespace ClsStaticStation
 {
-     public sealed class aEziMOTIONPlusR
+    public sealed class aEziMOTIONPlusR
     {
 
         [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int FAS_Connect(byte  nPortNo, int dwBaud );
+        public static extern int FAS_Connect(byte nPortNo, int dwBaud);
 
-          [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int FAS_IsSlaveExist(byte  nPortNo, byte iSlaveNo);
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_IsSlaveExist(byte nPortNo, byte iSlaveNo);
 
-         [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern void  FAS_Close(byte  nPortNo);
-        
-          [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int  FAS_ServoEnable(byte  nPortNo,byte iSlaveNo, int bOnOff);
-  
-          [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int  FAS_MoveSingleAxisIncPos(byte  nPortNo,byte iSlaveNo, int lIncPos,int lVelocity);
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern void FAS_Close(byte nPortNo);
 
-              [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int  FAS_GetCommandPos(byte  nPortNo,byte iSlaveNo,ref int lCmdPos);
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_ServoEnable(byte nPortNo, byte iSlaveNo, int bOnOff);
 
-           [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int  FAS_GetActualPos(byte  nPortNo,byte iSlaveNo,ref int lActPos);
-    
-      [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int  FAS_MoveSingleAxisAbsPos(byte  nPortNo,byte iSlaveNo, int lAbsPos,int lVelocity);
-    
-          [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int  FAS_MoveStop(byte  nPortNo,byte iSlaveNo);
-    
-   
-     [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int FAS_EmergencyStop(byte  nPortNo,byte iSlaveNo);
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_MoveSingleAxisIncPos(byte nPortNo, byte iSlaveNo, int lIncPos, int lVelocity);
 
-   
-           [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int FAS_ClearPosition(byte  nPortNo,byte iSlaveNo);
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_GetCommandPos(byte nPortNo, byte iSlaveNo, ref int lCmdPos);
+
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_GetActualPos(byte nPortNo, byte iSlaveNo, ref int lActPos);
+
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_MoveSingleAxisAbsPos(byte nPortNo, byte iSlaveNo, int lAbsPos, int lVelocity);
+
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_MoveStop(byte nPortNo, byte iSlaveNo);
 
 
-   
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_EmergencyStop(byte nPortNo, byte iSlaveNo);
 
-     }
 
-   
-   
-    public class C电机:ClsBaseControl
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_ClearPosition(byte nPortNo, byte iSlaveNo);
+
+
+
+
+    }
+
+
+
+    public class C电机 : ClsBaseControl
     {
         [MarshalAs(UnmanagedType.FunctionPtr)]
         public a9500.DataInfo GGMsg;
         private a9500.OnGetDataDel GetDataIns;
-        public short  DeviceNum=1;
+        public short DeviceNum = 1;
         private float mLoadCapacity; //力满量程值
         private RawDataStruct b;
 
@@ -69,9 +69,9 @@ namespace ClsStaticStation
 
         private List<a9500.MDataIno> mdatalist;
 
-        private System.Windows.Forms.Timer  mtimer;
+        private System.Windows.Forms.Timer mtimer;
 
-      
+
 
         private bool mdemotesting = false;
         private int mdemotestingp = 0;
@@ -99,18 +99,18 @@ namespace ClsStaticStation
 
         private Boolean mrun = false;//函数执行后置位
 
-      
+
 
         public List<CComLibrary.CmdSeg> mrunlist;
-       
 
 
-        public double mrunstarttime=0;
 
-        private Boolean m_limit=false;//硬限位
-        
-        private short  oldsystemState=0;
-        private Boolean m_EmergencyStop =false;//急停
+        public double mrunstarttime = 0;
+
+        private Boolean m_limit = false;//硬限位
+
+        private short oldsystemState = 0;
+        private Boolean m_EmergencyStop = false;//急停
 
         private int m_runstate1;//函数运行状态 围压
         private int m_runstate0;//函数运行状态 轴压
@@ -123,20 +123,20 @@ namespace ClsStaticStation
 
         private double m_keepstarttime;//开始保持时时间
 
-        private bool m_keepstart=false;//开始保持
+        private bool m_keepstart = false;//开始保持
 
-      
 
-       
 
-        
 
-        
-       
+
+
+
+
+
         private int m_returnstep;//返回步骤
         private int m_returncount;//返回次数
 
-      
+
 
         public int rrr = 0;
         public int www = 0;
@@ -145,34 +145,34 @@ namespace ClsStaticStation
             m_runstate = m;
         }
 
-        private List<demodata> mdemodata=new List<demodata>();
+        private List<demodata> mdemodata = new List<demodata>();
 
 
-        public override  void startcontrol()
+        public override void startcontrol()
         {
 
         }
-        public override  void endcontrol()
+        public override void endcontrol()
         {
 
 
         }
 
-        public override  void Exit()
+        public override void Exit()
         {
 
         }
-        public override  bool getlimit()  
+        public override bool getlimit()
         {
             return m_limit;
         }
 
-        public override  bool  getEmergencyStop()
+        public override bool getEmergencyStop()
         {
             return m_EmergencyStop;
         }
 
-        public override  int getrunstate() // 1运行 0 停止
+        public override int getrunstate() // 1运行 0 停止
         {
             if (mdemo == true)
             {
@@ -194,54 +194,54 @@ namespace ClsStaticStation
             return m_runstate;
         }
 
-        
 
-        public override  int ConvertCtrlMode(int ctrl)
+
+        public override int ConvertCtrlMode(int ctrl)
         {
-            int t = 0 ;
+            int t = 0;
             if (ctrl == 0) //位移
             {
-                
-                t=a9500.mCTRL_POS;
+
+                t = a9500.mCTRL_POS;
             }
             if (ctrl == 1)  //负荷
             {
-                t= a9500.mCTRL_LOAD;
+                t = a9500.mCTRL_LOAD;
             }
 
             if (ctrl == 2) //变形
             {
-                t= a9500.mCTRL_EXTENSION;
+                t = a9500.mCTRL_EXTENSION;
             }
 
             return t;
         }
 
         public C电机()
-		{
-			GGMsg = new a9500.DataInfo();
+        {
+            GGMsg = new a9500.DataInfo();
             mdatalist = new List<a9500.MDataIno>();
             mtimer = new System.Windows.Forms.Timer();
             mtimer.Tick += new EventHandler(mtimer_Tick);
             mtimer.Interval = 50;
             mtimer.Enabled = true;
             mtimer.Start();
-			
-		}
 
-        public override  void readdemo(string fileName)
+        }
+
+        public override void readdemo(string fileName)
         {
-            int i=-1;
+            int i = -1;
             int j = 0;
-           
+
 
             char[] sp;
             char[] sp1;
             string[] ww;
-           
+
             string line;
 
-           
+
 
             sp = new char[2];
             sp1 = new char[2];
@@ -260,12 +260,12 @@ namespace ClsStaticStation
 
                         ww = line.Split(sp);
 
-                        
+
 
                         for (j = 0; j < ww.Length; j++)
                         {
 
-                           
+
                             //CComLibrary.GlobeVal.g_datatitle[j] = ww[j];
 
 
@@ -282,12 +282,12 @@ namespace ClsStaticStation
 
 
 
-                        
+
 
                         for (j = 0; j < ww.Length; j++)
                         {
-                            
-                          
+
+
 
 
                         }
@@ -299,548 +299,549 @@ namespace ClsStaticStation
 
                         ww = line.Split(sp);
 
-                       int L = ww.Length;
+                        int L = ww.Length;
 
-                       demodata m = new demodata();
+                        demodata m = new demodata();
 
-                       m.time = Convert.ToDouble( ww[0]);
-                       m.load =Convert.ToDouble( ww[1]);
-                       m.pos = Convert.ToDouble(ww[2]);
-                       m.ext = Convert.ToDouble(ww[3]);
+                        m.time = Convert.ToDouble(ww[0]);
+                        m.load = Convert.ToDouble(ww[1]);
+                        m.pos = Convert.ToDouble(ww[2]);
+                        m.ext = Convert.ToDouble(ww[3]);
 
-                       mdemodata.Add(m);
+                        mdemodata.Add(m);
 
                     }
                 }
 
             }
 
-           
-            
-        
+
+
+
         }
 
-        public override  void DriveOn()
+        public override void DriveOn()
         {
 
             aEziMOTIONPlusR.FAS_ServoEnable(7, 0, 1);
         }
 
-        public override  void DriveOff()
+        public override void DriveOff()
         {
+            aEziMOTIONPlusR.FAS_ServoEnable(7, 0, 0);
 
-          
+
         }
 
-        public override  void CrossUp( int ctrlmode, double speed)
+        public override void CrossUp(int ctrlmode, double speed)
         {
-            
+
         }
 
-        public  override  void CrossDown(int ctrlmode, double speed)
+        public override void CrossDown(int ctrlmode, double speed)
         {
-            
+
         }
 
-        public override  void CrossStop(int ctrlmode)
+        public override void CrossStop(int ctrlmode)
         {
-           
+
         }
 
-        public override  void DestStart(int ctrlmode, double dest,double speed )
+        public override void DestStart(int ctrlmode, double dest, double speed)
         {
-           
+
         }
 
-        public override  void DestStop(int ctrlmode)
+        public override void DestStop(int ctrlmode)
         {
-            
+
         }
-        public override  void demotest(bool testing)
+        public override void demotest(bool testing)
         {
             mdemotesting = testing;
             mdemotestingp = 0;
 
-           
+
         }
 
-        private  void demo()
+        private void demo()
         {
-          
+
             int j;
             int i;
             int jj;
             int ii;
 
-                    b = new RawDataStruct();
-                    b.data = new double[24];
-                    if (mdemotesting == false)
+            b = new RawDataStruct();
+            b.data = new double[24];
+            if (mdemotesting == false)
+            {
+                Random r = new Random(System.Environment.TickCount);
+                load = r.NextDouble();
+                pos = r.NextDouble();
+                ext = r.NextDouble();
+                time = System.Environment.TickCount / 1000.0;
+                poscmd = 0;
+                loadcmd = 0;
+                extcmd = 0;
+                count = 0;
+                load1 = r.NextDouble();
+                pos1 = r.NextDouble();
+
+            }
+            else
+            {
+                Random r = new Random(System.Environment.TickCount);
+                load = r.NextDouble();
+                pos = r.NextDouble();
+                ext = r.NextDouble();
+                time = System.Environment.TickCount / 1000;
+                poscmd = 0;
+                loadcmd = 0;
+                extcmd = 0;
+                count = 0;
+                load1 = r.NextDouble();
+                pos1 = r.NextDouble();
+
+                if (mdemotestingp < mdemodata.Count - 1)
+                {
+                    load = mdemodata[mdemotestingp].load;
+                    pos = mdemodata[mdemotestingp].pos;
+                    time = mdemodata[mdemotestingp].time;
+                    mdemotestingp = mdemotestingp + 1;
+                }
+                else
+                {
+                    mdemotesting = false;
+                }
+
+            }
+
+
+            //自定义通道赋值
+            ClsStaticStation.m_Global.mload = load;
+
+            ClsStaticStation.m_Global.mpos = pos;
+
+            ClsStaticStation.m_Global.mload1 = load1;
+            ClsStaticStation.m_Global.mpos1 = pos1;
+
+
+            if (time - mspeed_time0 >= 0.1)
+            {
+                mspeed_load1 = (load - mspeed_load0) / (time - mspeed_time0);
+                mspeed_pos1 = (pos - mspeed_pos0) / (time - mspeed_time0);
+                mspeed_time0 = time;
+                mspeed_load0 = load;
+                mspeed_pos0 = pos;
+
+
+            }
+
+
+            double[] rr;
+
+            rr = new double[100];
+
+            for (j = 0; j < 100; j++)
+            {
+                rr[j] = 0;
+            }
+
+            if (CComLibrary.GlobeVal.filesave == null)
+            {
+            }
+            else
+            {
+
+                for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
+                {
+                    rr[j] = 0;
+                }
+
+                for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
+
+                {
+
+
+
+                    rr[j + 1] = CComLibrary.GlobeVal.gcalc.getresult通道(j + 1);
+
+                }
+            }
+
+
+
+            for (j = 0; j < m_Global.mycls.datalist.Count; j++)
+            {
+
+                for (int m = 0; m < 100; m++)
+                {
+                    if (m_Global.mycls.datalist[j].SignName == "Ch User" + m.ToString().Trim())
                     {
-                        Random r = new Random(System.Environment.TickCount);
-                        load = r.NextDouble();
-                        pos = r.NextDouble();
-                        ext = r.NextDouble();
-                        time = System.Environment.TickCount / 1000.0;
-                        poscmd = 0;
-                        loadcmd = 0;
-                        extcmd = 0;
-                        count = 0;
-                        load1 = r.NextDouble();
-                        pos1 = r.NextDouble();
-
-                    }
-                    else
-                    {
-                        Random r = new Random(System.Environment.TickCount);
-                        load = r.NextDouble();
-                        pos = r.NextDouble();
-                        ext = r.NextDouble();
-                        time = System.Environment.TickCount / 1000;
-                        poscmd = 0;
-                        loadcmd = 0;
-                        extcmd = 0;
-                        count = 0;
-                        load1 = r.NextDouble();
-                        pos1 = r.NextDouble();
-
-                        if (mdemotestingp < mdemodata.Count - 1)
-                        {
-                            load = mdemodata[mdemotestingp].load;
-                            pos = mdemodata[mdemotestingp].pos;
-                            time = mdemodata[mdemotestingp].time;
-                            mdemotestingp = mdemotestingp + 1;
-                        }
-                        else
-                        {
-                            mdemotesting = false;
-                        }
-
-                    }
-
-
-                    //自定义通道赋值
-                    ClsStaticStation.m_Global.mload = load;
-
-                    ClsStaticStation.m_Global.mpos = pos;
-
-                    ClsStaticStation.m_Global.mload1 = load1;
-                    ClsStaticStation.m_Global.mpos1 = pos1;
-
-
-                    if (time - mspeed_time0 >= 0.1)
-                    {
-                        mspeed_load1 = (load - mspeed_load0) / (time - mspeed_time0);
-                        mspeed_pos1 = (pos - mspeed_pos0) / (time - mspeed_time0);
-                        mspeed_time0 = time;
-                        mspeed_load0 = load;
-                        mspeed_pos0 = pos;
-
-
-                    }
-
-
-                    double[] rr;
-
-                    rr = new double[100];
-
-                    for (j = 0; j < 100; j++)
-                    {
-                        rr[j] = 0;
-                    }
-
-                    if (CComLibrary.GlobeVal.filesave == null)
-                    {
-                    }
-                    else
-                    {
-
-                        for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
-                        {
-                            rr[j] = 0;
-                        }
-
-                        for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
-                       
-                        {
-
-
-
-                           rr[j + 1] = CComLibrary.GlobeVal.gcalc.getresult通道(j + 1);
-
-                        }
-                    }
-
-
-
-                    for (j = 0; j < m_Global.mycls.datalist.Count; j++)
-                    {
-
-                        for (int m = 0; m < 100; m++)
-                        {
-                            if (m_Global.mycls.datalist[j].SignName == "Ch User" + m.ToString().Trim())
-                            {
-                                b.data[m_Global.mycls.datalist[j].EdcId] = rr[m + 1];
-
-                            }
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Time")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = time;
-
-
-                            if (time > m_Global.mycls.datalist[j].bvaluemax)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemax = time;
-                            }
-                            if (time < m_Global.mycls.datalist[j].bvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemin = time;
-                            }
-
-
-                            m_Global.mycls.datalist[j].rvaluemax = time;
-
-
-                            m_Global.mycls.datalist[j].rvaluemin = 0;
-
-
-
-                        }
-                        if (m_Global.mycls.datalist[j].SignName == "ambient pressure Ch Disp")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = pos1;
-
-
-                            if (pos > m_Global.mycls.datalist[j].bvaluemax)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemax = pos1;
-                            }
-                            if (pos < m_Global.mycls.datalist[j].bvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemin = pos1;
-                            }
-                            if (pos > m_Global.mycls.datalist[j].rvaluemax)
-                            {
-                                m_Global.mycls.datalist[j].rvaluemax = pos1;
-                            }
-                            if (pos < m_Global.mycls.datalist[j].rvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].rvaluemin = pos1;
-                            }
-
-
-                        }
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = pos;
-
-
-                            if (pos > m_Global.mycls.datalist[j].bvaluemax)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemax = pos;
-                            }
-                            if (pos < m_Global.mycls.datalist[j].bvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemin = pos;
-                            }
-                            if (pos > m_Global.mycls.datalist[j].rvaluemax)
-                            {
-                                m_Global.mycls.datalist[j].rvaluemax = pos;
-                            }
-                            if (pos < m_Global.mycls.datalist[j].rvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].rvaluemin = pos;
-                            }
-
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "ambient pressure Ch Load")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = load1;
-
-
-                            if (load > m_Global.mycls.datalist[j].bvaluemax)
-                            {
-
-                                m_Global.mycls.datalist[j].bvaluemax = load1;
-                            }
-                            if (load < m_Global.mycls.datalist[j].bvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemin = load1;
-                            }
-
-                            if (load > m_Global.mycls.datalist[j].rvaluemax)
-                            {
-
-                                m_Global.mycls.datalist[j].rvaluemax = load1;
-                            }
-                            if (load < m_Global.mycls.datalist[j].rvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].rvaluemin = load1;
-                            }
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Load")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = load;
-
-
-                            if (load > m_Global.mycls.datalist[j].bvaluemax)
-                            {
-
-                                m_Global.mycls.datalist[j].bvaluemax = load;
-                            }
-                            if (load < m_Global.mycls.datalist[j].bvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemin = load;
-                            }
-
-                            if (load > m_Global.mycls.datalist[j].rvaluemax)
-                            {
-
-                                m_Global.mycls.datalist[j].rvaluemax = load;
-                            }
-                            if (load < m_Global.mycls.datalist[j].rvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].rvaluemin = load;
-                            }
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Ext")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = ext;
-
-
-                            if (ext > m_Global.mycls.datalist[j].bvaluemax)
-                            {
-
-                                m_Global.mycls.datalist[j].bvaluemax = ext;
-                            }
-                            if (ext < m_Global.mycls.datalist[j].bvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].bvaluemin = ext;
-                            }
-
-                            if (ext > m_Global.mycls.datalist[j].rvaluemax)
-                            {
-
-                                m_Global.mycls.datalist[j].rvaluemax = ext;
-                            }
-                            if (ext < m_Global.mycls.datalist[j].rvaluemin)
-                            {
-                                m_Global.mycls.datalist[j].rvaluemin = ext;
-                            }
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Command")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
-
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Command")
-                        {
-
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
-
-
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Command")
-                        {
-
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = loadcmd;
-
-
-
-
-                        }
-
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Count")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = count;
-
-
-                        }
-
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Feed")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = 0;
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Out")
-                        {
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = 0;
-                        }
-
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Dynamic Stiffness")
-                        {
-
-
-                        }
-
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Speed")
-                        {
-                            b.data[m_Global.mycls.datalist[j].EdcId] = mspeed_load1;
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Speed")
-                        {
-                            b.data[m_Global.mycls.datalist[j].EdcId] = mspeed_pos1;
-
-                        }
-
+                        b.data[m_Global.mycls.datalist[j].EdcId] = rr[m + 1];
 
                     }
 
-                    RawDataDataGroup d;
-                    RawDataDataGroup c = new RawDataDataGroup();
-                    c.ID = 0;
-                    m_Global.mycls.structcopy_RawDataData(ref c.rdata, b);
-                    for (j = 0; j < 4; j++)
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Time")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = time;
+
+
+                    if (time > m_Global.mycls.datalist[j].bvaluemax)
                     {
-
-                        if (ClsStatic.arraydatacount[j] >= ClsStatic.arraydata[j].NodeCount - 1)
-                        {
-
-                            ClsStatic.arraydata[j].Read<RawDataDataGroup>(out d, 10);
-                            ClsStatic.arraydatacount[j] = ClsStatic.arraydatacount[j] - 1;
-                        }
-
-                        ClsStatic.arraydatacount[j] = ClsStatic.arraydatacount[j] + 1;
-                        ClsStatic.arraydata[j].Write<RawDataDataGroup>(ref c, 10);
+                        m_Global.mycls.datalist[j].bvaluemax = time;
+                    }
+                    if (time < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = time;
                     }
 
-                    if (ClsStatic.savedatacount >= ClsStatic.savedata.NodeCount - 1)
+
+                    m_Global.mycls.datalist[j].rvaluemax = time;
+
+
+                    m_Global.mycls.datalist[j].rvaluemin = 0;
+
+
+
+                }
+                if (m_Global.mycls.datalist[j].SignName == "ambient pressure Ch Disp")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = pos1;
+
+
+                    if (pos > m_Global.mycls.datalist[j].bvaluemax)
                     {
-                        ClsStatic.savedata.Read<RawDataDataGroup>(out d, 10);
-                        ClsStatic.savedatacount = ClsStatic.savedatacount - 1;
+                        m_Global.mycls.datalist[j].bvaluemax = pos1;
                     }
-                    ClsStatic.savedatacount = ClsStatic.savedatacount + 1;
-                    ClsStatic.savedata.Write<RawDataDataGroup>(ref c, 10);
-
-                    for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
+                    if (pos < m_Global.mycls.datalist[j].bvaluemin)
                     {
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Command")
-                        {
-
-                            m_Global.mycls.allsignals[j].cvalue = poscmd;
-
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Command")
-                        {
-
-                            m_Global.mycls.allsignals[j].cvalue = poscmd;
-
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Load Command")
-                        {
-
-                            m_Global.mycls.allsignals[j].cvalue = loadcmd;
-
-                        }
-
-
+                        m_Global.mycls.datalist[j].bvaluemin = pos1;
                     }
-                    for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
+                    if (pos > m_Global.mycls.datalist[j].rvaluemax)
                     {
-                       
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Speed")
-                        {
-                            m_Global.mycls.allsignals[j].cvalue = mspeed_pos1;
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Load Speed")
-                        {
-                            m_Global.mycls.allsignals[j].cvalue = mspeed_load1;
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Time")
-                        {
-                            m_Global.mycls.allsignals[j].cvalue = time;
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Disp")
-                        {
-                            m_Global.mycls.allsignals[j].cvalue = pos1;
-
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Disp")
-                        {
-                            m_Global.mycls.allsignals[j].cvalue = pos;
-
-
-
-
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Load")
-                        {
-                            m_Global.mycls.allsignals[j].cvalue = load1;
-
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Load")
-                        {
-                            m_Global.mycls.allsignals[j].cvalue = load;
-
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Ext")
-                        {
-                            m_Global.mycls.allsignals[j].cvalue = ext;
-
-
-                        }
-
-                        for (int m = 0; m < 100; m++)
-                        {
-                            if (m_Global.mycls.allsignals[j].SignName == "Ch User" + m.ToString().Trim())
-                            {
-                                m_Global.mycls.allsignals[j].cvalue = rr[m + 1];
-
-                            }
-
-                        }
-
+                        m_Global.mycls.datalist[j].rvaluemax = pos1;
+                    }
+                    if (pos < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = pos1;
                     }
 
-                
+
+                }
+                if (m_Global.mycls.datalist[j].SignName == "Ch Disp")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = pos;
+
+
+                    if (pos > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = pos;
+                    }
+                    if (pos < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = pos;
+                    }
+                    if (pos > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemax = pos;
+                    }
+                    if (pos < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = pos;
+                    }
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "ambient pressure Ch Load")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = load1;
+
+
+                    if (load > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].bvaluemax = load1;
+                    }
+                    if (load < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = load1;
+                    }
+
+                    if (load > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].rvaluemax = load1;
+                    }
+                    if (load < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = load1;
+                    }
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Load")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = load;
+
+
+                    if (load > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].bvaluemax = load;
+                    }
+                    if (load < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = load;
+                    }
+
+                    if (load > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].rvaluemax = load;
+                    }
+                    if (load < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = load;
+                    }
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Ext")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = ext;
+
+
+                    if (ext > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].bvaluemax = ext;
+                    }
+                    if (ext < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = ext;
+                    }
+
+                    if (ext > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].rvaluemax = ext;
+                    }
+                    if (ext < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = ext;
+                    }
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Command")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Disp Command")
+                {
+
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
+
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Load Command")
+                {
+
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = loadcmd;
+
+
+
+
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Count")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = count;
+
+
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Feed")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = 0;
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Out")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = 0;
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Dynamic Stiffness")
+                {
+
+
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Load Speed")
+                {
+                    b.data[m_Global.mycls.datalist[j].EdcId] = mspeed_load1;
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Disp Speed")
+                {
+                    b.data[m_Global.mycls.datalist[j].EdcId] = mspeed_pos1;
+
+                }
+
+
+            }
+
+            RawDataDataGroup d;
+            RawDataDataGroup c = new RawDataDataGroup();
+            c.ID = 0;
+            m_Global.mycls.structcopy_RawDataData(ref c.rdata, b);
+            for (j = 0; j < 4; j++)
+            {
+
+                if (ClsStatic.arraydatacount[j] >= ClsStatic.arraydata[j].NodeCount - 1)
+                {
+
+                    ClsStatic.arraydata[j].Read<RawDataDataGroup>(out d, 10);
+                    ClsStatic.arraydatacount[j] = ClsStatic.arraydatacount[j] - 1;
+                }
+
+                ClsStatic.arraydatacount[j] = ClsStatic.arraydatacount[j] + 1;
+                ClsStatic.arraydata[j].Write<RawDataDataGroup>(ref c, 10);
+            }
+
+            if (ClsStatic.savedatacount >= ClsStatic.savedata.NodeCount - 1)
+            {
+                ClsStatic.savedata.Read<RawDataDataGroup>(out d, 10);
+                ClsStatic.savedatacount = ClsStatic.savedatacount - 1;
+            }
+            ClsStatic.savedatacount = ClsStatic.savedatacount + 1;
+            ClsStatic.savedata.Write<RawDataDataGroup>(ref c, 10);
+
+            for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
+            {
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Command")
+                {
+
+                    m_Global.mycls.allsignals[j].cvalue = poscmd;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Command")
+                {
+
+                    m_Global.mycls.allsignals[j].cvalue = poscmd;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Load Command")
+                {
+
+                    m_Global.mycls.allsignals[j].cvalue = loadcmd;
+
+                }
+
+
+            }
+            for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
+            {
+
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Speed")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = mspeed_pos1;
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Load Speed")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = mspeed_load1;
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Time")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = time;
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Disp")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = pos1;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Disp")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = pos;
+
+
+
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Load")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = load1;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Load")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = load;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Ext")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = ext;
+
+
+                }
+
+                for (int m = 0; m < 100; m++)
+                {
+                    if (m_Global.mycls.allsignals[j].SignName == "Ch User" + m.ToString().Trim())
+                    {
+                        m_Global.mycls.allsignals[j].cvalue = rr[m + 1];
+
+                    }
+
+                }
+
+            }
+
+
 
         }
 
         public void Timer()
         {
-            
+
             int j;
             int i;
             int jj;
@@ -948,7 +949,7 @@ namespace ClsStaticStation
                         }
                     }
 
-                  
+
 
                     else if (mdatalist[jj].Id == 0)
                     {
@@ -958,24 +959,24 @@ namespace ClsStaticStation
                             {
                                 load1 = *(p + a9500.SENSOR_ARM_F);
                                 pos1 = *(p + a9500.SENSOR_ARM_S);
-                               // ext = *(p + a9500.SENSOR_ARM_E);
+                                // ext = *(p + a9500.SENSOR_ARM_E);
 
                             }
 
                             fixed (double* p1 = GGMsg.free2)
                             {
-                               // poscmd = *(p1 + 1);
-                               // loadcmd = *(p1 + 0);
-                               // extcmd = *(p1 + 2);
+                                // poscmd = *(p1 + 1);
+                                // loadcmd = *(p1 + 0);
+                                // extcmd = *(p1 + 2);
                             }
 
-                           // time = GGMsg.time;
-                           // count = GGMsg.count;//?
+                            // time = GGMsg.time;
+                            // count = GGMsg.count;//?
                         }
 
                     }
 
-                  
+
 
                     //自定义通道赋值
                     ClsStaticStation.m_Global.mload = load;
@@ -1399,7 +1400,7 @@ namespace ClsStaticStation
 
         }
 
-        public override  void DelayS(double t)
+        public override void DelayS(double t)
         {
             double m = Environment.TickCount;
 
@@ -1411,7 +1412,7 @@ namespace ClsStaticStation
 
         }
 
-        public override  void endtest()
+        public override void endtest()
         {
             mstarttime = 0;
 
@@ -1437,13 +1438,13 @@ namespace ClsStaticStation
             mtestrun = false;
 
             CComLibrary.GlobeVal.InitUserCalcChannel();//初始化用户自定义通道
-          
+
 
         }
 
-        
 
-        public override  void starttest()
+
+        public override void starttest()
         {
             short k = 0;
 
@@ -1451,9 +1452,9 @@ namespace ClsStaticStation
             maxload = 0;
             mstarttime = moritime;
             duanliebaohu = false;
-           
-            bool b=false;
-            while(b==false )
+
+            bool b = false;
+            while (b == false)
             {
                 Application.DoEvents();
                 if (time < 1)
@@ -1476,122 +1477,122 @@ namespace ClsStaticStation
             {
 
 
-               
-                  
-                    mrunlist = new List<CComLibrary.CmdSeg>();
-                    mrunlist.Clear();
 
-                    if (CComLibrary.GlobeVal.filesave.pretest_cmd.check == true)
+
+                mrunlist = new List<CComLibrary.CmdSeg>();
+                mrunlist.Clear();
+
+                if (CComLibrary.GlobeVal.filesave.pretest_cmd.check == true)
+                {
+                    mrunlist.Add(CComLibrary.GlobeVal.filesave.pretest_cmd);
+
+
+                }
+
+                for (int i = 0; i < 4; i++)
+                {
+                    if (CComLibrary.GlobeVal.filesave.testcmdstep[i].check == true)
                     {
-                        mrunlist.Add(CComLibrary.GlobeVal.filesave.pretest_cmd);
-
-
-                    }
-
-                    for (int i = 0; i <4 ; i++)
-                    {
-                        if (CComLibrary.GlobeVal.filesave.testcmdstep[i].check == true)
-                        {
-                            mrunlist.Add(CComLibrary.GlobeVal.filesave.testcmdstep[i]);
-                        }
-                        else
-                        {
-                            break;
-                        }
-
-                    }
-
-                    if (mrunlist.Count > 0)
-                    {
+                        mrunlist.Add(CComLibrary.GlobeVal.filesave.testcmdstep[i]);
                     }
                     else
                     {
-
-                        MessageBox.Show("错误，您没有设置一般测试过程");
-                        mtestrun = false;
-                        return;
-                    }
-                
-                    mcurseg = 0;
-
-                  if (mrunlist[mcurseg].controlmode ==
-                      mrunlist[mcurseg].destcontrolmode)
-                    {
-                        k = 1;
-                    }
-                    else
-                    {
-                        k = 0;
+                        break;
                     }
 
+                }
 
-                    segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
-                        Convert.ToInt16(mrunlist[mcurseg].controlmode),
-                         Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-                        k, Convert.ToSingle(mrunlist[mcurseg].speed),0,0,0);
+                if (mrunlist.Count > 0)
+                {
+                }
+                else
+                {
+
+                    MessageBox.Show("错误，您没有设置一般测试过程");
+                    mtestrun = false;
+                    return;
+                }
+
+                mcurseg = 0;
+
+                if (mrunlist[mcurseg].controlmode ==
+                    mrunlist[mcurseg].destcontrolmode)
+                {
+                    k = 1;
+                }
+                else
+                {
+                    k = 0;
+                }
 
 
-                 
-                
-               
-                
+                segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
+                    Convert.ToInt16(mrunlist[mcurseg].controlmode),
+                     Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
+                    k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0);
+
+
+
+
+
+
             }
             else //高级试验
             {
-              
+
 
                 CComLibrary.GlobeVal.filesave.mseglist = new List<CComLibrary.CmdSeg>();
 
 
                 CComLibrary.SegFile sf = new CComLibrary.SegFile();
 
-                    sf = sf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\"
-                        + CComLibrary.GlobeVal.filesave.SegName);
+                sf = sf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\"
+                    + CComLibrary.GlobeVal.filesave.SegName);
 
-                    int i = 0;
+                int i = 0;
 
 
 
-                    int m = sf.mseglist.Count;
+                int m = sf.mseglist.Count;
 
-                    for (i = 0; i < m; i++)
+                for (i = 0; i < m; i++)
+                {
+                    CComLibrary.CmdSeg n = new CComLibrary.CmdSeg();
+                    n.check = true;
+                    n.controlmode = sf.mseglist[i].controlmode;
+                    n.speed = sf.mseglist[i].speed;
+                    n.destcontrolmode = sf.mseglist[i].destcontrolmode;
+                    n.dest = sf.mseglist[i].dest;
+                    n.keeptime = sf.mseglist[i].keeptime;
+                    n.cmd = sf.mseglist[i].cmd;
+                    n.action = sf.mseglist[i].action;
+                    if (sf.mseglist[i].cyclicrun == true)
                     {
-                        CComLibrary.CmdSeg n = new CComLibrary.CmdSeg();
-                        n.check = true;
-                        n.controlmode = sf.mseglist[i].controlmode;
-                        n.speed = sf.mseglist[i].speed;
-                        n.destcontrolmode = sf.mseglist[i].destcontrolmode;
-                        n.dest = sf.mseglist[i].dest;
-                        n.keeptime = sf.mseglist[i].keeptime;
-                        n.cmd = sf.mseglist[i].cmd;
-                        n.action = sf.mseglist[i].action;
-                        if (sf.mseglist[i].cyclicrun == true)
-                        {
-                            n.returncount = sf.mseglist[i].cycliccount;
-                            n.returnstep = sf.mseglist[i].returnstep;
-                        }
-                        else
-                        {
-                            n.returncount = 0;
-                            n.returnstep = 0;
-                        }
-                        CComLibrary.GlobeVal.filesave.mseglist.Add(n);
+                        n.returncount = sf.mseglist[i].cycliccount;
+                        n.returnstep = sf.mseglist[i].returnstep;
                     }
-
-
-                    mrunlist = new List<CComLibrary.CmdSeg>();
-                    mrunlist.Clear();
-
-                    if (CComLibrary.GlobeVal.filesave.pretest_cmd.check == true)
+                    else
                     {
-                        mrunlist.Add(CComLibrary.GlobeVal.filesave.pretest_cmd);
-                        mrunlist[0].keeptime = 0;
-
-                        mrunlist[0].action = 0;
-
+                        n.returncount = 0;
+                        n.returnstep = 0;
                     }
+                    CComLibrary.GlobeVal.filesave.mseglist.Add(n);
+                }
 
-                for (i = 0; i < CComLibrary.GlobeVal.filesave.mseglist.Count ; i++)
+
+                mrunlist = new List<CComLibrary.CmdSeg>();
+                mrunlist.Clear();
+
+                if (CComLibrary.GlobeVal.filesave.pretest_cmd.check == true)
+                {
+                    mrunlist.Add(CComLibrary.GlobeVal.filesave.pretest_cmd);
+                    mrunlist[0].keeptime = 0;
+
+                    mrunlist[0].action = 0;
+
+                }
+
+                for (i = 0; i < CComLibrary.GlobeVal.filesave.mseglist.Count; i++)
                 {
                     if (CComLibrary.GlobeVal.filesave.mseglist[i].check == true)
                     {
@@ -1614,13 +1615,13 @@ namespace ClsStaticStation
                     mtestrun = false;
                     return;
                 }
-                
+
 
                 mcurseg = 0;
 
-               
 
-                for (int ii = mcurseg; ii < mrunlist.Count ; ii++)
+
+                for (int ii = mcurseg; ii < mrunlist.Count; ii++)
                 {
                     if (mrunlist[ii].controlmode ==
                    mrunlist[ii].destcontrolmode)
@@ -1644,7 +1645,7 @@ namespace ClsStaticStation
                     else
                     {
 
-                        if (ii==mcurseg )
+                        if (ii == mcurseg)
                         {
                             segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
                        Convert.ToInt16(mrunlist[ii].controlmode),
@@ -1659,12 +1660,12 @@ namespace ClsStaticStation
 
                     }
 
-                   
+
                 }
 
 
                 total_returncount = 0;
-             
+
                 current_returncount = 1;
 
 
@@ -1673,17 +1674,17 @@ namespace ClsStaticStation
             m_runlaststate = m_runstate;
 
             mrunstarttime = System.Environment.TickCount / 1000;
-           
-          
+
+
         }
 
-        public override  void segstep(int cmd, double dest,short firstctl,short destctl,short destkeepstyle,float speed,double keeptime,int reurnstep,int returncount)
+        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount)
         {
             bool b = false;
             m_keeptime = keeptime;
             m_keepstart = false;
             keepingstate = false;
-            
+
             m_returncount = returncount;
             m_returnstep = reurnstep;
             if (m_returncount > 0)
@@ -1697,7 +1698,7 @@ namespace ClsStaticStation
             }
             else
             {
-                if (cmd== 2)
+                if (cmd == 2)
                 {
 
                     ClsStaticStation.a9500.COMPLEXMOVEST move = new ClsStaticStation.a9500.COMPLEXMOVEST();
@@ -1721,14 +1722,14 @@ namespace ClsStaticStation
 
 
                     b = false;
-                    while (b==false )
+                    while (b == false)
                     {
                         Application.DoEvents();
                         if (m_runstate0 == 1)
                         {
                             b = true;
                         }
-                       
+
                     }
 
                     mrun = true;
@@ -1744,7 +1745,7 @@ namespace ClsStaticStation
                     move.dest = Convert.ToSingle(dest);
                     move.firstctl = Convert.ToInt16(ConvertCtrlMode(firstctl));
                     move.destctl = Convert.ToInt16(ConvertCtrlMode(destctl));
-                    
+
                     move.destkeepstyle = destkeepstyle;
                     move.speed = Convert.ToSingle(speed);
                     move.num = 0;
@@ -1769,40 +1770,40 @@ namespace ClsStaticStation
                     }
 
                     mrun = true;
-                  
+
                 }
-               
+
             }
 
 
 
 
-            
-          
+
+
 
 
         }
 
         void mtimer_Tick(object sender, EventArgs e)
         {
-            short  k;
+            short k;
 
             Timer();
 
-            if (mtestrun ==false)
+            if (mtestrun == false)
             {
                 return;
             }
 
             if (mrun == true)
             {
-                if ((System.Environment.TickCount / 1000-mrunstarttime)<=10)
+                if ((System.Environment.TickCount / 1000 - mrunstarttime) <= 10)
                 {
                     return;
                 }
                 if ((this.getrunstate() == 0))
                 {
-                   
+
 
                     if (m_keeptime > 0)
                     {
@@ -1819,7 +1820,7 @@ namespace ClsStaticStation
                         else
                         {
 
-                            keepingtime = System.Environment.TickCount/1000.0 - m_keepstarttime;
+                            keepingtime = System.Environment.TickCount / 1000.0 - m_keepstarttime;
 
                             if (keepingtime >= m_keeptime)
                             {
@@ -1827,7 +1828,7 @@ namespace ClsStaticStation
                             }
 
                         }
-                       
+
                     }
                     else
                     {
@@ -1836,7 +1837,7 @@ namespace ClsStaticStation
 
                         if (m_returncount > 0)
                         {
-                            current_returncount  =current_returncount + 1;
+                            current_returncount = current_returncount + 1;
 
                             if (current_returncount > m_returncount)
                             {
@@ -1846,7 +1847,7 @@ namespace ClsStaticStation
                             else
                             {
                                 mcurseg = m_returnstep - 1;
-                               
+
                             }
                         }
                         else
@@ -1893,7 +1894,7 @@ namespace ClsStaticStation
                                 }
                             }
 
-                           
+
 
                         }
                         else
@@ -1905,16 +1906,16 @@ namespace ClsStaticStation
 
                 }
 
-              
+
             }
 
-           
+
 
             return;
         }
 
-        
-        public override   void Init(int handle)
+
+        public override void Init(int handle)
         {
 
 
@@ -1926,11 +1927,11 @@ namespace ClsStaticStation
 
             ClsStaticStation.aEziMOTIONPlusR.FAS_Connect(7, 115200);
 
-            r=ClsStaticStation.aEziMOTIONPlusR.FAS_IsSlaveExist(7, 0);
+            r = ClsStaticStation.aEziMOTIONPlusR.FAS_IsSlaveExist(7, 0);
 
 
 
-          
+
             OpenConnection();
 
             if (r == 1)
@@ -1944,30 +1945,30 @@ namespace ClsStaticStation
 
                 connected = false;
             }
-            
 
 
-				
+
+
         }
 
 
-        public override  void btnkey(Button b)
+        public override void btnkey(Button b)
         {
             if (Convert.ToBoolean(b.Tag) == false)
             {
                 b.Tag = true;
-                btnzero( b);
+                btnzero(b);
 
             }
             else
             {
                 b.Tag = false;
-                restorezero( b);
+                restorezero(b);
             }
-            
+
         }
 
-        public override void btnzero( Button  b )
+        public override void btnzero(Button b)
         {
             if (b.Text == "位移")
             {
@@ -1981,7 +1982,7 @@ namespace ClsStaticStation
             }
 
 
-            if (b.Text =="围压位移")
+            if (b.Text == "围压位移")
             {
 
                 a9500.ARM_DEC_ChannelZero((short)0, (short)a9500.SENSOR_ARM_S, (short)0);
@@ -1993,13 +1994,13 @@ namespace ClsStaticStation
                 a9500.ARM_DEC_ChannelZero(0, a9500.SENSOR_ARM_F, 0);
             }
 
-            
 
-           
+
+
 
         }
 
-       public override void restorezero(Button b)
+        public override void restorezero(Button b)
         {
             if (b.Text == "位移")
             {
@@ -2031,26 +2032,26 @@ namespace ClsStaticStation
 
 
 
-       public  override  int CloseConnection()
+        public override int CloseConnection()
         {
 
             return 0;
         }
 
-          
-        public override   int OpenConnection()
+
+        public override int OpenConnection()
         {
 
-          
 
-            
-          
 
-           
+
+
+
+
             return 0;
-          
+
 
         }
     }
-  }
+}
 

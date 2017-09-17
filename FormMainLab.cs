@@ -652,8 +652,8 @@ if (GlobeVal.mysys.machinekind == 1)
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Form仿真 f = new Form仿真();
-            f.Show();
+            Frm.FormTorsionTransducer f = new Frm.FormTorsionTransducer();
+            f.ShowDialog(); 
         }
 
         private void FormMainLab_FormClosed(object sender, FormClosedEventArgs e)

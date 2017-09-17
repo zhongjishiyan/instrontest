@@ -9,21 +9,11 @@ using System.Windows.Forms;
 
 namespace TabHeaderDemo.Frm
 {
-    public partial class FrmPosTransducer : Form
+    public partial class FormTorsionTransducer : Form
     {
-        public FrmPosTransducer()
+        public FormTorsionTransducer()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -105,6 +105,14 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AppleLabApplication.dll</HintPath>
+    </Reference>
+    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=00e95de9db4717aa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ClsStaticStation.dll</HintPath>
+    </Reference>
     <Reference Include="DoPENet">
       <HintPath>..\..\..\shiwei编程\DOPE\DoPE\DoPENet.dll</HintPath>
     </Reference>
@@ -159,6 +167,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm\FormTorsionTransducer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FormTorsionTransducer.Designer.cs">
+      <DependentUpon>FormTorsionTransducer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl扭转.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -618,6 +632,9 @@
     <EmbeddedResource Include="FrmMima.resx">
       <DependentUpon>FrmMima.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FormTorsionTransducer.resx">
+      <DependentUpon>FormTorsionTransducer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\Form循环执行.resx">
       <DependentUpon>Form循环执行.cs</DependentUpon>

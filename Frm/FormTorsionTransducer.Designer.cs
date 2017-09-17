@@ -1,6 +1,6 @@
 ﻿namespace TabHeaderDemo.Frm
 {
-    partial class FrmPosTransducer
+    partial class FormTorsionTransducer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.numericEdit2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
@@ -38,22 +37,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.numericEdit4 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.numericEdit3 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).BeginInit();
@@ -66,32 +58,16 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(644, 408);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(638, 354);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(655, 354);
+            this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
@@ -103,9 +79,9 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(630, 328);
+            this.tabPage1.Size = new System.Drawing.Size(647, 328);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "位移";
+            this.tabPage1.Text = "角度";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // numericEdit2
@@ -123,7 +99,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 8;
-            this.label5.Text = "比例增益：";
+            this.label5.Text = "比例系数：";
             // 
             // numericEdit1
             // 
@@ -157,19 +133,16 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(630, 328);
+            this.tabPage2.Size = new System.Drawing.Size(647, 328);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "限位";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox5);
-            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.numericEdit4);
             this.groupBox3.Controls.Add(this.comboBox6);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.checkBox2);
             this.groupBox3.ForeColor = System.Drawing.Color.Blue;
             this.groupBox3.Location = new System.Drawing.Point(53, 177);
             this.groupBox3.Name = "groupBox3";
@@ -177,24 +150,6 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "最小值限位";
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(132, 96);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(181, 20);
-            this.comboBox5.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(23, 96);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 12);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "执行：";
             // 
             // numericEdit4
             // 
@@ -222,25 +177,11 @@
             this.label9.TabIndex = 6;
             this.label9.Text = "值：";
             // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.Color.Black;
-            this.checkBox2.Location = new System.Drawing.Point(23, 38);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(48, 16);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "使能";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.numericEdit3);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.ForeColor = System.Drawing.Color.Blue;
             this.groupBox2.Location = new System.Drawing.Point(53, 27);
             this.groupBox2.Name = "groupBox2";
@@ -248,24 +189,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "最大值限位";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(132, 96);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(181, 20);
-            this.comboBox4.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(23, 96);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 12);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "执行：";
             // 
             // numericEdit3
             // 
@@ -293,25 +216,14 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "值：";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.Black;
-            this.checkBox1.Location = new System.Drawing.Point(23, 38);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 16);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "使能";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 363);
+            this.panel1.Location = new System.Drawing.Point(0, 354);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(638, 42);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(655, 39);
+            this.panel1.TabIndex = 2;
             // 
             // button1
             // 
@@ -321,18 +233,16 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "完成";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // FrmPosTransducer
+            // FormTorsionTransducer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 408);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FrmPosTransducer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.ClientSize = new System.Drawing.Size(655, 393);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tabControl1);
+            this.Name = "FormTorsionTransducer";
             this.Text = "传感器设置";
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -352,30 +262,23 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit2;
+        private System.Windows.Forms.Label label5;
         private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
-        private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit4;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox2;
         private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit3;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label8;
-        private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit4;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
