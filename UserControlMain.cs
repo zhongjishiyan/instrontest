@@ -228,6 +228,7 @@ namespace TabHeaderDemo
 
             
             tabControl1.SelectedIndex = 5;
+            usermanage1.panelback.Enabled = true;
 
         }
 
@@ -350,7 +351,9 @@ namespace TabHeaderDemo
                 btnmmethod.ForeColor = Color.White;
                 btnmreport.ForeColor = Color.White;
                 btnmmanage.ForeColor = Color.Yellow;
+            
                 tabControl1.SelectedIndex = 5;
+                usermanage1.panelback.Enabled  = false;
             }
         }
 

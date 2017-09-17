@@ -870,6 +870,11 @@ namespace ClsStaticStation
             byte[] msendbuf = new byte[3];
             byte[] recbuf = new byte[7];
 
+
+            b = new RawDataStruct();
+            b.data = new double[24];
+
+
             aEziMOTIONPlusR.FAS_GetActualPos(mcom_control, 0, ref mActualPos);
 
             if (mSerialPort.BytesToRead >= 7)

@@ -36,6 +36,9 @@
             this.cbokind = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbomachine = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -45,18 +48,15 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbomachine = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -138,12 +138,42 @@
             this.panel2.Size = new System.Drawing.Size(646, 524);
             this.panel2.TabIndex = 1;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbomachine);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(4, 65);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(646, 58);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            // 
+            // cbomachine
+            // 
+            this.cbomachine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbomachine.FormattingEnabled = true;
+            this.cbomachine.Location = new System.Drawing.Point(199, 19);
+            this.cbomachine.Name = "cbomachine";
+            this.cbomachine.Size = new System.Drawing.Size(321, 20);
+            this.cbomachine.TabIndex = 2;
+            this.cbomachine.SelectionChangeCommitted += new System.EventHandler(this.cbomachine_SelectionChangeCommitted);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(40, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "主机类型：";
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -158,7 +188,7 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(581, 4);
+            this.panel4.Location = new System.Drawing.Point(580, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(39, 42);
             this.panel4.TabIndex = 1;
@@ -170,7 +200,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(570, 84);
+            this.panel3.Size = new System.Drawing.Size(569, 84);
             this.panel3.TabIndex = 2;
             // 
             // label4
@@ -178,9 +208,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(40, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(197, 12);
+            this.label4.Size = new System.Drawing.Size(281, 12);
             this.label4.TabIndex = 3;
-            this.label4.Text = "改变控制器类型后，选件需重新启动";
+            this.label4.Text = "改变控制器类型或主机类型后，需重新启动才能生效";
             // 
             // label1
             // 
@@ -239,36 +269,6 @@
             this.panel1.Size = new System.Drawing.Size(39, 42);
             this.panel1.TabIndex = 1;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cbomachine);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(4, 65);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(646, 58);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "主机类型：";
-            // 
-            // cbomachine
-            // 
-            this.cbomachine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbomachine.FormattingEnabled = true;
-            this.cbomachine.Location = new System.Drawing.Point(199, 19);
-            this.cbomachine.Name = "cbomachine";
-            this.cbomachine.Size = new System.Drawing.Size(321, 20);
-            this.cbomachine.TabIndex = 2;
-            this.cbomachine.SelectionChangeCommitted += new System.EventHandler(this.cbomachine_SelectionChangeCommitted);
-            // 
             // UserControl系统设置
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -281,13 +281,13 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

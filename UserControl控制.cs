@@ -575,25 +575,25 @@ namespace TabHeaderDemo
                 grid1[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("量程");
 
 
-                for (int i = 1; i <= CComLibrary.GlobeVal.filesave.mchsignals.Count; i++)
+                for (int i = 1; i <= m_Global.mycls.chsignals.Count; i++)
                 {
                     grid1.Rows.Insert(i);
                     grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
-                        CComLibrary.GlobeVal.filesave.mchsignals[i - 1].cName, typeof(string));
+                        m_Global.mycls.chsignals[i - 1].cName, typeof(string));
 
                     grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(
-                        CComLibrary.GlobeVal.filesave.mchsignals[i - 1].cUnits[
+                        m_Global.mycls.chsignals[i - 1].cUnits[
                         0], typeof(string)
                        );
 
                     grid1[i, 2] = new SourceGrid2.Cells.Real.Cell(
-                       CComLibrary.GlobeVal.filesave.mchsignals[i - 1].uplimit, typeof(double));
+                       m_Global.mycls.chsignals[i - 1].uplimit, typeof(double));
 
                     grid1[i, 3] = new SourceGrid2.Cells.Real.Cell(
-                      CComLibrary.GlobeVal.filesave.mchsignals[i - 1].donwlimit, typeof(double));
+                      m_Global.mycls.chsignals[i - 1].donwlimit, typeof(double));
 
                     grid1[i, 4] = new SourceGrid2.Cells.Real.Cell(
-                       CComLibrary.GlobeVal.filesave.mchsignals[i - 1].fullmaxbase 
+                       m_Global.mycls.chsignals[i - 1].fullmaxbase 
                        , typeof(double)
                       );
 
@@ -1559,6 +1559,11 @@ namespace TabHeaderDemo
         private void chkcrack_CheckedChanged(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.crackcheck = chkcrack.Checked;
+        }
+
+        private void chkstep1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

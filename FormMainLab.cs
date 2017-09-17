@@ -161,8 +161,8 @@ namespace TabHeaderDemo
 
            
             m_Global.mycls = new ItemSignalStation(GlobeVal.mysys.machinekind );
-           
-            
+
+          
 
             if (GlobeVal.mysys.controllerkind==0)
             {
@@ -188,10 +188,12 @@ namespace TabHeaderDemo
                 myarm = new C电机();
             }
           
-
+             
 
             fdata = new MainForm();
-           
+
+          
+
         }
 
         public System.Drawing.Bitmap backimage = new Bitmap(50, 50);

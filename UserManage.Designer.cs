@@ -361,7 +361,7 @@
         private TreeListEx treeView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panelback1;
-        private System.Windows.Forms.Panel panelback;
         private System.Windows.Forms.ImageList imageList3;
+        public System.Windows.Forms.Panel panelback;
     }
 }

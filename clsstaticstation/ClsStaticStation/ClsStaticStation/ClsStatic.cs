@@ -198,7 +198,7 @@ namespace ClsStaticStation
              isi.InitUnit();
              isi.fullmaxbase = 75;
              isi.fullminbase = -75;
-             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+             isi.speedSignal = (ItemSignal) anglespeedsignal.Clone();
              isi.speedSignal.fullmaxbase = isi.fullmaxbase;
              isi.speedSignal.fullminbase = 0;
              chsignals.Add(isi);
@@ -220,7 +220,7 @@ namespace ClsStaticStation
              isi.InitUnit();
              isi.fullmaxbase = 30;
              isi.fullminbase = -30;
-             isi.speedSignal = (ItemSignal)forcespeedsignal.Clone();
+             isi.speedSignal = (ItemSignal)torquespeedsignal.Clone();
              isi.speedSignal.fullmaxbase = isi.fullmaxbase;
              isi.speedSignal.fullminbase = 0;
              chsignals.Add(isi);
