@@ -1,6 +1,6 @@
 ﻿namespace TabHeaderDemo.Frm
 {
-    partial class FormTorsionTransducer
+    partial class FormLoadTransducer
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.numericEdit2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.label5 = new System.Windows.Forms.Label();
+            this.numericEdit1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.numericEdit4 = new NationalInstruments.UI.WindowsForms.NumericEdit();
@@ -43,9 +46,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit4)).BeginInit();
@@ -62,25 +67,28 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(655, 354);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl1.Size = new System.Drawing.Size(681, 354);
+            this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.numericEdit2);
             this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.numericEdit1);
+            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(647, 328);
+            this.tabPage1.Size = new System.Drawing.Size(673, 328);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "角度";
+            this.tabPage1.Text = "负荷";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // numericEdit2
             // 
             this.numericEdit2.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
-            this.numericEdit2.Location = new System.Drawing.Point(272, 95);
+            this.numericEdit2.Location = new System.Drawing.Point(427, 156);
             this.numericEdit2.Name = "numericEdit2";
             this.numericEdit2.Size = new System.Drawing.Size(185, 21);
             this.numericEdit2.TabIndex = 9;
@@ -88,11 +96,36 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(163, 95);
+            this.label5.Location = new System.Drawing.Point(320, 158);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 8;
             this.label5.Text = "比例系数：";
+            // 
+            // numericEdit1
+            // 
+            this.numericEdit1.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
+            this.numericEdit1.Location = new System.Drawing.Point(427, 50);
+            this.numericEdit1.Name = "numericEdit1";
+            this.numericEdit1.Size = new System.Drawing.Size(94, 21);
+            this.numericEdit1.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(527, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(81, 20);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(318, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "满度：";
             // 
             // tabPage2
             // 
@@ -101,7 +134,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(647, 328);
+            this.tabPage2.Size = new System.Drawing.Size(673, 328);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "限位";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -186,12 +219,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 354);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 39);
-            this.panel1.TabIndex = 2;
+            this.panel1.Size = new System.Drawing.Size(681, 439);
+            this.panel1.TabIndex = 4;
             // 
             // button1
             // 
@@ -201,22 +235,30 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "完成";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FormTorsionTransducer
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(404, 385);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 31);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "完成";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // FormLoadTransducer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 393);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(681, 439);
             this.Controls.Add(this.tabControl1);
-            this.Name = "FormTorsionTransducer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Controls.Add(this.panel1);
+            this.Name = "FormLoadTransducer";
             this.Text = "传感器设置";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -235,6 +277,9 @@
         private System.Windows.Forms.TabPage tabPage1;
         private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit2;
         private System.Windows.Forms.Label label5;
+        private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox3;
         private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit4;
@@ -246,5 +291,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -749,7 +749,7 @@ if (GlobeVal.mysys.machinekind == 1)
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Frm.FrmPosTransducer f = new Frm.FrmPosTransducer();
+            Frm.FormLoadTransducer f = new Frm.FormLoadTransducer();
             f.ShowDialog();
         }
 

@@ -167,6 +167,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm\FormLoadTransducer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FormLoadTransducer.Designer.cs">
+      <DependentUpon>FormLoadTransducer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FormTorsionTransducer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -632,6 +638,9 @@
     <EmbeddedResource Include="FrmMima.resx">
       <DependentUpon>FrmMima.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FormLoadTransducer.resx">
+      <DependentUpon>FormLoadTransducer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FormTorsionTransducer.resx">
       <DependentUpon>FormTorsionTransducer.cs</DependentUpon>
