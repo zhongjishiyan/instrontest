@@ -595,6 +595,7 @@
     <Compile Include="User围压.Designer.cs">
       <DependentUpon>User围压.cs</DependentUpon>
     </Compile>
+    <Content Include="ClsStaticStation.sln" />
     <EmbeddedResource Include="Controls\OpenFileDialogEx.resx">
       <DependentUpon>OpenFileDialogEx.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -890,16 +891,6 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\app.manifest" />
     <None Include="TabHeaderDemo_TemporaryKey.pfx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\clsstaticstation\ClsStaticStation\ClsStaticStation\ClsStaticStation.csproj">
-      <Project>{7C7EF8B1-969F-4912-8216-A42D3E3E8CC6}</Project>
-      <Name>ClsStaticStation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TabText1\Tabtext1\AppleLab.csproj">
-      <Project>{7768F9F9-3650-4AA7-9687-1AEAFFAAF78C}</Project>
-      <Name>AppleLab</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1,10 +1,12 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabHeaderDemo", "TabHeaderDemo.csproj", "{55B6A26A-F691-4906-B0B7-7175BE76F618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppleLab", "..\TabText1\Tabtext1\AppleLab.csproj", "{7768F9F9-3650-4AA7-9687-1AEAFFAAF78C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppleLab", "TabText1\Tabtext1\AppleLab.csproj", "{7768F9F9-3650-4AA7-9687-1AEAFFAAF78C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsStaticStation", "..\clsstaticstation\ClsStaticStation\ClsStaticStation\ClsStaticStation.csproj", "{7C7EF8B1-969F-4912-8216-A42D3E3E8CC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsStaticStation", "clsstaticstation\ClsStaticStation\ClsStaticStation\ClsStaticStation.csproj", "{7C7EF8B1-969F-4912-8216-A42D3E3E8CC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
