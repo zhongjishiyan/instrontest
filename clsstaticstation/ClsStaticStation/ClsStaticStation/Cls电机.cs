@@ -58,6 +58,9 @@ namespace ClsStaticStation
 
     public class C电机 : ClsBaseControl
     {
+        private bool mbtnloadzero = false;
+        private bool mbtnloadrestore = false;
+
         [MarshalAs(UnmanagedType.FunctionPtr)]
         public a9500.DataInfo GGMsg;
         private a9500.OnGetDataDel GetDataIns;
@@ -165,9 +168,24 @@ namespace ClsStaticStation
         {
 
         }
-        public override bool getlimit()
+        public override bool getlimit(int ch)
         {
-            return m_limit;
+            bool  m=false ;
+            if (ch == 1)
+            {
+                if (Math.Abs(load) >= 1.2)
+                {
+                    m = true  ;
+                }
+            }
+            if (ch == 0)
+            {
+                if (Math.Abs(pos) >= 60)
+                {
+                    m = true ;
+                }
+            } 
+            return m;
         }
 
         public override bool getEmergencyStop()
@@ -226,6 +244,7 @@ namespace ClsStaticStation
             mdatalist = new List<a9500.MDataIno>();
             mtimer = new System.Windows.Forms.Timer();
             mSerialPort = new System.IO.Ports.SerialPort();
+            
             mSerialPort.PortName = "COM8";
             mSerialPort.StopBits = System.IO.Ports.StopBits.One;
             mSerialPort.BaudRate = 9600;
@@ -234,7 +253,7 @@ namespace ClsStaticStation
             mtimer.Tick += new EventHandler(mtimer_Tick);
             mtimer.Interval = 50;
             mtimer.Enabled = true;
-            mSerialPort.Open();
+         
             mtimer.Start();
 
 
@@ -346,13 +365,13 @@ namespace ClsStaticStation
 
         public override void CrossUp(int ctrlmode, double speed)
         {
-            aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control, 0,  Convert.ToInt32(90 / mangle_coefficient), Convert.ToInt32( speed / mangle_coefficient));
+            aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control, 0,  Convert.ToInt32(90 / mangle_coefficient), Convert.ToInt32( speed/60 / mangle_coefficient));
 
         }
 
         public override void CrossDown(int ctrlmode, double speed)
         {
-            aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control , 0, Convert.ToInt32(-90 / mangle_coefficient), Convert.ToInt32(speed / mangle_coefficient));
+            aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control , 0, Convert.ToInt32(-90 / mangle_coefficient), Convert.ToInt32(speed /60/ mangle_coefficient));
 
         }
 
@@ -363,7 +382,7 @@ namespace ClsStaticStation
 
         public override void DestStart(int ctrlmode, double dest, double speed)
         {
-            aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control, 0, Convert.ToInt32( dest / mangle_coefficient), Convert.ToInt32( speed / mangle_coefficient));
+            aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control, 0, Convert.ToInt32( dest / mangle_coefficient), Convert.ToInt32( speed /60/ mangle_coefficient));
 
 
         }
@@ -865,10 +884,10 @@ namespace ClsStaticStation
 
 
 
-            double mtemp = 0;
+            ulong  mtemp = 0;
 
             byte[] msendbuf = new byte[3];
-            byte[] recbuf = new byte[7];
+            byte[] recbuf = new byte[8];
 
 
             b = new RawDataStruct();
@@ -876,7 +895,7 @@ namespace ClsStaticStation
 
 
             aEziMOTIONPlusR.FAS_GetActualPos(mcom_control, 0, ref mActualPos);
-
+            
             if (mSerialPort.BytesToRead >= 7)
             {
 
@@ -886,7 +905,7 @@ namespace ClsStaticStation
 
                     mSerialPort.Read(recbuf, 0, 7);
 
-                    mtemp = 256.0 * 256 * 256 * recbuf[3 + 2] + recbuf[0 + 2] + 256.0 * recbuf[1 + 2] + 256.0 * 256 * recbuf[2 + 2];
+                    mtemp = Convert.ToUInt32 (256.0 * 256 * 256 * recbuf[3 + 2] + recbuf[0 + 2] + 256.0 * recbuf[1 + 2] + 256.0 * 256 * recbuf[2 + 2]);
 
 
                     mSerialPort.DiscardInBuffer();
@@ -894,16 +913,45 @@ namespace ClsStaticStation
 
                     time = System.Environment.TickCount / 1000.0;
 
+                    if (Math.Abs(load) >= 1.2)
+                    {
+                        CrossStop(0); 
+                    }
+
+                    if (Math.Abs(pos) >= 60)
+                    {
+                        CrossStop(0); 
+                    }
                 }
 
             }
 
-            pos = mActualPos *this.mangle_coefficient;
-            msendbuf[0] = 0;
-            msendbuf[1] = 0;
-            msendbuf[2] = 0;
-            mSerialPort.Write(msendbuf, 0, 3);
 
+            if (this.mbtnloadzero == true)
+            {
+                msendbuf[0] = 0;
+                msendbuf[1] = 6;
+                msendbuf[2] = 0;
+                mSerialPort.Write(msendbuf, 0, 3);
+                mbtnloadzero = false;
+            }
+            if (this.mbtnloadrestore == true)
+            {
+                msendbuf[0] = 0;
+                msendbuf[1] = 7;
+                msendbuf[2] = 0;
+                mSerialPort.Write(msendbuf, 0, 3);
+                mbtnloadrestore  = false;
+            }
+
+            if ((this.mbtnloadrestore==false ) &&(this.mbtnloadzero ==false ))
+            {
+                pos = mActualPos * this.mangle_coefficient;
+                msendbuf[0] = 0;
+                msendbuf[1] = 0;
+                msendbuf[2] = 0;
+                mSerialPort.Write(msendbuf, 0, 3);
+            }
 
             //自定义通道赋值
             ClsStaticStation.m_Global.mload = load;
@@ -1387,16 +1435,7 @@ namespace ClsStaticStation
             mstarttime = moritime;
             duanliebaohu = false;
 
-            bool b = false;
-            while (b == false)
-            {
-                Application.DoEvents();
-                if (time < 1)
-                {
-                    b = true;
-                }
-            }
-
+          
             mspeed_time0 = 0;
             mspeed_time1 = 0;
             mspeed_load0 = 0;
@@ -1667,6 +1706,10 @@ namespace ClsStaticStation
         {
             short k;
 
+            if (connected == false)
+            {
+                return;
+            }
             Timer();
 
             if (mtestrun == false)
@@ -1800,6 +1843,7 @@ namespace ClsStaticStation
 
             int r;
 
+            mSerialPort.Open();
 
             CComLibrary.GlobeVal.InitUserCalcChannel();//初始化用户自定义通道
 
@@ -1849,6 +1893,7 @@ namespace ClsStaticStation
 
         public override void btnzero(Button b)
         {
+            
             if (b.Text == "扭角")
             {
                 aEziMOTIONPlusR.FAS_ClearPosition(mcom_control, 0);
@@ -1857,11 +1902,13 @@ namespace ClsStaticStation
 
             if (b.Text == "扭矩")
             {
-                
+                mbtnloadzero = true;
+            
+
             }
 
 
-          
+
 
 
 
@@ -1870,6 +1917,7 @@ namespace ClsStaticStation
 
         public override void restorezero(Button b)
         {
+           
             if (b.Text == "扭角")
             {
 
@@ -1877,7 +1925,9 @@ namespace ClsStaticStation
 
             if (b.Text == "扭矩")
             {
-               
+
+                mbtnloadrestore = true;
+            
             }
 
 

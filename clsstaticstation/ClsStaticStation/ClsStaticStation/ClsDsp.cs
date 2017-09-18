@@ -154,7 +154,7 @@ namespace ClsStaticStation
 
             return t;
         }
-        public bool getlimit()
+        public bool getlimit(int ch)
         {
             return false;
         }

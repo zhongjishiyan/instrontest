@@ -97,13 +97,16 @@ namespace TabHeaderDemo
             if (switchDriver.Value == true)
             {
                 GlobeVal.myarm.DriveOn();
+
+                timer1.Enabled = true; 
             }
 
             else
             {
-
+                timer1.Enabled = false;
                 GlobeVal.myarm.DriveOff();
             }
+
 
         }
 
@@ -263,7 +266,24 @@ namespace TabHeaderDemo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label3.Text = GlobeVal.myarm.merrorcount.ToString();
+            if (GlobeVal.myarm.getlimit(0) == true)
+            {
+                led1.Value = true;
+            }
+            else
+            {
+                led1.Value = false;
+            }
+            if (GlobeVal.myarm.getlimit(1) == true)
+            {
+                led2.Value = true;
+            }
+            else
+            {
+                led2.Value = false;
+            }
+
+
         }
     }
 }

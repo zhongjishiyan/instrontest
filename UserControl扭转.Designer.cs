@@ -146,6 +146,8 @@
             this.led2.LedStyle = NationalInstruments.UI.LedStyle.Round3D;
             this.led2.Location = new System.Drawing.Point(3, 3);
             this.led2.Name = "led2";
+            this.led2.OffColor = System.Drawing.Color.Lime;
+            this.led2.OnColor = System.Drawing.Color.Red;
             this.led2.Size = new System.Drawing.Size(32, 28);
             this.led2.TabIndex = 0;
             // 
@@ -182,6 +184,8 @@
             this.led1.LedStyle = NationalInstruments.UI.LedStyle.Round3D;
             this.led1.Location = new System.Drawing.Point(3, 3);
             this.led1.Name = "led1";
+            this.led1.OffColor = System.Drawing.Color.Lime;
+            this.led1.OnColor = System.Drawing.Color.Red;
             this.led1.Size = new System.Drawing.Size(32, 28);
             this.led1.TabIndex = 0;
             // 

@@ -1326,7 +1326,7 @@ namespace TabHeaderDemo
 
         private void numvalue1_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
-            numvalue1.Value = CComLibrary.GlobeVal.filesave.testcmdstep[0].dest;
+            CComLibrary.GlobeVal.filesave.testcmdstep[0].dest = numvalue1.Value;
         }
 
         private void numvalue2_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)

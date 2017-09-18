@@ -120,7 +120,7 @@ namespace ClsStaticStation
         {
 
         }
-        public override  bool getlimit()  
+        public override  bool getlimit(int ch)  
         {
             return m_limit;
         }

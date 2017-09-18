@@ -551,7 +551,7 @@ if (GlobeVal.mysys.machinekind == 1)
             
 
 
-            if (GlobeVal.myarm.getlimit() == true)
+            if ((GlobeVal.myarm.getlimit(0) == true) ||(GlobeVal.myarm.getlimit(0) == true))
             {
                 GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "限位：保护";
                 GlobeVal.MainStatusStrip.Items["tslbllimit"].BackColor = Color.Red;

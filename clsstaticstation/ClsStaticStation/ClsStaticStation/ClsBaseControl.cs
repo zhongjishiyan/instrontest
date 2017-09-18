@@ -97,7 +97,7 @@ namespace ClsStaticStation
 
         }
 
-        public virtual  bool getlimit()
+        public virtual  bool getlimit(int ch)
         {
             return false;
         }
