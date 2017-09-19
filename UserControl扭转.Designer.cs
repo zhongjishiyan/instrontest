@@ -128,7 +128,7 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.led2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 1, 0);
@@ -146,7 +146,7 @@
             this.led2.LedStyle = NationalInstruments.UI.LedStyle.Round3D;
             this.led2.Location = new System.Drawing.Point(3, 3);
             this.led2.Name = "led2";
-            this.led2.OffColor = System.Drawing.Color.Lime;
+            this.led2.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.led2.OnColor = System.Drawing.Color.Red;
             this.led2.Size = new System.Drawing.Size(32, 28);
             this.led2.TabIndex = 0;
@@ -160,13 +160,13 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(418, 34);
             this.label2.TabIndex = 1;
-            this.label2.Text = "扭矩未超限";
+            this.label2.Text = "扭矩超限";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.led1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
@@ -180,11 +180,12 @@
             // 
             // led1
             // 
+            this.led1.BlinkMode = NationalInstruments.UI.LedBlinkMode.BlinkWhenOn;
             this.led1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.led1.LedStyle = NationalInstruments.UI.LedStyle.Round3D;
             this.led1.Location = new System.Drawing.Point(3, 3);
             this.led1.Name = "led1";
-            this.led1.OffColor = System.Drawing.Color.Lime;
+            this.led1.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.led1.OnColor = System.Drawing.Color.Red;
             this.led1.Size = new System.Drawing.Size(32, 28);
             this.led1.TabIndex = 0;
@@ -198,7 +199,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(418, 34);
             this.label1.TabIndex = 1;
-            this.label1.Text = "扭角未超限";
+            this.label1.Text = "扭角超限";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel2

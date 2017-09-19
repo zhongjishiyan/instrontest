@@ -1877,6 +1877,7 @@ namespace CComLibrary
         public int returnstep;
         public int cmd;
         public int action;
+  
         public CmdSeg()
         {
             check = false;
@@ -1888,10 +1889,10 @@ namespace CComLibrary
             returncount = 0;
             returnstep = 0;
             cmd = 0;
-
+          
         }
 
-        public  string explain()
+        public  string explain(int machinekind)
         {
             string s="";
             SegFile f=new SegFile();
@@ -1912,30 +1913,63 @@ namespace CComLibrary
             else
             {
 
+
+
                 s = s + "速度 " + speed.ToString("F4") + " ";
 
-                if (controlmode == 0)
+                if ((machinekind == 0)||(machinekind ==2))
+
                 {
-                    s = s + "mm/s  ";
+                    if (controlmode == 0)
+                    {
+                        s = s + "mm/s  ";
+                    }
+                    else
+                    {
+                        s = s + "kN/s ";
+
+                        s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
+
+                    }
+
+
+                    if (destcontrolmode == 0)
+                    {
+                        s = s + "目标[mm]：";
+                    }
+                    else
+                    {
+                        s = s + "目标[kN]：";
+
+
+                    }
                 }
-                else
+                else if (machinekind == 1)
                 {
-                    s = s + "kN/s ";
 
-                    s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
+                    if (controlmode == 0)
+                    {
+                        s = s + "°/s  ";
+                    }
+                    else
+                    {
+                        s = s + "N.M/s ";
 
-                }
+                       
+
+                    }
 
 
-                if (destcontrolmode == 0)
-                {
-                    s = s + "目标[mm]：";
-                }
-                else
-                {
-                    s = s + "目标[kN]：";
-                  
+                    if (destcontrolmode == 0)
+                    {
+                        s = s + "目标[°]：";
+                    }
+                    else
+                    {
+                        s = s + "目标[N.M]：";
 
+
+                    }
                 }
                 s = s + dest.ToString("F4");
 

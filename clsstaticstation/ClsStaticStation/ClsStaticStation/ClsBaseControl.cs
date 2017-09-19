@@ -8,7 +8,9 @@ namespace ClsStaticStation
 {
    public  class ClsBaseControl
     {
-       public Boolean connected = false;//判断是否联机
+
+        public UInt32  debug;
+        public Boolean connected = false;//判断是否联机
         public Boolean mtestrun = false; //程序执行完成判断
        public long merrorcount = 0;
        public Boolean mdemo = false;

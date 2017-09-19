@@ -28,6 +28,7 @@ using System.Drawing.Imaging;
 using System.Collections.Generic;
 
 using CustomControls.Controls;
+using TabHeaderDemo;
 
 namespace CustomControls
 {
@@ -85,7 +86,7 @@ namespace CustomControls
 
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
                         {
-                            string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain();
+                            string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
                             listBox1.Items.Add(s);
                        }
                    
@@ -139,7 +140,7 @@ namespace CustomControls
 
                     for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
                     {
-                        string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain();
+                        string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
                         listBox1.Items.Add(s);
                     }
                     listBox1.Items.Add("结果表格1：");

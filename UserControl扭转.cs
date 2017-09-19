@@ -248,8 +248,15 @@ namespace TabHeaderDemo
             GlobeVal.FormmainLab.InitMeter();
             GlobeVal.FormmainLab.InitKey();
 
-            GlobeVal.myarm.connected = true;
+
+                if (GlobeVal.myarm.connected == false)
+                {
+                    this.switchLink.Value = false;
+                }
+        
             }
+
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -283,7 +290,7 @@ namespace TabHeaderDemo
                 led2.Value = false;
             }
 
-
+            label3.Text = GlobeVal.myarm.debug.ToString("X"); 
         }
     }
 }

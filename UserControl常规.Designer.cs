@@ -292,14 +292,14 @@
             this.grid1.Location = new System.Drawing.Point(4, 30);
             this.grid1.Name = "grid1";
             this.grid1.Size = new System.Drawing.Size(303, 248);
-            this.grid1.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V)
-                        | SourceGrid2.GridSpecialKeys.Ctrl_X)
-                        | SourceGrid2.GridSpecialKeys.Delete)
-                        | SourceGrid2.GridSpecialKeys.Arrows)
-                        | SourceGrid2.GridSpecialKeys.Tab)
-                        | SourceGrid2.GridSpecialKeys.PageDownUp)
-                        | SourceGrid2.GridSpecialKeys.Enter)
-                        | SourceGrid2.GridSpecialKeys.Escape)));
+            this.grid1.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
+            | SourceGrid2.GridSpecialKeys.Ctrl_X) 
+            | SourceGrid2.GridSpecialKeys.Delete) 
+            | SourceGrid2.GridSpecialKeys.Arrows) 
+            | SourceGrid2.GridSpecialKeys.Tab) 
+            | SourceGrid2.GridSpecialKeys.PageDownUp) 
+            | SourceGrid2.GridSpecialKeys.Enter) 
+            | SourceGrid2.GridSpecialKeys.Escape)));
             this.grid1.TabIndex = 2;
             // 
             // listBox1
@@ -331,7 +331,7 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 448F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 449F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(623, 55);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
@@ -385,7 +385,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 442);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 443);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // label7
@@ -458,7 +458,7 @@
             this.label14.Size = new System.Drawing.Size(482, 55);
             this.label14.TabIndex = 2;
             this.label14.Text = "   此屏幕中的各个字段都适用于整个样品，而不只是对样品中的单个试样有效。样品说明和样品注释不出现在设置试验提示 － 试验工作区屏幕中的可用列表中，因为试验工作区" +
-                "中的试验输入组件只包含适用于单个试样的参数。 ";
+    "中的试验输入组件只包含适用于单个试样的参数。 ";
             // 
             // label15
             // 

@@ -312,7 +312,7 @@ namespace TabHeaderDemo
         }   
         public void reg()
         {
-            
+            return;
             RegistryKey key = Registry.LocalMachine;
             RegistryKey software = key.CreateSubKey("software\\AppleLabJ");
             //在HKEY_LOCAL_MACHINE\SOFTWARE下新建名为test的注册表项。如果已经存在则不影响！
@@ -421,6 +421,7 @@ if (GlobeVal.mysys.machinekind == 1)
                 GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = GlobeVal.mysys.ControllerName[GlobeVal.mysys.controllerkind];
             }
 
+            /*
           
             if (IsRegeditExit("AppleLabJ") == true)
             {
@@ -447,6 +448,8 @@ if (GlobeVal.mysys.machinekind == 1)
 
 
             software.Close();
+
+    */
 
             timermain.Enabled = true;
 

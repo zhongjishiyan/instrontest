@@ -49,6 +49,15 @@ namespace ClsStaticStation
         [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
         public static extern int FAS_ClearPosition(byte nPortNo, byte iSlaveNo);
 
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern void FAS_EnableLog(bool bEnable);
+
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_GetMotionStatus(byte nPortNo, byte iSlaveNo, ref int lCmdPos, ref int lActPos, ref int lPosErr, ref int lactVel, ref UInt16   wPOsItemNO);
+
+
+        [DllImport("EziMOTIONPlusR.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int FAS_GetAxisStatus(byte nPortNo, byte iSlaveNo, ref UInt32 dwAxisStatus);
 
 
 
@@ -58,6 +67,8 @@ namespace ClsStaticStation
 
     public class C电机 : ClsBaseControl
     {
+
+     
         private bool mbtnloadzero = false;
         private bool mbtnloadrestore = false;
 
@@ -202,14 +213,7 @@ namespace ClsStaticStation
             else
             {
 
-                if ((m_runstate0 == 0) && (m_runstate1 == 0))
-                {
-                    m_runstate = 0;
-                }
-                else
-                {
-                    m_runstate = 1;
-                }
+                m_runstate = 0;
             }
 
             return m_runstate;
@@ -893,9 +897,14 @@ namespace ClsStaticStation
             b = new RawDataStruct();
             b.data = new double[24];
 
+            UInt32  msta=0;
 
+          
             aEziMOTIONPlusR.FAS_GetActualPos(mcom_control, 0, ref mActualPos);
-            
+            aEziMOTIONPlusR.FAS_GetAxisStatus(mcom_control, 0, ref msta);
+          
+
+            debug = msta;
             if (mSerialPort.BytesToRead >= 7)
             {
 
@@ -1717,121 +1726,7 @@ namespace ClsStaticStation
                 return;
             }
 
-            if (mrun == true)
-            {
-                if ((System.Environment.TickCount / 1000 - mrunstarttime) <= 10)
-                {
-                    return;
-                }
-                if ((this.getrunstate() == 0))
-                {
-
-
-                    if (m_keeptime > 0)
-                    {
-                        keepingstate = true;
-
-                        if (m_keepstart == false)
-                        {
-                            m_keepstart = true;
-
-                            m_keepstarttime = System.Environment.TickCount / 1000.0;
-
-
-                        }
-                        else
-                        {
-
-                            keepingtime = System.Environment.TickCount / 1000.0 - m_keepstarttime;
-
-                            if (keepingtime >= m_keeptime)
-                            {
-                                m_keeptime = -1;
-                            }
-
-                        }
-
-                    }
-                    else
-                    {
-                        mrun = false;
-                        keepingstate = false;
-
-                        if (m_returncount > 0)
-                        {
-                            current_returncount = current_returncount + 1;
-
-                            if (current_returncount > m_returncount)
-                            {
-                                mcurseg = mcurseg + 1;
-
-                            }
-                            else
-                            {
-                                mcurseg = m_returnstep - 1;
-
-                            }
-                        }
-                        else
-                        {
-
-                            mcurseg = mcurseg + 1;
-                        }
-
-                        if (mcurseg < mrunlist.Count)
-                        {
-
-                            for (int ii = mcurseg; ii < mrunlist.Count; ii++)
-                            {
-                                if (mrunlist[ii].controlmode ==
-                               mrunlist[ii].destcontrolmode)
-                                {
-                                    k = 1;
-                                }
-                                else
-                                {
-                                    k = 0;
-                                }
-                                if (mrunlist[ii].action == 1)
-                                {
-                                    segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
-                                       Convert.ToInt16(mrunlist[ii].controlmode),
-                                         Convert.ToInt16(mrunlist[ii].destcontrolmode),
-                                        k, Convert.ToSingle(mrunlist[ii].speed),
-                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount);
-                                }
-                                else
-                                {
-                                    if (ii == mcurseg)
-                                    {
-                                        segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
-                                   Convert.ToInt16(mrunlist[ii].controlmode),
-                                    Convert.ToInt16(mrunlist[ii].destcontrolmode),
-                                   k, Convert.ToSingle(mrunlist[ii].speed),
-                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount);
-
-                                        mcurseg = ii;
-                                    }
-                                    break;
-                                }
-                            }
-
-
-
-                        }
-                        else
-                        {
-                            mtestrun = false;
-                        }
-                    }
-
-
-                }
-
-
-            }
-
-
+           
 
             return;
         }
@@ -1843,31 +1738,58 @@ namespace ClsStaticStation
 
             int r;
 
-            mSerialPort.Open();
-
-            CComLibrary.GlobeVal.InitUserCalcChannel();//初始化用户自定义通道
-
-
-            ClsStaticStation.aEziMOTIONPlusR.FAS_Connect(mcom_control, 115200);
-
-            r = ClsStaticStation.aEziMOTIONPlusR.FAS_IsSlaveExist(mcom_control, 0);
-
-
-
-
-            OpenConnection();
-
-            if (r == 1)
+            int rp=0;
+            foreach (string s in  System.IO.Ports.SerialPort.GetPortNames())
             {
+                if (s==mSerialPort.PortName )
+                {
 
-                connected = true;
+                    rp = 1;
+                }
+        
+            }
+
+            if (rp == 1)
+            {
+              
+                mSerialPort.Open();
+               
+                CComLibrary.GlobeVal.InitUserCalcChannel();//初始化用户自定义通道
+
+
+                ClsStaticStation.aEziMOTIONPlusR.FAS_Connect(mcom_control, 115200);
+
+                r = ClsStaticStation.aEziMOTIONPlusR.FAS_IsSlaveExist(mcom_control, 0);
+
+                ClsStaticStation.aEziMOTIONPlusR.FAS_EnableLog(false);
+
+
+                OpenConnection();
+
+                if (r == 1)
+                {
+
+                    connected = true;
+                }
+
+                else
+                {
+                    mSerialPort.Close();
+                    connected = false;
+
+                    MessageBox.Show("电机链接  串口" + mcom_control.ToString() + "不存在");
+                }
+
             }
 
             else
             {
-
                 connected = false;
+
+                MessageBox.Show("扭矩传感器链接  串口"+mSerialPort.PortName+"不存在");
             }
+
+        
 
 
 

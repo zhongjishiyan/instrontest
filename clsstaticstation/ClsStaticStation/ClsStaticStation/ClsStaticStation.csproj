@@ -60,8 +60,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4, processorArchitecture=MSIL" />
-    <Reference Include="DoPENet">
-      <HintPath>..\..\..\..\..\shiwei编程\DOPE\DoPE\DoPENet.dll</HintPath>
+    <Reference Include="DoPENet, Version=2.82.0.0, Culture=neutral, PublicKeyToken=57cb194ebf911d69, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\Debug\DoPENet.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
