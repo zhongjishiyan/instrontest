@@ -312,15 +312,7 @@ namespace TabHeaderDemo
                 {
                     UserControl控制1.Init(6);
                 }
-                else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-                {
-                    UserControl控制1.Init(7);
-                }
-                else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
-                {
-                    UserControl控制1.Init(8);
-                }
-                
+               
                
                 panelback.Visible = false;
                 panelback.Controls.Clear();

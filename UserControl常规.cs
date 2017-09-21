@@ -94,13 +94,9 @@ namespace TabHeaderDemo
             }
             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
             {
-                listBox1.Items.Add("控制过程:" + "三轴压缩");
+                listBox1.Items.Add("控制过程:" + "简单控制");
             }
-            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
-            {
-                listBox1.Items.Add("控制过程:" + "应力路径控制");
-            }
-
+         
             CComLibrary.GlobeVal.filesave.InitExplainList();
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)

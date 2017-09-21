@@ -542,6 +542,7 @@ namespace TabHeaderDemo
                 cbocontrolprocess.Items.Clear();
                 cbocontrolprocess.Items.Add("一般测试");
                 cbocontrolprocess.Items.Add("高级测试");
+			cbocontrolprocess.Items.Add("简单控制");  
                
                 cbocontrolprocess.SelectedIndex = CComLibrary.GlobeVal.filesave.mcontrolprocess;
 

@@ -1477,7 +1477,11 @@ namespace ClsStaticStation
 			mstarttime = moritime;
 			duanliebaohu = false;
 
-
+			if (this.getrunstate() == 1)
+			{
+				MessageBox.Show("请先停止运行然后开始"); 
+				return; 
+			}
 
 			bool b = false;
 			while (b == false)
@@ -1498,6 +1502,34 @@ namespace ClsStaticStation
 
 			mtestrun = true;
 
+			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)//简单试验
+			{
+				mrunlist = new List<CComLibrary.CmdSeg>();
+				mrunlist.Clear();
+
+				
+					mrunlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd );
+
+				mcurseg = 0;
+
+				if (mrunlist[mcurseg].controlmode ==
+					mrunlist[mcurseg].destcontrolmode)
+				{
+					k = 1;
+				}
+				else
+				{
+					k = 0;
+				}
+
+
+				segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
+					Convert.ToInt16(mrunlist[mcurseg].controlmode),
+					 Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
+					k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0);
+
+
+			}
 
 			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
 			{
@@ -1645,9 +1677,10 @@ namespace ClsStaticStation
 
 				mcurseg = 0;
 
+				int tongbu = 0;
 
 
-				for (int ii = mcurseg; ii < mrunlist.Count; ii++)
+				for (int ii = mcurseg; ii < mrunlist.Count  ; ii++)
 				{
 					if (mrunlist[ii].controlmode == mrunlist[ii].destcontrolmode)
 					{
@@ -1666,6 +1699,13 @@ namespace ClsStaticStation
 						  mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount);
 
 						mcurseg = ii;
+
+						tongbu = tongbu + 1;
+
+						if (tongbu >=2)
+						{
+							break;
+						}
 					}
 					else
 					{
@@ -1881,11 +1921,15 @@ namespace ClsStaticStation
 							mcurseg = mcurseg + 1;
 						}
 
+						int tongbu = 0;
+
 						if (mcurseg < mrunlist.Count)
 						{
 
 							for (int ii = mcurseg; ii < mrunlist.Count; ii++)
 							{
+
+
 								if (mrunlist[ii].controlmode ==
 							   mrunlist[ii].destcontrolmode)
 								{
@@ -1902,6 +1946,12 @@ namespace ClsStaticStation
 										 Convert.ToInt16(mrunlist[ii].destcontrolmode),
 										k, Convert.ToSingle(mrunlist[ii].speed),
 									  mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount);
+
+									tongbu = tongbu + 1;
+									if (tongbu >= 2)
+									{
+										break;
+									}
 								}
 								else
 								{

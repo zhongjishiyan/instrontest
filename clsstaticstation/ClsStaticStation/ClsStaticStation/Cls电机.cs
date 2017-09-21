@@ -1463,8 +1463,36 @@ namespace ClsStaticStation
 
             mtestrun = true;
 
+			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)//简单试验
+			{
+				mrunlist = new List<CComLibrary.CmdSeg>();
+				mrunlist.Clear();
 
-            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
+
+				mrunlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd);
+
+				mcurseg = 0;
+
+				if (mrunlist[mcurseg].controlmode ==
+					mrunlist[mcurseg].destcontrolmode)
+				{
+					k = 1;
+				}
+				else
+				{
+					k = 0;
+				}
+
+
+				segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
+					Convert.ToInt16(mrunlist[mcurseg].controlmode),
+					 Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
+					k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0);
+
+
+			}
+
+			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
             {
                 
 

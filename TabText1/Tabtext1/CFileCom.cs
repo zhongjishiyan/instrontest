@@ -2086,7 +2086,7 @@ namespace CComLibrary
 
         public int mspecount = 0;//试样数量
 
-        public int mcontrolprocess = 0;//控制过程类型 0 普通，1 高级
+        public int mcontrolprocess = 0;//控制过程类型 0 普通，1 高级 2 简单控制
 
         public List<ItemSignal> mautozero; //自动清零列表
 
@@ -2172,7 +2172,7 @@ namespace CComLibrary
 
         public string  lasttestdatatime;//最后试验日期
 
-      
+		public CmdSeg simple_cmd; //简单试验
 
         public double StrainToLoad(double l)
         {
@@ -2238,7 +2238,27 @@ namespace CComLibrary
 
         public void InitExplainList()
         {
-            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
+
+			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2) //简单试验
+				{
+
+
+
+
+					mexplainlist = new List<CmdSeg>();
+					mexplainlist.Clear();
+
+					
+				    mexplainlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd );
+
+
+					
+
+					
+
+				}
+
+			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
             {
 
 
@@ -3453,6 +3473,10 @@ namespace CComLibrary
                         c.ReportTemplate = "default.it";
                     }
 
+					if (c.simple_cmd == null)
+					{
+						c.simple_cmd = new CmdSeg(); 
+					}
 
                        
 
