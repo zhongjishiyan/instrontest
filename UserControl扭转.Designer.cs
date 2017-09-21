@@ -33,11 +33,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.led2 = new NationalInstruments.UI.WindowsForms.Led();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.led1 = new NationalInstruments.UI.WindowsForms.Led();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,12 +68,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.led2)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.led1)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -88,6 +91,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.switchLink)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchDriver)).BeginInit();
             this.panel6.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -112,7 +117,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(512, 545);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(367, 545);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // panel1
@@ -122,7 +127,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(27, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(462, 106);
+            this.panel1.Size = new System.Drawing.Size(317, 106);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -130,77 +135,66 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.led2, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 34);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(462, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(317, 34);
             this.tableLayoutPanel3.TabIndex = 4;
-            // 
-            // led2
-            // 
-            this.led2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.led2.LedStyle = NationalInstruments.UI.LedStyle.Round3D;
-            this.led2.Location = new System.Drawing.Point(3, 3);
-            this.led2.Name = "led2";
-            this.led2.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.led2.OnColor = System.Drawing.Color.Red;
-            this.led2.Size = new System.Drawing.Size(32, 28);
-            this.led2.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(41, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(418, 34);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "扭矩超限";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.led1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(462, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(317, 34);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
-            // led1
+            // tableLayoutPanel5
             // 
-            this.led1.BlinkMode = NationalInstruments.UI.LedBlinkMode.BlinkWhenOn;
-            this.led1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.led1.LedStyle = NationalInstruments.UI.LedStyle.Round3D;
-            this.led1.Location = new System.Drawing.Point(3, 3);
-            this.led1.Name = "led1";
-            this.led1.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.led1.OnColor = System.Drawing.Color.Red;
-            this.led1.Size = new System.Drawing.Size(32, 28);
-            this.led1.TabIndex = 0;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.label4, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(311, 28);
+            this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(418, 34);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "扭角超限";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(36, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(272, 28);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "扭角超限";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::TabHeaderDemo.Properties.Resources._1080___副本;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(27, 22);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -211,7 +205,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(27, 195);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(462, 91);
+            this.panel2.Size = new System.Drawing.Size(317, 91);
             this.panel2.TabIndex = 3;
             // 
             // tableLayoutPanel10
@@ -227,7 +221,7 @@
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(460, 31);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(315, 31);
             this.tableLayoutPanel10.TabIndex = 6;
             // 
             // label9
@@ -254,7 +248,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(350, 25);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(205, 25);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // numericEdit2
@@ -263,7 +257,7 @@
             this.numericEdit2.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numericEdit2.Location = new System.Drawing.Point(3, 3);
             this.numericEdit2.Name = "numericEdit2";
-            this.numericEdit2.Size = new System.Drawing.Size(272, 21);
+            this.numericEdit2.Size = new System.Drawing.Size(127, 21);
             this.numericEdit2.TabIndex = 2;
             // 
             // lblmunit
@@ -271,7 +265,7 @@
             this.lblmunit.AutoSize = true;
             this.lblmunit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblmunit.ForeColor = System.Drawing.Color.White;
-            this.lblmunit.Location = new System.Drawing.Point(281, 0);
+            this.lblmunit.Location = new System.Drawing.Point(136, 0);
             this.lblmunit.Name = "lblmunit";
             this.lblmunit.Size = new System.Drawing.Size(66, 25);
             this.lblmunit.TabIndex = 3;
@@ -292,7 +286,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(460, 27);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(315, 27);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
             // label7
@@ -312,7 +306,7 @@
             this.lblunit.AutoSize = true;
             this.lblunit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblunit.ForeColor = System.Drawing.Color.White;
-            this.lblunit.Location = new System.Drawing.Point(388, 0);
+            this.lblunit.Location = new System.Drawing.Point(243, 0);
             this.lblunit.Name = "lblunit";
             this.lblunit.Size = new System.Drawing.Size(69, 27);
             this.lblunit.TabIndex = 1;
@@ -325,7 +319,7 @@
             this.numericEdit1.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numericEdit1.Location = new System.Drawing.Point(109, 3);
             this.numericEdit1.Name = "numericEdit1";
-            this.numericEdit1.Size = new System.Drawing.Size(273, 21);
+            this.numericEdit1.Size = new System.Drawing.Size(128, 21);
             this.numericEdit1.TabIndex = 2;
             // 
             // tableLayoutPanel8
@@ -341,7 +335,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(460, 30);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(315, 30);
             this.tableLayoutPanel8.TabIndex = 4;
             // 
             // label6
@@ -363,7 +357,7 @@
             this.cboctrl.FormattingEnabled = true;
             this.cboctrl.Location = new System.Drawing.Point(109, 3);
             this.cboctrl.Name = "cboctrl";
-            this.cboctrl.Size = new System.Drawing.Size(348, 20);
+            this.cboctrl.Size = new System.Drawing.Size(203, 20);
             this.cboctrl.TabIndex = 1;
             this.cboctrl.SelectedIndexChanged += new System.EventHandler(this.cboweiya_SelectedIndexChanged);
             // 
@@ -374,7 +368,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(27, 292);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(462, 81);
+            this.panel3.Size = new System.Drawing.Size(317, 81);
             this.panel3.TabIndex = 4;
             // 
             // tableLayoutPanel11
@@ -396,7 +390,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(460, 79);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(315, 79);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // btnstart
@@ -408,7 +402,7 @@
             this.btnstart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnstart.Location = new System.Drawing.Point(3, 45);
             this.btnstart.Name = "btnstart";
-            this.btnstart.Size = new System.Drawing.Size(147, 31);
+            this.btnstart.Size = new System.Drawing.Size(99, 31);
             this.btnstart.TabIndex = 47;
             this.btnstart.Text = "开始";
             this.btnstart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -421,9 +415,9 @@
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(156, 45);
+            this.button2.Location = new System.Drawing.Point(108, 45);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 31);
+            this.button2.Size = new System.Drawing.Size(99, 31);
             this.button2.TabIndex = 46;
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
@@ -435,9 +429,9 @@
             this.btnend.FlatAppearance.BorderSize = 0;
             this.btnend.Image = ((System.Drawing.Image)(resources.GetObject("btnend.Image")));
             this.btnend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnend.Location = new System.Drawing.Point(309, 45);
+            this.btnend.Location = new System.Drawing.Point(213, 45);
             this.btnend.Name = "btnend";
-            this.btnend.Size = new System.Drawing.Size(148, 31);
+            this.btnend.Size = new System.Drawing.Size(99, 31);
             this.btnend.TabIndex = 44;
             this.btnend.Text = "结束";
             this.btnend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -453,7 +447,7 @@
             this.btnup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnup.Location = new System.Drawing.Point(3, 3);
             this.btnup.Name = "btnup";
-            this.btnup.Size = new System.Drawing.Size(147, 36);
+            this.btnup.Size = new System.Drawing.Size(99, 36);
             this.btnup.TabIndex = 41;
             this.btnup.Text = "正转";
             this.btnup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -467,9 +461,9 @@
             this.btndown.FlatAppearance.BorderSize = 0;
             this.btndown.Image = ((System.Drawing.Image)(resources.GetObject("btndown.Image")));
             this.btndown.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btndown.Location = new System.Drawing.Point(309, 3);
+            this.btndown.Location = new System.Drawing.Point(213, 3);
             this.btndown.Name = "btndown";
-            this.btndown.Size = new System.Drawing.Size(148, 36);
+            this.btndown.Size = new System.Drawing.Size(99, 36);
             this.btndown.TabIndex = 39;
             this.btndown.Text = "反转";
             this.btndown.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -483,9 +477,9 @@
             this.btnstop.FlatAppearance.BorderSize = 0;
             this.btnstop.Image = ((System.Drawing.Image)(resources.GetObject("btnstop.Image")));
             this.btnstop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnstop.Location = new System.Drawing.Point(156, 3);
+            this.btnstop.Location = new System.Drawing.Point(108, 3);
             this.btnstop.Name = "btnstop";
-            this.btnstop.Size = new System.Drawing.Size(147, 36);
+            this.btnstop.Size = new System.Drawing.Size(99, 36);
             this.btnstop.TabIndex = 40;
             this.btnstop.Text = "保持";
             this.btnstop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -497,7 +491,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(27, 458);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(462, 84);
+            this.panel4.Size = new System.Drawing.Size(317, 84);
             this.panel4.TabIndex = 5;
             // 
             // panel5
@@ -507,7 +501,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(27, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(462, 74);
+            this.panel5.Size = new System.Drawing.Size(317, 74);
             this.panel5.TabIndex = 6;
             // 
             // switchLink
@@ -534,7 +528,7 @@
             this.switchDriver.CaptionPosition = NationalInstruments.UI.CaptionPosition.Left;
             this.switchDriver.CaptionVerticalOrientation = NationalInstruments.UI.VerticalCaptionOrientation.TopToBottom;
             this.switchDriver.Dock = System.Windows.Forms.DockStyle.Right;
-            this.switchDriver.Location = new System.Drawing.Point(364, 0);
+            this.switchDriver.Location = new System.Drawing.Point(219, 0);
             this.switchDriver.Name = "switchDriver";
             this.switchDriver.Size = new System.Drawing.Size(98, 74);
             this.switchDriver.SwitchStyle = NationalInstruments.UI.SwitchStyle.PushButton;
@@ -552,7 +546,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(27, 379);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(462, 73);
+            this.panel6.Size = new System.Drawing.Size(317, 73);
             this.panel6.TabIndex = 7;
             // 
             // label3
@@ -597,22 +591,65 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "1080 - 副本.ico");
+            this.imageList1.Images.SetKeyName(1, "1080红色 .ico");
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.pictureBox2, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(371, 28);
+            this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(36, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(332, 28);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "扭矩超限";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::TabHeaderDemo.Properties.Resources._1080___副本;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 22);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // UserControl扭转
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControl扭转";
-            this.Size = new System.Drawing.Size(512, 548);
+            this.Size = new System.Drawing.Size(367, 548);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UserControl轴向_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.led2)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.led1)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
@@ -631,6 +668,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.switchDriver)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -640,11 +679,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private NationalInstruments.UI.WindowsForms.Led led2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private NationalInstruments.UI.WindowsForms.Led led1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label9;
@@ -676,5 +711,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit2;
         private System.Windows.Forms.Label lblmunit;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

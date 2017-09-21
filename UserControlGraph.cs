@@ -328,12 +328,12 @@ namespace TabHeaderDemo
 
             if (myplotsettings.showdatapointer == true)
             {
-                btnxy.Visible = true;
+                toolStrip2.Visible = true;
                
             }
             else
             {
-                btnxy.Visible = false;
+                toolStrip2.Visible  = false;
             }
             mplot1 = plot;
 
@@ -569,6 +569,11 @@ namespace TabHeaderDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
+          
+        }
+
+        private void tsbscreenreader_Click(object sender, EventArgs e)
+        {
             if (xyCursor1.Visible == true)
             {
                 xyCursor1.Visible = false;
@@ -577,6 +582,18 @@ namespace TabHeaderDemo
             {
                 xyCursor1.Visible = true;
             }
+        }
+
+        private void tsbzoomin_Click(object sender, EventArgs e)
+        {
+            scatterGraph.InteractionModeDefault = NationalInstruments.UI.GraphDefaultInteractionMode.ZoomXY;
+        }
+
+        private void tsbzoomout_Click(object sender, EventArgs e)
+        {
+            scatterGraph.UndoZoomPan();
+            scatterGraph.InteractionModeDefault = NationalInstruments.UI.GraphDefaultInteractionMode.None;
+        
         }
     }
 }

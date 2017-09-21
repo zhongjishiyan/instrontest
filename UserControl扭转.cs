@@ -275,19 +275,19 @@ namespace TabHeaderDemo
         {
             if (GlobeVal.myarm.getlimit(0) == true)
             {
-                led1.Value = true;
+                pictureBox1.BackgroundImage = imageList1.Images[1]; 
             }
             else
             {
-                led1.Value = false;
+                pictureBox1.BackgroundImage = imageList1.Images[0];
             }
             if (GlobeVal.myarm.getlimit(1) == true)
             {
-                led2.Value = true;
+                pictureBox2.BackgroundImage = imageList1.Images[1];
             }
             else
             {
-                led2.Value = false;
+                pictureBox2.BackgroundImage = imageList1.Images[0];
             }
 
             label3.Text = GlobeVal.myarm.debug.ToString("X"); 

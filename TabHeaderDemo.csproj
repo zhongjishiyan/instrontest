@@ -105,6 +105,14 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AppleLabApplication.dll</HintPath>
+    </Reference>
+    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=00e95de9db4717aa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ClsStaticStation.dll</HintPath>
+    </Reference>
     <Reference Include="DoPENet">
       <HintPath>..\..\..\shiwei编程\DOPE\DoPE\DoPENet.dll</HintPath>
     </Reference>
@@ -608,6 +616,7 @@
       <DependentUpon>User围压.cs</DependentUpon>
     </Compile>
     <Content Include="ClsStaticStation.sln" />
+    <None Include="Resources\1080 - 副本.ico" />
     <EmbeddedResource Include="Controls\OpenFileDialogEx.resx">
       <DependentUpon>OpenFileDialogEx.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -909,16 +918,6 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\app.manifest" />
     <None Include="TabHeaderDemo_TemporaryKey.pfx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="clsstaticstation\ClsStaticStation\ClsStaticStation\ClsStaticStation.csproj">
-      <Project>{7c7ef8b1-969f-4912-8216-a42d3e3e8cc6}</Project>
-      <Name>ClsStaticStation</Name>
-    </ProjectReference>
-    <ProjectReference Include="TabText1\Tabtext1\AppleLab.csproj">
-      <Project>{7768f9f9-3650-4aa7-9687-1aeaffaaf78c}</Project>
-      <Name>AppleLab</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

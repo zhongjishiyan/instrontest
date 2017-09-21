@@ -919,7 +919,7 @@ namespace ClsStaticStation
 
                     mSerialPort.DiscardInBuffer();
                     load = BitConverter.ToSingle(BitConverter.GetBytes(mtemp), 0);
-
+                    load = -load;
                     time = System.Environment.TickCount / 1000.0;
 
                     if (Math.Abs(load) >= 1.2)
@@ -927,7 +927,7 @@ namespace ClsStaticStation
                         CrossStop(0); 
                     }
 
-                    if (Math.Abs(pos) >= 60)
+                    if (Math.Abs(pos) >= 80)
                     {
                         CrossStop(0); 
                     }
@@ -956,6 +956,7 @@ namespace ClsStaticStation
             if ((this.mbtnloadrestore==false ) &&(this.mbtnloadzero ==false ))
             {
                 pos = mActualPos * this.mangle_coefficient;
+               
                 msendbuf[0] = 0;
                 msendbuf[1] = 0;
                 msendbuf[2] = 0;
@@ -1441,6 +1442,14 @@ namespace ClsStaticStation
 
 
             maxload = 0;
+
+
+            aEziMOTIONPlusR.FAS_ClearPosition(mcom_control, 0);
+
+            mbtnloadzero = true;
+
+            DelayS(0.5); 
+            
             mstarttime = moritime;
             duanliebaohu = false;
 
@@ -1457,7 +1466,7 @@ namespace ClsStaticStation
 
             if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
             {
-
+                
 
 
 
