@@ -968,8 +968,11 @@ namespace TabHeaderDemo
                 MessageBox.Show("您还没有联机");
                 return;
             }
-           
 
+			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
+			{
+				
+			}
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; i++)
             {

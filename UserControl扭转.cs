@@ -292,5 +292,23 @@ namespace TabHeaderDemo
 
             label3.Text = GlobeVal.myarm.debug.ToString("X"); 
         }
+
+		private void numericEdit1_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+		{
+			CComLibrary.GlobeVal.filesave.simple_cmd.speed = numericEdit1.Value / 60;  
+			
+
+
+		}
+
+		private void numericEdit2_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+		{
+			CComLibrary.GlobeVal.filesave.simple_cmd.dest = numericEdit2.Value;  
+		}
+
+        private void btnzero_Click(object sender, EventArgs e)
+        {
+            GlobeVal.myarm.ReturnZero(0, numericEdit1.Value);
+        }
     }
 }

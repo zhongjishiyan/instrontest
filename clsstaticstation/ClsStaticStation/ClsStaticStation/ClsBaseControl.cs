@@ -12,7 +12,9 @@ namespace ClsStaticStation
         public UInt32  debug;
         public Boolean connected = false;//判断是否联机
         public Boolean mtestrun = false; //程序执行完成判断
-       public long merrorcount = 0;
+        public Boolean mprotect = false; //保护 
+
+        public long merrorcount = 0;
        public Boolean mdemo = false;
        public int mcurseg = 0;
         public double keepingtime;//显示保持时间
@@ -120,7 +122,11 @@ namespace ClsStaticStation
         public virtual  void DestStart(int ctrlmode, double dest, double speed)
         {
         }
+        public virtual void ReturnZero(int ctrlmode,  double speed)
+        {
 
+
+        }
         public  virtual  int OpenConnection()
         {
 

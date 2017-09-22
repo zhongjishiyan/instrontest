@@ -304,15 +304,19 @@ namespace TabHeaderDemo
             if (t == "测试")
             {
                 UserControl控制1.Visible = false;
-                if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-                {
-                    UserControl控制1.Init(3);
-                }
-                else if(CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-                {
-                    UserControl控制1.Init(6);
-                }
-               
+				if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
+				{
+					UserControl控制1.Init(3);
+				}
+				else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
+				{
+					UserControl控制1.Init(6);
+				}
+
+				else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
+				{
+					UserControl控制1.Init(7);
+				}
                
                 panelback.Visible = false;
                 panelback.Controls.Clear();

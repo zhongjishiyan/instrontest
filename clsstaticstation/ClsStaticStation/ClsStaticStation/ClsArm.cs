@@ -1493,7 +1493,10 @@ namespace ClsStaticStation
 				}
 			}
 
-			mspeed_time0 = 0;
+          
+            ClsStatic.arraydatacount[0] = 0;
+            ClsStatic.arraydatacount[1] = 0;
+            mspeed_time0 = 0;
 
 			mspeed_load0 = 0;
 			mspeed_load1 = 0;

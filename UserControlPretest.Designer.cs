@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("选择方法");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("新样品", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("选择样品");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("继续样品", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("选择方法");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("新样品", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("选择样品");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("继续样品", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlPretest));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -204,21 +204,21 @@
             this.treeView1.ItemHeight = 32;
             this.treeView1.Location = new System.Drawing.Point(23, 3);
             this.treeView1.Name = "treeView1";
-            treeNode5.Name = "节点0";
-            treeNode5.StateImageIndex = 0;
-            treeNode5.Text = "选择方法";
-            treeNode6.Name = "节点0";
-            treeNode6.StateImageIndex = 0;
-            treeNode6.Text = "新样品";
-            treeNode7.Name = "节点1";
-            treeNode7.StateImageIndex = 0;
-            treeNode7.Text = "选择样品";
-            treeNode8.Name = "节点0";
-            treeNode8.StateImageIndex = 1;
-            treeNode8.Text = "继续样品";
+            treeNode1.Name = "节点0";
+            treeNode1.StateImageIndex = 0;
+            treeNode1.Text = "选择方法";
+            treeNode2.Name = "节点0";
+            treeNode2.StateImageIndex = 0;
+            treeNode2.Text = "新样品";
+            treeNode3.Name = "节点1";
+            treeNode3.StateImageIndex = 0;
+            treeNode3.Text = "选择样品";
+            treeNode4.Name = "节点0";
+            treeNode4.StateImageIndex = 1;
+            treeNode4.Text = "继续样品";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode8});
+            treeNode2,
+            treeNode4});
             this.treeView1.Scrollable = false;
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;
@@ -500,8 +500,8 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 395F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 395F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 396F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 396F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(620, 64);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
@@ -1021,8 +1021,8 @@
             this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 395F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 395F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 396F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 396F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(626, 64);
             this.tableLayoutPanel12.TabIndex = 2;
             // 

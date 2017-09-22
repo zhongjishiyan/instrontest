@@ -404,15 +404,12 @@ namespace TabHeaderDemo
             
         }
 
-        public void Init_三轴压缩()
+        public void Init_简单()
         {
 
         }
 
-        public void Init_应力路径控制()
-        {
-
-        }
+      
 
         public void Init_高级()
         {
@@ -904,14 +901,10 @@ namespace TabHeaderDemo
 
                 if (sel == 7)
                 {
-                    Init_三轴压缩();
+                    Init_简单();
                 }
 
-                if (sel == 8)
-                {
-                    Init_应力路径控制();
-                }
-                
+               
 
         }
         public  UserControl控制()

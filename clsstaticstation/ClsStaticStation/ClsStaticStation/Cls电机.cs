@@ -72,6 +72,8 @@ namespace ClsStaticStation
         private bool mbtnloadzero = false;
         private bool mbtnloadrestore = false;
 
+        private RawDataDataGroup[] r = new RawDataDataGroup[1];
+
         [MarshalAs(UnmanagedType.FunctionPtr)]
         public a9500.DataInfo GGMsg;
         private a9500.OnGetDataDel GetDataIns;
@@ -113,6 +115,8 @@ namespace ClsStaticStation
         private double mspeed_time1;
 
         public double maxload;
+
+        public Boolean mprotect = true;
 
         private Boolean mrun = false;//函数执行后置位
 
@@ -384,6 +388,12 @@ namespace ClsStaticStation
             aEziMOTIONPlusR.FAS_MoveStop(mcom_control, 0);
         }
 
+        public override  void ReturnZero(int ctrlmode,double speed)
+        {
+            aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control, 0, Convert.ToInt32(0 / mangle_coefficient), Convert.ToInt32(speed / 60 / mangle_coefficient));
+
+
+        }
         public override void DestStart(int ctrlmode, double dest, double speed)
         {
             aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control, 0, Convert.ToInt32( dest / mangle_coefficient), Convert.ToInt32( speed /60/ mangle_coefficient));
@@ -920,20 +930,31 @@ namespace ClsStaticStation
                     mSerialPort.DiscardInBuffer();
                     load = BitConverter.ToSingle(BitConverter.GetBytes(mtemp), 0);
                     load = -load;
+                   
                     time = System.Environment.TickCount / 1000.0;
 
-                    if (Math.Abs(load) >= 1.2)
-                    {
-                        CrossStop(0); 
-                    }
+                    moritime = time;
 
-                    if (Math.Abs(pos) >= 80)
+                    time = time - mstarttime;
+
+                    if (mprotect == true)
                     {
-                        CrossStop(0); 
+
+                        if (Math.Abs(load) >= 1.2)
+                        {
+                            CrossStop(0);
+                        }
+
+                        if (Math.Abs(pos) >= 80)
+                        {
+                            CrossStop(0);
+                        }
                     }
                 }
 
             }
+
+
 
 
             if (this.mbtnloadzero == true)
@@ -1448,12 +1469,36 @@ namespace ClsStaticStation
 
             mbtnloadzero = true;
 
-            DelayS(0.5); 
+           
             
             mstarttime = moritime;
             duanliebaohu = false;
 
-          
+            bool b = false;
+            while (b == false)
+            {
+                Application.DoEvents();
+                if (time < 10)
+                {
+                    b = true;
+                }
+            }
+
+
+            
+
+      
+
+
+
+            DelayS(0.5);
+
+            int ll = 0;
+
+            ll = ClsStatic.arraydata[0].Read<RawDataDataGroup>(r, 0, 10);
+
+            ll = ClsStatic.arraydata[1].Read<RawDataDataGroup>(r, 0, 10);
+
             mspeed_time0 = 0;
             mspeed_time1 = 0;
             mspeed_load0 = 0;
@@ -1467,6 +1512,11 @@ namespace ClsStaticStation
 			{
 				mrunlist = new List<CComLibrary.CmdSeg>();
 				mrunlist.Clear();
+
+
+				
+				CComLibrary.GlobeVal.filesave.simple_cmd.controlmode = 0;
+				CComLibrary.GlobeVal.filesave.simple_cmd.destcontrolmode = 0;
 
 
 				mrunlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd);
@@ -1556,7 +1606,7 @@ namespace ClsStaticStation
 
 
             }
-            else //高级试验
+            else if(CComLibrary.GlobeVal.filesave.mcontrolprocess == 1) //高级试验
             {
 
 
@@ -1727,7 +1777,7 @@ namespace ClsStaticStation
                 else
                 {
 
-
+                    
 
                     aEziMOTIONPlusR.FAS_MoveSingleAxisAbsPos(mcom_control, 0,
                         Convert.ToInt32( dest / this.mangle_coefficient), Convert.ToInt32( speed / this.mangle_coefficient)); 
