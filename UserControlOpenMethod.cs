@@ -277,6 +277,8 @@ namespace TabHeaderDemo
                         CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
                     }
                     CComLibrary.GlobeVal.filesave=CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
+
+
                     CComLibrary.GlobeVal.currentfilesavename = fileName;
                     UserControl常规1.Open_method();
                     ClsStaticStation.m_Global.mycls.initchannel();

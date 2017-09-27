@@ -157,10 +157,10 @@ namespace TabHeaderDemo
             btnmreport.ForeColor = Color.White;
             btnmmanage.ForeColor = Color.White;
             
-            tabControl1.SelectedIndex = 1;
+          
 
             this.usercontrolmethod1.OpenTheMethod(filename);
-            
+            tabControl1.SelectedIndex = 1;
             
 
         }
@@ -292,7 +292,11 @@ namespace TabHeaderDemo
 
         private void btnmain_Click(object sender, EventArgs e)
         {
+           
             ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]).SelectedIndex = 0;
+            tabControl1.SelectedIndex = 0;
+            GlobeVal.FormmainLab.splitContainer1.Panel2Collapsed = false;
+
         }
 
         private void btnmtest_Click(object sender, EventArgs e)
@@ -304,7 +308,7 @@ namespace TabHeaderDemo
                 btnmreport.ForeColor = Color.White;
                 btnmmanage.ForeColor = Color.White;
 
-
+              
                 tabControl1.SelectedIndex =3;
 
                 
@@ -336,7 +340,7 @@ namespace TabHeaderDemo
                 btnmmethod.ForeColor = Color.White;
                 btnmreport.ForeColor = Color.Yellow;
                 btnmmanage.ForeColor = Color.White;
-
+                userreport1.Refresh();
                 tabControl1.SelectedIndex = 4;
 
                 
@@ -385,7 +389,41 @@ namespace TabHeaderDemo
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            if (this.btnmtest.Visible == true )
+            {
+                return;
+            }
+            if (GlobeVal.lastindex == 1)
+            {
+                if (tabControl1.SelectedIndex != 1)
+                {
+                    if (CComLibrary.GlobeVal.filesave.Equals(GlobeVal.filesavecmp)==true)
+                    {
+                    }
+                    else
+                    {
+                        DialogResult a = MessageBox.Show("试验方法已经更改，是否保存？", "提示", MessageBoxButtons.YesNo);
+
+                        if (a == DialogResult.Yes)
+                        {
+                            CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.mmethodfilename);
+
+                            GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(GlobeVal.mmethodfilename);
+                        }
+
+                        else
+                        {
+
+                        }
+
+                    }
+
+
+
+                }
+            }
+
+            GlobeVal.lastindex = tabControl1.SelectedIndex; 
         }
     }
 }

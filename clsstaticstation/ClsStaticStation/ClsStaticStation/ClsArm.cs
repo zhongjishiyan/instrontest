@@ -16,6 +16,7 @@ namespace ClsStaticStation
 
 	public class CArm : ClsBaseControl
 	{
+        private RawDataDataGroup[] r = new RawDataDataGroup[1];
 		[MarshalAs(UnmanagedType.FunctionPtr)]
 		public a9500.DataInfo GGMsg;
 		private a9500.OnGetDataDel GetDataIns;
@@ -59,7 +60,7 @@ namespace ClsStaticStation
 
 
 
-		public List<CComLibrary.CmdSeg> mrunlist;
+        public List<CComLibrary.CmdSeg> mrunlist;
 
 
 
@@ -967,8 +968,8 @@ namespace ClsStaticStation
 							time = GGMsg.time;
 							moritime = time;
 
-							time = time - mstarttime;
-
+							//time = time - mstarttime;
+                           
 							count = GGMsg.count;//?
 						}
 					}
@@ -1472,7 +1473,7 @@ namespace ClsStaticStation
 		{
 			short k = 0;
 
-
+           
 			maxload = 0;
 			mstarttime = moritime;
 			duanliebaohu = false;
@@ -1483,6 +1484,7 @@ namespace ClsStaticStation
 				return; 
 			}
 
+            /*
 			bool b = false;
 			while (b == false)
 			{
@@ -1492,8 +1494,13 @@ namespace ClsStaticStation
 					b = true;
 				}
 			}
+            */
+            int ll = 0;
 
-          
+            ll = ClsStatic.arraydata[0].Read<RawDataDataGroup>(r, 0, 10);
+
+            ll = ClsStatic.arraydata[1].Read<RawDataDataGroup>(r, 0, 10);
+
             ClsStatic.arraydatacount[0] = 0;
             ClsStatic.arraydatacount[1] = 0;
             mspeed_time0 = 0;
@@ -1529,7 +1536,7 @@ namespace ClsStaticStation
 				segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
 					Convert.ToInt16(mrunlist[mcurseg].controlmode),
 					 Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-					k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0);
+					k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0,0);
 
 
 			}
@@ -1590,7 +1597,7 @@ namespace ClsStaticStation
 				segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
 					Convert.ToInt16(mrunlist[mcurseg].controlmode),
 					 Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-					k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0);
+					k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0,0);
 
 
 
@@ -1699,10 +1706,11 @@ namespace ClsStaticStation
 						   Convert.ToInt16(mrunlist[ii].controlmode),
 							 Convert.ToInt16(mrunlist[ii].destcontrolmode),
 							k, Convert.ToSingle(mrunlist[ii].speed),
-						  mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount);
+						  mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount,mrunlist[ii].action );
 
 						mcurseg = ii;
 
+                        Debug.Print("abc"+ mcurseg.ToString());
 						tongbu = tongbu + 1;
 
 						if (tongbu >=2)
@@ -1719,7 +1727,7 @@ namespace ClsStaticStation
 					       Convert.ToInt16(mrunlist[ii].controlmode),
 					      	Convert.ToInt16(mrunlist[ii].destcontrolmode),
 					      k, Convert.ToSingle(mrunlist[ii].speed),
-					      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount);
+                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
 
 							mcurseg = ii;
 						}
@@ -1743,15 +1751,19 @@ namespace ClsStaticStation
 
 			mrunstarttime = System.Environment.TickCount / 1000;
 
+            Debug.Print("mrunlist cunt="+mrunlist.Count.ToString()); 
+
 
 		}
 
-		public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount)
+		public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount,int action)
 		{
 			bool b = false;
 			m_keeptime = keeptime;
 			m_keepstart = false;
 			keepingstate = false;
+
+           
 
 			m_returncount = returncount;
 			m_returnstep = reurnstep;
@@ -1768,7 +1780,7 @@ namespace ClsStaticStation
 			{
 				if (cmd == 2)
 				{
-
+                   
 					ClsStaticStation.a9500.COMPLEXMOVEST move = new ClsStaticStation.a9500.COMPLEXMOVEST();
 
 
@@ -1801,6 +1813,8 @@ namespace ClsStaticStation
 					}
 
 					mrun = true;
+
+                    Debug.Print("segcmd2 " + move.dest.ToString() + " " + move.speed.ToString());
 
 				}
 				else
@@ -1865,8 +1879,9 @@ namespace ClsStaticStation
 
 			if (mrun == true)
 			{
-				if ((System.Environment.TickCount / 1000 - mrunstarttime) <= 10)
+				if ((System.Environment.TickCount / 1000 - mrunstarttime) <= 20)
 				{
+                    
 					return;
 				}
 				if ((this.getrunstate() == 0))
@@ -1948,8 +1963,8 @@ namespace ClsStaticStation
 									   Convert.ToInt16(mrunlist[ii].controlmode),
 										 Convert.ToInt16(mrunlist[ii].destcontrolmode),
 										k, Convert.ToSingle(mrunlist[ii].speed),
-									  mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount);
-
+									  mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount,mrunlist[ii].action );
+                                    mcurseg = ii;
 									tongbu = tongbu + 1;
 									if (tongbu >= 2)
 									{
@@ -1964,7 +1979,7 @@ namespace ClsStaticStation
 								   Convert.ToInt16(mrunlist[ii].controlmode),
 									Convert.ToInt16(mrunlist[ii].destcontrolmode),
 								   k, Convert.ToSingle(mrunlist[ii].speed),
-								   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount);
+                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
 
 										mcurseg = ii;
 									}

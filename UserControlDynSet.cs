@@ -18,17 +18,13 @@ namespace TabHeaderDemo
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
 
-            TableLayoutPanel p;
+          
 
-            for (int i = 0; i < this.Controls.Count; i++)
-            {
-                if (this.Controls[i] is TableLayoutPanel)
-                {
-                    p = this.Controls[i] as TableLayoutPanel;
-                    p.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(p, true, null);
 
-                }
-            }
+            tlbetest.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tlbetest, true, null);
+       
+
+           
         }
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)

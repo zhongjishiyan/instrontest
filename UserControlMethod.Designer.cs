@@ -626,6 +626,7 @@
             this.Name = "UserControlMethod";
             this.Size = new System.Drawing.Size(1066, 592);
             this.Load += new System.EventHandler(this.UserControlMethod_Load);
+            this.TabIndexChanged += new System.EventHandler(this.UserControlMethod_TabIndexChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UserControl5_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

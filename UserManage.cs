@@ -35,7 +35,7 @@ namespace TabHeaderDemo
 
 
             Color c = (this.imageList3.Images[0] as Bitmap).GetPixel(this.imageList3.Images[0].Width - 5, this.imageList3.Images[0].Height / 2);
-
+            
 
            
             drawPath(e, path, c);
@@ -49,7 +49,7 @@ namespace TabHeaderDemo
             path.Transform(matrix);
 
             c = (this.imageList3.Images[0] as Bitmap).GetPixel(this.imageList3.Images[0].Width / 2, this.imageList3.Images[0].Height / 2);
-
+            
             if (treeView1 == null)
             {
             }
@@ -101,38 +101,7 @@ namespace TabHeaderDemo
            
         }
 
-        private void UserReport_Paint(object sender, PaintEventArgs e)
-        {
-            if (this.DesignMode)
-            {
-                return;
-            }
-            GraphicsContainer containerState = e.Graphics.BeginContainer();
-            tableLayoutPanel1.BackColor = Color.Transparent;
-
-            e.Graphics.PageUnit = System.Drawing.GraphicsUnit.Pixel;
-            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            e.Graphics.Clear(Color.White);
-
-
-
-            PointF[] roundedRectangle = new PointF[5];
-            roundedRectangle[0].X = 1;
-            roundedRectangle[0].Y = 0;
-            roundedRectangle[1].X = this.Width - 2 - 3;
-            roundedRectangle[1].Y = 0;
-            roundedRectangle[2].X = this.Width - 2 - 3;
-            roundedRectangle[2].Y = this.Height - 2 - 3;
-            roundedRectangle[3].X = 1;
-            roundedRectangle[3].Y = this.Height - 2 - 3;
-            roundedRectangle[4].X = 1;
-            roundedRectangle[4].Y = 0;
-            drawFigure(e, roundedRectangle);
-
-
-
-            e.Graphics.EndContainer(containerState);
-        }
+      
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -226,6 +195,39 @@ namespace TabHeaderDemo
         private void buttonEx1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UserManage_Paint(object sender, PaintEventArgs e)
+        {
+            if (this.DesignMode)
+            {
+                return;
+            }
+            GraphicsContainer containerState = e.Graphics.BeginContainer();
+            tableLayoutPanel1.BackColor = Color.Transparent;
+
+            e.Graphics.PageUnit = System.Drawing.GraphicsUnit.Pixel;
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            e.Graphics.Clear(Color.White);
+
+
+
+            PointF[] roundedRectangle = new PointF[5];
+            roundedRectangle[0].X = 1;
+            roundedRectangle[0].Y = 0;
+            roundedRectangle[1].X = this.Width - 2 - 3;
+            roundedRectangle[1].Y = 0;
+            roundedRectangle[2].X = this.Width - 2 - 3;
+            roundedRectangle[2].Y = this.Height - 2 - 3;
+            roundedRectangle[3].X = 1;
+            roundedRectangle[3].Y = this.Height - 2 - 3;
+            roundedRectangle[4].X = 1;
+            roundedRectangle[4].Y = 0;
+            drawFigure(e, roundedRectangle);
+
+
+
+            e.Graphics.EndContainer(containerState);
         }
     }
 }

@@ -73,7 +73,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlbebase = new TabHeaderDemo.TableLayoutPanelExT();
             this.panel10 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -85,7 +84,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlbe = new TabHeaderDemo.TableLayoutPanelExT();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加对象ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.结果1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,6 +113,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tlbebase = new TabHeaderDemo.TableLayoutPanelExT();
+            this.tlbe = new TabHeaderDemo.TableLayoutPanelExT();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -152,6 +152,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -240,8 +241,8 @@
             // 
             this.tableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.83923F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.16077F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.7299F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.2701F));
             this.tableLayoutPanel7.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.label12, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.grid1, 0, 1);
@@ -260,7 +261,7 @@
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Location = new System.Drawing.Point(4, 1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(303, 25);
+            this.label11.Size = new System.Drawing.Size(265, 25);
             this.label11.TabIndex = 0;
             this.label11.Text = "单位系统：";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -270,9 +271,9 @@
             this.label12.BackColor = System.Drawing.Color.DodgerBlue;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(314, 1);
+            this.label12.Location = new System.Drawing.Point(276, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(305, 25);
+            this.label12.Size = new System.Drawing.Size(343, 25);
             this.label12.TabIndex = 1;
             this.label12.Text = "预览";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -291,7 +292,7 @@
             this.grid1.GridToolTipActive = true;
             this.grid1.Location = new System.Drawing.Point(4, 30);
             this.grid1.Name = "grid1";
-            this.grid1.Size = new System.Drawing.Size(303, 248);
+            this.grid1.Size = new System.Drawing.Size(265, 248);
             this.grid1.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
             | SourceGrid2.GridSpecialKeys.Ctrl_X) 
             | SourceGrid2.GridSpecialKeys.Delete) 
@@ -309,9 +310,9 @@
             this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(314, 30);
+            this.listBox1.Location = new System.Drawing.Point(276, 30);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(305, 248);
+            this.listBox1.Size = new System.Drawing.Size(343, 248);
             this.listBox1.TabIndex = 3;
             this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             this.listBox1.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.listBox1_MeasureItem);
@@ -331,7 +332,7 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 449F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 456F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(623, 55);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
@@ -385,7 +386,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 443);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 450);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // label7
@@ -669,82 +670,6 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(629, 399);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
-            // tlbebase
-            // 
-            this.tlbebase.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tlbebase.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tlbebase.ColumnCount = 1;
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.59984F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.06683F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tlbebase.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tlbebase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlbebase.Location = new System.Drawing.Point(4, 48);
-            this.tlbebase.Name = "tlbebase";
-            this.tlbebase.RowCount = 1;
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.43023F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.84884F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tlbebase.RunBool = false;
-            this.tlbebase.SelectColumn = -1;
-            this.tlbebase.SelectRow = -1;
-            this.tlbebase.Size = new System.Drawing.Size(621, 347);
-            this.tlbebase.TabIndex = 0;
-            // 
             // panel10
             // 
             this.panel10.Controls.Add(this.textBox1);
@@ -863,95 +788,12 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(629, 399);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
-            // tlbe
-            // 
-            this.tlbe.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tlbe.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tlbe.ColumnCount = 1;
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.59984F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.06683F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tlbe.ContextMenuStrip = this.contextMenuStrip1;
-            this.tlbe.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tlbe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlbe.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tlbe.Location = new System.Drawing.Point(4, 46);
-            this.tlbe.Name = "tlbe";
-            this.tlbe.RowCount = 1;
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.43023F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.84884F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
-            this.tlbe.RunBool = false;
-            this.tlbe.SelectColumn = -1;
-            this.tlbe.SelectRow = -1;
-            this.tlbe.Size = new System.Drawing.Size(621, 349);
-            this.tlbe.TabIndex = 0;
-            this.tlbe.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tlbe_CellPaint);
-            this.tlbe.Click += new System.EventHandler(this.tlbe_Click);
-            this.tlbe.Paint += new System.Windows.Forms.PaintEventHandler(this.tlbe_Paint);
-            this.tlbe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseMove);
-            this.tlbe.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseUp);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.添加对象ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 26);
             // 
             // 添加对象ToolStripMenuItem
             // 
@@ -965,62 +807,62 @@
             this.试样输入ToolStripMenuItem,
             this.原始数据ToolStripMenuItem});
             this.添加对象ToolStripMenuItem.Name = "添加对象ToolStripMenuItem";
-            this.添加对象ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.添加对象ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.添加对象ToolStripMenuItem.Text = "添加屏幕组件";
             // 
             // 结果1ToolStripMenuItem
             // 
             this.结果1ToolStripMenuItem.Name = "结果1ToolStripMenuItem";
-            this.结果1ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.结果1ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.结果1ToolStripMenuItem.Text = "结果1";
             this.结果1ToolStripMenuItem.Click += new System.EventHandler(this.结果1ToolStripMenuItem_Click);
             // 
             // 结果2ToolStripMenuItem
             // 
             this.结果2ToolStripMenuItem.Name = "结果2ToolStripMenuItem";
-            this.结果2ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.结果2ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.结果2ToolStripMenuItem.Text = "结果2";
             this.结果2ToolStripMenuItem.Click += new System.EventHandler(this.结果2ToolStripMenuItem_Click);
             // 
             // 曲线图1ToolStripMenuItem
             // 
             this.曲线图1ToolStripMenuItem.Name = "曲线图1ToolStripMenuItem";
-            this.曲线图1ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.曲线图1ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.曲线图1ToolStripMenuItem.Text = "曲线图1";
             this.曲线图1ToolStripMenuItem.Click += new System.EventHandler(this.曲线图1ToolStripMenuItem_Click);
             // 
             // 曲线图2ToolStripMenuItem
             // 
             this.曲线图2ToolStripMenuItem.Name = "曲线图2ToolStripMenuItem";
-            this.曲线图2ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.曲线图2ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.曲线图2ToolStripMenuItem.Text = "曲线图2";
             this.曲线图2ToolStripMenuItem.Click += new System.EventHandler(this.曲线图2ToolStripMenuItem_Click);
             // 
             // 仪表1ToolStripMenuItem
             // 
             this.仪表1ToolStripMenuItem.Name = "仪表1ToolStripMenuItem";
-            this.仪表1ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.仪表1ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.仪表1ToolStripMenuItem.Text = "仪表1";
             this.仪表1ToolStripMenuItem.Click += new System.EventHandler(this.仪表1ToolStripMenuItem_Click);
             // 
             // 仪表2ToolStripMenuItem
             // 
             this.仪表2ToolStripMenuItem.Name = "仪表2ToolStripMenuItem";
-            this.仪表2ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.仪表2ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.仪表2ToolStripMenuItem.Text = "仪表2";
             this.仪表2ToolStripMenuItem.Click += new System.EventHandler(this.仪表2ToolStripMenuItem_Click);
             // 
             // 试样输入ToolStripMenuItem
             // 
             this.试样输入ToolStripMenuItem.Name = "试样输入ToolStripMenuItem";
-            this.试样输入ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.试样输入ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.试样输入ToolStripMenuItem.Text = "试样输入";
             this.试样输入ToolStripMenuItem.Click += new System.EventHandler(this.试样输入ToolStripMenuItem_Click);
             // 
             // 原始数据ToolStripMenuItem
             // 
             this.原始数据ToolStripMenuItem.Name = "原始数据ToolStripMenuItem";
-            this.原始数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.原始数据ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.原始数据ToolStripMenuItem.Text = "原始数据";
             this.原始数据ToolStripMenuItem.Click += new System.EventHandler(this.原始数据ToolStripMenuItem_Click);
             // 
@@ -1137,40 +979,40 @@
             this.水平减少ToolStripMenuItem,
             this.垂直减少ToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(125, 114);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(119, 114);
             // 
             // 删除对象ToolStripMenuItem1
             // 
             this.删除对象ToolStripMenuItem1.Name = "删除对象ToolStripMenuItem1";
-            this.删除对象ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.删除对象ToolStripMenuItem1.Size = new System.Drawing.Size(118, 22);
             this.删除对象ToolStripMenuItem1.Text = "删除对象";
             this.删除对象ToolStripMenuItem1.Click += new System.EventHandler(this.删除对象ToolStripMenuItem1_Click);
             // 
             // 水平扩展ToolStripMenuItem
             // 
             this.水平扩展ToolStripMenuItem.Name = "水平扩展ToolStripMenuItem";
-            this.水平扩展ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.水平扩展ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.水平扩展ToolStripMenuItem.Text = "水平增加";
             this.水平扩展ToolStripMenuItem.Click += new System.EventHandler(this.水平扩展ToolStripMenuItem_Click);
             // 
             // 垂直增加ToolStripMenuItem
             // 
             this.垂直增加ToolStripMenuItem.Name = "垂直增加ToolStripMenuItem";
-            this.垂直增加ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.垂直增加ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.垂直增加ToolStripMenuItem.Text = "垂直增加";
             this.垂直增加ToolStripMenuItem.Click += new System.EventHandler(this.垂直增加ToolStripMenuItem_Click);
             // 
             // 水平减少ToolStripMenuItem
             // 
             this.水平减少ToolStripMenuItem.Name = "水平减少ToolStripMenuItem";
-            this.水平减少ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.水平减少ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.水平减少ToolStripMenuItem.Text = "水平减少";
             this.水平减少ToolStripMenuItem.Click += new System.EventHandler(this.水平减少ToolStripMenuItem_Click);
             // 
             // 垂直减少ToolStripMenuItem
             // 
             this.垂直减少ToolStripMenuItem.Name = "垂直减少ToolStripMenuItem";
-            this.垂直减少ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.垂直减少ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.垂直减少ToolStripMenuItem.Text = "垂直减少";
             this.垂直减少ToolStripMenuItem.Click += new System.EventHandler(this.垂直减少ToolStripMenuItem_Click);
             // 
@@ -1187,6 +1029,165 @@
             this.imageList1.Images.SetKeyName(2, "输入layout1.bmp");
             this.imageList1.Images.SetKeyName(3, "额外显示layout1.bmp");
             this.imageList1.Images.SetKeyName(4, "原始数据layout1.bmp");
+            // 
+            // tlbebase
+            // 
+            this.tlbebase.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tlbebase.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tlbebase.ColumnCount = 1;
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.59984F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.06683F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbebase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tlbebase.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlbebase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlbebase.Location = new System.Drawing.Point(4, 48);
+            this.tlbebase.Name = "tlbebase";
+            this.tlbebase.RowCount = 1;
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.43023F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.84884F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tlbebase.RunBool = false;
+            this.tlbebase.SelectColumn = -1;
+            this.tlbebase.SelectRow = -1;
+            this.tlbebase.Size = new System.Drawing.Size(621, 347);
+            this.tlbebase.TabIndex = 0;
+            // 
+            // tlbe
+            // 
+            this.tlbe.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tlbe.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tlbe.ColumnCount = 1;
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.59984F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.06683F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlbe.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tlbe.ContextMenuStrip = this.contextMenuStrip1;
+            this.tlbe.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlbe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlbe.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tlbe.Location = new System.Drawing.Point(4, 46);
+            this.tlbe.Name = "tlbe";
+            this.tlbe.RowCount = 1;
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.43023F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.84884F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 348F));
+            this.tlbe.RunBool = false;
+            this.tlbe.SelectColumn = -1;
+            this.tlbe.SelectRow = -1;
+            this.tlbe.Size = new System.Drawing.Size(621, 349);
+            this.tlbe.TabIndex = 0;
+            this.tlbe.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tlbe_CellPaint);
+            this.tlbe.Click += new System.EventHandler(this.tlbe_Click);
+            this.tlbe.Paint += new System.Windows.Forms.PaintEventHandler(this.tlbe_Paint);
+            this.tlbe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseMove);
+            this.tlbe.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseUp);
             // 
             // UserControl常规
             // 

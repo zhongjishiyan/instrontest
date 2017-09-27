@@ -245,7 +245,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(941, 97);
+            this.tabControl1.Size = new System.Drawing.Size(941, 68);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -254,7 +254,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(933, 71);
+            this.tabPage1.Size = new System.Drawing.Size(933, 48);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
@@ -263,7 +263,7 @@
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -271,14 +271,14 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(927, 69);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(927, 71);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(628, 4);
+            this.panel4.Location = new System.Drawing.Point(879, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(32, 36);
             this.panel4.TabIndex = 1;
@@ -290,7 +290,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(617, 61);
+            this.panel1.Size = new System.Drawing.Size(868, 63);
             this.panel1.TabIndex = 2;
             // 
             // label2
@@ -298,7 +298,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Location = new System.Drawing.Point(0, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(617, 48);
+            this.label2.Size = new System.Drawing.Size(868, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "    在此屏幕中可以设置报告模板的基本框架，包括页面走向和页边距。 ";
             // 
@@ -309,7 +309,7 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(617, 16);
+            this.label1.Size = new System.Drawing.Size(868, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "设置报告模板 － 常规 ";
             // 
@@ -318,7 +318,7 @@
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(933, 71);
+            this.tabPage2.Size = new System.Drawing.Size(933, 48);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -327,7 +327,7 @@
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -342,7 +342,7 @@
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(633, 4);
+            this.panel3.Location = new System.Drawing.Point(880, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(32, 36);
             this.panel3.TabIndex = 1;
@@ -354,7 +354,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(622, 61);
+            this.panel5.Size = new System.Drawing.Size(869, 61);
             this.panel5.TabIndex = 2;
             // 
             // label3
@@ -362,7 +362,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Location = new System.Drawing.Point(0, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(622, 48);
+            this.label3.Size = new System.Drawing.Size(869, 48);
             this.label3.TabIndex = 2;
             this.label3.Text = "    在此屏幕中可以设置每页顶部的页眉的内容。 ";
             // 
@@ -373,7 +373,7 @@
             this.label4.ForeColor = System.Drawing.Color.Teal;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(622, 16);
+            this.label4.Size = new System.Drawing.Size(869, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "设置报告模板 － 页眉 ";
             // 
@@ -382,7 +382,7 @@
             this.tabPage3.Controls.Add(this.tableLayoutPanel2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(933, 71);
+            this.tabPage3.Size = new System.Drawing.Size(933, 48);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
@@ -391,7 +391,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 304F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -406,7 +406,7 @@
             // 
             this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(631, 4);
+            this.panel6.Location = new System.Drawing.Point(877, 4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(32, 36);
             this.panel6.TabIndex = 1;
@@ -418,7 +418,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(620, 61);
+            this.panel7.Size = new System.Drawing.Size(866, 61);
             this.panel7.TabIndex = 2;
             // 
             // label5
@@ -426,7 +426,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Location = new System.Drawing.Point(0, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(620, 48);
+            this.label5.Size = new System.Drawing.Size(866, 48);
             this.label5.TabIndex = 2;
             this.label5.Text = "     在此屏幕中可以选择要包含在报告中的单元。";
             // 
@@ -437,7 +437,7 @@
             this.label6.ForeColor = System.Drawing.Color.Teal;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(620, 16);
+            this.label6.Size = new System.Drawing.Size(866, 16);
             this.label6.TabIndex = 1;
             this.label6.Text = "设置报告模板 － 正文";
             // 
@@ -446,7 +446,7 @@
             this.tabPage4.Controls.Add(this.tableLayoutPanel4);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(933, 71);
+            this.tabPage4.Size = new System.Drawing.Size(933, 42);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
@@ -455,7 +455,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 305F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel4.Controls.Add(this.panel8, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel9, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -470,7 +470,7 @@
             // 
             this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel8.Location = new System.Drawing.Point(630, 4);
+            this.panel8.Location = new System.Drawing.Point(882, 4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(32, 36);
             this.panel8.TabIndex = 1;
@@ -482,7 +482,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(4, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(619, 61);
+            this.panel9.Size = new System.Drawing.Size(871, 61);
             this.panel9.TabIndex = 2;
             // 
             // label7
@@ -490,7 +490,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Top;
             this.label7.Location = new System.Drawing.Point(0, 16);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(619, 48);
+            this.label7.Size = new System.Drawing.Size(871, 48);
             this.label7.TabIndex = 2;
             this.label7.Text = "     在此屏幕中可以设置每页底部的页脚的内容。";
             // 
@@ -501,7 +501,7 @@
             this.label8.ForeColor = System.Drawing.Color.Teal;
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(619, 16);
+            this.label8.Size = new System.Drawing.Size(871, 16);
             this.label8.TabIndex = 1;
             this.label8.Text = "设置报告模板 － 页脚";
             // 
@@ -523,9 +523,9 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.splitContainer1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 97);
+            this.panel2.Location = new System.Drawing.Point(0, 68);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(941, 725);
+            this.panel2.Size = new System.Drawing.Size(941, 754);
             this.panel2.TabIndex = 2;
             // 
             // splitContainer1
@@ -542,7 +542,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel10);
-            this.splitContainer1.Size = new System.Drawing.Size(939, 723);
+            this.splitContainer1.Size = new System.Drawing.Size(939, 752);
             this.splitContainer1.SplitterDistance = 521;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -561,7 +561,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(519, 721);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(519, 750);
             this.tableLayoutPanel5.TabIndex = 0;
             this.tableLayoutPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel5_Paint);
             // 
@@ -581,7 +581,7 @@
             this.printPreviewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printPreviewControl1.Location = new System.Drawing.Point(3, 47);
             this.printPreviewControl1.Name = "printPreviewControl1";
-            this.printPreviewControl1.Size = new System.Drawing.Size(513, 671);
+            this.printPreviewControl1.Size = new System.Drawing.Size(513, 700);
             this.printPreviewControl1.TabIndex = 2;
             // 
             // instrumentControlStrip1
@@ -601,7 +601,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(56, 21);
+            this.toolStripLabel1.Size = new System.Drawing.Size(53, 21);
             this.toolStripLabel1.Text = "放大缩小";
             // 
             // toolStripPropertyEditor1
@@ -625,7 +625,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(48, 21);
+            this.toolStripButton1.Size = new System.Drawing.Size(45, 21);
             this.toolStripButton1.Text = "上一页";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -635,7 +635,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(48, 21);
+            this.toolStripButton2.Size = new System.Drawing.Size(45, 21);
             this.toolStripButton2.Text = "下一页";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
@@ -645,7 +645,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(412, 721);
+            this.panel10.Size = new System.Drawing.Size(412, 750);
             this.panel10.TabIndex = 0;
             // 
             // tabControl2
@@ -658,7 +658,7 @@
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(412, 721);
+            this.tabControl2.Size = new System.Drawing.Size(412, 750);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage5
@@ -667,7 +667,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(404, 695);
+            this.tabPage5.Size = new System.Drawing.Size(404, 724);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
@@ -679,7 +679,7 @@
             this.grp1.ForeColor = System.Drawing.Color.Teal;
             this.grp1.Location = new System.Drawing.Point(3, 3);
             this.grp1.Name = "grp1";
-            this.grp1.Size = new System.Drawing.Size(398, 689);
+            this.grp1.Size = new System.Drawing.Size(398, 718);
             this.grp1.TabIndex = 0;
             this.grp1.TabStop = false;
             this.grp1.Text = "页设置";
@@ -845,7 +845,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(404, 695);
+            this.tabPage6.Size = new System.Drawing.Size(404, 718);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
@@ -856,7 +856,7 @@
             this.grp2.ForeColor = System.Drawing.Color.Teal;
             this.grp2.Location = new System.Drawing.Point(3, 3);
             this.grp2.Name = "grp2";
-            this.grp2.Size = new System.Drawing.Size(398, 689);
+            this.grp2.Size = new System.Drawing.Size(398, 712);
             this.grp2.TabIndex = 0;
             this.grp2.TabStop = false;
             this.grp2.Text = "页眉";
@@ -875,7 +875,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(392, 669);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(392, 692);
             this.tableLayoutPanel11.TabIndex = 1;
             // 
             // tableLayoutPanel13
@@ -894,7 +894,7 @@
             this.tableLayoutPanel13.Controls.Add(this.chkheader, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.peditheaderfont, 1, 3);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 352);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 364);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 6;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
@@ -1063,7 +1063,7 @@
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(386, 313);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(386, 325);
             this.tableLayoutPanel12.TabIndex = 8;
             // 
             // label14
@@ -1097,7 +1097,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(170, 24);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(45, 286);
+            this.panel12.Size = new System.Drawing.Size(45, 298);
             this.panel12.TabIndex = 4;
             // 
             // btnheaderdown
@@ -1182,7 +1182,7 @@
             this.tabPage7.Controls.Add(this.groupBox3);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(404, 695);
+            this.tabPage7.Size = new System.Drawing.Size(404, 718);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
@@ -1194,7 +1194,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Teal;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(404, 695);
+            this.groupBox3.Size = new System.Drawing.Size(404, 718);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "报告内容";
@@ -1213,8 +1213,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel11);
-            this.splitContainer2.Size = new System.Drawing.Size(398, 675);
-            this.splitContainer2.SplitterDistance = 369;
+            this.splitContainer2.Size = new System.Drawing.Size(398, 698);
+            this.splitContainer2.SplitterDistance = 381;
             this.splitContainer2.TabIndex = 0;
             // 
             // tableLayoutPanel15
@@ -1234,7 +1234,7 @@
             this.tableLayoutPanel15.RowCount = 2;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(398, 369);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(398, 381);
             this.tableLayoutPanel15.TabIndex = 4;
             // 
             // label16
@@ -1268,7 +1268,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(176, 24);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(45, 342);
+            this.panel14.Size = new System.Drawing.Size(45, 354);
             this.panel14.TabIndex = 4;
             // 
             // btnreportdown
@@ -1317,7 +1317,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(398, 302);
+            this.panel11.Size = new System.Drawing.Size(398, 313);
             this.panel11.TabIndex = 0;
             // 
             // tableLayoutPanel16
@@ -1332,7 +1332,7 @@
             this.tableLayoutPanel16.RowCount = 2;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(398, 302);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(398, 313);
             this.tableLayoutPanel16.TabIndex = 7;
             // 
             // lblcaption
@@ -1548,7 +1548,7 @@
             this.tabPage8.Controls.Add(this.groupBox4);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(404, 695);
+            this.tabPage8.Size = new System.Drawing.Size(404, 718);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
@@ -1560,7 +1560,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.Teal;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(404, 695);
+            this.groupBox4.Size = new System.Drawing.Size(404, 718);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "页脚";
@@ -1579,7 +1579,7 @@
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(398, 675);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(398, 698);
             this.tableLayoutPanel18.TabIndex = 1;
             // 
             // tableLayoutPanel19
@@ -1598,7 +1598,7 @@
             this.tableLayoutPanel19.Controls.Add(this.chkfooter, 0, 1);
             this.tableLayoutPanel19.Controls.Add(this.peditfooterfont, 1, 3);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 355);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 366);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 6;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
@@ -1766,7 +1766,7 @@
             this.tableLayoutPanel14.RowCount = 2;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(392, 317);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(392, 328);
             this.tableLayoutPanel14.TabIndex = 9;
             // 
             // label22
@@ -1800,7 +1800,7 @@
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(173, 24);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(45, 290);
+            this.panel13.Size = new System.Drawing.Size(45, 301);
             this.panel13.TabIndex = 4;
             // 
             // btnfooterdown
@@ -1891,7 +1891,7 @@
             this.listBox2.ItemHeight = 12;
             this.listBox2.Location = new System.Drawing.Point(3, 24);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(161, 286);
+            this.listBox2.Size = new System.Drawing.Size(161, 298);
             this.listBox2.TabIndex = 5;
             // 
             // listReport2
@@ -1901,7 +1901,7 @@
             this.listReport2.ItemHeight = 12;
             this.listReport2.Location = new System.Drawing.Point(221, 24);
             this.listReport2.Name = "listReport2";
-            this.listReport2.Size = new System.Drawing.Size(162, 286);
+            this.listReport2.Size = new System.Drawing.Size(162, 298);
             this.listReport2.TabIndex = 6;
             this.listReport2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listReport2_MouseClick);
             // 
@@ -1912,7 +1912,7 @@
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(3, 24);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(167, 342);
+            this.listBox1.Size = new System.Drawing.Size(167, 354);
             this.listBox1.TabIndex = 5;
             // 
             // listReport1
@@ -1922,7 +1922,7 @@
             this.listReport1.ItemHeight = 12;
             this.listReport1.Location = new System.Drawing.Point(227, 24);
             this.listReport1.Name = "listReport1";
-            this.listReport1.Size = new System.Drawing.Size(168, 342);
+            this.listReport1.Size = new System.Drawing.Size(168, 354);
             this.listReport1.TabIndex = 6;
             this.listReport1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listReport1_MouseClick);
             // 
@@ -1933,7 +1933,7 @@
             this.listBox3.ItemHeight = 12;
             this.listBox3.Location = new System.Drawing.Point(3, 24);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(164, 290);
+            this.listBox3.Size = new System.Drawing.Size(164, 301);
             this.listBox3.TabIndex = 5;
             // 
             // listReport3
@@ -1943,7 +1943,7 @@
             this.listReport3.ItemHeight = 12;
             this.listReport3.Location = new System.Drawing.Point(224, 24);
             this.listReport3.Name = "listReport3";
-            this.listReport3.Size = new System.Drawing.Size(165, 290);
+            this.listReport3.Size = new System.Drawing.Size(165, 301);
             this.listReport3.TabIndex = 6;
             this.listReport3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listReport3_MouseClick);
             // 

@@ -993,21 +993,21 @@ namespace TabHeaderDemo
 
             //e.Graphics.DrawImage(this.imageList1.Images[0], e.Bounds.Left, e.Bounds.Top);
 
-            StringFormat sf = new StringFormat(StringFormatFlags.NoWrap);
+            StringFormat sf = new StringFormat(StringFormatFlags.NoWrap  );
 
             SizeF sizef = e.Graphics.MeasureString(listBox1.Items[e.Index].ToString(), listBox1.Font, Int32.MaxValue, sf);
 
-            t = Convert.ToInt16(Math.Round(sizef.Width / (listBox1.Width )));
-            t = t + 1;
+            t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox1.Width )));
+          //  t = t + 1;
 
 
 
 
-            RectangleF rf = new RectangleF(e.Bounds.X , e.Bounds.Y + 2, listBox1.Width , e.Font.Height * t);
+            RectangleF rf = new RectangleF(e.Bounds.X , e.Bounds.Y + 1, listBox1.Width , e.Font.Height * t);
 
 
 
-            e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, new SolidBrush(fcolor), rf);
+            e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), listBox1.Font, new SolidBrush(fcolor), rf);
             sf.Dispose();
         }
 
@@ -1017,18 +1017,19 @@ namespace TabHeaderDemo
 
 
            
-            StringFormat sf = new StringFormat(StringFormatFlags.NoWrap);
+            StringFormat sf = new StringFormat(StringFormatFlags.NoWrap );
 
 
             SizeF sizef = e.Graphics.MeasureString(listBox1.Items[e.Index].ToString(), listBox1.Font, Int32.MaxValue, sf);
 
-            t = Convert.ToInt16(Math.Floor(sizef.Width / (listBox1.Width )));
+            t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox1.Width )));
 
-            t = t + 1;
+           // t = t + 1;
             if (t == 0)
             {
                 t = 1;
             }
+            
             e.ItemHeight = t * listBox1.Font.Height + 5;
 
 

@@ -41,21 +41,21 @@
             treeNode4});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelbutton = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelback1 = new System.Windows.Forms.Panel();
-            this.panelback = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
-            this.dialog = new System.Windows.Forms.PrintDialog();
             this.btnprint = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnopen = new TabHeaderDemo.ButtonExNew(this.components);
             this.buttonEx1 = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnsave = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnsaveas = new TabHeaderDemo.ButtonExNew(this.components);
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelback1 = new System.Windows.Forms.Panel();
+            this.panelback = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new TabHeaderDemo.TreeListEx(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.dialog = new System.Windows.Forms.PrintDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelbutton.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -65,6 +65,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -92,85 +93,6 @@
             this.panelbutton.Name = "panelbutton";
             this.panelbutton.Size = new System.Drawing.Size(92, 573);
             this.panelbutton.TabIndex = 5;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.panelback1, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(190, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(390, 573);
-            this.tableLayoutPanel3.TabIndex = 4;
-            // 
-            // panelback1
-            // 
-            this.panelback1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panelback1.Controls.Add(this.panelback);
-            this.panelback1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelback1.Location = new System.Drawing.Point(3, 8);
-            this.panelback1.Name = "panelback1";
-            this.panelback1.Size = new System.Drawing.Size(384, 557);
-            this.panelback1.TabIndex = 0;
-            // 
-            // panelback
-            // 
-            this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelback.Location = new System.Drawing.Point(0, 0);
-            this.panelback.Name = "panelback";
-            this.panelback.Size = new System.Drawing.Size(384, 557);
-            this.panelback.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.treeView1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 573F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(181, 573);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "bg1.ico");
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(14, 380);
-            this.panel1.TabIndex = 3;
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Black;
-            this.imageList2.Images.SetKeyName(0, "mt11.ico");
-            this.imageList2.Images.SetKeyName(1, "mt12.ico");
-            // 
-            // imageList3
-            // 
-            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
-            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList3.Images.SetKeyName(0, "13.ico");
-            // 
-            // dialog
-            // 
-            this.dialog.UseEXDialog = true;
             // 
             // btnprint
             // 
@@ -281,6 +203,55 @@
             this.btnsaveas.UseVisualStyleBackColor = false;
             this.btnsaveas.Click += new System.EventHandler(this.button7_Click);
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.panelback1, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(190, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(390, 573);
+            this.tableLayoutPanel3.TabIndex = 4;
+            // 
+            // panelback1
+            // 
+            this.panelback1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelback1.Controls.Add(this.panelback);
+            this.panelback1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelback1.Location = new System.Drawing.Point(3, 8);
+            this.panelback1.Name = "panelback1";
+            this.panelback1.Size = new System.Drawing.Size(384, 557);
+            this.panelback1.TabIndex = 0;
+            // 
+            // panelback
+            // 
+            this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelback.Location = new System.Drawing.Point(0, 0);
+            this.panelback.Name = "panelback";
+            this.panelback.Size = new System.Drawing.Size(384, 557);
+            this.panelback.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.treeView1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 573F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(181, 573);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
             // treeView1
             // 
             this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -317,11 +288,43 @@
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "bg1.ico");
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(14, 380);
+            this.panel1.TabIndex = 3;
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Black;
+            this.imageList2.Images.SetKeyName(0, "mt11.ico");
+            this.imageList2.Images.SetKeyName(1, "mt12.ico");
+            // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "13.ico");
+            // 
+            // dialog
+            // 
+            this.dialog.UseEXDialog = true;
+            // 
             // UserReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.Name = "UserReport";
             this.Size = new System.Drawing.Size(681, 579);
             this.Load += new System.EventHandler(this.UserReport_Load);

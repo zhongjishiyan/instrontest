@@ -67,6 +67,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -335,7 +336,7 @@
             this.Name = "UserManage";
             this.Size = new System.Drawing.Size(681, 579);
             this.Load += new System.EventHandler(this.UserManage_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.UserReport_Paint);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.UserManage_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panelback1.ResumeLayout(false);

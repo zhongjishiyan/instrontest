@@ -109,7 +109,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\AppleLabApplication.dll</HintPath>
     </Reference>
-    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=00e95de9db4717aa, processorArchitecture=MSIL">
+    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=00e95de9db4717aa, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\ClsStaticStation.dll</HintPath>
     </Reference>
@@ -178,6 +178,12 @@
     </Compile>
     <Compile Include="Frm\FormTorsionTransducer.Designer.cs">
       <DependentUpon>FormTorsionTransducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlStep.Designer.cs">
+      <DependentUpon>UserControlStep.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl扭转.cs">
       <SubType>UserControl</SubType>
@@ -749,6 +755,9 @@
     <EmbeddedResource Include="UserControlSpe.resx">
       <DependentUpon>UserControlSpe.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlStep.resx">
+      <DependentUpon>UserControlStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlTop.resx">
       <DependentUpon>UserControlTop.cs</DependentUpon>

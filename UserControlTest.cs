@@ -749,7 +749,7 @@ namespace TabHeaderDemo
 
                 
                 GlobeVal.userControltest1.paneltestright.Controls.Add(GlobeVal.dynset);
-
+                
                
 
                 GlobeVal.userControltest1.paneltestright.Visible = true;
@@ -1181,7 +1181,7 @@ namespace TabHeaderDemo
 
                 if (GlobeVal.myarm.mtestrun == false)
                 {
-                     btnend_Click(null, null);
+                     //btnend_Click(null, null);
                 }
             }
         }
@@ -1233,6 +1233,17 @@ namespace TabHeaderDemo
                     image.Save(GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + ".tif", ImageFormat.Tiff);
                 }
             }
+        }
+
+        private void tableLayoutPanelback_Resize(object sender, EventArgs e)
+        {
+            splitContainer1.Dock = DockStyle.None;
+            splitContainer1.Dock = DockStyle.Fill;
+        }
+
+        private void paneltestright_SizeChanged_1(object sender, EventArgs e)
+        {
+             
         }
     }
 }

@@ -12,6 +12,11 @@ namespace TabHeaderDemo
         {
           
         }
+        public static   string mmethodfilename;
+
+        public static CComLibrary.FileStruct filesavecmp;
+
+        public static int lastindex = -1;
 
         public static  Panel backpanel;
         public static  UserControlTest  userControltest1;

@@ -1922,13 +1922,14 @@ namespace CComLibrary
                 {
                     if (controlmode == 0)
                     {
-                        s = s + "mm/s  ";
+                        s = s + "mm/s,";
                     }
                     else
                     {
-                        s = s + "kN/s ";
+                        s = s + "kN/s";
 
-                        s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
+                        s = s + "[";
+                        s=s+CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
 
                     }
 
@@ -2012,10 +2013,61 @@ namespace CComLibrary
     }
 
     [Serializable]
-    public class FileStruct
+    public class FileStruct :IEquatable<FileStruct >
     {
-      
+        public string SerializeObject(object obj)
+        {
+            if (null == obj)
+                return string.Empty;
+            Type type = obj.GetType();
+            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
+            StringBuilder objString = new StringBuilder();
+            foreach (FieldInfo field in fields)
+            {
+                object value = field.GetValue(obj);     //取得字段的值
+                objString.Append(field.Name + ":" + value + ";");
+            }
+            return objString.ToString();
+        }
 
+        // implements IEquatable<Staff>
+        public bool Equals(FileStruct other)
+        {
+       
+
+
+            if (null == this || null == other)
+                return false;
+            if (this.GetType() != other.GetType())
+                return false;
+            return SerializeObject(this).Equals(SerializeObject(other));
+
+
+           
+
+        }
+
+        // override Equals
+        public override bool Equals(object obj)
+        {
+           
+           
+            if (obj == null)
+                return this == null;
+
+            if (!(obj is FileStruct))
+                return false;
+
+            FileStruct  s = obj as FileStruct;
+
+            return this.methodname  == s.methodname;
+        }
+
+        // override GetHashCode
+        public override int GetHashCode()
+        {
+            return this.methodname.GetHashCode();
+        }
         public string methodname=""; //方法名称
         public string datapath = "";
 

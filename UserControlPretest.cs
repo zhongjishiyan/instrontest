@@ -102,7 +102,7 @@ namespace TabHeaderDemo
             this.tableLayoutPanel8.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel8, true, null);
 
             this.tableLayoutPanel9.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel9, true, null);
-
+           
         }
 
         private void UserControl5_Paint(object sender, PaintEventArgs e)
@@ -284,6 +284,8 @@ namespace TabHeaderDemo
                
 
                 GlobeVal.userControltest1.Visible = false;
+                
+           
                 GlobeVal.UserControlMain1.tabControl1.SelectedIndex = 3;
 
                 GlobeVal.userControltest1.tableLayoutPanelback.RowStyles[1].Height = 0;
@@ -295,42 +297,47 @@ namespace TabHeaderDemo
 
                 GlobeVal.userControltest1.paneltestright.Visible = false;
 
-                GlobeVal.userControltest1.paneltestright.Controls.Clear();
+               
 
                 GlobeVal.userControltest1.lstspe.Visible = true;
-
 
 
                 if (GlobeVal.dynset == null)
                 {
 
                     GlobeVal.dynset = new UserControlDynSet();
-                    GlobeVal.dynset.Dock = DockStyle.Fill;
-                    GlobeVal.dynset.BackColor = Color.Cyan;
-                    GlobeVal.dynset.tlbetest.Controls.Clear();
-                    GlobeVal.dynset.tlbetest.RowCount = 0;
-                    GlobeVal.dynset.tlbetest.ColumnCount = 0;
-                    GlobeVal.dynset.Dock = DockStyle.None;
-                    //GlobeVal.userControltest1.OpenDefaultlayout(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\layout\\模板1.lay");
+
                 }
+              
+                
+                GlobeVal.dynset.Dock = DockStyle.Fill;
+                GlobeVal.dynset.BackColor = Color.Cyan;
+                GlobeVal.dynset.tlbetest.Controls.Clear();
+                GlobeVal.dynset.tlbetest.RowCount = 0;
+                GlobeVal.dynset.tlbetest.ColumnCount = 0;
+                GlobeVal.dynset.Dock = DockStyle.None;
 
                 GlobeVal.userControltest1.OpenDefaultlayout(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\layout\\模板1.lay");
-                
 
+                GlobeVal.dynset.Dock = DockStyle.Fill;
+                GlobeVal.userControltest1.paneltestright.Controls.Clear();
 
                 GlobeVal.userControltest1.paneltestright.Controls.Add(GlobeVal.dynset);
 
+                GlobeVal.dynset.tlbetest.Dock = DockStyle.Fill;
 
+            
+                GlobeVal.dynset.tlbetest.ResetSizeAndSizeTypes();
 
                 GlobeVal.userControltest1.paneltestright.Visible = true;
 
-                GlobeVal.dynset.Dock = DockStyle.Fill;
+              
 
-                GlobeVal.userControltest1.paneltestright.Refresh();
+               
 
                 
 
-                GlobeVal.dynset.tlbetest.ResetSizeAndSizeTypes();
+               
 
 
                 if (newfile == true)
@@ -342,8 +349,13 @@ namespace TabHeaderDemo
                     GlobeVal.userControltest1.FreeFormRefresh(true,true);
                 }
 
+              
                 GlobeVal.userControltest1.Visible = true;
+                GlobeVal.userControltest1.Visible = false;
+                GlobeVal.dynset.tlbetest.ResetSizeAndSizeTypes();
 
+
+                GlobeVal.userControltest1.Visible = true ;
             }
 
             GlobeVal.UserControlMain1.btnmmethod.Visible = true;
@@ -389,7 +401,7 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    MessageBox.Show("数据保存路径不存在");
+                    MessageBox.Show("数据保存路径不存在,请点击浏览选择试验路径");
                     return;
                 }
                 if (GlobeVal.mysys.SamplePath == "")
@@ -426,6 +438,14 @@ namespace TabHeaderDemo
             }
             else if (tabControl1.SelectedIndex == 1)
             {
+                if (System.IO.Directory.Exists(GlobeVal.mysys.SamplePath))
+                {
+                }
+                else
+                {
+                    MessageBox.Show("数据保存路径不存在,请点击浏览选择试验路径");
+                    return;
+                }
                 if (GlobeVal.mysys.SamplePath == "")
                 {
                     MessageBox.Show("请设置数据保存路径");
@@ -458,6 +478,16 @@ namespace TabHeaderDemo
                     string fileName = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\Method\\" + listView1.Items[listView1.SelectedIndices[0]].SubItems[1].Text + "\\"
                         + listView1.Items[listView1.SelectedIndices[0]].Text + ".dat";
                     gfilename = fileName;
+
+                    if (System.IO.File.Exists(fileName) == true)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("方法不存在");
+                        return; 
+                    }
 
                     if (fileName == "")
                     {
@@ -579,7 +609,18 @@ namespace TabHeaderDemo
                     string fileName = listView2.Items[listView2.SelectedIndices[0]].SubItems[3].Text + "\\"
                     + listView2.Items[listView2.SelectedIndices[0]].Text + ".spe";
                     gfilename = fileName;
-                        if (fileName == "")
+
+                    if (System.IO.File.Exists(fileName) == true)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("样品文件不存在");
+                        return;
+                    }
+
+                    if (fileName == "")
                         {
                             return;
                         }
@@ -986,8 +1027,8 @@ namespace TabHeaderDemo
 
             SizeF sizef = e.Graphics.MeasureString(listBox1.Items[e.Index].ToString(), listBox1.Font, Int32.MaxValue, sf);
 
-            t = Convert.ToInt16(Math.Round(sizef.Width / (listBox1.Width)));
-            t = t + 1;
+            t = Convert.ToInt16(Math.Ceiling (sizef.Width / (listBox1.Width)));
+         
 
 
 
@@ -1011,9 +1052,9 @@ namespace TabHeaderDemo
 
             SizeF sizef = e.Graphics.MeasureString(listBox1.Items[e.Index].ToString(), listBox1.Font, Int32.MaxValue, sf);
 
-            t = Convert.ToInt16(Math.Floor(sizef.Width / (listBox1.Width)));
+            t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox1.Width)));
 
-            t = t + 1;
+        
             if (t == 0)
             {
                 t = 1;
@@ -1164,8 +1205,8 @@ namespace TabHeaderDemo
 
             SizeF sizef = e.Graphics.MeasureString(listBox2.Items[e.Index].ToString(), listBox2.Font, Int32.MaxValue, sf);
 
-            t = Convert.ToInt16(Math.Round(sizef.Width / (listBox2.Width)));
-            t = t + 1;
+            t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox2.Width)));
+          
 
 
 
@@ -1189,9 +1230,9 @@ namespace TabHeaderDemo
 
             SizeF sizef = e.Graphics.MeasureString(listBox2.Items[e.Index].ToString(), listBox2.Font, Int32.MaxValue, sf);
 
-            t = Convert.ToInt16(Math.Floor(sizef.Width / (listBox2.Width)));
+            t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox2.Width)));
 
-            t = t + 1;
+          
             if (t == 0)
             {
                 t = 1;

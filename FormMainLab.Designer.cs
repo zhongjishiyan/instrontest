@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainLab));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsluser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tslblmachine = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslbldevice = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslblkind = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslblsample = new System.Windows.Forms.ToolStripStatusLabel();
@@ -73,7 +74,6 @@
             this.btnkeyimageList = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timermain = new System.Windows.Forms.Timer(this.components);
-            this.tslblmachine = new System.Windows.Forms.ToolStripStatusLabel();
             this.userControl11 = new TabHeaderDemo.UserControlTop();
             this.jMeter1 = new TabHeaderDemo.JMeter();
             this.jMeter2 = new TabHeaderDemo.JMeter();
@@ -110,102 +110,112 @@
             this.tslblEmergencyStop,
             this.tslbllimit,
             this.toolstatustest});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 533);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 537);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1136, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1136, 22);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // tsluser
             // 
-            this.tsluser.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tsluser.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tsluser.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tsluser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsluser.Name = "tsluser";
-            this.tsluser.Size = new System.Drawing.Size(60, 21);
+            this.tsluser.Size = new System.Drawing.Size(57, 17);
             this.tsluser.Text = "安全关闭";
+            // 
+            // tslblmachine
+            // 
+            this.tslblmachine.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslblmachine.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
+            this.tslblmachine.Name = "tslblmachine";
+            this.tslblmachine.Size = new System.Drawing.Size(93, 17);
+            this.tslblmachine.Text = "电子万能试验机";
             // 
             // tslbldevice
             // 
-            this.tslbldevice.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslbldevice.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslbldevice.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslbldevice.Name = "tslbldevice";
-            this.tslbldevice.Size = new System.Drawing.Size(72, 21);
+            this.tslbldevice.Size = new System.Drawing.Size(69, 17);
             this.tslbldevice.Text = "无可用设备";
             // 
             // tslblkind
             // 
-            this.tslblkind.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslblkind.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblkind.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblkind.Name = "tslblkind";
-            this.tslblkind.Size = new System.Drawing.Size(76, 21);
+            this.tslblkind.Size = new System.Drawing.Size(75, 17);
             this.tslblkind.Text = "试验类型 空";
             // 
             // tslblsample
             // 
-            this.tslblsample.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslblsample.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblsample.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblsample.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tslblsample.Name = "tslblsample";
-            this.tslblsample.Size = new System.Drawing.Size(72, 21);
+            this.tslblsample.Size = new System.Drawing.Size(69, 17);
             this.tslblsample.Text = "样品：关闭";
             // 
             // tslblmethod
             // 
-            this.tslblmethod.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslblmethod.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblmethod.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblmethod.Name = "tslblmethod";
-            this.tslblmethod.Size = new System.Drawing.Size(72, 21);
+            this.tslblmethod.Size = new System.Drawing.Size(69, 17);
             this.tslblmethod.Text = "方法：关闭";
             // 
             // tslblreport
             // 
-            this.tslblreport.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslblreport.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblreport.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblreport.Name = "tslblreport";
-            this.tslblreport.Size = new System.Drawing.Size(72, 21);
+            this.tslblreport.Size = new System.Drawing.Size(69, 17);
             this.tslblreport.Text = "报告：关闭";
             // 
             // tslblEmergencyStop
             // 
-            this.tslblEmergencyStop.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslblEmergencyStop.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblEmergencyStop.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblEmergencyStop.Name = "tslblEmergencyStop";
-            this.tslblEmergencyStop.Size = new System.Drawing.Size(72, 21);
+            this.tslblEmergencyStop.Size = new System.Drawing.Size(69, 17);
             this.tslblEmergencyStop.Text = "急停：关闭";
             // 
             // tslbllimit
             // 
-            this.tslbllimit.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslbllimit.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslbllimit.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslbllimit.Name = "tslbllimit";
-            this.tslbllimit.Size = new System.Drawing.Size(72, 21);
+            this.tslbllimit.Size = new System.Drawing.Size(69, 17);
             this.tslbllimit.Text = "限位：关闭";
             // 
             // toolstatustest
             // 
-            this.toolstatustest.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolstatustest.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolstatustest.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolstatustest.Name = "toolstatustest";
-            this.toolstatustest.Size = new System.Drawing.Size(103, 21);
+            this.toolstatustest.Size = new System.Drawing.Size(99, 17);
             this.toolstatustest.Text = "高级测试：步骤1";
             this.toolstatustest.Visible = false;
             // 
@@ -516,10 +526,11 @@
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.ItemSize = new System.Drawing.Size(20, 20);
             this.tabControl1.Location = new System.Drawing.Point(0, 126);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1136, 407);
+            this.tabControl1.Size = new System.Drawing.Size(1136, 411);
             this.tabControl1.TabIndex = 33;
             // 
             // tabPage1
@@ -528,7 +539,7 @@
             this.tabPage1.Location = new System.Drawing.Point(24, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1108, 399);
+            this.tabPage1.Size = new System.Drawing.Size(1108, 403);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -539,7 +550,7 @@
             this.tabPage2.Location = new System.Drawing.Point(24, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1108, 399);
+            this.tabPage2.Size = new System.Drawing.Size(1108, 403);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -559,7 +570,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1102, 393);
+            this.splitContainer1.Size = new System.Drawing.Size(1102, 397);
             this.splitContainer1.SplitterDistance = 769;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainer1_SplitterMoving);
@@ -573,7 +584,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(329, 393);
+            this.panel1.Size = new System.Drawing.Size(329, 397);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -589,7 +600,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 393);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 397);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -597,7 +608,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(323, 349);
+            this.panel2.Size = new System.Drawing.Size(323, 353);
             this.panel2.TabIndex = 0;
             // 
             // panel3
@@ -675,22 +686,12 @@
             // 
             this.timermain.Tick += new System.EventHandler(this.timermain_Tick);
             // 
-            // tslblmachine
-            // 
-            this.tslblmachine.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.tslblmachine.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
-            this.tslblmachine.Name = "tslblmachine";
-            this.tslblmachine.Size = new System.Drawing.Size(96, 21);
-            this.tslblmachine.Text = "电子万能试验机";
-            // 
             // userControl11
             // 
             this.userControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControl11.Location = new System.Drawing.Point(3, 3);
             this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(1102, 393);
+            this.userControl11.Size = new System.Drawing.Size(1102, 397);
             this.userControl11.TabIndex = 0;
             this.userControl11.Load += new System.EventHandler(this.userControl11_Load);
             // 
@@ -779,7 +780,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private UserControlTop userControl11;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TableLayoutPanel tlbmeter;
@@ -811,7 +811,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolstatustest;
         private System.Windows.Forms.Timer timermain;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.Timer timer1;
@@ -819,6 +818,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbochannel;
         public System.Windows.Forms.ToolStripStatusLabel tslblmachine;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.SplitContainer splitContainer1;
        
         
     

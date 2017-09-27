@@ -128,7 +128,6 @@
             this.scatterGraph.Cursors.AddRange(new NationalInstruments.UI.XYCursor[] {
             this.xyCursor1});
             this.scatterGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scatterGraph.InteractionModeDefault = NationalInstruments.UI.GraphDefaultInteractionMode.ZoomXY;
             this.scatterGraph.Location = new System.Drawing.Point(3, 3);
             this.scatterGraph.Name = "scatterGraph";
             this.scatterGraph.PlotAreaBorder = NationalInstruments.UI.Border.Solid;

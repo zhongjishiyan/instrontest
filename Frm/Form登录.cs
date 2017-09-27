@@ -39,6 +39,11 @@ namespace TabHeaderDemo.Frm
                     GlobeVal.mysys.CurentUserIndex = cboname.SelectedIndex;
                     result = true;
                 }
+                else
+                {
+                    MessageBox.Show("密码错误！"); 
+                    return;
+                }
             }
 
             Close();

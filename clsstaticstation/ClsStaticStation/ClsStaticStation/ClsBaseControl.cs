@@ -17,6 +17,9 @@ namespace ClsStaticStation
         public long merrorcount = 0;
        public Boolean mdemo = false;
        public int mcurseg = 0;
+
+      
+
         public double keepingtime;//显示保持时间
 
         public Boolean keepingstate;//显示保持状态
@@ -25,6 +28,8 @@ namespace ClsStaticStation
 
         public int current_returncount;//大循环次数
         public int total_returncount;//大循环总次数
+
+        public string mtishi = "";
 
         public virtual  void Init(int handle)
         {
@@ -88,7 +93,7 @@ namespace ClsStaticStation
         {
         }
 
-        public  virtual  void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount)
+        public  virtual  void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount,int action)
         {
         }
 

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlTop));
             this.pnlback = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.btnuser = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnexit = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnhelp = new TabHeaderDemo.ButtonExNew(this.components);
@@ -38,8 +40,6 @@
             this.btnreport = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnmethod = new TabHeaderDemo.ButtonExNew(this.components);
             this.btntest = new TabHeaderDemo.ButtonExNew(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.pnlback.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,26 @@
             this.pnlback.TabIndex = 34;
             this.pnlback.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlback_Paint);
             this.pnlback.Resize += new System.EventHandler(this.pnlback_Resize);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(53, 431);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(337, 102);
+            this.panel5.TabIndex = 21;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Location = new System.Drawing.Point(53, 58);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(315, 264);
+            this.panel6.TabIndex = 22;
             // 
             // btnuser
             // 
@@ -192,26 +212,6 @@
             this.btntest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btntest.UseVisualStyleBackColor = false;
             this.btntest.Click += new System.EventHandler(this.btntest_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(74, 549);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(337, 102);
-            this.panel5.TabIndex = 21;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(63, 71);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(315, 264);
-            this.panel6.TabIndex = 22;
             // 
             // UserControlTop
             // 

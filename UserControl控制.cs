@@ -409,9 +409,14 @@ namespace TabHeaderDemo
 
         }
 
-      
+
 
         public void Init_高级()
+        {
+           
+
+        }
+        public void Init_中级()
         {
            
             int i = 0;
@@ -538,10 +543,14 @@ namespace TabHeaderDemo
            
                 cbocontrolprocess.Items.Clear();
                 cbocontrolprocess.Items.Add("一般测试");
-                cbocontrolprocess.Items.Add("高级测试");
-			cbocontrolprocess.Items.Add("简单控制");  
-               
-                cbocontrolprocess.SelectedIndex = CComLibrary.GlobeVal.filesave.mcontrolprocess;
+                cbocontrolprocess.Items.Add("中级测试");
+			    cbocontrolprocess.Items.Add("简单测试");
+                cbocontrolprocess.Items.Add("高级测试"); 
+                
+           
+
+
+            cbocontrolprocess.SelectedIndex = CComLibrary.GlobeVal.filesave.mcontrolprocess;
 
                 numericEdit1.Value = CComLibrary.GlobeVal.filesave.SampleInterval;
                 num1.Value = CComLibrary.GlobeVal.filesave.crackvalue;
@@ -896,12 +905,16 @@ namespace TabHeaderDemo
 
                 if (sel == 6)
                 {
-                    Init_高级();
+                    Init_中级();
                 }
 
                 if (sel == 7)
                 {
                     Init_简单();
+                }
+                if (sel == 8)
+                {
+                    Init_高级(); 
                 }
 
                
@@ -911,7 +924,7 @@ namespace TabHeaderDemo
         {
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
-
+            tabControl3.ItemSize = new System.Drawing.Size(1, 1); 
              SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
@@ -1556,6 +1569,31 @@ namespace TabHeaderDemo
         }
 
         private void chkstep1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            userControlStep1.Kind = 0;
+            userControlStep1.selected = false;
+
+
+            userControlStep2.Kind = 1;
+            userControlStep2.selected = false;
+
+            userControlStep3.Kind = 2;
+            userControlStep3.selected = true;
+
+            tlpedit.Refresh();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
         }

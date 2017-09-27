@@ -310,14 +310,18 @@ namespace TabHeaderDemo
 				}
 				else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
 				{
-					UserControl控制1.Init(6);
+					
+                    UserControl控制1.Init(6);
 				}
 
 				else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
 				{
 					UserControl控制1.Init(7);
 				}
-               
+                else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+                {
+                    UserControl控制1.Init(8);
+                }
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl控制1.Dock = DockStyle.Fill;
@@ -751,11 +755,17 @@ namespace TabHeaderDemo
             UserControl常规1.txtmethodname.Text = Path.GetFileNameWithoutExtension(fileName);
             UserControl常规1.txtmethodpath.Text = Path.GetDirectoryName(fileName);
 
+            GlobeVal.mmethodfilename = fileName;
+
             if (CComLibrary.GlobeVal.filesave == null)
             {
                 CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
             }
             CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
+
+            GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName); 
+
+
             CComLibrary.GlobeVal.currentfilesavename = fileName;
             UserControl常规1.Open_method();
             UserControl试样1.Open_method();
@@ -810,6 +820,7 @@ namespace TabHeaderDemo
             CComLibrary.GlobeVal.filesave.currentspenumber = 0;
             CComLibrary.GlobeVal.filesave.mspecount = 100;
             CComLibrary.GlobeVal.filesave.SerializeNow(mmethodfilename);
+            GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(mmethodfilename); 
             ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey() ;
             ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
         }
@@ -853,9 +864,15 @@ namespace TabHeaderDemo
             CComLibrary.GlobeVal.filesave.currentspenumber = 0;
             CComLibrary.GlobeVal.filesave.mspecount = 100;
             CComLibrary.GlobeVal.filesave.SerializeNow(mmethodfilename);
+            GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(mmethodfilename);
             ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey();
             ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
             ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]).SelectedIndex = 0;
+        }
+
+        private void UserControlMethod_TabIndexChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

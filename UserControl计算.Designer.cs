@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl计算));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -35,8 +36,8 @@
             this.tlpback = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lstavail = new TabHeaderDemo.ListExt();
-            this.lstinclude = new TabHeaderDemo.ListExt();
+            this.lstavail = new TabHeaderDemo.ListExt(this.components);
+            this.lstinclude = new TabHeaderDemo.ListExt(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btndown = new System.Windows.Forms.Button();
             this.btnup = new System.Windows.Forms.Button();
@@ -363,7 +364,7 @@
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 204F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -381,7 +382,7 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(441, 36);
+            this.label1.Size = new System.Drawing.Size(440, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "设置计算";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -390,7 +391,7 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(452, 4);
+            this.panel4.Location = new System.Drawing.Point(451, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(32, 30);
             this.panel4.TabIndex = 1;

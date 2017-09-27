@@ -72,10 +72,24 @@ namespace TabHeaderDemo
 
         private void btntest_Click(object sender, EventArgs e)
         {
-
+           
 
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
+            ((SplitContainer)b.TabPages[1].Controls[0]).Panel2Collapsed = false;
+
+
+            double t = System.Environment.TickCount;
+         
+
+            
+
+            while (System.Environment.TickCount - t <= 500)
+            {
+                Application.DoEvents();
+            }
             UserControlMain c = GlobeVal.FormmainLab.umain;
+
+         
             c.OpenTest();
             
             b.SelectedIndex = 1;
@@ -103,6 +117,7 @@ namespace TabHeaderDemo
 
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
             UserControlMain c = GlobeVal.FormmainLab.umain;
+            ((SplitContainer)b.TabPages[1].Controls[0]).Panel2Collapsed =true  ;
             c.OpenReport();
             b.SelectedIndex = 1;
         }
@@ -115,7 +130,10 @@ namespace TabHeaderDemo
             btnmanage.Left = Convert.ToInt16(px[3] / 1366 * pnlback.Width)+30;
             btnuser.Left = Convert.ToInt16(px[4] / 1366 * pnlback.Width)+30;
             btnhelp.Left = Convert.ToInt16(px[5] / 1366 * pnlback.Width)+30;
-            btnexit.Left = Convert.ToInt16(px[6] / 1366 * pnlback.Width)+30;    
+            btnexit.Left = Convert.ToInt16(px[6] / 1366 * pnlback.Width)+30;
+
+            panel5.Top = pnlback.Height - panel5.Height - 30;
+
 
         }
 
@@ -129,6 +147,7 @@ namespace TabHeaderDemo
 
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
             UserControlMain c = GlobeVal.FormmainLab.umain;
+            ((SplitContainer)b.TabPages[1].Controls[0]).Panel2Collapsed  = true;
             c.OpenAdmin();
             b.SelectedIndex = 1;
 
@@ -142,7 +161,7 @@ namespace TabHeaderDemo
                 return;
             }
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
-            //((SplitContainer)b.TabPages[1].Controls[0]).SplitterDistance = 1376/4*3;
+            ((SplitContainer)b.TabPages[1].Controls[0]).Panel2Collapsed =true;
 
             UserControlMain c = GlobeVal.FormmainLab.umain; ;
             c.OpenMethod();
