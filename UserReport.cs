@@ -1068,7 +1068,7 @@ namespace TabHeaderDemo
 
 
             PointF[] roundedRectangle = new PointF[5];
-            roundedRectangle[0].X = 1;
+            roundedRectangle[0].X = 6;
             roundedRectangle[0].Y = 0;
             roundedRectangle[1].X = this.Width - 2 - 3;
             roundedRectangle[1].Y = 0;
@@ -1077,7 +1077,7 @@ namespace TabHeaderDemo
             roundedRectangle[3].X = 1;
             roundedRectangle[3].Y = this.Height - 2 - 3;
             roundedRectangle[4].X = 1;
-            roundedRectangle[4].Y = 0;
+            roundedRectangle[4].Y = 6;
             drawFigure(e, roundedRectangle);
 
 

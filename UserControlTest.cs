@@ -252,7 +252,7 @@ namespace TabHeaderDemo
 
 
             PointF[] roundedRectangle = new PointF[5];
-            roundedRectangle[0].X = 2;
+            roundedRectangle[0].X = 8;
             roundedRectangle[0].Y = 3;
             roundedRectangle[1].X = this.pictureBox1.Width - 2 - 3;
             roundedRectangle[1].Y = 3;
@@ -261,7 +261,7 @@ namespace TabHeaderDemo
             roundedRectangle[3].X = 1;
             roundedRectangle[3].Y = this.pictureBox1.Height -2 - 3;
             roundedRectangle[4].X = 1;
-            roundedRectangle[4].Y = 3;
+            roundedRectangle[4].Y = 8;
             drawFigure(e, roundedRectangle);
 
             //e.Graphics.EndContainer(containerState);
@@ -934,20 +934,7 @@ namespace TabHeaderDemo
          
         }
 
-        private void paneltestright_SizeChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void tableLayoutPanelback_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void btnsave_Click(object sender, EventArgs e)
         {

@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,334 +24,334 @@ using System.Web.UI;
 namespace CComLibrary
 {
 
-      
-   
 
-      [ComVisible(true)]
-        [Guid("EBAD8A83-BC05-412D-A059-6648C524148F")]
-        public interface IMyClass
+
+
+    [ComVisible(true)]
+    [Guid("EBAD8A83-BC05-412D-A059-6648C524148F")]
+    public interface IMyClass
+    {
+        void Initialize();
+        void Dispose();
+        int Add(int x, int y);
+        void calc();
+        double expstr(string s, int i, out Boolean r);
+        void initarray(string s, int count);
+        void refreshglobe(string s);
+        void refreshresult(string s);
+        void gethwnd(long h);
+        void setarrayvalue(double[,] t, int l);
+        void setarrayvalueold(double[,] t, int l);
+
+    }
+
+    [ComVisible(true)]
+    [Guid("722FA461-6288-4071-A105-9705281B19A1")]
+    [ProgId("K8robot.reply")]
+    public class K8robot
+
+    {
+
+        [DllImport("user32.dll")]
+        private static extern int SetParent(IntPtr hWndChild, IntPtr hWndParent);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
+        private static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter,
+        int X, int Y, int cx, int cy, uint uFlags);
+
+        [DllImport("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern uint SetWindowLong(IntPtr hwnd, int nIndex, uint newLong);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern uint GetWindowLong(IntPtr hwnd, int nIndex);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern bool ShowWindow(IntPtr hWnd, short State);
+
+
+        private const int HWND_TOP = 0x0;
+        private const int WM_COMMAND = 0x0112;
+        private const int WM_QT_PAINT = 0xC2DC;
+        private const int WM_PAINT = 0x000F;
+        private const int WM_SIZE = 0x0005;
+        private const int SWP_FRAMECHANGED = 0x0020;
+
+        MathExpressionParser mp;
+
+        public void savecode()
         {
-            void Initialize();
-            void Dispose();
-            int Add(int x, int y);
-            void calc();
-             double expstr(string s, int i,out Boolean r);
-             void initarray(string s, int count);
-             void refreshglobe(string s);
-             void refreshresult(string s);
-             void gethwnd(long  h);
-             void setarrayvalue(double[,] t, int l);
-             void setarrayvalueold(double[,] t, int l);
+            using (StreamWriter sw = new StreamWriter("代码.txt"))
+            {
+                // Add some text to the file.
+
+                sw.Write(mp.text.Text);
+
+
+            }
 
         }
 
-        [ComVisible(true)]
-        [Guid("722FA461-6288-4071-A105-9705281B19A1")]
-        [ProgId("K8robot.reply")]
-        public class K8robot 
+        public void gethwnd(long h)
+        {
+            SetParent(GlobeVal.m_mainform.Handle, (IntPtr)h);
 
+
+            GlobeVal.m_mainform.Show();
+            GlobeVal.m_mainform.Left = 0;
+            GlobeVal.m_mainform.Top = 0;
+            SetWindowPos(GlobeVal.m_mainform.Handle, -1, 0, 0, 0, 0, 1);
+
+
+        }
+
+        public void Initialize通道()
         {
 
-            [DllImport("user32.dll")]
-             private static extern int SetParent(IntPtr hWndChild,IntPtr hWndParent);
+            mp = new MathExpressionParser();
 
-            [DllImport("user32.dll")]
-             private static extern bool ShowWindowAsync(IntPtr hWnd,int nCmdShow);
-
-            [DllImport("user32.dll", SetLastError = true)]
-             private static extern bool PostMessage(IntPtr hWnd,uint Msg,int wParam,int lParam);
-
-            [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
-            private static extern bool SetWindowPos(IntPtr hWnd,int hWndInsertAfter,
-            int X,int Y,int cx,int cy,uint uFlags);
-
-            [DllImport("user32.dll")]
-            private static extern int SendMessage(IntPtr hWnd,uint Msg,int wParam,int lParam);
-
-            [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-            private static extern uint SetWindowLong(IntPtr hwnd, int nIndex, uint newLong);
-
-            [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-             private static extern uint GetWindowLong(IntPtr hwnd, int nIndex);
-
-            [DllImport("user32.dll", CharSet = CharSet.Auto)]
-             private static  extern bool ShowWindow(IntPtr hWnd, short State);
+            mp.InitBegin();
+            GlobeVal.m_channeldata = new double[20];
 
 
-             private const int HWND_TOP = 0x0;
-             private const int WM_COMMAND = 0x0112;
-             private const int WM_QT_PAINT = 0xC2DC;
-             private const int WM_PAINT = 0x000F;
-             private const int WM_SIZE = 0x0005;
-             private const int SWP_FRAMECHANGED = 0x0020;
-
-             MathExpressionParser mp;
-
-             public void savecode()
-             {
-                 using (StreamWriter sw = new StreamWriter("代码.txt"))
-                 {
-                     // Add some text to the file.
-                    
-                     sw.Write(mp.text.Text);
-                     
-                     
-                 }
-
-             }
-
-             public void gethwnd(long  h)
-             {
-                 SetParent(GlobeVal.m_mainform.Handle, (IntPtr)h);
+            //nothing todo
+        }
 
 
-                 GlobeVal.m_mainform.Show();
-                 GlobeVal.m_mainform.Left = 0;
-                 GlobeVal.m_mainform.Top = 0;
-                 SetWindowPos(GlobeVal.m_mainform.Handle, -1, 0, 0, 0, 0, 1); 
+        public void Initialize()
+        {
+
+            mp = new MathExpressionParser();
+
+            mp.InitBegin();
+            GlobeVal.m_data = new double[30][];
+            GlobeVal.m_calcdata = new double[30][];
 
 
-             }
+            //nothing todo
+        }
+        public void Dispose()
+        {
+            mp = null;
+            //nothing todo
+        }
+        public int Add(int x, int y)
+        {
+            return x + y;
+        }
 
-             public void Initialize通道()
-             {
+        public void setarrayvalueold(System.Array t, int l, int m)
+        {
+            int i;
+            int j;
+            int k = 0;
+            GlobeVal.m_len = l;
 
-                 mp = new MathExpressionParser();
-
-                 mp.InitBegin();
-                 GlobeVal.m_channeldata = new double[20];  
-
-
-                 //nothing todo
-             }
-
-         
-            public void Initialize()
+            if (l - 1 > 0)
             {
-                
-                mp = new MathExpressionParser();
-               
-                mp.InitBegin();
-                GlobeVal.m_data = new double[30][];
-                GlobeVal.m_calcdata = new double[30][];  
-                
-               
-                //nothing todo
-            }
-            public void Dispose()
-            {
-                mp = null; 
-                //nothing todo
-            }
-            public int Add(int x, int y)
-            {
-                return x + y;
-            }
 
-            public void setarrayvalueold(System.Array t, int l, int m)
-            {
-                int i;
-                int j;
-                int k = 0;
-                GlobeVal.m_len = l;
+                for (i = 0; i < 30; i++)
+                {
+                    GlobeVal.m_data[i] = new double[l - 1];
+                    GlobeVal.m_calcdata[i] = new double[l - 1];
+                }
 
-                if (l - 1 > 0)
+                for (i = 0; i < l - 1; i++)
                 {
 
-                    for (i = 0; i < 30; i++)
+
+                    for (j = 0; j < m; j++)
                     {
-                        GlobeVal.m_data[i] = new double[l - 1];
-                        GlobeVal.m_calcdata[i] = new double[l - 1];
+
+
+                        GlobeVal.m_data[j][i] = 0;
+
+
                     }
 
-                    for (i = 0; i < l - 1; i++)
-                    {
-                       
 
-                            for (j = 0; j < m; j++)
-                            {
-                                
-
-                                    GlobeVal.m_data[j][i] = 0;
-
-                                
-                            }
-                        
-
-                    }
                 }
             }
+        }
 
 
-            public void setarrayvalue(System.Array  t, int l,int m)
+        public void setarrayvalue(System.Array t, int l, int m)
+        {
+            int i;
+            int j;
+            int k = 0;
+            int mi = 0;
+            int mj = 0;
+            GlobeVal.m_len = l;
+
+            if (l - 1 > 0)
             {
-                int i;
-                int j;
-                int k=0;
-                int mi=0;
-                int mj=0;
-                GlobeVal.m_len = l;
 
-                if (l - 1 > 0)
+                for (i = 0; i < 30; i++)
                 {
+                    GlobeVal.m_data[i] = new double[l - 1];
+                    GlobeVal.m_calcdata[i] = new double[l - 1];
+                }
 
-                    for (i = 0; i < 30; i++)
+                for (i = 0; i < l - 1; i++)
+                {
+                    for (k = 0; k < GlobeVal.filesave.m_namelist.Count; k++)
                     {
-                        GlobeVal.m_data[i] = new double[l - 1];
-                        GlobeVal.m_calcdata[i] = new double[l - 1];  
-                    }
 
-                    for (i = 0; i < l - 1; i++)
-                    {
-                        for (k = 0; k < GlobeVal.filesave.m_namelist.Count; k++)
+                        for (j = 0; j < m; j++)
                         {
-
-                            for (j = 0; j < m; j++)
+                            if (GlobeVal.filesave.m_namelist[k] == CComLibrary.GlobeVal.g_datatitle[j])
                             {
-                                if (GlobeVal.filesave.m_namelist[k] == CComLibrary.GlobeVal.g_datatitle[j])
+                                for (int ii = 0; ii < ClsStaticStation.m_Global.mycls.signalskindlist.Count; ii++)
                                 {
-                                    for (int ii=0;ii<ClsStaticStation.m_Global.mycls.signalskindlist.Count;ii++)
+                                    for (int jj = 0; jj < ClsStaticStation.m_Global.mycls.signalskindlist[ii].cUnitCount; jj++)
                                     {
-                                        for (int jj=0;jj<ClsStaticStation.m_Global.mycls.signalskindlist[ii].cUnitCount ;jj++)
+                                        if (CComLibrary.GlobeVal.g_dataunit[j].Trim() == ClsStaticStation.m_Global.mycls.signalskindlist[ii].cUnits[jj])
                                         {
-                                            if (CComLibrary.GlobeVal.g_dataunit[j].Trim() == ClsStaticStation.m_Global.mycls.signalskindlist[ii].cUnits[jj])
-                                            {
-                                                mi =ii;
-                                                mj = jj;
-                                                ClsStaticStation.m_Global.mycls.signalskindlist[ii].originprecise  = 3;
-                                                ClsStaticStation.m_Global.mycls.signalskindlist[ii].cUnitsel = jj;
-                                                break;
-                                            }
+                                            mi = ii;
+                                            mj = jj;
+                                            ClsStaticStation.m_Global.mycls.signalskindlist[ii].originprecise = 3;
+                                            ClsStaticStation.m_Global.mycls.signalskindlist[ii].cUnitsel = jj;
+                                            break;
                                         }
-                                     }
-                                        GlobeVal.m_data[k][i] =  Convert.ToDouble( ClsStaticStation.m_Global.mycls.signalskindlist[mi].GetOriValue(Convert.ToDouble(t.GetValue(i+1,j))));
-                                    
+                                    }
                                 }
+                                GlobeVal.m_data[k][i] = Convert.ToDouble(ClsStaticStation.m_Global.mycls.signalskindlist[mi].GetOriValue(Convert.ToDouble(t.GetValue(i + 1, j))));
+
                             }
                         }
-
                     }
+
                 }
-            }
-
-            public void initarray(string s, int count)
-            {
-                if (GlobeVal.m_len - 1 > 0)
-                {
-                    mp.InitArray(s, count);
-                }
-            }
-
-            public void InitChannel(string s,int i)
-            {
-                mp.msource = s;
-                mp.InitChannel(s,i);
-            }
-
-
-            public void Initexpr通道(string s, int i)
-            {
-
-                mp.msource = s;
-
-
-                mp.InitExpr通道(s, i);
-
-            }
-            
-            public void Initexpr(string s, int i)
-            {
-                
-                mp.msource = s;
-               
-
-                mp.InitExpr(s, i);
-
-            }
-
-            public void calc通道()
-            {
-
-                mp.InitCalcedChannelExpressiton通道();
-                mp.calc();
-
-                return;
-            }
-
-            public Boolean     calc()
-            {
-                Boolean b;
-                
-                b=mp.InitCalcedChannelExpressiton();
-                mp.calc(); 
-
-                return b ;
-            }
-
-            public double getresult通道(int i)
-            {
-                double v = 0;
-                v = mp.eval_hardchannel(i);
-                return v;
-
-            }
-
-
-            public double  getresult(int i)
-            {
-                double v = 0;
-                v = mp.eval_calcedchannel(i);
-                return v;
-
-            }
-
-            public double  expchannel(string s, int i, out Boolean r)
-            {
-                double v = 0;
-                mp.msource = s;
-                //mp.InitChannel(s, i);
-                mp.InitHardChannel(s, i);
-                r=mp.InitCalcedChannelExpressiton();
-                v = mp.eval_hardchannel(i);
-              
-                return v;
-            }
-            public double expstr(string s, int i,out Boolean   r)
-            {
-                double v=0;
-               
-                mp.msource = s;
-
-               
- 
-                mp.InitExpr(s, i);
-
-                r=mp.InitCalcedChannelExpressiton();
-
-                v = mp.eval_calcedchannel(i);
-
-
-                return v;
-
-            }
-
-            public void refreshhardglobe(string s)
-            {
-                mp.RefreshHardGlobe(s); 
-            }
-            public void refreshglobe(string s)
-            {
-                mp.RefreshGlobe(s);
-            }
-            public void refreshresulthard(string s)
-            {
-                mp.RefreshResultHard(s); 
-            }
-            public void refreshresult(string s)
-            {
-                mp.RefreshResult(s); 
             }
         }
+
+        public void initarray(string s, int count)
+        {
+            if (GlobeVal.m_len - 1 > 0)
+            {
+                mp.InitArray(s, count);
+            }
+        }
+
+        public void InitChannel(string s, int i)
+        {
+            mp.msource = s;
+            mp.InitChannel(s, i);
+        }
+
+
+        public void Initexpr通道(string s, int i)
+        {
+
+            mp.msource = s;
+
+
+            mp.InitExpr通道(s, i);
+
+        }
+
+        public void Initexpr(string s, int i)
+        {
+
+            mp.msource = s;
+
+
+            mp.InitExpr(s, i);
+
+        }
+
+        public void calc通道()
+        {
+
+            mp.InitCalcedChannelExpressiton通道();
+            mp.calc();
+
+            return;
+        }
+
+        public Boolean calc()
+        {
+            Boolean b;
+
+            b = mp.InitCalcedChannelExpressiton();
+            mp.calc();
+
+            return b;
+        }
+
+        public double getresult通道(int i)
+        {
+            double v = 0;
+            v = mp.eval_hardchannel(i);
+            return v;
+
+        }
+
+
+        public double getresult(int i)
+        {
+            double v = 0;
+            v = mp.eval_calcedchannel(i);
+            return v;
+
+        }
+
+        public double expchannel(string s, int i, out Boolean r)
+        {
+            double v = 0;
+            mp.msource = s;
+            //mp.InitChannel(s, i);
+            mp.InitHardChannel(s, i);
+            r = mp.InitCalcedChannelExpressiton();
+            v = mp.eval_hardchannel(i);
+
+            return v;
+        }
+        public double expstr(string s, int i, out Boolean r)
+        {
+            double v = 0;
+
+            mp.msource = s;
+
+
+
+            mp.InitExpr(s, i);
+
+            r = mp.InitCalcedChannelExpressiton();
+
+            v = mp.eval_calcedchannel(i);
+
+
+            return v;
+
+        }
+
+        public void refreshhardglobe(string s)
+        {
+            mp.RefreshHardGlobe(s);
+        }
+        public void refreshglobe(string s)
+        {
+            mp.RefreshGlobe(s);
+        }
+        public void refreshresulthard(string s)
+        {
+            mp.RefreshResultHard(s);
+        }
+        public void refreshresult(string s)
+        {
+            mp.RefreshResult(s);
+        }
+    }
     public class CFileCom
     {
     }
@@ -362,18 +362,18 @@ namespace CComLibrary
 namespace CComLibrary
 {
     [Serializable]
-    public class  LineStruct
+    public class LineStruct
     {
         public PointF pf;
-        public  int     kind;  //0 point  1 line 2 paraline
-        public  double  xstart;
-        public  double  ystart;
-        public  double  xend;
-        public  double  yend;
+        public int kind;  //0 point  1 line 2 paraline
+        public double xstart;
+        public double ystart;
+        public double xend;
+        public double yend;
         public int indexstart;
         public int indexend;
         public double value;
- 
+
     }
 
     [Serializable]
@@ -414,7 +414,7 @@ namespace CComLibrary
         public int y1channel = 0;
         public int y1channelunit = 0;
         public bool y1channelzoom = false;
-      
+
 
         //以下为曲线高级设置
         private Color m_backcolor;
@@ -492,7 +492,7 @@ namespace CComLibrary
             }
         }
 
-        private  Boolean m_ShowGrid;
+        private Boolean m_ShowGrid;
 
         public Boolean ShowGrid
         {
@@ -512,10 +512,10 @@ namespace CComLibrary
 
         private NationalInstruments.UI.LineStyle m_GridLineStyle;
         [System.Xml.Serialization.XmlIgnore]
-   
-        public  NationalInstruments.UI.LineStyle GridLineStyle
+
+        public NationalInstruments.UI.LineStyle GridLineStyle
         {
-           get
+            get
             {
                 return m_GridLineStyle;
             }
@@ -540,9 +540,9 @@ namespace CComLibrary
             }
         }
 
-        private  bool   m_XCaption=false ;
+        private bool m_XCaption = false;
 
-        public bool  XCaption
+        public bool XCaption
         {
             get
             {
@@ -564,7 +564,7 @@ namespace CComLibrary
             }
             set
             {
-                m_Xlog=value;
+                m_Xlog = value;
             }
         }
 
@@ -585,9 +585,9 @@ namespace CComLibrary
 
 
 
-        private bool  m_YCaption=false ;
+        private bool m_YCaption = false;
 
-        public bool  YCaption
+        public bool YCaption
         {
             get
             {
@@ -595,7 +595,7 @@ namespace CComLibrary
             }
             set
             {
-                m_YCaption = value; 
+                m_YCaption = value;
             }
         }
 
@@ -629,7 +629,7 @@ namespace CComLibrary
             }
         }
 
-        private  Boolean m_showLegend;
+        private Boolean m_showLegend;
 
 
         public Boolean showLegend
@@ -647,13 +647,13 @@ namespace CComLibrary
 
         public int LegendKind;//未用  对于多试样曲线图类型为试样编号或试样标识，对于其他曲线图类型为数据通道）
 
-        
+
         public int LegendCaption;//未用
         public int LegendPos;//未用
         public int LegendDir;//未用
 
 
-        private  Boolean m_showlegendborder;
+        private Boolean m_showlegendborder;
         public Boolean showlegendborder
         {
             get
@@ -809,7 +809,7 @@ namespace CComLibrary
                 m_PlotLineColor = value;
             }
         }
-        
+
 
 
         public String[] PlotLinePointStyleName;
@@ -843,7 +843,7 @@ namespace CComLibrary
                 m_PlotLinePointSize = value;
             }
         }
-        private  int[] m_PlotLineSize;
+        private int[] m_PlotLineSize;
 
         public int[] PlotLineSize
         {
@@ -872,7 +872,7 @@ namespace CComLibrary
 
         }
 
-        public void SetPlotLineStyle(ref  NationalInstruments.UI.LineStyle mr,int index)
+        public void SetPlotLineStyle(ref NationalInstruments.UI.LineStyle mr, int index)
         {
             int w = 0;
             List<NationalInstruments.UI.LineStyle> mlist;
@@ -906,7 +906,7 @@ namespace CComLibrary
 
         }
 
-        public void SetSignLineStyle(ref  NationalInstruments.UI.LineStyle mr)
+        public void SetSignLineStyle(ref NationalInstruments.UI.LineStyle mr)
         {
             int w = 0;
             List<NationalInstruments.UI.LineStyle> mlist;
@@ -940,7 +940,7 @@ namespace CComLibrary
 
         }
 
-        public void SetPlotLinePointStyle(ref  NationalInstruments.UI.PointStyle mr,int index)
+        public void SetPlotLinePointStyle(ref NationalInstruments.UI.PointStyle mr, int index)
         {
             int w = 0;
             List<NationalInstruments.UI.PointStyle> mlist;
@@ -995,7 +995,7 @@ namespace CComLibrary
 
 
         }
-        public void SetSignPointStyle(ref  NationalInstruments.UI.ShapeStyle  mr)
+        public void SetSignPointStyle(ref NationalInstruments.UI.ShapeStyle mr)
         {
             int w = 0;
             List<NationalInstruments.UI.ShapeStyle> mlist;
@@ -1011,7 +1011,7 @@ namespace CComLibrary
             mlist.Add(NationalInstruments.UI.ShapeStyle.Rectangle);
 
             mr = NationalInstruments.UI.ShapeStyle.Diamond;
-            
+
             for (int i = 0; i < mlist.Count; i++)
             {
                 if (mlist[i].Name == this.SignPointStylName)
@@ -1021,7 +1021,7 @@ namespace CComLibrary
                 }
             }
 
-           
+
 
             mlist.Clear();
             mlist = null;
@@ -1029,9 +1029,9 @@ namespace CComLibrary
 
 
         }
-        public void SetGridLineStyle(ref  NationalInstruments.UI.LineStyle mr)
+        public void SetGridLineStyle(ref NationalInstruments.UI.LineStyle mr)
         {
-            int w=0;
+            int w = 0;
             List<NationalInstruments.UI.LineStyle> mlist;
             mlist = new List<NationalInstruments.UI.LineStyle>();
 
@@ -1051,14 +1051,14 @@ namespace CComLibrary
                 if (mlist[i].Name == GridLineStyleName)
                 {
                     mr = mlist[i];
-                   
+
                 }
             }
 
             mlist.Clear();
             mlist = null;
 
-            
+
 
         }
 
@@ -1072,12 +1072,12 @@ namespace CComLibrary
 
             ShowGrid = false;
 
-           
+
 
             GridLineStyleName = NationalInstruments.UI.LineStyle.DashDot.Name;
-            SetGridLineStyle( ref this.m_GridLineStyle); 
-            
-            
+            SetGridLineStyle(ref this.m_GridLineStyle);
+
+
             m_GridLineColor = Color.Black;
 
             XCaption = true;
@@ -1114,16 +1114,16 @@ namespace CComLibrary
             PlotLinePointSize = new int[16];
             PlotLineSize = new int[16];
             PlotLinePointColor = new Color[16];
-            
+
 
 
             for (int i = 0; i < 16; i++)
             {
-                
+
                 m_PlotLineStyle[i] = NationalInstruments.UI.LineStyle.Solid;
                 PlotLineStyleName[i] = m_PlotLineStyle[i].Name;
                 PlotLineColor[i] = Color.Red;
-               
+
                 m_PlotLinePointStyle[i] = NationalInstruments.UI.PointStyle.None;
                 PlotLinePointStyleName[i] = m_PlotLinePointStyle[i].Name;
                 PlotLinePointSize[i] = 3;
@@ -1139,43 +1139,43 @@ namespace CComLibrary
     [Serializable]
     public class inputtextitem
     {
-        public string name=" ";
-        public string  value=" ";
+        public string name = " ";
+        public string value = " ";
     }
-   
+
     [Serializable]
-      public class  inputitem
+    public class inputitem
+    {
+        public string name;
+        public double value;
+        public string unit;
+        public int dimsel = 0;//量纲选择
+        public ItemSignal myitemsignal;
+
+    }
+    [Serializable]
+    public class outputitem
+    {
+        public string formulaname;
+        public string formulavalue;
+        public string formulaunit;
+        public bool check = false;
+        public bool selected = false;
+        public int dimsel = 0;//量纲选择
+        public string formulaexplain = "";
+        public bool show;
+        public ItemSignal myitemsignal;
+        public double limitup = 10000; //合格范围上限
+        public double limitdown = 0;//合格范围下限
+        public bool apply = false;//合格范围判断统计值
+
+        public Object Clone()
         {
-          public   string name;
-          public   double  value;
-          public   string unit;
-          public int dimsel=0;//量纲选择
-          public ItemSignal myitemsignal;
-         
+            return this.MemberwiseClone();
+
         }
-    [Serializable]
-      public class outputitem
-      {
-         public  string formulaname;
-         public  string formulavalue;
-         public  string formulaunit;
-         public bool check=false;
-         public bool selected = false;
-         public int dimsel = 0;//量纲选择
-         public string formulaexplain="";
-         public bool show;
-         public ItemSignal myitemsignal;
-         public double limitup = 10000; //合格范围上限
-         public double limitdown = 0;//合格范围下限
-         public bool apply = false;//合格范围判断统计值
 
-         public Object Clone()
-         {
-             return this.MemberwiseClone();
-
-         }
-
-      }
+    }
 
     [Serializable]
     public class userchannelitem
@@ -1186,7 +1186,7 @@ namespace CComLibrary
         public int channel_dimensionkind;
 
         public ItemSignal myitemsignal;
-       
+
 
     }
 
@@ -1197,7 +1197,7 @@ namespace CComLibrary
         int rowcount;
         int[] colwidth;
         int[] rowheight;
-        
+
 
     }
 
@@ -1230,8 +1230,8 @@ namespace CComLibrary
             ItemRowSpan = new int[10];
             Show = new bool[10];
             rowheight = new int[10];
-            colWidth = new int[10]; 
- 
+            colWidth = new int[10];
+
         }
 
         public void SerializeNow(string filename)
@@ -1257,7 +1257,7 @@ namespace CComLibrary
                     BinaryFormatter b = new BinaryFormatter();
 
                     c = b.Deserialize(fileStream) as FileLayoutStruct;
-                   
+
 
                     fileStream.Close();
 
@@ -1280,28 +1280,28 @@ namespace CComLibrary
 
 
     [Serializable]
-    public class  TableHeaderPara
+    public class TableHeaderPara
     {
         public Font HeaderFont;
-        public ContentAlignment  HeaderAlignment;
+        public ContentAlignment HeaderAlignment;
         public Color HeaderBackColor;
         public Color HeaderForeColor;
 
         public TableHeaderPara()
         {
-          HeaderFont=new Font("宋体", 12);
-          HeaderAlignment = ContentAlignment.MiddleCenter;
-          HeaderBackColor = SystemColors.ButtonFace;
-          HeaderForeColor = Color.Black;
+            HeaderFont = new Font("宋体", 12);
+            HeaderAlignment = ContentAlignment.MiddleCenter;
+            HeaderBackColor = SystemColors.ButtonFace;
+            HeaderForeColor = Color.Black;
 
         }
 
     }
     [Serializable]
-    public class  TableColPara
+    public class TableColPara
     {
         public Font ColFont;
-        public ContentAlignment  ColAlignment;
+        public ContentAlignment ColAlignment;
         public Color ColBackColor;
         public Color ColForeColor;
 
@@ -1315,13 +1315,13 @@ namespace CComLibrary
     }
 
     [Serializable]
-    public class  TableGridPara
+    public class TableGridPara
     {
         public Font GridFont;
-        public ContentAlignment  GridAlignment;
+        public ContentAlignment GridAlignment;
         public Color GridBackColor;
         public Color GridForeColor;
-      
+
         public TableGridPara()
         {
             GridFont = new Font("宋体", 12);
@@ -1335,7 +1335,7 @@ namespace CComLibrary
     [Serializable]
     public class TablePara
     {
-        public  TableHeaderPara  mTableHeaderPara ;
+        public TableHeaderPara mTableHeaderPara;
         public TableColPara mTableColPara;
         public TableGridPara mTableGridPara;
         public Boolean showvalidspe = true;
@@ -1349,21 +1349,21 @@ namespace CComLibrary
             mTableGridPara = new TableGridPara();
         }
 
-        
+
     }
 
     [Serializable]
     public class PromptsItem
     {
-       public string itemname;
-       public int itemkind;
+        public string itemname;
+        public int itemkind;
 
-       public string parentstring;
+        public string parentstring;
 
-        
 
-        public event EventHandler PropertyChanged; 
-        private object  mitemvalue =null;
+
+        public event EventHandler PropertyChanged;
+        private object mitemvalue = null;
 
         public bool group = false;
 
@@ -1382,17 +1382,17 @@ namespace CComLibrary
             if (itemname == "样品注释1")
             {
 
-                
-                mitemvalue =  CComLibrary.GlobeVal.filesave.samplememo1;
 
-               
+                mitemvalue = CComLibrary.GlobeVal.filesave.samplememo1;
+
+
                 itemkind = 0;
             }
 
             if (itemname == "样品注释2")
             {
                 mitemvalue = CComLibrary.GlobeVal.filesave.samplememo2;
-             
+
                 itemkind = 0;
 
             }
@@ -1400,7 +1400,7 @@ namespace CComLibrary
             if (itemname == "样品注释3")
             {
                 mitemvalue = CComLibrary.GlobeVal.filesave.samplememo3;
-               
+
                 itemkind = 0;
 
             }
@@ -1408,7 +1408,7 @@ namespace CComLibrary
             if (itemname == "样品说明")
             {
                 mitemvalue = CComLibrary.GlobeVal.filesave.samplememo;
-                
+
                 itemkind = 0;
 
             }
@@ -1422,13 +1422,13 @@ namespace CComLibrary
 
                     mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
 
-                    if (mitemvalue.ToString()=="")
+                    if (mitemvalue.ToString() == "")
                     {
-                        
+
                         mitemvalue = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue.ToString();
                         CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
 
-                       
+
                     }
 
                     itemunit = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cUnits[
@@ -1448,7 +1448,7 @@ namespace CComLibrary
                     if (mitemvalue.ToString() == "")
                     {
 
-                        mitemvalue = CComLibrary.GlobeVal.filesave.minputtext[i].value ;
+                        mitemvalue = CComLibrary.GlobeVal.filesave.minputtext[i].value;
                         CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
 
                     }
@@ -1465,8 +1465,8 @@ namespace CComLibrary
                     mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
                     if (mitemvalue.ToString() == "")
                     {
-                         mitemvalue = CComLibrary.GlobeVal.filesave.minput[i].value.ToString();
-                         CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
+                        mitemvalue = CComLibrary.GlobeVal.filesave.minput[i].value.ToString();
+                        CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
                     }
                     itemunit = CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnits[CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnitsel];
                     itemkind = 1;
@@ -1486,7 +1486,7 @@ namespace CComLibrary
                         CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
                     }
                     mcboitem = CComLibrary.GlobeVal.filesave.mcbo[i];
-                 
+
                     itemkind = 2;
                 }
             }
@@ -1500,9 +1500,9 @@ namespace CComLibrary
 
         public void setvalue()
         {
-            if (itemname  == "样品注释1")
+            if (itemname == "样品注释1")
             {
-                CComLibrary.GlobeVal.filesave.samplememo1 = Convert.ToString( mitemvalue);
+                CComLibrary.GlobeVal.filesave.samplememo1 = Convert.ToString(mitemvalue);
             }
 
             if (itemname == "样品注释2")
@@ -1517,7 +1517,7 @@ namespace CComLibrary
 
             if (itemname == "样品说明")
             {
-                CComLibrary.GlobeVal.filesave.samplememo =Convert.ToString( mitemvalue);
+                CComLibrary.GlobeVal.filesave.samplememo = Convert.ToString(mitemvalue);
             }
 
             for (int i = 0; i <
@@ -1527,8 +1527,8 @@ namespace CComLibrary
                 if (itemname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
                 {
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToDouble(mitemvalue);
-                     //CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue= Convert.ToDouble(mitemvalue);
-                    
+                    //CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue= Convert.ToDouble(mitemvalue);
+
                 }
 
             }
@@ -1536,7 +1536,7 @@ namespace CComLibrary
             for (int i = 0; i <
              CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
             {
-                if (itemname ==CComLibrary.GlobeVal.filesave.minputtext[i].name)
+                if (itemname == CComLibrary.GlobeVal.filesave.minputtext[i].name)
                 {
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToString(mitemvalue);
                     // CComLibrary.GlobeVal.filesave.minputtext[i].value=Convert.ToString( mitemvalue);
@@ -1550,8 +1550,8 @@ namespace CComLibrary
                 if (itemname == CComLibrary.GlobeVal.filesave.minput[i].name)
                 {
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToDouble(mitemvalue);
-                   //CComLibrary.GlobeVal.filesave.minput[i].value=Convert.ToDouble( mitemvalue) ;
-                   
+                    //CComLibrary.GlobeVal.filesave.minput[i].value=Convert.ToDouble( mitemvalue) ;
+
                 }
             }
 
@@ -1562,9 +1562,9 @@ namespace CComLibrary
                 if (itemname == CComLibrary.GlobeVal.filesave.mcbo[i].Name)
                 {
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToInt32(mitemvalue);
-                   // CComLibrary.GlobeVal.filesave.mcbo[i].value = Convert.ToInt32(mitemvalue);
-                    
-                    
+                    // CComLibrary.GlobeVal.filesave.mcbo[i].value = Convert.ToInt32(mitemvalue);
+
+
                 }
             }
 
@@ -1572,12 +1572,14 @@ namespace CComLibrary
 
         public object itemvalue
         {
-            get {
+            get
+            {
                 getvalue();
 
-                
 
-                return mitemvalue ; }
+
+                return mitemvalue;
+            }
             set
             {
                 mitemvalue = value;
@@ -1598,13 +1600,13 @@ namespace CComLibrary
                 this.PropertyChanged(this, eventArgs);
             }
         }
-       public PromptsItem()
-       {
+        public PromptsItem()
+        {
 
-       }
-       
-       
-          
+        }
+
+
+
 
 
     }
@@ -1657,7 +1659,7 @@ namespace CComLibrary
 
             if (cmd == 2)
             {
-                s = "速度:" + speed.ToString()+"MPa/s";
+                s = "速度:" + speed.ToString() + "MPa/s";
 
             }
             else
@@ -1708,8 +1710,8 @@ namespace CComLibrary
 
                     if (destcontrolmode == 1)
                     {
-                        s = s + "["+CComLibrary.GlobeVal.filesave.LoadToStrain(dest).ToString("F4")+"MPa]" ;
-                            
+                        s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(dest).ToString("F4") + "MPa]";
+
                     }
 
                 }
@@ -1774,17 +1776,17 @@ namespace CComLibrary
             cmdstring = new string[3];
 
 
-            
+
             cmdstring[0] = "等速位移";
             cmdstring[1] = "等速力";
             cmdstring[2] = "等速围压压力";
-          
+
 
             actionstring = new string[2];
 
             actionstring[0] = "异步控制";
             actionstring[1] = "同步控制";
-          
+
 
             mseglist = new List<SegTest>();
 
@@ -1851,12 +1853,12 @@ namespace CComLibrary
 
         public string mtooltip = "";
 
-        public List<PromptsItem> mstepPromptsItem=new List<PromptsItem>();
+        public List<PromptsItem> mstepPromptsItem = new List<PromptsItem>();
 
-       
+
     }
 
-   public  enum TestStatus
+    public enum TestStatus
     {
         Untested = 0,
         tested = 1,
@@ -1877,7 +1879,7 @@ namespace CComLibrary
         public int returnstep;
         public int cmd;
         public int action;
-  
+
         public CmdSeg()
         {
             check = false;
@@ -1889,17 +1891,17 @@ namespace CComLibrary
             returncount = 0;
             returnstep = 0;
             cmd = 0;
-          
+
         }
 
-        public  string explain(int machinekind)
+        public string explain(int machinekind)
         {
-            string s="";
-            SegFile f=new SegFile();
+            string s = "";
+            SegFile f = new SegFile();
 
             s = s + f.cmdstring[cmd] + " ";
 
-            
+
             if (cmd == 2)
             {
                 s = s + "速度 " + speed.ToString("F4") + " ";
@@ -1917,7 +1919,7 @@ namespace CComLibrary
 
                 s = s + "速度 " + speed.ToString("F4") + " ";
 
-                if ((machinekind == 0)||(machinekind ==2))
+                if ((machinekind == 0) || (machinekind == 2))
 
                 {
                     if (controlmode == 0)
@@ -1929,7 +1931,7 @@ namespace CComLibrary
                         s = s + "kN/s";
 
                         s = s + "[";
-                        s=s+CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
+                        s = s + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
 
                     }
 
@@ -1956,7 +1958,7 @@ namespace CComLibrary
                     {
                         s = s + "N.M/s ";
 
-                       
+
 
                     }
 
@@ -1995,7 +1997,7 @@ namespace CComLibrary
                     s = s + "返回" + returncount.ToString() + "次," + "返回到步骤" + returnstep.ToString();
                 }
 
-                
+
 
 
             }
@@ -2013,7 +2015,7 @@ namespace CComLibrary
     }
 
     [Serializable]
-    public class FileStruct :IEquatable<FileStruct >
+    public class FileStruct : IEquatable<FileStruct>
     {
         public string SerializeObject(object obj)
         {
@@ -2027,40 +2029,129 @@ namespace CComLibrary
                 object value = field.GetValue(obj);     //取得字段的值
                 objString.Append(field.Name + ":" + value + ";");
             }
+
             return objString.ToString();
         }
 
+
+        private bool FileCompare(string file1, string file2)
+
+        {
+
+            //  判断相同的文件是否被参考两次。
+
+            if (file1 == file2)
+
+            {
+
+                return true;
+
+            }
+
+
+            int file1byte = 0;
+
+            int file2byte = 0;
+
+
+            using (FileStream fs1 = new FileStream(file1, FileMode.Open),
+
+            fs2 = new FileStream(file2, FileMode.Open))
+
+            {
+
+                //  检查文件大小。如果两个文件的大小并不相同，则视为不相同。
+
+                if (fs1.Length != fs2.Length)
+
+                {
+
+                    // 关闭文件。
+
+                    fs1.Close();
+
+                    fs2.Close();
+
+
+                    return false;
+
+                }
+
+
+                //  逐一比较两个文件的每一个字节，直到发现不相符或已到达文件尾端为止。
+
+                do
+
+                {
+
+                    // 从每一个文件读取一个字节。
+
+                    file1byte = fs1.ReadByte();
+
+                    file2byte = fs2.ReadByte();
+
+                }
+
+                while ((file1byte == file2byte) && (file1byte != -1));
+
+
+                // 关闭文件。
+
+                fs1.Close();
+
+                fs2.Close();
+
+            }
+
+
+            //  返回比较的结果。在这个时候，只有当两个文件的内容完全相同时，  "file1byte" 才会等于 "file2byte"。
+
+            return ((file1byte - file2byte) == 0);
+
+        }
         // implements IEquatable<Staff>
         public bool Equals(FileStruct other)
         {
-       
 
+            bool b = false;
 
             if (null == this || null == other)
                 return false;
             if (this.GetType() != other.GetType())
                 return false;
-            return SerializeObject(this).Equals(SerializeObject(other));
+
+           string f1= System.IO.Path.GetTempPath();
+
+            this.SerializeNow(f1 + "a.zzz");
+            other.SerializeNow(f1 + "b.zzz");
 
 
-           
+
+            // return SerializeObject(this).Equals(SerializeObject(other));
+
+            b= FileCompare(f1 + "a.zzz", f1 + "b.zzz");
+
+            System.IO.File.Delete(f1+"a.zzz");
+            System.IO.File.Delete(f1 + "b.zzz");
+
+            return b;
 
         }
 
         // override Equals
         public override bool Equals(object obj)
         {
-           
-           
+
+
             if (obj == null)
                 return this == null;
 
             if (!(obj is FileStruct))
                 return false;
 
-            FileStruct  s = obj as FileStruct;
+            FileStruct s = obj as FileStruct;
 
-            return this.methodname  == s.methodname;
+            return this.methodname == s.methodname;
         }
 
         // override GetHashCode
@@ -2068,14 +2159,14 @@ namespace CComLibrary
         {
             return this.methodname.GetHashCode();
         }
-        public string methodname=""; //方法名称
+        public string methodname = ""; //方法名称
         public string datapath = "";
 
         public List<string> m_namelist;
 
-        public List<inputitem>  minput;
-        
-        public List<outputitem>  moutput;
+        public List<inputitem> minput;
+
+        public List<outputitem> moutput;
 
 
         public CalcPanel mcalcpanel;
@@ -2086,20 +2177,20 @@ namespace CComLibrary
 
         public int minterval = 1;
 
-        public  int xsel;
-        public  int ysel;
+        public int xsel;
+        public int ysel;
 
-        public  int[] ysels;
-        public  int[] yselpostion;
+        public int[] ysels;
+        public int[] yselpostion;
 
-        public  int yselcount = 0;
+        public int yselcount = 0;
         public int filekind = 0;
 
         public List<string> lprocedurename;
 
         public int shapeselect = 0;
 
-        public string methodauthor="";//方法作者
+        public string methodauthor = "";//方法作者
         public string methodmemo = "";//方法说明
         public int methodkind = 0; //方法类型
         public List<shapeitem> mshapelist;
@@ -2164,20 +2255,20 @@ namespace CComLibrary
         public double[] numinterval;//数据采集间隔
 
 
-        public bool endoftest1=false;// 试验结束1
-        public int endoftest1criteria=0;//试验结束1准则
-        public double  endoftest1value=0;//试验结束1变量值
-
-        
+        public bool endoftest1 = false;// 试验结束1
+        public int endoftest1criteria = 0;//试验结束1准则
+        public double endoftest1value = 0;//试验结束1变量值
 
 
 
-        public bool endoftest2=false;// 试验结束2
-        public int endoftest2criteria=0;//试验结束2准则
-        public double  endoftest2value=0;//试验结束2变量值
-       
 
-        public int testaction=0;//试验结束动作
+
+        public bool endoftest2 = false;// 试验结束2
+        public int endoftest2criteria = 0;//试验结束2准则
+        public double endoftest2value = 0;//试验结束2变量值
+
+
+        public int testaction = 0;//试验结束动作
 
 
         public List<CTestStep> teststep;
@@ -2189,7 +2280,7 @@ namespace CComLibrary
 
         public int currentspenumber = 0;
 
-        public int cbosamplestart=0;
+        public int cbosamplestart = 0;
         public List<double> mcbosamplestart;
         public int cbosampleinterval = 0;
         public List<double> mcbosampleinterval;
@@ -2200,9 +2291,9 @@ namespace CComLibrary
 
         public List<ItemSignal> mchsignals; //信号限位
 
-        public List<PromptsItem> mFreeFormPromptsItem ;
+        public List<PromptsItem> mFreeFormPromptsItem;
         public string SamplePath;
-        public string SampleDefaultName="TestSample";
+        public string SampleDefaultName = "TestSample";
 
         public CmdSeg pretest_cmd;
 
@@ -2222,9 +2313,9 @@ namespace CComLibrary
 
         public Boolean ReportPrint;//是否打印报告
 
-        public string  lasttestdatatime;//最后试验日期
+        public string lasttestdatatime;//最后试验日期
 
-		public CmdSeg simple_cmd; //简单试验
+        public CmdSeg simple_cmd; //简单试验
 
         public double StrainToLoad(double l)
         {
@@ -2242,7 +2333,7 @@ namespace CComLibrary
 
             }
 
-            return  l / 1000 * t; 
+            return l / 1000 * t;
 
         }
 
@@ -2263,54 +2354,54 @@ namespace CComLibrary
             }
 
 
-            return l/t*1000;
+            return l / t * 1000;
 
         }
 
         public double GetArea()
         {
-            double t=0;
+            double t = 0;
 
             if (mshapelist[shapeselect].shapename == "矩形")
-           {
-               t = mshapelist[shapeselect].sizeitem[0].cvalue * mshapelist[shapeselect].sizeitem[1].cvalue;
+            {
+                t = mshapelist[shapeselect].sizeitem[0].cvalue * mshapelist[shapeselect].sizeitem[1].cvalue;
 
-           }
+            }
 
             if (mshapelist[shapeselect].shapename == "圆形")
             {
-                t = mshapelist[shapeselect].sizeitem[0].cvalue * mshapelist[shapeselect].sizeitem[0].cvalue/4*3.1415926;
+                t = mshapelist[shapeselect].sizeitem[0].cvalue * mshapelist[shapeselect].sizeitem[0].cvalue / 4 * 3.1415926;
 
             }
 
 
-           return t;
-           
+            return t;
+
         }
 
         public void InitExplainList()
         {
 
-			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2) //简单试验
-				{
+            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2) //简单试验
+            {
 
 
 
 
-					mexplainlist = new List<CmdSeg>();
-					mexplainlist.Clear();
-
-					
-				    mexplainlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd );
+                mexplainlist = new List<CmdSeg>();
+                mexplainlist.Clear();
 
 
-					
+                mexplainlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd);
 
-					
 
-				}
 
-			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
+
+
+
+            }
+
+            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
             {
 
 
@@ -2548,7 +2639,7 @@ namespace CComLibrary
 
                             CComLibrary.GlobeVal.g_datatitle[j] = ww[j];
 
-                            
+
                         }
 
                     }
@@ -2711,13 +2802,13 @@ namespace CComLibrary
 
 
 
-               CComLibrary.GlobeVal.gcalc.getresult(j + 1).ToString();
+                CComLibrary.GlobeVal.gcalc.getresult(j + 1).ToString();
 
 
             }
 
 
-           
+
 
 
 
@@ -2727,18 +2818,18 @@ namespace CComLibrary
 
         public void checkchange()
         {
-          
+
             InitTable();
             this.mtablecol1.Clear();
             this.mtablecol2.Clear();
 
         }
-        
+
 
         public void InitTable()
         {
             dt = new DataTable();
-           
+
 
             DataColumn dc = null;
             dc = dt.Columns.Add("序号", Type.GetType("System.Int32"));
@@ -2747,25 +2838,25 @@ namespace CComLibrary
             dc.AutoIncrementStep = 1;//步长为1
             dc.AllowDBNull = true;//
 
-            dc = dt.Columns.Add("试样状态", typeof(CComLibrary.TestStatus)); 
+            dc = dt.Columns.Add("试样状态", typeof(CComLibrary.TestStatus));
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
-               
+
                 dc = dt.Columns.Add(CComLibrary.GlobeVal.filesave.mpromptslist[i].itemname, System.Type.GetType("System.String"));
-               
-               
+
+
             }
 
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
             {
 
-                dc = dt.Columns.Add(CComLibrary.GlobeVal.filesave.moutput[i].formulaname,typeof(double));
-               
+                dc = dt.Columns.Add(CComLibrary.GlobeVal.filesave.moutput[i].formulaname, typeof(double));
+
             }
 
-            
+
 
             //for (int i = 0; i < CComLibrary.GlobeVal.filesave.mspecount; i++)
 
@@ -2775,16 +2866,16 @@ namespace CComLibrary
                 DataRow newRow;
                 newRow = dt.NewRow();
 
-              
+
                 dt.Rows.Add(newRow);
-                
+
             }
 
             dtstatic = new DataTable();
             dc = null;
 
             dc = dtstatic.Columns.Add("统计", Type.GetType("System.String"));
-           
+
             dc.AllowDBNull = true;//
 
             dc = dtstatic.Columns.Add("试样状态", typeof(CComLibrary.TestStatus));
@@ -2810,7 +2901,7 @@ namespace CComLibrary
                 DataRow newRow;
                 newRow = dtstatic.NewRow();
 
-               
+
                 dtstatic.Rows.Add(newRow);
 
             }
@@ -2820,9 +2911,9 @@ namespace CComLibrary
             dtstatic.Rows[2][0] = "平均值";
             dtstatic.Rows[3][0] = "标准偏差";
             dtstatic.Rows[4][0] = "方差";
-            
 
-            
+
+
         }
         public void InitOutputExternal()
         {
@@ -2835,10 +2926,10 @@ namespace CComLibrary
                 p = new outputitem();
                 p.formulaname = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName;
                 p.myitemsignal = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i];
-               
+
                 p.formulavalue = "";
                 moutputexternal.Add(p);
-              
+
             }
 
             for (int i = 0; i <
@@ -2852,7 +2943,7 @@ namespace CComLibrary
                 p.myitemsignal.InitUnit();
                 p.formulavalue = "";
                 moutputexternal.Add(p);
-            
+
             }
 
             for (int i = 0; i <
@@ -2915,201 +3006,201 @@ namespace CComLibrary
             a.formulaname = "平均值";
             f.mtable1statistics.Add(a);
 
-           
+
         }
 
         public void InitPrompts()
         {
             mpromptslist.Clear();
-           PromptsItem p = new PromptsItem();
-           p.itemname = "样品注释1";
-           p.parentstring = "样品";
-          
-           mpromptslist.Add(p);
+            PromptsItem p = new PromptsItem();
+            p.itemname = "样品注释1";
+            p.parentstring = "样品";
 
-           p = new PromptsItem();
-           p.itemname = "样品注释2";
-           p.parentstring = "样品";
-          
-           mpromptslist.Add(p);
+            mpromptslist.Add(p);
 
-           p = new PromptsItem();
-           p.itemname = "样品注释3";
-           p.parentstring = "样品";
-           mpromptslist.Add(p);
+            p = new PromptsItem();
+            p.itemname = "样品注释2";
+            p.parentstring = "样品";
 
-           p = new PromptsItem();
-           p.itemname = "样品说明";
-           p.parentstring = "样品";
-           mpromptslist.Add(p);
+            mpromptslist.Add(p);
 
+            p = new PromptsItem();
+            p.itemname = "样品注释3";
+            p.parentstring = "样品";
+            mpromptslist.Add(p);
 
-          
-
-           for (int i = 0; i <
-          CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
-           {
-               if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
-               {
-                   p = new PromptsItem();
-                   p.itemname = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName;
-                   p.parentstring = "试样尺寸输入";
-                   mpromptslist.Add(p);
-               }
-           }
+            p = new PromptsItem();
+            p.itemname = "样品说明";
+            p.parentstring = "样品";
+            mpromptslist.Add(p);
 
 
-           for (int i = 0; i <
-             CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
-           {
-               p = new PromptsItem();
-               p.itemname =CComLibrary.GlobeVal.filesave.minputtext[i].name;
-               p.parentstring = "试样文本输入";
-               mpromptslist.Add(p);
-           }
 
-           for (int i = 0; i <
-            CComLibrary.GlobeVal.filesave.minput.Count; i++)
-           {
+
+            for (int i = 0; i <
+           CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
+            {
+                if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                {
+                    p = new PromptsItem();
+                    p.itemname = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName;
+                    p.parentstring = "试样尺寸输入";
+                    mpromptslist.Add(p);
+                }
+            }
+
+
+            for (int i = 0; i <
+              CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
+            {
                 p = new PromptsItem();
-                p.itemname =CComLibrary.GlobeVal.filesave.minput[i].name;
+                p.itemname = CComLibrary.GlobeVal.filesave.minputtext[i].name;
+                p.parentstring = "试样文本输入";
+                mpromptslist.Add(p);
+            }
+
+            for (int i = 0; i <
+             CComLibrary.GlobeVal.filesave.minput.Count; i++)
+            {
+                p = new PromptsItem();
+                p.itemname = CComLibrary.GlobeVal.filesave.minput[i].name;
                 p.parentstring = "试样数字输入";
                 mpromptslist.Add(p);
-           }
+            }
 
 
 
-           for (int i = 0; i < CComLibrary.GlobeVal.filesave.mcbo.Count; i++)
-           {
-               p = new PromptsItem();
-               
-               p.parentstring = "试样选项输入";
-               p.itemname=CComLibrary.GlobeVal.filesave.mcbo[i].Name;
-               mpromptslist.Add(p);
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mcbo.Count; i++)
+            {
+                p = new PromptsItem();
 
-           }
+                p.parentstring = "试样选项输入";
+                p.itemname = CComLibrary.GlobeVal.filesave.mcbo[i].Name;
+                mpromptslist.Add(p);
+
+            }
 
 
         }
 
         public FileStruct()
-       {
-           m_namelist = new List<string>();
-           minput = new List<inputitem>();
-           moutput = new List<outputitem>();
-           mcalcpanel = new CalcPanel();
-           muserchannel = new List<userchannelitem>(); 
-           ysels=new int[10]; 
-           yselpostion=new int[10] ;
-           lprocedurename = new List<string>();
-           
-           mshapelist = new List<shapeitem>();
-           minputtext = new List<inputtextitem>();
-           mcbo = new List<cboitem>();
-           mmeter = new List<ItemSignal>();
-           mkey = new List<ItemSignal>();
-           mextrameter = new List<ItemSignal>();
-           mrawdata = new List<ItemSignal>();
-           mstep = new List<CTestStep>();
-           mtestlist = new List<int>();
-           mautozero = new List<ItemSignal>();
-           mtablecol1 = new List<outputitem>();
-           mtablecol2 = new List<outputitem>();
-           mtable1para = new TablePara();
-           mtable2para = new TablePara();
-           mplotpara1 = new PlotSettings();
-           mplotpara2 = new PlotSettings();
+        {
+            m_namelist = new List<string>();
+            minput = new List<inputitem>();
+            moutput = new List<outputitem>();
+            mcalcpanel = new CalcPanel();
+            muserchannel = new List<userchannelitem>();
+            ysels = new int[10];
+            yselpostion = new int[10];
+            lprocedurename = new List<string>();
 
-           init_mtable1statistics(this);
-           init_mtable2statistics(this);
-           mrawdata = new List<ItemSignal>();
+            mshapelist = new List<shapeitem>();
+            minputtext = new List<inputtextitem>();
+            mcbo = new List<cboitem>();
+            mmeter = new List<ItemSignal>();
+            mkey = new List<ItemSignal>();
+            mextrameter = new List<ItemSignal>();
+            mrawdata = new List<ItemSignal>();
+            mstep = new List<CTestStep>();
+            mtestlist = new List<int>();
+            mautozero = new List<ItemSignal>();
+            mtablecol1 = new List<outputitem>();
+            mtablecol2 = new List<outputitem>();
+            mtable1para = new TablePara();
+            mtable2para = new TablePara();
+            mplotpara1 = new PlotSettings();
+            mplotpara2 = new PlotSettings();
 
-           chkcriteria = new bool[3];
-           cbomeasurement = new int[3];
-           numinterval = new double[3];
+            init_mtable1statistics(this);
+            init_mtable2statistics(this);
+            mrawdata = new List<ItemSignal>();
 
-           teststep = new List<CTestStep>();
-           for (int i = 0; i < 9; i++)
-           {
-               CTestStep ct = new CTestStep();
-               ct.Id = i;
+            chkcriteria = new bool[3];
+            cbomeasurement = new int[3];
+            numinterval = new double[3];
 
-               teststep.Add(ct);
-           }
+            teststep = new List<CTestStep>();
+            for (int i = 0; i < 9; i++)
+            {
+                CTestStep ct = new CTestStep();
+                ct.Id = i;
 
-           teststep[0].havedloop = false;
-           teststep[1].havedloop = true;
-           teststep[2].havedloop = true;
-           teststep[3].havedloop = true;
-           teststep[4].havedloop = true;
-           teststep[5].havedloop = true;
-           teststep[6].havedloop = true;
+                teststep.Add(ct);
+            }
 
-           teststep[7].havedloop = false;
-           teststep[8].havedloop = false;
+            teststep[0].havedloop = false;
+            teststep[1].havedloop = true;
+            teststep[2].havedloop = true;
+            teststep[3].havedloop = true;
+            teststep[4].havedloop = true;
+            teststep[5].havedloop = true;
+            teststep[6].havedloop = true;
 
-           mpromptslist = new List<PromptsItem>();
+            teststep[7].havedloop = false;
+            teststep[8].havedloop = false;
 
-           moutputexternal = new List<outputitem>();
+            mpromptslist = new List<PromptsItem>();
 
-           mcbosamplestart = new List<double>();
-           mcbosamplestart.Add(0);
-           mcbosamplestart.Add(10.0);
-           mcbosamplestart.Add(20.0);
-           mcbosamplestart.Add(30.0);
-           mcbosamplestart.Add(60.0);
+            moutputexternal = new List<outputitem>();
 
-           mcbosampleinterval = new List<double>();
-           mcbosampleinterval.Add(0.1);
-           mcbosampleinterval.Add(1);
-           mcbosampleinterval.Add(10);
-           mcbosampleinterval.Add(20);
-           mcbosampleinterval.Add(30);
-           mcbosampleinterval.Add(60);
-           mcbosampleinterval.Add(600);
-           mcbosampleinterval.Add(1200);
-           mcbosampleinterval.Add(1800);
-           mcbosampleinterval.Add(3600);
+            mcbosamplestart = new List<double>();
+            mcbosamplestart.Add(0);
+            mcbosamplestart.Add(10.0);
+            mcbosamplestart.Add(20.0);
+            mcbosamplestart.Add(30.0);
+            mcbosamplestart.Add(60.0);
 
-           mchsignals = new List<ItemSignal>();
-           for (int i = 0; i < ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
-           {
-               mchsignals.Add(ClsStaticStation.m_Global.mycls.chsignals[i]); 
-           }
-           mFreeFormPromptsItem = new List<PromptsItem>();
+            mcbosampleinterval = new List<double>();
+            mcbosampleinterval.Add(0.1);
+            mcbosampleinterval.Add(1);
+            mcbosampleinterval.Add(10);
+            mcbosampleinterval.Add(20);
+            mcbosampleinterval.Add(30);
+            mcbosampleinterval.Add(60);
+            mcbosampleinterval.Add(600);
+            mcbosampleinterval.Add(1200);
+            mcbosampleinterval.Add(1800);
+            mcbosampleinterval.Add(3600);
 
-           pretest_cmd = new CmdSeg();
+            mchsignals = new List<ItemSignal>();
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
+            {
+                mchsignals.Add(ClsStaticStation.m_Global.mycls.chsignals[i]);
+            }
+            mFreeFormPromptsItem = new List<PromptsItem>();
 
-           testcmdstep = new CmdSeg[4];
+            pretest_cmd = new CmdSeg();
 
-           for (int i = 0; i < 4; i++)
-           {
-               testcmdstep[i] = new CmdSeg();
-           }
+            testcmdstep = new CmdSeg[4];
 
-           mseglist = new List<CmdSeg>();
-           
+            for (int i = 0; i < 4; i++)
+            {
+                testcmdstep[i] = new CmdSeg();
+            }
 
-       }
+            mseglist = new List<CmdSeg>();
+
+
+        }
 
         public void SerializeNow(string filename)
         {
-            
+
             FileStream fileStream =
             new FileStream(filename, FileMode.Create);
             BinaryFormatter b = new BinaryFormatter();
             b.Serialize(fileStream, this);
             fileStream.Close();
         }
-        public  FileStruct   DeSerializeNow(string filename)
+        public FileStruct DeSerializeNow(string filename)
         {
             FileStruct c = new FileStruct();
             try
             {
-                
+
 
                 using (FileStream fileStream =
-                 new FileStream(filename ,
+                 new FileStream(filename,
                  FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
                     BinaryFormatter b = new BinaryFormatter();
@@ -3121,7 +3212,7 @@ namespace CComLibrary
                     }
                     if (c.moutput == null)
                     {
-                        c.moutput =new List<CComLibrary.outputitem>();
+                        c.moutput = new List<CComLibrary.outputitem>();
                     }
 
                     if (c.mcalcpanel == null)
@@ -3131,10 +3222,10 @@ namespace CComLibrary
 
                     if (c.muserchannel == null)
                     {
-                        c.muserchannel = new List<CComLibrary.userchannelitem>(); 
+                        c.muserchannel = new List<CComLibrary.userchannelitem>();
                     }
 
-                   
+
                     if (c.mshapelist == null)
                     {
                         c.mshapelist = new List<shapeitem>();
@@ -3144,7 +3235,7 @@ namespace CComLibrary
                     {
                         c.minputtext = new List<inputtextitem>();
 
-                       
+
                     }
                     if (c.mcbo == null)
                     {
@@ -3196,7 +3287,7 @@ namespace CComLibrary
                     if (c.mtable1statistics == null)
                     {
                         init_mtable1statistics(c);
-                        
+
                     }
 
                     if (c.mtable2statistics == null)
@@ -3231,7 +3322,7 @@ namespace CComLibrary
                         {
                             c.mplotpara1.PlotLineColor[i] = Color.Black;
                         }
-                        
+
                     }
 
                     if (c.mplotpara1.PlotLinePointColor == null)
@@ -3281,7 +3372,7 @@ namespace CComLibrary
                         }
                     }
 
-                    
+
 
                     if (c.mplotpara2.PlotLineColor == null)
                     {
@@ -3302,7 +3393,7 @@ namespace CComLibrary
                         }
                     }
 
-                    
+
                     if (c.mplotpara2.PlotLinePointStyle == null)
                     {
                         c.mplotpara2.PlotLinePointStyle = new NationalInstruments.UI.PointStyle[16];
@@ -3349,7 +3440,7 @@ namespace CComLibrary
 
                     if (c.numinterval == null)
                     {
-                        c.numinterval =new double[3];
+                        c.numinterval = new double[3];
                         for (int i = 0; i < 3; i++)
                         {
                             c.numinterval[i] = 0;
@@ -3382,7 +3473,7 @@ namespace CComLibrary
 
                             if (ct.mstepPromptsItem == null)
                             {
-                               ct.mstepPromptsItem = new List<PromptsItem>();
+                                ct.mstepPromptsItem = new List<PromptsItem>();
                             }
                             ct.Id = i;
 
@@ -3471,7 +3562,7 @@ namespace CComLibrary
 
                     //InitOutputExternal(ref c);
 
-                    if (c.pretest_cmd ==null)
+                    if (c.pretest_cmd == null)
                     {
                         c.pretest_cmd = new CmdSeg();
 
@@ -3479,12 +3570,12 @@ namespace CComLibrary
 
                     if (c.testcmdstep == null)
                     {
-                       c.testcmdstep= new CmdSeg[4];
+                        c.testcmdstep = new CmdSeg[4];
 
-                       for (int i = 0; i < 4; i++)
-                       {
-                           c.testcmdstep[i] = new CmdSeg();
-                       }
+                        for (int i = 0; i < 4; i++)
+                        {
+                            c.testcmdstep[i] = new CmdSeg();
+                        }
                     }
 
 
@@ -3516,7 +3607,7 @@ namespace CComLibrary
                                 c.mseglist.Add(n);
                             }
                         }
-                      
+
 
                     }
 
@@ -3525,32 +3616,32 @@ namespace CComLibrary
                         c.ReportTemplate = "default.it";
                     }
 
-					if (c.simple_cmd == null)
-					{
-						c.simple_cmd = new CmdSeg(); 
-					}
+                    if (c.simple_cmd == null)
+                    {
+                        c.simple_cmd = new CmdSeg();
+                    }
 
-                       
+
 
                     fileStream.Close();
 
-                  
-                    
-                    
+
+
+
                 }
             }
             catch (Exception e1)
             {
                 c = new FileStruct();
 
-                MessageBox.Show(e1.Message,"读取文件");  
+                MessageBox.Show(e1.Message, "读取文件");
             }
             finally
             {
 
             }
             return (c);
-        } 
+        }
     }
 
 
@@ -3569,27 +3660,27 @@ namespace CComLibrary
         public double result = 0;
         public double[] CalcedChannelResult;
 
-        
 
-      
+
+
 
         public MyClassBase()
         {
             v = new double[100];
             vname = new string[100];
             CalcedChannelResult = new double[100];
-           
+
 
         }
 
         public virtual double[] eval_hardchannel(int count)
         {
-            return CalcedChannelResult; 
+            return CalcedChannelResult;
 
         }
         public virtual void calcchannel(double[] v, string s)
         {
-            
+
         }
         public virtual void doit()
         {
@@ -3615,12 +3706,12 @@ namespace CComLibrary
 {
     public class MathExpressionParser
     {
-        public  string msource;
+        public string msource;
         private string calcstring;
 
         public long stringlength = 0;
 
-        public  TextBox text;
+        public TextBox text;
 
         private ListBox list;
 
@@ -3636,7 +3727,7 @@ namespace CComLibrary
         public MathExpressionParser()
         {
             errorMessages = new ArrayList();
-            
+
             cp = new Microsoft.CSharp.CSharpCodeProvider();
             ic = cp.CreateCompiler();
             cpar = new System.CodeDom.Compiler.CompilerParameters();
@@ -3645,10 +3736,10 @@ namespace CComLibrary
             cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\system.dll");
             cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\System.Windows.Forms.dll");
             //cpar.ReferencedAssemblies.Add("NationalInstruments.Analysis.Enterprise.dll");
-            cpar.ReferencedAssemblies.Add(Application.StartupPath +"\\AppleLabApplication.dll");//添加可执行文件名
+            cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\AppleLabApplication.dll");//添加可执行文件名
             cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\ClsStaticStation.dll");//添加可执行文件名
 
-            
+
             calcstring = "";
             list = new ListBox();
             text = new TextBox();
@@ -3659,42 +3750,42 @@ namespace CComLibrary
         }
 
 
-       
 
-        public void InitArray(string s,int count)
+
+        public void InitArray(string s, int count)
         {
             int istart;
             int iend;
-            int i,j;
+            int i, j;
             string mys;
             string[] s1;
             mys = s;
 
             for (i = 1; i <= GlobeVal.filesave.muserchannel.Count; i++)
             {
-                mys  = mys  + " " + GlobeVal.filesave.muserchannel[i - 1].channelname;
+                mys = mys + " " + GlobeVal.filesave.muserchannel[i - 1].channelname;
 
             }
 
 
-           
+
             char[] a;
-            a=new char[1];
+            a = new char[1];
             a[0] = Convert.ToChar(" ");
             s1 = mys.Split(a);
 
             istart = list.FindString("//var array begin" + "\r\n");
             iend = list.FindString("//var array end" + "\r\n");
-           
-           
+
+
 
             mys = "";
 
-            
+
 
             for (i = 0; i < s1.Length; i++)
             {
-                mys = mys + "public double[] " + s1[i] +";"+ "\r\n";
+                mys = mys + "public double[] " + s1[i] + ";" + "\r\n";
 
 
             }
@@ -3715,7 +3806,7 @@ namespace CComLibrary
 
             //for (i = 0; i < s1.Length; i++)
             {
-               // mys = mys +   s1[i] +" = new double"+"["+count.ToString().Trim()+"]" +";"+ "\r\n";
+                // mys = mys +   s1[i] +" = new double"+"["+count.ToString().Trim()+"]" +";"+ "\r\n";
 
 
             }
@@ -3733,57 +3824,57 @@ namespace CComLibrary
             list.Items.Insert(istart, mys);
 
             mys = "";
-          
-           
-           // for (i = 0; i < GlobeVal.filesave.muserchannel.Count; i++)
+
+
+            // for (i = 0; i < GlobeVal.filesave.muserchannel.Count; i++)
             for (i = 0; i < 0; i++)
             {
-               
-               
-                    mys = mys + " for (int j = 0; j < GlobeVal.m_len - 1; j++)\r\n";
-                    mys = mys + "{\r\n";
 
 
-                    mys = mys + "索引=j;\r\n";
+                mys = mys + " for (int j = 0; j < GlobeVal.m_len - 1; j++)\r\n";
+                mys = mys + "{\r\n";
 
-                    //mys = mys + GlobeVal.filesave.muserchannel[i].channelvalue+"\r\n";
 
-                    istart = istart + 1;
-                    list.Items.Insert(istart, mys);
+                mys = mys + "索引=j;\r\n";
 
-                    mys = "";
+                //mys = mys + GlobeVal.filesave.muserchannel[i].channelvalue+"\r\n";
 
-                    mys = mys + "//calcchannel begin"+ (i+1).ToString().Trim()+"\r\n";
-                    istart = istart + 1;
-                    list.Items.Insert(istart, mys);
+                istart = istart + 1;
+                list.Items.Insert(istart, mys);
 
-                    mys = "";
-                    mys = mys +"//calcchannel end" + (i+1).ToString().Trim() + "\r\n";
+                mys = "";
 
-                    istart = istart + 1;
-                    list.Items.Insert(istart, mys);
+                mys = mys + "//calcchannel begin" + (i + 1).ToString().Trim() + "\r\n";
+                istart = istart + 1;
+                list.Items.Insert(istart, mys);
 
-                    mys = "";
+                mys = "";
+                mys = mys + "//calcchannel end" + (i + 1).ToString().Trim() + "\r\n";
 
-                    mys = mys + "GlobeVal.m_calcdata["+ i.ToString().Trim()+"][j] =结果;";
-                    mys = mys + "\r\n}\r\n";
+                istart = istart + 1;
+                list.Items.Insert(istart, mys);
+
+                mys = "";
+
+                mys = mys + "GlobeVal.m_calcdata[" + i.ToString().Trim() + "][j] =结果;";
+                mys = mys + "\r\n}\r\n";
 
             }
 
-           
-            
 
-          
 
-           
+
+
+
+
             //for (i = s1.Length - GlobeVal.filesave.muserchannel.Count; i < s1.Length; i++)
             {
-               // mys = mys + s1[i] + " = GlobeVal.m_calcdata[" + (i-(s1.Length - GlobeVal.filesave.muserchannel.Count)).ToString().Trim() + "];" + "\r\n";
+                // mys = mys + s1[i] + " = GlobeVal.m_calcdata[" + (i-(s1.Length - GlobeVal.filesave.muserchannel.Count)).ToString().Trim() + "];" + "\r\n";
             }
-           
 
 
-            mys = mys + "数组长度=" + (GlobeVal.m_len).ToString() +";"+"\r\n";
+
+            mys = mys + "数组长度=" + (GlobeVal.m_len).ToString() + ";" + "\r\n";
 
 
             for (i = istart + 1; i <= iend - 1; i++)
@@ -3794,19 +3885,19 @@ namespace CComLibrary
             istart = istart + 1;
             list.Items.Insert(istart, mys);
 
-            
-            
+
+
 
 
         }
 
 
-     
+
         public void InitBegin()
         {
             int i;
 
-            
+
 
             list.Items.Clear();
             list.Items.Add("using System;" + "\r\n");
@@ -3816,7 +3907,7 @@ namespace CComLibrary
 
             list.Items.Add("class myclass:CComLibrary.MyClassBase" + "\r\n");
             list.Items.Add("{" + "\r\n");
-            list.Items.Add("public Boolean  有效=false;\r\n "); 
+            list.Items.Add("public Boolean  有效=false;\r\n ");
             list.Items.Add("public const int 单坐标=0;\r\n");
             list.Items.Add("public const int 双坐标=1;\r\n");
             list.Items.Add("public const int 曲线1=1;\r\n");
@@ -3846,8 +3937,8 @@ namespace CComLibrary
             list.Items.Add("public double exp(double v) {return Math.Exp(v);}" + "\r\n");
             list.Items.Add("public double power(double x,double y) {return  Math.Pow(x,y);}" + "\r\n");
             list.Items.Add("public double sqrt(double v) {return  Math.Sqrt(v);}" + "\r\n");
-            list.Items.Add("public int 取整(double v) {return Convert.ToInt32(v);}"+"\r\n");
-            list.Items.Add("public double 修约(double v,int l){return Math.Round(v,l);}" + "\r\n"); 
+            list.Items.Add("public int 取整(double v) {return Convert.ToInt32(v);}" + "\r\n");
+            list.Items.Add("public double 修约(double v,int l){return Math.Round(v,l);}" + "\r\n");
             list.Items.Add("public double maxpeak(int starti,int endi,double[] v)" + "\r\n" + "{ return  GlobeVal._funmax(starti,endi,v); }" + "\r\n");
             list.Items.Add("public double 屈服(double[] x,double[] y,bool mdraw)" + "\r\n" + " {  double v;  int i;\r\n  GlobeVal._yield(x,y, mdraw, out v,out i);\r\n return v; \r\n}\r\n");
             list.Items.Add("public double 弹模(double[] x,double[] y,bool mdraw) \r\n {double mslope; double a;double b; \r\n GlobeVal._automodule(x,y,mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
@@ -3881,13 +3972,13 @@ namespace CComLibrary
             list.Items.Add("{ GlobeVal._闭合曲线(曲线号) ;}" + "\r\n");
 
             list.Items.Add("public void 坐标轴标题(int 坐标轴,string 标题) \r\n");
-            list.Items.Add("{ GlobeVal._坐标轴标题(坐标轴,标题);}"+ "\r\n");
+            list.Items.Add("{ GlobeVal._坐标轴标题(坐标轴,标题);}" + "\r\n");
             list.Items.Add("public void 曲线标题(string 标题) \r\n");
-            list.Items.Add("{GlobeVal._曲线标题(标题);}"+"\r\n");
+            list.Items.Add("{GlobeVal._曲线标题(标题);}" + "\r\n");
 
 
 
-  
+
             list.Items.Add("public void 画XY曲线(double[] x,double[] y ,int 曲线号) \r\n");
 
 
@@ -3914,8 +4005,8 @@ namespace CComLibrary
             list.Items.Add("//var array end" + "\r\n");
 
 
-             list.Items.Add("//ResultHard begin"+"\r\n");
-             list.Items.Add("//ResultHard end" + "\r\n");
+            list.Items.Add("//ResultHard begin" + "\r\n");
+            list.Items.Add("//ResultHard end" + "\r\n");
 
             list.Items.Add("// userdefined array begin" + "\r\n");
             list.Items.Add("// userdefined array end" + "\r\n");
@@ -3925,7 +4016,7 @@ namespace CComLibrary
 
             list.Items.Add("//var end" + "\r\n");
 
-           
+
 
             list.Items.Add("public myclass()" + "\r\n");
             list.Items.Add("{" + "\r\n");
@@ -3940,11 +4031,11 @@ namespace CComLibrary
             list.Items.Add("{\r\n");
 
 
-            list.Items.Add("//hardvar begin"+"\r\n");
+            list.Items.Add("//hardvar begin" + "\r\n");
             list.Items.Add("//hardvar end" + "\r\n");
 
 
- 
+
             list.Items.Add("//harddebug begin" + "\r\n");
             list.Items.Add("//harddebug end" + "\r\n");
 
@@ -3962,7 +4053,7 @@ namespace CComLibrary
 
             list.Items.Add("return  CalcedChannelResult ;" + "\r\n");
 
-            
+
             list.Items.Add("}\r\n");
 
             list.Items.Add("public override void calcchannel(double[] v, string s)\r\n");
@@ -4138,7 +4229,7 @@ namespace CComLibrary
                 list.Items.RemoveAt(istart + 1);
 
             }
-            i = istart+1;
+            i = istart + 1;
             list.Items.Insert(i, s + "\r\n");
 
 
@@ -4205,7 +4296,7 @@ namespace CComLibrary
             int iend;
             int i;
 
-           
+
 
             this.msource = expr;
             s1 = expr;
@@ -4235,7 +4326,7 @@ namespace CComLibrary
             this.RefreshDebug通道("debug1=" + "count" + ";\r\n");
 
             this.msource = expr;
-            s1 = "if (debug1==" + count.ToString().Trim()  + ")\r\n" + "{\r\n" + expr + "\r\n" +
+            s1 = "if (debug1==" + count.ToString().Trim() + ")\r\n" + "{\r\n" + expr + "\r\n" +
                "if (System.Double.IsNaN(结果)==true){结果=0;}\r\n" +
                 "CalcedChannelResult[" + count.ToString().Trim() + "]=结果;" + "\r\n}";
 
@@ -4254,21 +4345,21 @@ namespace CComLibrary
 
         public void InitExpr(string expr, int count)
         {
-            string  s1;
+            string s1;
 
-            
+
 
             int istart;
             int iend;
             int i;
-            this.RefreshDebug("debug1=" + "count"+";\r\n");
+            this.RefreshDebug("debug1=" + "count" + ";\r\n");
 
             this.msource = expr;
             s1 = "if (debug1==" + count.ToString().Trim() + ")\r\n" + "{\r\n" + expr + "\r\n" +
-               "if (System.Double.IsNaN(结果)==true){结果=0; 有效=false; }\r\n"+
-                 "else { 有效=true;  }\r\n"+
-                "  CalcedChannelResult[" + count.ToString().Trim() + "]=结果;" +"m_Global.mvalid=有效;" + "\r\n}";
-                 
+               "if (System.Double.IsNaN(结果)==true){结果=0; 有效=false; }\r\n" +
+                 "else { 有效=true;  }\r\n" +
+                "  CalcedChannelResult[" + count.ToString().Trim() + "]=结果;" + "m_Global.mvalid=有效;" + "\r\n}";
+
 
             istart = list.FindString("//calc begin" + count.ToString().Trim() + "\r\n");
             iend = list.FindString("//calc end" + count.ToString().Trim() + "\r\n");
@@ -4308,22 +4399,22 @@ namespace CComLibrary
             sp[1] = Convert.ToChar("\n");
 
 
-            
 
 
-          
-           
+
+
+
             cr = ic.CompileAssemblyFromSource(cpar, src);
             GlobeVal.errorline = 0;
-           
+
 
             if (cr.Errors.Count > 0)
 
-          
+
             {
 
                 MessageBox.Show(cr.Errors[0].ToString());
-                
+
 
             }
 
@@ -4339,7 +4430,7 @@ namespace CComLibrary
                 }
                 catch (Exception ex)
                 {
-                    
+
                 }
                 return true;
             }
@@ -4350,17 +4441,17 @@ namespace CComLibrary
         public bool InitCalcedChannelExpressiton()
         {
 
-            
-            
+
+
             char[] sp;
-            
+
             string src;
             int i;
-            int j=0;
+            int j = 0;
 
-            string[] m ;
+            string[] m;
 
-            sp=new char[3];
+            sp = new char[3];
             src = "";
             for (i = 0; i < list.Items.Count; i++)
             {
@@ -4373,9 +4464,9 @@ namespace CComLibrary
             sp[0] = Convert.ToChar("\r");
             sp[1] = Convert.ToChar("\n");
 
-            
+
             m = msource.Split(sp);
-            
+
 
             text.Text = src;
 
@@ -4386,7 +4477,7 @@ namespace CComLibrary
             {
                 GlobeVal.m_richtextbox.Text = src;
 
-             //   GlobeVal.m_richtextbox.SaveFile("d:\\a.rtf");
+                //   GlobeVal.m_richtextbox.SaveFile("d:\\a.rtf");
             }
 
             //return false;
@@ -4394,29 +4485,29 @@ namespace CComLibrary
             cr = ic.CompileAssemblyFromSource(cpar, src);
             GlobeVal.errorline = 0;
 
-            
-                if (CComLibrary.GlobeVal.m_test == false)
+
+            if (CComLibrary.GlobeVal.m_test == false)
+            {
+                if (CComLibrary.GlobeVal.m_outputwindow == null)
                 {
-                    if (CComLibrary.GlobeVal.m_outputwindow == null)
-                    {
-                    }
-                    else
-                    {
-                        CComLibrary.GlobeVal.m_outputwindow.Clear();
-                    }
                 }
                 else
                 {
-                    if (CComLibrary.GlobeVal.m_calc_outputwindow == null)
-                    {
-                    }
-                    else
-                    {
-                        CComLibrary.GlobeVal.m_calc_outputwindow.Clear();
-                    }
+                    CComLibrary.GlobeVal.m_outputwindow.Clear();
                 }
-            
-            if (cr.Errors.Count >0) 
+            }
+            else
+            {
+                if (CComLibrary.GlobeVal.m_calc_outputwindow == null)
+                {
+                }
+                else
+                {
+                    CComLibrary.GlobeVal.m_calc_outputwindow.Clear();
+                }
+            }
+
+            if (cr.Errors.Count > 0)
 
             //foreach (System.CodeDom.Compiler.CompilerError ce in cr.Errors)
             {
@@ -4438,7 +4529,7 @@ namespace CComLibrary
                             }
                         }
 
-                        GlobeVal.errorline=j;
+                        GlobeVal.errorline = j;
 
                         if (CComLibrary.GlobeVal.m_test == false)
                         {
@@ -4476,7 +4567,7 @@ namespace CComLibrary
                                 CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text +
                              "内部函数错误:" + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
-                          
+
 
                         }
                         else
@@ -4491,7 +4582,7 @@ namespace CComLibrary
                             }
                         }
                     }
-                    
+
 
                     // MessageBox.Show(ce.ErrorNumber.ToString()); 
                 }
@@ -4524,9 +4615,9 @@ namespace CComLibrary
                     }
                 }
 
-               
+
             }
-            
+
             if (cr.Errors.Count == 0 && cr.CompiledAssembly != null)
             {
                 Type ObjType = cr.CompiledAssembly.GetType("myclass");
@@ -4563,9 +4654,9 @@ namespace CComLibrary
                 myobj.doit();
             }
         }
-        public void    calc()
+        public void calc()
         {
-            
+
             try
             {
                 myobj.eval_calcedchannel(0);
@@ -4583,10 +4674,10 @@ namespace CComLibrary
             val = 0;
             if (myobj != null)
             {
-                
-                
+
+
                 myobj.CalcedChannelResult = myobj.eval_hardchannel(count);
-                val = myobj.CalcedChannelResult[count]; 
+                val = myobj.CalcedChannelResult[count];
             }
             return val;
         }
@@ -4610,24 +4701,24 @@ namespace CComLibrary
     }
 
 
-   
+
 
     public class GlobeVal
     {
         public struct Point
         {
-              public double X;
-              public double Y;
-              public Point(double x, double y)
-              {
-                 X = x;
-                 Y = y;
-              }
+            public double X;
+            public double Y;
+            public Point(double x, double y)
+            {
+                X = x;
+                Y = y;
+            }
         }
 
-        public static int formulakind =0;
+        public static int formulakind = 0;
         public static bool m_test = false;
-        public static  MainForm m_mainform;
+        public static MainForm m_mainform;
         public static RichTextBox m_outputwindow;
         public static Compenkie.RichTextBoxExtend m_richtextbox;
         public static RichTextBox m_calc_outputwindow;
@@ -4636,44 +4727,44 @@ namespace CComLibrary
         public static double[][] m_calcdata;
 
         public static double[] m_channeldata;
-        public static int m_i=0;
+        public static int m_i = 0;
 
-        public static string  mptprocedurepath;
+        public static string mptprocedurepath;
 
         public static string _试验方法;
         public static string _文件类型;
         public static int m_len;
         public static string _programname;
-        public static string  _programstring; 
+        public static string _programstring;
 
-        public static  CComLibrary.FileStruct filesave;
+        public static CComLibrary.FileStruct filesave;
         public static string currentfilesavename;
-        public static  List<CComLibrary.Rule> mrule = new List< CComLibrary.Rule >();
-        public static  List<CComLibrary.SystemPara> msyspara=new List<SystemPara>();
+        public static List<CComLibrary.Rule> mrule = new List<CComLibrary.Rule>();
+        public static List<CComLibrary.SystemPara> msyspara = new List<SystemPara>();
         public static List<CComLibrary.Rule> mfunc = new List<Rule>();
         public static List<CComLibrary.Rule> mconst = new List<Rule>();
 
         //public static CComLibrary.MathExpressionParser gparser = new CComLibrary.MathExpressionParser();
 
-        public static string[]  g_datatitle;
-        public static string[]  g_dataunit;
+        public static string[] g_datatitle;
+        public static string[] g_dataunit;
         //public   System.Array   g_data;
-        public static  System.Array l_Array;
-        public static int g_datalen=0;
+        public static System.Array l_Array;
+        public static int g_datalen = 0;
         public static int g_colcount = 0;
         public static double[][] g_datadraw;
 
-        public static int  xsel;
-        public static int  ysel;
+        public static int xsel;
+        public static int ysel;
 
         public static int[] ysels;
         public static int[] yselpostion;
 
         public static int yselcount = 0;
 
-        public static  SampleProject.Extensions.GridArray[] outgrid;
+        public static SampleProject.Extensions.GridArray[] outgrid;
 
-        private static  void Init_SystemPara通道()
+        private static void Init_SystemPara通道()
         {
 
             CComLibrary.SystemPara b;
@@ -4792,11 +4883,11 @@ namespace CComLibrary
                 }
                 else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "围压压力")
                 {
-                    s = s  + b.replaceName + "=" + "ClsStaticStation.m_Global.mload1" + ";" + "\r\n";
+                    s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mload1" + ";" + "\r\n";
                 }
                 else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "围压位移")
                 {
-                    s = s  + b.replaceName + "=" + "ClsStaticStation.m_Global.mpos1" + ";" + "\r\n";
+                    s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mpos1" + ";" + "\r\n";
                 }
 
 
@@ -4824,7 +4915,7 @@ namespace CComLibrary
         {
             int j;
             CComLibrary.GlobeVal.gcalc.Initialize通道();
-            
+
             Init_SystemPara通道();
             for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
             {
@@ -4839,15 +4930,15 @@ namespace CComLibrary
         public static K8robot gcalc = new K8robot();
         public static double _inputvar(long count)
         {
-            double m=0;
+            double m = 0;
 
             return m;
         }
 
 
-        public static int errorline=-1;
-       
-        
+        public static int errorline = -1;
+
+
 
         public static List<LineStruct> m_listline = new List<LineStruct>();
 
@@ -4855,7 +4946,7 @@ namespace CComLibrary
         /// 对一组点通过最小二乘法进行线性回归
         /// </summary>
         /// <param name="parray"></param>
-        public static void LinearRegression(Point[] parray,out double  slope)
+        public static void LinearRegression(Point[] parray, out double slope)
         {
             //点数不能小于2
             if (parray.Length < 2)
@@ -4918,47 +5009,47 @@ namespace CComLibrary
             //Console.WriteLine("回归平方和： " + regressionSS.ToString("0.0000"));
         }
         //拟合求斜率
-        public static double _fit(double[] x, double[] y,out double slope)
-    {
-        double t=0;
-        double t1;
-        int l = y.Length;
-
-        
-        //LinearRegression(array,out t);
-        if (x.Length > 2)
+        public static double _fit(double[] x, double[] y, out double slope)
         {
-            CurveFit.LinearFit(x, y, FitMethod.LeastSquare, out t, out t1, out t1);
-        }
-        slope = t;
+            double t = 0;
+            double t1;
+            int l = y.Length;
 
-        return 0;
-    }
+
+            //LinearRegression(array,out t);
+            if (x.Length > 2)
+            {
+                CurveFit.LinearFit(x, y, FitMethod.LeastSquare, out t, out t1, out t1);
+            }
+            slope = t;
+
+            return 0;
+        }
 
         public static void _曲线标题(string s)
         {
-            CComLibrary.GlobeVal.m_mainform.scatterGraph1.Caption =s;
+            CComLibrary.GlobeVal.m_mainform.scatterGraph1.Caption = s;
         }
         //
         public static void _坐标轴标题(int c, string s)
         {
             if (c == 0)
             {
-                CComLibrary.GlobeVal.m_mainform.scatterGraph1.YAxes[0].Caption = s;  
+                CComLibrary.GlobeVal.m_mainform.scatterGraph1.YAxes[0].Caption = s;
             }
             if (c == 1)
             {
-                CComLibrary.GlobeVal.m_mainform.scatterGraph1.YAxes[1].Caption = s;  
+                CComLibrary.GlobeVal.m_mainform.scatterGraph1.YAxes[1].Caption = s;
             }
             if (c == 2)
             {
-                CComLibrary.GlobeVal.m_mainform.scatterGraph1.XAxes[0].Caption  = s;  
+                CComLibrary.GlobeVal.m_mainform.scatterGraph1.XAxes[0].Caption = s;
             }
         }
 
-        public static void  _消息框(string s)
+        public static void _消息框(string s)
         {
-            MessageBox.Show(s); 
+            MessageBox.Show(s);
         }
 
         public static void _调试输出(string s)
@@ -4966,12 +5057,12 @@ namespace CComLibrary
             if (CComLibrary.GlobeVal.m_test == true)
             {
                 CComLibrary.GlobeVal.m_calc_outputwindow.Text =
-                    CComLibrary.GlobeVal.m_calc_outputwindow.Text + s+"\r\n";
+                    CComLibrary.GlobeVal.m_calc_outputwindow.Text + s + "\r\n";
             }
             else
             {
                 CComLibrary.GlobeVal.m_outputwindow.Text =
-                    CComLibrary.GlobeVal.m_outputwindow.Text + s+"\r\n";
+                    CComLibrary.GlobeVal.m_outputwindow.Text + s + "\r\n";
             }
 
         }
@@ -4981,16 +5072,16 @@ namespace CComLibrary
             double x;
             double y;
             CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].GetDataPoint(0, out x, out y);
-            CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].PlotXYAppend(x, y); 
+            CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].PlotXYAppend(x, y);
         }
         public static void _清除曲线(int c)
         {
             CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].ClearData();
-         
+
 
         }
 
-        public static void _设置曲线Y坐标轴(int c,int t)
+        public static void _设置曲线Y坐标轴(int c, int t)
         {
             if (t == 0)
             {
@@ -5009,25 +5100,25 @@ namespace CComLibrary
         }
 
         //插值函数
-        public static double _Interpolant(double x1, double y1, double x2, double y2,double x)
+        public static double _Interpolant(double x1, double y1, double x2, double y2, double x)
         {
 
             double[] xData = new double[2];
             double[] yData = new double[2];
             double[] secondDerivatives;
-            double initialBoundary, finalBoundary, xValue, interpValue=0;
+            double initialBoundary, finalBoundary, xValue, interpValue = 0;
 
 
             xData[0] = x1;
             xData[1] = x2;
             yData[0] = y1;
             yData[1] = y2;
-            
 
-            
+
+
             initialBoundary = 1.00E+30;
 
-            
+
             finalBoundary = 1.00E+30;
 
             xValue = x;
@@ -5045,26 +5136,26 @@ namespace CComLibrary
 
             return interpValue;
         }
-        public static bool _presetcalc(double[] setx, double[] calcy, double setvalue, out double calcvalue,bool draw)
+        public static bool _presetcalc(double[] setx, double[] calcy, double setvalue, out double calcvalue, bool draw)
         {
             int i;
             int mindex;
             bool b;
-            double x1=0, x2=0, y1=0, y2=0;
+            double x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 
             b = false;
             calcvalue = 0;
-            for (i = 1; i < m_len-2; i++)
+            for (i = 1; i < m_len - 2; i++)
             {
                 if (setx[i] >= setvalue)
                 {
                     mindex = i;
                     calcvalue = calcy[i];
-                    x1=setx[i-1];
-                    x2=setx[i+1];
+                    x1 = setx[i - 1];
+                    x2 = setx[i + 1];
                     y1 = calcy[i - 1];
                     y2 = calcy[i + 1];
-                    calcvalue=_Interpolant(x1, y1, x2, y2, setvalue);
+                    calcvalue = _Interpolant(x1, y1, x2, y2, setvalue);
 
                     b = true;
 
@@ -5084,17 +5175,17 @@ namespace CComLibrary
                 }
             }
 
-         
+
 
 
             return b;
         }
 
-        public static bool _chordmodulus(double[] x, double[] y,  double startx,double endx, out double value, out int starti, out int endi)
+        public static bool _chordmodulus(double[] x, double[] y, double startx, double endx, out double value, out int starti, out int endi)
         {
             int i;
-            double starty=0;
-            double endy=0;
+            double starty = 0;
+            double endy = 0;
 
             int mstarti = 0;
             int mendi = 0;
@@ -5110,7 +5201,7 @@ namespace CComLibrary
             }
             for (i = 0; i < m_len; i++)
             {
-                if (x[i] >= endx )
+                if (x[i] >= endx)
                 {
                     endy = y[i];
                     mendi = i;
@@ -5120,7 +5211,7 @@ namespace CComLibrary
 
             starti = mstarti;
             endi = mendi;
-            value = (starty -endy)/(startx-endx);
+            value = (starty - endy) / (startx - endx);
             return false;
         }
         public static bool _autoYoungModulus(double[] x, double[] y, bool mdraw, out double value, out int starti, out int endi)
@@ -5128,8 +5219,8 @@ namespace CComLibrary
             double yieldvalue;
             int yieldindex;
             bool b;
-            double xa=0;
-            double xb=0;
+            double xa = 0;
+            double xb = 0;
             int i;
             int k;
 
@@ -5150,7 +5241,7 @@ namespace CComLibrary
             mxi = new int[8];
             mslopev = new double[7];
             minterceptv = new double[7];
- 
+
             b = _yield(x, y, false, out yieldvalue, out yieldindex);
 
             mxi[0] = 0;
@@ -5186,15 +5277,15 @@ namespace CComLibrary
 
                 CurveFit.LinearFit(inputx, inputy, FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
                 mslopev[i - 1] = mslope;
-                minterceptv[i - 1] = mintercept; 
+                minterceptv[i - 1] = mintercept;
 
-                CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text +"Young Modules " + mslope.ToString() + " " + mintercept.ToString() + "\r\n";
+                CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + "Young Modules " + mslope.ToString() + " " + mintercept.ToString() + "\r\n";
 
             }
 
-          
+
             value = Statistics.Mean(mslopev);
-           
+
             starti = 0;
             endi = 0;
 
@@ -5203,15 +5294,15 @@ namespace CComLibrary
 
             if (mdraw == true)
             {
-               //  LineStruct l = new LineStruct();
-               // l.kind = 1;
-               // l.ystart = y[yieldindex] * 0.1;
-               // l.xstart = (l.ystart - xb) / xa;
+                //  LineStruct l = new LineStruct();
+                // l.kind = 1;
+                // l.ystart = y[yieldindex] * 0.1;
+                // l.xstart = (l.ystart - xb) / xa;
 
-               // l.yend = y[yieldindex] * 0.9;
-               // l.ystart = (l.yend - xb) / xa;
+                // l.yend = y[yieldindex] * 0.9;
+                // l.ystart = (l.yend - xb) / xa;
 
-               // m_listline.Add(l);
+                // m_listline.Add(l);
 
                 LineStruct l = new LineStruct();
                 l.kind = 1;
@@ -5228,12 +5319,12 @@ namespace CComLibrary
             return b;
 
         }
-        public static bool _automodule(double[] x, double[] y, bool mdraw, out double value,out double  a , out double b )
+        public static bool _automodule(double[] x, double[] y, bool mdraw, out double value, out double a, out double b)
         {
             double yieldvalue;
             int yieldindex;
-            
-           
+
+
             int i;
             int k;
 
@@ -5243,103 +5334,103 @@ namespace CComLibrary
             double[] mx;
             int[] mxi;
 
-            double mslope=0;
-            double  mintercept=0;
-            double   mresidue=0;
+            double mslope = 0;
+            double mintercept = 0;
+            double mresidue = 0;
 
             double[] mslopev;
 
             double[] minterceptv;
 
-            mx=new double[8]; 
-            mxi =new int[8]; 
-            mslopev =new double[7];
-            minterceptv = new double[7]; 
-           _yield(x, y, false, out yieldvalue,  out yieldindex);
-           
-                mxi[0] = 0;
-                for (i = 1; i <= 7; i++)
+            mx = new double[8];
+            mxi = new int[8];
+            mslopev = new double[7];
+            minterceptv = new double[7];
+            _yield(x, y, false, out yieldvalue, out yieldindex);
+
+            mxi[0] = 0;
+            for (i = 1; i <= 7; i++)
+            {
+                mx[i] = x[0];
+                for (k = 0; k <= yieldindex; k++)
                 {
-                    mx[i] = x[0];
-                    for (k = 0; k <= yieldindex; k++)
+                    if (x[k] >= x[yieldindex] / 7.0 * i)
                     {
-                        if (x[k] >= x[yieldindex] / 7.0 * i)
-                        {
-                            mxi[i] = k;
-                            break;
-                        }
+                        mxi[i] = k;
+                        break;
                     }
                 }
-                mxi[7] = yieldindex;
-                for (i = 1; i <= 7; i++)
+            }
+            mxi[7] = yieldindex;
+            for (i = 1; i <= 7; i++)
+            {
+                inputx = new double[mxi[i] - mxi[i - 1]];
+                inputy = new double[mxi[i] - mxi[i - 1]];
+
+                for (k = mxi[i - 1]; k < mxi[i]; k++)
                 {
-                    inputx = new double[mxi[i] - mxi[i - 1]];
-                    inputy = new double[mxi[i] - mxi[i - 1]];
 
-                    for (k = mxi[i - 1]; k < mxi[i]; k++)
-                    {
-
-                        inputx[k - mxi[i - 1]] = x[k];
-                        inputy[k - mxi[i - 1]] = y[k];
+                    inputx[k - mxi[i - 1]] = x[k];
+                    inputy[k - mxi[i - 1]] = y[k];
 
 
 
 
-
-                    }
-                    if (inputx.Length >= 2)
-                    {
-
-                        CurveFit.LinearFit(inputx, inputy, FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
-                    }
-                    mslopev[i-1]=mslope;
-                    minterceptv[i-1]=mintercept;  
-
-                    CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + mslope.ToString() + " "+ mintercept.ToString()+   "\r\n";
 
                 }
-                  
-
-
-                value = Statistics.Mean(mslopev);
-
-                a = Statistics.Mean(mslopev) ;
-                b = Statistics.Mean(minterceptv) ;
-
-                if (mdraw == true)
+                if (inputx.Length >= 2)
                 {
-                    LineStruct l = new LineStruct();
-                    l.kind = 1;
-                    l.xstart = x[yieldindex] *0.1;
-                    l.ystart = a*l.xstart +b;
 
-                    l.xend   =x[yieldindex] * 0.9;
-                    l.yend = a * l.xend + b;
-               
-                    m_listline.Add(l);
-
+                    CurveFit.LinearFit(inputx, inputy, FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
                 }
-               
+                mslopev[i - 1] = mslope;
+                minterceptv[i - 1] = mintercept;
+
+                CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + mslope.ToString() + " " + mintercept.ToString() + "\r\n";
+
+            }
+
+
+
+            value = Statistics.Mean(mslopev);
+
+            a = Statistics.Mean(mslopev);
+            b = Statistics.Mean(minterceptv);
+
+            if (mdraw == true)
+            {
+                LineStruct l = new LineStruct();
+                l.kind = 1;
+                l.xstart = x[yieldindex] * 0.1;
+                l.ystart = a * l.xstart + b;
+
+                l.xend = x[yieldindex] * 0.9;
+                l.yend = a * l.xend + b;
+
+                m_listline.Add(l);
+
+            }
+
             return false;
         }
 
-        public static bool   _yield(double[] x, double[] y, bool mdraw,  out double value,out int  index)
+        public static bool _yield(double[] x, double[] y, bool mdraw, out double value, out int index)
         {
-        
+
             int i;
             int k;
-            int maxindex=0;
+            int maxindex = 0;
             double max;
             double[] mk;
-            int [] mkstart;
+            int[] mkstart;
             int[] mkend;
             int segcount = 0;
-            int j=0;
-            int  a=0;
-            bool b=false ;
+            int j = 0;
+            int a = 0;
+            bool b = false;
             int bi = 0;
-            double mvalue=0;
-            int mindex=0;
+            double mvalue = 0;
+            int mindex = 0;
             double xx;
             double maxx;
             int maxxindex = 0;
@@ -5365,25 +5456,25 @@ namespace CComLibrary
                     max = y[i];
                     maxindex = i;
                 }
-            
+
             }
 
             xx = x[maxindex] * 0.01;
 
-            segcount =100;
+            segcount = 100;
             mk = new double[segcount];
-            mkstart = new  int[segcount];
-            mkend = new int[segcount]; 
-            j=0;
-            a=0;
-            k=0;
-            for (i = 0; i <segcount; i++)
+            mkstart = new int[segcount];
+            mkend = new int[segcount];
+            j = 0;
+            a = 0;
+            k = 0;
+            for (i = 0; i < segcount; i++)
             {
-                
-                while  (x[a + k] - x[a] <= xx)
+
+                while (x[a + k] - x[a] <= xx)
                 {
-                    k=k+1;
-                    if (a+k >= m_len - 2)
+                    k = k + 1;
+                    if (a + k >= m_len - 2)
                     {
                         k = k - 1;
                         break;
@@ -5397,14 +5488,14 @@ namespace CComLibrary
                 {
                     mk[j] = 0;
                 }
-                    mkstart[j] = a;
-                    mkend[j] = a + k;
-                    j = j + 1;
-                    a = a + k;
+                mkstart[j] = a;
+                mkend[j] = a + k;
+                j = j + 1;
+                a = a + k;
 
 
-                   // CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + "屈服段=" +(j-1).ToString() + " "+  mk[j-1].ToString() + "\r\n";     
-                
+                // CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + "屈服段=" +(j-1).ToString() + " "+  mk[j-1].ToString() + "\r\n";     
+
                 k = 0;
 
             }
@@ -5414,8 +5505,8 @@ namespace CComLibrary
             {
                 if (mk[i] < 0)
                 {
-                    bi = i-1;
-                    
+                    bi = i - 1;
+
 
                     b = true;
                     break;
@@ -5424,7 +5515,7 @@ namespace CComLibrary
 
             if (b == false)
             {
-                value =max;
+                value = max;
                 index = maxindex;
                 return b;
             }
@@ -5432,21 +5523,21 @@ namespace CComLibrary
 
 
             mvalue = y[mkstart[bi]];
-            for (i = mkstart[bi]; i <  mkend[bi+1]; i++)
+            for (i = mkstart[bi]; i < mkend[bi + 1]; i++)
             {
                 if (y[i] >= mvalue)
                 {
                     mvalue = y[i];
-                    mindex =i;
-                    
+                    mindex = i;
+
                 }
             }
 
 
-            value=mvalue;
+            value = mvalue;
             index = mindex;
 
-            
+
 
             if (mdraw == true)
             {
@@ -5457,11 +5548,11 @@ namespace CComLibrary
             }
 
             return b;
-            
-            
-           
+
+
+
         }
-        public static  double _funmax(int starti, int endi, double[] value)
+        public static double _funmax(int starti, int endi, double[] value)
         {
             int i;
             double m;
@@ -5480,12 +5571,12 @@ namespace CComLibrary
         }
         public GlobeVal()
         {
-           
+
 
         }
     }
 
-   
+
     [Serializable]
 
     public class Rule
@@ -5532,8 +5623,8 @@ namespace CComLibrary
     }
 
 
- 
-   
+
+
 
     [Serializable]
 
@@ -5544,26 +5635,26 @@ namespace CComLibrary
             namecol = new int[100];
             namerow = new int[100];
             valuecol = new int[100];
-            valuerow = new int[100]; 
-            
+            valuerow = new int[100];
+
 
         }
 
         public void init_textgrid()
         {
-            int  i;
+            int i;
             textgrid = new string[rowcount][];
 
-            for (i = 0; i <rowcount ; i++)
+            for (i = 0; i < rowcount; i++)
             {
-                textgrid[i] = new string[colcount]; 
+                textgrid[i] = new string[colcount];
             }
 
         }
 
 
         public int colcount = 0;
-        public int rowcount=0;
+        public int rowcount = 0;
 
         public int[] namecol;
         public int[] namerow;
@@ -5571,167 +5662,167 @@ namespace CComLibrary
         public int[] valuerow;
 
         public string[][] textgrid;
-       
+
 
 
     }
 
-    public class xyaa :  NationalInstruments.UI.XYRangeAnnotation
+    public class xyaa : NationalInstruments.UI.XYRangeAnnotation
     {
-        
+
         public xyaa()
         {
-            
-            
-           
+
+
+
         }
     }
 
 
-  
-        /// <summary>
-        /// Class to store one CSV row
-        /// </summary>
-        public class CsvRow : List<string>
+
+    /// <summary>
+    /// Class to store one CSV row
+    /// </summary>
+    public class CsvRow : List<string>
+    {
+        public string LineText { get; set; }
+    }
+
+    /// <summary>
+    /// Class to write data to a CSV file
+    /// </summary>
+    public class CsvFileWriter : StreamWriter
+    {
+        public CsvFileWriter(Stream stream)
+            : base(stream)
         {
-            public string LineText { get; set; }
+        }
+
+        public CsvFileWriter(string filename)
+            : base(filename)
+        {
         }
 
         /// <summary>
-        /// Class to write data to a CSV file
+        /// Writes a single row to a CSV file.
         /// </summary>
-        public class CsvFileWriter : StreamWriter
+        /// <param name="row">The row to be written</param>
+        public void WriteRow(CsvRow row)
         {
-            public CsvFileWriter(Stream stream)
-                : base(stream)
+            StringBuilder builder = new StringBuilder();
+            bool firstColumn = true;
+            foreach (string value in row)
             {
+                // Add separator if this isn't the first value
+                if (!firstColumn)
+                    builder.Append(',');
+                // Implement special handling for values that contain comma or quote
+                // Enclose in quotes and double up any double quotes
+                if (value.IndexOfAny(new char[] { '"', ',' }) != -1)
+                    builder.AppendFormat("\"{0}\"", value.Replace("\"", "\"\""));
+                else
+                    builder.Append(value);
+                firstColumn = false;
             }
+            row.LineText = builder.ToString();
+            WriteLine(row.LineText);
+        }
+    }
 
-            public CsvFileWriter(string filename)
-                : base(filename)
-            {
-            }
+    /// <summary>
+    /// Class to read data from a CSV file
+    /// </summary>
+    public class CsvFileReader : StreamReader
+    {
+        public CsvFileReader(Stream stream)
+            : base(stream)
+        {
+        }
 
-            /// <summary>
-            /// Writes a single row to a CSV file.
-            /// </summary>
-            /// <param name="row">The row to be written</param>
-            public void WriteRow(CsvRow row)
-            {
-                StringBuilder builder = new StringBuilder();
-                bool firstColumn = true;
-                foreach (string value in row)
-                {
-                    // Add separator if this isn't the first value
-                    if (!firstColumn)
-                        builder.Append(',');
-                    // Implement special handling for values that contain comma or quote
-                    // Enclose in quotes and double up any double quotes
-                    if (value.IndexOfAny(new char[] { '"', ',' }) != -1)
-                        builder.AppendFormat("\"{0}\"", value.Replace("\"", "\"\""));
-                    else
-                        builder.Append(value);
-                    firstColumn = false;
-                }
-                row.LineText = builder.ToString();
-                WriteLine(row.LineText);
-            }
+        public CsvFileReader(string filename)
+            : base(filename)
+        {
         }
 
         /// <summary>
-        /// Class to read data from a CSV file
+        /// Reads a row of data from a CSV file
         /// </summary>
-        public class CsvFileReader : StreamReader
+        /// <param name="row"></param>
+        /// <returns></returns>
+        public bool ReadRow(CsvRow row)
         {
-            public CsvFileReader(Stream stream)
-                : base(stream)
+            row.LineText = ReadLine();
+            if (String.IsNullOrEmpty(row.LineText))
+                return false;
+
+            int pos = 0;
+            int rows = 0;
+
+            while (pos < row.LineText.Length)
             {
-            }
+                string value;
 
-            public CsvFileReader(string filename)
-                : base(filename)
-            {
-            }
-
-            /// <summary>
-            /// Reads a row of data from a CSV file
-            /// </summary>
-            /// <param name="row"></param>
-            /// <returns></returns>
-            public bool ReadRow(CsvRow row)
-            {
-                row.LineText = ReadLine();
-                if (String.IsNullOrEmpty(row.LineText))
-                    return false;
-
-                int pos = 0;
-                int rows = 0;
-
-                while (pos < row.LineText.Length)
+                // Special handling for quoted field
+                if (row.LineText[pos] == '"')
                 {
-                    string value;
+                    // Skip initial quote
+                    pos++;
 
-                    // Special handling for quoted field
-                    if (row.LineText[pos] == '"')
+                    // Parse quoted value
+                    int start = pos;
+                    while (pos < row.LineText.Length)
                     {
-                        // Skip initial quote
-                        pos++;
-
-                        // Parse quoted value
-                        int start = pos;
-                        while (pos < row.LineText.Length)
+                        // Test for quote character
+                        if (row.LineText[pos] == '"')
                         {
-                            // Test for quote character
-                            if (row.LineText[pos] == '"')
+                            // Found one
+                            pos++;
+
+                            // If two quotes together, keep one
+                            // Otherwise, indicates end of value
+                            if (pos >= row.LineText.Length || row.LineText[pos] != '"')
                             {
-                                // Found one
-                                pos++;
-
-                                // If two quotes together, keep one
-                                // Otherwise, indicates end of value
-                                if (pos >= row.LineText.Length || row.LineText[pos] != '"')
-                                {
-                                    pos--;
-                                    break;
-                                }
+                                pos--;
+                                break;
                             }
-                            pos++;
                         }
-                        value = row.LineText.Substring(start, pos - start);
-                        value = value.Replace("\"\"", "\"");
+                        pos++;
                     }
-                    else
-                    {
-                        // Parse unquoted value
-                        int start = pos;
-                        while (pos < row.LineText.Length && row.LineText[pos] != ',')
-                            pos++;
-                        value = row.LineText.Substring(start, pos - start);
-                    }
-
-                    // Add field to list
-                    if (rows < row.Count)
-                        row[rows] = value;
-                    else
-                        row.Add(value);
-                    rows++;
-
-                    // Eat up to and including next comma
+                    value = row.LineText.Substring(start, pos - start);
+                    value = value.Replace("\"\"", "\"");
+                }
+                else
+                {
+                    // Parse unquoted value
+                    int start = pos;
                     while (pos < row.LineText.Length && row.LineText[pos] != ',')
                         pos++;
-                    if (pos < row.LineText.Length)
-                        pos++;
+                    value = row.LineText.Substring(start, pos - start);
                 }
-                // Delete any unused items
-                while (row.Count > rows)
-                    row.RemoveAt(rows);
 
-                // Return true if any columns read
-                return (row.Count > 0);
+                // Add field to list
+                if (rows < row.Count)
+                    row[rows] = value;
+                else
+                    row.Add(value);
+                rows++;
+
+                // Eat up to and including next comma
+                while (pos < row.LineText.Length && row.LineText[pos] != ',')
+                    pos++;
+                if (pos < row.LineText.Length)
+                    pos++;
             }
+            // Delete any unused items
+            while (row.Count > rows)
+                row.RemoveAt(rows);
+
+            // Return true if any columns read
+            return (row.Count > 0);
         }
-        
-        
+    }
+
+
 }
 
 

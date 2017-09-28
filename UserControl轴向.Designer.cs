@@ -404,7 +404,6 @@
             this.btnstart.BackColor = System.Drawing.Color.Transparent;
             this.btnstart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnstart.FlatAppearance.BorderSize = 0;
-            this.btnstart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnstart.Image = ((System.Drawing.Image)(resources.GetObject("btnstart.Image")));
             this.btnstart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnstart.Location = new System.Drawing.Point(3, 45);
@@ -421,7 +420,6 @@
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(156, 45);
             this.button2.Name = "button2";
@@ -435,7 +433,6 @@
             this.btnend.BackColor = System.Drawing.Color.Transparent;
             this.btnend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnend.FlatAppearance.BorderSize = 0;
-            this.btnend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnend.Image = ((System.Drawing.Image)(resources.GetObject("btnend.Image")));
             this.btnend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnend.Location = new System.Drawing.Point(309, 45);
@@ -452,7 +449,6 @@
             this.btnup.BackColor = System.Drawing.Color.Transparent;
             this.btnup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnup.FlatAppearance.BorderSize = 0;
-            this.btnup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnup.Image = ((System.Drawing.Image)(resources.GetObject("btnup.Image")));
             this.btnup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnup.Location = new System.Drawing.Point(3, 3);
@@ -469,7 +465,6 @@
             this.btndown.BackColor = System.Drawing.Color.Transparent;
             this.btndown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btndown.FlatAppearance.BorderSize = 0;
-            this.btndown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndown.Image = ((System.Drawing.Image)(resources.GetObject("btndown.Image")));
             this.btndown.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btndown.Location = new System.Drawing.Point(309, 3);
@@ -486,7 +481,6 @@
             this.btnstop.BackColor = System.Drawing.Color.Transparent;
             this.btnstop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnstop.FlatAppearance.BorderSize = 0;
-            this.btnstop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnstop.Image = ((System.Drawing.Image)(resources.GetObject("btnstop.Image")));
             this.btnstop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnstop.Location = new System.Drawing.Point(156, 3);

@@ -75,8 +75,6 @@
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.lstavail = new TabHeaderDemo.ListExtObject(this.components);
-            this.lstinclude = new TabHeaderDemo.ListExtObject(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.btnup = new System.Windows.Forms.Button();
@@ -297,10 +295,7 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.pnledit = new System.Windows.Forms.Panel();
-            this.userControlStep3 = new TabHeaderDemo.UserControlStep();
             this.tlpedit = new System.Windows.Forms.TableLayoutPanel();
-            this.userControlStep2 = new TabHeaderDemo.UserControlStep();
-            this.userControlStep1 = new TabHeaderDemo.UserControlStep();
             this.panel15 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -310,6 +305,11 @@
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lstavail = new TabHeaderDemo.ListExtObject(this.components);
+            this.lstinclude = new TabHeaderDemo.ListExtObject(this.components);
+            this.userControlStep3 = new TabHeaderDemo.UserControlStep();
+            this.userControlStep2 = new TabHeaderDemo.UserControlStep();
+            this.userControlStep1 = new TabHeaderDemo.UserControlStep();
             this.tabControl1.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -615,7 +615,7 @@
             this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel6.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -633,7 +633,7 @@
             this.label6.ForeColor = System.Drawing.Color.Teal;
             this.label6.Location = new System.Drawing.Point(4, 1);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(590, 36);
+            this.label6.Size = new System.Drawing.Size(587, 36);
             this.label6.TabIndex = 0;
             this.label6.Text = "设置控制-开始试验";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -642,7 +642,7 @@
             // 
             this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(601, 4);
+            this.panel6.Location = new System.Drawing.Point(598, 4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(40, 30);
             this.panel6.TabIndex = 1;
@@ -862,7 +862,7 @@
             this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel5.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -880,7 +880,7 @@
             this.label5.ForeColor = System.Drawing.Color.Teal;
             this.label5.Location = new System.Drawing.Point(4, 1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(588, 36);
+            this.label5.Size = new System.Drawing.Size(585, 36);
             this.label5.TabIndex = 0;
             this.label5.Text = "设置控制-应变";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -889,7 +889,7 @@
             // 
             this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(599, 4);
+            this.panel5.Location = new System.Drawing.Point(596, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(40, 30);
             this.panel5.TabIndex = 1;
@@ -997,26 +997,6 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "选定通道";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lstavail
-            // 
-            this.lstavail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstavail.FormattingEnabled = true;
-            this.lstavail.ItemHeight = 12;
-            this.lstavail.Location = new System.Drawing.Point(3, 24);
-            this.lstavail.Name = "lstavail";
-            this.lstavail.Size = new System.Drawing.Size(279, 241);
-            this.lstavail.TabIndex = 2;
-            // 
-            // lstinclude
-            // 
-            this.lstinclude.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstinclude.FormattingEnabled = true;
-            this.lstinclude.ItemHeight = 12;
-            this.lstinclude.Location = new System.Drawing.Point(339, 24);
-            this.lstinclude.Name = "lstinclude";
-            this.lstinclude.Size = new System.Drawing.Size(280, 241);
-            this.lstinclude.TabIndex = 3;
             // 
             // panel10
             // 
@@ -1306,7 +1286,7 @@
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1324,7 +1304,7 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(580, 36);
+            this.label1.Size = new System.Drawing.Size(577, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "设置控制-测试前";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1333,7 +1313,7 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(591, 4);
+            this.panel4.Location = new System.Drawing.Point(588, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(40, 30);
             this.panel4.TabIndex = 1;
@@ -2408,7 +2388,7 @@
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2426,7 +2406,7 @@
             this.label2.ForeColor = System.Drawing.Color.Teal;
             this.label2.Location = new System.Drawing.Point(4, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(583, 36);
+            this.label2.Size = new System.Drawing.Size(580, 36);
             this.label2.TabIndex = 0;
             this.label2.Text = "设置控制-测试";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2435,7 +2415,7 @@
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(594, 4);
+            this.panel1.Location = new System.Drawing.Point(591, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(40, 30);
             this.panel1.TabIndex = 1;
@@ -2727,7 +2707,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2745,7 +2725,7 @@
             this.label3.ForeColor = System.Drawing.Color.Teal;
             this.label3.Location = new System.Drawing.Point(4, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(588, 36);
+            this.label3.Size = new System.Drawing.Size(585, 36);
             this.label3.TabIndex = 0;
             this.label3.Text = "设置控制-测试结束";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2754,7 +2734,7 @@
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(599, 4);
+            this.panel2.Location = new System.Drawing.Point(596, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(40, 30);
             this.panel2.TabIndex = 1;
@@ -3149,7 +3129,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -3167,7 +3147,7 @@
             this.label4.ForeColor = System.Drawing.Color.Teal;
             this.label4.Location = new System.Drawing.Point(4, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(589, 36);
+            this.label4.Size = new System.Drawing.Size(586, 36);
             this.label4.TabIndex = 0;
             this.label4.Text = "设置控制-数据";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3176,7 +3156,7 @@
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(600, 4);
+            this.panel3.Location = new System.Drawing.Point(597, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(40, 30);
             this.panel3.TabIndex = 1;
@@ -3259,7 +3239,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(53, 31);
+            this.toolStripLabel1.Size = new System.Drawing.Size(56, 31);
             this.toolStripLabel1.Text = "控制程序";
             // 
             // tscbo
@@ -3351,7 +3331,7 @@
             this.tableLayoutPanel29.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel29.ColumnCount = 2;
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel29.Controls.Add(this.label30, 0, 0);
             this.tableLayoutPanel29.Controls.Add(this.panel11, 1, 0);
             this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Top;
@@ -3369,7 +3349,7 @@
             this.label30.ForeColor = System.Drawing.Color.Teal;
             this.label30.Location = new System.Drawing.Point(4, 1);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(589, 36);
+            this.label30.Size = new System.Drawing.Size(586, 36);
             this.label30.TabIndex = 0;
             this.label30.Text = "设置控制-高级测试";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3378,7 +3358,7 @@
             // 
             this.panel11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel11.BackgroundImage")));
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel11.Location = new System.Drawing.Point(600, 4);
+            this.panel11.Location = new System.Drawing.Point(597, 4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(40, 30);
             this.panel11.TabIndex = 1;
@@ -3408,7 +3388,7 @@
             this.tableLayoutPanel17.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel17.ColumnCount = 2;
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel17.Controls.Add(this.label52, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.panel12, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Top;
@@ -3426,7 +3406,7 @@
             this.label52.ForeColor = System.Drawing.Color.Teal;
             this.label52.Location = new System.Drawing.Point(4, 1);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(590, 36);
+            this.label52.Size = new System.Drawing.Size(587, 36);
             this.label52.TabIndex = 0;
             this.label52.Text = "设置控制-简单控制";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3435,7 +3415,7 @@
             // 
             this.panel12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel12.BackgroundImage")));
             this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel12.Location = new System.Drawing.Point(601, 4);
+            this.panel12.Location = new System.Drawing.Point(598, 4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(40, 30);
             this.panel12.TabIndex = 1;
@@ -3691,7 +3671,7 @@
             this.tableLayoutPanel20.ColumnCount = 3;
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel20.Controls.Add(this.panel13, 2, 0);
             this.tableLayoutPanel20.Controls.Add(this.panel14, 1, 0);
             this.tableLayoutPanel20.Controls.Add(this.panel15, 0, 0);
@@ -3706,9 +3686,9 @@
             // panel13
             // 
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(616, 5);
+            this.panel13.Location = new System.Drawing.Point(610, 5);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(39, 155);
+            this.panel13.Size = new System.Drawing.Size(45, 155);
             this.panel13.TabIndex = 0;
             // 
             // panel14
@@ -3717,7 +3697,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(53, 5);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(555, 155);
+            this.panel14.Size = new System.Drawing.Size(549, 155);
             this.panel14.TabIndex = 1;
             // 
             // pnledit
@@ -3728,19 +3708,8 @@
             this.pnledit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnledit.Location = new System.Drawing.Point(0, 0);
             this.pnledit.Name = "pnledit";
-            this.pnledit.Size = new System.Drawing.Size(555, 155);
+            this.pnledit.Size = new System.Drawing.Size(549, 155);
             this.pnledit.TabIndex = 0;
-            // 
-            // userControlStep3
-            // 
-            this.userControlStep3.BackColor = System.Drawing.Color.White;
-            this.userControlStep3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.userControlStep3.Kind = 2;
-            this.userControlStep3.Location = new System.Drawing.Point(477, 0);
-            this.userControlStep3.Name = "userControlStep3";
-            this.userControlStep3.selected = false;
-            this.userControlStep3.Size = new System.Drawing.Size(228, 139);
-            this.userControlStep3.TabIndex = 3;
             // 
             // tlpedit
             // 
@@ -3758,30 +3727,8 @@
             this.tlpedit.Name = "tlpedit";
             this.tlpedit.RowCount = 1;
             this.tlpedit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpedit.Size = new System.Drawing.Size(477, 139);
+            this.tlpedit.Size = new System.Drawing.Size(477, 138);
             this.tlpedit.TabIndex = 2;
-            // 
-            // userControlStep2
-            // 
-            this.userControlStep2.BackColor = System.Drawing.Color.White;
-            this.userControlStep2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.userControlStep2.Kind = 1;
-            this.userControlStep2.Location = new System.Drawing.Point(249, 3);
-            this.userControlStep2.Name = "userControlStep2";
-            this.userControlStep2.selected = false;
-            this.userControlStep2.Size = new System.Drawing.Size(228, 133);
-            this.userControlStep2.TabIndex = 2;
-            // 
-            // userControlStep1
-            // 
-            this.userControlStep1.BackColor = System.Drawing.Color.White;
-            this.userControlStep1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.userControlStep1.Kind = 0;
-            this.userControlStep1.Location = new System.Drawing.Point(3, 3);
-            this.userControlStep1.Name = "userControlStep1";
-            this.userControlStep1.selected = true;
-            this.userControlStep1.Size = new System.Drawing.Size(240, 133);
-            this.userControlStep1.TabIndex = 1;
             // 
             // panel15
             // 
@@ -3893,6 +3840,59 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "选定的结果";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lstavail
+            // 
+            this.lstavail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstavail.FormattingEnabled = true;
+            this.lstavail.ItemHeight = 12;
+            this.lstavail.Location = new System.Drawing.Point(3, 24);
+            this.lstavail.Name = "lstavail";
+            this.lstavail.Size = new System.Drawing.Size(279, 241);
+            this.lstavail.TabIndex = 2;
+            // 
+            // lstinclude
+            // 
+            this.lstinclude.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstinclude.FormattingEnabled = true;
+            this.lstinclude.ItemHeight = 12;
+            this.lstinclude.Location = new System.Drawing.Point(339, 24);
+            this.lstinclude.Name = "lstinclude";
+            this.lstinclude.Size = new System.Drawing.Size(280, 241);
+            this.lstinclude.TabIndex = 3;
+            // 
+            // userControlStep3
+            // 
+            this.userControlStep3.BackColor = System.Drawing.Color.White;
+            this.userControlStep3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.userControlStep3.Kind = 2;
+            this.userControlStep3.Location = new System.Drawing.Point(477, 0);
+            this.userControlStep3.Name = "userControlStep3";
+            this.userControlStep3.selected = false;
+            this.userControlStep3.Size = new System.Drawing.Size(228, 138);
+            this.userControlStep3.TabIndex = 3;
+            // 
+            // userControlStep2
+            // 
+            this.userControlStep2.BackColor = System.Drawing.Color.White;
+            this.userControlStep2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.userControlStep2.Kind = 1;
+            this.userControlStep2.Location = new System.Drawing.Point(249, 3);
+            this.userControlStep2.Name = "userControlStep2";
+            this.userControlStep2.selected = false;
+            this.userControlStep2.Size = new System.Drawing.Size(228, 132);
+            this.userControlStep2.TabIndex = 2;
+            // 
+            // userControlStep1
+            // 
+            this.userControlStep1.BackColor = System.Drawing.Color.White;
+            this.userControlStep1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.userControlStep1.Kind = 0;
+            this.userControlStep1.Location = new System.Drawing.Point(3, 3);
+            this.userControlStep1.Name = "userControlStep1";
+            this.userControlStep1.selected = true;
+            this.userControlStep1.Size = new System.Drawing.Size(240, 132);
+            this.userControlStep1.TabIndex = 1;
             // 
             // UserControl控制
             // 

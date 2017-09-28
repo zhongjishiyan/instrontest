@@ -135,7 +135,6 @@
             this.tableLayoutPanelback.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanelback.Size = new System.Drawing.Size(1239, 650);
             this.tableLayoutPanelback.TabIndex = 44;
-            this.tableLayoutPanelback.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelback_Paint);
             this.tableLayoutPanelback.Resize += new System.EventHandler(this.tableLayoutPanelback_Resize);
             // 
             // paneltop

@@ -27,7 +27,8 @@ namespace TabHeaderDemo
                 {
                     b.cbo.Items.Add(CComLibrary.GlobeVal.filesave.mcbo[i].mlist[j]);
                 }
-
+                b.cbo.Tag = i;
+                b.cbo.SelectionChangeCommitted += Cbo_SelectionChangeCommitted;
                 b.cbo.SelectedIndex = CComLibrary.GlobeVal.filesave.mcbo[i].value;
                 tableLayoutPanelCombo.RowStyles[0].Height = 30;
                 tableLayoutPanelCombo.Controls.Add(b);
@@ -35,6 +36,15 @@ namespace TabHeaderDemo
             }
 
         }
+
+        private void Cbo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int c = Convert.ToInt16((sender as ComboBox).Tag);
+            CComLibrary.GlobeVal.filesave.mcbo[c].value = (sender as ComboBox).SelectedIndex;
+        }
+
+
+
         private void Init_textinput()
         {
             this.tableLayoutPanelText.Controls.Clear();
@@ -47,7 +57,8 @@ namespace TabHeaderDemo
 
                 b.lbltitle.Text = CComLibrary.GlobeVal.filesave.minputtext[i].name;
                 b.txtvalue.Text = CComLibrary.GlobeVal.filesave.minputtext[i].value.ToString();
-              
+                b.txtvalue.Tag = i;
+                b.txtvalue.TextChanged += Txtvalue_TextChanged1;
 
             
                 tableLayoutPanelText.RowStyles[0].Height = 30;
@@ -55,6 +66,13 @@ namespace TabHeaderDemo
 
             }
         }
+
+        private void Txtvalue_TextChanged1(object sender, EventArgs e)
+        {
+            int c = Convert.ToInt16((sender as TextBox).Tag);
+            CComLibrary.GlobeVal.filesave.minputtext[c].value = (sender as TextBox).Text; 
+        }
+
         private void Init_numbersize()
         {
             this.tableLayoutPanelNumber.Controls.Clear();
@@ -67,6 +85,8 @@ namespace TabHeaderDemo
 
                     b.lbltitle.Text = CComLibrary.GlobeVal.filesave.minput[i].name;
                     b.txtvalue.Text= CComLibrary.GlobeVal.filesave.minput[i].value.ToString();
+                    b.txtvalue.Tag = i;
+                    b.txtvalue.TextChanged += Txtvalue_TextChanged2;
                     b.cbounit.Items.Clear();
                     for (int j = 0; j <CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnitCount ; j++)
                     {
@@ -76,13 +96,20 @@ namespace TabHeaderDemo
                         );
 
                     }
-
+                b.cbounit.Enabled = false;
                     b.cbounit.SelectedIndex = CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnitsel;
                     tableLayoutPanelNumber.RowStyles[0].Height = 30;
                     tableLayoutPanelNumber.Controls.Add(b);
                 
             }
         }
+
+        private void Txtvalue_TextChanged2(object sender, EventArgs e)
+        {
+            int c = Convert.ToInt16((sender as TextBox).Tag);
+            double.TryParse((sender as TextBox).Text, out CComLibrary.GlobeVal.filesave.minput[c].value);
+        }
+
         private void Init_spesize()
         {
             if (cboshape.Text == "矩形")
@@ -121,6 +148,9 @@ namespace TabHeaderDemo
 
                     b.lbltitle.Text = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName;
                     b.txtvalue.Text = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cvalue.ToString();
+                    b.txtvalue.Tag = i;
+                    b.txtvalue.TextChanged += Txtvalue_TextChanged;
+              
                     b.cbounit.Items.Clear();
                     for (int j = 0; j < CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnitCount; j++)
                     {
@@ -131,6 +161,7 @@ namespace TabHeaderDemo
                         );
 
                     }
+                    b.cbounit.Enabled = false;
                     b.cbounit.SelectedIndex = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnitsel;
                     tableLayoutPanelSize.RowStyles[0].Height = 30;
                     tableLayoutPanelSize.Controls.Add(b);
@@ -139,6 +170,14 @@ namespace TabHeaderDemo
 
 
         }
+
+        private void Txtvalue_TextChanged(object sender, EventArgs e)
+        {
+            int c = Convert.ToInt16((sender as TextBox).Tag);
+
+            double.TryParse((sender as TextBox).Text, out CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[c].cvalue);
+        }
+
         public void  Open_method()
         {
             
@@ -175,6 +214,7 @@ namespace TabHeaderDemo
 
         private void cboshape_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            cboshape.SelectedIndex = CComLibrary.GlobeVal.filesave.shapeselect; 
             Init_spesize(); 
         }
     }

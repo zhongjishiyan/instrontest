@@ -2150,7 +2150,7 @@ namespace ClsStaticStation
 							if (load < maxload * CComLibrary.GlobeVal.filesave.crackvalue / 100.0)
 							{
 
-								CrossUp(0, 0.3);
+								CrossUp(0, 0.1);
 								duanliebaohu = true;
 
 							}
