@@ -110,9 +110,9 @@
             this.tslblEmergencyStop,
             this.tslbllimit,
             this.toolstatustest});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 537);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 703);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1136, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1350, 26);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -124,7 +124,7 @@
             this.tsluser.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tsluser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsluser.Name = "tsluser";
-            this.tsluser.Size = new System.Drawing.Size(57, 17);
+            this.tsluser.Size = new System.Drawing.Size(60, 21);
             this.tsluser.Text = "安全关闭";
             // 
             // tslblmachine
@@ -134,7 +134,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblmachine.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
             this.tslblmachine.Name = "tslblmachine";
-            this.tslblmachine.Size = new System.Drawing.Size(93, 17);
+            this.tslblmachine.Size = new System.Drawing.Size(96, 21);
             this.tslblmachine.Text = "电子万能试验机";
             // 
             // tslbldevice
@@ -144,7 +144,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslbldevice.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslbldevice.Name = "tslbldevice";
-            this.tslbldevice.Size = new System.Drawing.Size(69, 17);
+            this.tslbldevice.Size = new System.Drawing.Size(72, 21);
             this.tslbldevice.Text = "无可用设备";
             // 
             // tslblkind
@@ -154,7 +154,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblkind.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblkind.Name = "tslblkind";
-            this.tslblkind.Size = new System.Drawing.Size(75, 17);
+            this.tslblkind.Size = new System.Drawing.Size(76, 21);
             this.tslblkind.Text = "试验类型 空";
             // 
             // tslblsample
@@ -165,7 +165,7 @@
             this.tslblsample.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblsample.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tslblsample.Name = "tslblsample";
-            this.tslblsample.Size = new System.Drawing.Size(69, 17);
+            this.tslblsample.Size = new System.Drawing.Size(72, 21);
             this.tslblsample.Text = "样品：关闭";
             // 
             // tslblmethod
@@ -175,7 +175,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblmethod.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblmethod.Name = "tslblmethod";
-            this.tslblmethod.Size = new System.Drawing.Size(69, 17);
+            this.tslblmethod.Size = new System.Drawing.Size(72, 21);
             this.tslblmethod.Text = "方法：关闭";
             // 
             // tslblreport
@@ -185,7 +185,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblreport.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblreport.Name = "tslblreport";
-            this.tslblreport.Size = new System.Drawing.Size(69, 17);
+            this.tslblreport.Size = new System.Drawing.Size(72, 21);
             this.tslblreport.Text = "报告：关闭";
             // 
             // tslblEmergencyStop
@@ -195,7 +195,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblEmergencyStop.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblEmergencyStop.Name = "tslblEmergencyStop";
-            this.tslblEmergencyStop.Size = new System.Drawing.Size(69, 17);
+            this.tslblEmergencyStop.Size = new System.Drawing.Size(72, 21);
             this.tslblEmergencyStop.Text = "急停：关闭";
             // 
             // tslbllimit
@@ -205,7 +205,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslbllimit.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslbllimit.Name = "tslbllimit";
-            this.tslbllimit.Size = new System.Drawing.Size(69, 17);
+            this.tslbllimit.Size = new System.Drawing.Size(72, 21);
             this.tslbllimit.Text = "限位：关闭";
             // 
             // toolstatustest
@@ -215,12 +215,13 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolstatustest.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolstatustest.Name = "toolstatustest";
-            this.toolstatustest.Size = new System.Drawing.Size(99, 17);
+            this.toolstatustest.Size = new System.Drawing.Size(103, 21);
             this.toolstatustest.Text = "高级测试：步骤1";
             this.toolstatustest.Visible = false;
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Controls.Add(this.tableLayoutPanel4);
             this.panel4.Controls.Add(this.tableLayoutPanel3);
             this.panel4.Controls.Add(this.tableLayoutPanel2);
@@ -229,7 +230,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1136, 126);
+            this.panel4.Size = new System.Drawing.Size(1350, 126);
             this.panel4.TabIndex = 31;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -348,7 +349,7 @@
             this.tableLayoutPanel3.Controls.Add(this.button7, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.button2, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(866, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1080, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -442,7 +443,7 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
@@ -454,7 +455,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1136, 78);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1350, 78);
             this.tableLayoutPanel2.TabIndex = 41;
             // 
             // pictureBox2
@@ -462,7 +463,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(1079, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(1293, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(54, 72);
             this.pictureBox2.TabIndex = 41;
@@ -485,7 +486,7 @@
             this.tlbmeter.Name = "tlbmeter";
             this.tlbmeter.RowCount = 1;
             this.tlbmeter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlbmeter.Size = new System.Drawing.Size(1070, 72);
+            this.tlbmeter.Size = new System.Drawing.Size(1284, 72);
             this.tlbmeter.TabIndex = 40;
             // 
             // btnmethod
@@ -530,7 +531,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1136, 411);
+            this.tabControl1.Size = new System.Drawing.Size(1350, 577);
             this.tabControl1.TabIndex = 33;
             // 
             // tabPage1
@@ -539,7 +540,7 @@
             this.tabPage1.Location = new System.Drawing.Point(24, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1108, 403);
+            this.tabPage1.Size = new System.Drawing.Size(1322, 569);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -550,7 +551,7 @@
             this.tabPage2.Location = new System.Drawing.Point(24, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1108, 403);
+            this.tabPage2.Size = new System.Drawing.Size(1322, 569);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -570,8 +571,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1102, 397);
-            this.splitContainer1.SplitterDistance = 769;
+            this.splitContainer1.Size = new System.Drawing.Size(1316, 563);
+            this.splitContainer1.SplitterDistance = 983;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainer1_SplitterMoving);
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -584,7 +585,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(329, 397);
+            this.panel1.Size = new System.Drawing.Size(329, 563);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -600,7 +601,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 397);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 563);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -608,7 +609,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(323, 353);
+            this.panel2.Size = new System.Drawing.Size(323, 519);
             this.panel2.TabIndex = 0;
             // 
             // panel3
@@ -663,6 +664,7 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "1.bmp");
+            this.imageList1.Images.SetKeyName(1, "b.ico");
             // 
             // btnkeyimageList
             // 
@@ -691,7 +693,7 @@
             this.userControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControl11.Location = new System.Drawing.Point(3, 3);
             this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(1102, 397);
+            this.userControl11.Size = new System.Drawing.Size(1316, 563);
             this.userControl11.TabIndex = 0;
             this.userControl11.Load += new System.EventHandler(this.userControl11_Load);
             // 
@@ -701,41 +703,41 @@
             this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter1.Location = new System.Drawing.Point(3, 3);
             this.jMeter1.Name = "jMeter1";
-            this.jMeter1.Size = new System.Drawing.Size(261, 66);
+            this.jMeter1.Size = new System.Drawing.Size(315, 66);
             this.jMeter1.TabIndex = 0;
             // 
             // jMeter2
             // 
             this.jMeter2.BackColor = System.Drawing.Color.Transparent;
             this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter2.Location = new System.Drawing.Point(270, 3);
+            this.jMeter2.Location = new System.Drawing.Point(324, 3);
             this.jMeter2.Name = "jMeter2";
-            this.jMeter2.Size = new System.Drawing.Size(261, 66);
+            this.jMeter2.Size = new System.Drawing.Size(315, 66);
             this.jMeter2.TabIndex = 1;
             // 
             // jMeter3
             // 
             this.jMeter3.BackColor = System.Drawing.Color.Transparent;
             this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter3.Location = new System.Drawing.Point(537, 3);
+            this.jMeter3.Location = new System.Drawing.Point(645, 3);
             this.jMeter3.Name = "jMeter3";
-            this.jMeter3.Size = new System.Drawing.Size(261, 66);
+            this.jMeter3.Size = new System.Drawing.Size(315, 66);
             this.jMeter3.TabIndex = 2;
             // 
             // jMeter4
             // 
             this.jMeter4.BackColor = System.Drawing.Color.Transparent;
             this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter4.Location = new System.Drawing.Point(804, 3);
+            this.jMeter4.Location = new System.Drawing.Point(966, 3);
             this.jMeter4.Name = "jMeter4";
-            this.jMeter4.Size = new System.Drawing.Size(263, 66);
+            this.jMeter4.Size = new System.Drawing.Size(315, 66);
             this.jMeter4.TabIndex = 3;
             // 
             // FormMainLab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 559);
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.statusStrip1);

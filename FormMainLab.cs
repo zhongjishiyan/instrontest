@@ -20,6 +20,8 @@ namespace TabHeaderDemo
     public partial class FormMainLab : Form
     {
 
+        private Color topbackcolor=new Color();
+
         private ClsStaticStation.ClsBaseControl  myarm;
 
         private ClsStaticStation.CArm marm;
@@ -192,7 +194,8 @@ namespace TabHeaderDemo
 
             fdata = new MainForm();
 
-          
+            topbackcolor = Color.WhiteSmoke ;
+
 
         }
 
@@ -212,11 +215,15 @@ namespace TabHeaderDemo
 
 
             Bitmap map = new Bitmap(backimage);
-            Color c = map.GetPixel(map.Width - 5, map.Height / 2);
+
+            // Color c = (this.imageList1.Images[1] as Bitmap).GetPixel(this.imageList1.Images[1].Width - 5, this.imageList1.Images[1].Height / 2);
 
 
+            // Color c = map.GetPixel(map.Width - 5, map.Height / 2);
+
+          
             map.Dispose();
-            drawPath(e, path, c);
+            drawPath(e, path, topbackcolor );
 
             path.Reset();
             r = new Corners(points, 5);
@@ -226,13 +233,13 @@ namespace TabHeaderDemo
             matrix.Translate(0, 0);
             path.Transform(matrix);
             map = new Bitmap(backimage);
-            c = map.GetPixel(map.Width / 2, map.Height / 2);
+           // c = map.GetPixel(map.Width / 2, map.Height / 2);
 
             
 
             map.Dispose();
 
-            drawPath(e, path, c);
+            drawPath(e, path,topbackcolor );
 
             path.Dispose();
         }
@@ -333,10 +340,10 @@ namespace TabHeaderDemo
             this.Left = 0;
             this.Top = 0;
 
-            jMeter1.BackColor = Color.White;
-            jMeter2.BackColor = Color.White;
-            jMeter3.BackColor = Color.White;
-            jMeter4.BackColor = Color.White;
+            jMeter1.BackColor = topbackcolor ;
+            jMeter2.BackColor = topbackcolor;
+            jMeter3.BackColor = topbackcolor ;
+            jMeter4.BackColor =topbackcolor ;
 
 
             mlistmeter = new List<JMeter>();
@@ -468,20 +475,19 @@ if (GlobeVal.mysys.machinekind == 1)
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
-            return;
-
+            
             GraphicsContainer containerState = e.Graphics.BeginContainer();
            
 
 
             e.Graphics.PageUnit = System.Drawing.GraphicsUnit.Pixel;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            //e.Graphics.Clear(Color.White);
+            e.Graphics.Clear(Color.White);
 
 
 
             PointF[] roundedRectangle = new PointF[5];
-            roundedRectangle[0].X = 1;
+            roundedRectangle[0].X = 6;
             roundedRectangle[0].Y = 0;
             roundedRectangle[1].X = panel4.Width - 2 - 3;
             roundedRectangle[1].Y = 0;
@@ -490,7 +496,7 @@ if (GlobeVal.mysys.machinekind == 1)
             roundedRectangle[3].X = 1;
             roundedRectangle[3].Y = panel4.Height - 2 - 3;
             roundedRectangle[4].X = 1;
-            roundedRectangle[4].Y = 0;
+            roundedRectangle[4].Y = 6;
             drawFigure(e, roundedRectangle);
 
 
