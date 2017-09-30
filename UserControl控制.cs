@@ -414,11 +414,17 @@ namespace TabHeaderDemo
         public void Init_高级()
         {
 
-            tlpedit.ColumnStyles.Clear();
-            tlpedit.Controls.Clear();
+
+            // Put it in the first column of the fourth row
+
+
+
+            listViewEx1.mlist.Clear();
+
+            listViewEx1.Columns.Clear(); 
 
             UserControlStep p = new UserControlStep();
-            p.Dock = DockStyle.Fill;
+            
             p.Kind = 0;
             p.selected = true;
             p.settail(1);
@@ -428,17 +434,22 @@ namespace TabHeaderDemo
             p.btncutevent += this.UserControlStep1_btncutevent;
             p.btnleftevent += this.UserControlStep1_btnleftevent;
             p.btnselectevent += this.UserControlStep1_btnselectevent;
+            p.Width = 255;
+            ColumnHeader m = new ColumnHeader();
+            m.Width =p.Width ;
 
-            tlpedit.ColumnStyles.Insert(0, new ColumnStyle(SizeType.Absolute, p.Width));
+            listViewEx1.mlist.Add(p);
+            listViewEx1.Columns.Add(m);
+            imageList1.ImageSize = new Size(16, listViewEx1.Height);
+            listViewEx1.AddEmbeddedControl(p, 0, 0);
 
-            tlpedit.ColumnCount = tlpedit.ColumnCount + 1;
-
-            tlpedit.Controls.Add(p, 0, 0);
-
-            tlpedit.Width = tlpedit.ColumnCount * p.Width + 10;
+           
         
             tlpscroll.ColumnStyles[0].Width = 50;
             tlpscroll.ColumnStyles[2].Width = 50;
+
+           
+                
             grid3.RowsCount = 0;
             grid3.AutoStretchColumnsToFitWidth = true;
 
@@ -991,11 +1002,7 @@ namespace TabHeaderDemo
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
 
-            userControlStep1.btncopyevent += UserControlStep1_btncopyevent;
-            userControlStep1.btncutevent += UserControlStep1_btncutevent;
-            userControlStep1.btnleftevent += UserControlStep1_btnleftevent;
-            userControlStep1.btnrightevent += UserControlStep1_btnrightevent;
-            userControlStep1.btnselectevent += UserControlStep1_btnselectevent;
+           
 
             this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
 
@@ -1050,7 +1057,7 @@ namespace TabHeaderDemo
         private void UserControlStep1_btnrightevent(object sender, int index)
         {
             UserControlStep p = new UserControlStep();
-            p.Dock = DockStyle.Fill;
+            
             p.Kind = 0;
             p.selected = false;
             p.settail(1);
@@ -1061,21 +1068,47 @@ namespace TabHeaderDemo
             p.btnleftevent += this.UserControlStep1_btnleftevent;
             p.btnselectevent += this.UserControlStep1_btnselectevent;
 
+            int mm = (sender as UserControlStep).Id;
+            ColumnHeader m = new ColumnHeader();
+            p.Width = 255;
+            m.Width = p.Width;
 
-            tlpedit.ColumnStyles.Insert(tlpedit.ColumnCount-1, new ColumnStyle(SizeType.Absolute, p.Width));
-         
-            tlpedit.ColumnCount = tlpedit.ColumnCount + 1;
-            p.Id = tlpedit.ColumnCount;
-           
-            tlpedit.Controls.Add(p, tlpedit.ColumnCount - 2, 0);
-           
-            tlpedit.Width = tlpedit.ColumnCount * p.Width + 10;
-          
+
+            listViewEx1.mlist.Insert(mm+1, p);
+            listViewEx1.Columns.Insert(mm+1, m);
+
+            listViewEx1.reset();
+
             return;
         }
 
         private void UserControlStep1_btnleftevent(object sender, int index)
         {
+            UserControlStep p = new UserControlStep();
+           
+            p.Kind = 0;
+            p.selected = false;
+            p.settail(1);
+
+            p.btnrightevent += this.UserControlStep1_btnrightevent;
+            p.btncopyevent += this.UserControlStep1_btncopyevent;
+            p.btncutevent += this.UserControlStep1_btncutevent;
+            p.btnleftevent += this.UserControlStep1_btnleftevent;
+            p.btnselectevent += this.UserControlStep1_btnselectevent;
+
+            int mm = (sender as UserControlStep).Id;
+            ColumnHeader m = new ColumnHeader();
+            p.Width = 255;
+            m.Width = p.Width;
+
+             
+            listViewEx1.mlist.Insert(mm, p);
+            listViewEx1.Columns.Insert(mm, m);
+
+            listViewEx1.reset(); 
+
+           
+
             return;
         }
 

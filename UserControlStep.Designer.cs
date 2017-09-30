@@ -83,7 +83,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(205, 118);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(206, 118);
             this.tableLayoutPanel2.TabIndex = 1;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             this.tableLayoutPanel2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel2_MouseDoubleClick);
@@ -104,7 +104,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(182, 85);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(183, 85);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // lblcaption
@@ -113,7 +113,7 @@
             this.lblcaption.ForeColor = System.Drawing.Color.White;
             this.lblcaption.Location = new System.Drawing.Point(3, 0);
             this.lblcaption.Name = "lblcaption";
-            this.lblcaption.Size = new System.Drawing.Size(176, 13);
+            this.lblcaption.Size = new System.Drawing.Size(177, 13);
             this.lblcaption.TabIndex = 0;
             this.lblcaption.Text = "1.循环波";
             this.lblcaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,7 +126,7 @@
             this.picback.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picback.Location = new System.Drawing.Point(3, 16);
             this.picback.Name = "picback";
-            this.picback.Size = new System.Drawing.Size(176, 32);
+            this.picback.Size = new System.Drawing.Size(177, 32);
             this.picback.TabIndex = 1;
             this.picback.TabStop = false;
             this.picback.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.picback_MouseDoubleClick);
@@ -147,7 +147,7 @@
             this.tlpbottom.Name = "tlpbottom";
             this.tlpbottom.RowCount = 1;
             this.tlpbottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpbottom.Size = new System.Drawing.Size(176, 28);
+            this.tlpbottom.Size = new System.Drawing.Size(177, 28);
             this.tlpbottom.TabIndex = 2;
             // 
             // btnrightadd
@@ -160,7 +160,7 @@
             this.btnrightadd.Image = ((System.Drawing.Image)(resources.GetObject("btnrightadd.Image")));
             this.btnrightadd.Location = new System.Drawing.Point(142, 3);
             this.btnrightadd.Name = "btnrightadd";
-            this.btnrightadd.Size = new System.Drawing.Size(31, 22);
+            this.btnrightadd.Size = new System.Drawing.Size(32, 22);
             this.btnrightadd.TabIndex = 3;
             this.btnrightadd.UseVisualStyleBackColor = true;
             this.btnrightadd.Click += new System.EventHandler(this.btnrightadd_Click);
@@ -217,13 +217,13 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.btnstep, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(214, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(215, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(36, 118);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(35, 118);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // btnstep
@@ -235,7 +235,7 @@
             this.btnstep.ImageList = this.imageList2;
             this.btnstep.Location = new System.Drawing.Point(3, 44);
             this.btnstep.Name = "btnstep";
-            this.btnstep.Size = new System.Drawing.Size(30, 30);
+            this.btnstep.Size = new System.Drawing.Size(29, 30);
             this.btnstep.TabIndex = 0;
             this.btnstep.UseVisualStyleBackColor = true;
             this.btnstep.Click += new System.EventHandler(this.button5_Click);
@@ -287,7 +287,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label lblcaption;
         private System.Windows.Forms.TableLayoutPanel tlpbottom;
         private System.Windows.Forms.Button btnrightadd;
         private System.Windows.Forms.Button btncut;
@@ -298,5 +297,6 @@
         public System.Windows.Forms.PictureBox picback;
         private System.Windows.Forms.ImageList imageList2;
         public System.Windows.Forms.Button btnstep;
+        public System.Windows.Forms.Label lblcaption;
     }
 }

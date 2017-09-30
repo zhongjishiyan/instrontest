@@ -307,7 +307,7 @@ namespace TabHeaderDemo
            if (  btnselectevent!=null)
             {
 
-                btnselectevent(sender, 0);
+                btnselectevent(this, 0);
             }
             
         }
@@ -316,7 +316,7 @@ namespace TabHeaderDemo
         {
             if (this.btnrightevent!=null)
             {
-                btnrightevent(sender, 0);
+                btnrightevent(this, 0);
             }
         }
 
@@ -324,7 +324,7 @@ namespace TabHeaderDemo
         {
             if (btnleftevent != null)
             {
-                btnleftevent(sender, 0);
+                btnleftevent(this, 0);
             }
         }
 
@@ -332,7 +332,7 @@ namespace TabHeaderDemo
         {
             if (this.btncopyevent != null)
             {
-                btncopyevent(sender, 0);
+                btncopyevent(this, 0);
             }
         }
 
@@ -340,7 +340,7 @@ namespace TabHeaderDemo
         {
             if (this.btncutevent != null)
             {
-                btncutevent(sender, 0);
+                btncutevent(this, 0);
             }
         }
     }

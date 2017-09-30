@@ -179,6 +179,9 @@
     <Compile Include="Frm\FormTorsionTransducer.Designer.cs">
       <DependentUpon>FormTorsionTransducer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControlStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
