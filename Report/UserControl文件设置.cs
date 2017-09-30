@@ -14,7 +14,14 @@ namespace TabHeaderDemo
         public UserControlMethod musercontrolmethod;
         public  void Init(int sel)
         {
-
+            if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
+            {
+                tabControl1.Enabled = false;
+            }
+            else
+            {
+                tabControl1.Enabled = true;
+            }
             tabControl1.SelectedIndex = sel;
 
             txtpath.Text = CComLibrary.GlobeVal.filesave.SamplePath;

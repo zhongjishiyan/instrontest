@@ -26,6 +26,15 @@ namespace TabHeaderDemo
         public  void Init(int sel)
         {
 
+            if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
+            {
+                tabControl1.Enabled = false;
+            }
+            else
+            {
+                tabControl1.Enabled = true;
+            }
+
             tabControl1.SelectedIndex = sel;
 
             

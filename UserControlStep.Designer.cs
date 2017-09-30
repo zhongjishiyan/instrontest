@@ -36,12 +36,13 @@
             this.lblcaption = new System.Windows.Forms.Label();
             this.picback = new System.Windows.Forms.PictureBox();
             this.tlpbottom = new System.Windows.Forms.TableLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnrightadd = new System.Windows.Forms.Button();
+            this.btncut = new System.Windows.Forms.Button();
+            this.btncopy = new System.Windows.Forms.Button();
+            this.btnleftadd = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnstep = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -54,8 +55,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.17054F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.82946F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.79446F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.20553F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -64,16 +65,16 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(258, 124);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(253, 124);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -85,6 +86,7 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(205, 118);
             this.tableLayoutPanel2.TabIndex = 1;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
+            this.tableLayoutPanel2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tableLayoutPanel2_MouseDoubleClick);
             // 
             // tableLayoutPanel3
             // 
@@ -95,14 +97,14 @@
             this.tableLayoutPanel3.Controls.Add(this.picback, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tlpbottom, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(18, 15);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 15);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(168, 85);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(182, 85);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // lblcaption
@@ -111,7 +113,7 @@
             this.lblcaption.ForeColor = System.Drawing.Color.White;
             this.lblcaption.Location = new System.Drawing.Point(3, 0);
             this.lblcaption.Name = "lblcaption";
-            this.lblcaption.Size = new System.Drawing.Size(162, 13);
+            this.lblcaption.Size = new System.Drawing.Size(176, 13);
             this.lblcaption.TabIndex = 0;
             this.lblcaption.Text = "1.循环波";
             this.lblcaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,13 +122,14 @@
             // 
             this.picback.BackColor = System.Drawing.Color.Transparent;
             this.picback.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picback.BackgroundImage")));
-            this.picback.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picback.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picback.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picback.Location = new System.Drawing.Point(3, 16);
             this.picback.Name = "picback";
-            this.picback.Size = new System.Drawing.Size(162, 32);
+            this.picback.Size = new System.Drawing.Size(176, 32);
             this.picback.TabIndex = 1;
             this.picback.TabStop = false;
+            this.picback.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.picback_MouseDoubleClick);
             // 
             // tlpbottom
             // 
@@ -135,80 +138,84 @@
             this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tlpbottom.Controls.Add(this.button4, 3, 0);
-            this.tlpbottom.Controls.Add(this.button3, 2, 0);
-            this.tlpbottom.Controls.Add(this.button2, 1, 0);
-            this.tlpbottom.Controls.Add(this.button1, 0, 0);
+            this.tlpbottom.Controls.Add(this.btnrightadd, 3, 0);
+            this.tlpbottom.Controls.Add(this.btncut, 2, 0);
+            this.tlpbottom.Controls.Add(this.btncopy, 1, 0);
+            this.tlpbottom.Controls.Add(this.btnleftadd, 0, 0);
             this.tlpbottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpbottom.Location = new System.Drawing.Point(3, 54);
             this.tlpbottom.Name = "tlpbottom";
             this.tlpbottom.RowCount = 1;
             this.tlpbottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpbottom.Size = new System.Drawing.Size(162, 28);
+            this.tlpbottom.Size = new System.Drawing.Size(176, 28);
             this.tlpbottom.TabIndex = 2;
             // 
-            // button4
+            // btnrightadd
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(128, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(31, 22);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnrightadd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnrightadd.FlatAppearance.BorderSize = 0;
+            this.btnrightadd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnrightadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnrightadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnrightadd.Image = ((System.Drawing.Image)(resources.GetObject("btnrightadd.Image")));
+            this.btnrightadd.Location = new System.Drawing.Point(142, 3);
+            this.btnrightadd.Name = "btnrightadd";
+            this.btnrightadd.Size = new System.Drawing.Size(31, 22);
+            this.btnrightadd.TabIndex = 3;
+            this.btnrightadd.UseVisualStyleBackColor = true;
+            this.btnrightadd.Click += new System.EventHandler(this.btnrightadd_Click);
             // 
-            // button3
+            // btncut
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(86, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 22);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btncut.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btncut.FlatAppearance.BorderSize = 0;
+            this.btncut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btncut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btncut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncut.Image = ((System.Drawing.Image)(resources.GetObject("btncut.Image")));
+            this.btncut.Location = new System.Drawing.Point(93, 3);
+            this.btncut.Name = "btncut";
+            this.btncut.Size = new System.Drawing.Size(35, 22);
+            this.btncut.TabIndex = 2;
+            this.btncut.UseVisualStyleBackColor = true;
+            this.btncut.Click += new System.EventHandler(this.btncut_Click);
             // 
-            // button2
+            // btncopy
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(45, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 22);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btncopy.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btncopy.FlatAppearance.BorderSize = 0;
+            this.btncopy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btncopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btncopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncopy.Image = ((System.Drawing.Image)(resources.GetObject("btncopy.Image")));
+            this.btncopy.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btncopy.Location = new System.Drawing.Point(52, 3);
+            this.btncopy.Name = "btncopy";
+            this.btncopy.Size = new System.Drawing.Size(35, 22);
+            this.btncopy.TabIndex = 1;
+            this.btncopy.UseVisualStyleBackColor = true;
+            this.btncopy.Click += new System.EventHandler(this.btncopy_Click);
             // 
-            // button1
+            // btnleftadd
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 22);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnleftadd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnleftadd.FlatAppearance.BorderSize = 0;
+            this.btnleftadd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnleftadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnleftadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnleftadd.Image = ((System.Drawing.Image)(resources.GetObject("btnleftadd.Image")));
+            this.btnleftadd.Location = new System.Drawing.Point(3, 3);
+            this.btnleftadd.Name = "btnleftadd";
+            this.btnleftadd.Size = new System.Drawing.Size(35, 22);
+            this.btnleftadd.TabIndex = 0;
+            this.btnleftadd.UseVisualStyleBackColor = true;
+            this.btnleftadd.Click += new System.EventHandler(this.btnleftadd_Click);
             // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.button5, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.btnstep, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(214, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -216,21 +223,30 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(41, 118);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(36, 118);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
-            // button5
+            // btnstep
             // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(3, 44);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(35, 30);
-            this.button5.TabIndex = 0;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnstep.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnstep.FlatAppearance.BorderSize = 0;
+            this.btnstep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnstep.ImageIndex = 0;
+            this.btnstep.ImageList = this.imageList2;
+            this.btnstep.Location = new System.Drawing.Point(3, 44);
+            this.btnstep.Name = "btnstep";
+            this.btnstep.Size = new System.Drawing.Size(30, 30);
+            this.btnstep.TabIndex = 0;
+            this.btnstep.UseVisualStyleBackColor = true;
+            this.btnstep.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "profilerdir0.ico");
+            this.imageList2.Images.SetKeyName(1, "profilerdir2.ico");
+            this.imageList2.Images.SetKeyName(2, "profilerdir1.ico");
             // 
             // imageList1
             // 
@@ -251,8 +267,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserControlStep";
-            this.Size = new System.Drawing.Size(258, 124);
+            this.Size = new System.Drawing.Size(253, 124);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UserControlStep_Paint);
+            this.DoubleClick += new System.EventHandler(this.UserControlStep_DoubleClick);
+            this.Enter += new System.EventHandler(this.UserControlStep_Enter);
+            this.Leave += new System.EventHandler(this.UserControlStep_Leave);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -270,13 +289,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label lblcaption;
         private System.Windows.Forms.TableLayoutPanel tlpbottom;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnrightadd;
+        private System.Windows.Forms.Button btncut;
+        private System.Windows.Forms.Button btncopy;
+        private System.Windows.Forms.Button btnleftadd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Button button5;
         public System.Windows.Forms.ImageList imageList1;
         public System.Windows.Forms.PictureBox picback;
+        private System.Windows.Forms.ImageList imageList2;
+        public System.Windows.Forms.Button btnstep;
     }
 }

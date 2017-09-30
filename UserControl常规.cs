@@ -118,12 +118,42 @@ namespace TabHeaderDemo
         public void Init(int sel)
         {
             tabControl1.SelectedIndex = sel;
-            
-           
 
-           
+
+           if (sel >0)
+            {
+
+                if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
+                {
+                    tabControl1.Enabled = false;
+                }
+                else
+                {
+                    tabControl1.Enabled = true;
+                }
+            }
+
+            if (sel==1)
+            {
+
+
+                txtmemo1.Text = CComLibrary.GlobeVal.filesave.samplememo1;
+                txtmemo2.Text = CComLibrary.GlobeVal.filesave.samplememo2;
+                txtmemo3.Text = CComLibrary.GlobeVal.filesave.samplememo3;
+                txtmemo.Text = CComLibrary.GlobeVal.filesave.samplememo;
+
+            
+
+            }
+
+            if (sel == 2)
+            {
+
+            }
 
         }
+
+
         public UserControl常规()
         {
             InitializeComponent();
@@ -1046,6 +1076,24 @@ namespace TabHeaderDemo
 
         }
 
+        private void txtmemo1_TextChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.samplememo1 = txtmemo1.Text; 
+        }
 
+        private void txtmemo2_TextChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.samplememo2 = txtmemo2.Text;
+        }
+
+        private void txtmemo3_TextChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.samplememo3= txtmemo3.Text;
+        }
+
+        private void txtmemo_TextChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.samplememo= txtmemo.Text;
+        }
     }
 }

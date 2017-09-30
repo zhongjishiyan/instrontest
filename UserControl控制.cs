@@ -413,8 +413,70 @@ namespace TabHeaderDemo
 
         public void Init_高级()
         {
-           
 
+            tlpedit.ColumnStyles.Clear();
+            tlpedit.Controls.Clear();
+
+            UserControlStep p = new UserControlStep();
+            p.Dock = DockStyle.Fill;
+            p.Kind = 0;
+            p.selected = true;
+            p.settail(1);
+            p.Id = 0;
+            p.btnrightevent += this.UserControlStep1_btnrightevent;
+            p.btncopyevent += this.UserControlStep1_btncopyevent;
+            p.btncutevent += this.UserControlStep1_btncutevent;
+            p.btnleftevent += this.UserControlStep1_btnleftevent;
+            p.btnselectevent += this.UserControlStep1_btnselectevent;
+
+            tlpedit.ColumnStyles.Insert(0, new ColumnStyle(SizeType.Absolute, p.Width));
+
+            tlpedit.ColumnCount = tlpedit.ColumnCount + 1;
+
+            tlpedit.Controls.Add(p, 0, 0);
+
+            tlpedit.Width = tlpedit.ColumnCount * p.Width + 10;
+        
+            tlpscroll.ColumnStyles[0].Width = 50;
+            tlpscroll.ColumnStyles[2].Width = 50;
+            grid3.RowsCount = 0;
+            grid3.AutoStretchColumnsToFitWidth = true;
+
+            grid3.BorderStyle = BorderStyle.FixedSingle;
+
+            grid3.ColumnsCount = 4;
+            grid3.Columns[0].Width = grid3.Width / 4;
+            grid3.Columns[1].Width = grid3.Width / 4;
+            grid3.Columns[2].Width = grid3.Width / 4;
+
+            grid3.Columns[3].Width = grid3.Width - grid3.Columns[0].Width - 1;
+
+            grid3.Columns[1].AutoSizeMode = SourceGrid2.AutoSizeMode.EnableStretch;
+            grid3.FixedRows = 0;
+            grid3.Rows.Insert(0);
+            grid3[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("准则");
+            grid3[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("通道");
+            grid3[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("间隔");
+            grid3[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("单位");
+            for (int i = 1; i <= ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
+            {
+                grid3.Rows.Insert(i);
+
+                grid3[i, 0] = new SourceGrid2.Cells.Real.CheckBox(false);
+
+
+                grid3[i, 1] = new SourceGrid2.Cells.Real.Cell(
+                    ClsStaticStation.m_Global.mycls.allsignals[i - 1].cName, typeof(string));
+                grid3[i, 2] = new SourceGrid2.Cells.Real.Cell(
+                0, typeof(double));
+
+                grid3[i, 3] = new SourceGrid2.Cells.Real.ComboBox(
+                    ClsStaticStation.m_Global.mycls.allsignals[i - 1].cUnits[
+                    ClsStaticStation.m_Global.mycls.allsignals[i - 1].cUnitsel], typeof(string),
+                    ClsStaticStation.m_Global.mycls.allsignals[i - 1].cUnits, false);
+
+
+            }
         }
         public void Init_中级()
         {
@@ -870,7 +932,7 @@ namespace TabHeaderDemo
                 tabControl1.SelectedIndex = sel;
                 tlpline1.RowStyles[1].Height = 2;
 
-                if (GlobeVal.mysys.AppUserLevel == 0)
+                if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
                 {
                     tabControl1.Enabled = false;
                 }
@@ -929,7 +991,11 @@ namespace TabHeaderDemo
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
 
-           
+            userControlStep1.btncopyevent += UserControlStep1_btncopyevent;
+            userControlStep1.btncutevent += UserControlStep1_btncutevent;
+            userControlStep1.btnleftevent += UserControlStep1_btnleftevent;
+            userControlStep1.btnrightevent += UserControlStep1_btnrightevent;
+            userControlStep1.btnselectevent += UserControlStep1_btnselectevent;
 
             this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
 
@@ -976,30 +1042,59 @@ namespace TabHeaderDemo
             
         }
 
-        private void tableLayoutPanel13_Paint(object sender, PaintEventArgs e)
+        private void UserControlStep1_btnselectevent(object sender, int index)
         {
-
+            return;
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void UserControlStep1_btnrightevent(object sender, int index)
         {
+            UserControlStep p = new UserControlStep();
+            p.Dock = DockStyle.Fill;
+            p.Kind = 0;
+            p.selected = false;
+            p.settail(1);
 
+            p.btnrightevent += this.UserControlStep1_btnrightevent;
+            p.btncopyevent += this.UserControlStep1_btncopyevent;
+            p.btncutevent += this.UserControlStep1_btncutevent;
+            p.btnleftevent += this.UserControlStep1_btnleftevent;
+            p.btnselectevent += this.UserControlStep1_btnselectevent;
+
+
+            tlpedit.ColumnStyles.Insert(tlpedit.ColumnCount-1, new ColumnStyle(SizeType.Absolute, p.Width));
+         
+            tlpedit.ColumnCount = tlpedit.ColumnCount + 1;
+            p.Id = tlpedit.ColumnCount;
+           
+            tlpedit.Controls.Add(p, tlpedit.ColumnCount - 2, 0);
+           
+            tlpedit.Width = tlpedit.ColumnCount * p.Width + 10;
+          
+            return;
         }
 
-        private void tabPage6_Click(object sender, EventArgs e)
+        private void UserControlStep1_btnleftevent(object sender, int index)
         {
-
+            return;
         }
+
+        private void UserControlStep1_btncutevent(object sender, int index)
+        {
+            return;
+        }
+
+        private void UserControlStep1_btncopyevent(object sender, int index)
+        {
+            return;
+        }
+
+      
 
         private void cbocontrolprocess_SelectionChangeCommitted(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.mcontrolprocess = cbocontrolprocess.SelectedIndex;
 
-        }
-
-        private void lstavail_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
         }
 
         private void btnadd_Click(object sender, EventArgs e)
@@ -1026,11 +1121,6 @@ namespace TabHeaderDemo
 
                 list_autozerosetvalue();
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void cbotestendCriteria1_SelectedIndexChanged(object sender, EventArgs e)
@@ -1459,21 +1549,7 @@ namespace TabHeaderDemo
             }
         }
 
-        private void tscbo_DropDownClosed(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void grid2_MouseUp(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void grid2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+      
         private void grid2_CellGotFocus(object sender, SourceGrid2.PositionCancelEventArgs e)
         {
             if (grid2.Rows.Count > 0)
@@ -1578,22 +1654,46 @@ namespace TabHeaderDemo
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void numericEdit2_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
-            userControlStep1.Kind = 0;
-            userControlStep1.selected = false;
 
-
-            userControlStep2.Kind = 1;
-            userControlStep2.selected = false;
-
-            userControlStep3.Kind = 2;
-            userControlStep3.selected = true;
-
-            tlpedit.Refresh();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedIndex = 0;
+            toolStripButton1.Checked = true;
+            toolStripButton2.Checked = false;
+            toolStripButton3.Checked = false;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedIndex = 1;
+            toolStripButton1.Checked = false;
+            toolStripButton2.Checked = true ;
+            toolStripButton3.Checked = false;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedIndex = 2;
+            toolStripButton1.Checked = false;
+            toolStripButton2.Checked = false ;
+            toolStripButton3.Checked = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tlpedit_Paint(object sender, PaintEventArgs e)
         {
 
         }

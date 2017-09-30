@@ -16,7 +16,7 @@ namespace TabHeaderDemo
         private CComLibrary.outputitem mtempoutput;
         public void Open_method()
         {
-            if (GlobeVal.mysys.AppUserLevel == 0)
+            if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
             {
                 tlpback.Enabled = false;
             }

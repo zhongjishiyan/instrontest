@@ -261,6 +261,15 @@ namespace TabHeaderDemo
         {
             mchanged = false;
 
+            if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
+            {
+                tabControl1.Enabled = false;
+            }
+            else
+            {
+                tabControl1.Enabled = true;
+            }
+
             if (sel == 0)
             {
                 tabControl1.SelectedIndex = 0;

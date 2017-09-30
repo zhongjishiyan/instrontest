@@ -326,7 +326,7 @@ namespace TabHeaderDemo
 
             tabControl1.SelectedIndex = sel;
 
-            if (GlobeVal.mysys.AppUserLevel == 0)
+            if (GlobeVal.UserControlMain1.btnmtest.Visible==true)
             {
                 tabControl1.Enabled = false;
             }

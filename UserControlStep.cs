@@ -12,9 +12,26 @@ namespace TabHeaderDemo
 
     public partial class UserControlStep : UserControl
     {
+        public delegate void BtnLeftAddEventHandler(object sender, int index);
+        public event BtnLeftAddEventHandler btnleftevent;
+
+        public delegate void BtnRightAddEventHandler(object sender, int index);
+        public event BtnRightAddEventHandler btnrightevent;
+
+        public delegate void BtnCopyEventHandler(object sender, int index);
+        public event BtnCopyEventHandler btncopyevent;
+
+        public delegate void BtnCutEventHandler(object sender, int index);
+        public event BtnCutEventHandler btncutevent;
+
+        public delegate void SelectEventHandler(object sender, int index);
+        public event SelectEventHandler btnselectevent;
+
         public System.Drawing.Bitmap backimage = new Bitmap(50, 50);
 
         public Color backcolor;
+
+        public int Id = 0;
 
         private int mkind = 0;
 
@@ -26,14 +43,14 @@ namespace TabHeaderDemo
             }
             set
             {
-                mkind  = value;
+                mkind = value;
                 setkind();
-           
+
             }
         }
-    
 
-        private  bool mselected = false;
+
+        private bool mselected = false;
 
         public bool selected
         {
@@ -43,36 +60,40 @@ namespace TabHeaderDemo
             }
             set
             {
-                 mselected=value;
+                mselected = value;
                 setkind();
             }
         }
 
 
-        
 
+        public void settail(int i)
+        {
+            btnstep.ImageIndex = i;
+        }
         public void setkind()
         {
-            
-            if (mkind==0)
+
+            if (mkind == 0)
             {
                 lblcaption.Text = "斜波";
                 if (mselected)
                 {
-                    lblcaption.ForeColor = Color.White; 
+                    lblcaption.ForeColor = Color.White;
                     picback.BackgroundImage = imageList1.Images[1];
+                    
                     tlpbottom.Visible = true;
 
                 }
                 else
                 {
-                    lblcaption.ForeColor = Color.SeaGreen; 
+                    lblcaption.ForeColor = Color.SeaGreen;
                     picback.BackgroundImage = imageList1.Images[0];
                     tlpbottom.Visible = false;
                 }
             }
 
-            if (mkind ==1)
+            if (mkind == 1)
             {
                 lblcaption.Text = "保持";
                 if (mselected)
@@ -119,10 +140,13 @@ namespace TabHeaderDemo
                 {
                     lblcaption.ForeColor = Color.SeaGreen;
                     picback.BackgroundImage = imageList1.Images[6];
-                    tlpbottom.Visible = false ;
+                    tlpbottom.Visible = false;
                 }
             }
-            
+
+
+            this.Refresh();
+
         }
 
         private void drawFigure(PaintEventArgs e, PointF[] points, Color mycolor)
@@ -160,9 +184,9 @@ namespace TabHeaderDemo
 
         private static void drawPath(PaintEventArgs e, GraphicsPath path, Color color)
         {
-            
+
             LinearGradientBrush brush = new LinearGradientBrush(path.GetBounds(),
-                Color.FromArgb(5, color), Color.FromArgb(10,color) , LinearGradientMode.Vertical);
+                Color.FromArgb(5, color), Color.FromArgb(10, color), LinearGradientMode.Vertical);
             e.Graphics.FillPath(brush, path);
             Pen pen = new Pen(Color.FromArgb(5, color), 1);
 
@@ -174,11 +198,13 @@ namespace TabHeaderDemo
         public UserControlStep()
         {
             InitializeComponent();
+
+            
         }
 
         private void UserControlStep_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -236,15 +262,15 @@ namespace TabHeaderDemo
             Pen p = new Pen(Color.SeaGreen);
             p.Width = 3;
             e.Graphics.DrawRectangle(p, roundedRectangle[0].X + 10, roundedRectangle[0].Y + 10, tableLayoutPanel2.Width - 15 - 20, tableLayoutPanel2.Height - 15 - 20);
-            if (mselected == false )
+            if (mselected == false)
             {
-                e.Graphics.FillRectangle(Brushes.White , roundedRectangle[0].X + 10, roundedRectangle[0].Y + 10, tableLayoutPanel2.Width - 15 - 20, tableLayoutPanel2.Height - 15 - 20);
+                e.Graphics.FillRectangle(Brushes.White, roundedRectangle[0].X + 10, roundedRectangle[0].Y + 10, tableLayoutPanel2.Width - 15 - 20, tableLayoutPanel2.Height - 15 - 20);
             }
             else
-            { 
-            e.Graphics.FillRectangle(Brushes.SeaGreen, roundedRectangle[0].X + 10, roundedRectangle[0].Y + 10, tableLayoutPanel2.Width - 15 - 20, tableLayoutPanel2.Height - 15 - 20);
+            {
+                e.Graphics.FillRectangle(Brushes.SeaGreen, roundedRectangle[0].X + 10, roundedRectangle[0].Y + 10, tableLayoutPanel2.Width - 15 - 20, tableLayoutPanel2.Height - 15 - 20);
             }
-           
+
             e.Graphics.EndContainer(containerState);
 
         }
@@ -252,6 +278,70 @@ namespace TabHeaderDemo
         private void button5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UserControlStep_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserControlStep_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserControlStep_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void picback_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.selected = true;
+
+           if (  btnselectevent!=null)
+            {
+
+                btnselectevent(sender, 0);
+            }
+            
+        }
+
+        private void btnrightadd_Click(object sender, EventArgs e)
+        {
+            if (this.btnrightevent!=null)
+            {
+                btnrightevent(sender, 0);
+            }
+        }
+
+        private void btnleftadd_Click(object sender, EventArgs e)
+        {
+            if (btnleftevent != null)
+            {
+                btnleftevent(sender, 0);
+            }
+        }
+
+        private void btncopy_Click(object sender, EventArgs e)
+        {
+            if (this.btncopyevent != null)
+            {
+                btncopyevent(sender, 0);
+            }
+        }
+
+        private void btncut_Click(object sender, EventArgs e)
+        {
+            if (this.btncutevent != null)
+            {
+                btncutevent(sender, 0);
+            }
         }
     }
 }

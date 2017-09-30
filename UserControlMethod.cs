@@ -182,7 +182,8 @@ namespace TabHeaderDemo
          
 
             e.Graphics.EndContainer(containerState);
-            if (GlobeVal.mysys.AppUserLevel == 0)
+
+            if (GlobeVal.UserControlMain1.btnmtest.Visible==true)
             {
                 panelbutton.Visible = false;
             }
