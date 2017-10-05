@@ -82,7 +82,10 @@ namespace TabHeaderDemo
             MachineName[0] = "电子万能试验机";
             MachineName[1] = "扭转试验机";
             MachineName[2] = "岩石三轴试验机";
-            MachineCount = 3;
+            MachineName[3] = "标准试验机1";
+
+
+            MachineCount = 4;
 
 
             UserName = new string[100];
@@ -199,7 +202,8 @@ namespace TabHeaderDemo
                     c.MachineName[0] = "电子万能试验机";
                     c.MachineName[1] = "扭转试验机";
                     c.MachineName[2] = "岩石三轴试验机";
-                    c.MachineCount = 3;
+                    c.MachineName[3] = "标准试验机1";
+                    c.MachineCount = 4;
 
                     fileStream.Close();
 

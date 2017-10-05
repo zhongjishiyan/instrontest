@@ -846,7 +846,7 @@ namespace TabHeaderDemo
             if ((saveFileDialog1.FileName == "") ||(saveFileDialog1.FileName ==null))
             {
 
-                //CComLibrary.GlobeVal.filesave.SerializeNow(saveFileDialog1.FileName);
+                CComLibrary.GlobeVal.filesave.SerializeNow(saveFileDialog1.FileName);
 
                 return;
             }

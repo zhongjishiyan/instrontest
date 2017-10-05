@@ -35,6 +35,9 @@ namespace TabHeaderDemo
 
         private int mkind = 0;
 
+
+        public CComLibrary.Sequence msequence;
+
         public int Kind
         {
             get
@@ -71,12 +74,19 @@ namespace TabHeaderDemo
         {
             btnstep.ImageIndex = i;
         }
+
+        public void setcaption()
+        {
+            lblcaption.Text  = "步骤" + (Id + 1).ToString() +" "+msequence.stepname;
+
+        }
+
         public void setkind()
         {
 
             if (mkind == 0)
             {
-                lblcaption.Text = "斜波";
+               
                 if (mselected)
                 {
                     lblcaption.ForeColor = Color.White;
@@ -95,7 +105,7 @@ namespace TabHeaderDemo
 
             if (mkind == 1)
             {
-                lblcaption.Text = "保持";
+              
                 if (mselected)
                 {
                     lblcaption.ForeColor = Color.White;
@@ -112,7 +122,7 @@ namespace TabHeaderDemo
 
             if (mkind == 2)
             {
-                lblcaption.Text = "循环波";
+              
                 if (mselected)
                 {
                     lblcaption.ForeColor = Color.White;
@@ -129,21 +139,54 @@ namespace TabHeaderDemo
 
             if (mkind == 3)
             {
-                lblcaption.Text = "结束";
+              
                 if (mselected)
                 {
                     tlpbottom.Visible = true;
                     lblcaption.ForeColor = Color.White;
-                    picback.BackgroundImage = imageList1.Images[7];
+                    picback.BackgroundImage = imageList1.Images[9];
                 }
                 else
                 {
                     lblcaption.ForeColor = Color.SeaGreen;
-                    picback.BackgroundImage = imageList1.Images[6];
+                    picback.BackgroundImage = imageList1.Images[8];
                     tlpbottom.Visible = false;
                 }
             }
 
+            if (mkind == 4)
+            {
+
+                if (mselected)
+                {
+                    tlpbottom.Visible = true;
+                    lblcaption.ForeColor = Color.White;
+                    picback.BackgroundImage = imageList1.Images[11];
+                }
+                else
+                {
+                    lblcaption.ForeColor = Color.SeaGreen;
+                    picback.BackgroundImage = imageList1.Images[10];
+                    tlpbottom.Visible = false;
+                }
+            }
+
+            if (mkind == 5)
+            {
+
+                if (mselected)
+                {
+                    tlpbottom.Visible = true;
+                    lblcaption.ForeColor = Color.White;
+                    picback.BackgroundImage = imageList1.Images[13];
+                }
+                else
+                {
+                    lblcaption.ForeColor = Color.SeaGreen;
+                    picback.BackgroundImage = imageList1.Images[12];
+                    tlpbottom.Visible = false;
+                }
+            }
 
             this.Refresh();
 
@@ -199,7 +242,7 @@ namespace TabHeaderDemo
         {
             InitializeComponent();
 
-            
+            msequence = new CComLibrary.Sequence();
         }
 
         private void UserControlStep_Paint(object sender, PaintEventArgs e)
@@ -302,7 +345,7 @@ namespace TabHeaderDemo
 
         private void picback_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.selected = true;
+            
 
            if (  btnselectevent!=null)
             {

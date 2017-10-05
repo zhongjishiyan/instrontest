@@ -418,6 +418,17 @@ if (GlobeVal.mysys.machinekind == 1)
     UserControl操作面板1.Dock = DockStyle.Fill;
     panel2.Controls.Add(UserControl操作面板1);
 }
+            if (GlobeVal.mysys.machinekind == 3)
+            {
+
+                tlpsel.Visible = false;
+                UserControl操作面板1 = new UserControl操作面板();
+                UserControl轴向1 = new UserControl轴向();
+                UserControl操作面板1.Controls.Add(UserControl轴向1);
+                UserControl轴向1.Dock = DockStyle.Fill;
+                UserControl操作面板1.Dock = DockStyle.Fill;
+                panel2.Controls.Add(UserControl操作面板1);
+            }
 
             if (GlobeVal.mysys.demo == true)
             {

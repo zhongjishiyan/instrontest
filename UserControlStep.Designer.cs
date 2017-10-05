@@ -137,7 +137,7 @@
             this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tlpbottom.Controls.Add(this.btnrightadd, 3, 0);
             this.tlpbottom.Controls.Add(this.btncut, 2, 0);
             this.tlpbottom.Controls.Add(this.btncopy, 1, 0);
@@ -260,6 +260,12 @@
             this.imageList1.Images.SetKeyName(5, "profiler6-b.ico");
             this.imageList1.Images.SetKeyName(6, "profiler7.ico");
             this.imageList1.Images.SetKeyName(7, "profiler7-b.ico");
+            this.imageList1.Images.SetKeyName(8, "profiler10.ico");
+            this.imageList1.Images.SetKeyName(9, "profiler10-b.ico");
+            this.imageList1.Images.SetKeyName(10, "profiler12.ico");
+            this.imageList1.Images.SetKeyName(11, "profiler12-b.ico");
+            this.imageList1.Images.SetKeyName(12, "profiler11.ico");
+            this.imageList1.Images.SetKeyName(13, "profiler11-b.ico");
             // 
             // UserControlStep
             // 

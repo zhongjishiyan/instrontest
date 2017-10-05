@@ -541,7 +541,6 @@
             this.btnsaveas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnsaveas.UseMnemonic = false;
             this.btnsaveas.UseVisualStyleBackColor = false;
-            this.btnsaveas.Visible = false;
             this.btnsaveas.Click += new System.EventHandler(this.btnsaveas_Click);
             // 
             // btnexnew

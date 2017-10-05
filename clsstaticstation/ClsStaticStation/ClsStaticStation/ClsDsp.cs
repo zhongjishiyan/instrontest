@@ -12,96 +12,26 @@ using System.Threading;
 using System.IO;
 using Microsoft.VisualBasic.Compatibility;
 using System.Windows.Forms;
+using DoPE_HANDLE = System.Int32;
+using XLNet;
 
 namespace ClsStaticStation
 {
-   
-    public sealed class a1100
+    public class CDsp : ClsBaseControl
     {
-        public class EVENT_INFO
-        {
-            public int specVal; //特征值
-            public HandlerFunc_t cbHandlerFunc;
-            public int handle;
-            public int param2;
-            public IntPtr param3;
-        }
-
-
-        public struct DataInfo
-        {
-            public float c0;
-            public float c1;
-            public float c2;
-            public float c3;
-            public float c4;
-            public float c5;
-            public float c6;
-            public float c7;
-            public float c8;
-            public float c9;
-
-        }
-
-        public struct MDataIno
-        {
-            public int Id;
-            public DataInfo mydatainfo;
-        }
-
-
-        public  delegate uint HandlerFunc_t(int NamelessParameter1, int NamelessParameter2, IntPtr NamelessParameter3);
-
-
-        [DllImport("XLWinPcap.dll")]
-        public static extern Int32 XL_init();
-
-        [DllImport("XLWinPcap.dll")]
-        public static extern Int32 XL_setNetCardIndex(int cardIndex);
-
-        [DllImport("XLWinPcap.dll")]
-        public static extern Int32 XL_start(int cardIndex);
-
-        [DllImport("XLWinPcap.dll")]
-        public static extern Int32 XL_recv( float[] fpdate);
-
-        [DllImport("XLWinPcap.dll")]
-        public static extern Int32 XL_stop();
-
-        [DllImport("XLWinPcap.dll")]
-        public static extern Int32 XL_free();
-
-        [DllImport("XLWinPcap.dll")]
-
-        public static extern Int32 XL_addEvent(out EVENT_INFO eventInfo);
-
-        [DllImport("XLWinPcap.dll")]
-
-        public static extern Int32 XL_delEvent(  EVENT_INFO eventInfo);
-
-       
-
-
-    }
-
-    
-
-   public  class CDsp : ClsBaseControl
-    {
-       public long acount = 0;
-       private float[] rr; 
+        public long acount = 0;
+        private float[] rr;
         private System.Windows.Forms.Timer mtimer;
-        public a1100.DataInfo GGMsg;
+        public XLNet.XLDOPE.Data  GGMsg;
         private RawDataStruct b;
         public short DeviceNum = 1;
 
 
-        private a1100.MDataIno ma;
-        private a1100.DataInfo ww;
-
+        private XLDOPE.MDataIno ma;
+     
         private bool mdemotesting = false;
         private int mdemotestingp = 0;
-      
+
         private double pos;
         private double load;
         private double ext;
@@ -113,53 +43,48 @@ namespace ClsStaticStation
         private double pos1;//围压位移
         private double load1;//围压负荷
 
+
+        public XLDOPE.Edc myedc;
+
+
       
 
-       
-       
 
-        
-        private List<a1100.MDataIno> mdatalist;
+        private List<XLDOPE.MDataIno> mdatalist;
 
 
         public long oncount = 0;
 
+    
+       
 
-        public uint OnData(int NamelessParameter1, int NamelessParameter2, IntPtr NamelessParameter3)
-        {
-            oncount = oncount + 1;
-
-            return 0;
-
-        }
-
-        public void starttest()
+        public override void starttest()
         {
 
         }
-        public void endtest()
+        public override void endtest()
         {
 
         }
-        public void demotest(bool testing)
+        public override void demotest(bool testing)
         {
         }
-        public void readdemo(string fileName)
+        public override void readdemo(string fileName)
         {
         }
-        public int ConvertCtrlMode(int ctrl)
+        public override int ConvertCtrlMode(int ctrl)
         {
             int t = 0;
-          
+
 
             return t;
         }
-        public bool getlimit(int ch)
+        public override bool getlimit(int ch)
         {
             return false;
         }
 
-        public bool getEmergencyStop()
+        public override bool getEmergencyStop()
         {
             return false;
         }
@@ -176,60 +101,81 @@ namespace ClsStaticStation
 
         }
 
-        public void setrunstate(int m)
+        public override void setrunstate(int m)
         {
 
         }
 
-        public void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount)
+        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action)
         {
-
         }
+
         public CDsp()
         {
             rr = new float[10];
-            GGMsg = new a1100.DataInfo();
-            mdatalist = new List<a1100.MDataIno>();
-            ww = new a1100.DataInfo();
+            GGMsg = new XLDOPE.Data();
+            mdatalist = new List<XLDOPE.MDataIno>();
+          
             mtimer = new System.Windows.Forms.Timer();
             mtimer.Tick += new EventHandler(mtimer_Tick);
             mtimer.Interval = 20;
 
-            a1100.EVENT_INFO p = new a1100.EVENT_INFO();
+            
+          
+            myedc = new XLDOPE.Edc();
 
-            p.specVal = 10;
-            p.param2 = 0;
-            p.param3 = (IntPtr)0;
-            p.handle = 0;
-           
-            p.cbHandlerFunc = new a1100.HandlerFunc_t(OnData);
-            a1100.XL_addEvent(out p);
-           
+            myedc.Eh.OnHandlerFuncHdlr += new XLDOPE.OnHandlerFuncHdlr(Eh_OnHandlerFuncHdlr);
+
+
+            myedc.Eh.OnDataHdlr += new XLDOPE.OnDataHdlr(Eh_OnDataHdlr);
+            myedc.Eh.OnDataBlockHdlr += new XLDOPE.OnDataBlockHdlr(Eh_OnDataBlockHdlr);
+            myedc.Eh.OnPosMsgHdlr +=new XLDOPE.OnPosMsgHdlr( Eh_OnPosMsgHdlr);
+
         }
+
+        private int Eh_OnPosMsgHdlr(ref XLDOPE.OnPosMsg OnPosMsg, object Parameter)
+        {
+
+            return 0;
+        }
+
+        private int Eh_OnDataBlockHdlr(ref XLDOPE.OnDataBlock OnDataBlock, object Parameter)
+        {
+            oncount = oncount + 1;
+            return 0;
+        }
+
+        private void  Eh_OnDataHdlr(ref XLDOPE.OnData m)
+        {
+            //oncount = (int) m.Data.Time;
+            return ;
+        }
+
+        private void Eh_OnHandlerFuncHdlr(int NamelessParameter1, int NamelessParameter2, int NamelessParameter3)
+        {
+           // oncount = oncount + 1;
+            return;
+        }
+
         void mtimer_Tick(object sender, EventArgs e)
         {
+            XLDOPE.Data m= new XLDOPE.Data();
            
-            a1100.XL_recv(rr);
+
+            myedc.Data.CurrentData(ref m);
+           
 
             acount = acount + 1;
 
-            ww.c0=rr[0];
-            ww.c1=oncount;
-            ww.c2=rr[2];
-            ww.c3=rr[3];
-            ww.c4 = rr[4];
-            ww.c5 = rr[5];
-            ww.c6 = rr[6];
-            ww.c7 = rr[7];
-            ww.c8 = rr[8];
-            ww.c9 = rr[9];
 
-            ma = new a1100.MDataIno();
+            XLDOPE.XL_recvData();
+
+            ma = new XLDOPE.MDataIno();
             ma.Id = 0;
-            ma.mydatainfo =ww ;
+            ma.mydatainfo = m;
             mdatalist.Add(ma);
 
-           
+
 
             Timer();
         }
@@ -243,7 +189,7 @@ namespace ClsStaticStation
 
             if (mdemo == true)
             {
-                
+
             }
             else
             {
@@ -260,18 +206,18 @@ namespace ClsStaticStation
                     b = new RawDataStruct();
                     b.data = new double[24];
 
-                   
 
-                        load = GGMsg.c0;
-                        pos = GGMsg.c1;
-                        ext = GGMsg.c2;
-                        poscmd = 0;
-                        loadcmd = 0;
-                        extcmd = 0;
-                        time = 0;
-                        count = 0;
-                     
-                  
+
+                    load = GGMsg.Sensor[0];
+                    pos = oncount ;
+                    ext = GGMsg.Sensor[2];
+                    poscmd = 0;
+                    loadcmd = 0;
+                    extcmd = 0;
+                    time = GGMsg.Time;
+                    count = 0;
+
+
 
 
 
@@ -664,16 +610,29 @@ namespace ClsStaticStation
             }
         }
 
-        public void Init(int handle)
+        public override void Init(int handle)
         {
+
             OpenConnection();
+
+
         }
 
         int OpenConnection()
         {
-            a1100.XL_init();
-         
-            a1100.XL_start(1);
+            XLDOPE.XL_init();
+
+           int r= XLDOPE.XL_start(1);
+           
+            if (r>=0)
+            {
+
+            }
+            else
+            {
+
+                MessageBox.Show("网卡设置错误");
+            }
 
 
             mtimer.Start();
@@ -682,14 +641,14 @@ namespace ClsStaticStation
             return 0;
         }
 
-        public int CloseConnection()
+        public override int CloseConnection()
         {
             mtimer.Stop();
-            a1100.XL_stop();
-            a1100.XL_free();
+            XLDOPE.XL_stop();
+            XLDOPE.XL_free();
 
             return 0;
         }
-     }
+    }
 }
 

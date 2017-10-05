@@ -36,7 +36,10 @@ namespace TabHeaderDemo
 			public ListViewItem Item;
 		}
 
-
+        public event EventHandler HScroll;
+        public event EventHandler VScroll;
+        const int WM_HSCROLL = 0x0114;
+        const int WM_VSCROLL = 0x0115;
 
         public List<UserControlStep> mlist=new List<UserControlStep>();
 
@@ -201,11 +204,31 @@ namespace TabHeaderDemo
 				base.View = value;
 			}
 		}
+        virtual protected void OnHScroll(object sender, EventArgs e)
+        {
+            if (HScroll != null)
+                HScroll(this, e);
 
-		protected override void WndProc(ref Message m)
+            
+        }
+        virtual protected void OnVScroll(object sender, EventArgs e)
+        {
+            if (VScroll != null)
+                VScroll(this, e);
+        }
+        protected override void WndProc(ref Message m)
 		{
 			switch (m.Msg)
 			{
+                case WM_HSCROLL:
+
+                    OnHScroll(this, new EventArgs());
+                    break;
+                case WM_VSCROLL:
+            
+                OnVScroll(this, new EventArgs());
+
+                    break;
 				case WM_PAINT:
 					if (View != View.Details)
 						break;
@@ -282,12 +305,16 @@ namespace TabHeaderDemo
             for (int i = 0; i < mlist.Count; i++)
             {
                 mlist[i].Id = i;
-                mlist[i].lblcaption.Text = "²½Öè"+(i+1).ToString();
+                mlist[i].setcaption();
+                
+                mlist[i].setkind();
                 mlist[i].settail(0); 
                 AddEmbeddedControl(mlist[i], i, 0);
             }
 
-            
+            mlist[mlist.Count - 1].settail(1);
+
+            this.Width = mlist[0].Width * mlist.Count + 10;
         }
 	}
 }

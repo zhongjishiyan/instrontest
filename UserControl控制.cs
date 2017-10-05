@@ -15,10 +15,14 @@ namespace TabHeaderDemo
         public UserControlMethod musercontrolmethod;
         private CComLibrary.SegFile sf;
 
+        private CComLibrary.SequenceFile sqf=new CComLibrary.SequenceFile();
+
         private bool mloaded = false;
 
         private int curcol=0;
         private int currow=0;
+
+       
 
         public void Init_测试结束()
         {
@@ -417,31 +421,44 @@ namespace TabHeaderDemo
 
             // Put it in the first column of the fourth row
 
+            cbomethod.Items.Clear();
+            cbomethod.Items.Add("使用试验方法");
+            cbomethod.Items.Add("替换试验方法");
+            cbomethod.SelectedIndex = 0;
+
+            cbocontrol.Items.Clear();
+
+            for (int i=0;i<m_Global.mycls.chsignals.Count;i++ )
+            {
+                cbocontrol.Items.Add(m_Global.mycls.chsignals[i].cName);
+            }
+            cbocontrol.SelectedIndex = 0;
+            cbodestcontrol.Items.Clear();
+
+            for (int i = 0; i < m_Global.mycls.chsignals.Count; i++)
+            {
+                cbodestcontrol.Items.Add(m_Global.mycls.chsignals[i].cName);
+            }
+            cbodestcontrol.SelectedIndex = 0;
 
 
-            listViewEx1.mlist.Clear();
+            tscbos.Items.Clear();
+            DirectoryInfo info = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence");
+            FileInfo[] files = info.GetFiles("*.seq");
+            foreach (FileInfo file in files)
+            {
+                tscbos.Items.Add(file.Name);
 
-            listViewEx1.Columns.Clear(); 
+                if (CComLibrary.GlobeVal.filesave.SequenceName == file.Name)
+                {
+                    tscbos.Text = file.Name;
+                }
+            }
 
-            UserControlStep p = new UserControlStep();
-            
-            p.Kind = 0;
-            p.selected = true;
-            p.settail(1);
-            p.Id = 0;
-            p.btnrightevent += this.UserControlStep1_btnrightevent;
-            p.btncopyevent += this.UserControlStep1_btncopyevent;
-            p.btncutevent += this.UserControlStep1_btncutevent;
-            p.btnleftevent += this.UserControlStep1_btnleftevent;
-            p.btnselectevent += this.UserControlStep1_btnselectevent;
-            p.Width = 255;
-            ColumnHeader m = new ColumnHeader();
-            m.Width =p.Width ;
 
-            listViewEx1.mlist.Add(p);
-            listViewEx1.Columns.Add(m);
-            imageList1.ImageSize = new Size(16, listViewEx1.Height);
-            listViewEx1.AddEmbeddedControl(p, 0, 0);
+            imageList1.ImageSize = new Size(16, listViewEx1.Height - 17);
+
+           
 
            
         
@@ -479,7 +496,7 @@ namespace TabHeaderDemo
                 grid3[i, 1] = new SourceGrid2.Cells.Real.Cell(
                     ClsStaticStation.m_Global.mycls.allsignals[i - 1].cName, typeof(string));
                 grid3[i, 2] = new SourceGrid2.Cells.Real.Cell(
-                0, typeof(double));
+                "", typeof(string));
 
                 grid3[i, 3] = new SourceGrid2.Cells.Real.ComboBox(
                     ClsStaticStation.m_Global.mycls.allsignals[i - 1].cUnits[
@@ -997,7 +1014,8 @@ namespace TabHeaderDemo
         {
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
-            tabControl3.ItemSize = new System.Drawing.Size(1, 1); 
+            tabControl3.ItemSize = new System.Drawing.Size(1, 1);
+            tabControl4.ItemSize = new System.Drawing.Size(1, 1); 
              SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
@@ -1051,6 +1069,58 @@ namespace TabHeaderDemo
 
         private void UserControlStep1_btnselectevent(object sender, int index)
         {
+            if ((sender as UserControlStep).selected)
+            {
+                return;
+            }
+            for (int i=0;i<listViewEx1.mlist.Count;i++ )
+            {
+                listViewEx1.mlist[i].selected = false;
+            }
+
+
+            
+            (sender as UserControlStep).selected = true;
+
+
+            for(int i=0;i<toolStripWave.Items.Count;i++)
+            {
+                (toolStripWave.Items[i] as ToolStripButton).Checked = false;
+            }
+            (toolStripWave.Items[(sender as UserControlStep).Kind] as ToolStripButton).Checked = true;
+
+
+            lblstep.Text =  "步骤" +((sender as UserControlStep).Id+1).ToString()+"名称：" ;
+          
+            txtstep.Text = (sender as UserControlStep).msequence.stepname;
+         
+
+
+            if ((sender as UserControlStep).msequence.wavekind == 0)
+            {
+
+                cbocontrol.SelectedIndex = (sender as UserControlStep).msequence.controlmode;
+                cbomethod.SelectedIndex = (sender as UserControlStep).msequence.samplemode;
+
+                cbodestcontrol.SelectedIndex = (sender as UserControlStep).msequence.controlmode;
+
+                cbocontrol_SelectionChangeCommitted(null, null);
+                cbodestcontrol_SelectionChangeCommitted(null, null);
+                toolStripButton1_Click(null, null);
+            }
+
+            if ((sender as UserControlStep).msequence.wavekind ==1)
+            {
+
+                toolStripButton2_Click(null, null);
+            }
+
+            if ((sender as UserControlStep).msequence.wavekind == 2)
+            {
+
+                toolStripButton3_Click(null, null);
+            }
+
             return;
         }
 
@@ -1070,13 +1140,13 @@ namespace TabHeaderDemo
 
             int mm = (sender as UserControlStep).Id;
             ColumnHeader m = new ColumnHeader();
-            p.Width = 255;
+            p.Width = 270;
             m.Width = p.Width;
 
 
             listViewEx1.mlist.Insert(mm+1, p);
             listViewEx1.Columns.Insert(mm+1, m);
-
+            
             listViewEx1.reset();
 
             return;
@@ -1098,12 +1168,13 @@ namespace TabHeaderDemo
 
             int mm = (sender as UserControlStep).Id;
             ColumnHeader m = new ColumnHeader();
-            p.Width = 255;
+            p.Width = 270;
             m.Width = p.Width;
 
              
             listViewEx1.mlist.Insert(mm, p);
             listViewEx1.Columns.Insert(mm, m);
+         
 
             listViewEx1.reset(); 
 
@@ -1315,6 +1386,7 @@ namespace TabHeaderDemo
         {
             CComLibrary.GlobeVal.filesave.testcmdstep[3].check = chkline4.Checked;
         }
+
 
         private void cbocontrol1_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -1687,38 +1759,72 @@ namespace TabHeaderDemo
 
         }
 
-        private void numericEdit2_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+
+        private UserControlStep getselect()
         {
+            int j=0;
+
+            for (int i = 0; i < listViewEx1.mlist.Count; i++)
+            {
+                if (listViewEx1.mlist[i].selected ==true)
+                {
+                    j = i;
+                    
+                 
+
+                }
+            }
+
+            return listViewEx1.mlist[j];
 
         }
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+
+
             tabControl3.SelectedIndex = 0;
+
+            getselect().Kind = 0;
+
+            getselect().msequence.wavekind = 0;
+
             toolStripButton1.Checked = true;
             toolStripButton2.Checked = false;
             toolStripButton3.Checked = false;
+            toolStripButton7.Checked = false;
+            toolStripButton8.Checked = false;
+            toolStripButton9.Checked = false;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             tabControl3.SelectedIndex = 1;
+            getselect().Kind = 1;
+            getselect().msequence.wavekind = 1;
             toolStripButton1.Checked = false;
             toolStripButton2.Checked = true ;
             toolStripButton3.Checked = false;
+            toolStripButton7.Checked = false;
+            toolStripButton8.Checked = false;
+            toolStripButton9.Checked = false;
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             tabControl3.SelectedIndex = 2;
+            getselect().Kind = 2;
+            getselect().msequence.wavekind = 2;
             toolStripButton1.Checked = false;
             toolStripButton2.Checked = false ;
             toolStripButton3.Checked = true;
+            toolStripButton7.Checked = false;
+            toolStripButton8.Checked = false;
+            toolStripButton9.Checked = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1729,6 +1835,277 @@ namespace TabHeaderDemo
         private void tlpedit_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void listViewEx1_VScroll(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listViewEx1_HScroll(object sender, EventArgs e)
+        {
+            
+             
+        }
+
+
+
+        private void addSequence(CComLibrary.Sequence seq)
+        {
+            listViewEx1.mlist.Clear();
+
+            listViewEx1.Columns.Clear();
+
+            UserControlStep p = new UserControlStep();
+
+            p.Kind = 0;
+            p.selected = true;
+            p.settail(1);
+            p.Id = 0;
+            p.btnrightevent += this.UserControlStep1_btnrightevent;
+            p.btncopyevent += this.UserControlStep1_btncopyevent;
+            p.btncutevent += this.UserControlStep1_btncutevent;
+            p.btnleftevent += this.UserControlStep1_btnleftevent;
+            p.btnselectevent += this.UserControlStep1_btnselectevent;
+            p.Width = 270;
+            ColumnHeader m = new ColumnHeader();
+            m.Width = p.Width;
+
+            listViewEx1.mlist.Add(p);
+            listViewEx1.Columns.Add(m);
+
+            listViewEx1.AddEmbeddedControl(p, 0, 0);
+        }
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            String s;
+            Frm.Form新建程序文件 f = new TabHeaderDemo.Frm.Form新建程序文件();
+            f.result = false;
+            f.ShowDialog();
+
+            if (f.result == true)
+            {
+                s = f.txtname.Text;
+
+                
+                sqf.mSequencelist.Clear();
+                sqf.add();
+
+                addSequence(sqf.mSequencelist[0]); 
+
+               
+
+                
+
+                sqf.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + s + ".seq");
+
+                tscbos.Items.Clear();
+                tscbos.Text = s + ".seq";
+                DirectoryInfo info = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence");
+                FileInfo[] files = info.GetFiles("*.seq");
+                foreach (FileInfo file in files)
+                {
+                    tscbos.Items.Add(file.Name);
+                }
+
+                tscbos.Text = s + ".seq";
+            }
+
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            if (System.IO.File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + tscbos.Text) == true)
+            {
+                System.IO.File.Delete(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + tscbos.Text);
+            }
+
+            sqf.clear();
+
+            for (int i=0;i<listViewEx1.mlist.Count;i++ )
+            {
+                sqf.add(listViewEx1.mlist[i].msequence);
+            }
+            sqf.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + tscbos.Text);
+
+
+        }
+
+        private void txtstep0_TextChanged(object sender, EventArgs e)
+        {
+         
+            
+        }
+
+        private void txtstep1_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtstep2_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tscbos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mloaded == false)
+            {
+
+                sqf.clear();
+                sqf = sqf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + tscbos.Text);
+
+                
+
+                listViewEx1.mlist.Clear();
+
+                listViewEx1.Columns.Clear();
+
+
+
+                for (int i = 0; i < sqf.mSequencelist.Count; i++)
+                {
+                    UserControlStep p = new UserControlStep();
+
+                    p.msequence = sqf.mSequencelist[i];
+
+                    p.Kind = sqf.mSequencelist[i].wavekind;
+                    p.selected = false;
+                    p.settail(1);
+                    p.Id = i;
+
+
+                    p.btnrightevent += this.UserControlStep1_btnrightevent;
+                    p.btncopyevent += this.UserControlStep1_btncopyevent;
+                    p.btncutevent += this.UserControlStep1_btncutevent;
+                    p.btnleftevent += this.UserControlStep1_btnleftevent;
+                    p.btnselectevent += this.UserControlStep1_btnselectevent;
+                    p.Width = 270;
+                    ColumnHeader m = new ColumnHeader();
+                    m.Width = p.Width;
+
+                    listViewEx1.mlist.Add(p);
+                    listViewEx1.Columns.Add(m);
+
+                    
+
+
+                }
+
+                listViewEx1.reset();
+
+                CComLibrary.GlobeVal.filesave.SequenceName = tscbos.Text;
+
+              
+            }
+        }
+
+        private void numspeed_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrate= numspeed.Value; 
+        }
+
+        private void cbospeedunit_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.mrateunit = cbospeedunit.SelectedIndex; 
+        }
+
+        private void cbocontrol_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.controlmode = cbocontrol.SelectedIndex;
+            getselect().msequence.rate = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
+            numspeed.Value = getselect().msequence.mrate;
+            cbospeedunit.Items.Clear();
+            for (int i = 0; i < getselect().msequence.rate.cUnitCount; i++)
+            {
+                cbospeedunit.Items.Add(getselect().msequence.rate.cUnits[i]);
+            }
+
+            cbospeedunit.SelectedIndex = getselect().msequence.mrateunit;
+        }
+
+        private void cbocontrol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void cbodestcontrol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void numdest_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mdest = numdest.Value;
+        }
+
+        private void cbodestunit_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.mdestunit = cbodestunit.SelectedIndex; 
+        }
+
+        private void cbodestcontrol_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbodestcontrol_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.destcontrolmode = cbodestcontrol.SelectedIndex;
+            getselect().msequence.dest = (ItemSignal)m_Global.mycls.chsignals[cbodestcontrol.SelectedIndex].Clone();
+            numdest.Value = getselect().msequence.mdest;
+            cbodestunit.Items.Clear();
+            for (int i = 0; i < getselect().msequence.dest.cUnitCount; i++)
+            {
+                cbodestunit.Items.Add(getselect().msequence.dest.cUnits[i]);
+            }
+
+            cbodestunit.SelectedIndex = getselect().msequence.mdestunit;
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedIndex = 3;
+            getselect().Kind = 3;
+            getselect().msequence.wavekind = 3;
+            toolStripButton1.Checked = false;
+            toolStripButton2.Checked = false;
+            toolStripButton3.Checked = false ;
+            toolStripButton7.Checked = true;
+            toolStripButton8.Checked = false;
+            toolStripButton9.Checked = false;
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedIndex = 4;
+            getselect().Kind = 4;
+            getselect().msequence.wavekind = 4;
+            toolStripButton1.Checked = false;
+            toolStripButton2.Checked = false;
+            toolStripButton3.Checked = false;
+            toolStripButton7.Checked = false ;
+            toolStripButton8.Checked = true;
+            toolStripButton9.Checked = false;
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedIndex = 5;
+            getselect().Kind = 5;
+            getselect().msequence.wavekind = 5;
+            toolStripButton1.Checked = false;
+            toolStripButton2.Checked = false;
+            toolStripButton3.Checked = false;
+            toolStripButton7.Checked = false;
+            toolStripButton8.Checked = false ;
+            toolStripButton9.Checked = true;
+        }
+
+        private void txtstep_TextChanged(object sender, EventArgs e)
+        {
+            getselect().msequence.stepname = txtstep.Text;
+            getselect().setcaption();
         }
     }
 }

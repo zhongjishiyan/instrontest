@@ -1612,6 +1612,148 @@ namespace CComLibrary
     }
 
     [Serializable]
+
+    public class Sequence
+    {
+        public int wavekind;
+        public string stepname;
+        public int controlmode;
+        public ItemSignal rate;
+        public ItemSignal dest;
+        public double keeptime;
+        public long cycles;
+        public int direction;
+        public int maxmeasure;
+        public ItemSignal maxvalue;
+        public int minmeasure;
+        public ItemSignal minvalue;
+
+        public bool loop = false;
+        public int returnstep = 0;
+        public int loopcount = 0;
+
+        public int samplemode = 0; //数据采集方式
+        public bool[] mbool=new bool[20] ;
+        
+        public double[] interval=new double[20];
+        public ItemSignal[] sign = new ItemSignal[20];
+
+        public double mrate;
+        public double mdest;
+
+        public int mrateunit=0;
+        public int mdestunit=0;
+
+        public int destcontrolmode=0;
+
+        public  Sequence()
+            {
+            wavekind = 0;
+            stepname = "斜波";
+            controlmode = 0;
+            rate = new ClsStaticStation.ItemSignal();
+            dest = new ClsStaticStation.ItemSignal();
+            keeptime = 0;
+            cycles = 0;
+            direction = 0;
+
+
+
+            }
+
+    }
+
+    [Serializable]
+    public class SequenceFile
+    {
+
+     
+
+        public List<Sequence> mSequencelist;
+
+        public void clear()
+        {
+            mSequencelist.Clear();
+        }
+
+
+        public void Insert(int index)
+        {
+            Sequence r = new Sequence();
+            mSequencelist.Insert(index, r); 
+        }
+        public void add()
+        {
+            Sequence r = new Sequence();
+
+            mSequencelist.Add(r);
+
+        }
+
+        public void add(Sequence r)
+        {
+          
+            mSequencelist.Add(r);
+
+        }
+        public SequenceFile()
+        {
+            
+
+
+            mSequencelist = new List<Sequence>();
+
+            mSequencelist.Clear();
+
+
+        }
+
+        public void SerializeNow(string filename)
+        {
+
+            FileStream fileStream =
+            new FileStream(filename, FileMode.Create);
+            BinaryFormatter b = new BinaryFormatter();
+            b.Serialize(fileStream, this);
+            fileStream.Close();
+        }
+        public SequenceFile DeSerializeNow(string filename)
+        {
+            SequenceFile c = new SequenceFile();
+            try
+            {
+
+
+                using (FileStream fileStream =
+                 new FileStream(filename,
+                 FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+
+                    c = b.Deserialize(fileStream) as SequenceFile;
+
+
+
+                    fileStream.Close();
+
+
+
+                }
+            }
+            catch (Exception e1)
+            {
+                c = new SequenceFile();
+
+                MessageBox.Show(e1.Message, "读取文件");
+            }
+            finally
+            {
+
+            }
+            return (c);
+        }
+    }
+    [Serializable]
     public class SegTest
     {
         public int cmd;//控制模式
@@ -1750,6 +1892,8 @@ namespace CComLibrary
             keeptime = 0;
         }
     }
+
+
     [Serializable]
     public class SegFile
     {
@@ -2300,6 +2444,8 @@ namespace CComLibrary
         public CmdSeg[] testcmdstep;
 
         public string SegName = "default.seg";
+
+        public string SequenceName = "default.seg";
 
         public List<CmdSeg> mseglist; //seg文件
 
