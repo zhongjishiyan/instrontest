@@ -75,6 +75,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -104,20 +105,15 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\AppleLabApplication.dll</HintPath>
     </Reference>
-    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=00e95de9db4717aa, processorArchitecture=MSIL">
+    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=00e95de9db4717aa, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\ClsStaticStation.dll</HintPath>
-    </Reference>
-    <Reference Include="DoPENet">
-      <HintPath>..\..\..\shiwei编程\DOPE\DoPE\DoPENet.dll</HintPath>
     </Reference>
     <Reference Include="IP.Components, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -937,7 +933,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="Properties\app.manifest" />
     <None Include="TabHeaderDemo_TemporaryKey.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

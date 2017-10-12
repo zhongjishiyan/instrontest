@@ -25,7 +25,7 @@ namespace TabHeaderDemo
         private ClsStaticStation.ClsBaseControl  myarm;
 
         private ClsStaticStation.CArm marm;
-        private ClsStaticStation.CDOLI mdoli;
+        private ClsStaticStation.CDOLI  mdoli;
         private ClsStaticStation.CDsp mdsp;
         private User围压 User围压1;
         private UserControl操作面板 UserControl操作面板1;
@@ -57,8 +57,16 @@ namespace TabHeaderDemo
                 if (instance == null)
                 {
                     //1.1 没有实例在运行
+                    try
+                    {
+                        Application.Run(new FormMainLab());
+                    }
 
-                    Application.Run(new FormMainLab());
+                     catch (Exception ex)
+                    {
+                        throw;
+                    }
+
                 }
                 else
                 {
@@ -175,7 +183,7 @@ namespace TabHeaderDemo
 
             if (GlobeVal.mysys.controllerkind==1)
             {
-                mdoli= new CDOLI();
+                mdoli= new CDOLI() ;
                 myarm = mdoli;
             }
 

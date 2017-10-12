@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using log4net;
+//using log4net;
 using System.IO;
 
 namespace ClsStaticStation
@@ -99,12 +99,12 @@ namespace ClsStaticStation
 
 
     }
-
+    /*
     public class LogHelper
     {
-        public static log4net.Layout.PatternLayout layout;
-        public static log4net.Appender.FileAppender appender;
-        public static ILog log;
+      // public static log4net.Layout.PatternLayout layout;
+       // public static log4net.Appender.FileAppender appender;
+       // public static ILog log;
 
         private static ListBox mli;
 
@@ -167,7 +167,7 @@ namespace ClsStaticStation
             }
             return s;
         }
-
+       
         public static void WriteLogInfo(string info)
         {
             string s;
@@ -192,7 +192,7 @@ namespace ClsStaticStation
                 }
             }
         }
-
+        
         public static void WriteLogError(string info, Exception se)
         {
             string s;
@@ -248,5 +248,7 @@ namespace ClsStaticStation
             }
         }
 
-    }
-}
+    }  */
+    
+ }
+ 

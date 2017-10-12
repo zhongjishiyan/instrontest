@@ -120,9 +120,17 @@ namespace ClsStaticStation
             mtimer.Tick += new EventHandler(mtimer_Tick);
             mtimer.Interval = 20;
 
-            
-          
-            myedc = new XLDOPE.Edc();
+
+            try
+            {
+                myedc = new XLDOPE.Edc();
+
+            }
+            catch (System.BadImageFormatException)
+            {
+
+
+            }
 
             myedc.Eh.OnHandlerFuncHdlr += new XLDOPE.OnHandlerFuncHdlr(Eh_OnHandlerFuncHdlr);
 
@@ -644,8 +652,16 @@ namespace ClsStaticStation
         public override int CloseConnection()
         {
             mtimer.Stop();
-            XLDOPE.XL_stop();
-            XLDOPE.XL_free();
+            try
+            {
+                XLDOPE.XL_stop();
+                XLDOPE.XL_free();
+            }
+            catch(System.BadImageFormatException)
+            {
+                
+
+            }
 
             return 0;
         }

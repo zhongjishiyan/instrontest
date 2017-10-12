@@ -10,6 +10,8 @@ using System.IO;
 using Microsoft.VisualBasic.Compatibility;
 using System.Windows.Forms;
 using System.Drawing;
+
+
 using Doli.DoPE;
 
 
@@ -77,19 +79,7 @@ namespace ClsStaticStation
             } while (t_r8PassedMSec <= a_i4MSec);
         }
     }  
-    struct demodata
-    {
-        public double pos;
-        public double load;
-        public double ext;
-        public double poscmd;
-        public double loadcmd;
-        public double extcmd;
-        public double time;
-        public double count;
-        public double pos1;//围压位移
-        public double load1;//围压负荷
-    }
+    
     public class EventMsg
     {
         public DoPE.OnPosMsg PosMsg;
@@ -128,9 +118,9 @@ namespace ClsStaticStation
 
         private void DisplayError(DoPE.ERR error, string Text)
         {
-            if (error != DoPE.ERR.NOERROR)
+           // if (error != DoPE.ERR.NOERROR)
                 //Display(Text + " Error: " + error + "\n");
-                LogHelper.WriteLogError(Text + " Error: " + error + "\n", null);
+                //gHelper.WriteLogError(Text + " Error: " + error + "\n", null);
         }
 
         ///----------------------------------------------------------------------
