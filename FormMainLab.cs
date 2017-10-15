@@ -16,16 +16,26 @@ using Microsoft.Win32;
 
 namespace TabHeaderDemo
 {
-    
+
     public partial class FormMainLab : Form
     {
 
-        private Color topbackcolor=new Color();
+        public int l = 0;
 
-        private ClsStaticStation.ClsBaseControl  myarm;
+
+        public MacroRecord myMacroRecord = new MacroRecord();
+        int lastTimeRecorded = 0;
+
+        MouseHook mouseHook = new MouseHook();
+        KeyboardHook keyboardHook = new KeyboardHook();
+
+
+        private Color topbackcolor = new Color();
+
+        private ClsStaticStation.ClsBaseControl myarm;
 
         private ClsStaticStation.CArm marm;
-        private ClsStaticStation.CDOLI  mdoli;
+        private ClsStaticStation.CDOLI mdoli;
         private ClsStaticStation.CDsp mdsp;
         private User围压 User围压1;
         private UserControl操作面板 UserControl操作面板1;
@@ -35,11 +45,11 @@ namespace TabHeaderDemo
         private List<JMeter> mlistmeter;
         private List<Button> mlistkey;
 
-        public UserControlMain umain; 
+        public UserControlMain umain;
 
         private MainForm fdata;
 
-        private int msel=0;
+        private int msel = 0;
         [STAThread]
         static void Main()
         {
@@ -57,14 +67,14 @@ namespace TabHeaderDemo
                 if (instance == null)
                 {
                     //1.1 没有实例在运行
-                    try
+                    //try
                     {
                         Application.Run(new FormMainLab());
                     }
 
-                     catch (Exception ex)
+                    // catch (Exception ex)
                     {
-                        throw;
+                        //throw;
                     }
 
                 }
@@ -73,11 +83,11 @@ namespace TabHeaderDemo
                     //1.2 已经有一个实例在运行
                     HandleRunningInstance(instance);
                 }
- 
+
             }
             else
             {
-                MessageBox.Show("请在windows7以上版本运行");  
+                MessageBox.Show("请在windows7以上版本运行");
             }
 
         }
@@ -88,37 +98,37 @@ namespace TabHeaderDemo
         /// </summary>
         /// 
         private static Process RunningInstance()
-  {
-    Process current = Process.GetCurrentProcess();
-    Process[] processes = Process.GetProcessesByName(current.ProcessName);
-    //遍历与当前进程名称相同的进程列表 
-    foreach (Process process in processes)
-    {
-      //如果实例已经存在则忽略当前进程 
-      if (process.Id != current.Id)
-      {
-        //保证要打开的进程同已经存在的进程来自同一文件路径
-        if (Assembly.GetExecutingAssembly().Location.Replace("/", "\\") == current.MainModule.FileName)
         {
-          //返回已经存在的进程
-          return process;
+            Process current = Process.GetCurrentProcess();
+            Process[] processes = Process.GetProcessesByName(current.ProcessName);
+            //遍历与当前进程名称相同的进程列表 
+            foreach (Process process in processes)
+            {
+                //如果实例已经存在则忽略当前进程 
+                if (process.Id != current.Id)
+                {
+                    //保证要打开的进程同已经存在的进程来自同一文件路径
+                    if (Assembly.GetExecutingAssembly().Location.Replace("/", "\\") == current.MainModule.FileName)
+                    {
+                        //返回已经存在的进程
+                        return process;
+                    }
+                }
+            }
+            return null;
         }
-      }
-    }
-    return null;
-  }
-  //3.已经有了就把它激活，并将其窗口放置最前端
-  private static void HandleRunningInstance(Process instance)
-  {
-    ShowWindowAsync(instance.MainWindowHandle, 1); //调用api函数，正常显示窗口
-    SetForegroundWindow(instance.MainWindowHandle); //将窗口放置最前端
-  }
-  [DllImport("User32.dll")]
-  private static extern bool ShowWindowAsync(System.IntPtr hWnd, int cmdShow);
-  [DllImport("User32.dll")]
-  private static extern bool SetForegroundWindow(System.IntPtr hWnd);
- 
-        public static  bool IsWindows2000OrNewer
+        //3.已经有了就把它激活，并将其窗口放置最前端
+        private static void HandleRunningInstance(Process instance)
+        {
+            ShowWindowAsync(instance.MainWindowHandle, 1); //调用api函数，正常显示窗口
+            SetForegroundWindow(instance.MainWindowHandle); //将窗口放置最前端
+        }
+        [DllImport("User32.dll")]
+        private static extern bool ShowWindowAsync(System.IntPtr hWnd, int cmdShow);
+        [DllImport("User32.dll")]
+        private static extern bool SetForegroundWindow(System.IntPtr hWnd);
+
+        public static bool IsWindows2000OrNewer
         {
             get { return (Environment.OSVersion.Platform == PlatformID.Win32NT) && (Environment.OSVersion.Version.Major >= 5); }
         }
@@ -126,7 +136,7 @@ namespace TabHeaderDemo
         /// <summary>
         /// Gets a value indicating if the operating system is a Windows XP or a newer one.
         /// </summary>
-        public static  bool IsWindowsXpOrNewer
+        public static bool IsWindowsXpOrNewer
         {
             get
             {
@@ -145,22 +155,22 @@ namespace TabHeaderDemo
         /// <summary>
         /// Gets a value indicating if the operating system is a Windows Vista or a newer one.
         /// </summary>
-        public static  bool IsWindowsVistaOrNewer
+        public static bool IsWindowsVistaOrNewer
         {
             get { return (Environment.OSVersion.Platform == PlatformID.Win32NT) && (Environment.OSVersion.Version.Major >= 6); }
         }
-        
+
         public FormMainLab()
         {
             InitializeComponent();
 
             GlobeVal.mysys = new ClassSys();
 
-           // MessageBox.Show(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString());
+            // MessageBox.Show(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString());
 
-            if (Directory.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\AppleLabJ")==false)
+            if (Directory.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ") == false)
             {
-                Directory.CreateDirectory(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+ "\\AppleLabJ");
+                Directory.CreateDirectory(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ");
             }
             if (File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini") == true)
             {
@@ -169,42 +179,203 @@ namespace TabHeaderDemo
 
             }
 
-           
-            m_Global.mycls = new ItemSignalStation(GlobeVal.mysys.machinekind );
 
-          
+            m_Global.mycls = new ItemSignalStation(GlobeVal.mysys.machinekind);
 
-            if (GlobeVal.mysys.controllerkind==0)
+
+
+            if (GlobeVal.mysys.controllerkind == 0)
             {
-             marm  = new CArm();
-             myarm =  marm;
+                marm = new CArm();
+                myarm = marm;
 
             }
 
-            if (GlobeVal.mysys.controllerkind==1)
+            if (GlobeVal.mysys.controllerkind == 1)
             {
-                mdoli= new CDOLI() ;
+                mdoli = new CDOLI();
                 myarm = mdoli;
             }
 
-            if (GlobeVal.mysys.controllerkind==2)
+            if (GlobeVal.mysys.controllerkind == 2)
             {
-               
-                mdsp  = new CDsp();
+
+                mdsp = new CDsp();
                 myarm = mdsp;
             }
             if (GlobeVal.mysys.controllerkind == 3)
             {
                 myarm = new C电机();
             }
-          
-             
+
+
 
             fdata = new MainForm();
 
-            topbackcolor = Color.WhiteSmoke ;
+            topbackcolor = Color.WhiteSmoke;
+
+            if (GlobeVal.mysys.demo == true)
+            {
+                tlprecord.Visible = true;
+            }
+            else
+            {
+                tlprecord.Visible = false;
+            }
+
+            mouseHook.MouseMove += new MouseEventHandler(mouseHook_MouseMove);
+            mouseHook.MouseDown += new MouseEventHandler(mouseHook_MouseDown);
+            mouseHook.MouseUp += new MouseEventHandler(mouseHook_MouseUp);
+
+            keyboardHook.KeyDown += new KeyEventHandler(keyboardHook_KeyDown);
+            keyboardHook.KeyUp += new KeyEventHandler(keyboardHook_KeyUp);
+        }
+        void mouseHook_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            myMacroRecord.events.Add(
+                new MacroEvent(
+                    MacroEventType.MouseMove,
+                    e,
+                    Environment.TickCount - lastTimeRecorded,this.Width,this.Height
+                ));
 
 
+            lastTimeRecorded = Environment.TickCount;
+
+        }
+
+        void mouseHook_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            myMacroRecord.events.Add(
+                new MacroEvent(
+                    MacroEventType.MouseDown,
+                    e,
+                    Environment.TickCount - lastTimeRecorded,this.Width,this.Height
+                ));
+
+            lastTimeRecorded = Environment.TickCount;
+
+        }
+
+        void mouseHook_MouseUp(object sender, MouseEventArgs e)
+        {
+
+            myMacroRecord.events.Add(
+                new MacroEvent(
+                    MacroEventType.MouseUp,
+                    e,
+                    Environment.TickCount - lastTimeRecorded,this.Width ,this.Height
+                ));
+
+            lastTimeRecorded = Environment.TickCount;
+
+        }
+
+        void keyboardHook_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            myMacroRecord.events.Add(
+                new MacroEvent(
+                    MacroEventType.KeyDown,
+                    e,
+                    Environment.TickCount - lastTimeRecorded,this.Width,this.Height 
+                ));
+
+            lastTimeRecorded = Environment.TickCount;
+
+        }
+
+        void keyboardHook_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            myMacroRecord.events.Add(
+                new MacroEvent(
+                    MacroEventType.KeyUp,
+                    e,
+
+                    Environment.TickCount - lastTimeRecorded,this.Width,this.Height 
+                ));
+
+            lastTimeRecorded = Environment.TickCount;
+
+        }
+
+        public void delay(double m)
+        {
+            double t;
+            t = Environment.TickCount;
+
+            while (Environment.TickCount - t < m)
+            {
+                Application.DoEvents();
+            }
+        }
+
+        public void DoMacro()
+        {
+            MacroEvent macroEvent = myMacroRecord.events[l] as MacroEvent;
+
+            this.timerRecord.Interval = macroEvent.TimeSinceLastEvent + 1;
+
+
+            {
+
+
+                switch (macroEvent.MacroEventType)
+                {
+                    case MacroEventType.MouseMove:
+                        {
+
+                            MouseEventArgs mouseArgs = (MouseEventArgs)macroEvent.EventArgs;
+
+                            MouseSimulator.X = Convert.ToInt32( mouseArgs.X*this.Width/macroEvent.width);
+                            MouseSimulator.Y = Convert.ToInt32( mouseArgs.Y*this.Height /macroEvent.height);
+
+                        }
+                        break;
+                    case MacroEventType.MouseDown:
+                        {
+
+                            MouseEventArgs mouseArgs = (MouseEventArgs)macroEvent.EventArgs;
+
+                            MouseSimulator.MouseDown(mouseArgs.Button);
+
+                        }
+                        break;
+                    case MacroEventType.MouseUp:
+                        {
+
+                            MouseEventArgs mouseArgs = (MouseEventArgs)macroEvent.EventArgs;
+
+                            MouseSimulator.MouseUp(mouseArgs.Button);
+
+                        }
+                        break;
+                    case MacroEventType.KeyDown:
+                        {
+
+                            KeyEventArgs keyArgs = (KeyEventArgs)macroEvent.EventArgs;
+
+                            KeyboardSimulator.KeyDown(keyArgs.KeyCode);
+
+                        }
+                        break;
+                    case MacroEventType.KeyUp:
+                        {
+
+                            KeyEventArgs keyArgs = (KeyEventArgs)macroEvent.EventArgs;
+
+                            KeyboardSimulator.KeyUp(keyArgs.KeyCode);
+
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+            }
         }
 
         public System.Drawing.Bitmap backimage = new Bitmap(50, 50);
@@ -229,9 +400,9 @@ namespace TabHeaderDemo
 
             // Color c = map.GetPixel(map.Width - 5, map.Height / 2);
 
-          
+
             map.Dispose();
-            drawPath(e, path, topbackcolor );
+            drawPath(e, path, topbackcolor);
 
             path.Reset();
             r = new Corners(points, 5);
@@ -241,13 +412,13 @@ namespace TabHeaderDemo
             matrix.Translate(0, 0);
             path.Transform(matrix);
             map = new Bitmap(backimage);
-           // c = map.GetPixel(map.Width / 2, map.Height / 2);
+            // c = map.GetPixel(map.Width / 2, map.Height / 2);
 
-            
+
 
             map.Dispose();
 
-            drawPath(e, path,topbackcolor );
+            drawPath(e, path, topbackcolor);
 
             path.Dispose();
         }
@@ -324,14 +495,14 @@ namespace TabHeaderDemo
 
             return _exit;
 
-        }   
+        }
         public void reg()
         {
             return;
             RegistryKey key = Registry.LocalMachine;
             RegistryKey software = key.CreateSubKey("software\\AppleLabJ");
             //在HKEY_LOCAL_MACHINE\SOFTWARE下新建名为test的注册表项。如果已经存在则不影响！
-            
+
             software = key.OpenSubKey("software\\AppleLabJ", true);
             software.SetValue("AppleLabJ", "AppleLab 微机控制岩石试验机", RegistryValueKind.String);
             software.SetValue("InstallData", DateTime.Today.ToShortDateString(), RegistryValueKind.String);
@@ -339,19 +510,19 @@ namespace TabHeaderDemo
             key.Close();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void FormMainLab_Load(object sender, EventArgs e)
         {
             GlobeVal.MainStatusStrip = this.statusStrip1;
 
             GlobeVal.FormmainLab = this;
-            
+
             this.Left = 0;
             this.Top = 0;
 
-            jMeter1.BackColor = topbackcolor ;
+            jMeter1.BackColor = topbackcolor;
             jMeter2.BackColor = topbackcolor;
-            jMeter3.BackColor = topbackcolor ;
-            jMeter4.BackColor =topbackcolor ;
+            jMeter3.BackColor = topbackcolor;
+            jMeter4.BackColor = topbackcolor;
 
 
             mlistmeter = new List<JMeter>();
@@ -367,65 +538,67 @@ namespace TabHeaderDemo
             mlistkey.Add(btnkey4);
 
             umain = new UserControlMain();
-            umain.Dock  = DockStyle.Fill;
+            umain.Dock = DockStyle.Fill;
             splitContainer1.Panel1.Controls.Add(umain);
-            
-            backimage = new Bitmap(this.imageList1.Images[0], this.imageList1.Images[0].Size); 
 
-            this.Width = Screen.PrimaryScreen.Bounds.Width ;
-            this.Height =Screen.PrimaryScreen.Bounds.Height ;
+            backimage = new Bitmap(this.imageList1.Images[0], this.imageList1.Images[0].Size);
 
+            this.Width = Convert.ToInt32( Screen.PrimaryScreen.Bounds.Width);
+            this.Height =Convert.ToInt32( Screen.PrimaryScreen.Bounds.Height);
+
+            //this.Width = 1600;
+            //this.Height = 900;
             tabControl1.ItemSize = new Size(1, 1);
 
 
-           
 
-           
+
+
             GlobeVal.myarm = myarm;
 
-          
-if (GlobeVal.mysys.machinekind ==2)  
-{
-            User围压1 = new User围压();
-            User围压1.Dock = DockStyle.Fill;
-            UserControl操作面板1 = new UserControl操作面板();
-            UserControl轴向1 = new UserControl轴向();
-            UserControl操作面板1.Controls.Add(UserControl轴向1);
-            UserControl轴向1.Dock = DockStyle.Fill;
-            UserControl操作面板1.Dock = DockStyle.Fill;
 
-            panel2.Controls.Add(UserControl操作面板1);
-            tlpsel.Visible = true;
-            cbochannel.Items.Clear();
-            cbochannel.Items.Add("轴向");
-            cbochannel.Items.Add("围压");
-            cbochannel.SelectedIndex = 0;
+            if (GlobeVal.mysys.machinekind == 2)
+            {
+                User围压1 = new User围压();
+                User围压1.Dock = DockStyle.Fill;
+                UserControl操作面板1 = new UserControl操作面板();
+                UserControl轴向1 = new UserControl轴向();
+                UserControl操作面板1.Controls.Add(UserControl轴向1);
+                UserControl轴向1.Dock = DockStyle.Fill;
+                UserControl操作面板1.Dock = DockStyle.Fill;
 
-            
-}
+                panel2.Controls.Add(UserControl操作面板1);
+                tlpsel.Visible = true;
+                cbochannel.Items.Clear();
+                cbochannel.Items.Add("轴向");
+                cbochannel.Items.Add("围压");
+                cbochannel.SelectedIndex = 0;
 
-if (GlobeVal.mysys.machinekind == 0)
-{
-    tlpsel.Visible = false;
-    UserControl操作面板1 = new UserControl操作面板();
-    UserControl轴向1 = new UserControl轴向();
-    UserControl操作面板1.Controls.Add(UserControl轴向1);
-    UserControl轴向1.Dock = DockStyle.Fill;
-    UserControl操作面板1.Dock = DockStyle.Fill;
-    panel2.Controls.Add(UserControl操作面板1);
-}
 
-if (GlobeVal.mysys.machinekind == 1)
-{
+            }
 
-    tlpsel.Visible = false;
-    UserControl操作面板1 = new UserControl操作面板();
-    UserControl扭转1 = new UserControl扭转();
-    UserControl操作面板1.Controls.Add(UserControl扭转1);
-    UserControl扭转1.Dock = DockStyle.Fill;
-    UserControl操作面板1.Dock = DockStyle.Fill;
-    panel2.Controls.Add(UserControl操作面板1);
-}
+            if (GlobeVal.mysys.machinekind == 0)
+            {
+                tlpsel.Visible = false;
+                UserControl操作面板1 = new UserControl操作面板();
+                UserControl轴向1 = new UserControl轴向();
+                UserControl操作面板1.Controls.Add(UserControl轴向1);
+                UserControl轴向1.Dock = DockStyle.Fill;
+                UserControl操作面板1.Dock = DockStyle.Fill;
+                panel2.Controls.Add(UserControl操作面板1);
+            }
+
+            if (GlobeVal.mysys.machinekind == 1)
+            {
+
+                tlpsel.Visible = false;
+                UserControl操作面板1 = new UserControl操作面板();
+                UserControl扭转1 = new UserControl扭转();
+                UserControl操作面板1.Controls.Add(UserControl扭转1);
+                UserControl扭转1.Dock = DockStyle.Fill;
+                UserControl操作面板1.Dock = DockStyle.Fill;
+                panel2.Controls.Add(UserControl操作面板1);
+            }
             if (GlobeVal.mysys.machinekind == 3)
             {
 
@@ -483,7 +656,7 @@ if (GlobeVal.mysys.machinekind == 1)
 
         void m_toolbox_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void userControl11_Load(object sender, EventArgs e)
@@ -494,9 +667,9 @@ if (GlobeVal.mysys.machinekind == 1)
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
-            
+
             GraphicsContainer containerState = e.Graphics.BeginContainer();
-           
+
 
 
             e.Graphics.PageUnit = System.Drawing.GraphicsUnit.Pixel;
@@ -525,7 +698,7 @@ if (GlobeVal.mysys.machinekind == 1)
 
         private void btnkey2_MouseDown(object sender, MouseEventArgs e)
         {
-            btnkey2.BackgroundImage = btnkeyimageList.Images[1]; 
+            btnkey2.BackgroundImage = btnkeyimageList.Images[1];
         }
 
         private void btnkey2_Click(object sender, EventArgs e)
@@ -535,7 +708,7 @@ if (GlobeVal.mysys.machinekind == 1)
 
         private void btnkey2_MouseUp(object sender, MouseEventArgs e)
         {
-            btnkey2.BackgroundImage = btnkeyimageList.Images[0]; 
+            btnkey2.BackgroundImage = btnkeyimageList.Images[0];
         }
 
         private void btnkey1_MouseDown(object sender, MouseEventArgs e)
@@ -576,10 +749,10 @@ if (GlobeVal.mysys.machinekind == 1)
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
 
 
-            if ((GlobeVal.myarm.getlimit(0) == true) ||(GlobeVal.myarm.getlimit(0) == true))
+
+            if ((GlobeVal.myarm.getlimit(0) == true) || (GlobeVal.myarm.getlimit(0) == true))
             {
                 GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "限位：保护";
                 GlobeVal.MainStatusStrip.Items["tslbllimit"].BackColor = Color.Red;
@@ -609,15 +782,15 @@ if (GlobeVal.mysys.machinekind == 1)
                 {
                     if (CComLibrary.GlobeVal.filesave.mmeter[i].cName == m_Global.mycls.allsignals[j].cName)
                     {
-                        mlistmeter[i].lblvalue.Text =m_Global.mycls.allsignals[j].GetValueFromUnit(m_Global.mycls.allsignals[j].cvalue,
+                        mlistmeter[i].lblvalue.Text = m_Global.mycls.allsignals[j].GetValueFromUnit(m_Global.mycls.allsignals[j].cvalue,
                             CComLibrary.GlobeVal.filesave.mmeter[i].cUnitsel);
 
 
-                         
+
                     }
                 }
             }
-            
+
         }
         public void InitKey()
         {
@@ -630,7 +803,7 @@ if (GlobeVal.mysys.machinekind == 1)
             }
             for (int i = CComLibrary.GlobeVal.filesave.mkey.Count; i < 4; i++)
             {
-                mlistkey[i].Visible  = false;
+                mlistkey[i].Visible = false;
             }
         }
         public void InitMeter()
@@ -639,13 +812,13 @@ if (GlobeVal.mysys.machinekind == 1)
 
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mmeter.Count; i++)
-            {  
-                
+            {
+
                 mlistmeter[i].lblcaption.Text = CComLibrary.GlobeVal.filesave.mmeter[i].cName;
                 mlistmeter[i].lblunit.Text = CComLibrary.GlobeVal.filesave.mmeter[i].cUnits[CComLibrary.GlobeVal.filesave.mmeter[i].cUnitsel];
                 mlistmeter[i].Visible = true;
                 mlistmeter[i].lblvalue.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(
-                    CComLibrary.GlobeVal.filesave.mmeter[i].precise); 
+                    CComLibrary.GlobeVal.filesave.mmeter[i].precise);
             }
 
             for (int i = CComLibrary.GlobeVal.filesave.mmeter.Count; i < 4; i++)
@@ -666,8 +839,8 @@ if (GlobeVal.mysys.machinekind == 1)
 
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
-           
-            
+
+
         }
 
         private void splitContainer1_MouseDown(object sender, MouseEventArgs e)
@@ -683,7 +856,7 @@ if (GlobeVal.mysys.machinekind == 1)
         private void button8_Click(object sender, EventArgs e)
         {
             Frm.FormTorsionTransducer f = new Frm.FormTorsionTransducer();
-            f.ShowDialog(); 
+            f.ShowDialog();
         }
 
         private void FormMainLab_FormClosed(object sender, FormClosedEventArgs e)
@@ -697,13 +870,13 @@ if (GlobeVal.mysys.machinekind == 1)
         {
             int i;
 
-            CComLibrary.FileStruct f= CComLibrary.GlobeVal.filesave;
-            CComLibrary.GlobeVal.filesave.SerializeNow("d:\\temp") ;
+            CComLibrary.FileStruct f = CComLibrary.GlobeVal.filesave;
+            CComLibrary.GlobeVal.filesave.SerializeNow("d:\\temp");
 
-                
+
             try
             {
-               
+
 
                 fdata.g_namelist.Clear();
 
@@ -718,11 +891,11 @@ if (GlobeVal.mysys.machinekind == 1)
                 fdata.tsbeditproject.Visible = false;
                 fdata.gtestkind = CComLibrary.GlobeVal.filesave.methodkind;
                 fdata.gmethodname = CComLibrary.GlobeVal.filesave.methodname;
-                
-                
+
+
                 fdata.Text = "AppleLab-试验数据分析软件";
-                fdata.Show() ;
-               
+                fdata.Show();
+
                 fdata.InitKind();
                 fdata.WindowState = FormWindowState.Normal;
                 fdata.ShowDialog();
@@ -735,31 +908,31 @@ if (GlobeVal.mysys.machinekind == 1)
             {
 
             }
-            CComLibrary.GlobeVal.filesave=f.DeSerializeNow("d:\\temp");
+            CComLibrary.GlobeVal.filesave = f.DeSerializeNow("d:\\temp");
 
         }
 
         private void btnon_Click(object sender, EventArgs e)
         {
 
-          
 
-          
+
+
 
         }
 
         private void btnhand_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        
+
 
         private void btnkey1_Click(object sender, EventArgs e)
         {
 
-            GlobeVal.myarm.btnkey( sender as Button);
-            
+            GlobeVal.myarm.btnkey(sender as Button);
+
         }
 
         private void btnkey2_Click_1(object sender, EventArgs e)
@@ -785,19 +958,19 @@ if (GlobeVal.mysys.machinekind == 1)
 
         private void timermain_Tick(object sender, EventArgs e)
         {
-            if ((GlobeVal.mysys.CurentUserIndex>=0) && (GlobeVal.mysys.CurentUserIndex<GlobeVal.mysys.UserCount))
+            if ((GlobeVal.mysys.CurentUserIndex >= 0) && (GlobeVal.mysys.CurentUserIndex < GlobeVal.mysys.UserCount))
             {
             }
             else
             {
-                GlobeVal.mysys.CurentUserIndex=0;
+                GlobeVal.mysys.CurentUserIndex = 0;
             }
 
 
             tsluser.Text = "用户名:" + GlobeVal.mysys.UserName[GlobeVal.mysys.CurentUserIndex];
 
             tslblmachine.Text = GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
-            this.Text = "AppleLab-" + GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];  
+            this.Text = "AppleLab-" + GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
 
         }
 
@@ -829,7 +1002,7 @@ if (GlobeVal.mysys.machinekind == 1)
         {
             int i;
             bool b = false;
-            CComLibrary.FileStruct f=new CComLibrary.FileStruct();
+            CComLibrary.FileStruct f = new CComLibrary.FileStruct();
             if (GlobeVal.mysys.AppUserLevel < 1)
             {
                 MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
@@ -843,7 +1016,7 @@ if (GlobeVal.mysys.machinekind == 1)
                 }
                 else
                 {
-                     f = CComLibrary.GlobeVal.filesave;
+                    f = CComLibrary.GlobeVal.filesave;
                     CComLibrary.GlobeVal.filesave.SerializeNow("d:\\temp");
 
                 }
@@ -884,5 +1057,78 @@ if (GlobeVal.mysys.machinekind == 1)
             }
         }
 
+        private void recordStartButton_Click(object sender, EventArgs e)
+        {
+            recordStartButton.Enabled = false;
+            myMacroRecord.events.Clear();
+            lastTimeRecorded = Environment.TickCount;
+
+            keyboardHook.Start();
+            mouseHook.Start();
+        }
+
+        private void recordStopButton_Click(object sender, EventArgs e)
+        {
+            recordStartButton.Enabled = true;
+            keyboardHook.Stop();
+            mouseHook.Stop();
+
+            string s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\record\";
+            myMacroRecord.SerializeNow(s + "aa.rec");
+        }
+
+        private void playBackMacroButton_Click(object sender, EventArgs e)
+        {
+
+            if (myMacroRecord.events.Count > 0)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("请重新录制或读取过程");
+                return;
+            }
+            playBackMacroButton.Enabled = false;
+            l = 0;
+            this.timerRecord.Enabled = true;
+        }
+
+        private void timerRecord_Tick(object sender, EventArgs e)
+        {
+            DoMacro();
+            l = l + 1;
+
+            if (l > myMacroRecord.events.Count - 1)
+            {
+                this.timerRecord.Enabled = false;
+                playBackMacroButton.Enabled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\record\";
+            myMacroRecord = myMacroRecord.DeSerializeNow(s + "aa.rec");
+        }
+
+        private void recordStartButton_MouseEnter(object sender, EventArgs e)
+        {
+
+            this.toolTip1.ShowAlways = true;
+            this.toolTip1.SetToolTip(sender as Button, (sender as Button).Tag as string);
+        }
+
+        private void playBackMacroButton_MouseEnter(object sender, EventArgs e)
+        {
+            this.toolTip1.ShowAlways = true;
+            this.toolTip1.SetToolTip(sender as Button, (sender as Button).Tag as string);
+        }
+
+        private void recordStopButton_MouseEnter(object sender, EventArgs e)
+        {
+            this.toolTip1.ShowAlways = true;
+            this.toolTip1.SetToolTip(sender as Button, (sender as Button).Tag as string);
+        }
     }
 }

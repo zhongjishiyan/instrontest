@@ -141,11 +141,6 @@ namespace TabHeaderDemo
             }
         }
 
-        private void btnoil_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnenable_Click(object sender, EventArgs e)
         {
           
@@ -234,12 +229,12 @@ namespace TabHeaderDemo
             if (btnoil.Caption == "开始注油")
             {
                 btnoil.Caption = "停止注油";
-                ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 4, 32);
+                ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 0, 32);
             }
             else
             {
                 btnoil.Caption = "开始注油";
-                ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 4, 33);
+                ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 0, 33);
             }
 
 
@@ -251,12 +246,12 @@ namespace TabHeaderDemo
             if (btnenable.Caption == "蓄能器使能")
             {
                 btnenable.Caption  = "蓄能器禁止";
-                ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 4, 48);
+                ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 0, 48);
             }
             else
             {
                 btnenable.Caption = "蓄能器使能";
-                ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 4, 49);
+                ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 0, 49);
             }
 
         }
@@ -277,11 +272,6 @@ namespace TabHeaderDemo
                 ClsStaticStation.a9500.ARM_DEC_SendOUTSignal(0, 0, 33);
 
             }
-
-        }
-
-        private void btnoil_StateChanged(object sender, NationalInstruments.UI.ActionEventArgs e)
-        {
 
         }
 

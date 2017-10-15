@@ -160,6 +160,9 @@
             this.scatterPlot3.CanScaleYAxis = false;
             this.scatterPlot3.LineColor = System.Drawing.Color.Blue;
             this.scatterPlot3.LineColorPrecedence = NationalInstruments.UI.ColorPrecedence.UserDefinedColor;
+            this.scatterPlot3.PointColor = System.Drawing.Color.Black;
+            this.scatterPlot3.PointStyle = NationalInstruments.UI.PointStyle.SolidCircle;
+            this.scatterPlot3.SmoothUpdates = true;
             this.scatterPlot3.XAxis = this.xAxis1;
             this.scatterPlot3.YAxis = this.yAxis1;
             // 
@@ -228,7 +231,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 50;
+            this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // toolStrip2

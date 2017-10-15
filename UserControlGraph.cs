@@ -12,6 +12,8 @@ namespace TabHeaderDemo
 {
     public partial class UserControlGraph : UserControl
     {
+
+        public long count = 0;
         private CComLibrary.PlotSettings myplotsettings;
         private int mplot1;
         private RawDataDataGroup[] r = new RawDataDataGroup[1];
@@ -49,7 +51,7 @@ namespace TabHeaderDemo
         {
 
             string s;
-
+            count = 0;
             int mk;
             tstart = 0;
             maxload = 0;
@@ -430,7 +432,7 @@ namespace TabHeaderDemo
 
                 b = myarraydata.Dequeue();
 
-               
+                count = count + 1;
 
                 for (int i=0;i<m_Global.mycls.datalist.Count;i++)
                 {
@@ -512,6 +514,7 @@ namespace TabHeaderDemo
                 }
                 if (myplotsettings.curvekind == 1)
                 {
+                    
                     scatterGraph.Plots[0].PlotXYAppend(xi, yi);
                     scatterGraph.Plots[1].PlotXYAppend(xi, y1i);
                 }
@@ -563,8 +566,15 @@ namespace TabHeaderDemo
 
                
             }
+            /*
+            if(count >5000)
+            {
+                scatterGraph.ClearData();
+                count = 0;
+            }
 
-
+            lblcaption.Text = count.ToString();
+            */
             timer1.Enabled = true;
 
         }

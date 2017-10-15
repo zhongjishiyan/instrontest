@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define DSP_ONDATABLOCK
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace ClsStaticStation
 {
     public class CDsp : ClsBaseControl
     {
-        public long acount = 0;
+
         private float[] rr;
         private System.Windows.Forms.Timer mtimer;
         public XLNet.XLDOPE.Data  GGMsg;
@@ -118,7 +119,7 @@ namespace ClsStaticStation
           
             mtimer = new System.Windows.Forms.Timer();
             mtimer.Tick += new EventHandler(mtimer_Tick);
-            mtimer.Interval = 20;
+            mtimer.Interval = 50;
 
 
             try
@@ -132,11 +133,22 @@ namespace ClsStaticStation
 
             }
 
+#if DSP_ONDATABLOCK
+
+            myedc.Eh.SetOnDataBlockSize(100);
+#else
+             myedc.Eh.SetOnDataBlockSize(0);
+#endif
+
             myedc.Eh.OnHandlerFuncHdlr += new XLDOPE.OnHandlerFuncHdlr(Eh_OnHandlerFuncHdlr);
 
-
-            myedc.Eh.OnDataHdlr += new XLDOPE.OnDataHdlr(Eh_OnDataHdlr);
+#if DSP_ONDATABLOCK
             myedc.Eh.OnDataBlockHdlr += new XLDOPE.OnDataBlockHdlr(Eh_OnDataBlockHdlr);
+#else
+            myedc.Eh.OnDataHdlr += new XLDOPE.OnDataHdlr(Eh_OnDataHdlr);
+#endif
+
+
             myedc.Eh.OnPosMsgHdlr +=new XLDOPE.OnPosMsgHdlr( Eh_OnPosMsgHdlr);
 
         }
@@ -146,19 +158,41 @@ namespace ClsStaticStation
 
             return 0;
         }
-
+#if DSP_ONDATABLOCK
         private int Eh_OnDataBlockHdlr(ref XLDOPE.OnDataBlock OnDataBlock, object Parameter)
         {
-            oncount = oncount + 1;
+            
+
+            for (int i = 0; i <OnDataBlock.nData; i=i+1)
+            {
+                XLDOPE.Data m1 = new XLDOPE.Data();
+                m1 = OnDataBlock.Data[i].Data;
+
+                ma = new XLDOPE.MDataIno();
+                ma.Id = 0;
+                ma.mydatainfo = m1;
+                mdatalist.Add(ma);
+                oncount = oncount + 1;
+            }
             return 0;
         }
-
+#else
         private void  Eh_OnDataHdlr(ref XLDOPE.OnData m)
         {
-            //oncount = (int) m.Data.Time;
+            XLDOPE.Data m1 = new XLDOPE.Data();
+
+
+            m1 = m.Data ;
+
+            ma = new XLDOPE.MDataIno();
+            ma.Id = 0;
+            ma.mydatainfo = m1;
+            mdatalist.Add(ma);
+            oncount = oncount + 1;
+
             return ;
         }
-
+#endif
         private void Eh_OnHandlerFuncHdlr(int NamelessParameter1, int NamelessParameter2, int NamelessParameter3)
         {
            // oncount = oncount + 1;
@@ -167,23 +201,6 @@ namespace ClsStaticStation
 
         void mtimer_Tick(object sender, EventArgs e)
         {
-            XLDOPE.Data m= new XLDOPE.Data();
-           
-
-            myedc.Data.CurrentData(ref m);
-           
-
-            acount = acount + 1;
-
-
-            XLDOPE.XL_recvData();
-
-            ma = new XLDOPE.MDataIno();
-            ma.Id = 0;
-            ma.mydatainfo = m;
-            mdatalist.Add(ma);
-
-
 
             Timer();
         }
@@ -216,12 +233,13 @@ namespace ClsStaticStation
 
 
 
-                    load = GGMsg.Sensor[0];
                     pos = oncount ;
+                    load =GGMsg.Sensor[1] ;
                     ext = GGMsg.Sensor[2];
                     poscmd = 0;
                     loadcmd = 0;
                     extcmd = 0;
+                    //time = AccurateTimer.GetTimeTick();
                     time = GGMsg.Time;
                     count = 0;
 
@@ -515,7 +533,7 @@ namespace ClsStaticStation
                     for (j = 0; j < 4; j++)
                     {
 
-                        if (ClsStatic.arraydatacount[j] >= ClsStatic.arraydata[j].NodeCount - 1)
+                        if (ClsStatic.arraydatacount[j] >= ClsStatic.savedata.NodeCount - 1)
                         {
 
                             ClsStatic.arraydata[j].Read<RawDataDataGroup>(out d, 10);

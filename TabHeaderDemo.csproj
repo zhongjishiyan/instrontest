@@ -187,6 +187,14 @@
     <Compile Include="ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MouseKey\GlobalHook.cs" />
+    <Compile Include="MouseKey\GlobalMacroRecorder.cs" />
+    <Compile Include="MouseKey\Keyboard.cs" />
+    <Compile Include="MouseKey\KeyboardHook.cs" />
+    <Compile Include="MouseKey\KeyboardSimulator.cs" />
+    <Compile Include="MouseKey\Mouse.cs" />
+    <Compile Include="MouseKey\MouseHook.cs" />
+    <Compile Include="MouseKey\MouseSimulator.cs" />
     <Compile Include="UserControlStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -630,6 +638,7 @@
       <DependentUpon>User围压.cs</DependentUpon>
     </Compile>
     <Content Include="ClsStaticStation.sln" />
+    <Content Include="说明\说明.txt" />
     <None Include="Resources\1080 - 副本.ico" />
     <EmbeddedResource Include="Controls\OpenFileDialogEx.resx">
       <DependentUpon>OpenFileDialogEx.cs</DependentUpon>

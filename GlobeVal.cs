@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace TabHeaderDemo
 {
     public sealed  class   GlobeVal
     {
+
+        private readonly int MOUSEEVENTF_LEFTDOWN = 0x2;
+        private readonly int MOUSEEVENTF_LEFTUP = 0x4;
+        [DllImport("user32")]
+        public static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
         public GlobeVal()
         {
           

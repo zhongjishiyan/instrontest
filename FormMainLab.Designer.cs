@@ -42,6 +42,11 @@
             this.tslbllimit = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolstatustest = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tlprecord = new System.Windows.Forms.TableLayoutPanel();
+            this.recordStopButton = new System.Windows.Forms.Button();
+            this.playBackMacroButton = new System.Windows.Forms.Button();
+            this.recordStartButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnkey3 = new System.Windows.Forms.Button();
             this.btnkey2 = new System.Windows.Forms.Button();
@@ -49,11 +54,11 @@
             this.btnkey4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnhand = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnext1 = new System.Windows.Forms.Button();
             this.btntool = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnpos = new System.Windows.Forms.Button();
+            this.btnload = new System.Windows.Forms.Button();
+            this.btnext2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tlbmeter = new System.Windows.Forms.TableLayoutPanel();
@@ -74,6 +79,8 @@
             this.btnkeyimageList = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timermain = new System.Windows.Forms.Timer(this.components);
+            this.timerRecord = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.userControl11 = new TabHeaderDemo.UserControlTop();
             this.jMeter1 = new TabHeaderDemo.JMeter();
             this.jMeter2 = new TabHeaderDemo.JMeter();
@@ -81,6 +88,7 @@
             this.jMeter4 = new TabHeaderDemo.JMeter();
             this.statusStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.tlprecord.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -222,6 +230,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.tlprecord);
             this.panel4.Controls.Add(this.tableLayoutPanel4);
             this.panel4.Controls.Add(this.tableLayoutPanel3);
             this.panel4.Controls.Add(this.tableLayoutPanel2);
@@ -233,6 +242,89 @@
             this.panel4.Size = new System.Drawing.Size(1350, 126);
             this.panel4.TabIndex = 31;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // tlprecord
+            // 
+            this.tlprecord.ColumnCount = 5;
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tlprecord.Controls.Add(this.recordStopButton, 0, 0);
+            this.tlprecord.Controls.Add(this.playBackMacroButton, 0, 0);
+            this.tlprecord.Controls.Add(this.recordStartButton, 0, 0);
+            this.tlprecord.Controls.Add(this.button1, 3, 0);
+            this.tlprecord.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tlprecord.Location = new System.Drawing.Point(837, 0);
+            this.tlprecord.Name = "tlprecord";
+            this.tlprecord.RowCount = 1;
+            this.tlprecord.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlprecord.Size = new System.Drawing.Size(243, 48);
+            this.tlprecord.TabIndex = 48;
+            // 
+            // recordStopButton
+            // 
+            this.recordStopButton.BackColor = System.Drawing.Color.Transparent;
+            this.recordStopButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("recordStopButton.BackgroundImage")));
+            this.recordStopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.recordStopButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordStopButton.FlatAppearance.BorderSize = 0;
+            this.recordStopButton.Location = new System.Drawing.Point(100, 3);
+            this.recordStopButton.Name = "recordStopButton";
+            this.recordStopButton.Size = new System.Drawing.Size(48, 42);
+            this.recordStopButton.TabIndex = 54;
+            this.recordStopButton.Tag = "停止录制";
+            this.recordStopButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.recordStopButton.UseVisualStyleBackColor = false;
+            this.recordStopButton.Click += new System.EventHandler(this.recordStopButton_Click);
+            this.recordStopButton.MouseEnter += new System.EventHandler(this.recordStopButton_MouseEnter);
+            // 
+            // playBackMacroButton
+            // 
+            this.playBackMacroButton.AutoSize = true;
+            this.playBackMacroButton.BackColor = System.Drawing.Color.Transparent;
+            this.playBackMacroButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playBackMacroButton.BackgroundImage")));
+            this.playBackMacroButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.playBackMacroButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playBackMacroButton.FlatAppearance.BorderSize = 0;
+            this.playBackMacroButton.Location = new System.Drawing.Point(51, 3);
+            this.playBackMacroButton.Name = "playBackMacroButton";
+            this.playBackMacroButton.Size = new System.Drawing.Size(43, 42);
+            this.playBackMacroButton.TabIndex = 53;
+            this.playBackMacroButton.Tag = "操作回放";
+            this.playBackMacroButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.playBackMacroButton.UseVisualStyleBackColor = false;
+            this.playBackMacroButton.Click += new System.EventHandler(this.playBackMacroButton_Click);
+            this.playBackMacroButton.MouseEnter += new System.EventHandler(this.playBackMacroButton_MouseEnter);
+            // 
+            // recordStartButton
+            // 
+            this.recordStartButton.BackColor = System.Drawing.Color.Transparent;
+            this.recordStartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("recordStartButton.BackgroundImage")));
+            this.recordStartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.recordStartButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordStartButton.FlatAppearance.BorderSize = 0;
+            this.recordStartButton.Location = new System.Drawing.Point(3, 3);
+            this.recordStartButton.Name = "recordStartButton";
+            this.recordStartButton.Size = new System.Drawing.Size(42, 42);
+            this.recordStartButton.TabIndex = 52;
+            this.recordStartButton.Tag = "开始录制";
+            this.recordStartButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.recordStartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.recordStartButton.UseVisualStyleBackColor = false;
+            this.recordStartButton.Click += new System.EventHandler(this.recordStartButton_Click);
+            this.recordStartButton.MouseEnter += new System.EventHandler(this.recordStartButton_MouseEnter);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(154, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 42);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -343,11 +435,11 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel3.Controls.Add(this.btnhand, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button6, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnext1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btntool, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button8, 5, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button7, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnpos, 5, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnload, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnext2, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(1080, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -371,19 +463,20 @@
             this.btnhand.UseVisualStyleBackColor = false;
             this.btnhand.Click += new System.EventHandler(this.btnhand_Click);
             // 
-            // button6
+            // btnext1
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(92, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(38, 33);
-            this.button6.TabIndex = 36;
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnext1.BackColor = System.Drawing.Color.Transparent;
+            this.btnext1.FlatAppearance.BorderSize = 0;
+            this.btnext1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnext1.Image = ((System.Drawing.Image)(resources.GetObject("btnext1.Image")));
+            this.btnext1.Location = new System.Drawing.Point(92, 3);
+            this.btnext1.Name = "btnext1";
+            this.btnext1.Size = new System.Drawing.Size(38, 33);
+            this.btnext1.TabIndex = 36;
+            this.btnext1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnext1, "引伸计1设置");
+            this.btnext1.UseVisualStyleBackColor = false;
+            this.btnext1.Click += new System.EventHandler(this.button6_Click);
             // 
             // btntool
             // 
@@ -395,51 +488,56 @@
             this.btntool.Name = "btntool";
             this.btntool.Size = new System.Drawing.Size(36, 33);
             this.btntool.TabIndex = 35;
+            this.btntool.Tag = "";
             this.btntool.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btntool, "数据处理");
             this.btntool.UseVisualStyleBackColor = false;
             this.btntool.Click += new System.EventHandler(this.btntool_Click);
             // 
-            // button8
+            // btnpos
             // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(226, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(38, 33);
-            this.button8.TabIndex = 47;
-            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnpos.BackColor = System.Drawing.Color.Transparent;
+            this.btnpos.FlatAppearance.BorderSize = 0;
+            this.btnpos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnpos.Image = ((System.Drawing.Image)(resources.GetObject("btnpos.Image")));
+            this.btnpos.Location = new System.Drawing.Point(226, 3);
+            this.btnpos.Name = "btnpos";
+            this.btnpos.Size = new System.Drawing.Size(38, 33);
+            this.btnpos.TabIndex = 47;
+            this.btnpos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnpos, "位移设置");
+            this.btnpos.UseVisualStyleBackColor = false;
+            this.btnpos.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button7
+            // btnload
             // 
-            this.button7.BackColor = System.Drawing.Color.Transparent;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(180, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(38, 33);
-            this.button7.TabIndex = 45;
-            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnload.BackColor = System.Drawing.Color.Transparent;
+            this.btnload.FlatAppearance.BorderSize = 0;
+            this.btnload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnload.Image = ((System.Drawing.Image)(resources.GetObject("btnload.Image")));
+            this.btnload.Location = new System.Drawing.Point(180, 3);
+            this.btnload.Name = "btnload";
+            this.btnload.Size = new System.Drawing.Size(38, 33);
+            this.btnload.TabIndex = 45;
+            this.btnload.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnload, "力传感器设置");
+            this.btnload.UseVisualStyleBackColor = false;
+            this.btnload.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button2
+            // btnext2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(136, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(38, 33);
-            this.button2.TabIndex = 44;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnext2.BackColor = System.Drawing.Color.Transparent;
+            this.btnext2.FlatAppearance.BorderSize = 0;
+            this.btnext2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnext2.Image = ((System.Drawing.Image)(resources.GetObject("btnext2.Image")));
+            this.btnext2.Location = new System.Drawing.Point(136, 3);
+            this.btnext2.Name = "btnext2";
+            this.btnext2.Size = new System.Drawing.Size(38, 33);
+            this.btnext2.TabIndex = 44;
+            this.btnext2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnext2, "引伸计2设置");
+            this.btnext2.UseVisualStyleBackColor = false;
+            this.btnext2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -500,6 +598,7 @@
             this.btnmethod.Size = new System.Drawing.Size(38, 33);
             this.btnmethod.TabIndex = 33;
             this.btnmethod.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnmethod, "标准编辑器");
             this.btnmethod.UseVisualStyleBackColor = false;
             this.btnmethod.Click += new System.EventHandler(this.btnmethod_Click);
             // 
@@ -688,6 +787,10 @@
             // 
             this.timermain.Tick += new System.EventHandler(this.timermain_Tick);
             // 
+            // timerRecord
+            // 
+            this.timerRecord.Tick += new System.EventHandler(this.timerRecord_Tick);
+            // 
             // userControl11
             // 
             this.userControl11.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -747,10 +850,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AppleLab 微机控制岩石静试验机";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMainLab_FormClosed);
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Load += new System.EventHandler(this.FormMainLab_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.tlprecord.ResumeLayout(false);
+            this.tlprecord.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -793,11 +898,11 @@
         private System.Windows.Forms.ToolStripStatusLabel tslblmethod;
         private System.Windows.Forms.ToolStripStatusLabel tslblreport;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnpos;
         private System.Windows.Forms.Button btnhand;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnload;
+        private System.Windows.Forms.Button btnext2;
+        private System.Windows.Forms.Button btnext1;
         private System.Windows.Forms.Button btntool;
         private System.Windows.Forms.ImageList btnkeyimageList;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -822,10 +927,12 @@
         public System.Windows.Forms.ToolStripStatusLabel tslblmachine;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.SplitContainer splitContainer1;
-       
-        
-    
-
-
+        private System.Windows.Forms.TableLayoutPanel tlprecord;
+        private System.Windows.Forms.Timer timerRecord;
+        private System.Windows.Forms.Button recordStopButton;
+        private System.Windows.Forms.Button playBackMacroButton;
+        private System.Windows.Forms.Button recordStartButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

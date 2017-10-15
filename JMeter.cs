@@ -13,7 +13,7 @@ namespace TabHeaderDemo
     {
         public System.Drawing.Bitmap backimage = new Bitmap(50, 50);
 
-        public Color backcolor;
+        
         public JMeter()
         {
             InitializeComponent();

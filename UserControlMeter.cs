@@ -19,6 +19,10 @@ namespace TabHeaderDemo
             mlistmeter.Add(jMeter2);
             mlistmeter.Add(jMeter3);
             mlistmeter.Add(jMeter4);
+            jMeter1.BackColor = this.BackColor;
+            jMeter2.BackColor = this.BackColor;
+            jMeter3.BackColor = this.BackColor;
+            jMeter4.BackColor = this.BackColor;
             jMeter1.Visible = false;
             jMeter2.Visible = false;
             jMeter3.Visible = false;

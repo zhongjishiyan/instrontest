@@ -475,7 +475,7 @@
             this.btnoil.SwitchStyle = NationalInstruments.UI.SwitchStyle.PushButton;
             this.btnoil.TabIndex = 41;
             this.btnoil.UseWaitCursor = true;
-            this.btnoil.StateChanged += new NationalInstruments.UI.ActionEventHandler(this.btnoil_StateChanged);
+            this.btnoil.ValueChanged += new System.EventHandler(this.btnoil_ValueChanged);
             // 
             // panel4
             // 

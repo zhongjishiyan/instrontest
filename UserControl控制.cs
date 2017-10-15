@@ -101,7 +101,7 @@ namespace TabHeaderDemo
                    i.ToString(), typeof(string));
 
 
-            grid2[i, 1] = new SourceGrid2.Cells.Real.ComboBox(sf.cmdstring[sf.mseglist[i - 1].cmd]
+            grid2[i, 1] = new SourceGrid2.Cells.Real.ComboBox(sf.cmdstring[sf.mseglist[i-1].cmd]
                  , typeof(string),
                  sf.cmdstring, false);
 
@@ -125,7 +125,7 @@ namespace TabHeaderDemo
             }
             else
             {
-                grid2[i, 2].Value = sf.mseglist[i - 1].speedconvert() + " " + sf.mseglist[i - 1].dirconvert();
+                grid2[i, 2].Value = sf.mseglist[i-1].speedconvert() + " " + sf.mseglist[i-1].dirconvert();
             }
 
             SourceGrid2.BehaviorModels.CustomEvents textclick = new SourceGrid2.BehaviorModels.CustomEvents();
@@ -142,13 +142,13 @@ namespace TabHeaderDemo
             }
             else
             {
-                grid2[i, 3].Value = sf.mseglist[i - 1].destconvert();
+                grid2[i, 3].Value = sf.mseglist[i-1].destconvert();
             }
             
 
             grid2[i, 3].Behaviors.Add(textclick);
 
-            grid2[i, 4] = new SourceGrid2.Cells.Real.ComboBox(sf.actionstring[sf.mseglist[i - 1].action]
+            grid2[i, 4] = new SourceGrid2.Cells.Real.ComboBox(sf.actionstring[sf.mseglist[i-1].action]
                      , typeof(string),
                  sf.actionstring, false);
 
@@ -167,13 +167,13 @@ namespace TabHeaderDemo
             }
             else
             {
-                (grid2[i, 5] as SourceGrid2.Cells.Real.Button).Value = sf.mseglist[i - 1].cyclicconvert();
+                (grid2[i, 5] as SourceGrid2.Cells.Real.Button).Value = sf.mseglist[i-1].cyclicconvert();
 
             }
 
             grid2[i, 5].Behaviors.Add(textclick);
             grid2[i, 6] = new SourceGrid2.Cells.Real.Cell(
-                                sf.mseglist[i - 1].explain, typeof(string));
+                                sf.mseglist[i-1].explain, typeof(string));
         }
 
         void textclick_DoubleClick(object sender, SourceGrid2.PositionEventArgs e)
@@ -1702,7 +1702,15 @@ namespace TabHeaderDemo
 
         private void tsbtninsert_Click(object sender, EventArgs e)
         {
-            DialogResult a = MessageBox.Show("是否插入？","提示",MessageBoxButtons.YesNo);
+            if (currow <=1)
+            {
+                MessageBox.Show("不能在第一行插入");
+                return;
+            }
+
+            DialogResult a = MessageBox.Show("是否在当前位置之前插入？","提示",MessageBoxButtons.YesNo);
+
+
             if (a == DialogResult.Yes)
             {
                 CComLibrary.SegTest m = new CComLibrary.SegTest();
