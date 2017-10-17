@@ -187,6 +187,12 @@
     <Compile Include="ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MouseKey\FormRecFileSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MouseKey\FormRecFileSelect.Designer.cs">
+      <DependentUpon>FormRecFileSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="MouseKey\GlobalHook.cs" />
     <Compile Include="MouseKey\GlobalMacroRecorder.cs" />
     <Compile Include="MouseKey\Keyboard.cs" />
@@ -714,6 +720,9 @@
     <EmbeddedResource Include="JMeter.resx">
       <DependentUpon>JMeter.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MouseKey\FormRecFileSelect.resx">
+      <DependentUpon>FormRecFileSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

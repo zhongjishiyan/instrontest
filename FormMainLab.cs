@@ -29,6 +29,9 @@ namespace TabHeaderDemo
         MouseHook mouseHook = new MouseHook();
         KeyboardHook keyboardHook = new KeyboardHook();
 
+        KeyboardHook keyboardReplayHook = new KeyboardHook();
+
+
 
         private Color topbackcolor = new Color();
 
@@ -229,7 +232,33 @@ namespace TabHeaderDemo
 
             keyboardHook.KeyDown += new KeyEventHandler(keyboardHook_KeyDown);
             keyboardHook.KeyUp += new KeyEventHandler(keyboardHook_KeyUp);
+            keyboardReplayHook.KeyDown +=new KeyEventHandler( KeyboardReplayHook_KeyDown);
+            keyboardReplayHook.KeyUp += new KeyEventHandler(KeyboardReplayHook_KeyUp);
+           
         }
+
+        private void KeyboardReplayHook_KeyUp(object sender, KeyEventArgs e)
+        {
+            return;
+        }
+
+        private void KeyboardReplayHook_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+            if (e.KeyData == Keys.Escape)
+            {
+
+               
+                this.timerRecord.Enabled = false;
+                playBackMacroButton.Enabled = true;
+                this.keyboardReplayHook.Stop();
+                this.Cursor = Cursors.Default;
+                return;
+            }
+            return;
+        }
+
+
         void mouseHook_MouseMove(object sender, MouseEventArgs e)
         {
 
@@ -289,6 +318,8 @@ namespace TabHeaderDemo
 
         void keyboardHook_KeyUp(object sender, KeyEventArgs e)
         {
+           
+
 
             myMacroRecord.events.Add(
                 new MacroEvent(
@@ -331,7 +362,7 @@ namespace TabHeaderDemo
                             MouseEventArgs mouseArgs = (MouseEventArgs)macroEvent.EventArgs;
 
                             MouseSimulator.X = Convert.ToInt32( mouseArgs.X*this.Width/macroEvent.width);
-                            MouseSimulator.Y = Convert.ToInt32( mouseArgs.Y*this.Height /macroEvent.height);
+                            MouseSimulator.Y = Convert.ToInt32( mouseArgs.Y*(this.Height) /(macroEvent.height));
 
                         }
                         break;
@@ -546,8 +577,8 @@ namespace TabHeaderDemo
             this.Width = Convert.ToInt32( Screen.PrimaryScreen.Bounds.Width);
             this.Height =Convert.ToInt32( Screen.PrimaryScreen.Bounds.Height);
 
-            //this.Width = 1600;
-            //this.Height = 900;
+           // this.Width = 1600;
+           // this.Height = 900;
             tabControl1.ItemSize = new Size(1, 1);
 
 
@@ -1065,16 +1096,13 @@ namespace TabHeaderDemo
 
             keyboardHook.Start();
             mouseHook.Start();
+            
+           
         }
 
         private void recordStopButton_Click(object sender, EventArgs e)
         {
-            recordStartButton.Enabled = true;
-            keyboardHook.Stop();
-            mouseHook.Stop();
-
-            string s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\record\";
-            myMacroRecord.SerializeNow(s + "aa.rec");
+           
         }
 
         private void playBackMacroButton_Click(object sender, EventArgs e)
@@ -1092,6 +1120,8 @@ namespace TabHeaderDemo
             playBackMacroButton.Enabled = false;
             l = 0;
             this.timerRecord.Enabled = true;
+            this.keyboardReplayHook.Start();
+            this.Cursor = Cursors.Hand;
         }
 
         private void timerRecord_Tick(object sender, EventArgs e)
@@ -1103,13 +1133,22 @@ namespace TabHeaderDemo
             {
                 this.timerRecord.Enabled = false;
                 playBackMacroButton.Enabled = true;
+                this.keyboardReplayHook.Stop();
+                this.Cursor = Cursors.Default;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\record\";
-            myMacroRecord = myMacroRecord.DeSerializeNow(s + "aa.rec");
+            string s1 = this.Width.ToString() + "_" + this.Height.ToString();
+
+          
+            openFileDialog1.InitialDirectory = s + s1;
+            openFileDialog1.Filter = "(*.rec" + ")|*.rec";
+            openFileDialog1.ShowDialog();
+
+            myMacroRecord = myMacroRecord.DeSerializeNow(openFileDialog1.FileName);
         }
 
         private void recordStartButton_MouseEnter(object sender, EventArgs e)
@@ -1129,6 +1168,39 @@ namespace TabHeaderDemo
         {
             this.toolTip1.ShowAlways = true;
             this.toolTip1.SetToolTip(sender as Button, (sender as Button).Tag as string);
+        }
+
+        private void recordStopButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            
+           
+        }
+
+        private void recordStopButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            recordStartButton.Enabled = true;
+            keyboardHook.Stop();
+            mouseHook.Stop();
+            myMacroRecord.events.RemoveAt(myMacroRecord.events.Count - 1);
+            myMacroRecord.events.RemoveAt(myMacroRecord.events.Count - 1);
+            string s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\record\";
+
+            string s1 = this.Width.ToString() + "_" + this.Height.ToString();
+
+            if (System.IO.Directory.Exists(s + s1))
+            {
+
+            }
+            else
+            {
+                System.IO.Directory.CreateDirectory(s + s1);
+            }
+            saveFileDialog1.InitialDirectory = s + s1;
+            saveFileDialog1.Filter = "(*.rec" + ")|*.rec";
+            saveFileDialog1.ShowDialog();
+
+
+            myMacroRecord.SerializeNow(saveFileDialog1.FileName);
         }
     }
 }

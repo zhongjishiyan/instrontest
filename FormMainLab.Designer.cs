@@ -46,7 +46,7 @@
             this.recordStopButton = new System.Windows.Forms.Button();
             this.playBackMacroButton = new System.Windows.Forms.Button();
             this.recordStartButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnread = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnkey3 = new System.Windows.Forms.Button();
             this.btnkey2 = new System.Windows.Forms.Button();
@@ -81,6 +81,8 @@
             this.timermain = new System.Windows.Forms.Timer(this.components);
             this.timerRecord = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.userControl11 = new TabHeaderDemo.UserControlTop();
             this.jMeter1 = new TabHeaderDemo.JMeter();
             this.jMeter2 = new TabHeaderDemo.JMeter();
@@ -246,51 +248,53 @@
             // tlprecord
             // 
             this.tlprecord.ColumnCount = 5;
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this.tlprecord.Controls.Add(this.recordStopButton, 0, 0);
             this.tlprecord.Controls.Add(this.playBackMacroButton, 0, 0);
             this.tlprecord.Controls.Add(this.recordStartButton, 0, 0);
-            this.tlprecord.Controls.Add(this.button1, 3, 0);
+            this.tlprecord.Controls.Add(this.btnread, 3, 0);
             this.tlprecord.Dock = System.Windows.Forms.DockStyle.Right;
             this.tlprecord.Location = new System.Drawing.Point(837, 0);
             this.tlprecord.Name = "tlprecord";
             this.tlprecord.RowCount = 1;
             this.tlprecord.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlprecord.Size = new System.Drawing.Size(243, 48);
+            this.tlprecord.Size = new System.Drawing.Size(243, 42);
             this.tlprecord.TabIndex = 48;
             // 
             // recordStopButton
             // 
             this.recordStopButton.BackColor = System.Drawing.Color.Transparent;
-            this.recordStopButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("recordStopButton.BackgroundImage")));
             this.recordStopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.recordStopButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recordStopButton.FlatAppearance.BorderSize = 0;
-            this.recordStopButton.Location = new System.Drawing.Point(100, 3);
+            this.recordStopButton.Image = ((System.Drawing.Image)(resources.GetObject("recordStopButton.Image")));
+            this.recordStopButton.Location = new System.Drawing.Point(92, 3);
             this.recordStopButton.Name = "recordStopButton";
-            this.recordStopButton.Size = new System.Drawing.Size(48, 42);
+            this.recordStopButton.Size = new System.Drawing.Size(37, 36);
             this.recordStopButton.TabIndex = 54;
             this.recordStopButton.Tag = "停止录制";
             this.recordStopButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.recordStopButton.UseVisualStyleBackColor = false;
             this.recordStopButton.Click += new System.EventHandler(this.recordStopButton_Click);
+            this.recordStopButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.recordStopButton_MouseDown);
             this.recordStopButton.MouseEnter += new System.EventHandler(this.recordStopButton_MouseEnter);
+            this.recordStopButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.recordStopButton_MouseUp);
             // 
             // playBackMacroButton
             // 
             this.playBackMacroButton.AutoSize = true;
             this.playBackMacroButton.BackColor = System.Drawing.Color.Transparent;
-            this.playBackMacroButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playBackMacroButton.BackgroundImage")));
             this.playBackMacroButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.playBackMacroButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playBackMacroButton.FlatAppearance.BorderSize = 0;
-            this.playBackMacroButton.Location = new System.Drawing.Point(51, 3);
+            this.playBackMacroButton.Image = ((System.Drawing.Image)(resources.GetObject("playBackMacroButton.Image")));
+            this.playBackMacroButton.Location = new System.Drawing.Point(45, 3);
             this.playBackMacroButton.Name = "playBackMacroButton";
-            this.playBackMacroButton.Size = new System.Drawing.Size(43, 42);
+            this.playBackMacroButton.Size = new System.Drawing.Size(41, 36);
             this.playBackMacroButton.TabIndex = 53;
             this.playBackMacroButton.Tag = "操作回放";
             this.playBackMacroButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -301,13 +305,13 @@
             // recordStartButton
             // 
             this.recordStartButton.BackColor = System.Drawing.Color.Transparent;
-            this.recordStartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("recordStartButton.BackgroundImage")));
             this.recordStartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.recordStartButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recordStartButton.FlatAppearance.BorderSize = 0;
+            this.recordStartButton.Image = ((System.Drawing.Image)(resources.GetObject("recordStartButton.Image")));
             this.recordStartButton.Location = new System.Drawing.Point(3, 3);
             this.recordStartButton.Name = "recordStartButton";
-            this.recordStartButton.Size = new System.Drawing.Size(42, 42);
+            this.recordStartButton.Size = new System.Drawing.Size(36, 36);
             this.recordStartButton.TabIndex = 52;
             this.recordStartButton.Tag = "开始录制";
             this.recordStartButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -316,15 +320,16 @@
             this.recordStartButton.Click += new System.EventHandler(this.recordStartButton_Click);
             this.recordStartButton.MouseEnter += new System.EventHandler(this.recordStartButton_MouseEnter);
             // 
-            // button1
+            // btnread
             // 
-            this.button1.Location = new System.Drawing.Point(154, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 42);
-            this.button1.TabIndex = 55;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnread.Image = ((System.Drawing.Image)(resources.GetObject("btnread.Image")));
+            this.btnread.Location = new System.Drawing.Point(135, 3);
+            this.btnread.Name = "btnread";
+            this.btnread.Size = new System.Drawing.Size(35, 36);
+            this.btnread.TabIndex = 55;
+            this.toolTip1.SetToolTip(this.btnread, "读取演示文件");
+            this.btnread.UseVisualStyleBackColor = true;
+            this.btnread.Click += new System.EventHandler(this.button1_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -445,8 +450,8 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(270, 48);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(270, 42);
             this.tableLayoutPanel3.TabIndex = 44;
             // 
             // btnhand
@@ -548,12 +553,12 @@
             this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tlbmeter, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 48);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 42);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1350, 78);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1350, 84);
             this.tableLayoutPanel2.TabIndex = 41;
             // 
             // pictureBox2
@@ -563,7 +568,7 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(1293, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(54, 72);
+            this.pictureBox2.Size = new System.Drawing.Size(54, 78);
             this.pictureBox2.TabIndex = 41;
             this.pictureBox2.TabStop = false;
             // 
@@ -584,7 +589,7 @@
             this.tlbmeter.Name = "tlbmeter";
             this.tlbmeter.RowCount = 1;
             this.tlbmeter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlbmeter.Size = new System.Drawing.Size(1284, 72);
+            this.tlbmeter.Size = new System.Drawing.Size(1284, 78);
             this.tlbmeter.TabIndex = 40;
             // 
             // btnmethod
@@ -791,6 +796,10 @@
             // 
             this.timerRecord.Tick += new System.EventHandler(this.timerRecord_Tick);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // userControl11
             // 
             this.userControl11.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -806,7 +815,7 @@
             this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter1.Location = new System.Drawing.Point(3, 3);
             this.jMeter1.Name = "jMeter1";
-            this.jMeter1.Size = new System.Drawing.Size(315, 66);
+            this.jMeter1.Size = new System.Drawing.Size(315, 72);
             this.jMeter1.TabIndex = 0;
             // 
             // jMeter2
@@ -815,7 +824,7 @@
             this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter2.Location = new System.Drawing.Point(324, 3);
             this.jMeter2.Name = "jMeter2";
-            this.jMeter2.Size = new System.Drawing.Size(315, 66);
+            this.jMeter2.Size = new System.Drawing.Size(315, 72);
             this.jMeter2.TabIndex = 1;
             // 
             // jMeter3
@@ -824,7 +833,7 @@
             this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter3.Location = new System.Drawing.Point(645, 3);
             this.jMeter3.Name = "jMeter3";
-            this.jMeter3.Size = new System.Drawing.Size(315, 66);
+            this.jMeter3.Size = new System.Drawing.Size(315, 72);
             this.jMeter3.TabIndex = 2;
             // 
             // jMeter4
@@ -833,7 +842,7 @@
             this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter4.Location = new System.Drawing.Point(966, 3);
             this.jMeter4.Name = "jMeter4";
-            this.jMeter4.Size = new System.Drawing.Size(315, 66);
+            this.jMeter4.Size = new System.Drawing.Size(315, 72);
             this.jMeter4.TabIndex = 3;
             // 
             // FormMainLab
@@ -932,7 +941,9 @@
         private System.Windows.Forms.Button recordStopButton;
         private System.Windows.Forms.Button playBackMacroButton;
         private System.Windows.Forms.Button recordStartButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnread;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

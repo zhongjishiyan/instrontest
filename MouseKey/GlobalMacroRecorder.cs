@@ -32,6 +32,7 @@ namespace TabHeaderDemo
     public class MacroEvent
     {
 
+        
         public double  width;
         public double  height;
 

@@ -438,6 +438,13 @@ namespace TabHeaderDemo
             }
             else if (tabControl1.SelectedIndex == 1)
             {
+
+                if (txtsamplename.Text.Trim()=="")
+                {
+
+                    MessageBox.Show("样品文件名不能为空");
+                    return;
+                }
                 if (System.IO.Directory.Exists(GlobeVal.mysys.SamplePath))
                 {
                 }
