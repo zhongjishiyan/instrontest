@@ -27,6 +27,8 @@ namespace ClsStaticStation
         private RawDataStruct b;
         public short DeviceNum = 1;
 
+        private int m_runstate;
+        private int m_runlaststate;//
 
         private XLDOPE.MDataIno ma;
      
@@ -44,11 +46,13 @@ namespace ClsStaticStation
         private double pos1;//围压位移
         private double load1;//围压负荷
 
+        public List<CComLibrary.CmdSeg> mrunlist;
 
-        public XLDOPE.Edc myedc;
+        private double mstarttime;
+        private double moritime;
 
+        public double mrunstarttime = 0;
 
-      
 
 
         private List<XLDOPE.MDataIno> mdatalist;
@@ -56,16 +60,309 @@ namespace ClsStaticStation
 
         public long oncount = 0;
 
-    
-       
+        private Boolean mrun = false;//函数执行后置位
+
+        private double m_keeptime;//保持时间
+
+        private double m_keepstarttime;//开始保持时时间
+
+        private bool m_keepstart = false;//开始保持
+
+        private int m_returnstep;//返回步骤
+        private int m_returncount;//返回次数
 
         public override void starttest()
         {
+            short k = 0;
 
+
+
+
+            myedc.Data.SetTime(XLDOPE.SETTIME_MODE.IMMEDIATE, 0);
+
+            bool b = false;
+            while (b == false)
+            {
+                Application.DoEvents();
+                if (time < 1)
+                {
+                    b = true;
+                }
+            }
+
+          
+
+            mtestrun = true;
+
+            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)//简单试验
+            {
+                startcontrol();
+            }
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
+            {
+
+
+
+
+                mrunlist = new List<CComLibrary.CmdSeg>();
+                mrunlist.Clear();
+
+                if (CComLibrary.GlobeVal.filesave.pretest_cmd.check == true)
+                {
+                    mrunlist.Add(CComLibrary.GlobeVal.filesave.pretest_cmd);
+
+
+                }
+
+                for (int i = 0; i < 4; i++)
+                {
+                    if (CComLibrary.GlobeVal.filesave.testcmdstep[i].check == true)
+                    {
+                        mrunlist.Add(CComLibrary.GlobeVal.filesave.testcmdstep[i]);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                }
+
+                if (mrunlist.Count > 0)
+                {
+                }
+                else
+                {
+
+                    MessageBox.Show("错误，您没有设置一般测试过程");
+                    mtestrun = false;
+                    return;
+                }
+
+                mcurseg = 0;
+
+                if (mrunlist[mcurseg].controlmode ==
+                    mrunlist[mcurseg].destcontrolmode)
+                {
+                    k = 1;
+                }
+                else
+                {
+                    k = 0;
+                }
+
+
+                segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
+                    Convert.ToInt16(mrunlist[mcurseg].controlmode),
+                     Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
+                    k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0, 0);
+
+
+
+
+
+
+            }
+            else //高级试验
+            {
+
+
+                CComLibrary.GlobeVal.filesave.mseglist = new List<CComLibrary.CmdSeg>();
+
+
+                CComLibrary.SegFile sf = new CComLibrary.SegFile();
+
+                sf = sf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\"
+                    + CComLibrary.GlobeVal.filesave.SegName);
+
+                int i = 0;
+
+
+
+                int m = sf.mseglist.Count;
+
+                for (i = 0; i < m; i++)
+                {
+                    CComLibrary.CmdSeg n = new CComLibrary.CmdSeg();
+                    n.check = true;
+                    n.controlmode = sf.mseglist[i].controlmode;
+                    n.speed = sf.mseglist[i].speed;
+                    n.destcontrolmode = sf.mseglist[i].destcontrolmode;
+                    n.dest = sf.mseglist[i].dest;
+                    n.keeptime = sf.mseglist[i].keeptime;
+                    n.cmd = sf.mseglist[i].cmd;
+                    n.action = sf.mseglist[i].action;
+                    if (sf.mseglist[i].cyclicrun == true)
+                    {
+                        n.returncount = sf.mseglist[i].cycliccount;
+                        n.returnstep = sf.mseglist[i].returnstep;
+                    }
+                    else
+                    {
+                        n.returncount = 0;
+                        n.returnstep = 0;
+                    }
+                    CComLibrary.GlobeVal.filesave.mseglist.Add(n);
+                }
+
+
+                mrunlist = new List<CComLibrary.CmdSeg>();
+                mrunlist.Clear();
+
+                if (CComLibrary.GlobeVal.filesave.pretest_cmd.check == true)
+                {
+                    mrunlist.Add(CComLibrary.GlobeVal.filesave.pretest_cmd);
+                    mrunlist[0].keeptime = 0;
+
+                    mrunlist[0].action = 0;
+
+                }
+
+                for (i = 0; i < CComLibrary.GlobeVal.filesave.mseglist.Count; i++)
+                {
+                    if (CComLibrary.GlobeVal.filesave.mseglist[i].check == true)
+                    {
+                        mrunlist.Add(CComLibrary.GlobeVal.filesave.mseglist[i]);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                }
+
+                if (mrunlist.Count > 0)
+                {
+                }
+                else
+                {
+
+                    MessageBox.Show("错误，您没有设置高级测试过程");
+                    mtestrun = false;
+                    return;
+                }
+
+
+                mcurseg = 0;
+
+
+
+                for (int ii = mcurseg; ii < mrunlist.Count; ii++)
+                {
+                    if (mrunlist[ii].controlmode ==
+                   mrunlist[ii].destcontrolmode)
+                    {
+                        k = 1;
+                    }
+                    else
+                    {
+                        k = 0;
+                    }
+                    if (mrunlist[ii].action == 1)
+                    {
+                        segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+                           Convert.ToInt16(mrunlist[ii].controlmode),
+                             Convert.ToInt16(mrunlist[ii].destcontrolmode),
+                            k, Convert.ToSingle(mrunlist[ii].speed),
+                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
+
+                        mcurseg = ii;
+                    }
+                    else
+                    {
+
+                        if (ii == mcurseg)
+                        {
+                            segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+                       Convert.ToInt16(mrunlist[ii].controlmode),
+                        Convert.ToInt16(mrunlist[ii].destcontrolmode),
+                       k, Convert.ToSingle(mrunlist[ii].speed),
+                       mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
+
+                            mcurseg = ii;
+                        }
+                        break;
+
+
+                    }
+
+
+                }
+
+
+                total_returncount = 0;
+
+                current_returncount = 1;
+
+
+            }
+
+            m_runlaststate = m_runstate;
+
+            mrunstarttime = System.Environment.TickCount / 1000;
+        }
+        public override void DestStart(int ctrlmode, double dest, double speed)
+        {
+            XLDOPE.CTRL control;
+
+            short tan = 0;
+            double destination;
+            double mspeed;
+
+
+            mspeed = speed / 60;
+             
+
+            control = (XLDOPE.CTRL)ConvertCtrlMode(ctrlmode);
+
+            destination = dest;
+            myedc.Move.Pos(control, mspeed, dest, ref tan );
+           
+        }
+
+        public override void DestStop(int ctrlmode)
+        {
+            short tan = 0;
+         
+            myedc.Move.Halt(XLDOPE.CTRL.POS, ref tan );
+          
+        }
+
+        public override void CrossUp(int ctrlmode, double speed)
+        {
+            short tan = 0;
+            myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, XLNet.XLDOPE.CTRL.OPEN, speed/60 , ref tan);
+
+        }
+        public override void CrossDown(int ctrlmode, double speed)
+        {
+            short tan = 0;
+            myedc.Move.FMove(XLNet.XLDOPE.MOVE.DOWN, XLNet.XLDOPE.CTRL.OPEN, speed/60 , ref tan);
+        }
+
+        public override void CrossStop(int ctrlmode)
+        {
+            short tan = 0;
+
+            XLNet.XLDOPE.ERR p;
+            p = myedc.Move.SHalt(ref tan);
         }
         public override void endtest()
         {
+            mstarttime = 0;
 
+            endcontrol();
+
+            if (mdemo == true)
+            {
+            }
+            else
+            {
+                CrossStop(0);
+
+            }
+            mtestrun = false;
+
+            CComLibrary.GlobeVal.InitUserCalcChannel();//初始化用户自定义通道
         }
         public override void demotest(bool testing)
         {
@@ -109,6 +406,52 @@ namespace ClsStaticStation
 
         public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action)
         {
+
+            bool b = false;
+            m_keeptime = keeptime;
+            m_keepstart = false;
+            keepingstate = false;
+
+            m_returncount = returncount;
+            m_returnstep = reurnstep;
+            if (m_returncount > 0)
+            {
+                total_returncount = m_returncount;
+            }
+
+            if (mdemo == true)
+            {
+                m_runstate = 1;
+            }
+            else
+            {
+                if (cmd == 2)
+                {
+                   
+
+                }
+                else
+                {
+
+                    short tan=0;
+                   
+
+                    myedc.Move.PosExt((XLDOPE.CTRL)ConvertCtrlMode(firstctl), Convert.ToSingle(speed), XLDOPE.LIMITMODE.NOT_ACTIVE, 5, (XLDOPE.CTRL)ConvertCtrlMode(destctl)
+                        , Convert.ToSingle(dest), XLDOPE.DESTMODE.DEST_POSITION, ref tan);
+
+
+                  
+
+                        mrun = true;
+                    
+
+                }
+
+            }
+
+
+
+
         }
 
         public CDsp()
@@ -179,14 +522,52 @@ namespace ClsStaticStation
 #else
         private void  Eh_OnDataHdlr(ref XLDOPE.OnData m)
         {
-            XLDOPE.Data m1 = new XLDOPE.Data();
+            XLDOPE.Data Sample = new XLDOPE.Data();
+
+            b.hardlimitlow = Sample.LowerLimits;
+            b.hardlimitup = Sample.UpperLimits;
+            b.softlimitlow = Sample.LowerSft;
+            b.softlimitup = Sample.UpperSft;
+            b.ctrlstate1 = Sample.CtrlState1;
+            b.ctrlstate2 = Sample.CtrlState2;
+
+            b.ctrl_state_s = (ushort)((Sample.CtrlState1) & 1);
+            b.ctrl_state_f = (ushort)((Sample.CtrlState1 >> 1) & 1);
+            b.ctrl_state_e = (ushort)((Sample.CtrlState1 >> 2) & 1);
+
+            b.ctrl_halt = (ushort)((Sample.CtrlState1 >> 4) & 1);
+            b.ctrl_down = (ushort)((Sample.CtrlState1 >> 5) & 1);
+            b.ctrl_up = (ushort)((Sample.CtrlState1 >> 6) & 1);
+
+            b.ctrl_move = (ushort)((Sample.CtrlState1 >> 7) & 1);
+            b.ctrl_ready = (ushort)((Sample.CtrlState1 >> 8) & 1);
+            b.ctrl_soft_set = (ushort)((Sample.CtrlState1 >> 11) & 1);
+
+            b.ctrl_lower_sft_s = (ushort)((Sample.CtrlState2 >> 0) & 1);
+            b.ctrl_lower_sft_f = (ushort)((Sample.CtrlState2 >> 1) & 1);
+            b.ctrl_lower_sft_e = (ushort)((Sample.CtrlState2 >> 2) & 1);
+
+            b.ctrl_upper_sft_s = (ushort)((Sample.CtrlState2 >> 4) & 1);
+            b.ctrl_upper_sft_f = (ushort)((Sample.CtrlState2 >> 5) & 1);
+            b.ctrl_upper_sft_e = (ushort)((Sample.CtrlState2 >> 6) & 1);
 
 
-            m1 = m.Data ;
+            if (b.ctrl_move == 1)
+            {
+                m_runstate = 1;
+            }
+            else
+            {
+                m_runstate = 0;
+            }
 
+
+
+            Sample  = m.Data ;
+            moritime = m.Data.Time;
             ma = new XLDOPE.MDataIno();
             ma.Id = 0;
-            ma.mydatainfo = m1;
+            ma.mydatainfo = Sample;
             mdatalist.Add(ma);
             oncount = oncount + 1;
 
@@ -201,8 +582,130 @@ namespace ClsStaticStation
 
         void mtimer_Tick(object sender, EventArgs e)
         {
+            short k;
 
             Timer();
+
+            if (mtestrun == false)
+            {
+                return;
+            }
+
+            if (mrun == true)
+            {
+
+                if ((this.getrunstate() == 0))
+                {
+
+
+                    if (m_keeptime > 0)
+                    {
+                        keepingstate = true;
+
+                        if (m_keepstart == false)
+                        {
+                            m_keepstart = true;
+
+                            m_keepstarttime = System.Environment.TickCount / 1000.0;
+
+
+                        }
+                        else
+                        {
+
+                            keepingtime = System.Environment.TickCount / 1000.0 - m_keepstarttime;
+
+                            if (keepingtime >= m_keeptime)
+                            {
+                                m_keeptime = -1;
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        mrun = false;
+                        keepingstate = false;
+
+                        if (m_returncount > 0)
+                        {
+                            current_returncount = current_returncount + 1;
+
+                            if (current_returncount > m_returncount)
+                            {
+                                mcurseg = mcurseg + 1;
+
+                            }
+                            else
+                            {
+                                mcurseg = m_returnstep - 1;
+
+                            }
+                        }
+                        else
+                        {
+
+                            mcurseg = mcurseg + 1;
+                        }
+
+                        if (mcurseg < mrunlist.Count)
+                        {
+
+                            for (int ii = mcurseg; ii < mrunlist.Count; ii++)
+                            {
+                                if (mrunlist[ii].controlmode ==
+                               mrunlist[ii].destcontrolmode)
+                                {
+                                    k = 1;
+                                }
+                                else
+                                {
+                                    k = 0;
+                                }
+                                if (mrunlist[ii].action == 1)
+                                {
+                                    segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+                                       Convert.ToInt16(mrunlist[ii].controlmode),
+                                         Convert.ToInt16(mrunlist[ii].destcontrolmode),
+                                        k, Convert.ToSingle(mrunlist[ii].speed),
+                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
+                                }
+                                else
+                                {
+                                    if (ii == mcurseg)
+                                    {
+                                        segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+                                   Convert.ToInt16(mrunlist[ii].controlmode),
+                                    Convert.ToInt16(mrunlist[ii].destcontrolmode),
+                                   k, Convert.ToSingle(mrunlist[ii].speed),
+                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
+
+                                        mcurseg = ii;
+                                    }
+                                    break;
+                                }
+                            }
+
+
+
+                        }
+                        else
+                        {
+                            mtestrun = false;
+                        }
+                    }
+
+
+                }
+
+
+            }
+
+
+
+            return;
+           
         }
 
         void Timer()
@@ -233,7 +736,7 @@ namespace ClsStaticStation
 
 
 
-                    pos = oncount ;
+                    pos = GGMsg.Sensor[0] ;
                     load =GGMsg.Sensor[1] ;
                     ext = GGMsg.Sensor[2];
                     poscmd = 0;

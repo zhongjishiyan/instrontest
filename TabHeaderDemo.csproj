@@ -170,6 +170,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <Reference Include="XLNet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f8076e75ead654d9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\XLNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Frm\FormLoadTransducer.cs">
@@ -177,6 +181,12 @@
     </Compile>
     <Compile Include="Frm\FormLoadTransducer.Designer.cs">
       <DependentUpon>FormLoadTransducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\FormTorsionTransducer.cs">
       <SubType>Form</SubType>
@@ -671,6 +681,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FormLoadTransducer.resx">
       <DependentUpon>FormLoadTransducer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FormTorsionTransducer.resx">
       <DependentUpon>FormTorsionTransducer.cs</DependentUpon>

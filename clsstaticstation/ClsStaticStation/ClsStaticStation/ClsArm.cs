@@ -70,7 +70,7 @@ namespace ClsStaticStation
 
 		private Boolean mrun = false;//函数执行后置位
 
-
+        private Boolean mbeingtest = false;
 
         public List<CComLibrary.CmdSeg> mrunlist;
 
@@ -1473,6 +1473,7 @@ namespace ClsStaticStation
 
 			}
 			mtestrun = false;
+            mbeingtest = false;
 
 			CComLibrary.GlobeVal.InitUserCalcChannel();//初始化用户自定义通道
 
@@ -1522,7 +1523,8 @@ namespace ClsStaticStation
 			mspeed_pos0 = 0;
 			mspeed_pos1 = 0;
 
-			mtestrun = true;
+            mbeingtest = true;
+            mtestrun = true;
 
 			if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)//简单试验
 			{
@@ -1530,7 +1532,7 @@ namespace ClsStaticStation
 				mrunlist.Clear();
 
 				
-					mrunlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd );
+				mrunlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd );
 
 				mcurseg = 0;
 
@@ -1617,8 +1619,8 @@ namespace ClsStaticStation
 
 
 			}
-			else //高级试验
-			{
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)  //高级试验
+            {
 
 
 				CComLibrary.GlobeVal.filesave.mseglist = new List<CComLibrary.CmdSeg>();
@@ -1763,9 +1765,9 @@ namespace ClsStaticStation
 
 			mrunstarttime = System.Environment.TickCount / 1000;
 
-            Debug.Print("mrunlist cunt="+mrunlist.Count.ToString()); 
+            Debug.Print("mrunlist cunt="+mrunlist.Count.ToString());
 
-
+           
 		}
 
 		public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount,int action)
@@ -2128,6 +2130,7 @@ namespace ClsStaticStation
 			double mload = 0;
 			a9500.MDataIno ma;
 
+            
 			GGMsg = Msg;
 
 			ma = new a9500.MDataIno();
@@ -2142,10 +2145,11 @@ namespace ClsStaticStation
 					fixed (float* p = GGMsg.sensordata)
 					{
 						load = *(p + a9500.SENSOR_ARM_F);
+                        load = Math.Abs(load);
 					}
 				}
 			}
-			if (mtestrun == true)
+			if (mbeingtest == true)
 			{
 				if (duanliebaohu == false)
 				{
@@ -2266,6 +2270,7 @@ namespace ClsStaticStation
 			return 0;
 		}
 
+        
 
 		public override int OpenConnection()
 		{

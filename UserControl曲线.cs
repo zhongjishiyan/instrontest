@@ -76,7 +76,11 @@ namespace TabHeaderDemo
             {
                 cboxchannel.SelectedIndex = myplotsettings.xchannel;
             }
-
+            else
+            {
+                myplotsettings.xchannel = 0;
+                cboxchannel.SelectedIndex = myplotsettings.xchannel;
+            }
             cboxchannelunit.Items.Clear();
             for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnitCount; i++)
             {
@@ -182,7 +186,14 @@ namespace TabHeaderDemo
             {
                 cboychannel.SelectedIndex = myplotsettings.ychannel;
             }
+            else
+            {
+                myplotsettings.ychannel = 0;
+                cboychannel.SelectedIndex = myplotsettings.ychannel;
+            }
 
+
+           
             cboychannelunit.Items.Clear();
             for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnitCount; i++)
             {

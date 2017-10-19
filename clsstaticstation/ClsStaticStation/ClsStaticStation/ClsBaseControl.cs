@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using XLNet;
 
 namespace ClsStaticStation
 {
@@ -15,10 +16,10 @@ namespace ClsStaticStation
         public Boolean mprotect = false; //保护 
 
         public long merrorcount = 0;
-       public Boolean mdemo = false;
-       public int mcurseg = 0;
+        public Boolean mdemo = false;
+        public int mcurseg = 0;
 
-      
+        public XLDOPE.Edc myedc;
 
         public double keepingtime;//显示保持时间
 
@@ -57,6 +58,8 @@ namespace ClsStaticStation
         public virtual  void DelayS(double t)
         {
         }
+
+       
         public  virtual    void demo()
         {
 

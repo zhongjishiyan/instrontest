@@ -25,6 +25,8 @@ namespace TabHeaderDemo
 
         public double maxload;
 
+        private double mstarttime;
+
         public void RefreshCaption()
         {
             string s;
@@ -55,7 +57,7 @@ namespace TabHeaderDemo
             int mk;
             tstart = 0;
             maxload = 0;
-
+            mstarttime = 0;
             int ll = 0;
 
             ll = ClsStatic.arraydata[mplot1 - 1].Read<RawDataDataGroup>(r, 0, 10);
@@ -432,6 +434,8 @@ namespace TabHeaderDemo
 
                 b = myarraydata.Dequeue();
 
+                
+
                 count = count + 1;
 
                 for (int i=0;i<m_Global.mycls.datalist.Count;i++)
@@ -474,49 +478,52 @@ namespace TabHeaderDemo
                         mload = b.data[m_Global.mycls.datalist[i].EdcId];
                     }
                     
-
+                    
                  }
 
-               
-                if (myplotsettings.curvekind == 0)
-                { 
-                    mk =(CComLibrary.GlobeVal.filesave.currentspenumber+1) % myplotsettings.curvecount;
-                    if (mk == 0)
-                    {
-                        mk = myplotsettings.curvecount;
-                    }
-
-                    if (myplotsettings.curveoffset == 0)
-                    {
-
-                        scatterGraph.Plots[mk - 1].PlotXYAppend(xi, yi);
-                    }
-
-                    if (myplotsettings.curveoffset == 1)
-                    {
-
-                        scatterGraph.Plots[mk - 1].PlotXYAppend(xi+0.1*(mk-1), yi);
-                    }
-
-                    if (myplotsettings.curveoffset == 2)
-                    {
-
-                        scatterGraph.Plots[mk - 1].PlotXYAppend(xi, yi+0.1*(mk-1));
-                    }
-
-                    if (myplotsettings.curveoffset == 3)
-                    {
-
-                        scatterGraph.Plots[mk - 1].PlotXYAppend(xi+0.1*(mk-1), yi + 0.1*(mk-1));
-                    }
-
-
-                }
-                if (myplotsettings.curvekind == 1)
+                if (mtime - mstarttime >= 0.02)
                 {
-                    
-                    scatterGraph.Plots[0].PlotXYAppend(xi, yi);
-                    scatterGraph.Plots[1].PlotXYAppend(xi, y1i);
+                    mstarttime = mtime;
+                    if (myplotsettings.curvekind == 0)
+                    {
+                        mk = (CComLibrary.GlobeVal.filesave.currentspenumber + 1) % myplotsettings.curvecount;
+                        if (mk == 0)
+                        {
+                            mk = myplotsettings.curvecount;
+                        }
+
+                        if (myplotsettings.curveoffset == 0)
+                        {
+
+                            scatterGraph.Plots[mk - 1].PlotXYAppend(xi, yi);
+                        }
+
+                        if (myplotsettings.curveoffset == 1)
+                        {
+
+                            scatterGraph.Plots[mk - 1].PlotXYAppend(xi + 0.1 * (mk - 1), yi);
+                        }
+
+                        if (myplotsettings.curveoffset == 2)
+                        {
+
+                            scatterGraph.Plots[mk - 1].PlotXYAppend(xi, yi + 0.1 * (mk - 1));
+                        }
+
+                        if (myplotsettings.curveoffset == 3)
+                        {
+
+                            scatterGraph.Plots[mk - 1].PlotXYAppend(xi + 0.1 * (mk - 1), yi + 0.1 * (mk - 1));
+                        }
+
+
+                    }
+                    if (myplotsettings.curvekind == 1)
+                    {
+
+                        scatterGraph.Plots[0].PlotXYAppend(xi, yi);
+                        scatterGraph.Plots[1].PlotXYAppend(xi, y1i);
+                    }
                 }
                 if (mplot1 == 1)
                 {

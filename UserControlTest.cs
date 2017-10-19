@@ -1166,10 +1166,8 @@ namespace TabHeaderDemo
             if (btnStart.Enabled == false)
             {
 
-                if (GlobeVal.myarm.mtestrun == false)
-                {
-                     //btnend_Click(null, null);
-                }
+               
+                
             }
         }
 

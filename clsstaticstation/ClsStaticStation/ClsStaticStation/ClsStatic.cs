@@ -56,7 +56,7 @@ namespace ClsStaticStation
 
              for (i = 0; i < 4; i++)
              {
-                 ClsStatic.arraydata[i] = new CircularBuffer("MCTarraydata" + i.ToString(), 1000, Marshal.SizeOf(typeof(RawDataDataGroup)));
+                 ClsStatic.arraydata[i] = new CircularBuffer("MCTarraydata" + i.ToString(), 400, Marshal.SizeOf(typeof(RawDataDataGroup)));
                  ClsStatic.arraydatacount[i] = 0;
 
 
@@ -379,7 +379,7 @@ namespace ClsStaticStation
              isi.cName = "时间";
              isi.LName[0] = "时间";
              isi.LName[1] = "Time";
-             isi.originprecise = 1;
+             isi.originprecise = 3;
              isi.SignName = "Ch Time";
              isi.cUnitKind = 4;
              isi.cUnitsel = 0;
@@ -1623,6 +1623,8 @@ namespace ClsStaticStation
         public static double mpos1;
 
         public static double[] mresult=new Double[100] ;
+
+        public static double mwave;// 仿函数发生器 
         
     }
     [Serializable]

@@ -954,7 +954,8 @@ namespace TabHeaderDemo
 
         private void btnhand_Click(object sender, EventArgs e)
         {
-
+            Frm.FormTest f = new Frm.FormTest();
+            f.Show();
         }
 
 
