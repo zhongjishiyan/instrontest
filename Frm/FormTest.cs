@@ -52,5 +52,17 @@ namespace TabHeaderDemo.Frm
             GlobeVal.myarm.myedc.Move.Pos(XLNet.XLDOPE.CTRL.OPEN, Convert.ToDouble(textBox4.Text), Convert.ToDouble(textBox5.Text), ref tan);
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            short tan = 0;
+            GlobeVal.myarm.myedc.Move.PosExt(XLNet.XLDOPE.CTRL.OPEN, 10,XLNet.XLDOPE.LIMITMODE.NOT_ACTIVE,0,XLNet.XLDOPE.CTRL.LOAD, 20,XLNet.XLDOPE.DESTMODE.DEST_POSITION
+                , ref tan);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

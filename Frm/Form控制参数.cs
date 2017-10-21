@@ -69,10 +69,12 @@ namespace TabHeaderDemo.Frm
 
         private void button3_Click(object sender, EventArgs e)
         {
-            double v = Math.Abs((numstart.Value - numend.Value) / ((numstarinstart.Value - numstarinend.Value) / (numstrainspeed.Value)));
+          
+        }
 
+        private void Form控制参数_Load(object sender, EventArgs e)
+        {
 
-            numericEdit1.Value = v;
         }
     }
 }

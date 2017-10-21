@@ -1897,7 +1897,7 @@ namespace CComLibrary
     [Serializable]
     public class SegFile
     {
-
+        public int cmdstingcount;
         public string[] cmdstring;
         public string[] actionstring;
 
@@ -1915,16 +1915,17 @@ namespace CComLibrary
             mseglist.Add(r);
 
         }
+        
         public SegFile()
         {
-            cmdstring = new string[3];
 
+            cmdstring = new string[16];
 
-
-            cmdstring[0] = "等速位移";
-            cmdstring[1] = "等速力";
-            cmdstring[2] = "等速围压压力";
-
+            for (int i = 0; i < m_Global.mycls.hardsignals.Count; i++)
+            {
+                cmdstring[i] = m_Global.mycls.hardsignals[i].cName;
+            }
+            cmdstingcount = m_Global.mycls.hardsignals.Count;
 
             actionstring = new string[2];
 
@@ -1936,6 +1937,14 @@ namespace CComLibrary
 
             mseglist.Clear();
 
+
+
+        }
+        
+        public void Initcmdstring (int count, params  string[] m)
+        {
+           
+           
 
         }
 
@@ -1963,7 +1972,14 @@ namespace CComLibrary
 
                     c = b.Deserialize(fileStream) as SegFile;
 
+                
+                   c.cmdstring = new string[m_Global.mycls.hardsignals.Count];
 
+                    for (int i = 0; i < m_Global.mycls.hardsignals.Count; i++)
+                    {
+                        c.cmdstring[i] = m_Global.mycls.hardsignals[i].cName;
+                    }
+                    c.cmdstingcount = m_Global.mycls.hardsignals.Count;
 
                     fileStream.Close();
 

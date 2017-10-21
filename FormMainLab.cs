@@ -348,8 +348,15 @@ namespace TabHeaderDemo
         {
             MacroEvent macroEvent = myMacroRecord.events[l] as MacroEvent;
 
-            this.timerRecord.Interval = macroEvent.TimeSinceLastEvent + 1;
+            if (macroEvent.MacroEventType == MacroEventType.MouseMove)
+            {
+                this.timerRecord.Interval = 1;
+            }
+            else
 
+            {
+                this.timerRecord.Interval = macroEvent.TimeSinceLastEvent + 1;
+            }
 
             {
 
@@ -368,10 +375,14 @@ namespace TabHeaderDemo
                         break;
                     case MacroEventType.MouseDown:
                         {
-
+                            
+                            
                             MouseEventArgs mouseArgs = (MouseEventArgs)macroEvent.EventArgs;
 
                             MouseSimulator.MouseDown(mouseArgs.Button);
+
+                            // shiwei 2017.10.20  演示时改变鼠标状态
+                            this.Cursor = Cursors.AppStarting;
 
                         }
                         break;
@@ -381,6 +392,8 @@ namespace TabHeaderDemo
                             MouseEventArgs mouseArgs = (MouseEventArgs)macroEvent.EventArgs;
 
                             MouseSimulator.MouseUp(mouseArgs.Button);
+                            // shiwei 2017.10.20  演示时改变鼠标状态
+                            this.Cursor = Cursors.Hand ;
 
                         }
                         break;

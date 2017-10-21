@@ -11,12 +11,11 @@ using MCTBuffer;
 
 namespace ClsStaticStation
 {
-    
 
-    
 
-    
-     [Serializable]
+  
+
+    [Serializable]
     public class shapeitem
     {
         
@@ -262,7 +261,7 @@ namespace ClsStaticStation
 
                  for (i = 0; i < CComLibrary.GlobeVal.filesave.muserchannel.Count; i++)
                  {
-                     isi = new ItemSignal();
+                  
                      isi = (ItemSignal)CComLibrary.GlobeVal.filesave.muserchannel[i].myitemsignal.Clone();
                      isi.cName = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
                      isi.LName[0] = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
@@ -400,7 +399,7 @@ namespace ClsStaticStation
 
                  for (i = 0; i < CComLibrary.GlobeVal.filesave.muserchannel.Count; i++)
                  {
-                     isi = new ItemSignal();
+                    
                      isi = (ItemSignal)CComLibrary.GlobeVal.filesave.muserchannel[i].myitemsignal.Clone();
                      isi.cName = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
                      isi.LName[0] = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
@@ -609,8 +608,8 @@ namespace ClsStaticStation
              isi.speedSignal.fullminbase = 0;
              chsignals.Add(isi);
              allsignals.Add(isi);
-            
-             zerosignals.Add(isi);
+            hardsignals.Add(isi);
+            zerosignals.Add(isi);
              originsignals.Add(isi);
              
 
@@ -624,7 +623,7 @@ namespace ClsStaticStation
 
                  for ( i = 0; i < CComLibrary.GlobeVal.filesave.muserchannel.Count; i++)
                  {
-                     isi = new ItemSignal();
+                 
                      isi = (ItemSignal)CComLibrary.GlobeVal.filesave.muserchannel[i].myitemsignal.Clone();
                      isi.cName = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
                      isi.LName[0] = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
@@ -726,7 +725,7 @@ namespace ClsStaticStation
 
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Load2";
+            isi.SignName = "Ch Ext";
             isi.cUnitKind = 1;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -750,7 +749,7 @@ namespace ClsStaticStation
             isi.LName[1] = "Ext 1";
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Ext1";
+            isi.SignName = "Ch Sensor4";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -771,7 +770,7 @@ namespace ClsStaticStation
             isi.LName[1] = "Ext 2";
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Ext2";
+            isi.SignName = "Ch Sensor5";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -793,7 +792,7 @@ namespace ClsStaticStation
             isi.LName[1] = "Ext 3";
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Ext3";
+            isi.SignName = "Ch Sensor6";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -814,7 +813,7 @@ namespace ClsStaticStation
             isi.LName[1] = "Ext 4";
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Ext4";
+            isi.SignName = "Ch Sensor7";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -865,7 +864,7 @@ namespace ClsStaticStation
 
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.muserchannel.Count; i++)
                 {
-                    isi = new ItemSignal();
+                  
                     isi = (ItemSignal)CComLibrary.GlobeVal.filesave.muserchannel[i].myitemsignal.Clone();
                     isi.cName = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
                     isi.LName[0] = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
@@ -1617,6 +1616,14 @@ namespace ClsStaticStation
         public static double mpos;
         public static double mext;
         public static double mtime;
+
+        public static double msensor4;
+        public static double msensor5;
+        public static double msensor6;
+        public static double msensor7;
+        public static double msensor8;
+
+
         public static Boolean mvalid = false; //判断计算是否有效
 
         public static double mload1;
@@ -1901,14 +1908,9 @@ namespace ClsStaticStation
         void mtimer_Tick(object sender, EventArgs e)
         {
 
-            if (m_Global.languageselect == 0)
-            {
+         
                 cName = LName[m_Global.languageselect];
-            }
-            else
-            {
-                cName = LName[m_Global.languageselect];
-            }
+          
             return;
         }
 
@@ -1956,7 +1958,7 @@ namespace ClsStaticStation
 
             double m;
             double.TryParse(GetValue(1), out m);
-            if (m == 0)
+            if (m < 0.0001)
             {
                 t = 0;
             }

@@ -70,7 +70,621 @@ namespace ClsStaticStation
 
         private int m_returnstep;//返回步骤
         private int m_returncount;//返回次数
+        private List<demodata> mdemodata = new List<demodata>();
 
+        private void demo()
+        {
+
+            int j;
+            int i;
+            int jj;
+            int ii;
+            Random r;
+            b = new RawDataStruct();
+            b.data = new double[24];
+            if (mdemotesting == false)
+            {
+               r = new Random(System.Environment.TickCount);
+                load = r.NextDouble();
+                pos = r.NextDouble();
+                ext = r.NextDouble();
+                time = System.Environment.TickCount / 1000;
+                poscmd = 0;
+                loadcmd = 0;
+                extcmd = 0;
+                count = 0;
+                load1 = r.NextDouble();
+                pos1 = r.NextDouble();
+
+            }
+            else
+            {
+                r = new Random(System.Environment.TickCount);
+                load = r.NextDouble();
+                pos = r.NextDouble();
+                ext = r.NextDouble();
+                time = System.Environment.TickCount / 1000;
+                poscmd = 0;
+                loadcmd = 0;
+                extcmd = 0;
+                count = 0;
+                load1 = r.NextDouble();
+                pos1 = r.NextDouble();
+
+                if (mdemotestingp < mdemodata.Count - 1)
+                {
+                    load = mdemodata[mdemotestingp].load;
+                    pos = mdemodata[mdemotestingp].pos;
+                    time = mdemodata[mdemotestingp].time;
+                    mdemotestingp = mdemotestingp + 1;
+                }
+                else
+                {
+                    mdemotesting = false;
+                }
+
+            }
+
+
+            //自定义通道赋值
+            ClsStaticStation.m_Global.mload = load;
+
+            ClsStaticStation.m_Global.mpos = pos;
+
+            ClsStaticStation.m_Global.mload1 = load1;
+            ClsStaticStation.m_Global.mpos1 = pos1;
+
+            ClsStaticStation.m_Global.msensor4 = r.NextDouble()+1;
+
+            ClsStaticStation.m_Global.msensor5 = r.NextDouble() + 2;
+
+            ClsStaticStation.m_Global.msensor6 = r.NextDouble() + 3;
+
+
+            ClsStaticStation.m_Global.msensor7 = r.NextDouble() + 4;
+
+            ClsStaticStation.m_Global.msensor8 = r.NextDouble() + 5;
+
+            double[] rr;
+
+            rr = new double[100];
+
+            for (j = 0; j < 100; j++)
+            {
+                rr[j] = 0;
+            }
+
+            if (CComLibrary.GlobeVal.filesave == null)
+            {
+            }
+            else
+            {
+
+                for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
+                {
+                    rr[j] = 0;
+                }
+
+                for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
+
+                {
+
+
+
+                    rr[j + 1] = CComLibrary.GlobeVal.gcalc.getresult通道(j + 1);
+
+                }
+            }
+
+
+
+            for (j = 0; j < m_Global.mycls.datalist.Count; j++)
+            {
+
+                for (int m = 0; m < 100; m++)
+                {
+                    if (m_Global.mycls.datalist[j].SignName == "Ch User" + m.ToString().Trim())
+                    {
+                        b.data[m_Global.mycls.datalist[j].EdcId] = rr[m + 1];
+
+                    }
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Time")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = time;
+
+
+                    if (time > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = time;
+                    }
+                    if (time < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = time;
+                    }
+
+
+                    m_Global.mycls.datalist[j].rvaluemax = time;
+
+
+                    m_Global.mycls.datalist[j].rvaluemin = 0;
+
+
+
+                }
+                if (m_Global.mycls.datalist[j].SignName == "ambient pressure Ch Disp")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = pos1;
+
+
+                    if (pos > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = pos1;
+                    }
+                    if (pos < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = pos1;
+                    }
+                    if (pos > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemax = pos1;
+                    }
+                    if (pos < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = pos1;
+                    }
+
+
+                }
+                if (m_Global.mycls.datalist[j].SignName == "Ch Disp")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = pos;
+
+
+                    if (pos > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = pos;
+                    }
+                    if (pos < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = pos;
+                    }
+                    if (pos > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemax = pos;
+                    }
+                    if (pos < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = pos;
+                    }
+
+
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Sensor4")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor4;
+
+
+                    if (ClsStaticStation.m_Global.msensor4 > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor4;
+                    }
+                    if (ClsStaticStation.m_Global.msensor4 < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor4;
+                    }
+                    if (ClsStaticStation.m_Global.msensor4 > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor4;
+                    }
+                    if (ClsStaticStation.m_Global.msensor4 < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor4;
+                    }
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Sensor5")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor5;
+
+
+                    if (ClsStaticStation.m_Global.msensor5 > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor5;
+                    }
+                    if (ClsStaticStation.m_Global.msensor5 < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor5;
+                    }
+                    if (ClsStaticStation.m_Global.msensor5 > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor5;
+                    }
+                    if (ClsStaticStation.m_Global.msensor5 < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor5;
+                    }
+
+
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Sensor6")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor6;
+
+
+                    if (ClsStaticStation.m_Global.msensor6 > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor6;
+                    }
+                    if (ClsStaticStation.m_Global.msensor6 < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor6;
+                    }
+                    if (ClsStaticStation.m_Global.msensor6 > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor6;
+                    }
+                    if (ClsStaticStation.m_Global.msensor6 < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor6;
+                    }
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Sensor7")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor7;
+
+
+                    if (ClsStaticStation.m_Global.msensor7 > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor7;
+                    }
+                    if (ClsStaticStation.m_Global.msensor7 < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor7;
+                    }
+                    if (ClsStaticStation.m_Global.msensor7 > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor7;
+                    }
+                    if (ClsStaticStation.m_Global.msensor7 < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor7;
+                    }
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Sensor8")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor8;
+
+
+                    if (ClsStaticStation.m_Global.msensor8 > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor8;
+                    }
+                    if (ClsStaticStation.m_Global.msensor8 < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor8;
+                    }
+                    if (ClsStaticStation.m_Global.msensor8 > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor8;
+                    }
+                    if (ClsStaticStation.m_Global.msensor8 < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor8;
+                    }
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "ambient pressure Ch Load")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = load1;
+
+
+                    if (load > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].bvaluemax = load1;
+                    }
+                    if (load < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = load1;
+                    }
+
+                    if (load > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].rvaluemax = load1;
+                    }
+                    if (load < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = load1;
+                    }
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Load")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = load;
+
+
+                    if (load > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].bvaluemax = load;
+                    }
+                    if (load < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = load;
+                    }
+
+                    if (load > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].rvaluemax = load;
+                    }
+                    if (load < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = load;
+                    }
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Ext")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = ext;
+
+
+                    if (ext > m_Global.mycls.datalist[j].bvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].bvaluemax = ext;
+                    }
+                    if (ext < m_Global.mycls.datalist[j].bvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].bvaluemin = ext;
+                    }
+
+                    if (ext > m_Global.mycls.datalist[j].rvaluemax)
+                    {
+
+                        m_Global.mycls.datalist[j].rvaluemax = ext;
+                    }
+                    if (ext < m_Global.mycls.datalist[j].rvaluemin)
+                    {
+                        m_Global.mycls.datalist[j].rvaluemin = ext;
+                    }
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Command")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Disp Command")
+                {
+
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
+
+
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Load Command")
+                {
+
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = loadcmd;
+
+
+
+
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Count")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = count;
+
+
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Feed")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = 0;
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Out")
+                {
+
+                    b.data[m_Global.mycls.datalist[j].EdcId] = 0;
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Dynamic Stiffness")
+                {
+
+
+                }
+
+
+              
+
+
+            }
+
+            RawDataDataGroup d;
+            RawDataDataGroup c = new RawDataDataGroup();
+            c.ID = 0;
+            m_Global.mycls.structcopy_RawDataData(ref c.rdata, b);
+            for (j = 0; j < 4; j++)
+            {
+
+                if (ClsStatic.arraydatacount[j] >= ClsStatic.arraydata[j].NodeCount - 1)
+                {
+
+                    ClsStatic.arraydata[j].Read<RawDataDataGroup>(out d, 10);
+                    ClsStatic.arraydatacount[j] = ClsStatic.arraydatacount[j] - 1;
+                }
+
+                ClsStatic.arraydatacount[j] = ClsStatic.arraydatacount[j] + 1;
+                ClsStatic.arraydata[j].Write<RawDataDataGroup>(ref c, 10);
+            }
+
+            if (ClsStatic.savedatacount >= ClsStatic.savedata.NodeCount - 1)
+            {
+                ClsStatic.savedata.Read<RawDataDataGroup>(out d, 10);
+                ClsStatic.savedatacount = ClsStatic.savedatacount - 1;
+            }
+            ClsStatic.savedatacount = ClsStatic.savedatacount + 1;
+            ClsStatic.savedata.Write<RawDataDataGroup>(ref c, 10);
+
+            for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
+            {
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Command")
+                {
+
+                    m_Global.mycls.allsignals[j].cvalue = poscmd;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Command")
+                {
+
+                    m_Global.mycls.allsignals[j].cvalue = poscmd;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Load Command")
+                {
+
+                    m_Global.mycls.allsignals[j].cvalue = loadcmd;
+
+                }
+
+
+            }
+            for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
+            {
+
+
+               
+
+              
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Time")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = time;
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Disp")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = pos1;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Disp")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = pos;
+
+
+
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Load")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = load1;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Load")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = load;
+
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor4")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor4;
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor5")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor5;
+                }
+
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor6")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor6;
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor7")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor7;
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor8")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor8;
+                }
+
+                if (m_Global.mycls.allsignals[j].SignName == "Ch Ext")
+                {
+                    m_Global.mycls.allsignals[j].cvalue = ext;
+
+
+                }
+
+                for (int m = 0; m < 100; m++)
+                {
+                    if (m_Global.mycls.allsignals[j].SignName == "Ch User" + m.ToString().Trim())
+                    {
+                        m_Global.mycls.allsignals[j].cvalue = rr[m + 1];
+
+                    }
+
+                }
+
+            }
+
+
+
+        }
         public override void starttest()
         {
             short k = 0;
@@ -80,17 +694,7 @@ namespace ClsStaticStation
 
             myedc.Data.SetTime(XLDOPE.SETTIME_MODE.IMMEDIATE, 0);
 
-            bool b = false;
-            while (b == false)
-            {
-                Application.DoEvents();
-                if (time < 1)
-                {
-                    b = true;
-                }
-            }
-
-          
+           
 
             mtestrun = true;
 
@@ -162,7 +766,7 @@ namespace ClsStaticStation
 
 
             }
-            else //高级试验
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1) //高级试验
             {
 
 
@@ -364,18 +968,128 @@ namespace ClsStaticStation
 
             CComLibrary.GlobeVal.InitUserCalcChannel();//初始化用户自定义通道
         }
-        public override void demotest(bool testing)
-        {
-        }
         public override void readdemo(string fileName)
         {
+            int i = -1;
+            int j = 0;
+
+
+            char[] sp;
+            char[] sp1;
+            string[] ww;
+
+            string line;
+
+
+
+            sp = new char[2];
+            sp1 = new char[2];
+            mdemodata.Clear();
+
+            using (StreamReader sr = new StreamReader(fileName, Encoding.Default))
+            {
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    i = i + 1;
+                    if (i == 0)
+                    {
+
+                        sp[0] = Convert.ToChar(" ");
+
+                        ww = line.Split(sp);
+
+
+
+                        for (j = 0; j < ww.Length; j++)
+                        {
+
+
+                            //CComLibrary.GlobeVal.g_datatitle[j] = ww[j];
+
+
+                        }
+
+                    }
+
+                    else if (i == 1)
+                    {
+
+                        sp[0] = Convert.ToChar(" ");
+
+                        ww = line.Split(sp);
+
+
+
+
+
+                        for (j = 0; j < ww.Length; j++)
+                        {
+
+
+
+
+                        }
+                    }
+                    else
+                    {
+
+                        sp[0] = Convert.ToChar(" ");
+
+                        ww = line.Split(sp);
+
+                        int L = ww.Length;
+
+                        demodata m = new demodata();
+
+                        m.time = Convert.ToDouble(ww[0]);
+                        m.load = Convert.ToDouble(ww[1]);
+                        m.pos = Convert.ToDouble(ww[2]);
+                        m.ext = Convert.ToDouble(ww[3]);
+
+                        mdemodata.Add(m);
+
+                    }
+                }
+
+            }
+
+
+
+
         }
+
+        public override void demotest(bool testing)
+        {
+            mdemotesting = testing;
+            mdemotestingp = 0;
+
+
+        }
+      
         public override int ConvertCtrlMode(int ctrl)
         {
-            int t = 0;
+            XLDOPE.CTRL t = default(XLDOPE.CTRL);
+            if (ctrl == 0) //位移
+            {
+
+                // t = XLDOPE.CTRL.POS;
+                t = XLDOPE.CTRL.OPEN;
+            }
+            if (ctrl == 1)  //负荷
+            {
+                t = XLDOPE.CTRL.LOAD;
+            }
+
+            if (ctrl == 2) //变形
+            {
+                t = XLDOPE.CTRL.EXTENSION;
+            }
+
+            return Convert.ToInt16(t);
 
 
-            return t;
+           
         }
         public override bool getlimit(int ch)
         {
@@ -552,13 +1266,13 @@ namespace ClsStaticStation
             b.ctrl_upper_sft_e = (ushort)((Sample.CtrlState2 >> 6) & 1);
 
 
-            if (b.ctrl_move == 1)
+            if (b.ctrl_halt  == 1)
             {
-                m_runstate = 1;
+                m_runstate = 0;
             }
             else
             {
-                m_runstate = 0;
+                m_runstate = 1;
             }
 
 
@@ -579,7 +1293,19 @@ namespace ClsStaticStation
            // oncount = oncount + 1;
             return;
         }
+        public override int getrunstate() // 1运行 0 停止
+        {
+            if (mdemo == true)
+            {
+            }
 
+            else
+            {
+               
+            }
+
+            return m_runstate;
+        }
         void mtimer_Tick(object sender, EventArgs e)
         {
             short k;
@@ -717,7 +1443,7 @@ namespace ClsStaticStation
 
             if (mdemo == true)
             {
-
+                demo();
             }
             else
             {
@@ -748,6 +1474,16 @@ namespace ClsStaticStation
 
 
 
+                    ClsStaticStation.m_Global.msensor4 = GGMsg.Sensor[3];
+
+                    ClsStaticStation.m_Global.msensor5 = GGMsg.Sensor[4];
+
+                    ClsStaticStation.m_Global.msensor6 = GGMsg.Sensor[5];
+
+
+                    ClsStaticStation.m_Global.msensor7 = GGMsg.Sensor[6];
+
+                    ClsStaticStation.m_Global.msensor8 = GGMsg.Sensor[7];
 
 
                     //自定义通道赋值
@@ -827,6 +1563,138 @@ namespace ClsStaticStation
 
 
                         }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Sensor4")
+                        {
+
+                            b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor4;
+
+
+                            if (ClsStaticStation.m_Global.msensor4 > m_Global.mycls.datalist[j].bvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor4;
+                            }
+                            if (ClsStaticStation.m_Global.msensor4 < m_Global.mycls.datalist[j].bvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor4;
+                            }
+                            if (ClsStaticStation.m_Global.msensor4 > m_Global.mycls.datalist[j].rvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor4;
+                            }
+                            if (ClsStaticStation.m_Global.msensor4 < m_Global.mycls.datalist[j].rvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor4;
+                            }
+
+
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Sensor5")
+                        {
+
+                            b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor5;
+
+
+                            if (ClsStaticStation.m_Global.msensor5 > m_Global.mycls.datalist[j].bvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor5;
+                            }
+                            if (ClsStaticStation.m_Global.msensor5 < m_Global.mycls.datalist[j].bvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor5;
+                            }
+                            if (ClsStaticStation.m_Global.msensor5 > m_Global.mycls.datalist[j].rvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor5;
+                            }
+                            if (ClsStaticStation.m_Global.msensor5 < m_Global.mycls.datalist[j].rvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor5;
+                            }
+
+
+                        }
+
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Sensor6")
+                        {
+
+                            b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor6;
+
+
+                            if (ClsStaticStation.m_Global.msensor6 > m_Global.mycls.datalist[j].bvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor6;
+                            }
+                            if (ClsStaticStation.m_Global.msensor6 < m_Global.mycls.datalist[j].bvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor6;
+                            }
+                            if (ClsStaticStation.m_Global.msensor6 > m_Global.mycls.datalist[j].rvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor6;
+                            }
+                            if (ClsStaticStation.m_Global.msensor6 < m_Global.mycls.datalist[j].rvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor6;
+                            }
+
+
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Sensor7")
+                        {
+
+                            b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor7;
+
+
+                            if (ClsStaticStation.m_Global.msensor7 > m_Global.mycls.datalist[j].bvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor7;
+                            }
+                            if (ClsStaticStation.m_Global.msensor7 < m_Global.mycls.datalist[j].bvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor7;
+                            }
+                            if (ClsStaticStation.m_Global.msensor7 > m_Global.mycls.datalist[j].rvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor7;
+                            }
+                            if (ClsStaticStation.m_Global.msensor7 < m_Global.mycls.datalist[j].rvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor7;
+                            }
+
+
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Sensor8")
+                        {
+
+                            b.data[m_Global.mycls.datalist[j].EdcId] = ClsStaticStation.m_Global.msensor8;
+
+
+                            if (ClsStaticStation.m_Global.msensor8 > m_Global.mycls.datalist[j].bvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemax = ClsStaticStation.m_Global.msensor8;
+                            }
+                            if (ClsStaticStation.m_Global.msensor8 < m_Global.mycls.datalist[j].bvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemin = ClsStaticStation.m_Global.msensor8;
+                            }
+                            if (ClsStaticStation.m_Global.msensor8 > m_Global.mycls.datalist[j].rvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemax = ClsStaticStation.m_Global.msensor8;
+                            }
+                            if (ClsStaticStation.m_Global.msensor8 < m_Global.mycls.datalist[j].rvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].rvaluemin = ClsStaticStation.m_Global.msensor8;
+                            }
+
+
+                        }
+
 
                         if (m_Global.mycls.datalist[j].SignName == "Ch Disp")
                         {
@@ -1092,7 +1960,31 @@ namespace ClsStaticStation
                             m_Global.mycls.allsignals[j].cvalue = pos1;
 
                         }
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor4")
+                        {
+                            m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor4;
+                        }
 
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor5")
+                        {
+                            m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor5;
+                        }
+
+
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor6")
+                        {
+                            m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor6;
+                        }
+
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor7")
+                        {
+                            m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor7;
+                        }
+
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor8")
+                        {
+                            m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor8;
+                        }
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Disp")
                         {
                             m_Global.mycls.allsignals[j].cvalue = pos;

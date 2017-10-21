@@ -194,6 +194,18 @@
     <Compile Include="Frm\FormTorsionTransducer.Designer.cs">
       <DependentUpon>FormTorsionTransducer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\Form标准控制参数.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Form标准控制参数.Designer.cs">
+      <DependentUpon>Form标准控制参数.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Form标准跳转条件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Form标准跳转条件.Designer.cs">
+      <DependentUpon>Form标准跳转条件.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -211,6 +223,11 @@
     <Compile Include="MouseKey\Mouse.cs" />
     <Compile Include="MouseKey\MouseHook.cs" />
     <Compile Include="MouseKey\MouseSimulator.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControlStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -379,11 +396,6 @@
     <Compile Include="OS\Enums.cs" />
     <Compile Include="OS\structs.cs" />
     <Compile Include="OS\Win32.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="TabButtonExtender.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -654,8 +666,8 @@
       <DependentUpon>User围压.cs</DependentUpon>
     </Compile>
     <Content Include="ClsStaticStation.sln" />
+    <None Include="Resources\sun.cur" />
     <Content Include="说明\说明.txt" />
-    <None Include="Resources\1080 - 副本.ico" />
     <EmbeddedResource Include="Controls\OpenFileDialogEx.resx">
       <DependentUpon>OpenFileDialogEx.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -696,6 +708,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\Form新建程序文件.resx">
       <DependentUpon>Form新建程序文件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Form标准控制参数.resx">
+      <DependentUpon>Form标准控制参数.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Form标准跳转条件.resx">
+      <DependentUpon>Form标准跳转条件.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\Form登录.resx">
       <DependentUpon>Form登录.cs</DependentUpon>
@@ -740,8 +758,8 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\UserControl缺省表格.resx">
       <DependentUpon>UserControl缺省表格.cs</DependentUpon>

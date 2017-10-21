@@ -175,41 +175,83 @@ namespace TabHeaderDemo
             grid2[i, 6] = new SourceGrid2.Cells.Real.Cell(
                                 sf.mseglist[i-1].explain, typeof(string));
         }
-
+       
         void textclick_DoubleClick(object sender, SourceGrid2.PositionEventArgs e)
         {
             if (e.Position.Column == 2)
             {
-               
 
-                if (sf.mseglist[e.Position.Row - 1].cmd == 2)
+                if (GlobeVal.mysys.machinekind == 2)
                 {
-                   Frm.Frm围压控制参数 f = new TabHeaderDemo.Frm.Frm围压控制参数();
-                   f.result = false;
+                    if (sf.mseglist[e.Position.Row - 1].cmd == 2)
+                    {
+                        Frm.Frm围压控制参数 f = new TabHeaderDemo.Frm.Frm围压控制参数();
+                        f.result = false;
 
-                   f.lblspeed.Text = "速度(MPa/s):";
-                   f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].speed;
-                   f.Text = "控制参数步骤" + e.Position.Row.ToString().Trim();
-                   f.ShowDialog();
-                   if (f.result == true)
-                   {
-                       sf.mseglist[e.Position.Row - 1].speed = f.numericEdit1.Value;
-
-
-                       grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].speedconvert();
-
+                        f.lblspeed.Text = "速度(MPa/s):";
+                        f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].speed;
+                        f.Text = "控制参数步骤" + e.Position.Row.ToString().Trim();
+                        f.ShowDialog();
+                        if (f.result == true)
+                        {
+                            sf.mseglist[e.Position.Row - 1].speed = f.numericEdit1.Value;
 
 
-                   }
+                            grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].speedconvert();
+
+
+
+                        }
+                    }
+
+                    else
+                    {
+
+                        Frm.Form控制参数 f = new TabHeaderDemo.Frm.Form控制参数();
+
+                        f.result = false;
+
+
+                        if (sf.mseglist[e.Position.Row - 1].controlmode == 0)
+                        {
+                            f.radioButton1.Text = "位移速度";
+                            f.lblUnit.Text = "mm/s";
+                            f.radioButton2.Visible = false;
+                            f.panel1.Visible = false;
+
+                        }
+                        else
+                        {
+                            f.radioButton1.Text = "力速度";
+                            f.lblUnit.Text = "kN/s";
+                            f.radioButton2.Visible = true;
+                            f.panel1.Visible = true;
+
+                        }
+
+
+                        f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].speed;
+                        f.Text = "控制参数步骤" + e.Position.Row.ToString().Trim();
+                        f.ShowDialog();
+                        if (f.result == true)
+                        {
+                            sf.mseglist[e.Position.Row - 1].speed = f.numericEdit1.Value;
+
+
+                            grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].speedconvert();
+
+
+                        }
+                    }
                 }
-
                 else
-                {
 
+
+                {
                     Frm.Form控制参数 f = new TabHeaderDemo.Frm.Form控制参数();
 
                     f.result = false;
-                   
+
 
                     if (sf.mseglist[e.Position.Row - 1].controlmode == 0)
                     {
@@ -217,7 +259,7 @@ namespace TabHeaderDemo
                         f.lblUnit.Text = "mm/s";
                         f.radioButton2.Visible = false;
                         f.panel1.Visible = false;
-                        f.groupBox2.Visible = false;
+
                     }
                     else
                     {
@@ -225,13 +267,9 @@ namespace TabHeaderDemo
                         f.lblUnit.Text = "kN/s";
                         f.radioButton2.Visible = true;
                         f.panel1.Visible = true;
-                        f.groupBox2.Visible = true;
+
                     }
-                    f.numstart.Value = sf.mseglist[e.Position.Row - 1].mstartload;
-                     f.numend.Value=sf.mseglist[e.Position.Row - 1].mendload;
-                     f.numstrainspeed.Value=sf.mseglist[e.Position.Row - 1].mstrainspeed;
-                     f.numstarinstart.Value=sf.mseglist[e.Position.Row - 1].mstartstrain;
-                     f.numstarinend.Value=sf.mseglist[e.Position.Row - 1].mendstrain;
+
 
                     f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].speed;
                     f.Text = "控制参数步骤" + e.Position.Row.ToString().Trim();
@@ -239,16 +277,13 @@ namespace TabHeaderDemo
                     if (f.result == true)
                     {
                         sf.mseglist[e.Position.Row - 1].speed = f.numericEdit1.Value;
-                        
+
 
                         grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].speedconvert();
 
-                        sf.mseglist[e.Position.Row - 1].mstartload = f.numstart.Value;
-                        sf.mseglist[e.Position.Row - 1].mendload = f.numend.Value;
-                        sf.mseglist[e.Position.Row - 1].mstrainspeed = f.numstrainspeed.Value;
-                        sf.mseglist[e.Position.Row - 1].mstartstrain = f.numstarinstart.Value;
-                        sf.mseglist[e.Position.Row - 1].mendstrain = f.numstarinend.Value;
+
                     }
+
                 }
 
 
