@@ -51,51 +51,18 @@ namespace TabHeaderDemo
         }
         public void startrun()
         {
-
+            RawDataDataGroup d;
             string s;
             count = 0;
             int mk;
             tstart = 0;
             maxload = 0;
             mstarttime = 0;
-            int ll = 0;
-
-            ll = ClsStatic.arraydata[mplot1 - 1].Read<RawDataDataGroup>(r, 0, 10);
-
-            if (ll == 0)
-            {
-            }
-            else
-            {
-                ClsStatic.arraydatacount[mplot1 - 1] = ClsStatic.arraydatacount[mplot1 - 1] - 1;
-            }
 
 
-
-            while (ll != 0)
-            {
-                b = new RawDataStruct();
-                b.data = new double[24];
-
-
-                m_Global.mycls.structcopy_RawDataStruct(r[0].rdata, ref b);
-
-
-               
-
-                ll = ClsStatic.arraydata[mplot1 - 1].Read<RawDataDataGroup>(r, 0, 10);
-
-                if (ll == 0)
-                {
-                    break;
-                }
-                else
-                {
-                    ClsStatic.arraydatacount[mplot1 - 1] = ClsStatic.arraydatacount[mplot1 - 1] - 1;
-                }
-            }
-
-            timer1.Enabled = true;
+            
+            
+            
 
             if (myplotsettings.curvekind == 1)
             {
@@ -154,7 +121,7 @@ namespace TabHeaderDemo
                 }
                 fs.Close();
             }
-
+            timer1.Enabled = true;
         }
 
         public void endrun()
@@ -481,7 +448,7 @@ namespace TabHeaderDemo
                     
                  }
 
-                if (mtime - mstarttime >= 0.02)
+                if ( Math.Abs(mtime - mstarttime) >= 0.02)
                 {
                     mstarttime = mtime;
                     if (myplotsettings.curvekind == 0)

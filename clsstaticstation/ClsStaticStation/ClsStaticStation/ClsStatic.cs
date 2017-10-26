@@ -55,7 +55,7 @@ namespace ClsStaticStation
 
              for (i = 0; i < 4; i++)
              {
-                 ClsStatic.arraydata[i] = new CircularBuffer("MCTarraydata" + i.ToString(), 400, Marshal.SizeOf(typeof(RawDataDataGroup)));
+                 ClsStatic.arraydata[i] = new CircularBuffer("MCTarraydata" + i.ToString(), 100, Marshal.SizeOf(typeof(RawDataDataGroup)));
                  ClsStatic.arraydatacount[i] = 0;
 
 

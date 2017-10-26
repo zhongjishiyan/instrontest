@@ -1014,6 +1014,10 @@ namespace TabHeaderDemo
 
             }
 
+
+            GlobeVal.myarm.starttest();
+
+
             if (GlobeVal.UserControlGraph1 != null)
             {
                 GlobeVal.UserControlGraph1.startrun();
@@ -1024,7 +1028,7 @@ namespace TabHeaderDemo
                 GlobeVal.UserControlGraph2.startrun();
             }
 
-            GlobeVal.myarm.starttest();
+          
 
             timer1.Enabled = true;
             GlobeVal.MainStatusStrip.Items["toolstatustest"].Visible = true;

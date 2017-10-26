@@ -20,7 +20,7 @@ namespace ClsStaticStation
 {
     public class CDsp : ClsBaseControl
     {
-
+        private RawDataDataGroup[] r = new RawDataDataGroup[1];
         private float[] rr;
         private System.Windows.Forms.Timer mtimer;
         public XLNet.XLDOPE.Data  GGMsg;
@@ -688,13 +688,42 @@ namespace ClsStaticStation
         public override void starttest()
         {
             short k = 0;
-
-
+            RawDataDataGroup d;
+          
 
 
             myedc.Data.SetTime(XLDOPE.SETTIME_MODE.IMMEDIATE, 0);
 
-           
+            bool b = false;
+            while (b == false)
+            {
+                Application.DoEvents();
+                if (time < 1)
+                {
+                    b = true;
+                }
+            }
+
+
+            int iii = 0;
+
+
+
+            while (iii < ClsStatic.arraydata[0].NodeCount)
+            {
+
+
+                ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 10);
+                ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 10);
+
+                iii = iii + 1;
+
+
+            }
+
+            ClsStatic.arraydatacount[0] = 0;
+            ClsStatic.arraydatacount[1] = 0;
+
 
             mtestrun = true;
 
