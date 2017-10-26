@@ -249,6 +249,82 @@ namespace ClsStaticStation
         }
 
     }  */
+    [Serializable]
+
+
+    public class TreeViewHard : TreeView
+    {
+        private TreeNodeHard m_lastnode;
+        public TreeViewHard()
+        {
+
+        }
+
+        public void InsertLine(int pos, int level, ItemSignal cc)
+        {
+
+            TreeNodeHard aa = new TreeNodeHard();
+            aa.SelectedImageIndex = cc.imageindex;
+            aa.ImageIndex = cc.imageindex;
+            aa.isl = cc;
+
+            if (level == -1)
+            {
+                aa.Text = cc.cName;
+                base.Nodes.Add(aa);
+
+            }
+            else
+            {
+
+                aa.Text = cc.cName;
+
+                if (m_lastnode.Level == cc.level)
+                {
+                    m_lastnode.Parent.Nodes.Add(aa);
+                }
+                else if (m_lastnode.Level > cc.level)
+                {
+                    while (m_lastnode.Level > cc.level)
+                    {
+                        m_lastnode = (TreeNodeHard)m_lastnode.Parent;
+                    }
+
+                    m_lastnode.Parent.Nodes.Add(aa);
+
+                }
+                else
+                {
+                    m_lastnode.Nodes.Add(aa);
+                }
+
+            }
+
+            m_lastnode = aa;
+            base.ExpandAll();
+
+        }
+
+
+    }
+
+
+
+    public class TreeNodeHard : TreeNode
+    {
+        public TreeNodeHard()
+        {
+
+        }
+
+        public ItemBaseSignal isl;
+        public int ChannelId = -1;
+        public bool Channel_Amend = false;//通道可以修正
+
+
+    }
+
     
- }
- 
+
+}
+

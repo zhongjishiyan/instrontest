@@ -1100,17 +1100,165 @@ namespace ClsStaticStation
         {
             return false;
         }
-        public void btnkey(Button b)
+        public override  void btnkey(Button b)
         {
+            if (Convert.ToBoolean(b.Tag) == false)
+            {
+                b.ForeColor = System.Drawing.Color.Red;
+                b.Tag = true;
+                btnzero(b);
+
+            }
+            else
+            {
+                b.ForeColor = System.Drawing.Color.Black;
+                    
+                b.Tag = false;
+                restorezero(b);
+            }
+
 
         }
 
-        void btnzero(Button b)
+        public override void btnzero(Button b)
         {
+
+            for (int i=0;i<m_Global.mycls.hardsignals.Count;i++)
+            {
+
+                if (b.Text == m_Global.mycls.hardsignals[i].cName)
+                {
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Disp")
+                    if (i==0)
+                    {
+                        XLDOPE.Data Sample=default(XLDOPE.Data);
+                        myedc.Data.CurrentData(ref Sample);
+
+                       
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_S, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_S)]);
+                    }
+                    if (i==1)
+                   // if (m_Global.mycls.hardsignals[i].SignName == "Ch Load")
+                    {
+                        XLDOPE.Data Sample = default(XLDOPE.Data);
+                        myedc.Data.CurrentData(ref Sample);
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_F, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_F)]);
+                    }
+
+                    if (i==2)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Ext")
+                    {
+                        XLDOPE.Data Sample = default(XLDOPE.Data);
+                        myedc.Data.CurrentData(ref Sample);
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_E, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_E)]);
+                    }
+                    if (i==3)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor3")
+                    {
+                        XLDOPE.Data Sample = default(XLDOPE.Data);
+                        myedc.Data.CurrentData(ref Sample);
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_3, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_3)]);
+                    }
+                    if (i==4)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor4")
+                    {
+                        XLDOPE.Data Sample = default(XLDOPE.Data);
+                        myedc.Data.CurrentData(ref Sample);
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_4, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_4)]);
+                    }
+
+                    if (i==5)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor5")
+                    {
+                        XLDOPE.Data Sample = default(XLDOPE.Data);
+                        myedc.Data.CurrentData(ref Sample);
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_5, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_5)]);
+                    }
+                    if (i==6)
+                   // if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor6")
+                    {
+                        XLDOPE.Data Sample = default(XLDOPE.Data);
+                        myedc.Data.CurrentData(ref Sample);
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_6, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_6)]);
+                    }
+                    if (i==7)
+
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor7")
+                    {
+                        XLDOPE.Data Sample = default(XLDOPE.Data);
+                        myedc.Data.CurrentData(ref Sample);
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_7, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_7)]);
+                    }
+
+
+
+                }
+            }
+           
+
         }
         void restorezero(Button b)
         {
+            for (int i = 0; i < m_Global.mycls.hardsignals.Count; i++)
+            {
+                if (b.Text ==m_Global.mycls.hardsignals[i].cName)
+                {
+                    if (i==0)
 
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Disp")
+                    {
+                     
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_S, 0);
+                    }
+                    if (i==1)
+
+                   // if (m_Global.mycls.hardsignals[i].SignName == "Ch Load")
+                    {
+                        
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_F, 0);
+                    }
+                    if (i==2)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Ext")
+                    {
+                       
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_E, 0);
+                    }
+                    if (i==3)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor3")
+                    {
+                       
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_3, 0);
+                    }
+                    if (i==4)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor4")
+                    {
+                      
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_4, 0);
+                    }
+                    if (i==5)
+
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor5")
+                    {
+                      
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_5, 0);
+                    }
+                    if (i==6)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor6")
+                    {
+                       
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_6, 0);
+                    }
+                    if (i==7)
+                    //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor7")
+                    {
+                      
+                        myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_7, 0);
+                    }
+
+
+                }
+
+            }
         }
 
         public override void setrunstate(int m)
@@ -1154,9 +1302,19 @@ namespace ClsStaticStation
                         , Convert.ToSingle(dest), XLDOPE.DESTMODE.DEST_POSITION, ref tan);
 
 
-                  
+                    b = false;
+                    while (b == false)
+                    {
+                        Application.DoEvents();
+                        if (m_runstate == 1)
+                        {
+                            b = true;
+                        }
 
-                        mrun = true;
+                    }
+
+
+                    mrun = true;
                     
 
                 }
@@ -1179,34 +1337,7 @@ namespace ClsStaticStation
             mtimer.Interval = 50;
 
 
-            try
-            {
-                myedc = new XLDOPE.Edc();
-
-            }
-            catch (System.BadImageFormatException)
-            {
-
-
-            }
-
-#if DSP_ONDATABLOCK
-
-            myedc.Eh.SetOnDataBlockSize(100);
-#else
-             myedc.Eh.SetOnDataBlockSize(0);
-#endif
-
-            myedc.Eh.OnHandlerFuncHdlr += new XLDOPE.OnHandlerFuncHdlr(Eh_OnHandlerFuncHdlr);
-
-#if DSP_ONDATABLOCK
-            myedc.Eh.OnDataBlockHdlr += new XLDOPE.OnDataBlockHdlr(Eh_OnDataBlockHdlr);
-#else
-            myedc.Eh.OnDataHdlr += new XLDOPE.OnDataHdlr(Eh_OnDataHdlr);
-#endif
-
-
-            myedc.Eh.OnPosMsgHdlr +=new XLDOPE.OnPosMsgHdlr( Eh_OnPosMsgHdlr);
+         
 
         }
 
@@ -1237,7 +1368,7 @@ namespace ClsStaticStation
         private void  Eh_OnDataHdlr(ref XLDOPE.OnData m)
         {
             XLDOPE.Data Sample = new XLDOPE.Data();
-
+            Sample = m.Data;
             b.hardlimitlow = Sample.LowerLimits;
             b.hardlimitup = Sample.UpperLimits;
             b.softlimitlow = Sample.LowerSft;
@@ -1277,7 +1408,7 @@ namespace ClsStaticStation
 
 
 
-            Sample  = m.Data ;
+            
             moritime = m.Data.Time;
             ma = new XLDOPE.MDataIno();
             ma.Id = 0;
@@ -2041,20 +2172,35 @@ namespace ClsStaticStation
 
         int OpenConnection()
         {
-            XLDOPE.XL_init();
 
-           int r= XLDOPE.XL_start(1);
-           
-            if (r>=0)
+            try
             {
+                myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 1);
 
             }
-            else
+            catch (System.BadImageFormatException)
             {
 
-                MessageBox.Show("网卡设置错误");
+
             }
 
+#if DSP_ONDATABLOCK
+
+            myedc.Eh.SetOnDataBlockSize(100);
+#else
+            myedc.Eh.SetOnDataBlockSize(0);
+#endif
+
+            myedc.Eh.OnHandlerFuncHdlr += new XLDOPE.OnHandlerFuncHdlr(Eh_OnHandlerFuncHdlr);
+
+#if DSP_ONDATABLOCK
+            myedc.Eh.OnDataBlockHdlr += new XLDOPE.OnDataBlockHdlr(Eh_OnDataBlockHdlr);
+#else
+            myedc.Eh.OnDataHdlr += new XLDOPE.OnDataHdlr(Eh_OnDataHdlr);
+#endif
+
+
+            myedc.Eh.OnPosMsgHdlr += new XLDOPE.OnPosMsgHdlr(Eh_OnPosMsgHdlr);
 
             mtimer.Start();
 
@@ -2065,16 +2211,8 @@ namespace ClsStaticStation
         public override int CloseConnection()
         {
             mtimer.Stop();
-            try
-            {
-                XLDOPE.XL_stop();
-                XLDOPE.XL_free();
-            }
-            catch(System.BadImageFormatException)
-            {
-                
+          
 
-            }
 
             return 0;
         }

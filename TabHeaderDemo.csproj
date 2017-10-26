@@ -228,6 +228,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserControlFont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlFont.Designer.cs">
+      <DependentUpon>UserControlFont.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -788,6 +794,9 @@
     <EmbeddedResource Include="Controls\TxtOpenFileDialog.resx">
       <DependentUpon>TxtOpenFileDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlFont.resx">
+      <DependentUpon>UserControlFont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlGraph.resx">
       <DependentUpon>UserControlGraph.cs</DependentUpon>

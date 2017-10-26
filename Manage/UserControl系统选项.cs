@@ -32,6 +32,14 @@ namespace TabHeaderDemo
             cbostartup.Items.Add("按照指定的试验方法准备试验");
             cbostartup.SelectedIndex = GlobeVal.mysys.startupscreen;
             chkdemo.Checked = GlobeVal.mysys.demo;
+            chktitle.Checked=GlobeVal.mysys.showapptitle;
+            txtAppTitle.Text = GlobeVal.mysys.apptitle;
+            txtshort.Text= GlobeVal.mysys.shorttitle;
+            chkshort.Checked = GlobeVal.mysys.showshorttitle;
+
+            txtlogo.Text = GlobeVal.mysys.bmplogo;
+
+            chklogo.Checked = GlobeVal.mysys.showlogo;
 
         }
         public  UserControl系统选项()
@@ -72,6 +80,54 @@ namespace TabHeaderDemo
            }
            
            GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+        }
+
+        private void txtAppTitle_TextChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.apptitle = txtAppTitle.Text;
+        }
+
+        private void chktitle_CheckedChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.showapptitle = chktitle.Checked; 
+        }
+
+        private void txtshort_TextChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.shorttitle = txtshort.Text;
+        }
+
+        private void chkshort_CheckedChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.showshorttitle = chkshort.Checked;
+        }
+
+        private void btnlogo_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.FileName = "";
+            openFileDialog1.Filter = "(*.bmp" + ")|*.bmp";
+            openFileDialog1.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\bmp\\";
+            openFileDialog1.ShowDialog();
+            if (openFileDialog1.FileName == "")
+            {
+
+            }
+
+            else
+            {
+
+               
+                 txtlogo.Text = System.IO.Path.GetFileName(openFileDialog1.FileName);
+
+                GlobeVal.mysys.bmplogo = txtlogo.Text;
+
+            }
+
+        }
+
+        private void chklogo_CheckedChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.showlogo = chklogo.Checked;
         }
     }
 }

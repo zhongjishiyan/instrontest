@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlTop));
             this.pnlback = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.paneldefine = new System.Windows.Forms.Panel();
+            this.wordArt1 = new TabHeaderDemo.WordArt();
             this.btnuser = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnexit = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnhelp = new TabHeaderDemo.ButtonExNew(this.components);
@@ -47,6 +48,8 @@
             // 
             this.pnlback.BackColor = System.Drawing.Color.White;
             this.pnlback.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlback.Controls.Add(this.paneldefine);
+            this.pnlback.Controls.Add(this.wordArt1);
             this.pnlback.Controls.Add(this.btnuser);
             this.pnlback.Controls.Add(this.btnexit);
             this.pnlback.Controls.Add(this.btnhelp);
@@ -54,7 +57,6 @@
             this.pnlback.Controls.Add(this.btnreport);
             this.pnlback.Controls.Add(this.btnmethod);
             this.pnlback.Controls.Add(this.btntest);
-            this.pnlback.Controls.Add(this.panel5);
             this.pnlback.Controls.Add(this.panel6);
             this.pnlback.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlback.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -66,25 +68,42 @@
             this.pnlback.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlback_Paint);
             this.pnlback.Resize += new System.EventHandler(this.pnlback_Resize);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(53, 431);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(337, 102);
-            this.panel5.TabIndex = 21;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
             this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(53, 58);
+            this.panel6.Location = new System.Drawing.Point(53, 25);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(315, 264);
             this.panel6.TabIndex = 22;
+            // 
+            // paneldefine
+            // 
+            this.paneldefine.BackColor = System.Drawing.Color.Transparent;
+            this.paneldefine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.paneldefine.Location = new System.Drawing.Point(53, 22);
+            this.paneldefine.Name = "paneldefine";
+            this.paneldefine.Size = new System.Drawing.Size(315, 264);
+            this.paneldefine.TabIndex = 24;
+            this.paneldefine.Visible = false;
+            // 
+            // wordArt1
+            // 
+            this.wordArt1.BackColor = System.Drawing.Color.Transparent;
+            this.wordArt1.Caption = "AppleLab";
+            this.wordArt1.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.wordArt1.Location = new System.Drawing.Point(65, 410);
+            this.wordArt1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.wordArt1.Name = "wordArt1";
+            this.wordArt1.Size = new System.Drawing.Size(303, 100);
+            this.wordArt1.TabIndex = 23;
+            this.wordArt1.WordArtBackColor = System.Drawing.Color.Gray;
+            this.wordArt1.WordArtEffect = TabHeaderDemo.WordArtEffectStyle.projection;
+            this.wordArt1.WordArtFont = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.wordArt1.WordArtForeColor = System.Drawing.Color.BlueViolet;
+            this.wordArt1.WordArtSmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            this.wordArt1.WordArtTextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // btnuser
             // 
@@ -235,7 +254,8 @@
         private ButtonExNew btnreport;
         private ButtonExNew btnmethod;
         private ButtonExNew btntest;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
+        public WordArt wordArt1;
+        public System.Windows.Forms.Panel paneldefine;
+        public System.Windows.Forms.Panel panel6;
     }
 }

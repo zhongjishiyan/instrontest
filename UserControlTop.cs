@@ -132,7 +132,7 @@ namespace TabHeaderDemo
             btnhelp.Left = Convert.ToInt16(px[5] / 1366 * pnlback.Width)+30;
             btnexit.Left = Convert.ToInt16(px[6] / 1366 * pnlback.Width)+30;
 
-            panel5.Top = pnlback.Height - panel5.Height - 30;
+            wordArt1.Top = pnlback.Height - wordArt1.Height - 30;
 
 
         }

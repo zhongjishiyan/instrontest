@@ -41,6 +41,7 @@
             this.tslblEmergencyStop = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslbllimit = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolstatustest = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tslblstate = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tlprecord = new System.Windows.Forms.TableLayoutPanel();
             this.recordStopButton = new System.Windows.Forms.Button();
@@ -62,10 +63,15 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tlbmeter = new System.Windows.Forms.TableLayoutPanel();
+            this.jMeter1 = new TabHeaderDemo.JMeter();
+            this.jMeter2 = new TabHeaderDemo.JMeter();
+            this.jMeter3 = new TabHeaderDemo.JMeter();
+            this.jMeter4 = new TabHeaderDemo.JMeter();
             this.btnmethod = new System.Windows.Forms.Button();
             this.btnon = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.UTop = new TabHeaderDemo.UserControlTop();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -83,11 +89,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.userControl11 = new TabHeaderDemo.UserControlTop();
-            this.jMeter1 = new TabHeaderDemo.JMeter();
-            this.jMeter2 = new TabHeaderDemo.JMeter();
-            this.jMeter3 = new TabHeaderDemo.JMeter();
-            this.jMeter4 = new TabHeaderDemo.JMeter();
             this.statusStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tlprecord.SuspendLayout();
@@ -119,7 +120,8 @@
             this.tslblreport,
             this.tslblEmergencyStop,
             this.tslbllimit,
-            this.toolstatustest});
+            this.toolstatustest,
+            this.tslblstate});
             this.statusStrip1.Location = new System.Drawing.Point(0, 703);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1350, 26);
@@ -228,6 +230,16 @@
             this.toolstatustest.Size = new System.Drawing.Size(103, 21);
             this.toolstatustest.Text = "高级测试：步骤1";
             this.toolstatustest.Visible = false;
+            // 
+            // tslblstate
+            // 
+            this.tslblstate.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslblstate.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.tslblstate.Name = "tslblstate";
+            this.tslblstate.Size = new System.Drawing.Size(72, 21);
+            this.tslblstate.Text = "状态：运行";
             // 
             // panel4
             // 
@@ -592,6 +604,42 @@
             this.tlbmeter.Size = new System.Drawing.Size(1284, 78);
             this.tlbmeter.TabIndex = 40;
             // 
+            // jMeter1
+            // 
+            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter1.Location = new System.Drawing.Point(3, 3);
+            this.jMeter1.Name = "jMeter1";
+            this.jMeter1.Size = new System.Drawing.Size(315, 72);
+            this.jMeter1.TabIndex = 0;
+            // 
+            // jMeter2
+            // 
+            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter2.Location = new System.Drawing.Point(324, 3);
+            this.jMeter2.Name = "jMeter2";
+            this.jMeter2.Size = new System.Drawing.Size(315, 72);
+            this.jMeter2.TabIndex = 1;
+            // 
+            // jMeter3
+            // 
+            this.jMeter3.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter3.Location = new System.Drawing.Point(645, 3);
+            this.jMeter3.Name = "jMeter3";
+            this.jMeter3.Size = new System.Drawing.Size(315, 72);
+            this.jMeter3.TabIndex = 2;
+            // 
+            // jMeter4
+            // 
+            this.jMeter4.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter4.Location = new System.Drawing.Point(966, 3);
+            this.jMeter4.Name = "jMeter4";
+            this.jMeter4.Size = new System.Drawing.Size(315, 72);
+            this.jMeter4.TabIndex = 3;
+            // 
             // btnmethod
             // 
             this.btnmethod.BackColor = System.Drawing.Color.Transparent;
@@ -640,7 +688,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.userControl11);
+            this.tabPage1.Controls.Add(this.UTop);
             this.tabPage1.Location = new System.Drawing.Point(24, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -648,6 +696,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // UTop
+            // 
+            this.UTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UTop.Location = new System.Drawing.Point(3, 3);
+            this.UTop.Name = "UTop";
+            this.UTop.Size = new System.Drawing.Size(1316, 563);
+            this.UTop.TabIndex = 0;
+            this.UTop.Load += new System.EventHandler(this.userControl11_Load);
             // 
             // tabPage2
             // 
@@ -800,51 +857,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // userControl11
-            // 
-            this.userControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl11.Location = new System.Drawing.Point(3, 3);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(1316, 563);
-            this.userControl11.TabIndex = 0;
-            this.userControl11.Load += new System.EventHandler(this.userControl11_Load);
-            // 
-            // jMeter1
-            // 
-            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter1.Location = new System.Drawing.Point(3, 3);
-            this.jMeter1.Name = "jMeter1";
-            this.jMeter1.Size = new System.Drawing.Size(315, 72);
-            this.jMeter1.TabIndex = 0;
-            // 
-            // jMeter2
-            // 
-            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter2.Location = new System.Drawing.Point(324, 3);
-            this.jMeter2.Name = "jMeter2";
-            this.jMeter2.Size = new System.Drawing.Size(315, 72);
-            this.jMeter2.TabIndex = 1;
-            // 
-            // jMeter3
-            // 
-            this.jMeter3.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter3.Location = new System.Drawing.Point(645, 3);
-            this.jMeter3.Name = "jMeter3";
-            this.jMeter3.Size = new System.Drawing.Size(315, 72);
-            this.jMeter3.TabIndex = 2;
-            // 
-            // jMeter4
-            // 
-            this.jMeter4.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter4.Location = new System.Drawing.Point(966, 3);
-            this.jMeter4.Name = "jMeter4";
-            this.jMeter4.Size = new System.Drawing.Size(315, 72);
-            this.jMeter4.TabIndex = 3;
-            // 
             // FormMainLab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -894,7 +906,7 @@
         private System.Windows.Forms.Button btnon;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private UserControlTop userControl11;
+        private UserControlTop UTop;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -945,5 +957,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripStatusLabel tslblstate;
     }
 }

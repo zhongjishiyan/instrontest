@@ -176,7 +176,7 @@ namespace ClsStaticStation
              }
              if (machinekind ==3)
             {
-                initchannel标准1(); 
+                initchannel标准8采集通道1控制通道(); 
             }
          }
 
@@ -660,7 +660,7 @@ namespace ClsStaticStation
 
          }
 
-        public void initchannel标准1()
+        public void initchannel标准8采集通道1控制通道()
         {
             int i = 0;
             chsignals.Clear();
@@ -673,6 +673,7 @@ namespace ClsStaticStation
             isi.cName = "位移";
             isi.LName[0] = "位移";
             isi.LName[1] = "Disp.";
+            isi.SensorId = 0;
 
             isi.originprecise = 3;
             isi.SignName = "Ch Disp";
@@ -697,7 +698,7 @@ namespace ClsStaticStation
             isi.cName = "负荷1";
             isi.LName[0] = "负荷1";
             isi.LName[1] = "Force1";
-
+            isi.SensorId = 1;
 
 
             isi.originprecise = 3;
@@ -721,7 +722,7 @@ namespace ClsStaticStation
             isi.cName = "负荷2";
             isi.LName[0] = "负荷2";
             isi.LName[1] = "Force2";
-
+            isi.SensorId = 2;
 
 
             isi.originprecise = 3;
@@ -747,9 +748,10 @@ namespace ClsStaticStation
             isi.cName = "变形1";
             isi.LName[0] = "变形1";
             isi.LName[1] = "Ext 1";
+            isi.SensorId = 3;
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Sensor4";
+            isi.SignName = "Ch Sensor3";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -768,9 +770,10 @@ namespace ClsStaticStation
             isi.cName = "变形2";
             isi.LName[0] = "变形2";
             isi.LName[1] = "Ext 2";
+            isi.SensorId = 4;
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Sensor5";
+            isi.SignName = "Ch Sensor4";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -790,9 +793,10 @@ namespace ClsStaticStation
             isi.cName = "变形3";
             isi.LName[0] = "变形3";
             isi.LName[1] = "Ext 3";
-
+            isi.SensorId = 5;
+                
             isi.originprecise = 3;
-            isi.SignName = "Ch Sensor6";
+            isi.SignName = "Ch Sensor5";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -811,9 +815,10 @@ namespace ClsStaticStation
             isi.cName = "变形4";
             isi.LName[0] = "变形4";
             isi.LName[1] = "Ext 4";
+            isi.SensorId = 6;
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Sensor7";
+            isi.SignName = "Ch Sensor6";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -1641,7 +1646,7 @@ namespace ClsStaticStation
         public int level = 0;
         public int parent = 0;
 
-       
+      
 
         public bool boolnode = false;
         public double correct_coefficient = 1;//修正系数
@@ -1695,7 +1700,7 @@ namespace ClsStaticStation
     public class ItemSignal : ItemBaseSignal, IDisposable  //模拟信号类
     {
 
-        
+        public int SensorId;// 对应的硬件通道号
         public int originprecise;//小数点位数
         public int Resolution;//精度位数
         public int precise=3;//小数点位数
@@ -1703,7 +1708,7 @@ namespace ClsStaticStation
         public ItemSignal speedSignal;
 
         private string mcName;
-        public string cName=""; //信号名称
+        public string cName = ""; //信号名称
 
         public string[] LName;
 

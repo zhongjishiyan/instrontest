@@ -67,12 +67,24 @@ namespace TabHeaderDemo
         public string[] MachineName;
 
         public int MachineCount;
+
+        public string apptitle = "";
+
+        public bool showapptitle = false;
+
+        public string shorttitle = "";
+
+        public bool showshorttitle = false;
+
+
+        public string bmplogo = "";
+        public bool showlogo = false;
         public ClassSys()
         {
 
             ControllerName = new string[20];
 
-            ControllerName[0] = "TMC控制器";
+            ControllerName[0] = "ARM控制器";
             ControllerName[1] = "DOLI控制器";
             ControllerName[2] = "DSP控制器";
             ControllerName[3] = "直线电机";
@@ -82,7 +94,7 @@ namespace TabHeaderDemo
             MachineName[0] = "电子万能试验机";
             MachineName[1] = "扭转试验机";
             MachineName[2] = "岩石三轴试验机";
-            MachineName[3] = "标准试验机1";
+            MachineName[3] = "8采集通道1控制通道";
 
 
             MachineCount = 4;
@@ -188,7 +200,7 @@ namespace TabHeaderDemo
 
                     }
 
-                    c.ControllerName[0] = "TMC控制器";
+                    c.ControllerName[0] = "ARM控制器";
                     c.ControllerName[1] = "DOLI控制器";
                     c.ControllerName[2] = "DSP控制器";
                     c.ControllerName[3] = "直线电机";
@@ -202,7 +214,7 @@ namespace TabHeaderDemo
                     c.MachineName[0] = "电子万能试验机";
                     c.MachineName[1] = "扭转试验机";
                     c.MachineName[2] = "岩石三轴试验机";
-                    c.MachineName[3] = "标准试验机1";
+                    c.MachineName[3] = "8采集通道1控制通道";
                     c.MachineCount = 4;
 
                     fileStream.Close();

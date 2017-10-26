@@ -32,7 +32,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbtnstrain = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -40,10 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.numericEdit3 = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblunit = new System.Windows.Forms.Label();
             this.numericEdit2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit4)).BeginInit();
@@ -62,6 +62,7 @@
             this.button2.Text = "取消";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -74,17 +75,17 @@
             this.button1.Text = "确定";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.rbtnstrain);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.numericEdit3);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lblunit);
             this.groupBox1.Controls.Add(this.numericEdit2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -93,31 +94,40 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // rbtnstrain
+            // comboBox1
             // 
-            this.rbtnstrain.AutoSize = true;
-            this.rbtnstrain.Location = new System.Drawing.Point(12, 114);
-            this.rbtnstrain.Name = "rbtnstrain";
-            this.rbtnstrain.Size = new System.Drawing.Size(95, 16);
-            this.rbtnstrain.TabIndex = 12;
-            this.rbtnstrain.TabStop = true;
-            this.rbtnstrain.Text = "当应力到达：";
-            this.rbtnstrain.UseVisualStyleBackColor = true;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(114, 26);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(197, 20);
+            this.comboBox1.TabIndex = 14;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "控制方式：";
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.numericEdit4);
-            this.panel1.Location = new System.Drawing.Point(119, 108);
+            this.panel1.Location = new System.Drawing.Point(44, 108);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(193, 27);
+            this.panel1.Size = new System.Drawing.Size(268, 27);
             this.panel1.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 8);
+            this.label5.Location = new System.Drawing.Point(52, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(17, 12);
             this.label5.TabIndex = 6;
@@ -126,7 +136,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(157, 8);
+            this.label6.Location = new System.Drawing.Point(239, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(23, 12);
             this.label6.TabIndex = 5;
@@ -137,10 +147,11 @@
             this.numericEdit4.BackColor = System.Drawing.Color.White;
             this.numericEdit4.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numericEdit4.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
-            this.numericEdit4.Location = new System.Drawing.Point(26, 3);
+            this.numericEdit4.Location = new System.Drawing.Point(75, 3);
             this.numericEdit4.Name = "numericEdit4";
-            this.numericEdit4.Size = new System.Drawing.Size(112, 21);
+            this.numericEdit4.Size = new System.Drawing.Size(152, 21);
             this.numericEdit4.TabIndex = 4;
+            this.numericEdit4.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numericEdit4_AfterChangeValue);
             // 
             // label4
             // 
@@ -168,14 +179,14 @@
             this.numericEdit3.Size = new System.Drawing.Size(112, 21);
             this.numericEdit3.TabIndex = 8;
             // 
-            // label2
+            // lblunit
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(283, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "kN";
+            this.lblunit.AutoSize = true;
+            this.lblunit.Location = new System.Drawing.Point(283, 72);
+            this.lblunit.Name = "lblunit";
+            this.lblunit.Size = new System.Drawing.Size(17, 12);
+            this.lblunit.TabIndex = 6;
+            this.lblunit.Text = "kN";
             // 
             // numericEdit2
             // 
@@ -185,23 +196,17 @@
             this.numericEdit2.Name = "numericEdit2";
             this.numericEdit2.Size = new System.Drawing.Size(152, 21);
             this.numericEdit2.TabIndex = 5;
+            this.numericEdit2.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numericEdit2_AfterChangeValue);
             // 
-            // label1
+            // checkBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "控制方式：";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(114, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(197, 20);
-            this.comboBox1.TabIndex = 14;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(13, 6);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Form标准跳转条件
             // 
@@ -211,8 +216,12 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Form标准跳转条件";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "跳转条件";
+            this.Load += new System.EventHandler(this.Form标准跳转条件_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -229,7 +238,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.RadioButton rbtnstrain;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -237,9 +245,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public NationalInstruments.UI.WindowsForms.NumericEdit numericEdit3;
-        private System.Windows.Forms.Label label2;
         public NationalInstruments.UI.WindowsForms.NumericEdit numericEdit2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.Label lblunit;
     }
 }

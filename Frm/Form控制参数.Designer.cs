@@ -63,7 +63,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(33, 48);
+            this.radioButton2.Location = new System.Drawing.Point(33, 55);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(71, 16);
             this.radioButton2.TabIndex = 17;
@@ -160,7 +160,7 @@
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(448, 43);
+            this.button2.Location = new System.Drawing.Point(449, 57);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 29);
             this.button2.TabIndex = 2;

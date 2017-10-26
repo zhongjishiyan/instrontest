@@ -58,7 +58,7 @@ namespace TabHeaderDemo
         {
 
 
-            if (IsWindowsVistaOrNewer)
+           if (IsWindowsVistaOrNewer)
             {
 
 
@@ -90,7 +90,7 @@ namespace TabHeaderDemo
             }
             else
             {
-                MessageBox.Show("请在windows7以上版本运行");
+               MessageBox.Show("请在windows7以上版本运行");
             }
 
         }
@@ -693,6 +693,39 @@ namespace TabHeaderDemo
             software.Close();
 
     */
+            if (GlobeVal.mysys.showshorttitle == false)
+            {
+                UTop.wordArt1.Caption = "AppleLab";
+
+            }
+            else
+            {
+                UTop.wordArt1.Caption = GlobeVal.mysys.shorttitle;
+            }
+           
+            if (GlobeVal.mysys.showlogo == true)
+            {
+                if (System.IO.File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\bmp\\" + GlobeVal.mysys.bmplogo))
+                {
+                    UTop.paneldefine.BackgroundImage = Image.FromFile(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\bmp\\" + GlobeVal.mysys.bmplogo);
+                    UTop.panel6.Visible = false;
+                    UTop.paneldefine.Visible = true;
+                }
+                else
+                {
+                    UTop.panel6.Visible = true;
+                    UTop.paneldefine.Visible = false;
+
+                }
+            }
+            else
+            {
+                UTop.panel6.Visible = true;
+                UTop.paneldefine.Visible = false;
+
+            }
+
+            UTop.Refresh();
 
             timermain.Enabled = true;
 
@@ -794,6 +827,15 @@ namespace TabHeaderDemo
         private void timer1_Tick(object sender, EventArgs e)
         {
 
+            if (GlobeVal.myarm.getrunstate() ==1)
+            {
+                GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：运行";
+
+            }
+            else
+            {
+                GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：停止";
+            }
 
 
             if ((GlobeVal.myarm.getlimit(0) == true) || (GlobeVal.myarm.getlimit(0) == true))
@@ -915,7 +957,9 @@ namespace TabHeaderDemo
             int i;
 
             CComLibrary.FileStruct f = CComLibrary.GlobeVal.filesave;
-            CComLibrary.GlobeVal.filesave.SerializeNow("d:\\temp");
+            string temp = System.Environment.GetEnvironmentVariable("TEMP");
+            DirectoryInfo info = new DirectoryInfo(temp);
+            CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName+ "\\temp.tmp");
 
 
             try
@@ -952,7 +996,10 @@ namespace TabHeaderDemo
             {
 
             }
-            CComLibrary.GlobeVal.filesave = f.DeSerializeNow("d:\\temp");
+
+            temp = System.Environment.GetEnvironmentVariable("TEMP");
+            info = new DirectoryInfo(temp);
+            CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName +"\\temp.tmp");
 
         }
 
@@ -975,6 +1022,7 @@ namespace TabHeaderDemo
 
         private void btnkey1_Click(object sender, EventArgs e)
         {
+
 
             GlobeVal.myarm.btnkey(sender as Button);
 
@@ -1014,9 +1062,27 @@ namespace TabHeaderDemo
 
             tsluser.Text = "用户名:" + GlobeVal.mysys.UserName[GlobeVal.mysys.CurentUserIndex];
 
-            tslblmachine.Text = GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
-            this.Text = "AppleLab-" + GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
+            if (GlobeVal.mysys.showapptitle== false)
+            {
+                tslblmachine.Text = GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
+                this.Text = "AppleLab-" + GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
+            }
+            else
+            {
+                tslblmachine.Text = GlobeVal.mysys.apptitle;
+                this.Text = GlobeVal.mysys.apptitle;
+            }
 
+            if(GlobeVal.mysys.showshorttitle ==false)
+            {
+                UTop.wordArt1.Caption = "AppleLab";
+
+            }
+            else
+            {
+                UTop.wordArt1.Caption = GlobeVal.mysys.shorttitle;
+            }
+          
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -1062,7 +1128,10 @@ namespace TabHeaderDemo
                 else
                 {
                     f = CComLibrary.GlobeVal.filesave;
-                    CComLibrary.GlobeVal.filesave.SerializeNow("d:\\temp");
+
+                    string temp = System.Environment.GetEnvironmentVariable("TEMP");
+                    DirectoryInfo info = new DirectoryInfo(temp);
+                    CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName+"\\temp.tmp");
 
                 }
                 try
@@ -1093,7 +1162,9 @@ namespace TabHeaderDemo
                 }
                 if (b == true)
                 {
-                    CComLibrary.GlobeVal.filesave = f.DeSerializeNow("d:\\temp");
+                    string temp = System.Environment.GetEnvironmentVariable("TEMP");
+                    DirectoryInfo info = new DirectoryInfo(temp);
+                    CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName+"\\temp.tmp");
                 }
             }
             else

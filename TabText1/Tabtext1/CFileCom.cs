@@ -1813,13 +1813,14 @@ namespace CComLibrary
                     {
                         s = "速度:" + speed.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[0];
 
+                        if (controlmode == 1)
+                        {
+                            s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
+
+                        }
 
                     }
-                    if (controlmode == 1)
-                    {
-                        s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
-
-                    }
+                 
 
 
                 }
@@ -1848,13 +1849,15 @@ namespace CComLibrary
 
                             dest.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].cUnits[0] + "时";
 
+                        if (destcontrolmode == 1)
+                        {
+                            s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(dest).ToString("F4") + "MPa]";
+
+                        }
+
                     }
 
-                    if (destcontrolmode == 1)
-                    {
-                        s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(dest).ToString("F4") + "MPa]";
-
-                    }
+                   
 
                 }
 
@@ -2054,113 +2057,109 @@ namespace CComLibrary
 
         }
 
-        public string explain(int machinekind)
+        public string speedconvert()
         {
             string s = "";
-            SegFile f = new SegFile();
-
-            s = s + f.cmdstring[cmd] + " ";
-
 
             if (cmd == 2)
             {
-                s = s + "速度 " + speed.ToString("F4") + " ";
+                s = "速度:" + speed.ToString() + "MPa/s";
 
-                s = s + "MPa/s";
+            }
+            else
+            {
 
-                s = s + "目标[MPa]：";
-                s = s + dest.ToString();
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+                {
+                    if (controlmode == i)
+                    {
+                        s = "速度:" + speed.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[0];
+
+                        if (controlmode == 1)
+                        {
+                            s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
+
+                        }
+
+                    }
+
+
+
+                }
+            }
+            return s;
+        }
+
+       
+
+        public string destconvert()
+        {
+
+            string s = "";
+
+            if (cmd == 2)
+            {
+                s = "当围压压力到达" + dest.ToString() + "MPa时";
             }
 
             else
             {
 
-
-
-                s = s + "速度 " + speed.ToString("F4") + " ";
-
-                if ((machinekind == 0) || (machinekind == 2))
-
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
                 {
-                    if (controlmode == 0)
+                    if (destcontrolmode == i)
                     {
-                        s = s + "mm/s,";
-                    }
-                    else
-                    {
-                        s = s + "kN/s";
+                        s = "当" + ClsStaticStation.m_Global.mycls.hardsignals[i].cName + "到达" +
 
-                        s = s + "[";
-                        s = s + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
+                            dest.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].cUnits[0] + "时";
 
-                    }
+                        if (destcontrolmode == 1)
+                        {
+                            s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(dest).ToString("F4") + "MPa]";
 
-
-                    if (destcontrolmode == 0)
-                    {
-                        s = s + "目标[mm]：";
-                    }
-                    else
-                    {
-                        s = s + "目标[kN]：";
-
+                        }
 
                     }
+
+
+
                 }
-                else if (machinekind == 1)
+
+                if (keeptime == 0)
                 {
 
-                    if (controlmode == 0)
-                    {
-                        s = s + "°/s  ";
-                    }
-                    else
-                    {
-                        s = s + "N.M/s ";
-
-
-
-                    }
-
-
-                    if (destcontrolmode == 0)
-                    {
-                        s = s + "目标[°]：";
-                    }
-                    else
-                    {
-                        s = s + "目标[N.M]：";
-
-
-                    }
-                }
-                s = s + dest.ToString("F4");
-
-
-                if (destcontrolmode == 0)
-                {
                 }
                 else
                 {
-                    s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(dest).ToString("F4") + "MPa]";
-
+                    s = s + ",保持" + keeptime.ToString() + "s";
                 }
-
-                if (keeptime > 0)
-                {
-                    s = s + "保持" + keeptime.ToString("F4") + "s";
-                }
-
-                if ((returncount > 0) && (returnstep > 0))
-                {
-
-                    s = s + "返回" + returncount.ToString() + "次," + "返回到步骤" + returnstep.ToString();
-                }
-
-
-
-
             }
+            return s;
+        }
+
+        public string explain(int machinekind)
+        {
+
+
+            string s = "";
+
+
+
+            s = s + speedconvert();
+
+            s = s + " " + destconvert();
+
+
+         
+            if ((returncount > 0) && (returnstep > 0))
+            {
+
+                s = s + "返回" + returncount.ToString() + "次," + "返回到步骤" + returnstep.ToString();
+            }
+
+
+
+
 
             if (action == 0)
             {
@@ -2171,7 +2170,9 @@ namespace CComLibrary
                 s = s + " 同步执行";
             }
             return s;
+
         }
+      
     }
 
     [Serializable]

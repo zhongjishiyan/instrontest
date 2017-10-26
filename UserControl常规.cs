@@ -96,6 +96,7 @@ namespace TabHeaderDemo
             {
                 listBox1.Items.Add("控制过程:" + "简单控制");
             }
+            
          
             CComLibrary.GlobeVal.filesave.InitExplainList();
 
