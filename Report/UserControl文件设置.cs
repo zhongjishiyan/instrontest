@@ -59,7 +59,7 @@ namespace TabHeaderDemo
             {
                 if (txtpath.Text.Trim() == "")
                 {
-                    s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    s = System.Windows.Forms.Application.StartupPath;
 
                     if (Directory.Exists(s + "\\AppleLabJ") == true)
                     {

@@ -63,15 +63,10 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tlbmeter = new System.Windows.Forms.TableLayoutPanel();
-            this.jMeter1 = new TabHeaderDemo.JMeter();
-            this.jMeter2 = new TabHeaderDemo.JMeter();
-            this.jMeter3 = new TabHeaderDemo.JMeter();
-            this.jMeter4 = new TabHeaderDemo.JMeter();
             this.btnmethod = new System.Windows.Forms.Button();
             this.btnon = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.UTop = new TabHeaderDemo.UserControlTop();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -89,6 +84,11 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.UTop = new TabHeaderDemo.UserControlTop();
+            this.jMeter1 = new TabHeaderDemo.JMeter();
+            this.jMeter2 = new TabHeaderDemo.JMeter();
+            this.jMeter3 = new TabHeaderDemo.JMeter();
+            this.jMeter4 = new TabHeaderDemo.JMeter();
             this.statusStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tlprecord.SuspendLayout();
@@ -445,12 +445,12 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 6;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel3.Controls.Add(this.btnhand, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnext1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btntool, 0, 0);
@@ -462,7 +462,6 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(270, 42);
             this.tableLayoutPanel3.TabIndex = 44;
             // 
@@ -472,7 +471,7 @@
             this.btnhand.FlatAppearance.BorderSize = 0;
             this.btnhand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhand.Image = ((System.Drawing.Image)(resources.GetObject("btnhand.Image")));
-            this.btnhand.Location = new System.Drawing.Point(45, 3);
+            this.btnhand.Location = new System.Drawing.Point(46, 3);
             this.btnhand.Name = "btnhand";
             this.btnhand.Size = new System.Drawing.Size(38, 33);
             this.btnhand.TabIndex = 46;
@@ -486,14 +485,14 @@
             this.btnext1.FlatAppearance.BorderSize = 0;
             this.btnext1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnext1.Image = ((System.Drawing.Image)(resources.GetObject("btnext1.Image")));
-            this.btnext1.Location = new System.Drawing.Point(92, 3);
+            this.btnext1.Location = new System.Drawing.Point(142, 3);
             this.btnext1.Name = "btnext1";
-            this.btnext1.Size = new System.Drawing.Size(38, 33);
+            this.btnext1.Size = new System.Drawing.Size(37, 33);
             this.btnext1.TabIndex = 36;
             this.btnext1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnext1, "引伸计1设置");
             this.btnext1.UseVisualStyleBackColor = false;
-            this.btnext1.Click += new System.EventHandler(this.button6_Click);
+            this.btnext1.Click += new System.EventHandler(this.btnext1_Click);
             // 
             // btntool
             // 
@@ -517,14 +516,14 @@
             this.btnpos.FlatAppearance.BorderSize = 0;
             this.btnpos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnpos.Image = ((System.Drawing.Image)(resources.GetObject("btnpos.Image")));
-            this.btnpos.Location = new System.Drawing.Point(226, 3);
+            this.btnpos.Location = new System.Drawing.Point(230, 3);
             this.btnpos.Name = "btnpos";
-            this.btnpos.Size = new System.Drawing.Size(38, 33);
+            this.btnpos.Size = new System.Drawing.Size(37, 33);
             this.btnpos.TabIndex = 47;
             this.btnpos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnpos, "位移设置");
             this.btnpos.UseVisualStyleBackColor = false;
-            this.btnpos.Click += new System.EventHandler(this.button8_Click);
+            this.btnpos.Click += new System.EventHandler(this.btnpos_Click);
             // 
             // btnload
             // 
@@ -532,14 +531,14 @@
             this.btnload.FlatAppearance.BorderSize = 0;
             this.btnload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnload.Image = ((System.Drawing.Image)(resources.GetObject("btnload.Image")));
-            this.btnload.Location = new System.Drawing.Point(180, 3);
+            this.btnload.Location = new System.Drawing.Point(186, 3);
             this.btnload.Name = "btnload";
             this.btnload.Size = new System.Drawing.Size(38, 33);
             this.btnload.TabIndex = 45;
             this.btnload.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnload, "力传感器设置");
             this.btnload.UseVisualStyleBackColor = false;
-            this.btnload.Click += new System.EventHandler(this.button7_Click);
+            this.btnload.Click += new System.EventHandler(this.btnload_Click);
             // 
             // btnext2
             // 
@@ -547,14 +546,15 @@
             this.btnext2.FlatAppearance.BorderSize = 0;
             this.btnext2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnext2.Image = ((System.Drawing.Image)(resources.GetObject("btnext2.Image")));
-            this.btnext2.Location = new System.Drawing.Point(136, 3);
+            this.btnext2.Location = new System.Drawing.Point(185, 3);
             this.btnext2.Name = "btnext2";
-            this.btnext2.Size = new System.Drawing.Size(38, 33);
+            this.btnext2.Size = new System.Drawing.Size(1, 33);
             this.btnext2.TabIndex = 44;
             this.btnext2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnext2, "引伸计2设置");
             this.btnext2.UseVisualStyleBackColor = false;
-            this.btnext2.Click += new System.EventHandler(this.button2_Click);
+            this.btnext2.Visible = false;
+            this.btnext2.Click += new System.EventHandler(this.btnext2_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -603,42 +603,6 @@
             this.tlbmeter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlbmeter.Size = new System.Drawing.Size(1284, 78);
             this.tlbmeter.TabIndex = 40;
-            // 
-            // jMeter1
-            // 
-            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter1.Location = new System.Drawing.Point(3, 3);
-            this.jMeter1.Name = "jMeter1";
-            this.jMeter1.Size = new System.Drawing.Size(315, 72);
-            this.jMeter1.TabIndex = 0;
-            // 
-            // jMeter2
-            // 
-            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter2.Location = new System.Drawing.Point(324, 3);
-            this.jMeter2.Name = "jMeter2";
-            this.jMeter2.Size = new System.Drawing.Size(315, 72);
-            this.jMeter2.TabIndex = 1;
-            // 
-            // jMeter3
-            // 
-            this.jMeter3.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter3.Location = new System.Drawing.Point(645, 3);
-            this.jMeter3.Name = "jMeter3";
-            this.jMeter3.Size = new System.Drawing.Size(315, 72);
-            this.jMeter3.TabIndex = 2;
-            // 
-            // jMeter4
-            // 
-            this.jMeter4.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter4.Location = new System.Drawing.Point(966, 3);
-            this.jMeter4.Name = "jMeter4";
-            this.jMeter4.Size = new System.Drawing.Size(315, 72);
-            this.jMeter4.TabIndex = 3;
             // 
             // btnmethod
             // 
@@ -696,15 +660,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // UTop
-            // 
-            this.UTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UTop.Location = new System.Drawing.Point(3, 3);
-            this.UTop.Name = "UTop";
-            this.UTop.Size = new System.Drawing.Size(1316, 563);
-            this.UTop.TabIndex = 0;
-            this.UTop.Load += new System.EventHandler(this.userControl11_Load);
             // 
             // tabPage2
             // 
@@ -856,6 +811,51 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // UTop
+            // 
+            this.UTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UTop.Location = new System.Drawing.Point(3, 3);
+            this.UTop.Name = "UTop";
+            this.UTop.Size = new System.Drawing.Size(1316, 563);
+            this.UTop.TabIndex = 0;
+            this.UTop.Load += new System.EventHandler(this.userControl11_Load);
+            // 
+            // jMeter1
+            // 
+            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter1.Location = new System.Drawing.Point(3, 3);
+            this.jMeter1.Name = "jMeter1";
+            this.jMeter1.Size = new System.Drawing.Size(315, 72);
+            this.jMeter1.TabIndex = 0;
+            // 
+            // jMeter2
+            // 
+            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter2.Location = new System.Drawing.Point(324, 3);
+            this.jMeter2.Name = "jMeter2";
+            this.jMeter2.Size = new System.Drawing.Size(315, 72);
+            this.jMeter2.TabIndex = 1;
+            // 
+            // jMeter3
+            // 
+            this.jMeter3.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter3.Location = new System.Drawing.Point(645, 3);
+            this.jMeter3.Name = "jMeter3";
+            this.jMeter3.Size = new System.Drawing.Size(315, 72);
+            this.jMeter3.TabIndex = 2;
+            // 
+            // jMeter4
+            // 
+            this.jMeter4.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter4.Location = new System.Drawing.Point(966, 3);
+            this.jMeter4.Name = "jMeter4";
+            this.jMeter4.Size = new System.Drawing.Size(315, 72);
+            this.jMeter4.TabIndex = 3;
             // 
             // FormMainLab
             // 

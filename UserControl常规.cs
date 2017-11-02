@@ -616,7 +616,7 @@ namespace TabHeaderDemo
         {
             openFileDialog1.FileName = "";
             openFileDialog1.Filter = "(*.lay" + ")|*.lay";
-            openFileDialog1.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\layout\\";
+            openFileDialog1.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\";
             openFileDialog1.ShowDialog();
 
             if (openFileDialog1.FileName == "")
@@ -743,7 +743,7 @@ namespace TabHeaderDemo
         {
             saveFileDialog1.FileName = "";
             saveFileDialog1.Filter = "(*.lay" + ")|*.lay";
-            saveFileDialog1.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\layout\\";
+            saveFileDialog1.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\";
             saveFileDialog1.ShowDialog(); 
 
             if (saveFileDialog1.FileName =="")
@@ -822,7 +822,7 @@ namespace TabHeaderDemo
         {
             openFileDialog1.FileName = "";
             openFileDialog1.Filter = "(*.lay" + ")|*.lay";
-            openFileDialog1.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\layout\\";
+            openFileDialog1.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\";
             openFileDialog1.ShowDialog();
 
             if (openFileDialog1.FileName == "")

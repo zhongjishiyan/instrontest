@@ -187,10 +187,10 @@ namespace AppleLabApplication
                 }
 
                 string s;
-                s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\temp.dat";
+                s = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\temp.dat";
                 CComLibrary.GlobeVal.filesave.SerializeNow(s);
 
-                s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\method\" + CComLibrary.GlobeVal.filesave.methodname + @".dat";
+                s = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\" + CComLibrary.GlobeVal.filesave.methodname + @".dat";
 
                 CComLibrary.GlobeVal.filesave.SerializeNow(s);
 

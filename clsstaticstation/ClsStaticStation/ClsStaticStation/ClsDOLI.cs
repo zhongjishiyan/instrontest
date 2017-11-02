@@ -2227,7 +2227,7 @@ namespace ClsStaticStation
 
                 CComLibrary.SegFile sf = new CComLibrary.SegFile();
 
-                sf = sf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\"
+                sf = sf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\"
                     + CComLibrary.GlobeVal.filesave.SegName);
 
                 int i = 0;

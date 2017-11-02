@@ -18,6 +18,13 @@ namespace TabHeaderDemo
     public class ClassSys
     {
 
+        public enum _MachineName:int
+        {
+            Electronic,
+            Torsion,
+             Three_axis,
+            standard1
+        }
         public string  softwareconfig = "AppleLab 静态试验软件";
         public string  softwareinstalldate;
         public double softwareversion = 1.0;
@@ -63,7 +70,7 @@ namespace TabHeaderDemo
 
         public int CurentUserIndex=0;
 
-        public int machinekind = 0;//主机类型
+        public int  machinekind = 0;//主机类型
         public string[] MachineName;
 
         public int MachineCount;

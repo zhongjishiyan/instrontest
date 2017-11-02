@@ -63,7 +63,7 @@ namespace TabHeaderDemo
         private void cbostartup_SelectionChangeCommitted(object sender, EventArgs e)
         {
              GlobeVal.mysys.startupscreen=cbostartup.SelectedIndex;
-             GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+             GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
         }
 
         private void chkdemo_CheckedChanged(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace TabHeaderDemo
                GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = GlobeVal.mysys.ControllerName[GlobeVal.mysys.controllerkind];
            }
            
-           GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+           GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
         }
 
         private void txtAppTitle_TextChanged(object sender, EventArgs e)
@@ -106,7 +106,13 @@ namespace TabHeaderDemo
         {
             openFileDialog1.FileName = "";
             openFileDialog1.Filter = "(*.bmp" + ")|*.bmp";
-            openFileDialog1.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\bmp\\";
+
+            string s;
+            s = System.Windows.Forms.Application.StartupPath;
+
+            openFileDialog1.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\bmp\\";
+
+
             openFileDialog1.ShowDialog();
             if (openFileDialog1.FileName == "")
             {

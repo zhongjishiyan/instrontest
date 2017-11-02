@@ -1646,6 +1646,15 @@ namespace CComLibrary
 
         public int destcontrolmode=0;
 
+        public double mtrirate;
+
+
+        public long mtricount;
+        public int mtriinitdir;
+
+        public int mtricbomax;
+
+
         public  Sequence()
             {
             wavekind = 0;
@@ -2605,7 +2614,7 @@ namespace CComLibrary
 
                 CComLibrary.SegFile sf = new CComLibrary.SegFile();
 
-                sf = sf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\"
+                sf = sf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\"
                     + CComLibrary.GlobeVal.filesave.SegName);
 
                 int i = 0;
@@ -3750,7 +3759,7 @@ namespace CComLibrary
                         {
                             SegFile sf = new SegFile();
 
-                            sf = sf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\"
+                            sf = sf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\"
                                 + SegName);
 
                             int i = 0;

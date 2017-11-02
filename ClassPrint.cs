@@ -428,7 +428,7 @@ namespace TabHeaderDemo
                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
                {
 
-                    s = s+"   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind) +"\r\n";
+                    s = s+"   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(Convert.ToInt32(GlobeVal.mysys.machinekind)) +"\r\n";
                  
                }
 

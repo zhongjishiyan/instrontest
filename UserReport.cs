@@ -130,10 +130,10 @@ namespace TabHeaderDemo
                 if (CComLibrary.GlobeVal.filesave != null)
                 {
 
-                    if (System.IO.File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate) == true)
+                    if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate) == true)
                     {
 
-                        mReportApp = mReportApp.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate);
+                        mReportApp = mReportApp.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate);
 
                     }
                 }
@@ -674,7 +674,7 @@ namespace TabHeaderDemo
                         text.CharacterFormat.Bold = mReportApp.mreportheader[i].font.Bold;
 
                         DocPicture headerPicture
-                       = headerParagraph.AppendPicture(Image.FromFile(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\bmp\\" + mReportApp.mreportheader[i].filename));
+                       = headerParagraph.AppendPicture(Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\bmp\\" + mReportApp.mreportheader[i].filename));
 
                         headerPicture.HorizontalAlignment = ShapeHorizontalAlignment.Left;
                     }
@@ -864,7 +864,7 @@ namespace TabHeaderDemo
                                     text.CharacterFormat.Bold = mReportApp.mreportfooter[i].font.Bold;
 
                                     DocPicture footerPicture
-                                 = FParagraph.AppendPicture(Image.FromFile(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\bmp\\" + mReportApp.mreportfooter[i].filename));
+                                 = FParagraph.AppendPicture(Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\bmp\\" + mReportApp.mreportfooter[i].filename));
 
                                       footerPicture.HorizontalAlignment = ShapeHorizontalAlignment.Left;
                               }
@@ -1027,7 +1027,7 @@ namespace TabHeaderDemo
         private void button1_Click_1(object sender, EventArgs e)
         {
 
-            mReportApp.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\report\\default.it");
+            mReportApp.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\default.it");
 
            
         }

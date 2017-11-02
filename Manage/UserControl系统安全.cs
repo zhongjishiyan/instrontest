@@ -75,7 +75,7 @@ namespace TabHeaderDemo
                 GlobeVal.mysys.UserLevels[GlobeVal.mysys.UserCount] = GlobeVal.userkind;
                 listBox1.Items.Add(GlobeVal.mysys.UserName[GlobeVal.mysys.UserCount]);
                 GlobeVal.mysys.UserCount = GlobeVal.mysys.UserCount + 1;
-                GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+                GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
                
             }
 
@@ -101,7 +101,7 @@ namespace TabHeaderDemo
                     GlobeVal.mysys.UserLevels[listBox1.SelectedIndex] = GlobeVal.userkind;
 
                     listBox1.Items[listBox1.SelectedIndex] = GlobeVal.username;
-                    GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+                    GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
 
                 }
 
@@ -131,7 +131,7 @@ namespace TabHeaderDemo
             }
 
             GlobeVal.mysys.UserCount = GlobeVal.mysys.UserCount - 1;
-            GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+            GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
 
             }
 

@@ -172,7 +172,6 @@
             // 
             // pictureBox2
             // 
-            //this.pictureBox2.BackgroundImage = global::TabHeaderDemo.Properties.Resources._1080___副本;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(3, 3);
@@ -224,7 +223,6 @@
             // 
             // pictureBox1
             // 
-           // this.pictureBox1.BackgroundImage = global::TabHeaderDemo.Properties.Resources._1080___副本;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);

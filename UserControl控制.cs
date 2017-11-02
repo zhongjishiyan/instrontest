@@ -533,7 +533,7 @@ namespace TabHeaderDemo
 
 
             tscbos.Items.Clear();
-            DirectoryInfo info = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence");
+            DirectoryInfo info = new DirectoryInfo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence");
             FileInfo[] files = info.GetFiles("*.seq");
             foreach (FileInfo file in files)
             {
@@ -550,7 +550,7 @@ namespace TabHeaderDemo
 
 
 
-
+            
 
             tlpscroll.ColumnStyles[0].Width = 50;
             tlpscroll.ColumnStyles[2].Width = 50;
@@ -608,6 +608,12 @@ namespace TabHeaderDemo
                     ClsStaticStation.m_Global.mycls.allsignals[i - 1].cUnitsel], typeof(string),
                     ClsStaticStation.m_Global.mycls.allsignals[i - 1].cUnits, false);
 
+
+            }
+
+            if (listViewEx1.mlist.Count > 0)
+            {
+                UserControlStep1_btnselectevent(listViewEx1.mlist[0], 0);
 
             }
         }
@@ -678,7 +684,7 @@ namespace TabHeaderDemo
                 Add(i, ref sf);
             }
             tscbo.Items.Clear();
-            DirectoryInfo info = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg");
+            DirectoryInfo info = new DirectoryInfo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg");
             FileInfo[] files = info.GetFiles("*.seg");
             foreach (FileInfo file in files)
             {
@@ -1329,11 +1335,82 @@ namespace TabHeaderDemo
 
         private void UserControlStep1_btncutevent(object sender, int index)
         {
+
+            DialogResult a = MessageBox.Show("是否删除当前模块？", "提示", MessageBoxButtons.YesNo);
+
+            if (a == DialogResult.Yes)
+            {
+                UserControlStep p;
+                int b = 0;
+                for (int i = 0; i < listViewEx1.mlist.Count; i++)
+                {
+                    if (listViewEx1.mlist[i].selected == true)
+                    {
+                        b = i;
+                    }
+                }
+
+                p = listViewEx1.mlist[b];
+
+                p.btnrightevent -= this.UserControlStep1_btnrightevent;
+                p.btncopyevent -= this.UserControlStep1_btncopyevent;
+                p.btncutevent -= this.UserControlStep1_btncutevent;
+                p.btnleftevent -= this.UserControlStep1_btnleftevent;
+                p.btnselectevent -= this.UserControlStep1_btnselectevent;
+
+
+                listViewEx1.mlist.RemoveAt(b);
+                listViewEx1.Columns.RemoveAt(b);
+                listViewEx1.reset();
+                p.Dispose();
+            }
             return;
+        
+           
         }
 
         private void UserControlStep1_btncopyevent(object sender, int index)
         {
+            UserControlStep p1;
+            UserControlStep p;
+            int b = 0;
+            for (int i = 0; i < listViewEx1.mlist.Count; i++)
+            {
+                if (listViewEx1.mlist[i].selected == true)
+                {
+                    b = i;
+                }
+            }
+
+            p1 = listViewEx1.mlist[b];
+
+           p = new UserControlStep();
+
+            p.Kind = p1.Kind;
+            p.msequence.stepname = p1.msequence.stepname;
+            p.msequence.wavekind = p1.msequence.wavekind;
+
+            p.selected = false;
+            p.settail(1);
+
+            p.btnrightevent += this.UserControlStep1_btnrightevent;
+            p.btncopyevent += this.UserControlStep1_btncopyevent;
+            p.btncutevent += this.UserControlStep1_btncutevent;
+            p.btnleftevent += this.UserControlStep1_btnleftevent;
+            p.btnselectevent += this.UserControlStep1_btnselectevent;
+
+            int mm = (sender as UserControlStep).Id;
+            ColumnHeader m = new ColumnHeader();
+            p.Width = 270;
+            m.Width = p.Width;
+
+
+            listViewEx1.mlist.Insert(mm + 1, p);
+            listViewEx1.Columns.Insert(mm + 1, m);
+
+            listViewEx1.reset();
+
+            
             return;
         }
 
@@ -1424,16 +1501,6 @@ namespace TabHeaderDemo
             numtestendvalue2.Value = 0;
         }
 
-
-        private void num1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void num2_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
-        {
-
-        }
 
         private void num1_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
@@ -1713,11 +1780,11 @@ namespace TabHeaderDemo
                 sf.add();
                 Add(1, ref sf);
 
-                sf.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + s + ".seg");
+                sf.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + s + ".seg");
 
                 tscbo.Items.Clear();
                 tscbo.Text = s + ".seg";
-                DirectoryInfo info = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg");
+                DirectoryInfo info = new DirectoryInfo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg");
                 FileInfo[] files = info.GetFiles("*.seg");
                 foreach (FileInfo file in files)
                 {
@@ -1733,12 +1800,12 @@ namespace TabHeaderDemo
         private void tsbtnsave_Click(object sender, EventArgs e)
         {
 
-            if (System.IO.File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + tscbo.Text) == true)
+            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text) == true)
             {
-                System.IO.File.Delete(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + tscbo.Text);
+                System.IO.File.Delete(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text);
             }
 
-            sf.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + tscbo.Text);
+            sf.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text);
 
 
         }
@@ -1747,14 +1814,14 @@ namespace TabHeaderDemo
         {
 
 
-            if (System.IO.File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + tscbo.Text) == true)
+            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text) == true)
             {
                 DialogResult b = MessageBox.Show("是否删除文件[" + tscbo.Text + "]?", "提示", MessageBoxButtons.YesNo);
 
                 if (b == DialogResult.Yes)
                 {
 
-                    System.IO.File.Delete(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + tscbo.Text);
+                    System.IO.File.Delete(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text);
                 }
                 else
                 {
@@ -1765,7 +1832,7 @@ namespace TabHeaderDemo
 
             sf.clear();
 
-            DirectoryInfo info = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg");
+            DirectoryInfo info = new DirectoryInfo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg");
             FileInfo[] files = info.GetFiles("*.seg");
             foreach (FileInfo file in files)
             {
@@ -1780,7 +1847,7 @@ namespace TabHeaderDemo
             if (mloaded == false)
             {
                 sf.mseglist.Clear();
-                sf = sf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + tscbo.Text);
+                sf = sf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text);
 
                 int i = 0;
 
@@ -1825,15 +1892,15 @@ namespace TabHeaderDemo
             if (f.result == true)
             {
                 s = f.txtname.Text;
-                if (System.IO.File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + tscbo.Text) == true)
+                if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text) == true)
                 {
-                    s1 = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + tscbo.Text;
+                    s1 = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text;
                     System.IO.File.Move(s1,
-                        System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg\\" + s + ".seg");
+                        System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + s + ".seg");
 
                 }
                 tscbo.Items.Clear();
-                DirectoryInfo info = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\seg");
+                DirectoryInfo info = new DirectoryInfo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg");
                 FileInfo[] files = info.GetFiles("*.seg");
                 foreach (FileInfo file in files)
                 {
@@ -2049,11 +2116,11 @@ namespace TabHeaderDemo
 
 
 
-                sqf.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + s + ".seq");
+                sqf.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + s + ".seq");
 
                 tscbos.Items.Clear();
                 tscbos.Text = s + ".seq";
-                DirectoryInfo info = new DirectoryInfo(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence");
+                DirectoryInfo info = new DirectoryInfo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence");
                 FileInfo[] files = info.GetFiles("*.seq");
                 foreach (FileInfo file in files)
                 {
@@ -2067,9 +2134,9 @@ namespace TabHeaderDemo
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            if (System.IO.File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + tscbos.Text) == true)
+            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + tscbos.Text) == true)
             {
-                System.IO.File.Delete(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + tscbos.Text);
+                System.IO.File.Delete(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + tscbos.Text);
             }
 
             sqf.clear();
@@ -2078,7 +2145,7 @@ namespace TabHeaderDemo
             {
                 sqf.add(listViewEx1.mlist[i].msequence);
             }
-            sqf.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + tscbos.Text);
+            sqf.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + tscbos.Text);
 
 
         }
@@ -2105,7 +2172,7 @@ namespace TabHeaderDemo
             {
 
                 sqf.clear();
-                sqf = sqf.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\sequence\\" + tscbos.Text);
+                sqf = sqf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + tscbos.Text);
 
 
 
@@ -2122,7 +2189,10 @@ namespace TabHeaderDemo
                     p.msequence = sqf.mSequencelist[i];
 
                     p.Kind = sqf.mSequencelist[i].wavekind;
+
+                   
                     p.selected = false;
+                    
                     p.settail(1);
                     p.Id = i;
 
@@ -2167,13 +2237,42 @@ namespace TabHeaderDemo
             getselect().msequence.controlmode = cbocontrol.SelectedIndex;
             getselect().msequence.rate = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
             numspeed.Value = getselect().msequence.mrate;
-            cbospeedunit.Items.Clear();
+
+           
+                cbospeedunit.Items.Clear();
+                for (int i = 0; i < getselect().msequence.rate.cUnitCount; i++)
+                {
+                    cbospeedunit.Items.Add(getselect().msequence.rate.cUnits[i]);
+                }
+
+                cbospeedunit.SelectedIndex = getselect().msequence.mrateunit;
+
+            cbokeeptimeunit.Items.Clear();
+            cbokeeptimeunit.Items.Add("S");
+            cbokeeptimeunit.SelectedIndex = 0;
+            numkeeptime.Value = getselect().msequence.keeptime;
+
+
+            cbotrispeedunit.Items.Clear();
+
             for (int i = 0; i < getselect().msequence.rate.cUnitCount; i++)
             {
-                cbospeedunit.Items.Add(getselect().msequence.rate.cUnits[i]);
+                cbotrispeedunit.Items.Add(getselect().msequence.rate.cUnits[i]);
             }
 
-            cbospeedunit.SelectedIndex = getselect().msequence.mrateunit;
+            cbotrispeedunit.SelectedIndex = getselect().msequence.mrateunit;
+
+            numtrispeed.Value = getselect().msequence.mtrirate;
+            numtricount.Value = getselect().msequence.mtricount;
+
+            cbotriinitdir.Items.Clear();
+            cbotriinitdir.Items.Add("向上");
+            cbotriinitdir.Items.Add("向下");
+            cbotriinitdir.SelectedIndex = getselect().msequence.mtriinitdir;
+
+            
+
+
         }
 
         private void cbocontrol_SelectedIndexChanged(object sender, EventArgs e)
@@ -2258,6 +2357,11 @@ namespace TabHeaderDemo
         {
             getselect().msequence.stepname = txtstep.Text;
             getselect().setcaption();
+        }
+
+        private void numkeeptime_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.keeptime = numkeeptime.Value;
         }
     }
 }

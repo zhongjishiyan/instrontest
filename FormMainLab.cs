@@ -58,7 +58,7 @@ namespace TabHeaderDemo
         {
 
 
-           if (IsWindowsVistaOrNewer)
+            if (IsWindowsVistaOrNewer)
             {
 
 
@@ -90,7 +90,7 @@ namespace TabHeaderDemo
             }
             else
             {
-               MessageBox.Show("请在windows7以上版本运行");
+                MessageBox.Show("请在windows7以上版本运行");
             }
 
         }
@@ -169,21 +169,22 @@ namespace TabHeaderDemo
 
             GlobeVal.mysys = new ClassSys();
 
-            // MessageBox.Show(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString());
+            //MessageBox.Show(System.Windows.Forms.Application.StartupPath.ToString());
 
-            if (Directory.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ") == false)
+
+            if (Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ") == false)
             {
-                Directory.CreateDirectory(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ");
+                Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ");
             }
-            if (File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini") == true)
+            if (File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini") == true)
             {
 
-                GlobeVal.mysys = GlobeVal.mysys.DeSerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+                GlobeVal.mysys = GlobeVal.mysys.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
 
             }
 
 
-            m_Global.mycls = new ItemSignalStation(GlobeVal.mysys.machinekind);
+            m_Global.mycls = new ItemSignalStation(Convert.ToInt32(GlobeVal.mysys.machinekind));
 
 
 
@@ -232,9 +233,9 @@ namespace TabHeaderDemo
 
             keyboardHook.KeyDown += new KeyEventHandler(keyboardHook_KeyDown);
             keyboardHook.KeyUp += new KeyEventHandler(keyboardHook_KeyUp);
-            keyboardReplayHook.KeyDown +=new KeyEventHandler( KeyboardReplayHook_KeyDown);
+            keyboardReplayHook.KeyDown += new KeyEventHandler(KeyboardReplayHook_KeyDown);
             keyboardReplayHook.KeyUp += new KeyEventHandler(KeyboardReplayHook_KeyUp);
-           
+
         }
 
         private void KeyboardReplayHook_KeyUp(object sender, KeyEventArgs e)
@@ -244,11 +245,11 @@ namespace TabHeaderDemo
 
         private void KeyboardReplayHook_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
             if (e.KeyData == Keys.Escape)
             {
 
-               
+
                 this.timerRecord.Enabled = false;
                 playBackMacroButton.Enabled = true;
                 this.keyboardReplayHook.Stop();
@@ -266,7 +267,7 @@ namespace TabHeaderDemo
                 new MacroEvent(
                     MacroEventType.MouseMove,
                     e,
-                    Environment.TickCount - lastTimeRecorded,this.Width,this.Height
+                    Environment.TickCount - lastTimeRecorded, this.Width, this.Height
                 ));
 
 
@@ -281,7 +282,7 @@ namespace TabHeaderDemo
                 new MacroEvent(
                     MacroEventType.MouseDown,
                     e,
-                    Environment.TickCount - lastTimeRecorded,this.Width,this.Height
+                    Environment.TickCount - lastTimeRecorded, this.Width, this.Height
                 ));
 
             lastTimeRecorded = Environment.TickCount;
@@ -295,7 +296,7 @@ namespace TabHeaderDemo
                 new MacroEvent(
                     MacroEventType.MouseUp,
                     e,
-                    Environment.TickCount - lastTimeRecorded,this.Width ,this.Height
+                    Environment.TickCount - lastTimeRecorded, this.Width, this.Height
                 ));
 
             lastTimeRecorded = Environment.TickCount;
@@ -309,7 +310,7 @@ namespace TabHeaderDemo
                 new MacroEvent(
                     MacroEventType.KeyDown,
                     e,
-                    Environment.TickCount - lastTimeRecorded,this.Width,this.Height 
+                    Environment.TickCount - lastTimeRecorded, this.Width, this.Height
                 ));
 
             lastTimeRecorded = Environment.TickCount;
@@ -318,7 +319,7 @@ namespace TabHeaderDemo
 
         void keyboardHook_KeyUp(object sender, KeyEventArgs e)
         {
-           
+
 
 
             myMacroRecord.events.Add(
@@ -326,7 +327,7 @@ namespace TabHeaderDemo
                     MacroEventType.KeyUp,
                     e,
 
-                    Environment.TickCount - lastTimeRecorded,this.Width,this.Height 
+                    Environment.TickCount - lastTimeRecorded, this.Width, this.Height
                 ));
 
             lastTimeRecorded = Environment.TickCount;
@@ -368,15 +369,15 @@ namespace TabHeaderDemo
 
                             MouseEventArgs mouseArgs = (MouseEventArgs)macroEvent.EventArgs;
 
-                            MouseSimulator.X = Convert.ToInt32( mouseArgs.X*this.Width/macroEvent.width);
-                            MouseSimulator.Y = Convert.ToInt32( mouseArgs.Y*(this.Height) /(macroEvent.height));
+                            MouseSimulator.X = Convert.ToInt32(mouseArgs.X * this.Width / macroEvent.width);
+                            MouseSimulator.Y = Convert.ToInt32(mouseArgs.Y * (this.Height) / (macroEvent.height));
 
                         }
                         break;
                     case MacroEventType.MouseDown:
                         {
-                            
-                            
+
+
                             MouseEventArgs mouseArgs = (MouseEventArgs)macroEvent.EventArgs;
 
                             MouseSimulator.MouseDown(mouseArgs.Button);
@@ -393,7 +394,7 @@ namespace TabHeaderDemo
 
                             MouseSimulator.MouseUp(mouseArgs.Button);
                             // shiwei 2017.10.20  演示时改变鼠标状态
-                            this.Cursor = Cursors.Hand ;
+                            this.Cursor = Cursors.Hand;
 
                         }
                         break;
@@ -587,11 +588,11 @@ namespace TabHeaderDemo
 
             backimage = new Bitmap(this.imageList1.Images[0], this.imageList1.Images[0].Size);
 
-            this.Width = Convert.ToInt32( Screen.PrimaryScreen.Bounds.Width);
-            this.Height =Convert.ToInt32( Screen.PrimaryScreen.Bounds.Height);
+            this.Width = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Width);
+            this.Height = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height);
 
-           // this.Width = 1600;
-           // this.Height = 900;
+            // this.Width = 1600;
+            // this.Height = 900;
             tabControl1.ItemSize = new Size(1, 1);
 
 
@@ -702,12 +703,12 @@ namespace TabHeaderDemo
             {
                 UTop.wordArt1.Caption = GlobeVal.mysys.shorttitle;
             }
-           
+
             if (GlobeVal.mysys.showlogo == true)
             {
-                if (System.IO.File.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\bmp\\" + GlobeVal.mysys.bmplogo))
+                if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\bmp\\" + GlobeVal.mysys.bmplogo))
                 {
-                    UTop.paneldefine.BackgroundImage = Image.FromFile(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\bmp\\" + GlobeVal.mysys.bmplogo);
+                    UTop.paneldefine.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\bmp\\" + GlobeVal.mysys.bmplogo);
                     UTop.panel6.Visible = false;
                     UTop.paneldefine.Visible = true;
                 }
@@ -827,7 +828,7 @@ namespace TabHeaderDemo
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            if (GlobeVal.myarm.getrunstate() ==1)
+            if (GlobeVal.myarm.getrunstate() == 1)
             {
                 GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：运行";
 
@@ -941,15 +942,14 @@ namespace TabHeaderDemo
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Frm.FormTorsionTransducer f = new Frm.FormTorsionTransducer();
-            f.ShowDialog();
+
         }
 
         private void FormMainLab_FormClosed(object sender, FormClosedEventArgs e)
         {
             myarm.Exit();
             myarm.CloseConnection();
-            GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+            GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
         }
 
         private void btntool_Click(object sender, EventArgs e)
@@ -959,7 +959,7 @@ namespace TabHeaderDemo
             CComLibrary.FileStruct f = CComLibrary.GlobeVal.filesave;
             string temp = System.Environment.GetEnvironmentVariable("TEMP");
             DirectoryInfo info = new DirectoryInfo(temp);
-            CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName+ "\\temp.tmp");
+            CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName + "\\temp.tmp");
 
 
             try
@@ -972,10 +972,10 @@ namespace TabHeaderDemo
                 {
                     fdata.g_namelist.Add(m_Global.mycls.originsignals[j].cName);
                 }
-                fdata.g_datafilepath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ";
+                fdata.g_datafilepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ";
 
-                fdata.gmptpath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\method\";
-                fdata.gmptprocedurepath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\method\";
+                fdata.gmptpath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
+                fdata.gmptprocedurepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
                 fdata.tsbeditproject.Visible = false;
                 fdata.gtestkind = CComLibrary.GlobeVal.filesave.methodkind;
                 fdata.gmethodname = CComLibrary.GlobeVal.filesave.methodname;
@@ -999,7 +999,7 @@ namespace TabHeaderDemo
 
             temp = System.Environment.GetEnvironmentVariable("TEMP");
             info = new DirectoryInfo(temp);
-            CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName +"\\temp.tmp");
+            CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName + "\\temp.tmp");
 
         }
 
@@ -1014,6 +1014,7 @@ namespace TabHeaderDemo
 
         private void btnhand_Click(object sender, EventArgs e)
         {
+            return;
             Frm.FormTest f = new Frm.FormTest();
             f.Show();
         }
@@ -1045,8 +1046,7 @@ namespace TabHeaderDemo
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Frm.FormLoadTransducer f = new Frm.FormLoadTransducer();
-            f.ShowDialog();
+
         }
 
         private void timermain_Tick(object sender, EventArgs e)
@@ -1062,7 +1062,7 @@ namespace TabHeaderDemo
 
             tsluser.Text = "用户名:" + GlobeVal.mysys.UserName[GlobeVal.mysys.CurentUserIndex];
 
-            if (GlobeVal.mysys.showapptitle== false)
+            if (GlobeVal.mysys.showapptitle == false)
             {
                 tslblmachine.Text = GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
                 this.Text = "AppleLab-" + GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
@@ -1073,7 +1073,7 @@ namespace TabHeaderDemo
                 this.Text = GlobeVal.mysys.apptitle;
             }
 
-            if(GlobeVal.mysys.showshorttitle ==false)
+            if (GlobeVal.mysys.showshorttitle == false)
             {
                 UTop.wordArt1.Caption = "AppleLab";
 
@@ -1082,7 +1082,7 @@ namespace TabHeaderDemo
             {
                 UTop.wordArt1.Caption = GlobeVal.mysys.shorttitle;
             }
-          
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -1131,7 +1131,7 @@ namespace TabHeaderDemo
 
                     string temp = System.Environment.GetEnvironmentVariable("TEMP");
                     DirectoryInfo info = new DirectoryInfo(temp);
-                    CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName+"\\temp.tmp");
+                    CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName + "\\temp.tmp");
 
                 }
                 try
@@ -1144,10 +1144,10 @@ namespace TabHeaderDemo
                     {
                         fdata.g_namelist.Add(m_Global.mycls.originsignals[j].cName);
                     }
-                    fdata.g_datafilepath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ\\";
+                    fdata.g_datafilepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\";
 
-                    fdata.gmptpath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\method\";
-                    fdata.gmptprocedurepath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\method\";
+                    fdata.gmptpath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
+                    fdata.gmptprocedurepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
                     fdata.tsbeditproject.Visible = true;
                     fdata.Text = "AppleLab-试验标准编辑器";
                     fdata.ShowDialog();
@@ -1164,7 +1164,7 @@ namespace TabHeaderDemo
                 {
                     string temp = System.Environment.GetEnvironmentVariable("TEMP");
                     DirectoryInfo info = new DirectoryInfo(temp);
-                    CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName+"\\temp.tmp");
+                    CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName + "\\temp.tmp");
                 }
             }
             else
@@ -1181,13 +1181,13 @@ namespace TabHeaderDemo
 
             keyboardHook.Start();
             mouseHook.Start();
-            
-           
+
+
         }
 
         private void recordStopButton_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void playBackMacroButton_Click(object sender, EventArgs e)
@@ -1225,10 +1225,10 @@ namespace TabHeaderDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\record\";
+            string s = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\record\";
             string s1 = this.Width.ToString() + "_" + this.Height.ToString();
 
-          
+
             openFileDialog1.InitialDirectory = s + s1;
             openFileDialog1.Filter = "(*.rec" + ")|*.rec";
             openFileDialog1.ShowDialog();
@@ -1257,8 +1257,8 @@ namespace TabHeaderDemo
 
         private void recordStopButton_MouseDown(object sender, MouseEventArgs e)
         {
-            
-           
+
+
         }
 
         private void recordStopButton_MouseUp(object sender, MouseEventArgs e)
@@ -1268,7 +1268,7 @@ namespace TabHeaderDemo
             mouseHook.Stop();
             myMacroRecord.events.RemoveAt(myMacroRecord.events.Count - 1);
             myMacroRecord.events.RemoveAt(myMacroRecord.events.Count - 1);
-            string s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + @"\record\";
+            string s = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\record\";
 
             string s1 = this.Width.ToString() + "_" + this.Height.ToString();
 
@@ -1286,6 +1286,54 @@ namespace TabHeaderDemo
 
 
             myMacroRecord.SerializeNow(saveFileDialog1.FileName);
+        }
+
+        private void btnpos_Click(object sender, EventArgs e)
+        {
+
+            if (GlobeVal.mysys.machinekind == Convert.ToInt32(ClassSys._MachineName.Torsion))
+            {
+                Frm.FormTorsionTransducer f = new Frm.FormTorsionTransducer();
+                f.ShowDialog();
+            }
+
+            if (GlobeVal.mysys.machinekind == Convert.ToInt32(ClassSys._MachineName.standard1))
+            {
+
+                Frm.FrmPosTransducer f = new Frm.FrmPosTransducer();
+                f.ShowDialog();
+            }
+
+
+        }
+
+        private void btnload_Click(object sender, EventArgs e)
+        {
+            if (GlobeVal.mysys.machinekind == Convert.ToInt32(ClassSys._MachineName.Torsion))
+            {
+                Frm.FormLoadTransducer f = new Frm.FormLoadTransducer();
+                f.ShowDialog();
+            }
+
+            if (GlobeVal.mysys.machinekind == Convert.ToInt32(ClassSys._MachineName.standard1))
+            {
+                Frm.FormLoadTransducer f = new Frm.FormLoadTransducer();
+                f.ShowDialog();
+            }
+        }
+
+        private void btnext1_Click(object sender, EventArgs e)
+        {
+            if (GlobeVal.mysys.machinekind == Convert.ToInt32(ClassSys._MachineName.standard1))
+            {
+                Frm.FrmExtTransducer f = new Frm.FrmExtTransducer();
+                f.ShowDialog();
+            }
+        }
+
+        private void btnext2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

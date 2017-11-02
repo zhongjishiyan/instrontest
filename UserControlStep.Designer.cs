@@ -44,6 +44,7 @@
             this.btnstep = new System.Windows.Forms.Button();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -149,6 +150,7 @@
             this.tlpbottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpbottom.Size = new System.Drawing.Size(177, 28);
             this.tlpbottom.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.tlpbottom, "右添加");
             // 
             // btnrightadd
             // 
@@ -162,6 +164,7 @@
             this.btnrightadd.Name = "btnrightadd";
             this.btnrightadd.Size = new System.Drawing.Size(32, 22);
             this.btnrightadd.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnrightadd, "右添加");
             this.btnrightadd.UseVisualStyleBackColor = true;
             this.btnrightadd.Click += new System.EventHandler(this.btnrightadd_Click);
             // 
@@ -177,6 +180,7 @@
             this.btncut.Name = "btncut";
             this.btncut.Size = new System.Drawing.Size(35, 22);
             this.btncut.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btncut, "删除");
             this.btncut.UseVisualStyleBackColor = true;
             this.btncut.Click += new System.EventHandler(this.btncut_Click);
             // 
@@ -193,6 +197,7 @@
             this.btncopy.Name = "btncopy";
             this.btncopy.Size = new System.Drawing.Size(35, 22);
             this.btncopy.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btncopy, "复制");
             this.btncopy.UseVisualStyleBackColor = true;
             this.btncopy.Click += new System.EventHandler(this.btncopy_Click);
             // 
@@ -208,6 +213,7 @@
             this.btnleftadd.Name = "btnleftadd";
             this.btnleftadd.Size = new System.Drawing.Size(35, 22);
             this.btnleftadd.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btnleftadd, "左添加");
             this.btnleftadd.UseVisualStyleBackColor = true;
             this.btnleftadd.Click += new System.EventHandler(this.btnleftadd_Click);
             // 
@@ -304,5 +310,6 @@
         private System.Windows.Forms.ImageList imageList2;
         public System.Windows.Forms.Button btnstep;
         public System.Windows.Forms.Label lblcaption;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

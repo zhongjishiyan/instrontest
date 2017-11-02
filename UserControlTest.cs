@@ -743,7 +743,7 @@ namespace TabHeaderDemo
                     GlobeVal.dynset.Dock = DockStyle.None;
                     GlobeVal.UserControlResult1 = null;
                     GlobeVal.UserControlResult2 = null;
-                    OpenDefaultlayout(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\layout\\模板1.lay");
+                    OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
                 }
                 
 

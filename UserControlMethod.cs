@@ -785,7 +785,7 @@ namespace TabHeaderDemo
             CustomControls.MethodOpenFileDialog controlex = new CustomControls.MethodOpenFileDialog();
             controlex.StartLocation = AddonWindowLocation.Right;
             controlex.DefaultViewMode = FolderViewMode.Details;
-            controlex.OpenDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\Method";
+            controlex.OpenDialog.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method";
             controlex.OpenDialog.AddExtension = true;
             controlex.OpenDialog.Filter = "试验方法文件(*.dat)|*.dat";
             controlex.ShowDialog(this);
@@ -839,7 +839,7 @@ namespace TabHeaderDemo
         private void btnsaveas_Click(object sender, EventArgs e)
         {
             
-            saveFileDialog1.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\Method";
+            saveFileDialog1.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method";
             saveFileDialog1.AddExtension = true;
             saveFileDialog1.Filter = "试验方法文件(*.dat)|*.dat";
             saveFileDialog1.ShowDialog(this);

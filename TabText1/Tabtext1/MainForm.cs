@@ -4502,20 +4502,20 @@ namespace AppleLabApplication
         private void toolStripCboKind_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (System.IO.Directory.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\method\\" + toolStripCboKind.Text))
+            if (System.IO.Directory.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\method\\" + toolStripCboKind.Text))
             {
 
             }
             else
             {
-                System.IO.Directory.CreateDirectory(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\method\\" + toolStripCboKind.Text);
+                System.IO.Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\method\\" + toolStripCboKind.Text);
             
             }
             
 
             tcboproject.Items.Clear();
 
-            string[] subfolders = Directory.GetFiles(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\method\\" + toolStripCboKind.Text);
+            string[] subfolders = Directory.GetFiles(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\method\\" + toolStripCboKind.Text);
             foreach (string s in subfolders)
             {
                

@@ -317,7 +317,7 @@ namespace TabHeaderDemo
                 GlobeVal.dynset.tlbetest.ColumnCount = 0;
                 GlobeVal.dynset.Dock = DockStyle.None;
 
-                GlobeVal.userControltest1.OpenDefaultlayout(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\layout\\模板1.lay");
+                GlobeVal.userControltest1.OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
 
                 GlobeVal.dynset.Dock = DockStyle.Fill;
                 GlobeVal.userControltest1.paneltestright.Controls.Clear();
@@ -482,7 +482,7 @@ namespace TabHeaderDemo
                 if (listView1.SelectedIndices.Count >0) 
                 {
 
-                    string fileName = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\Method\\" + listView1.Items[listView1.SelectedIndices[0]].SubItems[1].Text + "\\"
+                    string fileName = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method\\" + listView1.Items[listView1.SelectedIndices[0]].SubItems[1].Text + "\\"
                         + listView1.Items[listView1.SelectedIndices[0]].Text + ".dat";
                     gfilename = fileName;
 
@@ -878,7 +878,7 @@ namespace TabHeaderDemo
                 CustomControls.MethodOpenFileDialog controlex = new CustomControls.MethodOpenFileDialog();
                 controlex.StartLocation = AddonWindowLocation.Right;
                 controlex.DefaultViewMode = FolderViewMode.Details;
-                controlex.OpenDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\Method";
+                controlex.OpenDialog.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method";
                 controlex.OpenDialog.AddExtension = true;
                 controlex.OpenDialog.Filter = "试验方法文件(*.dat)|*.dat";
                 controlex.ShowDialog(this);
@@ -1106,7 +1106,7 @@ namespace TabHeaderDemo
 
 
                     lv.SubItems.Add(GlobeVal.mysys.RecentFilenameKind[i]);
-                    fileName = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\Method\\" + GlobeVal.mysys.RecentFilenameKind[i] + "\\" + GlobeVal.mysys.RecentFilename[i] + ".dat";
+                    fileName = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method\\" + GlobeVal.mysys.RecentFilenameKind[i] + "\\" + GlobeVal.mysys.RecentFilename[i] + ".dat";
 
                     if (File.Exists(fileName) == true)
                     {
@@ -1151,7 +1151,7 @@ namespace TabHeaderDemo
 
             if (GlobeVal.mysys.SamplePath == "")
             {
-                s = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                s = System.Windows.Forms.Application.StartupPath;
 
                 if (Directory.Exists(s + "\\AppleLabJ") == true)
                 {

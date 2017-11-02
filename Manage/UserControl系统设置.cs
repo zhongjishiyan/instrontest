@@ -57,7 +57,7 @@ namespace TabHeaderDemo
             GlobeVal.mysys.controllerkind = cbokind.SelectedIndex;
             GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = GlobeVal.mysys.ControllerName[GlobeVal.mysys.controllerkind];
 
-            GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+            GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
         }
 
         private void cbomachine_SelectionChangeCommitted(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace TabHeaderDemo
             GlobeVal.mysys.machinekind = cbomachine.SelectedIndex;
             GlobeVal.MainStatusStrip.Items["tslblmachine"].Text = GlobeVal.mysys.ControllerName[GlobeVal.mysys.machinekind];
 
-            GlobeVal.mysys.SerializeNow(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AppleLabJ" + "\\sys\\setup.ini");
+            GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
         }
     }
 }
