@@ -8,6 +8,10 @@ using System.Text;
 using System.Windows.Forms;
 using AppleLabApplication;
 using ClsStaticStation;
+
+using System.Reflection;
+
+
 namespace TabHeaderDemo
 {
     public partial class UserControlTop : UserControl
@@ -35,6 +39,7 @@ namespace TabHeaderDemo
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+
 
         }
 
@@ -66,7 +71,7 @@ namespace TabHeaderDemo
             myRectangle = new Rectangle(pnlback.Width / 3 - 3, -53, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
             e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
 
-           
+        
            
         }
 
@@ -134,7 +139,9 @@ namespace TabHeaderDemo
 
             wordArt1.Top = pnlback.Height - wordArt1.Height - 30;
 
-
+            paneltip.Left = btntest.Left;
+            paneltip.Width = pnlback.Width -paneltip.Left - 100;
+            paneltip.Height = pnlback.Height - paneltip.Top - 50;
         }
 
         private void btnmanage_Click(object sender, EventArgs e)
@@ -165,6 +172,7 @@ namespace TabHeaderDemo
 
             UserControlMain c = GlobeVal.FormmainLab.umain; ;
             c.OpenMethod();
+            
             b.SelectedIndex = 1;
             
         }
@@ -184,5 +192,123 @@ namespace TabHeaderDemo
             
             f.Close();
         }
+
+        private void btntest_MouseMove(object sender, MouseEventArgs e)
+        {
+         
+            
+            
+           
+        }
+
+        private void btntest_MouseLeave(object sender, EventArgs e)
+        {
+            paneltip.Visible = false;
+            lbltip.Text = "";
+        }
+
+        private void btntest_MouseEnter(object sender, EventArgs e)
+        {
+            lbltip.Text = "读取试验方法并开始试验";
+            paneltip.BackgroundImage = TabHeaderDemo.Properties.Resources.试验提示1;
+            paneltip.Visible = true;
+        }
+
+        private void btnmethod_MouseEnter(object sender, EventArgs e)
+        {
+            lbltip.Text = "编辑并修改试验方法";
+            paneltip.BackgroundImage = TabHeaderDemo.Properties.Resources.方法提示1;
+            paneltip.Visible = true;
+        }
+
+        private void btnreport_MouseEnter(object sender, EventArgs e)
+        {
+            lbltip.Text = "编辑并修改试验报告";
+            paneltip.BackgroundImage = TabHeaderDemo.Properties.Resources.报告提示1;
+            paneltip.Visible = true; 
+        }
+
+        private void btnmanage_MouseEnter(object sender, EventArgs e)
+        {
+            lbltip.Text = "编辑并修改试验设置";
+            paneltip.BackgroundImage = TabHeaderDemo.Properties.Resources.管理器提示1;
+            paneltip.Visible = true;
+        }
+
+        private void btnmethod_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void btnmethod_MouseLeave(object sender, EventArgs e)
+        {
+            paneltip.Visible = false;
+            lbltip.Text = "";
+        }
+
+        private void btnreport_MouseLeave(object sender, EventArgs e)
+        {
+            paneltip.Visible = false;
+            lbltip.Text = "";
+        }
+
+        private void btnmanage_MouseLeave(object sender, EventArgs e)
+        {
+            paneltip.Visible = false;
+            lbltip.Text = "";
+        }
     }
+    public class AssemblyHelper
+    {
+        #region 常量
+        /// <summary>
+        /// 程序集名称
+        /// </summary>
+        private static string CurrentAssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+        #endregion
+
+        #region  变量
+        /// <summary>
+        /// 当前程序集
+        /// </summary>
+        private static Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
+        #endregion
+
+        #region 方法
+        /// <summary>
+        /// 在嵌入的资源文件中查找相应的图片
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static Image GetImage(string name)
+        {
+            Image img = null;
+            try
+            {
+                if (!string.IsNullOrEmpty(name))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    if (name[0] != '.')
+                    {
+                        sb.Append(AssemblyHelper.CurrentAssemblyName + "." + name);
+                    }
+                    else
+                    {
+                        sb.Append(AssemblyHelper.CurrentAssemblyName + name);
+                    }
+                    using (System.IO.Stream stream = CurrentAssembly.GetManifestResourceStream(sb.ToString()))
+                    {
+                        if (stream != null)
+                        {
+                            img = Image.FromStream(stream);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return img;
+        }
+        #endregion
+    }
+    
 }

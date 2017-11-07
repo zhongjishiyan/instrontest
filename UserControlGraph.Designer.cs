@@ -134,6 +134,7 @@
             this.scatterGraph.PlotAreaColor = System.Drawing.Color.White;
             this.scatterGraph.Plots.AddRange(new NationalInstruments.UI.ScatterPlot[] {
             this.scatterPlot3});
+            this.scatterGraph.SelectionColor = System.Drawing.Color.Silver;
             this.scatterGraph.Size = new System.Drawing.Size(346, 300);
             this.scatterGraph.TabIndex = 5;
             this.scatterGraph.UseColorGenerator = true;

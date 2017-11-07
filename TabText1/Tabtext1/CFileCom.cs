@@ -1647,12 +1647,38 @@ namespace CComLibrary
         public int destcontrolmode=0;
 
         public double mtrirate;
-
+        public int mtrirateunit = 0;
 
         public long mtricount;
         public int mtriinitdir;
 
         public int mtricbomax;
+
+        public double mtrimax;
+        public double mtrimin;
+
+        public ItemSignal trirate;
+
+        public ItemSignal sinrate;
+        public double msinrate;
+        public int msinrateunit = 0;
+        public int msincount;
+        public int msininitdir;
+        public double msinmax;
+        public double msinmin;
+
+        public ItemSignal rectrate;
+        public double mrectrate;
+        public int mrectrateunit = 0;
+        public int mrectcount = 0;
+        public int mrectinitdir=0;
+        public double mrectuprate;
+        public double mrectdownrate;
+        public double mrectupdest;
+        public double mrectdowndest;
+        public double mrectupkeeptime;
+        public double mrectdownkeeptime;
+
 
 
         public  Sequence()

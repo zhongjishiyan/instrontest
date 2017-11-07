@@ -2178,9 +2178,9 @@ namespace ClsStaticStation
 
 			if (oldsystemState != Msg.systemState)
 			{
-				oldsystemState = Msg.sysState;
+				oldsystemState = Msg.systemState;
 
-				switch (Msg.sysState)
+				switch (Msg.systemState)
 				{
 					case -1://手控盒关闭系统
 						break;

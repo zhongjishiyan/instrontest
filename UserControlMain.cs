@@ -183,9 +183,18 @@ namespace TabHeaderDemo
                 btnmreport.ForeColor = Color.White;
                 btnmmanage.ForeColor = Color.White;
 
-
+          
                 tabControl1.SelectedIndex = 0;
 
+              
+            if (usercontrolopenmetho1.UserControl常规1==null)
+            {
+
+            }
+            else
+            {
+                usercontrolopenmetho1.UserControl常规1.ClearMethod();
+            }
                
         }
 
@@ -268,8 +277,9 @@ namespace TabHeaderDemo
                
                 usercontrolpretest1.LoadResentFile();
 
-            
-           
+            usercontrolpretest1.ClearMethod();
+
+
 
         }
 

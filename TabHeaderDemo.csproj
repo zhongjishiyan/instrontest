@@ -11,8 +11,7 @@
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>AppleLabJ</AssemblyName>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>tab.pfx</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -106,12 +105,15 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\AppleLabApplication.dll</HintPath>
     </Reference>
-    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=00e95de9db4717aa, processorArchitecture=x86">
+    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ec8c846c06738936, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\ClsStaticStation.dll</HintPath>
     </Reference>
@@ -673,6 +675,10 @@
     </Compile>
     <Content Include="ClsStaticStation.sln" />
     <None Include="Resources\sun.cur" />
+    <Content Include="Resources\报告提示1.ico" />
+    <Content Include="Resources\方法提示1.ico" />
+    <Content Include="Resources\管理器提示1.ico" />
+    <Content Include="Resources\试验提示1.ico" />
     <Content Include="说明\说明.txt" />
     <EmbeddedResource Include="Controls\OpenFileDialogEx.resx">
       <DependentUpon>OpenFileDialogEx.cs</DependentUpon>
@@ -991,6 +997,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="tab.pfx" />
     <None Include="TabHeaderDemo_TemporaryKey.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

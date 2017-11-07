@@ -79,5 +79,19 @@ namespace TabHeaderDemo
                  this.ForeColor = Color.DarkBlue;
              }
          }
+
+        protected override void OnMouseMove(MouseEventArgs mevent)
+        {
+            base.OnMouseMove(mevent);
+            this.ForeColor  = Color.Yellow;
+            
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            this.ForeColor = Color.White;
+        }
+
     }
 }

@@ -846,7 +846,7 @@ namespace TabHeaderDemo
             if ((saveFileDialog1.FileName == "") ||(saveFileDialog1.FileName ==null))
             {
 
-                CComLibrary.GlobeVal.filesave.SerializeNow(saveFileDialog1.FileName);
+               // CComLibrary.GlobeVal.filesave.SerializeNow(saveFileDialog1.FileName);
 
                 return;
             }
@@ -854,7 +854,9 @@ namespace TabHeaderDemo
             {
 
 
-
+                CComLibrary.GlobeVal.filesave.SerializeNow(saveFileDialog1.FileName);
+                mmethodfilename = Path.GetFileName(saveFileDialog1.FileName);
+                this.UserControl常规1.txtmethodname.Text = mmethodfilename;
             }
 
            

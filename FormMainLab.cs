@@ -35,7 +35,7 @@ namespace TabHeaderDemo
 
         private Color topbackcolor = new Color();
 
-        private ClsStaticStation.ClsBaseControl myarm;
+        private  ClsStaticStation.ClsBaseControl myarm;
 
         private ClsStaticStation.CArm marm;
         private ClsStaticStation.CDOLI mdoli;
@@ -591,8 +591,8 @@ namespace TabHeaderDemo
             this.Width = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Width);
             this.Height = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height);
 
-            // this.Width = 1600;
-            // this.Height = 900;
+             this.Width = 1600;
+             this.Height = 900;
             tabControl1.ItemSize = new Size(1, 1);
 
 
@@ -729,6 +729,21 @@ namespace TabHeaderDemo
             UTop.Refresh();
 
             timermain.Enabled = true;
+
+            Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
+            f.result = false;
+
+            f.ShowDialog();
+
+            if (f.result == true)
+            {
+
+            }
+            else
+            {
+                Close();
+            }
+            f.Close();
 
         }
 

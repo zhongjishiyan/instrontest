@@ -17,6 +17,14 @@ namespace TabHeaderDemo
     {
         public string gfilename = ""; //方法单元读取的文件名
         
+
+        public void ClearMethod()
+        {
+            txtmethod.Text = "";
+            txtpath.Text = "";
+            this.listBox1.Items.Clear();
+            CComLibrary.GlobeVal.filesave = null;
+        }
         private void drawFigure(PaintEventArgs e, PointF[] points)
         {
             GraphicsPath path = new GraphicsPath();

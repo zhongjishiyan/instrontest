@@ -24,7 +24,7 @@ namespace TabHeaderDemo
   
        
         
-        private UserControl常规 UserControl常规1;
+        public UserControl常规 UserControl常规1;
 
         private string mmethodfilename;
 
@@ -233,6 +233,8 @@ namespace TabHeaderDemo
             this.tableLayoutPanel3.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel3, true, null);
             
             treeView1.SelectedNode = treeView1.Nodes[0];
+
+         
             
         }
 

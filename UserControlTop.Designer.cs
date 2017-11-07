@@ -31,8 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlTop));
             this.pnlback = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.lbltip = new System.Windows.Forms.Label();
+            this.paneltip = new System.Windows.Forms.Panel();
             this.paneldefine = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.wordArt1 = new TabHeaderDemo.WordArt();
             this.btnuser = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnexit = new TabHeaderDemo.ButtonExNew(this.components);
@@ -48,6 +50,7 @@
             // 
             this.pnlback.BackColor = System.Drawing.Color.White;
             this.pnlback.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlback.Controls.Add(this.paneltip);
             this.pnlback.Controls.Add(this.paneldefine);
             this.pnlback.Controls.Add(this.wordArt1);
             this.pnlback.Controls.Add(this.btnuser);
@@ -68,15 +71,26 @@
             this.pnlback.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlback_Paint);
             this.pnlback.Resize += new System.EventHandler(this.pnlback_Resize);
             // 
-            // panel6
+            // lbltip
             // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(53, 25);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(315, 264);
-            this.panel6.TabIndex = 22;
+            this.lbltip.AutoSize = true;
+            this.lbltip.BackColor = System.Drawing.Color.Transparent;
+            this.lbltip.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbltip.ForeColor = System.Drawing.Color.Yellow;
+            this.lbltip.Location = new System.Drawing.Point(755, 164);
+            this.lbltip.Name = "lbltip";
+            this.lbltip.Size = new System.Drawing.Size(42, 16);
+            this.lbltip.TabIndex = 26;
+            this.lbltip.Text = "提示";
+            // 
+            // paneltip
+            // 
+            this.paneltip.BackColor = System.Drawing.Color.Transparent;
+            this.paneltip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.paneltip.Location = new System.Drawing.Point(758, 200);
+            this.paneltip.Name = "paneltip";
+            this.paneltip.Size = new System.Drawing.Size(315, 264);
+            this.paneltip.TabIndex = 25;
             // 
             // paneldefine
             // 
@@ -87,6 +101,16 @@
             this.paneldefine.Size = new System.Drawing.Size(315, 264);
             this.paneldefine.TabIndex = 24;
             this.paneldefine.Visible = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Location = new System.Drawing.Point(53, 25);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(315, 264);
+            this.panel6.TabIndex = 22;
             // 
             // wordArt1
             // 
@@ -177,6 +201,8 @@
             this.btnmanage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnmanage.UseVisualStyleBackColor = false;
             this.btnmanage.Click += new System.EventHandler(this.btnmanage_Click);
+            this.btnmanage.MouseEnter += new System.EventHandler(this.btnmanage_MouseEnter);
+            this.btnmanage.MouseLeave += new System.EventHandler(this.btnmanage_MouseLeave);
             // 
             // btnreport
             // 
@@ -195,6 +221,8 @@
             this.btnreport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnreport.UseVisualStyleBackColor = false;
             this.btnreport.Click += new System.EventHandler(this.btnreport_Click);
+            this.btnreport.MouseEnter += new System.EventHandler(this.btnreport_MouseEnter);
+            this.btnreport.MouseLeave += new System.EventHandler(this.btnreport_MouseLeave);
             // 
             // btnmethod
             // 
@@ -213,6 +241,9 @@
             this.btnmethod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnmethod.UseVisualStyleBackColor = false;
             this.btnmethod.Click += new System.EventHandler(this.btnmethod_Click);
+            this.btnmethod.MouseEnter += new System.EventHandler(this.btnmethod_MouseEnter);
+            this.btnmethod.MouseLeave += new System.EventHandler(this.btnmethod_MouseLeave);
+            this.btnmethod.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnmethod_MouseMove);
             // 
             // btntest
             // 
@@ -231,16 +262,21 @@
             this.btntest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btntest.UseVisualStyleBackColor = false;
             this.btntest.Click += new System.EventHandler(this.btntest_Click);
+            this.btntest.MouseEnter += new System.EventHandler(this.btntest_MouseEnter);
+            this.btntest.MouseLeave += new System.EventHandler(this.btntest_MouseLeave);
+            this.btntest.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btntest_MouseMove);
             // 
             // UserControlTop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbltip);
             this.Controls.Add(this.pnlback);
             this.Name = "UserControlTop";
             this.Size = new System.Drawing.Size(1026, 553);
             this.pnlback.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -257,5 +293,7 @@
         public WordArt wordArt1;
         public System.Windows.Forms.Panel paneldefine;
         public System.Windows.Forms.Panel panel6;
+        public System.Windows.Forms.Panel paneltip;
+        private System.Windows.Forms.Label lbltip;
     }
 }

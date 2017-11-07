@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>sdfgsd.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>cls.pfx</AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -59,6 +59,9 @@
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -100,13 +103,10 @@
     <Compile Include="ClsDsp.cs" />
     <Compile Include="ClsStatic.cs" />
     <Compile Include="ClsStaticClass.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClsDOLI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UltraHighAccurateTimer.cs" />
     <Compile Include="Cls电机.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sdfgsd.snk" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -124,6 +124,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cls.pfx" />
+    <None Include="fafasdf.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

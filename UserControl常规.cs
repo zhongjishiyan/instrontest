@@ -116,6 +116,16 @@ namespace TabHeaderDemo
 
         }
 
+        public void ClearMethod()
+        {
+            CComLibrary.GlobeVal.filesave = null;
+            txtmethodname.Text = "";
+            txtmethodpath.Text = "";
+            grid1.RowsCount = 0;
+            listBox1.Items.Clear();
+
+        }
+
         public void Init(int sel)
         {
             tabControl1.SelectedIndex = sel;
@@ -142,7 +152,8 @@ namespace TabHeaderDemo
                 txtmemo2.Text = CComLibrary.GlobeVal.filesave.samplememo2;
                 txtmemo3.Text = CComLibrary.GlobeVal.filesave.samplememo3;
                 txtmemo.Text = CComLibrary.GlobeVal.filesave.samplememo;
-
+                txtauthor.Text = CComLibrary.GlobeVal.filesave.methodauthor;
+                txtmethodmemo.Text = CComLibrary.GlobeVal.filesave.methodmemo;
             
 
             }
@@ -1095,6 +1106,16 @@ namespace TabHeaderDemo
         private void txtmemo_TextChanged(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.samplememo= txtmemo.Text;
+        }
+
+        private void txtauthor_TextChanged(object sender, EventArgs e)
+        {
+             CComLibrary.GlobeVal.filesave.methodauthor= txtauthor.Text;
+        }
+
+        private void txtmethodmemo_TextChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.methodmemo = this.txtmethodmemo.Text; 
         }
     }
 }

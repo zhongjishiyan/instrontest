@@ -1243,8 +1243,9 @@ namespace TabHeaderDemo
             lblstep.Text = "步骤" + ((sender as UserControlStep).Id + 1).ToString() + "名称：";
 
             txtstep.Text = (sender as UserControlStep).msequence.stepname;
+           
 
-
+           
 
             if ((sender as UserControlStep).msequence.wavekind == 0)
             {
@@ -1252,23 +1253,83 @@ namespace TabHeaderDemo
                 cbocontrol.SelectedIndex = (sender as UserControlStep).msequence.controlmode;
                 cbomethod.SelectedIndex = (sender as UserControlStep).msequence.samplemode;
 
-                cbodestcontrol.SelectedIndex = (sender as UserControlStep).msequence.controlmode;
+                cbodestcontrol.SelectedIndex = (sender as UserControlStep).msequence.destcontrolmode;
 
                 cbocontrol_SelectionChangeCommitted(null, null);
                 cbodestcontrol_SelectionChangeCommitted(null, null);
+
+
+                getselect().msequence.rate = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
+                numspeed.Value = getselect().msequence.mrate;
                 toolStripButton1_Click(null, null);
+
+
             }
 
             if ((sender as UserControlStep).msequence.wavekind == 1)
             {
+               
+                numkeeptime.Value = getselect().msequence.keeptime;
 
                 toolStripButton2_Click(null, null);
             }
 
             if ((sender as UserControlStep).msequence.wavekind == 2)
             {
+                cbocontrol.SelectedIndex = getselect().msequence.controlmode;
+                cbocontrol_SelectionChangeCommitted(null, null);
+                numtrispeed.Value = getselect().msequence.mtrirate;
+                numtricount.Value = getselect().msequence.mtricount;
 
+                cbotriinitdir.Items.Clear();
+                cbotriinitdir.Items.Add("向上");
+                cbotriinitdir.Items.Add("向下");
+                cbotriinitdir.SelectedIndex = getselect().msequence.mtriinitdir;
+
+                
+                numtrimax.Value = getselect().msequence.mtrimax;
+                numtrimin.Value = getselect().msequence.mtrimin;
                 toolStripButton3_Click(null, null);
+            }
+
+            if ((sender as UserControlStep).msequence.wavekind ==3)
+            {
+                cbocontrol.SelectedIndex = getselect().msequence.controlmode;
+                cbocontrol_SelectionChangeCommitted(null, null);
+                cbosinspeedunit.SelectedIndex = getselect().msequence.msinrateunit;
+                numsinspeed.Value = getselect().msequence.msinrate;
+                numsincount.Value = getselect().msequence.msincount;
+                cbosininitdir.Items.Clear();
+                cbosininitdir.Items.Add("向上");
+                cbosininitdir.Items.Add("向下");
+                cbosininitdir.SelectedIndex = getselect().msequence.msininitdir;
+
+                numsinmax.Value = getselect().msequence.msinmax;
+                numsinmin.Value = getselect().msequence.msinmin;
+
+                toolStripButton7_Click(null, null);
+            }
+
+            if ((sender as UserControlStep).msequence.wavekind ==4)
+            {
+                cbocontrol.SelectedIndex = getselect().msequence.controlmode;
+                cbocontrol_SelectionChangeCommitted(null, null);
+
+                numrectspeed.Value = getselect().msequence.mrectrate;
+                cborectspeedunit.SelectedIndex = getselect().msequence.mrectrateunit;
+                numrectcount.Value = getselect().msequence.mrectcount;
+                cborectinitdir.Items.Clear();
+                cborectinitdir.Items.Add("向上");
+                cborectinitdir.Items.Add("向下");
+                cbosininitdir.SelectedIndex = getselect().msequence.mrectinitdir;
+
+                numrectupspeed.Value = getselect().msequence.mrectuprate;
+                numrectdownspeed.Value = getselect().msequence.mrectdownrate;
+                numrectupdest.Value = getselect().msequence.mrectupdest;
+                numrectdowndest.Value = getselect().msequence.mrectdowndest;
+                numrectupkeeptime.Value = getselect().msequence.mrectupkeeptime;
+                numrectdownkeeptime.Value = getselect().msequence.mrectdownkeeptime;
+                toolStripButton8_Click(null, null);
             }
 
             return;
@@ -2235,10 +2296,11 @@ namespace TabHeaderDemo
         private void cbocontrol_SelectionChangeCommitted(object sender, EventArgs e)
         {
             getselect().msequence.controlmode = cbocontrol.SelectedIndex;
-            getselect().msequence.rate = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
-            numspeed.Value = getselect().msequence.mrate;
 
-           
+            if (getselect().msequence.wavekind == 0)
+            {
+                getselect().msequence.rate = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
+
                 cbospeedunit.Items.Clear();
                 for (int i = 0; i < getselect().msequence.rate.cUnitCount; i++)
                 {
@@ -2246,32 +2308,64 @@ namespace TabHeaderDemo
                 }
 
                 cbospeedunit.SelectedIndex = getselect().msequence.mrateunit;
-
-            cbokeeptimeunit.Items.Clear();
-            cbokeeptimeunit.Items.Add("S");
-            cbokeeptimeunit.SelectedIndex = 0;
-            numkeeptime.Value = getselect().msequence.keeptime;
-
-
-            cbotrispeedunit.Items.Clear();
-
-            for (int i = 0; i < getselect().msequence.rate.cUnitCount; i++)
-            {
-                cbotrispeedunit.Items.Add(getselect().msequence.rate.cUnits[i]);
             }
 
-            cbotrispeedunit.SelectedIndex = getselect().msequence.mrateunit;
+            if (getselect().msequence.wavekind == 1)
+            {
+                cbokeeptimeunit.Items.Clear();
+                cbokeeptimeunit.Items.Add("S");
+                cbokeeptimeunit.SelectedIndex = 0;
 
-            numtrispeed.Value = getselect().msequence.mtrirate;
-            numtricount.Value = getselect().msequence.mtricount;
+            }
 
-            cbotriinitdir.Items.Clear();
-            cbotriinitdir.Items.Add("向上");
-            cbotriinitdir.Items.Add("向下");
-            cbotriinitdir.SelectedIndex = getselect().msequence.mtriinitdir;
+            if (getselect().msequence.wavekind == 2)
+            {
+                getselect().msequence.trirate = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
 
-            
+                cbotrispeedunit.Items.Clear();
 
+                for (int i = 0; i < getselect().msequence.trirate.cUnitCount; i++)
+                {
+                    cbotrispeedunit.Items.Add(getselect().msequence.trirate.cUnits[i]);
+                }
+
+                cbotrispeedunit.SelectedIndex = getselect().msequence.mtrirateunit;
+
+                txttrimaxunit.Text = m_Global.mycls.chsignals[cbocontrol.SelectedIndex].cUnits[0];
+                txttriminunit.Text = m_Global.mycls.chsignals[cbocontrol.SelectedIndex].cUnits[0];
+
+            }
+            if (getselect().msequence.wavekind ==3)
+            {
+                getselect().msequence.sinrate = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
+                cbosinspeedunit.Items.Clear();
+                for (int i = 0; i < getselect().msequence.sinrate.cUnitCount; i++)
+                {
+                    cbosinspeedunit.Items.Add(getselect().msequence.sinrate.cUnits[i]);
+                }
+
+                cbosinspeedunit.SelectedIndex = getselect().msequence.msinrateunit;
+                txtsinmaxunit.Text = m_Global.mycls.chsignals[cbocontrol.SelectedIndex].cUnits[0];
+                txtsinminunit.Text = m_Global.mycls.chsignals[cbocontrol.SelectedIndex].cUnits[0];
+            }
+
+            if (getselect().msequence.wavekind ==4)
+            {
+                getselect().msequence.rectrate = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
+                cborectspeedunit.Items.Clear();
+                for (int i = 0; i < getselect().msequence.rectrate.cUnitCount; i++)
+                {
+                    cborectspeedunit.Items.Add(getselect().msequence.rectrate.cUnits[i]);
+                }
+
+                cborectspeedunit.SelectedIndex = getselect().msequence.mrectrateunit;
+                txtrectupspeedunit.Text = getselect().msequence.rectrate.cUnits[getselect().msequence.mrectrateunit];
+                txtrectdownspeedunit.Text = getselect().msequence.rectrate.cUnits[getselect().msequence.mrectrateunit];
+                txtrectudestunit.Text = m_Global.mycls.chsignals[cbocontrol.SelectedIndex].cUnits[0];
+                txtrectdowndestunit.Text = m_Global.mycls.chsignals[cbocontrol.SelectedIndex].cUnits[0];
+                txtrectupkeeptimeunit.Text = "S";
+                txtrectdownkeeptimeunit.Text = "S";
+            }
 
         }
 
@@ -2325,6 +2419,7 @@ namespace TabHeaderDemo
             toolStripButton7.Checked = true;
             toolStripButton8.Checked = false;
             toolStripButton9.Checked = false;
+          
         }
 
         private void toolStripButton8_Click(object sender, EventArgs e)
@@ -2362,6 +2457,122 @@ namespace TabHeaderDemo
         private void numkeeptime_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
             getselect().msequence.keeptime = numkeeptime.Value;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numtrispeed_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mtrirate = numtrispeed.Value;
+        }
+
+        private void numtricount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mtricount = Convert.ToInt32( numtricount.Value);
+        }
+
+        private void numtrimax_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mtrimax = numtrimax.Value;
+        }
+
+        private void numtrimin_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mtrimin = numtrimin.Value;
+        }
+
+        private void cbotriinitdir_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.mtriinitdir = cbotriinitdir.SelectedIndex;
+        }
+
+        private void cbotrispeedunit_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.mtrirateunit = cbotrispeedunit.SelectedIndex ;
+        }
+
+        private void numsinspeed_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.msinrate = numsinspeed.Value;
+        }
+
+        private void numsincount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.msincount = Convert.ToInt32( numsincount.Value);
+        }
+
+        private void cbosininitdir_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.msininitdir = cbosininitdir.SelectedIndex;
+        }
+
+        private void numsinmax_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.msinmax = numsinmax.Value;
+        }
+
+        private void numsinmin_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.msinmin = numsinmin.Value;
+        }
+
+        private void cbosinspeedunit_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.msinrateunit = cbosinspeedunit.SelectedIndex;
+        }
+
+        private void numrectspeed_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrectrate = numrectspeed.Value;
+        }
+
+        private void cborectspeedunit_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.mrectrateunit = cborectspeedunit.SelectedIndex;
+        }
+
+        private void numrectcount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrectcount = Convert.ToInt32( numrectcount.Value);
+        }
+
+        private void cborectinitdir_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.mrectinitdir = cborectinitdir.SelectedIndex;
+
+        }
+
+        private void numrectupspeed_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrectuprate = numrectupspeed.Value;
+        }
+
+        private void numrectupdest_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrectupdest = numrectupdest.Value;
+        }
+
+        private void numrectupkeeptime_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrectupkeeptime = numrectupkeeptime.Value;
+        }
+
+        private void numrectdownspeed_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrectdownrate = numrectdownspeed.Value;
+        }
+
+        private void numrectdowndest_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrectdowndest = numrectdowndest.Value;
+        }
+
+        private void numrectdownkeeptime_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mrectdownkeeptime = numrectdownkeeptime.Value;
         }
     }
 }

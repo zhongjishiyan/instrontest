@@ -61,6 +61,10 @@ namespace TabHeaderDemo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (CComLibrary.GlobeVal.filesave==null)
+            {
+                return;
+            }
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mextrameter.Count; i++)
             {
                 for (int j = 0; j <ClsStaticStation.m_Global.mycls.allsignals.Count; j++)
