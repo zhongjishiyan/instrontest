@@ -119,7 +119,10 @@ namespace AppleLabApplication
 
             cbokind.SelectedIndex = filesave.methodkind;
 
-
+            if (listBox1.mlist ==null )
+            {
+                listBox1.mlist = new List<ClsStaticStation.shapeitem>();
+            }
             listBox1.Items.Clear();
             listBox1.mlist.Clear();
 
@@ -146,6 +149,10 @@ namespace AppleLabApplication
                  
             }
 
+            if (listBox2.mlist ==null )
+            {
+                listBox2.mlist = new List<ClsStaticStation.shapeitem>();
+            }
             listBox2.Items.Clear();
             listBox2.mlist.Clear(); 
 

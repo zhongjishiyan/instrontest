@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlTop));
             this.pnlback = new System.Windows.Forms.Panel();
-            this.lbltip = new System.Windows.Forms.Label();
             this.paneltip = new System.Windows.Forms.Panel();
             this.paneldefine = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.wordArt1 = new TabHeaderDemo.WordArt();
             this.btnuser = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnexit = new TabHeaderDemo.ButtonExNew(this.components);
@@ -43,6 +41,8 @@
             this.btnreport = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnmethod = new TabHeaderDemo.ButtonExNew(this.components);
             this.btntest = new TabHeaderDemo.ButtonExNew(this.components);
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lbltip = new System.Windows.Forms.Label();
             this.pnlback.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,18 +71,6 @@
             this.pnlback.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlback_Paint);
             this.pnlback.Resize += new System.EventHandler(this.pnlback_Resize);
             // 
-            // lbltip
-            // 
-            this.lbltip.AutoSize = true;
-            this.lbltip.BackColor = System.Drawing.Color.Transparent;
-            this.lbltip.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbltip.ForeColor = System.Drawing.Color.Yellow;
-            this.lbltip.Location = new System.Drawing.Point(755, 164);
-            this.lbltip.Name = "lbltip";
-            this.lbltip.Size = new System.Drawing.Size(42, 16);
-            this.lbltip.TabIndex = 26;
-            this.lbltip.Text = "提示";
-            // 
             // paneltip
             // 
             this.paneltip.BackColor = System.Drawing.Color.Transparent;
@@ -91,6 +79,7 @@
             this.paneltip.Name = "paneltip";
             this.paneltip.Size = new System.Drawing.Size(315, 264);
             this.paneltip.TabIndex = 25;
+            this.paneltip.Visible = false;
             // 
             // paneldefine
             // 
@@ -101,16 +90,6 @@
             this.paneldefine.Size = new System.Drawing.Size(315, 264);
             this.paneldefine.TabIndex = 24;
             this.paneldefine.Visible = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(53, 25);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(315, 264);
-            this.panel6.TabIndex = 22;
             // 
             // wordArt1
             // 
@@ -147,6 +126,8 @@
             this.btnuser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnuser.UseVisualStyleBackColor = false;
             this.btnuser.Click += new System.EventHandler(this.btnuser_Click);
+            this.btnuser.MouseEnter += new System.EventHandler(this.btnuser_MouseEnter);
+            this.btnuser.MouseLeave += new System.EventHandler(this.btnuser_MouseLeave);
             // 
             // btnexit
             // 
@@ -165,6 +146,8 @@
             this.btnexit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnexit.UseVisualStyleBackColor = false;
             this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            this.btnexit.MouseEnter += new System.EventHandler(this.btnexit_MouseEnter);
+            this.btnexit.MouseLeave += new System.EventHandler(this.btnexit_MouseLeave);
             // 
             // btnhelp
             // 
@@ -183,6 +166,8 @@
             this.btnhelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnhelp.UseVisualStyleBackColor = false;
             this.btnhelp.Click += new System.EventHandler(this.btnhelp_Click);
+            this.btnhelp.MouseEnter += new System.EventHandler(this.btnhelp_MouseEnter);
+            this.btnhelp.MouseLeave += new System.EventHandler(this.btnhelp_MouseLeave);
             // 
             // btnmanage
             // 
@@ -265,6 +250,27 @@
             this.btntest.MouseEnter += new System.EventHandler(this.btntest_MouseEnter);
             this.btntest.MouseLeave += new System.EventHandler(this.btntest_MouseLeave);
             this.btntest.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btntest_MouseMove);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Location = new System.Drawing.Point(53, 25);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(315, 264);
+            this.panel6.TabIndex = 22;
+            // 
+            // lbltip
+            // 
+            this.lbltip.AutoSize = true;
+            this.lbltip.BackColor = System.Drawing.Color.Transparent;
+            this.lbltip.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbltip.ForeColor = System.Drawing.Color.Yellow;
+            this.lbltip.Location = new System.Drawing.Point(755, 164);
+            this.lbltip.Name = "lbltip";
+            this.lbltip.Size = new System.Drawing.Size(0, 14);
+            this.lbltip.TabIndex = 26;
             // 
             // UserControlTop
             // 

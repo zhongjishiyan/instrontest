@@ -1861,10 +1861,12 @@ namespace ClsStaticStation
 
                 else
                 {
-                    mSerialPort.Close();
-                    connected = false;
+                    // mSerialPort.Close();
+                    // connected = false;
 
-                    MessageBox.Show("电机链接  串口" + mcom_control.ToString() + "不存在");
+                     MessageBox.Show("电机链接  串口" + mcom_control.ToString() + "不存在");
+
+                    connected = true;
                 }
 
             }

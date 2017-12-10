@@ -258,10 +258,10 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "屈服";
+            a.OperaWordsName = "拐点";
             a.replaceName = a.OperaWordsName;
             a.count = 3;
-            a.explain = "计算屈服点";
+            a.explain = "计算拐点";
             a.paraname[0] = "X";
             a.parakind[0] = "double []";
            
@@ -275,10 +275,10 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "弹模";
+            a.OperaWordsName = "斜率";
             a.replaceName = a.OperaWordsName;
             a.count = 3;
-            a.explain = "计算弹模";
+            a.explain = "计算斜率";
             a.paraname[0] = "X";
             a.parakind[0] = "double []";
 
@@ -291,28 +291,26 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "杨氏弹模";
+            a.OperaWordsName = "数组Y最大值";
             a.replaceName = a.OperaWordsName;
-            a.count = 2;
-            a.explain = "计算杨氏弹模";
+            a.count = 3;
+            a.explain = "计算数组Y最大值";
             a.paraname[0] = "X";
             a.parakind[0] = "double []";
-
             a.paraname[1] = "Y";
             a.parakind[1] = "double []";
+
+            a.paraname[2] = "是否画特征点";
+            a.parakind[2] = "布尔型";
             CComLibrary.GlobeVal.mfunc.Add(a);
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "弦向弹模";
+            a.OperaWordsName = "面积";
             a.replaceName = a.OperaWordsName;
-            a.count = 2;
-            a.explain = "计算弦向弹模";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
+            a.count = 0;
+            a.explain = "计算面积";
+            
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
@@ -345,7 +343,7 @@ namespace AppleLabApplication
 
             a.paraname[1] = "Y";
             a.parakind[1] = "double []";
-            CComLibrary.GlobeVal.mfunc.Add(a);
+            //CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
             a.OperaWordsName = "曲线拟合";

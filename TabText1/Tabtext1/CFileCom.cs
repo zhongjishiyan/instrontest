@@ -1632,19 +1632,16 @@ namespace CComLibrary
         public int returnstep = 0;
         public int loopcount = 0;
 
-        public int samplemode = 0; //数据采集方式
-        public bool[] mbool=new bool[20] ;
-        
-        public double[] interval=new double[20];
+
         public ItemSignal[] sign = new ItemSignal[20];
 
         public double mrate;
         public double mdest;
 
-        public int mrateunit=0;
-        public int mdestunit=0;
+        public int mrateunit = 0;
+        public int mdestunit = 0;
 
-        public int destcontrolmode=0;
+        public int destcontrolmode = 0;
 
         public double mtrirate;
         public int mtrirateunit = 0;
@@ -1666,12 +1663,14 @@ namespace CComLibrary
         public int msininitdir;
         public double msinmax;
         public double msinmin;
+        public double msinfreq;
+
 
         public ItemSignal rectrate;
         public double mrectrate;
         public int mrectrateunit = 0;
         public int mrectcount = 0;
-        public int mrectinitdir=0;
+        public int mrectinitdir = 0;
         public double mrectuprate;
         public double mrectdownrate;
         public double mrectupdest;
@@ -1679,10 +1678,18 @@ namespace CComLibrary
         public double mrectupkeeptime;
         public double mrectdownkeeptime;
 
+        public bool chkjump = false;//是否跳转
+        public int intjumpto = 0; //跳转到
+        public int cycliccount = 0;//循环次数
 
+        public int samplingmode = 0;//采样方式
 
-        public  Sequence()
-            {
+        public Boolean[] chkchannel = new Boolean[20];
+        public double[] sampleinterval = new double[20];
+
+        public int chkchannelcount = 0;
+        public Sequence()
+        {
             wavekind = 0;
             stepname = "斜波";
             controlmode = 0;
@@ -1694,7 +1701,7 @@ namespace CComLibrary
 
 
 
-            }
+        }
 
     }
 
@@ -1702,7 +1709,7 @@ namespace CComLibrary
     public class SequenceFile
     {
 
-     
+
 
         public List<Sequence> mSequencelist;
 
@@ -1715,7 +1722,7 @@ namespace CComLibrary
         public void Insert(int index)
         {
             Sequence r = new Sequence();
-            mSequencelist.Insert(index, r); 
+            mSequencelist.Insert(index, r);
         }
         public void add()
         {
@@ -1727,13 +1734,13 @@ namespace CComLibrary
 
         public void add(Sequence r)
         {
-          
+
             mSequencelist.Add(r);
 
         }
         public SequenceFile()
         {
-            
+
 
 
             mSequencelist = new List<Sequence>();
@@ -1767,7 +1774,17 @@ namespace CComLibrary
 
                     c = b.Deserialize(fileStream) as SequenceFile;
 
-
+                    for (int i = 0; i < c.mSequencelist.Count; i++)
+                    {
+                        if (c.mSequencelist[i].chkchannel == null)
+                        {
+                            c.mSequencelist[i].chkchannel = new Boolean[20];
+                        }
+                        if (c.mSequencelist[i].sampleinterval == null)
+                        {
+                            c.mSequencelist[i].sampleinterval = new double[20];
+                        }
+                    }
 
                     fileStream.Close();
 
@@ -1855,7 +1872,7 @@ namespace CComLibrary
                         }
 
                     }
-                 
+
 
 
                 }
@@ -1892,7 +1909,7 @@ namespace CComLibrary
 
                     }
 
-                   
+
 
                 }
 
@@ -1953,7 +1970,7 @@ namespace CComLibrary
             mseglist.Add(r);
 
         }
-        
+
         public SegFile()
         {
 
@@ -1978,11 +1995,11 @@ namespace CComLibrary
 
 
         }
-        
-        public void Initcmdstring (int count, params  string[] m)
+
+        public void Initcmdstring(int count, params string[] m)
         {
-           
-           
+
+
 
         }
 
@@ -2010,8 +2027,8 @@ namespace CComLibrary
 
                     c = b.Deserialize(fileStream) as SegFile;
 
-                
-                   c.cmdstring = new string[m_Global.mycls.hardsignals.Count];
+
+                    c.cmdstring = new string[m_Global.mycls.hardsignals.Count];
 
                     for (int i = 0; i < m_Global.mycls.hardsignals.Count; i++)
                     {
@@ -2077,6 +2094,8 @@ namespace CComLibrary
         public int returnstep;
         public int cmd;
         public int action;
+        public int explainkind = 0;// 命令解释类型
+        public Sequence mseq;
 
         public CmdSeg()
         {
@@ -2125,7 +2144,7 @@ namespace CComLibrary
             return s;
         }
 
-       
+
 
         public string destconvert()
         {
@@ -2172,42 +2191,219 @@ namespace CComLibrary
             return s;
         }
 
+        public string seqwavekindconvert()
+        {
+            string s = "";
+            s = s + mseq.stepname + " ";
+
+
+            return s;
+        }
+
+        public string seqcontrolmodeconvert()
+        {
+            string s = "";
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+            {
+                if (mseq.controlmode == i)
+                {
+                    s = "控制方式：";
+                    s = s + ClsStaticStation.m_Global.mycls.hardsignals[i].cName;
+                }
+            }
+            s = s + " ";
+            return s;
+        }
+
+        public string seqcmd()
+        {
+            string s = "";
+
+            if (mseq.wavekind == 0)
+            {
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+                {
+                    if (mseq.controlmode == i)
+                    {
+                        s = s + "速度:" + mseq.mrate.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[mseq.mrateunit];
+                    }
+                }
+
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+                {
+                    if (mseq.destcontrolmode == i)
+                    {
+                        s = s + "目标:" + mseq.mdest.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].cUnits[mseq.mdestunit];
+                    }
+                }
+
+            }
+
+            if (mseq.wavekind == 1)
+            {
+                s = s + "保持：" + mseq.keeptime.ToString() + "S";
+            }
+
+            if (mseq.wavekind == 2)
+            {
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+                {
+                    if (mseq.controlmode == i)
+                    {
+                        s = s + "速度:" + mseq.mtrirate.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[mseq.mtrirateunit];
+                    }
+                }
+
+                s = s + " 次数：" + mseq.mtricount.ToString();
+
+                if (mseq.mtriinitdir == 0)
+                {
+                    s = s + " 初始方向：向上";
+
+
+                }
+                else
+                {
+                    s = s + " 初始方向：向下";
+                }
+
+                s = s + " 最大值：" + mseq.mtrimax.ToString("F4");
+                s = s + " 最小值：" + mseq.mtrimin.ToString("F4");
+
+            }
+
+            if (mseq.wavekind == 3)
+            {
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+                {
+                    if (mseq.controlmode == i)
+                    {
+                        s = s + "速度:" + mseq.msinrate.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[mseq.msinrateunit];
+                    }
+                }
+
+                s = s + " 次数：" + mseq.msincount.ToString();
+
+                if (mseq.msininitdir == 0)
+                {
+                    s = s + " 初始方向：向上";
+
+
+                }
+                else
+                {
+                    s = s + " 初始方向：向下";
+                }
+                s = s + " 频率：" + mseq.msinfreq.ToString("F4");
+
+                s = s + " 最大值：" + mseq.msinmax.ToString("F4");
+                s = s + " 最小值：" + mseq.msinmin.ToString("F4");
+            }
+
+            if (mseq.wavekind == 4)
+            {
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+                {
+                    if (mseq.controlmode == i)
+                    {
+                        s = s + "速度:" + mseq.mrectrate.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[mseq.mrectrateunit];
+                    }
+                }
+
+                s = s + " 次数：" + mseq.mrectcount.ToString();
+
+                if (mseq.mrectinitdir == 0)
+                {
+                    s = s + " 初始方向：向上";
+
+
+                }
+                else
+                {
+                    s = s + " 初始方向：向下";
+                }
+
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+                {
+                    if (mseq.controlmode == i)
+                    {
+                        s = s + "上升速度:" + mseq.mrectuprate.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[mseq.mrectrateunit];
+                    }
+
+                    if (mseq.controlmode == i)
+                    {
+                        s = s + "上升目标:" + mseq.mrectupdest.ToString("F4");
+
+                        s = s + "上升保持时间：" + mseq.mrectupkeeptime.ToString("F2") + "S";
+                    }
+
+
+
+
+                    if (mseq.controlmode == i)
+                    {
+                        s = s + "下降速度:" + mseq.mrectdownrate.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[mseq.mrectrateunit];
+                    }
+
+                    if (mseq.controlmode == i)
+                    {
+                        s = s + "下降目标:" + mseq.mrectdownrate.ToString("F4");
+                        s = s + "下降保持时间：" + mseq.mrectdownkeeptime.ToString("F2") + "S";
+                    }
+
+
+
+                }
+            }
+
+            s = s + " ";
+            return s;
+        }
+
+
         public string explain(int machinekind)
         {
 
 
             string s = "";
 
-
-
-            s = s + speedconvert();
-
-            s = s + " " + destconvert();
-
-
-         
-            if ((returncount > 0) && (returnstep > 0))
+            if (explainkind == 0) //是分段命令按分段命令解释
             {
+                s = s + "斜波";
+                s = s + speedconvert();
 
-                s = s + "返回" + returncount.ToString() + "次," + "返回到步骤" + returnstep.ToString();
+                s = s + " " + destconvert();
+
+
+
+                if ((returncount > 0) && (returnstep > 0))
+                {
+
+                    s = s + "返回" + returncount.ToString() + "次," + "返回到步骤" + returnstep.ToString();
+                }
+
+
+
+
+
+                if (action == 0)
+                {
+                    s = s + " 顺序执行";
+                }
+                else
+                {
+                    s = s + " 同步执行";
+                }
             }
-
-
-
-
-
-            if (action == 0)
+            else if (explainkind == 1) //是序列命令按序列解释
             {
-                s = s + " 顺序执行";
-            }
-            else
-            {
-                s = s + " 同步执行";
+                s = s + seqwavekindconvert() + seqcontrolmodeconvert() + seqcmd();
+
             }
             return s;
 
         }
-      
+
     }
 
     [Serializable]
@@ -2316,7 +2512,7 @@ namespace CComLibrary
             if (this.GetType() != other.GetType())
                 return false;
 
-           string f1= System.IO.Path.GetTempPath();
+            string f1 = System.IO.Path.GetTempPath();
 
             this.SerializeNow(f1 + "a.zzz");
             other.SerializeNow(f1 + "b.zzz");
@@ -2325,9 +2521,9 @@ namespace CComLibrary
 
             // return SerializeObject(this).Equals(SerializeObject(other));
 
-            b= FileCompare(f1 + "a.zzz", f1 + "b.zzz");
+            b = FileCompare(f1 + "a.zzz", f1 + "b.zzz");
 
-            System.IO.File.Delete(f1+"a.zzz");
+            System.IO.File.Delete(f1 + "a.zzz");
             System.IO.File.Delete(f1 + "b.zzz");
 
             return b;
@@ -2631,7 +2827,7 @@ namespace CComLibrary
 
 
             }
-            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)//高级试验
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)//中级试验
             {
 
 
@@ -2660,6 +2856,7 @@ namespace CComLibrary
                     n.keeptime = sf.mseglist[i].keeptime;
                     n.cmd = sf.mseglist[i].cmd;
                     n.action = sf.mseglist[i].action;
+                    n.explainkind = 0;
 
                     if (sf.mseglist[i].cyclicrun == true)
                     {
@@ -2700,6 +2897,41 @@ namespace CComLibrary
                 }
 
             }
+
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)//中级试验
+            {
+                CComLibrary.GlobeVal.filesave.mseglist = new List<CComLibrary.CmdSeg>();
+
+                CComLibrary.SequenceFile sqf = new CComLibrary.SequenceFile();
+                sqf = sqf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + CComLibrary.GlobeVal.filesave.SequenceName);
+
+
+                for (int i = 0; i < sqf.mSequencelist.Count; i++)
+                {
+
+                    CComLibrary.CmdSeg n = new CComLibrary.CmdSeg();
+                    n.check = true;
+                    n.explainkind = 1;
+                    n.mseq = sqf.mSequencelist[i];
+
+                    CComLibrary.GlobeVal.filesave.mseglist.Add(n);
+                }
+
+
+                mexplainlist = new List<CComLibrary.CmdSeg>();
+                mexplainlist.Clear();
+
+
+
+                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mseglist.Count; i++)
+                {
+
+                    mexplainlist.Add(CComLibrary.GlobeVal.filesave.mseglist[i]);
+
+
+                }
+            }
+
         }
 
         private void Init_SystemPara()
@@ -3933,9 +4165,16 @@ namespace CComLibrary
             cpar.GenerateExecutable = false;
             cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\system.dll");
             cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\System.Windows.Forms.dll");
-            //cpar.ReferencedAssemblies.Add("NationalInstruments.Analysis.Enterprise.dll");
+            // cpar.ReferencedAssemblies.Add(Application.StartupPath +"\\NationalInstruments.Analysis.Enterprise.dll");
+            // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\NationalInstruments.Analysis.Enterprise.XML");
+            // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\NationalInstruments.Common.dll");
+            //cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\nianlys.dll");
             cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\AppleLabApplication.dll");//添加可执行文件名
             cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\ClsStaticStation.dll");//添加可执行文件名
+
+
+            //  cpar.ReferencedAssemblies.Add("NationalInstruments.UI.WindowsForms.Thermometer, NationalInstruments.UI.WindowsForms, Version = 12.0.35.318, Culture = neutral, PublicKeyToken = 18cbae0f9955702a");
+            // cpar.ReferencedAssemblies.Add("NationalInstruments.UI.WindowsForms.WaveformGraph, NationalInstruments.UI.WindowsForms, Version = 12.0.35.318, Culture = neutral, PublicKeyToken = 18cbae0f9955702a");
 
 
             calcstring = "";
@@ -4101,6 +4340,17 @@ namespace CComLibrary
             list.Items.Add("using System;" + "\r\n");
             list.Items.Add("using CComLibrary;\r\n");
             list.Items.Add("using System.Windows.Forms;\r\n");
+            //  list.Items.Add("using NationalInstruments.Analysis;\r\n");
+
+            //list.Items.Add("using NationalInstruments.Analysis;\r\n");
+            //list.Items.Add("using NationalInstruments.Analysis.Conversion;\r\n");
+            //list.Items.Add("using NationalInstruments.Analysis.Dsp;\r\n");
+            //list.Items.Add("using NationalInstruments.Analysis.Dsp.Filters;\r\n");
+            //list.Items.Add("using NationalInstruments.Analysis.Monitoring;\r\n");
+            //list.Items.Add("using NationalInstruments.Analysis.SignalGeneration;\r\n");
+            //list.Items.Add("using NationalInstruments;\r\n");
+
+            //list.Items.Add("using NationalInstruments.Analysis.Math;\r\n");
             list.Items.Add("using ClsStaticStation;\r\n");
 
             list.Items.Add("class myclass:CComLibrary.MyClassBase" + "\r\n");
@@ -4138,13 +4388,13 @@ namespace CComLibrary
             list.Items.Add("public int 取整(double v) {return Convert.ToInt32(v);}" + "\r\n");
             list.Items.Add("public double 修约(double v,int l){return Math.Round(v,l);}" + "\r\n");
             list.Items.Add("public double maxpeak(int starti,int endi,double[] v)" + "\r\n" + "{ return  GlobeVal._funmax(starti,endi,v); }" + "\r\n");
-            list.Items.Add("public double 屈服(double[] x,double[] y,bool mdraw)" + "\r\n" + " {  double v;  int i;\r\n  GlobeVal._yield(x,y, mdraw, out v,out i);\r\n return v; \r\n}\r\n");
-            list.Items.Add("public double 弹模(double[] x,double[] y,bool mdraw) \r\n {double mslope; double a;double b; \r\n GlobeVal._automodule(x,y,mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
-            list.Items.Add("public double 杨氏弹模(double[] x,double[] y,bool mdraw)\r\n{ double mslope;int starti;int endi;\r\n GlobeVal._autoYoungModulus(x,y,mdraw,out mslope, out starti, out endi); return mslope;\r\n}\r\n");
+            list.Items.Add("public double 拐点(double[] x,double[] y,bool mdraw)" + "\r\n" + " {  double v;  int i;\r\n  GlobeVal._yield(x,y, mdraw, out v,out i);\r\n return v; \r\n}\r\n");
+            list.Items.Add("public double 斜率(double[] x,double[] y,bool mdraw) \r\n {double mslope; double a;double b; \r\n GlobeVal._automodule(x,y,mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
+            list.Items.Add("public double 数组Y最大值(double[] x, double[] y, bool mdraw)\r\n{ double value;\r\n GlobeVal._maxyvalue(x,y,out value,mdraw); return value;\r\n}\r\n");
 
             list.Items.Add("public double 曲线拟合(double[] x,double[] y) \r\n {double mslope; \r\n GlobeVal._fit(x,y,out mslope); return mslope;\r\n}\r\n");
 
-            list.Items.Add("public double 弦向弹模(double[] x,double[] y,double startx,double endx)\r\n{ double mslope;int starti;int endi;\r\n GlobeVal._chordmodulus(x,y,startx,endx,out mslope, out starti, out endi); return mslope;\r\n}\r\n");
+            list.Items.Add("public double 面积()\r\n{ double value;\r\n GlobeVal._area(out value); return value;\r\n}\r\n");
 
             list.Items.Add("public double 预设点(double[] setx,double[] calcy,double setvalue,bool mdraw)\r\n{ double t; GlobeVal._presetcalc(setx,calcy,setvalue,out t,mdraw); return t;}\r\n");
 
@@ -5517,98 +5767,239 @@ namespace CComLibrary
             return b;
 
         }
-        public static bool _automodule(double[] x, double[] y, bool mdraw, out double value, out double a, out double b)
+
+        public static double[] LinearResult(double[] arrayX, double[] arrayY)
         {
-            double yieldvalue;
-            int yieldindex;
+            double[] result = { 0, 0 };
 
-
-            int i;
-            int k;
-
-            double[] inputx;
-            double[] inputy;
-
-            double[] mx;
-            int[] mxi;
-
-            double mslope = 0;
-            double mintercept = 0;
-            double mresidue = 0;
-
-            double[] mslopev;
-
-            double[] minterceptv;
-
-            mx = new double[8];
-            mxi = new int[8];
-            mslopev = new double[7];
-            minterceptv = new double[7];
-            _yield(x, y, false, out yieldvalue, out yieldindex);
-
-            mxi[0] = 0;
-            for (i = 1; i <= 7; i++)
+            if (arrayX.Length == arrayY.Length)
             {
-                mx[i] = x[0];
-                for (k = 0; k <= yieldindex; k++)
-                {
-                    if (x[k] >= x[yieldindex] / 7.0 * i)
-                    {
-                        mxi[i] = k;
-                        break;
-                    }
-                }
-            }
-            mxi[7] = yieldindex;
-            for (i = 1; i <= 7; i++)
-            {
-                inputx = new double[mxi[i] - mxi[i - 1]];
-                inputy = new double[mxi[i] - mxi[i - 1]];
-
-                for (k = mxi[i - 1]; k < mxi[i]; k++)
-                {
-
-                    inputx[k - mxi[i - 1]] = x[k];
-                    inputy[k - mxi[i - 1]] = y[k];
-
-
-
-
-
-                }
-                if (inputx.Length >= 2)
-                {
-
-                    CurveFit.LinearFit(inputx, inputy, FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
-                }
-                mslopev[i - 1] = mslope;
-                minterceptv[i - 1] = mintercept;
-
-                CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + mslope.ToString() + " " + mintercept.ToString() + "\r\n";
-
+                double averX = arrayX.Average();
+                double averY = arrayY.Average();
+                result[0] = Scale(averX, averY, arrayX, arrayY);
+                result[1] = Offset(result[0], averX, averY);
             }
 
+            return result;
+        }
+
+        private static double Scale(double averX, double averY, double[] arrayX, double[] arrayY)
+        {
+            double scale = 0;
+            if (arrayX.Length == arrayY.Length)
+            {
+                double Molecular = 0;
+                double Denominator = 0;
+                for (int i = 0; i < arrayX.Length; i++)
+                {
+                    Molecular += (arrayX[i] - averX) * (arrayY[i] - averY);
+                    Denominator += Math.Pow((arrayX[i] - averX), 2);
+                }
+                scale = Molecular / Denominator;
+            }
+
+            return scale;
+        }
+
+        public static bool _area(out double value )
+        {
+            double t = 0;
+
+            double m1;
+            double m2;
+           
+                if  (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename =="矩形")
+                {
+                   t = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue 
+                    * CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cvalue;
+                 }
+
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == "圆形")
+            {
+                t = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue
+                 * CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue/4*3.1415926;
+            }
+
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == "管状")
+            {
+
+                m1 = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue;
+                m2 = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cvalue;
 
 
-            value = Statistics.Mean(mslopev);
 
-            a = Statistics.Mean(mslopev);
-            b = Statistics.Mean(minterceptv);
 
+
+                t = 3.1415926 * (Math.Pow(m1 / 2, 2)
+                    - Math.Pow((m1 - m2 * 2) / 2, 2));
+                  
+            }
+
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == "不规则面积")
+            {
+
+                t= CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue;
+             
+
+            }
+
+
+            value = t;
+
+
+
+                return false;
+        }
+
+        private static double Offset(double scale, double averX, double averY)
+        {
+            double offset = 0;
+            offset = averY - scale * averX;
+            return offset;
+        }
+
+        public static bool _maxyvalue(double[] x, double[]  y,out double value, bool mdraw)
+        {
+            double t = 0;
+            int index = 0;
+            t = NationalInstruments.Analysis.Math.ArrayOperation.GetMax(y);
+
+            index = NationalInstruments.Analysis.Math.ArrayOperation.GetIndexOfMax(y);
+            value = t;
+           
             if (mdraw == true)
             {
                 LineStruct l = new LineStruct();
-                l.kind = 1;
-                l.xstart = x[yieldindex] * 0.1;
-                l.ystart = a * l.xstart + b;
-
-                l.xend = x[yieldindex] * 0.9;
-                l.yend = a * l.xend + b;
-
+                l.kind = 0;
+                l.indexstart = index;
+                l.xstart = x[index];
+                l.ystart = y[index];
                 m_listline.Add(l);
 
             }
+            return false;
+        }
+        public static bool _automodule(double[] x, double[] y, bool mdraw, out double value, out double a, out double b)
+        {
+            try
+            {
+                double yieldvalue;
+                int yieldindex;
 
+
+                int i;
+                int k;
+
+                double[] inputx;
+                double[] inputy;
+
+                double[] inputxx;
+                double[] inputyy;
+                double[] mx;
+                int[] mxi;
+
+                double mslope = 0;
+                double mintercept = 0;
+                double mresidue = 0;
+
+                double[] mslopev;
+
+                double[] minterceptv;
+
+                mx = new double[8];
+                mxi = new int[8];
+                mslopev = new double[7];
+                minterceptv = new double[7];
+                _yield(x, y, false, out yieldvalue, out yieldindex);
+
+                mxi[0] = 0;
+                for (i = 1; i <= 7; i++)
+                {
+                    mx[i] = x[0];
+                    for (k = 0; k <= yieldindex; k++)
+                    {
+                        if (x[k] >= x[yieldindex] / 7 * i)
+                        {
+                            mxi[i] = k;
+                            break;
+                        }
+                    }
+                }
+                mxi[7] = yieldindex;
+                for (i = 1; i <= 7; i++)
+                {
+                    inputx = new double[mxi[i] - mxi[i - 1]];
+                    inputy = new double[mxi[i] - mxi[i - 1]];
+
+                    for (k = mxi[i - 1]; k < mxi[i]; k++)
+                    {
+
+                        inputx[k - mxi[i - 1]] = x[k];
+                        inputy[k - mxi[i - 1]] = y[k];
+                    }
+                    if (inputx.Length >= 2)
+                    {
+
+                        CurveFit.LinearFit(inputx, inputy, NationalInstruments.Analysis.Math.FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
+                    }
+                    mslopev[i - 1] = mslope;
+                    minterceptv[i - 1] = mintercept;
+
+                    CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + mslope.ToString() + " " + mintercept.ToString() + "\r\n";
+
+                }
+
+                int m1= Convert.ToInt32(yieldindex * 0.2);
+                int m2 = Convert.ToInt32(yieldindex * 0.7);
+
+                inputxx = new double[m2 - m1 + 1];
+                inputyy = new double[m2 - m1 + 1];
+
+
+
+                //value =NationalInstruments.Analysis.Math.ArrayOperation.GetMax(mslopev);
+               
+
+                for (int j=m1;j<=m2;j++)
+                {
+                    inputxx[j - m1] = x[j];
+                    inputyy[j - m1] = y[j];
+                }
+
+                CurveFit.LinearFit(inputxx, inputyy, NationalInstruments.Analysis.Math.FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
+
+
+                value = mslope ;
+                a = mslope ;
+                b = mintercept ;
+
+                CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + value.ToString() + "\r\n";
+
+
+                if (mdraw == true)
+                {
+                    LineStruct l = new LineStruct();
+                    l.kind = 1;
+                    l.xstart = x[Convert.ToInt32( yieldindex*0.2)];
+                    l.ystart = y[Convert.ToInt32(yieldindex * 0.2)];
+
+                    l.xend = x[Convert.ToInt32( yieldindex*0.7)];
+                    l.yend = y[Convert.ToInt32(yieldindex * 0.7)];
+
+                    m_listline.Add(l);
+
+                }
+            }
+            catch (Exception e1)
+            {
+
+                value = 0;
+
+                a = 0;
+                b = 0;
+
+                MessageBox.Show(e1.Source);
+            }
             return false;
         }
 
@@ -5698,10 +6089,14 @@ namespace CComLibrary
 
             }
 
+
+            double mt = NationalInstruments.Analysis.Math.ArrayOperation.GetMax(mk);
+            
+
             b = false;
             for (i = 0; i < segcount; i++)
             {
-                if (mk[i] < 0)
+                if (mk[i]<=mt*0.8)
                 {
                     bi = i - 1;
 
@@ -5742,7 +6137,10 @@ namespace CComLibrary
                 LineStruct l = new LineStruct();
                 l.kind = 0;
                 l.indexstart = index;
+                l.xstart = x[index];
+                l.ystart = y[index];
                 m_listline.Add(l);
+
             }
 
             return b;

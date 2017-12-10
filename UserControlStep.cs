@@ -69,7 +69,10 @@ namespace TabHeaderDemo
         }
 
 
-
+        public int gettail()
+        {
+            return btnstep.ImageIndex;
+        }
         public void settail(int i)
         {
             btnstep.ImageIndex = i;

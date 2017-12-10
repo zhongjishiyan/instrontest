@@ -16,7 +16,7 @@ namespace TabHeaderDemo
     public partial class UserControlPretest : UserControl
     {
         public string gfilename = ""; //方法单元读取的文件名
-        
+
 
         public void ClearMethod()
         {
@@ -44,7 +44,7 @@ namespace TabHeaderDemo
             Color c = (this.imageList3.Images[0] as Bitmap).GetPixel((this.imageList3.Images[0] as Bitmap).Width - 5, (this.imageList3.Images[0] as Bitmap).Height / 2);
 
 
-          
+
             drawPath(e, path, c);
 
             path.Reset();
@@ -73,7 +73,7 @@ namespace TabHeaderDemo
 
             panel3.BackColor = c;
             drawPath(e, path, c);
-           
+
             path.Dispose();
         }
 
@@ -92,13 +92,13 @@ namespace TabHeaderDemo
         {
             InitializeComponent();
             treeView1.mimagelist = imageList2;
-            tabControl1.ItemSize = new  Size(1, 1);
+            tabControl1.ItemSize = new Size(1, 1);
 
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
 
-           
+
 
             this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
             this.tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel2, true, null);
@@ -110,7 +110,7 @@ namespace TabHeaderDemo
             this.tableLayoutPanel8.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel8, true, null);
 
             this.tableLayoutPanel9.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel9, true, null);
-           
+
         }
 
         private void UserControl5_Paint(object sender, PaintEventArgs e)
@@ -123,7 +123,7 @@ namespace TabHeaderDemo
 
             GraphicsContainer containerState = e.Graphics.BeginContainer();
             tableLayoutPanel1.BackColor = Color.Transparent;
-            
+
             e.Graphics.PageUnit = System.Drawing.GraphicsUnit.Pixel;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             e.Graphics.Clear(Color.White);
@@ -143,17 +143,17 @@ namespace TabHeaderDemo
             roundedRectangle[4].Y = 6;
             drawFigure(e, roundedRectangle);
 
-         
+
 
             e.Graphics.EndContainer(containerState);
         }
 
         private void treeView1_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
-            
 
- 
-            
+
+
+
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -204,7 +204,7 @@ namespace TabHeaderDemo
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            
+
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -221,9 +221,9 @@ namespace TabHeaderDemo
         {
             string s;
 
-            
 
-               
+
+
 
 
             if (newfile == true)
@@ -231,10 +231,10 @@ namespace TabHeaderDemo
                 CComLibrary.GlobeVal.filesave.InitTable();
                 CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.spefilename);
 
-              
 
-                
-                
+
+
+
             }
             else
 
@@ -279,21 +279,21 @@ namespace TabHeaderDemo
 
                 GlobeVal.userControltest1.Init_btnstep();
 
-              
 
 
-                
+
+
 
 
 
             }
             else
             {
-               
+
 
                 GlobeVal.userControltest1.Visible = false;
-                
-           
+
+
                 GlobeVal.UserControlMain1.tabControl1.SelectedIndex = 3;
 
                 GlobeVal.userControltest1.tableLayoutPanelback.RowStyles[1].Height = 0;
@@ -305,7 +305,7 @@ namespace TabHeaderDemo
 
                 GlobeVal.userControltest1.paneltestright.Visible = false;
 
-               
+
 
                 GlobeVal.userControltest1.lstspe.Visible = true;
 
@@ -316,8 +316,8 @@ namespace TabHeaderDemo
                     GlobeVal.dynset = new UserControlDynSet();
 
                 }
-              
-                
+
+
                 GlobeVal.dynset.Dock = DockStyle.Fill;
                 GlobeVal.dynset.BackColor = Color.Cyan;
                 GlobeVal.dynset.tlbetest.Controls.Clear();
@@ -334,36 +334,36 @@ namespace TabHeaderDemo
 
                 GlobeVal.dynset.tlbetest.Dock = DockStyle.Fill;
 
-            
+
                 GlobeVal.dynset.tlbetest.ResetSizeAndSizeTypes();
 
                 GlobeVal.userControltest1.paneltestright.Visible = true;
 
-              
 
-               
 
-                
 
-               
+
+
+
+
 
 
                 if (newfile == true)
                 {
-                    GlobeVal.userControltest1.FreeFormRefresh(false,false);
+                    GlobeVal.userControltest1.FreeFormRefresh(false, false);
                 }
                 else
                 {
-                    GlobeVal.userControltest1.FreeFormRefresh(true,true);
+                    GlobeVal.userControltest1.FreeFormRefresh(true, true);
                 }
 
-              
+
                 GlobeVal.userControltest1.Visible = true;
                 GlobeVal.userControltest1.Visible = false;
                 GlobeVal.dynset.tlbetest.ResetSizeAndSizeTypes();
 
 
-                GlobeVal.userControltest1.Visible = true ;
+                GlobeVal.userControltest1.Visible = true;
             }
 
             GlobeVal.UserControlMain1.btnmmethod.Visible = true;
@@ -373,7 +373,7 @@ namespace TabHeaderDemo
 
             if (GlobeVal.userControlpretest1.gfilename.Trim() == "")
             {
-               
+
             }
             else
             {
@@ -386,18 +386,18 @@ namespace TabHeaderDemo
                 {
                     CComLibrary.GlobeVal.filesave.mspecount = 100;
                 }
-                CComLibrary.GlobeVal.filesave.InitTable(); 
+                CComLibrary.GlobeVal.filesave.InitTable();
             }
 
 
-            GlobeVal.MainStatusStrip.Items["tslblkind"].Text ="试验类型："+ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
-           
-            GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "样品："+ Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
+            GlobeVal.MainStatusStrip.Items["tslblkind"].Text = "试验类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
+
+            GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "样品：" + Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
 
             GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "方法:" + txtmethod.Text;
 
         }
-       
+
         private void btnenext_Click(object sender, EventArgs e)
         {
             string s;
@@ -424,7 +424,7 @@ namespace TabHeaderDemo
                     return;
                 }
 
-                GlobeVal.spefilename = txtsamplepath.Text  + "\\" + txtsample.Text + ".spe";
+                GlobeVal.spefilename = txtsamplepath.Text + "\\" + txtsample.Text + ".spe";
 
 
                 SampleNextStep(false);
@@ -439,15 +439,15 @@ namespace TabHeaderDemo
                 }
                 tabControl1.SelectedIndex = 1;
                 btneback.Visible = true;
-                btneopen.Visible = false ;
-                
+                btneopen.Visible = false;
+
 
 
             }
             else if (tabControl1.SelectedIndex == 1)
             {
 
-                if (txtsamplename.Text.Trim()=="")
+                if (txtsamplename.Text.Trim() == "")
                 {
 
                     MessageBox.Show("样品文件名不能为空");
@@ -473,13 +473,13 @@ namespace TabHeaderDemo
                 SampleNextStep(true);
 
                 CComLibrary.GlobeVal.filesave.currentspenumber = 0;
-                
+
 
             }
 
 
 
-            
+
         }
 
         private void btneopen_Click(object sender, EventArgs e)
@@ -487,7 +487,7 @@ namespace TabHeaderDemo
 
             if (tabControl1.SelectedIndex == 0)
             {
-                if (listView1.SelectedIndices.Count >0) 
+                if (listView1.SelectedIndices.Count > 0)
                 {
 
                     string fileName = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method\\" + listView1.Items[listView1.SelectedIndices[0]].SubItems[1].Text + "\\"
@@ -501,7 +501,7 @@ namespace TabHeaderDemo
                     else
                     {
                         MessageBox.Show("方法不存在");
-                        return; 
+                        return;
                     }
 
                     if (fileName == "")
@@ -511,7 +511,7 @@ namespace TabHeaderDemo
                     else
                     {
 
-                       
+
                         this.txtmethod.Text = Path.GetFileNameWithoutExtension(fileName);
                         this.txtpath.Text = Path.GetDirectoryName(fileName);
 
@@ -534,25 +534,30 @@ namespace TabHeaderDemo
                         }
                         else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
                         {
-                            listBox1.Items.Add("控制过程:" + "高级测控");
+                            listBox1.Items.Add("控制过程:" + "中级测控");
                         }
                         else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
                         {
-                        listBox1.Items.Add("控制过程:" + "简单控制");
+                            listBox1.Items.Add("控制过程:" + "简单控制");
                         }
-                      
+                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+                        {
+                            listBox1.Items.Add("控制过程:" + "高级测控");
+                        }
+
+
 
                         CComLibrary.GlobeVal.filesave.InitExplainList();
 
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
                         {
-                            string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
+                            string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
                             listBox1.Items.Add(s);
                         }
                         listBox1.Items.Add("结果表格1：");
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
                         {
-                            string s = "   列" + (i + 1).ToString()+"：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
+                            string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
                             listBox1.Items.Add(s);
                         }
 
@@ -600,7 +605,7 @@ namespace TabHeaderDemo
                         lblmethodkind.Text = ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
                         lblmethod.Text = this.txtmethod.Text;
 
-                       
+
 
                     }
 
@@ -636,104 +641,108 @@ namespace TabHeaderDemo
                     }
 
                     if (fileName == "")
+                    {
+                        return;
+                    }
+                    else
+                    {
+
+                        this.txtsample.Text = Path.GetFileNameWithoutExtension(fileName);
+                        this.txtsamplepath.Text = Path.GetDirectoryName(fileName);
+
+                        if (CComLibrary.GlobeVal.filesave == null)
                         {
-                            return;
+                            CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
                         }
-                        else
+                        CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
+
+                        CComLibrary.GlobeVal.currentfilesavename = fileName;
+
+
+                        listBox2.Items.Clear();
+                        listBox2.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
+                        listBox2.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
+                        listBox2.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
+
+                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
                         {
-
-                            this.txtsample.Text = Path.GetFileNameWithoutExtension(fileName);
-                            this.txtsamplepath.Text = Path.GetDirectoryName(fileName);
-
-                            if (CComLibrary.GlobeVal.filesave == null)
-                            {
-                                CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
-                            }
-                            CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
-
-                            CComLibrary.GlobeVal.currentfilesavename = fileName;
-
-
-                            listBox2.Items.Clear();
-                            listBox2.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-                            listBox2.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
-                            listBox2.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
-
-                            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-                            {
-                                listBox2.Items.Add("控制过程:" + "一般测控");
-                            }
-                            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-                            {
-                                listBox2.Items.Add("控制过程:" + "高级测控");
-                            }
-                             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-                        {
-                        listBox2.Items.Add("控制过程:" + "简单控制");
+                            listBox2.Items.Add("控制过程:" + "一般测控");
                         }
-                      
-
-                            CComLibrary.GlobeVal.filesave.InitExplainList();
-
-                            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
-                            {
-                                string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
-                                listBox2.Items.Add(s);
-                            }
-
-                            listBox2.Items.Add("结果表格1：");
-                            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
-                            {
-                                string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
-                                listBox2.Items.Add(s);
-                            }
-                            ListViewItem lv = new ListViewItem();
-                            lv.Text = this.txtsample.Text;
+                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
+                        {
+                            listBox2.Items.Add("控制过程:" + "中级测控");
+                        }
+                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
+                        {
+                            listBox2.Items.Add("控制过程:" + "简单控制");
+                        }
+                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+                        {
+                            listBox2.Items.Add("控制过程:" + "高级测控");
+                        }
 
 
-                            lv.SubItems.Add(ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-                            lv.SubItems.Add(System.IO.File.GetLastWriteTime(fileName).ToLongDateString() + " " + System.IO.File.GetLastWriteTime(fileName).ToLongTimeString());
-                            lv.SubItems.Add(Path.GetDirectoryName(fileName));
+                        CComLibrary.GlobeVal.filesave.InitExplainList();
 
-                            if (this.txtsample.Text == listView2.Items[0].Text)
-                            {
-                                listView2.Items.RemoveAt(0);
-                            }
+                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
+                        {
+                            string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
+                            listBox2.Items.Add(s);
+                        }
+
+                        listBox2.Items.Add("结果表格1：");
+                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
+                        {
+                            string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
+                            listBox2.Items.Add(s);
+                        }
+                        ListViewItem lv = new ListViewItem();
+                        lv.Text = this.txtsample.Text;
 
 
-                            if (listView2.Items.Count >= 20)
-                            {
-                                listView2.Items.RemoveAt(19);
-                            }
-                            listView2.Items.Insert(0, lv);
+                        lv.SubItems.Add(ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
+                        lv.SubItems.Add(System.IO.File.GetLastWriteTime(fileName).ToLongDateString() + " " + System.IO.File.GetLastWriteTime(fileName).ToLongTimeString());
+                        lv.SubItems.Add(Path.GetDirectoryName(fileName));
+
+                        if (this.txtsample.Text == listView2.Items[0].Text)
+                        {
+                            listView2.Items.RemoveAt(0);
+                        }
+
+
+                        if (listView2.Items.Count >= 20)
+                        {
+                            listView2.Items.RemoveAt(19);
+                        }
+                        listView2.Items.Insert(0, lv);
 
 
 
-                            for (int i = 0; i < listView2.Items.Count; i++)
-                            {
+                        for (int i = 0; i < listView2.Items.Count; i++)
+                        {
 
-                                GlobeVal.mysys.RecentSampleFilename[i] = listView2.Items[i].Text;
-                                GlobeVal.mysys.RecentSampleFilenameKind[i] = listView2.Items[i].SubItems[1].Text;
-                                GlobeVal.mysys.RecentSampleFilePath[i] = listView2.Items[i].SubItems[3].Text;
-
-                            }
-
-                            for (int i = listView2.Items.Count; i < 20; i++)
-                            {
-                                GlobeVal.mysys.RecentSampleFilename[i] = "";
-                                GlobeVal.mysys.RecentSampleFilenameKind[i] = "";
-                                GlobeVal.mysys.RecentSampleFilePath[i] = "";
-                            }
-
-                            ClsStaticStation.m_Global.mycls.initchannel();
-                            ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey();
-                            ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
-
-                            //lblmethodkind.Text = ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
-                            //lblmethod.Text = this.txtmethod.Text;
+                            GlobeVal.mysys.RecentSampleFilename[i] = listView2.Items[i].Text;
+                            GlobeVal.mysys.RecentSampleFilenameKind[i] = listView2.Items[i].SubItems[1].Text;
+                            GlobeVal.mysys.RecentSampleFilePath[i] = listView2.Items[i].SubItems[3].Text;
 
                         }
-                    
+
+                        for (int i = listView2.Items.Count; i < 20; i++)
+                        {
+                            GlobeVal.mysys.RecentSampleFilename[i] = "";
+                            GlobeVal.mysys.RecentSampleFilenameKind[i] = "";
+                            GlobeVal.mysys.RecentSampleFilePath[i] = "";
+                        }
+
+                        ClsStaticStation.m_Global.mycls.initchannel();
+                        ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey();
+                        ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
+
+                        //lblmethodkind.Text = ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
+                        //lblmethod.Text = this.txtmethod.Text;
+
+                    }
+
 
                 }
                 else
@@ -796,19 +805,22 @@ namespace TabHeaderDemo
                         }
                         if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
                         {
-                            listBox2.Items.Add("控制过程:" + "高级测控");
+                            listBox2.Items.Add("控制过程:" + "中级测控");
                         }
                         else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
                         {
                             listBox2.Items.Add("控制过程:" + "简单控制");
                         }
-                      
-                       
-                        CComLibrary.GlobeVal.filesave.InitExplainList();
+                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+                        {
+                            listBox2.Items.Add("控制过程:" + "高级测控");
+                        }
+
+                            CComLibrary.GlobeVal.filesave.InitExplainList();
 
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
                         {
-                            string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
+                            string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
                             listBox2.Items.Add(s);
                         }
 
@@ -862,7 +874,7 @@ namespace TabHeaderDemo
                         //lblmethodkind.Text = ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
                         //lblmethod.Text = this.txtmethod.Text;
 
-                        
+
 
                     }
                 }
@@ -920,7 +932,7 @@ namespace TabHeaderDemo
                             CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
                         }
                         CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
-                        
+
                         CComLibrary.GlobeVal.currentfilesavename = fileName;
 
 
@@ -935,18 +947,22 @@ namespace TabHeaderDemo
                         }
                         if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
                         {
-                            listBox1.Items.Add("控制过程:" + "高级测控");
+                            listBox1.Items.Add("控制过程:" + "中级测控");
                         }
                         else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
                         {
                             listBox1.Items.Add("控制过程:" + "简单控制");
                         }
-                      
-                        CComLibrary.GlobeVal.filesave.InitExplainList();
+                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+                        {
+                            listBox1.Items.Add("控制过程:" + "高级测控");
+                        }
+
+                            CComLibrary.GlobeVal.filesave.InitExplainList();
 
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
                         {
-                            string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
+                            string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
                             listBox1.Items.Add(s);
                         }
                         listBox1.Items.Add("结果表格1：");
@@ -971,7 +987,7 @@ namespace TabHeaderDemo
                             }
 
                         }
-                        
+
                         if (listView1.Items.Count >= 20)
                         {
                             listView1.Items.RemoveAt(19);
@@ -1042,8 +1058,8 @@ namespace TabHeaderDemo
 
             SizeF sizef = e.Graphics.MeasureString(listBox1.Items[e.Index].ToString(), listBox1.Font, Int32.MaxValue, sf);
 
-            t = Convert.ToInt16(Math.Ceiling (sizef.Width / (listBox1.Width)));
-         
+            t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox1.Width)));
+
 
 
 
@@ -1069,7 +1085,7 @@ namespace TabHeaderDemo
 
             t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox1.Width)));
 
-        
+
             if (t == 0)
             {
                 t = 1;
@@ -1180,9 +1196,9 @@ namespace TabHeaderDemo
 
         private void UserControlPretest_Load(object sender, EventArgs e)
         {
-            
+
             LoadResentFile();
-            
+
         }
 
         private void listBox2_DrawItem(object sender, DrawItemEventArgs e)
@@ -1221,7 +1237,7 @@ namespace TabHeaderDemo
             SizeF sizef = e.Graphics.MeasureString(listBox2.Items[e.Index].ToString(), listBox2.Font, Int32.MaxValue, sf);
 
             t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox2.Width)));
-          
+
 
 
 
@@ -1247,7 +1263,7 @@ namespace TabHeaderDemo
 
             t = Convert.ToInt16(Math.Ceiling(sizef.Width / (listBox2.Width)));
 
-          
+
             if (t == 0)
             {
                 t = 1;
@@ -1282,7 +1298,7 @@ namespace TabHeaderDemo
             {
                 GlobeVal.mysys.RecentFilename[i] = "";
                 GlobeVal.mysys.RecentFilenameKind[i] = "";
-                
+
             }
         }
 

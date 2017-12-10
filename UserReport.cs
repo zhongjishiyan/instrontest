@@ -256,6 +256,7 @@ namespace TabHeaderDemo
             else
             {
                 methodon(e.Node.Text, e.Node.Parent.Text);
+                treeView1.SelectedNode = e.Node;
             }
 
         }

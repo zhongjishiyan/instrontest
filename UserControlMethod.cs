@@ -698,8 +698,8 @@ namespace TabHeaderDemo
         }
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-
-
+            
+            
             if (e.Node.Parent ==null)
             {
                 methodon(e.Node.Text, "");
@@ -707,6 +707,8 @@ namespace TabHeaderDemo
             else
             {
                 methodon(e.Node.Text,e.Node.Parent.Text);
+                treeView1.SelectedNode = e.Node;
+               
             }
 
 

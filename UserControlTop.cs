@@ -50,27 +50,39 @@ namespace TabHeaderDemo
             Rectangle myRectangle;
 
 
+            try
+
+            {
 
 
-
-            myPen = new Pen(Color.SteelBlue , 3);//实例化Pen类
-            myRectangle = new Rectangle(pnlback.Width / 3, -50, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
-            e.Graphics.DrawArc(myPen, myRectangle, 180, 90);//绘制圆弧
-
-
-            e.Graphics.FillEllipse(Brushes.SteelBlue , myRectangle);
-
-            myPen = new Pen(Color.CornflowerBlue, 3);//实例化Pen类
-            myRectangle = new Rectangle(pnlback.Width / 3 - 1, -51, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+                myPen = new Pen(Color.SteelBlue, 3);//实例化Pen类
+                myRectangle = new Rectangle(pnlback.Width / 3, -50, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+                e.Graphics.DrawArc(myPen, myRectangle, 180, 90);//绘制圆弧
 
 
-            e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+                e.Graphics.FillEllipse(Brushes.SteelBlue, myRectangle);
 
-            e.Graphics.DrawLine(myPen, pnlback.Width / 3 * 2 - 3, 1, pnlback.Width - 1, 1);
-            myPen = new Pen(Color.LightGray, 3);//实例化Pen类
-            myRectangle = new Rectangle(pnlback.Width / 3 - 3, -53, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
-            e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+                lbltip.BackColor = Color.SteelBlue;
 
+                // lbltip.BackColor = SystemColors.MenuHighlight;
+
+                myPen = new Pen(Color.CornflowerBlue, 3);//实例化Pen类
+                myRectangle = new Rectangle(pnlback.Width / 3 - 1, -51, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+
+
+                e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+
+                e.Graphics.DrawLine(myPen, pnlback.Width / 3 * 2 - 3, 1, pnlback.Width - 1, 1);
+                myPen = new Pen(Color.LightGray, 3);//实例化Pen类
+                myRectangle = new Rectangle(pnlback.Width / 3 - 3, -53, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+                e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+            }
+
+            catch
+            {
+
+            }
+           
         
            
         }
@@ -139,6 +151,8 @@ namespace TabHeaderDemo
 
             wordArt1.Top = pnlback.Height - wordArt1.Height - 30;
 
+            lbltip.Left = btntest.Left;
+         
             paneltip.Left = btntest.Left;
             paneltip.Width = pnlback.Width -paneltip.Left - 100;
             paneltip.Height = pnlback.Height - paneltip.Top - 50;
@@ -179,6 +193,7 @@ namespace TabHeaderDemo
 
         private void btnexit_Click(object sender, EventArgs e)
         {
+            
             Application.Exit();
         }
 
@@ -255,6 +270,36 @@ namespace TabHeaderDemo
         private void btnmanage_MouseLeave(object sender, EventArgs e)
         {
             paneltip.Visible = false;
+            lbltip.Text = "";
+        }
+
+        private void btnuser_MouseEnter(object sender, EventArgs e)
+        {
+            lbltip.Text = "设置用户权限";
+        }
+
+        private void btnhelp_MouseEnter(object sender, EventArgs e)
+        {
+            lbltip.Text = "显示系统帮助文件";
+        }
+
+        private void btnexit_MouseEnter(object sender, EventArgs e)
+        {
+            lbltip.Text = "退出试验软件";
+        }
+
+        private void btnuser_MouseLeave(object sender, EventArgs e)
+        {
+            lbltip.Text = "";
+        }
+
+        private void btnhelp_MouseLeave(object sender, EventArgs e)
+        {
+            lbltip.Text = "";
+        }
+
+        private void btnexit_MouseLeave(object sender, EventArgs e)
+        {
             lbltip.Text = "";
         }
     }

@@ -115,7 +115,8 @@ namespace TabHeaderDemo
             switch (key)
             {
                 case Keys.Alt:
-                    return (byte)18;
+                     return (byte)18;
+                   
                 case Keys.Control:
                     return (byte)17;
                 case Keys.Shift:

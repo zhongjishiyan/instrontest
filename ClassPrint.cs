@@ -415,12 +415,16 @@ namespace TabHeaderDemo
                }
                else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
                {
-                   s=s+"控制过程:" + "高级测控"+"\r\n";
+                   s=s+"控制过程:" + "中级测控"+"\r\n";
                }
                else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
                {
                    s=s+"控制过程:" + "简单控制"+"\r\n";
                }
+               else if (CComLibrary.GlobeVal.filesave.mcontrolprocess ==3)
+                {
+                    s = s + "控制过程:" + "高级测控" + "\r\n";
+                }
               
 
                CComLibrary.GlobeVal.filesave.InitExplainList();

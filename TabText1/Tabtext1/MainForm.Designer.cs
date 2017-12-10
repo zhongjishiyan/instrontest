@@ -631,7 +631,7 @@
             // 
             this.tcboproject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tcboproject.Name = "tcboproject";
-            this.tcboproject.Size = new System.Drawing.Size(200, 26);
+            this.tcboproject.Size = new System.Drawing.Size(300, 26);
             this.tcboproject.SelectedIndexChanged += new System.EventHandler(this.tcboproject_SelectedIndexChanged);
             this.tcboproject.Click += new System.EventHandler(this.tcboproject_Click);
             // 
@@ -1259,6 +1259,7 @@
             this.scatterGraph1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.scatterGraph1_MouseDown);
             this.scatterGraph1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.scatterGraph1_MouseMove);
             this.scatterGraph1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scatterGraph1_MouseUp);
+            this.scatterGraph1.Resize += new System.EventHandler(this.scatterGraph1_Resize);
             // 
             // xyCursorScreen
             // 

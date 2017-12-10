@@ -351,7 +351,7 @@ namespace TabHeaderDemo
 
             if (macroEvent.MacroEventType == MacroEventType.MouseMove)
             {
-                this.timerRecord.Interval = 1;
+                this.timerRecord.Interval = macroEvent.TimeSinceLastEvent+1;
             }
             else
 
@@ -591,8 +591,8 @@ namespace TabHeaderDemo
             this.Width = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Width);
             this.Height = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height);
 
-             this.Width = 1600;
-             this.Height = 900;
+          //   this.Width = 1600;
+            // this.Height = 900;
             tabControl1.ItemSize = new Size(1, 1);
 
 
@@ -971,12 +971,24 @@ namespace TabHeaderDemo
         {
             int i;
 
+           if (CComLibrary.GlobeVal.filesave==null)
+            {
+                CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
+            }
+
             CComLibrary.FileStruct f = CComLibrary.GlobeVal.filesave;
             string temp = System.Environment.GetEnvironmentVariable("TEMP");
             DirectoryInfo info = new DirectoryInfo(temp);
-            CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName + "\\temp.tmp");
 
+            if (CComLibrary.GlobeVal.filesave == null)
+            {
 
+            }
+            else
+            {
+                CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName + "\\temp.tmp");
+
+            }
             try
             {
 
@@ -1014,7 +1026,12 @@ namespace TabHeaderDemo
 
             temp = System.Environment.GetEnvironmentVariable("TEMP");
             info = new DirectoryInfo(temp);
-            CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName + "\\temp.tmp");
+            if (f == null)
+            { }
+            else
+            {
+                CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName + "\\temp.tmp");
+            }
 
         }
 

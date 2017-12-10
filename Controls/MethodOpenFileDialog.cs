@@ -69,13 +69,16 @@ namespace CustomControls
                     }
                     else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
                     {
-                        listBox1.Items.Add("控制过程:" + "高级测控");
+                        listBox1.Items.Add("控制过程:" + "中级测控");
                     }
                     else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
                     {
                         listBox1.Items.Add("控制过程:" + "简单控制");
                     }
-                 
+                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess ==3)
+                    {
+                        listBox1.Items.Add("控制过程:" + "高级测控");
+                    }
                     CComLibrary.GlobeVal.filesave.InitExplainList();
 
                    
@@ -121,13 +124,16 @@ namespace CustomControls
                     }
                     else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
                     {
-                        listBox1.Items.Add("控制过程:" + "高级测控");
+                        listBox1.Items.Add("控制过程:" + "中级测控");
                     }
                     else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
                     {
                         listBox1.Items.Add("控制过程:" + "简单控制");
                     }
-               
+                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess ==3)
+                    {
+                        listBox1.Items.Add("控制过程:" + "高级测控");
+                    }
 
                     CComLibrary.GlobeVal.filesave.InitExplainList();
 

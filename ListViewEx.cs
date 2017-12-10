@@ -44,8 +44,11 @@ namespace TabHeaderDemo
         public List<UserControlStep> mlist=new List<UserControlStep>();
 
 		private ArrayList _embeddedControls = new ArrayList();
-		
-		public ListViewEx() {}
+
+      
+
+
+        public ListViewEx() {}
 
 		/// <summary>
 		/// Retrieve the order in which columns appear
@@ -293,28 +296,43 @@ namespace TabHeaderDemo
 			}
 		}
 
-        public  void reset()
+        public void reset()
         {
-           
-               
+
+
             _embeddedControls.Clear();
 
-            this.Controls.Clear(); 
-            
+            this.Controls.Clear();
+
 
             for (int i = 0; i < mlist.Count; i++)
             {
                 mlist[i].Id = i;
                 mlist[i].setcaption();
-                
+
+
                 mlist[i].setkind();
-                mlist[i].settail(0); 
+
+
+              
+                if (mlist[i].gettail()==1)
+                {
+                    mlist[i].settail(0); 
+                }
                 AddEmbeddedControl(mlist[i], i, 0);
             }
 
-            mlist[mlist.Count - 1].settail(1);
+            if (mlist[mlist.Count -1].gettail()==2)
+            {
+
+            }
+            else
+            {
+                mlist[mlist.Count - 1].settail(1);
+            }
+           
 
             this.Width = mlist[0].Width * mlist.Count + 10;
         }
-	}
+    }
 }

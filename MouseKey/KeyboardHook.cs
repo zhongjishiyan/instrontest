@@ -59,6 +59,9 @@ namespace TabHeaderDemo
                 // Is CapsLock on?
                 bool capslock = (GetKeyState(VK_CAPITAL) != 0);
 
+              
+
+
                 // Create event using keycode and control/shift/alt values found above
                 KeyEventArgs e = new KeyEventArgs(
                     (Keys)(
