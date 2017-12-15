@@ -136,13 +136,16 @@ namespace TabHeaderDemo
             {
                 myplotsettings = CComLibrary.GlobeVal.filesave.mplotpara1;
                 lblcaption.Text = "曲线图1";
-                
+                lblcaption.Tag = true;
+
+
             }
 
             if (plot == 2)
             {
                 myplotsettings = CComLibrary.GlobeVal.filesave.mplotpara2;
                 lblcaption.Text = "曲线图2";
+                lblcaption.Tag = "";
             }
            
 
@@ -323,7 +326,7 @@ namespace TabHeaderDemo
 
 
             this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
-         
+            tabControl1.ItemSize = new Size(1, 1);
 
         }
 
@@ -585,6 +588,25 @@ namespace TabHeaderDemo
             scatterGraph.UndoZoomPan();
             scatterGraph.InteractionModeDefault = NationalInstruments.UI.GraphDefaultInteractionMode.None;
         
+        }
+
+        private void lblcaption_Click(object sender, EventArgs e)
+        {
+            if (mplot1 == 1)
+            {
+                if ( Convert.ToBoolean( lblcaption.Tag) ==false)
+                {
+                    lblcaption.Tag = true;
+                    lblcaption.Text = "分析图1";
+                    tabControl1.SelectedIndex = 1;
+                }
+                else
+                {
+                    lblcaption.Text = "曲线图1";
+                    lblcaption.Tag = false;
+                    tabControl1.SelectedIndex = 0;
+                }
+            }
         }
     }
 }

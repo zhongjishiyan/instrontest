@@ -22,7 +22,7 @@ namespace AppleLabApplication
         {
             CComLibrary.GlobeVal.mconst.Clear();
             CComLibrary.Rule a = new CComLibrary.Rule();
-            a.OperaWordsName = "单坐标";
+            a.OperaWordsName = "_单坐标";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "坐标轴设置函数使用";
@@ -30,7 +30,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "双坐标";
+            a.OperaWordsName = "_双坐标";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "坐标轴设置函数使用";
@@ -38,7 +38,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线1";
+            a.OperaWordsName = "_曲线1";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "曲线序号1";
@@ -47,7 +47,7 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线2";
+            a.OperaWordsName = "_曲线2";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "曲线序号2";
@@ -55,7 +55,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线3";
+            a.OperaWordsName = "_曲线3";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "曲线序号3";
@@ -63,7 +63,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线4";
+            a.OperaWordsName = "_曲线4";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "曲线序号4";
@@ -71,7 +71,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线5";
+            a.OperaWordsName = "_曲线5";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "曲线序号5";
@@ -80,7 +80,7 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线6";
+            a.OperaWordsName = "_曲线6";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "曲线序号6";
@@ -88,7 +88,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线7";
+            a.OperaWordsName = "_曲线7";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "曲线序号7";
@@ -98,7 +98,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线8";
+            a.OperaWordsName = "_曲线8";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "曲线序号8";
@@ -106,7 +106,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "左轴";
+            a.OperaWordsName = "_左轴";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "左侧坐标轴";
@@ -114,7 +114,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "右轴";
+            a.OperaWordsName = "_右轴";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "右侧坐标轴";
@@ -122,7 +122,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "底轴";
+            a.OperaWordsName = "_底轴";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "底侧坐标轴";
@@ -132,7 +132,7 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "不画特征点";
+            a.OperaWordsName = "_不画特征点";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "是否画特征点";
@@ -140,7 +140,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mconst.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "画特征点";
+            a.OperaWordsName = "_画特征点";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "是否画特征点";
@@ -153,7 +153,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Clear();
 
             CComLibrary.Rule a = new CComLibrary.Rule();
-            a.OperaWordsName = "坐标轴设置";
+            a.OperaWordsName = "_坐标轴设置";
             a.replaceName = a.OperaWordsName;
             a.count = 1;
             a.explain = "坐标轴是单坐标轴还是左右双坐标轴";
@@ -163,7 +163,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "消息框";
+            a.OperaWordsName = "_消息框";
             a.replaceName = a.OperaWordsName;
             a.count = 1;
             a.explain = "显示消息文本框";
@@ -174,7 +174,7 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "调试输出";
+            a.OperaWordsName = "_调试输出";
             a.replaceName = a.OperaWordsName;
             a.count = 1;
             a.explain = "在调试界面中输出";
@@ -185,7 +185,7 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "清除曲线";
+            a.OperaWordsName = "_清除曲线";
             a.replaceName = a.OperaWordsName;
             a.count = 1;
             a.explain = "清除指定曲线数据";
@@ -195,7 +195,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "设置曲线Y坐标轴";
+            a.OperaWordsName = "_设置曲线Y坐标轴";
             a.replaceName = a.OperaWordsName;
             a.count = 2;
             a.explain = "指定曲线号对应的坐标轴";
@@ -209,7 +209,7 @@ namespace AppleLabApplication
 
 
              a = new CComLibrary.Rule();
-             a.OperaWordsName = "清除所有曲线";
+             a.OperaWordsName = "_清除所有曲线";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "清除所有数据";
@@ -220,7 +220,7 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "闭合曲线";
+            a.OperaWordsName = "_闭合曲线";
             a.replaceName = a.OperaWordsName;
             a.count = 1;
             a.explain = "从头到尾连接曲线";
@@ -230,7 +230,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "画XY曲线";
+            a.OperaWordsName = "_画XY曲线";
             a.replaceName = a.OperaWordsName;
             a.count = 3;
             a.explain = "画曲线";
@@ -244,7 +244,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "画XY点";
+            a.OperaWordsName = "_画XY点";
             a.replaceName = a.OperaWordsName;
             a.count = 3;
             a.explain = "画曲线点";
@@ -258,7 +258,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "拐点";
+            a.OperaWordsName = "_拐点";
             a.replaceName = a.OperaWordsName;
             a.count = 3;
             a.explain = "计算拐点";
@@ -275,7 +275,7 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "斜率";
+            a.OperaWordsName = "_斜率";
             a.replaceName = a.OperaWordsName;
             a.count = 3;
             a.explain = "计算斜率";
@@ -291,7 +291,7 @@ namespace AppleLabApplication
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "数组Y最大值";
+            a.OperaWordsName = "_数组Y最大值";
             a.replaceName = a.OperaWordsName;
             a.count = 3;
             a.explain = "计算数组Y最大值";
@@ -304,9 +304,25 @@ namespace AppleLabApplication
             a.parakind[2] = "布尔型";
             CComLibrary.GlobeVal.mfunc.Add(a);
 
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_引伸计标距";
+            a.replaceName = a.OperaWordsName;
+            a.count = 0;
+            a.explain = "取得引伸计标距值";
+
+            CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "面积";
+            a.OperaWordsName = "_引伸计2标距";
+            a.replaceName = a.OperaWordsName;
+            a.count = 0;
+            a.explain = "取得引伸计2标距值";
+
+            CComLibrary.GlobeVal.mfunc.Add(a);
+
+
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_面积";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "计算面积";
@@ -314,7 +330,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "预设点";
+            a.OperaWordsName = "_预设点";
             a.replaceName = a.OperaWordsName;
             a.count = 4;
             a.explain = "指定X求对应的Y值";
@@ -334,7 +350,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "弦向弹模";
+            a.OperaWordsName = "_弦向弹模";
             a.replaceName = a.OperaWordsName;
             a.count = 2;
             a.explain = "计算弦向弹模";
@@ -346,7 +362,7 @@ namespace AppleLabApplication
             //CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线拟合";
+            a.OperaWordsName = "_曲线拟合";
             a.replaceName = a.OperaWordsName;
             a.count = 2;
             a.explain = "X 数组";
@@ -358,7 +374,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "坐标轴标题";
+            a.OperaWordsName = "_坐标轴标题";
             a.replaceName = a.OperaWordsName;
             a.count = 2;
             a.explain = "坐标轴";
@@ -370,7 +386,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "曲线标题";
+            a.OperaWordsName = "_曲线标题";
             a.replaceName = a.OperaWordsName;
             a.count = 1;
             a.explain = "标题";
@@ -562,7 +578,7 @@ namespace AppleLabApplication
             {
                 b = new CComLibrary.SystemPara();
                 b.Name = CComLibrary.GlobeVal.filesave.m_namelist[j] + "通道";
-                    
+
                 b.replaceName = b.Name;
                 s = s + "public double " + b.replaceName + "=0;" + "\r\n";
                 CComLibrary.GlobeVal.msyspara.Add(b);
@@ -649,10 +665,12 @@ namespace AppleLabApplication
             int j;
 
 
-            lvTips.View = View.LargeIcon;
+            lvTips.View = View.SmallIcon;
 
 
-
+            ImageList iList = new ImageList();
+            iList.ImageSize = new Size(25, 25);//宽度和高度值必须大于等于1且不超过256
+            lvTips.SmallImageList= iList;
 
 
 
@@ -663,8 +681,8 @@ namespace AppleLabApplication
 
 
 
-            _lvi.Text = "结果";
-            _lvi.Tag = "结果";
+            _lvi.Text = "_结果";
+            _lvi.Tag = "_结果";
 
 
             _lvi.Group = lvTips.Groups[0];
@@ -675,8 +693,8 @@ namespace AppleLabApplication
 
 
             _lvi = new ListViewItem();
-            _lvi.Text = "数组长度";
-            _lvi.Tag = "数组长度";
+            _lvi.Text = "_数组长度";
+            _lvi.Tag = "_数组长度";
 
 
             _lvi.Group = lvTips.Groups[0];
@@ -686,16 +704,19 @@ namespace AppleLabApplication
 
 
             _lvi = new ListViewItem();
-            _lvi.Text = "索引";
-            _lvi.Tag = "索引";
+            _lvi.Text = "_索引";
+            _lvi.Tag = "_索引";
             _lvi.Group = lvTips.Groups[0];
             lvTips.Items.Add(_lvi);
+
+           
 
            
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.m_namelist.Count; i++)
                 {
                     _lvi = new ListViewItem();
                     _lvi.Text = CComLibrary.GlobeVal.filesave.m_namelist[i] + "通道";
+                    
                     _lvi.Tag = CComLibrary.GlobeVal.filesave.m_namelist[i] + "通道";
 
                     _lvi.Group = lvTips.Groups[0];
@@ -775,8 +796,46 @@ namespace AppleLabApplication
             }
 
 
+            for (i = 0; i < CComLibrary.GlobeVal.mfunc.Count; i++)
+            {
+                if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_面积")
+                {
+                    _lvi = new ListViewItem();
 
-            
+
+                    _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                    _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+
+                    _lvi.Group = lvTips.Groups[3];
+                    lvTips.Items.Add(_lvi);
+                }
+
+                if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_引伸计标距")
+                {
+                    _lvi = new ListViewItem();
+
+
+                    _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                    _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+
+                    _lvi.Group = lvTips.Groups[3];
+                    lvTips.Items.Add(_lvi);
+                }
+
+                if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_引伸计2标距")
+                {
+                    _lvi = new ListViewItem();
+
+
+                    _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                    _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+
+                    _lvi.Group = lvTips.Groups[3];
+                    lvTips.Items.Add(_lvi);
+                }
+
+            }
+
 
 
 
@@ -791,22 +850,28 @@ namespace AppleLabApplication
             int j;
 
 
-            lvTips.View = View.LargeIcon;
+            //lvTips.View = View.LargeIcon;
 
 
-             
-  
+            lvTips.View = View.SmallIcon;
 
-            
-           
+
+            ImageList iList = new ImageList();
+            iList.ImageSize = new Size(25, 25);//宽度和高度值必须大于等于1且不超过256
+            lvTips.SmallImageList = iList;
+
+
+
+
+
 
             ListViewItem _lvi = new ListViewItem();
 
            
 
 
-            _lvi.Text = "结果";
-           _lvi.Tag = "结果";
+            _lvi.Text = "_结果";
+           _lvi.Tag = "_结果";
 
 
             _lvi.Group = lvTips.Groups[0] ;
@@ -817,8 +882,8 @@ namespace AppleLabApplication
            
 
              _lvi = new ListViewItem();
-            _lvi.Text = "数组长度";
-            _lvi.Tag = "数组长度";
+            _lvi.Text = "_数组长度";
+            _lvi.Tag = "_数组长度";
 
 
             _lvi.Group = lvTips.Groups[0];
@@ -828,8 +893,8 @@ namespace AppleLabApplication
 
            
             _lvi = new ListViewItem();
-            _lvi.Text = "索引";
-            _lvi.Tag = "索引";
+            _lvi.Text = "_索引";
+            _lvi.Tag = "_索引";
             _lvi.Group = lvTips.Groups[0];
             lvTips.Items.Add(_lvi);
 
@@ -1075,6 +1140,7 @@ namespace AppleLabApplication
 
              CComLibrary.GlobeVal.m_test = true;
 
+           
              if (CComLibrary.GlobeVal.formulakind == 0)
              {
                  

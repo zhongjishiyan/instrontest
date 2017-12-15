@@ -82,6 +82,16 @@ namespace AppleLabApplication.Properties {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
+        internal static byte[] AppleLabApplication {
+            get {
+                object obj = ResourceManager.GetObject("AppleLabApplication", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
         internal static byte[] HelpFile {
             get {
                 object obj = ResourceManager.GetObject("HelpFile", resourceCulture);

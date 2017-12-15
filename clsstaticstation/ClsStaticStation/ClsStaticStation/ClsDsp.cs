@@ -115,6 +115,7 @@ namespace ClsStaticStation
                 {
                     load = mdemodata[mdemotestingp].load;
                     pos = mdemodata[mdemotestingp].pos;
+                    ext = mdemodata[mdemotestingp].ext;
                     time = mdemodata[mdemotestingp].time;
                     mdemotestingp = mdemotestingp + 1;
                 }
@@ -130,6 +131,8 @@ namespace ClsStaticStation
             ClsStaticStation.m_Global.mload = load;
 
             ClsStaticStation.m_Global.mpos = pos;
+
+            ClsStaticStation.m_Global.mext = ext;
 
             ClsStaticStation.m_Global.mload1 = load1;
             ClsStaticStation.m_Global.mpos1 = pos1;
@@ -784,10 +787,10 @@ namespace ClsStaticStation
                 }
 
 
-                segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
+                segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].destorigin(),
                     Convert.ToInt16(mrunlist[mcurseg].controlmode),
                      Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-                    k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0, 0);
+                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0);
 
 
 
@@ -795,7 +798,11 @@ namespace ClsStaticStation
 
 
             }
-            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1) //高级试验
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3) //高级试验
+            {
+
+            }
+             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1) //中级试验
             {
 
 
@@ -845,7 +852,7 @@ namespace ClsStaticStation
                 {
                     mrunlist.Add(CComLibrary.GlobeVal.filesave.pretest_cmd);
                     mrunlist[0].keeptime = 0;
-
+                    
                     mrunlist[0].action = 0;
 
                 }
@@ -869,7 +876,7 @@ namespace ClsStaticStation
                 else
                 {
 
-                    MessageBox.Show("错误，您没有设置高级测试过程");
+                    MessageBox.Show("错误，您没有设置中级测试过程");
                     mtestrun = false;
                     return;
                 }
@@ -892,10 +899,10 @@ namespace ClsStaticStation
                     }
                     if (mrunlist[ii].action == 1)
                     {
-                        segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+                        segstep(mrunlist[ii].cmd, mrunlist[ii].destorigin(),
                            Convert.ToInt16(mrunlist[ii].controlmode),
                              Convert.ToInt16(mrunlist[ii].destcontrolmode),
-                            k, Convert.ToSingle(mrunlist[ii].speed),
+                            k, Convert.ToSingle(mrunlist[ii].speedorigin()),
                           mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
 
                         mcurseg = ii;
@@ -905,10 +912,10 @@ namespace ClsStaticStation
 
                         if (ii == mcurseg)
                         {
-                            segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+                            segstep(mrunlist[ii].cmd, mrunlist[ii].destorigin(),
                        Convert.ToInt16(mrunlist[ii].controlmode),
                         Convert.ToInt16(mrunlist[ii].destcontrolmode),
-                       k, Convert.ToSingle(mrunlist[ii].speed),
+                       k, Convert.ToSingle(mrunlist[ii].speedorigin()),
                        mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
 
                             mcurseg = ii;

@@ -28,7 +28,7 @@ namespace AppleLabApplication
         private void FormPlot_Load(object sender, EventArgs e)
         {
             int i;
-            sp = CComLibrary.GlobeVal.m_mainform.scatterGraph1;
+            sp = CComLibrary.GlobeVal.mscattergraph;
 
             comboBox1.Items.Clear();   
             for (i = 0; i < sp.Plots.Count; i++)

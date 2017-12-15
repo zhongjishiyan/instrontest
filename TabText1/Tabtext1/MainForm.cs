@@ -34,6 +34,7 @@ namespace AppleLabApplication
         public Boolean formloaded = false;
         //一个试验过程对应多个计算过程
         public List<string> g_namelist;//样本通道名称
+        public List<string> g_signnamelist;//样本通道符号名称
         public string g_datafilepath;//数据文件路径
         public string gmptpath = "";//工程文件保存路径
         public string gmptprocedurepath = "";//试验过程保存路径
@@ -132,64 +133,14 @@ namespace AppleLabApplication
             InitializeComponent();
 
             g_namelist = new List<string>();
-
+            g_signnamelist = new List<string>();
             Application.DoEvents();
 
             
         }
 
-        public void clearxy()
-        {
-            int i;
-            for (i = 0; i < scatterGraph1.Plots.Count; i++)
-            {
-                scatterGraph1.Plots[i].ClearData(); 
-            }
-
-            return;
-        }
-
-        public void plotxypoint(double x, double y, int c)
-        {
-            if (CComLibrary.GlobeVal.m_test == false)
-            {
-                if ((c >= 1) && (c <= scatterGraph1.Plots.Count))
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show("曲线号错误");
-                }
-
-               
-
-                scatterGraph1.Plots[c - 1].PlotXYAppend(x, y);
-
-            }
-        }
-        public void plotxy(double[] x, double[] y,int c)
-        {
-
-            if (CComLibrary.GlobeVal.m_test == false )
-            {
-                if ((c >= 1) && (c <= scatterGraph1.Plots.Count))
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show("曲线号错误"); 
-                }
-                 
-                
-
-                scatterGraph1.Plots[c-1].ClearData();
-
-                scatterGraph1.Plots[c-1].PlotXY(x, y);
-            }
-        }
-
+     
+      
 
 
         public  void HighlightDataPoint(AfterDrawXYPlotEventArgs e, double x, double y)
@@ -329,6 +280,7 @@ namespace AppleLabApplication
 
 
             f.filesave.m_namelist = this.g_namelist;
+            f.filesave.m_signnamelist = this.g_signnamelist;
             f.filesave.datapath = this.g_datafilepath;
 
             f.ShowDialog();
@@ -375,6 +327,7 @@ namespace AppleLabApplication
 
             
             f.filesave.m_namelist = this.g_namelist;
+            f.filesave.m_signnamelist = this.g_signnamelist;
             f.filesave.datapath = this.g_datafilepath;
  
 
@@ -471,7 +424,9 @@ namespace AppleLabApplication
         }
         public void Form2_Load(object sender, EventArgs e)
         {
-            scatterGraph1.Annotations.Clear();
+            CComLibrary.GlobeVal.mscattergraph = scatterGraph1;
+
+           scatterGraph1.Annotations.Clear();
             if  (formloaded ==false)
             {
                 formloaded = true;
@@ -513,7 +468,7 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.g_datatitle = new string[30];
             CComLibrary.GlobeVal.g_dataunit = new string[30];
 
-            CComLibrary.GlobeVal.m_mainform = this;
+       
             CComLibrary.GlobeVal.m_richtextbox = new Compenkie.RichTextBoxExtend();
             CComLibrary.GlobeVal.ysels = new int[10];
             CComLibrary.GlobeVal.yselpostion = new int[10];
@@ -1485,7 +1440,7 @@ namespace AppleLabApplication
                 CComLibrary.SystemPara b;
                 string s;
                 s = "";
-
+                CComLibrary.GlobeVal.mscattergraph = scatterGraph1;
                 CComLibrary.GlobeVal.m_test = false;
 
                 CComLibrary.GlobeVal.m_listline.Clear();
@@ -4001,37 +3956,7 @@ namespace AppleLabApplication
 
 
 
-        public void 设置坐标(int a)
-        {
-            if (a == 0)
-            {
-                scatterGraph1.Plots[0].YAxis = scatterGraph1.YAxes[0];
-                scatterGraph1.Plots[1].YAxis = scatterGraph1.YAxes[1];
-                scatterGraph1.Plots[0].YAxis.Visible = true;
-
-                scatterGraph1.Plots[0].YAxis.Position = YAxisPosition.Left;
-
-                scatterGraph1.Plots[1].YAxis.Visible = false;
-                
- 
-                
-            }
-            else
-            {
-                
-                scatterGraph1.Plots[0].YAxis = scatterGraph1.YAxes[0];
-                scatterGraph1.Plots[1].YAxis = scatterGraph1.YAxes[1];
-                scatterGraph1.Plots[0].YAxis.Visible = true;
-                scatterGraph1.Plots[0].YAxis.Position = YAxisPosition.Left;
-                scatterGraph1.Plots[1].YAxis.Visible = true;
-                scatterGraph1.Plots[1].YAxis.Position = YAxisPosition.Right;
-                
-            }
-
- 
-
-            return;
-        }
+       
 
         private void tsbpoint_CheckedChanged(object sender, EventArgs e)
         {
@@ -4524,11 +4449,11 @@ namespace AppleLabApplication
 
         private void toolStripButton16_Click(object sender, EventArgs e)
         {
-            CComLibrary.GlobeVal.gcalc.Initialize通道();
+            //CComLibrary.GlobeVal.gcalc.Initialize通道();
 
-            FormChannel f = new FormChannel();
+            //FormChannel f = new FormChannel();
 
-            f.Show();
+            //f.Show();
 
             
         }

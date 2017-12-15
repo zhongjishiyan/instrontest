@@ -42,8 +42,15 @@ namespace ClsStaticStation
      [Serializable]
      public class ItemSignalStation : IDisposable
      {
+       
+        public double[] ChannelRange;//通道量程
+        public int[] ChannelDimension;//通道量纲
+        public bool[] ChannelControl;//通道控制
+     
 
-         private int machinekind = 0;
+        public int ChannelCount = 8;//通道数量
+
+        private int machinekind = 0;
          public List<ItemSignal> datalist=new List<ItemSignal>();
 
          public void initdatalist()
@@ -101,6 +108,8 @@ namespace ClsStaticStation
 
 
          public List<ItemSignal> signalskindlist;
+
+       
 
          public String[] SignalsNames;
 
@@ -311,21 +320,26 @@ namespace ClsStaticStation
              ItemSignal isi = new ItemSignal();
              isi.cName = "位移";
              isi.LName[0] = "位移";
-             isi.LName[1] = "Disp.";
+             isi.LName[1] = "Displacement";
 
              isi.originprecise = 3;
              isi.SignName = "Ch Disp";
              isi.cUnitKind = 0;
              isi.cUnitsel = 0;
              isi.InitUnit();
-             isi.fullmaxbase = 75;
-             isi.fullminbase = -75;
+             isi.fullmaxbase = ChannelRange[0];
+             isi.fullminbase = -ChannelRange[0];
              isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
              isi.speedSignal.fullmaxbase = isi.fullmaxbase;
              isi.speedSignal.fullminbase = 0;
+             isi.ClosedControl = true;
              chsignals.Add(isi);
              allsignals.Add(isi);
-             hardsignals.Add(isi);
+
+            if (ChannelControl[0] == true)
+            {
+                hardsignals.Add(isi);
+            }
              zerosignals.Add(isi);
              originsignals.Add(isi);
 
@@ -340,40 +354,173 @@ namespace ClsStaticStation
              isi.cUnitKind = 1;
              isi.cUnitsel = 0;
              isi.InitUnit();
-             isi.fullmaxbase = 30;
-             isi.fullminbase = -30;
+             isi.fullmaxbase = ChannelRange[1];
+             isi.fullminbase = -ChannelRange[1];
              isi.speedSignal = (ItemSignal)forcespeedsignal.Clone();
              isi.speedSignal.fullmaxbase = isi.fullmaxbase;
              isi.speedSignal.fullminbase = 0;
+             isi.ClosedControl = true;
              chsignals.Add(isi);
              allsignals.Add(isi);
-             hardsignals.Add(isi);
+            if (ChannelControl[1] == true)
+            {
+                hardsignals.Add(isi);
+            }
              zerosignals.Add(isi);
              originsignals.Add(isi);
 
              isi = new ItemSignal();
              isi.cName = "变形";
              isi.LName[0] = "变形";
-             isi.LName[1] = "Ext.";
+             isi.LName[1] = "Deformation";
 
              isi.originprecise = 3;
              isi.SignName = "Ch Ext";
              isi.cUnitKind = 0;
              isi.cUnitsel = 0;
              isi.InitUnit();
-             isi.fullmaxbase = 5;
-             isi.fullminbase = -5;
+             isi.fullmaxbase = ChannelRange[2];
+             isi.fullminbase = -ChannelRange[2];
              isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
              isi.speedSignal.fullmaxbase = isi.fullmaxbase;
              isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = true;
              chsignals.Add(isi);
              allsignals.Add(isi);
-             hardsignals.Add(isi);
+
+            if (ChannelControl[2] == true)
+            {
+                hardsignals.Add(isi);
+            }
              zerosignals.Add(isi);
              originsignals.Add(isi);
 
 
-             isi = new ItemSignal();
+            isi = new ItemSignal();
+            isi.cName = "变形2";
+            isi.LName[0] = "变形2";
+            isi.LName[1] = "Deformation 2";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor4";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[3];
+            isi.fullminbase = -ChannelRange[3];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[3] == true)
+            {
+                hardsignals.Add(isi);
+            }
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+            isi = new ItemSignal();
+            isi.cName = "测量1";
+            isi.LName[0] = "测量1";
+            isi.LName[1] = "Measure Channel 1";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor5";
+            isi.cUnitKind = 5;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[4];
+            isi.fullminbase = -ChannelRange[4];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[4] == true)
+            {
+                hardsignals.Add(isi);
+            }
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+            isi = new ItemSignal();
+            isi.cName = "测量2";
+            isi.LName[0] = "测量2";
+            isi.LName[1] = "Measure Channel 2";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor6";
+            isi.cUnitKind = 5;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[5];
+            isi.fullminbase = -ChannelRange[5] ;
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[5] == true)
+            {
+                 hardsignals.Add(isi);
+            }
+                zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+            isi = new ItemSignal();
+            isi.cName = "测量3";
+            isi.LName[0] = "测量3";
+            isi.LName[1] = "Measure Channel 3";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor7";
+            isi.cUnitKind = 5;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[6];
+            isi.fullminbase = -ChannelRange[6];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[6] == true)
+            {
+                 hardsignals.Add(isi);
+            }
+                zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+
+
+            isi = new ItemSignal();
+            isi.cName = "测量4";
+            isi.LName[0] = "测量4";
+            isi.LName[1] = "Measure Channel 4";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor8";
+            isi.cUnitKind = 5;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[7];
+            isi.fullminbase = -ChannelRange[7];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[7] == true)
+            {
+                 hardsignals.Add(isi);
+            }
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+
+
+            isi = new ItemSignal();
 
              isi.cName = "时间";
              isi.LName[0] = "时间";
@@ -413,7 +560,7 @@ namespace ClsStaticStation
              }
 
 
-
+             
 
              datalist.Clear();
 
@@ -695,9 +842,9 @@ namespace ClsStaticStation
 
 
             isi = new ItemSignal();
-            isi.cName = "负荷1";
-            isi.LName[0] = "负荷1";
-            isi.LName[1] = "Force1";
+            isi.cName = "力";
+            isi.LName[0] = "力";
+            isi.LName[1] = "Force";
             isi.SensorId = 1;
 
 
@@ -719,8 +866,8 @@ namespace ClsStaticStation
 
 
             isi = new ItemSignal();
-            isi.cName = "负荷2";
-            isi.LName[0] = "负荷2";
+            isi.cName = "力2";
+            isi.LName[0] = "力2";
             isi.LName[1] = "Force2";
             isi.SensorId = 2;
 
@@ -745,13 +892,13 @@ namespace ClsStaticStation
 
 
             isi = new ItemSignal();
-            isi.cName = "变形1";
-            isi.LName[0] = "变形1";
-            isi.LName[1] = "Ext 1";
+            isi.cName = "变形";
+            isi.LName[0] = "变形";
+            isi.LName[1] = "Ext";
             isi.SensorId = 3;
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Sensor3";
+            isi.SignName = "Ch Sensor4";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -773,7 +920,7 @@ namespace ClsStaticStation
             isi.SensorId = 4;
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Sensor4";
+            isi.SignName = "Ch Sensor5";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -796,7 +943,7 @@ namespace ClsStaticStation
             isi.SensorId = 5;
                 
             isi.originprecise = 3;
-            isi.SignName = "Ch Sensor5";
+            isi.SignName = "Ch Sensor6";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -818,7 +965,7 @@ namespace ClsStaticStation
             isi.SensorId = 6;
 
             isi.originprecise = 3;
-            isi.SignName = "Ch Sensor6";
+            isi.SignName = "Ch Sensor7";
             isi.cUnitKind = 0;
             isi.cUnitsel = 0;
             isi.InitUnit();
@@ -1405,16 +1552,18 @@ namespace ClsStaticStation
 
              signalskindlist = new List<ItemSignal>();
 
-            
+            ChannelControl = new bool[20];
+            ChannelDimension = new int[20];
+            ChannelRange = new double[20];          
 
-
-             for (int i = 0; i <= 18; i++)
+            for (int i = 0; i <= 18; i++)
              {
                  isi = new ItemSignal();
                  isi.cUnitKind = i;
                  isi.cUnitsel = 0;
                  isi.InitUnit();
                  signalskindlist.Add(isi);
+               
              }
 
              SignalsNames = new String[signalskindlist.Count];
@@ -1621,7 +1770,7 @@ namespace ClsStaticStation
         public static double mpos;
         public static double mext;
         public static double mtime;
-
+      
         public static double msensor4;
         public static double msensor5;
         public static double msensor6;
@@ -1823,7 +1972,7 @@ namespace ClsStaticStation
         public double[] gsetvalue;
         public double[] gamendvalue;
 
-
+        public bool ClosedControl = false;
         private void Dispose(bool disposing)
         {
             // Check to see if Dispose has already been called.
@@ -1953,6 +2102,33 @@ namespace ClsStaticStation
             return t.ToString("F" + fmt);
         }
 
+        public String GetOriValue(double oValue,int unit)  //求信号原始值
+        {
+            string s;
+            double t;
+            int old;
+
+            old = cUnitsel;
+            cUnitsel = unit;
+            double m;
+            double.TryParse(GetValue(1), out m);
+            if (m < 0.0001)
+            {
+                t = 0;
+            }
+            else
+            {
+                t = oValue / m;
+            }
+            cUnitsel = 0;
+            s = GetValue(t);
+            cUnitsel = old;
+            return (s);
+
+
+
+        }
+
         public String GetOriValue(double oValue)  //求信号原始值
         {
             string s;
@@ -2031,7 +2207,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise + 0;
+                    precise = originprecise + 1;
                     return format(t, precise);
                 }
                 if (mcUnitsel == 1)
@@ -2109,7 +2285,7 @@ namespace ClsStaticStation
                 {
 
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise + 0;
+                    precise = originprecise +1;
                     return format(t, precise);
                 }
 
@@ -2211,7 +2387,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2324,7 +2500,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
 
                 }
@@ -2471,7 +2647,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
                 if (mcUnitsel == 1)
@@ -2502,7 +2678,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2522,7 +2698,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2549,7 +2725,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2566,7 +2742,7 @@ namespace ClsStaticStation
             {
                 t = Convert.ToDouble(cValueOrigin) * 1;
 
-                precise = originprecise;
+                precise = originprecise+1;
                 return format(t, precise);
 
             }
@@ -2575,7 +2751,7 @@ namespace ClsStaticStation
             {
 
                 t = cValueOrigin;
-                precise = originprecise;
+                precise = originprecise+1;
                 return format(t, precise);
 
             }
@@ -2585,7 +2761,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2602,7 +2778,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2659,7 +2835,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2691,7 +2867,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2802,7 +2978,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
                 if (mcUnitsel == 1)
@@ -2831,7 +3007,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
                 if (mcUnitsel == 1)
@@ -2900,7 +3076,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
                 if (mcUnitsel == 1)
@@ -2956,7 +3132,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
 
@@ -2989,7 +3165,7 @@ namespace ClsStaticStation
                 if (mcUnitsel == 0)
                 {
                     t = Convert.ToDouble(cValueOrigin) * 1;
-                    precise = originprecise;
+                    precise = originprecise+1;
                     return format(t, precise);
                 }
             }

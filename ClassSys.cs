@@ -86,6 +86,15 @@ namespace TabHeaderDemo
 
         public string bmplogo = "";
         public bool showlogo = false;
+
+        public string[] ChannelName;//通道名称
+        public double[] ChannelRange;//通道量程
+        public int[] ChannelDimension;//通道量纲
+        public bool[] ChannelControl;//通道控制
+        public bool[] ChannelStrainControl;//通道变形控制
+
+        public int ChannelCount = 8;//通道数量
+
         public ClassSys()
         {
 
@@ -98,14 +107,17 @@ namespace TabHeaderDemo
             ControllerCount = 4;
 
             MachineName = new string[20];
-            MachineName[0] = "电子万能试验机";
+            MachineName[0] = "电子(液压)万能试验机";
             MachineName[1] = "扭转试验机";
             MachineName[2] = "岩石三轴试验机";
-            MachineName[3] = "8采集通道1控制通道";
+            // MachineName[3] = "8采集通道1控制通道";
 
 
-            MachineCount = 4;
-
+            MachineCount = 3;
+          
+            ChannelRange = new double [20];
+            ChannelControl = new bool[20];
+            ChannelDimension = new int[20];
 
             UserName = new string[100];
             UserPassword = new string[100];
@@ -134,6 +146,11 @@ namespace TabHeaderDemo
                 RecentSampleFilename[i] = "";
                 RecentSampleFilenameKind[i] = "";
                 RecentSampleFilePath[i] = "";
+
+                ChannelRange[i] = 10;
+                ChannelControl[i] = false ;
+                ChannelDimension[i] =0;
+
             }
 
             SampleFile = "TestSample";
@@ -217,12 +234,30 @@ namespace TabHeaderDemo
                     {
                         c.MachineName = new string[20];
                     }
-                 
-                    c.MachineName[0] = "电子万能试验机";
+                   
+
+                    c.MachineName[0] = "电子(液压)万能试验机";
                     c.MachineName[1] = "扭转试验机";
                     c.MachineName[2] = "岩石三轴试验机";
-                    c.MachineName[3] = "8采集通道1控制通道";
-                    c.MachineCount = 4;
+                   // c.MachineName[3] = "8采集通道1控制通道";
+                    c.MachineCount = 3;
+
+                    if (c.ChannelRange == null)
+                    {
+                        c.ChannelRange = new double[20];
+                        c.ChannelControl = new bool[20];
+                        c.ChannelDimension = new int[20];
+                        c.ChannelCount = 8;
+                        for (int i = 0; i < c.ChannelCount; i++)
+                        {
+
+
+                            c.ChannelRange[i] = 10;
+                            c.ChannelControl[i] = false;
+
+
+                        }
+                    }
 
                     fileStream.Close();
 

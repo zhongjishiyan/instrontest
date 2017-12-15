@@ -65,6 +65,12 @@ namespace ClsStaticStation
 		private double mspeed_pos1;
 		private double mspeed_time0;
 
+        private double sensor4;
+        private double sensor5;
+        private double sensor6;
+        private double sensor7;
+        private double sensor8;
+
 
 		public double maxload;
 
@@ -418,6 +424,11 @@ namespace ClsStaticStation
 				load = r.NextDouble();
 				pos = r.NextDouble();
 				ext = r.NextDouble();
+                sensor4 = r.NextDouble();
+                sensor5 = r.NextDouble();
+                sensor6 = r.NextDouble();
+                sensor7 = r.NextDouble();
+                sensor8 = r.NextDouble();
 				time = System.Environment.TickCount / 1000.0;
 				poscmd = 0;
 				loadcmd = 0;
@@ -433,7 +444,12 @@ namespace ClsStaticStation
 				load = r.NextDouble();
 				pos = r.NextDouble();
 				ext = r.NextDouble();
-				time = System.Environment.TickCount / 1000;
+                sensor4 = r.NextDouble();
+                sensor5 = r.NextDouble();
+                sensor6 = r.NextDouble();
+                sensor7 = r.NextDouble();
+                sensor8 = r.NextDouble();
+                time = System.Environment.TickCount / 1000;
 				poscmd = 0;
 				loadcmd = 0;
 				extcmd = 0;
@@ -445,6 +461,7 @@ namespace ClsStaticStation
 				{
 					load = mdemodata[mdemotestingp].load;
 					pos = mdemodata[mdemotestingp].pos;
+                    ext = mdemodata[mdemotestingp].ext;
 					time = mdemodata[mdemotestingp].time;
 					mdemotestingp = mdemotestingp + 1;
 				}
@@ -460,6 +477,15 @@ namespace ClsStaticStation
 			ClsStaticStation.m_Global.mload = load;
 
 			ClsStaticStation.m_Global.mpos = pos;
+
+            ClsStaticStation.m_Global.mext = ext;
+
+            ClsStaticStation.m_Global.msensor4 = sensor4;
+            ClsStaticStation.m_Global.msensor5 = sensor5;
+            ClsStaticStation.m_Global.msensor6 = sensor6;
+            ClsStaticStation.m_Global.msensor7 = sensor7;
+            ClsStaticStation.m_Global.msensor8 = sensor8;   
+
 
 			ClsStaticStation.m_Global.mload1 = load1;
 			ClsStaticStation.m_Global.mpos1 = pos1;
@@ -967,8 +993,14 @@ namespace ClsStaticStation
 								load = *(p + a9500.SENSOR_ARM_F);
 								pos = *(p + a9500.SENSOR_ARM_S);
 								ext = *(p + a9500.SENSOR_ARM_E);
+                                sensor4 = *(p + a9500.SENSOR_ARM_D);
+                                sensor5 = *(p + a9500.SENSOR_ARM_4);
+                                sensor6 = *(p + a9500.SENSOR_ARM_5);
+                                sensor7 = *(p + a9500.SENSOR_ARM_6);
+                                sensor8 = *(p + a9500.SENSOR_ARM_7);
 
-							}
+
+                            }
 
 							fixed (double* p1 = GGMsg.free2)
 							{
@@ -1019,9 +1051,16 @@ namespace ClsStaticStation
 					ClsStaticStation.m_Global.mload = load;
 
 					ClsStaticStation.m_Global.mpos = pos;
+                    ClsStaticStation.m_Global.mext = ext;
+
 
 					ClsStaticStation.m_Global.mload1 = load1;
 					ClsStaticStation.m_Global.mpos1 = pos1;
+                    ClsStaticStation.m_Global.msensor4 = sensor4;
+                    ClsStaticStation.m_Global.msensor5 = sensor5;
+                    ClsStaticStation.m_Global.msensor6 = sensor6;
+                    ClsStaticStation.m_Global.msensor7 = sensor7;
+                    ClsStaticStation.m_Global.msensor8 = sensor8;  
 
 					if (time - mspeed_time0 >= 0.1)
 					{
@@ -1485,9 +1524,10 @@ namespace ClsStaticStation
 		public override void starttest()
 		{
 			short k = 0;
+            RawDataDataGroup d;
 
-           
-			maxload = 0;
+
+            maxload = 0;
 			mstarttime = moritime;
 			duanliebaohu = false;
 
@@ -1496,26 +1536,37 @@ namespace ClsStaticStation
 				MessageBox.Show("请先停止运行然后开始"); 
 				return; 
 			}
+            bool b = false;
+            while (b == false)
+            {
+                Application.DoEvents();
+                if (time < 1)
+                {
+                    b = true;
+                }
+            }
 
-            /*
-			bool b = false;
-			while (b == false)
-			{
-				Application.DoEvents();
-				if (time < 10)
-				{
-					b = true;
-				}
-			}
-            */
-            int ll = 0;
 
-            ll = ClsStatic.arraydata[0].Read<RawDataDataGroup>(r, 0, 10);
+            int iii = 0;
 
-            ll = ClsStatic.arraydata[1].Read<RawDataDataGroup>(r, 0, 10);
+
+
+            while (iii < ClsStatic.arraydata[0].NodeCount)
+            {
+
+
+                ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 10);
+                ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 10);
+
+                iii = iii + 1;
+
+
+            }
 
             ClsStatic.arraydatacount[0] = 0;
             ClsStatic.arraydatacount[1] = 0;
+
+           
             mspeed_time0 = 0;
 
 			mspeed_load0 = 0;
@@ -1547,10 +1598,10 @@ namespace ClsStaticStation
 				}
 
 
-				segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
+				segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].destorigin(),
 					Convert.ToInt16(mrunlist[mcurseg].controlmode),
 					 Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-					k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0,0);
+					k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0,0);
 
 
 			}
@@ -1608,10 +1659,10 @@ namespace ClsStaticStation
 				}
 
 
-				segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].dest,
+				segstep(mrunlist[mcurseg].cmd,   mrunlist[mcurseg].destorigin(),
 					Convert.ToInt16(mrunlist[mcurseg].controlmode),
 					 Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-					k, Convert.ToSingle(mrunlist[mcurseg].speed), 0, 0, 0,0);
+					k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0,0);
 
 
 
@@ -1619,7 +1670,11 @@ namespace ClsStaticStation
 
 
 			}
-            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)  //高级试验
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess ==3) //高级试验
+            {
+
+            }
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)  //中级测试
             {
 
 
@@ -1693,7 +1748,7 @@ namespace ClsStaticStation
 				else
 				{
 
-					MessageBox.Show("错误，您没有设置高级测试过程");
+					MessageBox.Show("错误，您没有设置中级测试过程");
 					mtestrun = false;
 					return;
 				}
@@ -1716,10 +1771,10 @@ namespace ClsStaticStation
 					}
 					if (mrunlist[ii].action == 1)
 					{
-						segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+						segstep(mrunlist[ii].cmd, mrunlist[ii].destorigin(),
 						   Convert.ToInt16(mrunlist[ii].controlmode),
 							 Convert.ToInt16(mrunlist[ii].destcontrolmode),
-							k, Convert.ToSingle(mrunlist[ii].speed),
+							k, Convert.ToSingle(mrunlist[ii].speedorigin()),
 						  mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount,mrunlist[ii].action );
 
 						mcurseg = ii;
@@ -1737,10 +1792,10 @@ namespace ClsStaticStation
 
 						if (ii == mcurseg)
 						{
-							segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+							segstep(mrunlist[ii].cmd, mrunlist[ii].destorigin(),
 					       Convert.ToInt16(mrunlist[ii].controlmode),
 					      	Convert.ToInt16(mrunlist[ii].destcontrolmode),
-					      k, Convert.ToSingle(mrunlist[ii].speed),
+					      k, Convert.ToSingle(mrunlist[ii].speedorigin()),
                           mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
 
 							mcurseg = ii;
@@ -1973,10 +2028,10 @@ namespace ClsStaticStation
 								}
 								if (mrunlist[ii].action == 1)
 								{
-									segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+									segstep(mrunlist[ii].cmd, mrunlist[ii].destorigin(),
 									   Convert.ToInt16(mrunlist[ii].controlmode),
 										 Convert.ToInt16(mrunlist[ii].destcontrolmode),
-										k, Convert.ToSingle(mrunlist[ii].speed),
+										k, Convert.ToSingle(mrunlist[ii].speedorigin()),
 									  mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount,mrunlist[ii].action );
                                     mcurseg = ii;
 									tongbu = tongbu + 1;
@@ -1989,10 +2044,10 @@ namespace ClsStaticStation
 								{
 									if (ii == mcurseg)
 									{
-										segstep(mrunlist[ii].cmd, mrunlist[ii].dest,
+										segstep(mrunlist[ii].cmd, mrunlist[ii].destorigin(),
 								   Convert.ToInt16(mrunlist[ii].controlmode),
 									Convert.ToInt16(mrunlist[ii].destcontrolmode),
-								   k, Convert.ToSingle(mrunlist[ii].speed),
+								   k, Convert.ToSingle(mrunlist[ii].speedorigin()),
                                    mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
 
 										mcurseg = ii;

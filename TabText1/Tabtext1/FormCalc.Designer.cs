@@ -43,6 +43,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtContent = new Compenkie.RichTextBoxExtend();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.剪切ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lvTips = new System.Windows.Forms.ListView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMethodName = new System.Windows.Forms.TextBox();
@@ -65,8 +67,6 @@
             this.dgvParameters = new System.Windows.Forms.DataGridView();
             this.colParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colParamType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lvTips = new System.Windows.Forms.ListView();
-            this.txtContent = new Compenkie.RichTextBoxExtend();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -98,7 +98,7 @@
             this.tsbTest.Image = ((System.Drawing.Image)(resources.GetObject("tsbTest.Image")));
             this.tsbTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbTest.Name = "tsbTest";
-            this.tsbTest.Size = new System.Drawing.Size(57, 22);
+            this.tsbTest.Size = new System.Drawing.Size(60, 22);
             this.tsbTest.Text = "测试语法";
             this.tsbTest.Click += new System.EventHandler(this.tsbTest_Click);
             // 
@@ -108,7 +108,7 @@
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(33, 22);
+            this.tsbSave.Size = new System.Drawing.Size(36, 22);
             this.tsbSave.Text = "保存";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -123,7 +123,7 @@
             this.tsbExit.Image = ((System.Drawing.Image)(resources.GetObject("tsbExit.Image")));
             this.tsbExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExit.Name = "tsbExit";
-            this.tsbExit.Size = new System.Drawing.Size(33, 22);
+            this.tsbExit.Size = new System.Drawing.Size(36, 22);
             this.tsbExit.Text = "退出";
             this.tsbExit.Click += new System.EventHandler(this.tsbExit_Click);
             // 
@@ -133,7 +133,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(33, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 22);
             this.toolStripButton1.Text = "编辑";
             this.toolStripButton1.Visible = false;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_2);
@@ -160,6 +160,19 @@
             this.panel5.Size = new System.Drawing.Size(503, 614);
             this.panel5.TabIndex = 4;
             // 
+            // txtContent
+            // 
+            this.txtContent.ContextMenuStrip = this.contextMenuStrip1;
+            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtContent.HiglightColor = Khendys.Controls.RtfColor.White;
+            this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Name = "txtContent";
+            this.txtContent.Size = new System.Drawing.Size(503, 537);
+            this.txtContent.TabIndex = 2;
+            this.txtContent.Text = "";
+            this.txtContent.TextColor = Khendys.Controls.RtfColor.Black;
+            this.txtContent.TextChanged += new System.EventHandler(this.txtContent_TextChanged);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -168,33 +181,33 @@
             this.粘贴ToolStripMenuItem,
             this.全选ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(95, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 92);
             // 
             // 复制ToolStripMenuItem
             // 
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.复制ToolStripMenuItem.Text = "复制";
             this.复制ToolStripMenuItem.Click += new System.EventHandler(this.复制ToolStripMenuItem_Click);
             // 
             // 剪切ToolStripMenuItem
             // 
             this.剪切ToolStripMenuItem.Name = "剪切ToolStripMenuItem";
-            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.剪切ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.剪切ToolStripMenuItem.Text = "剪切";
             this.剪切ToolStripMenuItem.Click += new System.EventHandler(this.剪切ToolStripMenuItem_Click);
             // 
             // 粘贴ToolStripMenuItem
             // 
             this.粘贴ToolStripMenuItem.Name = "粘贴ToolStripMenuItem";
-            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.粘贴ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.粘贴ToolStripMenuItem.Text = "粘贴";
             this.粘贴ToolStripMenuItem.Click += new System.EventHandler(this.粘贴ToolStripMenuItem_Click);
             // 
             // 全选ToolStripMenuItem
             // 
             this.全选ToolStripMenuItem.Name = "全选ToolStripMenuItem";
-            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.全选ToolStripMenuItem.Text = "全选";
             this.全选ToolStripMenuItem.Click += new System.EventHandler(this.全选ToolStripMenuItem_Click);
             // 
@@ -254,6 +267,38 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(509, 474);
             this.panel4.TabIndex = 2;
+            // 
+            // lvTips
+            // 
+            this.lvTips.Dock = System.Windows.Forms.DockStyle.Fill;
+            listViewGroup1.Header = "系统变量";
+            listViewGroup1.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup1.Name = "lvgKeyword";
+            listViewGroup2.Header = "数学运算";
+            listViewGroup2.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup2.Name = "lvgCompare";
+            listViewGroup3.Header = "用户变量";
+            listViewGroup3.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup3.Name = "lvgMethod";
+            listViewGroup4.Header = "函数";
+            listViewGroup4.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup4.Name = "listFunction";
+            listViewGroup5.Header = "系统常量";
+            listViewGroup5.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup5.Name = "listConst";
+            this.lvTips.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
+            this.lvTips.Location = new System.Drawing.Point(0, 0);
+            this.lvTips.Name = "lvTips";
+            this.lvTips.Size = new System.Drawing.Size(509, 474);
+            this.lvTips.TabIndex = 1;
+            this.lvTips.UseCompatibleStateImageBehavior = false;
+            this.lvTips.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvTips_ItemSelectionChanged);
+            this.lvTips.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvTips_MouseDoubleClick);
             // 
             // panel3
             // 
@@ -364,51 +409,6 @@
             this.colParamType.ReadOnly = true;
             this.colParamType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colParamType.Width = 120;
-            // 
-            // lvTips
-            // 
-            this.lvTips.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup1.Header = "系统变量";
-            listViewGroup1.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup1.Name = "lvgKeyword";
-            listViewGroup2.Header = "数学运算";
-            listViewGroup2.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup2.Name = "lvgCompare";
-            listViewGroup3.Header = "用户变量";
-            listViewGroup3.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup3.Name = "lvgMethod";
-            listViewGroup4.Header = "函数";
-            listViewGroup4.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup4.Name = "listFunction";
-            listViewGroup5.Header = "系统常量";
-            listViewGroup5.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup5.Name = "listConst";
-            this.lvTips.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5});
-            this.lvTips.Location = new System.Drawing.Point(0, 0);
-            this.lvTips.Name = "lvTips";
-            this.lvTips.Size = new System.Drawing.Size(509, 474);
-            this.lvTips.TabIndex = 1;
-            this.lvTips.UseCompatibleStateImageBehavior = false;
-            this.lvTips.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvTips_MouseDoubleClick);
-            this.lvTips.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvTips_ItemSelectionChanged);
-            // 
-            // txtContent
-            // 
-            this.txtContent.ContextMenuStrip = this.contextMenuStrip1;
-            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtContent.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.txtContent.Location = new System.Drawing.Point(0, 0);
-            this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(503, 537);
-            this.txtContent.TabIndex = 2;
-            this.txtContent.Text = "";
-            this.txtContent.TextColor = Khendys.Controls.RtfColor.Black;
-            this.txtContent.TextChanged += new System.EventHandler(this.txtContent_TextChanged);
             // 
             // FormCalc
             // 

@@ -20,8 +20,8 @@ namespace AppleLabApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            
-            CComLibrary.GlobeVal.m_mainform = new MainForm(); 
-            Application.Run(CComLibrary.GlobeVal.m_mainform );
+         
+            
         }
     }
 }

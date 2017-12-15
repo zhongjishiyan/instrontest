@@ -186,8 +186,14 @@ namespace TabHeaderDemo
 
             m_Global.mycls = new ItemSignalStation(Convert.ToInt32(GlobeVal.mysys.machinekind));
 
+            m_Global.mycls.ChannelCount = GlobeVal.mysys.ChannelCount;
 
-
+            for (int i = 0; i < GlobeVal.mysys.ChannelCount ; i++)
+            {
+                m_Global.mycls.ChannelControl[i] = GlobeVal.mysys.ChannelControl[i];
+                m_Global.mycls.ChannelDimension[i] = GlobeVal.mysys.ChannelDimension[i];
+                m_Global.mycls.ChannelRange[i] = GlobeVal.mysys.ChannelRange[i]; 
+            }
             if (GlobeVal.mysys.controllerkind == 0)
             {
                 marm = new CArm();
@@ -235,6 +241,8 @@ namespace TabHeaderDemo
             keyboardHook.KeyUp += new KeyEventHandler(keyboardHook_KeyUp);
             keyboardReplayHook.KeyDown += new KeyEventHandler(KeyboardReplayHook_KeyDown);
             keyboardReplayHook.KeyUp += new KeyEventHandler(KeyboardReplayHook_KeyUp);
+
+            
 
         }
 
@@ -878,17 +886,26 @@ namespace TabHeaderDemo
                 GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "急停：正常";
                 GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].BackColor = SystemColors.Control;
             }
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mmeter.Count; i++)
+
+
+            if (CComLibrary.GlobeVal.filesave == null)
             {
-                for (int j = 0; j < m_Global.mycls.allsignals.Count; j++)
+
+            }
+            else
+            {
+                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mmeter.Count; i++)
                 {
-                    if (CComLibrary.GlobeVal.filesave.mmeter[i].cName == m_Global.mycls.allsignals[j].cName)
+                    for (int j = 0; j < m_Global.mycls.allsignals.Count; j++)
                     {
-                        mlistmeter[i].lblvalue.Text = m_Global.mycls.allsignals[j].GetValueFromUnit(m_Global.mycls.allsignals[j].cvalue,
-                            CComLibrary.GlobeVal.filesave.mmeter[i].cUnitsel);
+                        if (CComLibrary.GlobeVal.filesave.mmeter[i].cName == m_Global.mycls.allsignals[j].cName)
+                        {
+                            mlistmeter[i].lblvalue.Text = m_Global.mycls.allsignals[j].GetValueFromUnit(m_Global.mycls.allsignals[j].cvalue,
+                                CComLibrary.GlobeVal.filesave.mmeter[i].cUnitsel);
 
 
 
+                        }
                     }
                 }
             }
@@ -994,11 +1011,17 @@ namespace TabHeaderDemo
 
 
                 fdata.g_namelist.Clear();
+                fdata.g_signnamelist.Clear();
 
                 for (int j = 0; j < m_Global.mycls.originsignals.Count; j++)
                 {
                     fdata.g_namelist.Add(m_Global.mycls.originsignals[j].cName);
+                    fdata.g_signnamelist.Add(m_Global.mycls.originsignals[j].SignName);
                 }
+
+
+
+
                 fdata.g_datafilepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ";
 
                 fdata.gmptpath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
@@ -1171,10 +1194,11 @@ namespace TabHeaderDemo
 
 
                     fdata.g_namelist.Clear();
-
+                    fdata.g_signnamelist.Clear();
                     for (int j = 0; j < m_Global.mycls.originsignals.Count; j++)
                     {
                         fdata.g_namelist.Add(m_Global.mycls.originsignals[j].cName);
+                        fdata.g_signnamelist.Add(m_Global.mycls.originsignals[j].SignName);
                     }
                     fdata.g_datafilepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\";
 

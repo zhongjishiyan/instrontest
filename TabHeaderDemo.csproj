@@ -113,10 +113,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\AppleLabApplication.dll</HintPath>
     </Reference>
-    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ec8c846c06738936, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\ClsStaticStation.dll</HintPath>
-    </Reference>
     <Reference Include="IP.Components, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\IPToolbox_src\IPToolbox\bin\Release\IP.Components.dll</HintPath>
@@ -673,7 +669,6 @@
     <Compile Include="User围压.Designer.cs">
       <DependentUpon>User围压.cs</DependentUpon>
     </Compile>
-    <Content Include="ClsStaticStation.sln" />
     <None Include="Resources\sun.cur" />
     <Content Include="Resources\报告提示1.ico" />
     <Content Include="Resources\方法提示1.ico" />

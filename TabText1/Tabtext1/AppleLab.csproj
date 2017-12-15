@@ -51,6 +51,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -67,9 +68,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\AlphaBlendTextBox.dll</HintPath>
     </Reference>
-    <Reference Include="ClsStaticStation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=00e95de9db4717aa, processorArchitecture=MSIL">
+    <Reference Include="DoPENet, Version=2.82.0.0, Culture=neutral, PublicKeyToken=57cb194ebf911d69, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\Debug\ClsStaticStation.dll</HintPath>
+      <HintPath>..\..\bin\Debug\DoPENet.dll</HintPath>
+    </Reference>
+    <Reference Include="MCTBuffer, Version=1.0.1.0, Culture=neutral, PublicKeyToken=3c6f10d5f3df8ab7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Debug\MCTBuffer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <SpecificVersion>False</SpecificVersion>
@@ -77,6 +82,11 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
     </Reference>
     <Reference Include="NationalInstruments.Analysis.Enterprise, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -132,6 +142,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\WizardBase.dll</HintPath>
     </Reference>
+    <Reference Include="XLNet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f8076e75ead654d9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Debug\XLNet.dll</HintPath>
+    </Reference>
     <Reference Include="XPListview, Version=1.0.6335.13731, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\XPListview.dll</HintPath>
@@ -152,6 +166,14 @@
     </Compile>
     <Compile Include="AppleLab.cs" />
     <Compile Include="CFileCom.cs" />
+    <Compile Include="ClsArm.cs" />
+    <Compile Include="ClsBaseControl.cs" />
+    <Compile Include="ClsDemo.cs" />
+    <Compile Include="ClsDOLI.cs" />
+    <Compile Include="ClsDsp.cs" />
+    <Compile Include="ClsStatic.cs" />
+    <Compile Include="ClsStaticClass.cs" />
+    <Compile Include="Cls电机.cs" />
     <Compile Include="EmotioconsCollector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,12 +224,6 @@
     </Compile>
     <Compile Include="FormAxis.Designer.cs">
       <DependentUpon>FormAxis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormChannel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormChannel.Designer.cs">
-      <DependentUpon>FormChannel.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPlot.cs">
       <SubType>Form</SubType>
@@ -305,6 +321,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UltraHighAccurateTimer.cs" />
+    <Compile Include="UserGraph.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserGraph.Designer.cs">
+      <DependentUpon>UserGraph.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -355,10 +378,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAxis.resx">
       <DependentUpon>FormAxis.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormChannel.resx">
-      <DependentUpon>FormChannel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlot.resx">
@@ -519,7 +538,9 @@
     <Content Include="Extensions\ArrowUp.ICO" />
     <Content Include="Extensions\Delete.ICO" />
     <Content Include="Extensions\Refresh.ico" />
+    <Content Include="Resources\AppleLabApplication.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -475,10 +475,13 @@ namespace SampleProject.Extensions
 		private void grid_CellLostFocus(object sender, SourceGrid2.PositionCancelEventArgs e)
 		{
             row = e.Position.Row;
+
 			btDown.Enabled = false;
 			btUp.Enabled = false;
 			btRemove.Enabled = false;
-		}
+
+       
+        }
 
 
 

@@ -99,7 +99,7 @@ namespace CComLibrary
             }
 
         }
-
+        /*
         public void gethwnd(long h)
         {
             SetParent(GlobeVal.m_mainform.Handle, (IntPtr)h);
@@ -111,7 +111,7 @@ namespace CComLibrary
             SetWindowPos(GlobeVal.m_mainform.Handle, -1, 0, 0, 0, 0, 1);
 
 
-        }
+        }*/
 
         public void Initialize通道()
         {
@@ -2084,6 +2084,7 @@ namespace CComLibrary
     [Serializable]
     public class CmdSeg
     {
+       
         public bool check;
         public int controlmode;
         public double speed;
@@ -2097,6 +2098,38 @@ namespace CComLibrary
         public int explainkind = 0;// 命令解释类型
         public Sequence mseq;
 
+        public int speedunit=0;
+        public int destunit=0;
+
+        public  double speedorigin()
+        {
+            double t = 0;
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+            {
+                if (controlmode == i)
+                {
+                 
+                    t = Convert.ToDouble(ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.GetOriValue(speed,speedunit));
+                }
+            }
+                return t;
+        }
+        public double destorigin()
+
+        {
+            double t = 0;
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
+            {
+                if (destcontrolmode == i)
+                {
+                    t = Convert.ToDouble(ClsStaticStation.m_Global.mycls.hardsignals[i].GetOriValue(dest, destunit));
+                }
+            }
+
+            return t;
+        }
+
+
         public CmdSeg()
         {
             check = false;
@@ -2107,6 +2140,8 @@ namespace CComLibrary
             keeptime = 0;
             returncount = 0;
             returnstep = 0;
+            speedunit = 0;
+            destunit = 0;
             cmd = 0;
 
         }
@@ -2127,14 +2162,15 @@ namespace CComLibrary
                 {
                     if (controlmode == i)
                     {
-                        s = "速度:" + speed.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[0];
+                        s = "速度:" + speed.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[speedunit ];
 
                         if (controlmode == 1)
                         {
-                            s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(speed).ToString("F4") + "MPa/s]";
+                            s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(speedorigin()).ToString("F4") + "MPa/s]";
 
                         }
 
+                      //  s = s + "原始速度:" + speedorigin().ToString("F4") + " ";
                     }
 
 
@@ -2165,11 +2201,11 @@ namespace CComLibrary
                     {
                         s = "当" + ClsStaticStation.m_Global.mycls.hardsignals[i].cName + "到达" +
 
-                            dest.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].cUnits[0] + "时";
+                            dest.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].cUnits[destunit] + "时";
 
                         if (destcontrolmode == 1)
                         {
-                            s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(dest).ToString("F4") + "MPa]";
+                            s = s + "[" + CComLibrary.GlobeVal.filesave.LoadToStrain(destorigin()).ToString("F4") + "MPa]";
 
                         }
 
@@ -2556,6 +2592,8 @@ namespace CComLibrary
 
         public List<string> m_namelist;
 
+        public List<string> m_signnamelist;
+
         public List<inputitem> minput;
 
         public List<outputitem> moutput;
@@ -2710,6 +2748,19 @@ namespace CComLibrary
         public string lasttestdatatime;//最后试验日期
 
         public CmdSeg simple_cmd; //简单试验
+
+        public double Extensometer_gauge;//引伸计标距
+        public double Extensometer1_gauge;//引伸计1标距
+
+        public bool chkextremove;//试验过程中是否摘除引伸计
+        public int Extensometer_removal;//引伸计去除准则
+        public int Extensometer_DataChannel;//引伸计通道选择
+        public double  Extensometer_DataValue;//引伸计去除值;
+        public int Extensometer_DataValueUnit;//引伸计去除值单位;
+        public int Extensometer_Action;//引伸计去除时动作
+        public bool  Extensometer_DataFrozen;//引伸计摘除时数据冻结
+        
+
 
         public double StrainToLoad(double l)
         {
@@ -3150,6 +3201,16 @@ namespace CComLibrary
 
             i = readfilelen(filename, out L);
 
+
+            if (i>10)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("没有生成试验数据，不能进行计算"); 
+            }
+
             readdemo(filename, i, L);
 
             Boolean bcalc = false;
@@ -3165,6 +3226,8 @@ namespace CComLibrary
             s = "";
 
             CComLibrary.GlobeVal.m_test = false;
+
+           
 
             for (i = 0; i < CComLibrary.GlobeVal.filesave.m_namelist.Count; i++)
             {
@@ -3186,11 +3249,14 @@ namespace CComLibrary
 
 
             Init_SystemPara();
+            bool mhavecalcitem = false;
 
             for (j = 0; j < CComLibrary.GlobeVal.filesave.moutput.Count; j++)
             {
                 if (CComLibrary.GlobeVal.filesave.moutput[j].check == true)
                 {
+                    mhavecalcitem = true;
+
                     CComLibrary.GlobeVal.gcalc.Initexpr(CComLibrary.GlobeVal.filesave.moutput[j].formulavalue, j + 1);
                     s = "";
                     for (i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
@@ -3209,37 +3275,50 @@ namespace CComLibrary
                 }
             }
 
-            CComLibrary.GlobeVal.gcalc.refreshresult(s);
-            bcalc = CComLibrary.GlobeVal.gcalc.calc();
-
-
-            double[] rr;
-            Boolean[] rvalid;
-            rr = new double[100];
-            rvalid = new Boolean[100];
-            for (j = 0; j < CComLibrary.GlobeVal.filesave.moutput.Count; j++)
+            if (mhavecalcitem == false)
             {
-                rr[j] = 0;
-                rvalid[j] = false;
+                MessageBox.Show("没有设置计算项目");
             }
-
-
-
-            for (j = 0; j < CComLibrary.GlobeVal.filesave.moutput.Count; j++)
+            else
             {
+                CComLibrary.GlobeVal.gcalc.refreshresult(s);
+                bcalc = CComLibrary.GlobeVal.gcalc.calc();
+
+
+                double[] rr;
+                Boolean[] rvalid;
+                rr = new double[100];
+                rvalid = new Boolean[100];
+                for (j = 0; j < CComLibrary.GlobeVal.filesave.moutput.Count; j++)
+                {
+                    rr[j] = 0;
+                    rvalid[j] = false;
+                }
 
 
 
+                for (j = 0; j < CComLibrary.GlobeVal.filesave.moutput.Count; j++)
+                {
 
 
-                CComLibrary.GlobeVal.gcalc.getresult(j + 1).ToString();
+
+                    if (ClsStaticStation.m_Global.mvalid == true)
+                    {
+                        rvalid[j + 1] = true;
+                    }
+                    else
+                    {
+                        rvalid[j + 1] = false;
+                    }
+
+                    CComLibrary.GlobeVal.gcalc.getresult(j + 1).ToString();
+
+
+                }
+
 
 
             }
-
-
-
-
 
 
 
@@ -4153,11 +4232,26 @@ namespace CComLibrary
 
         public ArrayList errorMessages;
 
+        void ReleaseDLL()
+        {
+            
+            byte[] byDll =global::AppleLabApplication.Properties.Resources.AppleLabApplication;//获取嵌入dll文件的字节数组  
+            string strPath = Application.CommonAppDataPath + @"\AppleLabAppliation.dll";//设置释放路径  
+                                                                    //创建dll文件（覆盖模式）  
+            using (FileStream fs = new FileStream(strPath, FileMode.Create))
+            {
+                fs.Write(byDll, 0, byDll.Length);
+            }
+        }
 
         public MathExpressionParser()
         {
+
+
+            ReleaseDLL();
             errorMessages = new ArrayList();
 
+        
             cp = new Microsoft.CSharp.CSharpCodeProvider();
             ic = cp.CreateCompiler();
             cpar = new System.CodeDom.Compiler.CompilerParameters();
@@ -4169,8 +4263,12 @@ namespace CComLibrary
             // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\NationalInstruments.Analysis.Enterprise.XML");
             // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\NationalInstruments.Common.dll");
             //cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\nianlys.dll");
-            cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\AppleLabApplication.dll");//添加可执行文件名
-            cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\ClsStaticStation.dll");//添加可执行文件名
+            if (File.Exists(Application.CommonAppDataPath + @"\AppleLabAppliation.dll"))
+            {
+                cpar.ReferencedAssemblies.Add(Application.CommonAppDataPath + @"\AppleLabAppliation.dll");//添加可执行文件名
+            }
+            
+            //cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\ClsStaticStation.dll");//添加可执行文件名
 
 
             //  cpar.ReferencedAssemblies.Add("NationalInstruments.UI.WindowsForms.Thermometer, NationalInstruments.UI.WindowsForms, Version = 12.0.35.318, Culture = neutral, PublicKeyToken = 18cbae0f9955702a");
@@ -4293,7 +4391,7 @@ namespace CComLibrary
 
                 mys = "";
 
-                mys = mys + "GlobeVal.m_calcdata[" + i.ToString().Trim() + "][j] =结果;";
+                mys = mys + "GlobeVal.m_calcdata[" + i.ToString().Trim() + "][j] =_结果;";
                 mys = mys + "\r\n}\r\n";
 
             }
@@ -4311,7 +4409,7 @@ namespace CComLibrary
 
 
 
-            mys = mys + "数组长度=" + (GlobeVal.m_len).ToString() + ";" + "\r\n";
+            mys = mys + "_数组长度=" + (GlobeVal.m_len).ToString() + ";" + "\r\n";
 
 
             for (i = istart + 1; i <= iend - 1; i++)
@@ -4355,23 +4453,23 @@ namespace CComLibrary
 
             list.Items.Add("class myclass:CComLibrary.MyClassBase" + "\r\n");
             list.Items.Add("{" + "\r\n");
-            list.Items.Add("public Boolean  有效=false;\r\n ");
-            list.Items.Add("public const int 单坐标=0;\r\n");
-            list.Items.Add("public const int 双坐标=1;\r\n");
-            list.Items.Add("public const int 曲线1=1;\r\n");
-            list.Items.Add("public const int 曲线2=2;\r\n");
-            list.Items.Add("public const int 曲线3=3;\r\n");
-            list.Items.Add("public const int 曲线4=4;\r\n");
-            list.Items.Add("public const int 曲线5=5;\r\n");
-            list.Items.Add("public const int 曲线6=6;\r\n");
-            list.Items.Add("public const int 曲线7=7;\r\n");
-            list.Items.Add("public const int 曲线8=8;\r\n");
-            list.Items.Add("public const int 左轴=0;\r\n");
-            list.Items.Add("public const int 右轴=1;\r\n");
-            list.Items.Add("public const int 底轴=2;\r\n");
+            list.Items.Add("public Boolean  _有效=false;\r\n ");
+            list.Items.Add("public const int _单坐标=0;\r\n");
+            list.Items.Add("public const int _双坐标=1;\r\n");
+            list.Items.Add("public const int _曲线1=1;\r\n");
+            list.Items.Add("public const int _曲线2=2;\r\n");
+            list.Items.Add("public const int _曲线3=3;\r\n");
+            list.Items.Add("public const int _曲线4=4;\r\n");
+            list.Items.Add("public const int _曲线5=5;\r\n");
+            list.Items.Add("public const int _曲线6=6;\r\n");
+            list.Items.Add("public const int _曲线7=7;\r\n");
+            list.Items.Add("public const int _曲线8=8;\r\n");
+            list.Items.Add("public const int _左轴=0;\r\n");
+            list.Items.Add("public const int _右轴=1;\r\n");
+            list.Items.Add("public const int _底轴=2;\r\n");
 
-            list.Items.Add("public const bool 不画特征点=false;\r\n");
-            list.Items.Add("public const bool 画特征点=true;\r\n");
+            list.Items.Add("public const bool _不画特征点=false;\r\n");
+            list.Items.Add("public const bool _画特征点=true;\r\n");
 
 
 
@@ -4385,66 +4483,68 @@ namespace CComLibrary
             list.Items.Add("public double exp(double v) {return Math.Exp(v);}" + "\r\n");
             list.Items.Add("public double power(double x,double y) {return  Math.Pow(x,y);}" + "\r\n");
             list.Items.Add("public double sqrt(double v) {return  Math.Sqrt(v);}" + "\r\n");
-            list.Items.Add("public int 取整(double v) {return Convert.ToInt32(v);}" + "\r\n");
-            list.Items.Add("public double 修约(double v,int l){return Math.Round(v,l);}" + "\r\n");
-            list.Items.Add("public double maxpeak(int starti,int endi,double[] v)" + "\r\n" + "{ return  GlobeVal._funmax(starti,endi,v); }" + "\r\n");
-            list.Items.Add("public double 拐点(double[] x,double[] y,bool mdraw)" + "\r\n" + " {  double v;  int i;\r\n  GlobeVal._yield(x,y, mdraw, out v,out i);\r\n return v; \r\n}\r\n");
-            list.Items.Add("public double 斜率(double[] x,double[] y,bool mdraw) \r\n {double mslope; double a;double b; \r\n GlobeVal._automodule(x,y,mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
-            list.Items.Add("public double 数组Y最大值(double[] x, double[] y, bool mdraw)\r\n{ double value;\r\n GlobeVal._maxyvalue(x,y,out value,mdraw); return value;\r\n}\r\n");
+            list.Items.Add("public int _取整(double v) {return Convert.ToInt32(v);}" + "\r\n");
+            list.Items.Add("public double _修约(double v,int l){return Math.Round(v,l);}" + "\r\n");
+            list.Items.Add("public double _maxpeak(int starti,int endi,double[] v)" + "\r\n" + "{ return  CComLibrary.GlobeVal._funmax(starti,endi,v); }" + "\r\n");
+            list.Items.Add("public double _拐点(double[] x,double[] y,bool mdraw)" + "\r\n" + " {  double v;  int i;\r\n  CComLibrary.GlobeVal._yield(x,y, mdraw, out v,out i);\r\n return v; \r\n}\r\n");
+            list.Items.Add("public double _斜率(double[] x,double[] y,bool mdraw) \r\n {double mslope; double a;double b; \r\n CComLibrary.GlobeVal._automodule(x,y,mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
+            list.Items.Add("public double _数组Y最大值(double[] x, double[] y, bool mdraw)\r\n{ double value;\r\n GlobeVal._maxyvalue(x,y,out value,mdraw); return value;\r\n}\r\n");
 
-            list.Items.Add("public double 曲线拟合(double[] x,double[] y) \r\n {double mslope; \r\n GlobeVal._fit(x,y,out mslope); return mslope;\r\n}\r\n");
+            list.Items.Add("public double _曲线拟合(double[] x,double[] y) \r\n {double mslope; \r\n CComLibrary.GlobeVal._fit(x,y,out mslope); return mslope;\r\n}\r\n");
 
-            list.Items.Add("public double 面积()\r\n{ double value;\r\n GlobeVal._area(out value); return value;\r\n}\r\n");
+            list.Items.Add("public double _面积()\r\n{ double value;\r\n CComLibrary.GlobeVal._area(out value); return value;\r\n}\r\n");
+            list.Items.Add("public double _引伸计标距()\r\n{ double value;\r\n CComLibrary.GlobeVal._gauge(out value); return value;\r\n} \r\n");
+            list.Items.Add("public double _引伸计2标距()\r\n{ double value;\r\n CComLibrary.GlobeVal._gauge1(out value); return value;\r\n} \r\n");
 
-            list.Items.Add("public double 预设点(double[] setx,double[] calcy,double setvalue,bool mdraw)\r\n{ double t; GlobeVal._presetcalc(setx,calcy,setvalue,out t,mdraw); return t;}\r\n");
+            list.Items.Add("public double _预设点(double[] setx,double[] calcy,double setvalue,bool mdraw)\r\n{ double t; CComLibrary.GlobeVal._presetcalc(setx,calcy,setvalue,out t,mdraw); return t;}\r\n");
 
-            list.Items.Add("public void 坐标轴设置(int 参数) \r\n");
+            list.Items.Add("public void _坐标轴设置(int 参数) \r\n");
 
-            list.Items.Add("{ GlobeVal.m_mainform.设置坐标(参数);}\r\n");
+            list.Items.Add("{ CComLibrary.GlobeVal._设置坐标(参数);}\r\n");
 
-            list.Items.Add("public void 消息框(string 参数) \r\n");
-            list.Items.Add("{ GlobeVal._消息框(参数);}\r\n");
+            list.Items.Add("public void _消息框(string 参数) \r\n");
+            list.Items.Add("{ CComLibrary.GlobeVal._消息框(参数);}\r\n");
 
-            list.Items.Add("public void 调试输出(string 参数) \r\n");
-            list.Items.Add("{ GlobeVal._调试输出(参数);}\r\n");
+            list.Items.Add("public void _调试输出(string 参数) \r\n");
+            list.Items.Add("{ CComLibrary.GlobeVal._调试输出(参数);}\r\n");
 
-            list.Items.Add("public void 清除曲线(int 曲线号) \r\n");
-            list.Items.Add("{ GlobeVal._清除曲线(曲线号);}\r\n");
+            list.Items.Add("public void _清除曲线(int 曲线号) \r\n");
+            list.Items.Add("{ CComLibrary.GlobeVal._清除曲线(曲线号);}\r\n");
 
-            list.Items.Add("public void 设置曲线Y坐标轴(int 曲线号,int Y轴) \r\n");
-            list.Items.Add("{ GlobeVal._设置曲线Y坐标轴(曲线号,Y轴);}\r\n");
+            list.Items.Add("public void _设置曲线Y坐标轴(int 曲线号,int Y轴) \r\n");
+            list.Items.Add("{ CComLibrary.GlobeVal._设置曲线Y坐标轴(曲线号,Y轴);}\r\n");
 
-            list.Items.Add("public void 闭合曲线(int 曲线号) \r\n");
-
-
-            list.Items.Add("{ GlobeVal._闭合曲线(曲线号) ;}" + "\r\n");
-
-            list.Items.Add("public void 坐标轴标题(int 坐标轴,string 标题) \r\n");
-            list.Items.Add("{ GlobeVal._坐标轴标题(坐标轴,标题);}" + "\r\n");
-            list.Items.Add("public void 曲线标题(string 标题) \r\n");
-            list.Items.Add("{GlobeVal._曲线标题(标题);}" + "\r\n");
+            list.Items.Add("public void _闭合曲线(int 曲线号) \r\n");
 
 
+            list.Items.Add("{ CComLibrary.GlobeVal._闭合曲线(曲线号) ;}" + "\r\n");
+
+            list.Items.Add("public void _坐标轴标题(int 坐标轴,string 标题) \r\n");
+            list.Items.Add("{ CComLibrary.GlobeVal._坐标轴标题(坐标轴,标题);}" + "\r\n");
+            list.Items.Add("public void _曲线标题(string 标题) \r\n");
+            list.Items.Add("{CComLibrary.GlobeVal._曲线标题(标题);}" + "\r\n");
 
 
-            list.Items.Add("public void 画XY曲线(double[] x,double[] y ,int 曲线号) \r\n");
 
 
-            list.Items.Add("{ GlobeVal.m_mainform.plotxy(x,y,曲线号) ;}" + "\r\n");
+            list.Items.Add("public void _画XY曲线(double[] x,double[] y ,int 曲线号) \r\n");
 
-            list.Items.Add("public void 画XY点(double x,double y,int 曲线号) \r\n");
+            
+            list.Items.Add("{ CComLibrary.GlobeVal._plotxy(x,y,曲线号) ;}" + "\r\n");
 
-            list.Items.Add("{ GlobeVal.m_mainform.plotxypoint(x,y,曲线号) ;}" + "\r\n");
+            list.Items.Add("public void _画XY点(double x,double y,int 曲线号) \r\n");
 
-            list.Items.Add("public void 清除所有曲线()\r\n");
-            list.Items.Add("{ GlobeVal.m_mainform.clearxy();}\r\n");
+            list.Items.Add("{ CComLibrary.GlobeVal._plotxypoint(x,y,曲线号) ;}" + "\r\n");
 
-            list.Items.Add("public double 结果=0;" + "\r\n");
-            list.Items.Add("public int 数组长度=0;" + "\r\n");
-            list.Items.Add("public int 索引=0;" + "\r\n");
+            list.Items.Add("public void _清除所有曲线()\r\n");
+            list.Items.Add("{ CComLibrary.GlobeVal._clearxy();}\r\n");
+
+            list.Items.Add("public double _结果=0;" + "\r\n");
+            list.Items.Add("public int _数组长度=0;" + "\r\n");
+            list.Items.Add("public int _索引=0;" + "\r\n");
 
 
-            list.Items.Add("public int debug1=-1;" + "\r\n");
+            list.Items.Add("public int _debug1=-1;" + "\r\n");
 
 
             list.Items.Add("//var array begin" + "\r\n");
@@ -4771,12 +4871,12 @@ namespace CComLibrary
             int istart;
             int iend;
             int i;
-            this.RefreshDebug通道("debug1=" + "count" + ";\r\n");
+            this.RefreshDebug通道("_debug1=" + "count" + ";\r\n");
 
             this.msource = expr;
-            s1 = "if (debug1==" + count.ToString().Trim() + ")\r\n" + "{\r\n" + expr + "\r\n" +
-               "if (System.Double.IsNaN(结果)==true){结果=0;}\r\n" +
-                "CalcedChannelResult[" + count.ToString().Trim() + "]=结果;" + "\r\n}";
+            s1 = "if (_debug1==" + count.ToString().Trim() + ")\r\n" + "{\r\n" + expr + "\r\n" +
+               "if (System.Double.IsNaN(_结果)==true){_结果=0;}\r\n" +
+                "CalcedChannelResult[" + count.ToString().Trim() + "]=_结果;" + "\r\n}";
 
 
             istart = list.FindString("//hardcalc begin" + count.ToString().Trim() + "\r\n");
@@ -4800,13 +4900,13 @@ namespace CComLibrary
             int istart;
             int iend;
             int i;
-            this.RefreshDebug("debug1=" + "count" + ";\r\n");
+            this.RefreshDebug("_debug1=" + "count" + ";\r\n");
 
             this.msource = expr;
-            s1 = "if (debug1==" + count.ToString().Trim() + ")\r\n" + "{\r\n" + expr + "\r\n" +
-               "if (System.Double.IsNaN(结果)==true){结果=0; 有效=false; }\r\n" +
-                 "else { 有效=true;  }\r\n" +
-                "  CalcedChannelResult[" + count.ToString().Trim() + "]=结果;" + "m_Global.mvalid=有效;" + "\r\n}";
+            s1 = "if (_debug1==" + count.ToString().Trim() + ")\r\n" + "{\r\n" + expr + "\r\n" +
+               "if (System.Double.IsNaN(_结果)==true){_结果=0; _有效=false; }\r\n" +
+                 "else { _有效=true;  }\r\n" +
+                "  CalcedChannelResult[" + count.ToString().Trim() + "]=_结果;" + "m_Global.mvalid=_有效;" + "\r\n}";
 
 
             istart = list.FindString("//calc begin" + count.ToString().Trim() + "\r\n");
@@ -5166,7 +5266,7 @@ namespace CComLibrary
 
         public static int formulakind = 0;
         public static bool m_test = false;
-        public static MainForm m_mainform;
+        
         public static RichTextBox m_outputwindow;
         public static Compenkie.RichTextBoxExtend m_richtextbox;
         public static RichTextBox m_calc_outputwindow;
@@ -5233,28 +5333,49 @@ namespace CComLibrary
                 b.Name = CComLibrary.GlobeVal.filesave.m_namelist[j] + "通道";
 
                 b.replaceName = b.Name;
-                if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "负荷")
+                if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Load")
                 {
                     s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.mload" + ";" + "\r\n";
                 }
 
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "位移")
+              
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Pos")
                 {
                     s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.mpos" + ";" + "\r\n";
                 }
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "变形")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Ext")
                 {
                     s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.mext" + ";" + "\r\n";
                 }
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "时间")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor4")
+                {
+                    s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor4" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor5")
+                {
+                    s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor5" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor6")
+                {
+                    s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor6" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor7")
+                {
+                    s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor7" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor8")
+                {
+                    s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor8" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Time")
                 {
                     s = s + "public double " + b.replaceName + "=0;" + "\r\n";
                 }
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "围压压力")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "ambient pressure Ch Load")
                 {
                     s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.mload1" + ";" + "\r\n";
                 }
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "围压位移")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "ambient pressure Ch Disp")
                 {
                     s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.mpos1" + ";" + "\r\n";
                 }
@@ -5312,28 +5433,48 @@ namespace CComLibrary
                 b.Name = CComLibrary.GlobeVal.filesave.m_namelist[j] + "通道";
 
                 b.replaceName = b.Name;
-                if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "负荷")
+                if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Load")
                 {
                     s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mload" + ";" + "\r\n";
                 }
 
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "位移")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Pos")
                 {
                     s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mpos" + ";" + "\r\n";
                 }
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "变形")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Ext")
                 {
                     s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mext" + ";" + "\r\n";
                 }
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "时间")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor4")
+                {
+                    s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor4" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor5")
+                {
+                    s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor5" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor6")
+                {
+                    s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor6" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor7")
+                {
+                    s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor7" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Sensor8")
+                {
+                    s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.msensor8" + ";" + "\r\n";
+                }
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Time")
                 {
                     s = s + b.replaceName + "=0;" + "\r\n";
                 }
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "围压压力")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "ambient pressure Ch Load")
                 {
                     s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mload1" + ";" + "\r\n";
                 }
-                else if (CComLibrary.GlobeVal.filesave.m_namelist[j] == "围压位移")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "ambient pressure Ch Pos")
                 {
                     s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mpos1" + ";" + "\r\n";
                 }
@@ -5476,22 +5617,22 @@ namespace CComLibrary
 
         public static void _曲线标题(string s)
         {
-            CComLibrary.GlobeVal.m_mainform.scatterGraph1.Caption = s;
+            CComLibrary.GlobeVal.mscattergraph.Caption = s;
         }
         //
         public static void _坐标轴标题(int c, string s)
         {
             if (c == 0)
             {
-                CComLibrary.GlobeVal.m_mainform.scatterGraph1.YAxes[0].Caption = s;
+                CComLibrary.GlobeVal.mscattergraph.YAxes[0].Caption = s;
             }
             if (c == 1)
             {
-                CComLibrary.GlobeVal.m_mainform.scatterGraph1.YAxes[1].Caption = s;
+                CComLibrary.GlobeVal.mscattergraph.YAxes[1].Caption = s;
             }
             if (c == 2)
             {
-                CComLibrary.GlobeVal.m_mainform.scatterGraph1.XAxes[0].Caption = s;
+                CComLibrary.GlobeVal.mscattergraph.XAxes[0].Caption = s;
             }
         }
 
@@ -5519,12 +5660,12 @@ namespace CComLibrary
         {
             double x;
             double y;
-            CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].GetDataPoint(0, out x, out y);
-            CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].PlotXYAppend(x, y);
+            CComLibrary.GlobeVal.mscattergraph.Plots[c - 1].GetDataPoint(0, out x, out y);
+            CComLibrary.GlobeVal.mscattergraph.Plots[c - 1].PlotXYAppend(x, y);
         }
         public static void _清除曲线(int c)
         {
-            CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].ClearData();
+            CComLibrary.GlobeVal.mscattergraph.Plots[c - 1].ClearData();
 
 
         }
@@ -5533,15 +5674,15 @@ namespace CComLibrary
         {
             if (t == 0)
             {
-                CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].YAxis =
+                CComLibrary.GlobeVal.mscattergraph.Plots[c - 1].YAxis =
 
-                    CComLibrary.GlobeVal.m_mainform.scatterGraph1.YAxes[0];
+                    CComLibrary.GlobeVal.mscattergraph.YAxes[0];
             }
             else
             {
-                CComLibrary.GlobeVal.m_mainform.scatterGraph1.Plots[c - 1].YAxis =
+                CComLibrary.GlobeVal.mscattergraph.Plots[c - 1].YAxis =
 
-                    CComLibrary.GlobeVal.m_mainform.scatterGraph1.YAxes[1];
+                    CComLibrary.GlobeVal.mscattergraph.YAxes[1];
             }
 
 
@@ -5801,6 +5942,107 @@ namespace CComLibrary
             return scale;
         }
 
+        public static  void _clearxy()
+        {
+            int i;
+            for (i = 0; i < GlobeVal.mscattergraph.Plots.Count; i++)
+            {
+                GlobeVal.mscattergraph.Plots[i].ClearData();
+            }
+
+            return;
+        }
+
+
+        public static void _plotxypoint(double x, double y, int c)
+        {
+            if (CComLibrary.GlobeVal.m_test == false)
+            {
+                if ((c >= 1) && (c <= GlobeVal.mscattergraph.Plots.Count))
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("曲线号错误");
+                }
+
+
+
+                GlobeVal.mscattergraph.Plots[c - 1].PlotXYAppend(x, y);
+
+            }
+        }
+
+        public static  void  _plotxy(double[] x, double[] y, int c)
+        {
+
+            if (CComLibrary.GlobeVal.m_test == false)
+            {
+                if ((c >= 1) && (c <= GlobeVal.mscattergraph.Plots.Count))
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("曲线号错误");
+                }
+
+
+
+               GlobeVal.mscattergraph.Plots[c - 1].ClearData();
+
+               GlobeVal.mscattergraph.Plots[c - 1].PlotXY(x, y);
+            }
+        }
+
+
+        public static NationalInstruments.UI.WindowsForms.ScatterGraph mscattergraph;
+        public static  void _设置坐标(int a)
+        {
+            if (a == 0)
+            {
+                 GlobeVal.mscattergraph.Plots[0].YAxis = GlobeVal.mscattergraph.YAxes[0];
+                GlobeVal.mscattergraph.Plots[1].YAxis = GlobeVal.mscattergraph.YAxes[1];
+                GlobeVal.mscattergraph.Plots[0].YAxis.Visible = true;
+
+                GlobeVal.mscattergraph.Plots[0].YAxis.Position = NationalInstruments.UI.YAxisPosition.Left;
+
+                GlobeVal.mscattergraph.Plots[1].YAxis.Visible = false;
+
+
+
+            }
+            else
+            {
+
+                GlobeVal.mscattergraph.Plots[0].YAxis = GlobeVal.mscattergraph.YAxes[0];
+                GlobeVal.mscattergraph.Plots[1].YAxis = GlobeVal.mscattergraph.YAxes[1];
+                GlobeVal.mscattergraph.Plots[0].YAxis.Visible = true;
+                GlobeVal.mscattergraph.Plots[0].YAxis.Position = NationalInstruments.UI.YAxisPosition.Left;
+                GlobeVal.mscattergraph.Plots[1].YAxis.Visible = true;
+                GlobeVal.mscattergraph.Plots[1].YAxis.Position = NationalInstruments.UI.YAxisPosition.Right;
+
+            }
+
+
+
+            return;
+        }
+
+        public static bool _gauge(out double value)
+        {
+            value = CComLibrary.GlobeVal.filesave.Extensometer_gauge; 
+            return false;
+        }
+
+        public static bool _gauge1(out double value )
+        {
+            value = CComLibrary.GlobeVal.filesave.Extensometer1_gauge;
+            return false;
+        }
+
+
         public static bool _area(out double value )
         {
             double t = 0;
@@ -5881,11 +6123,13 @@ namespace CComLibrary
         }
         public static bool _automodule(double[] x, double[] y, bool mdraw, out double value, out double a, out double b)
         {
+          
             try
             {
                 double yieldvalue;
                 int yieldindex;
 
+               
 
                 int i;
                 int k;
@@ -5945,7 +6189,7 @@ namespace CComLibrary
                     mslopev[i - 1] = mslope;
                     minterceptv[i - 1] = mintercept;
 
-                    CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + mslope.ToString() + " " + mintercept.ToString() + "\r\n";
+                   // CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + mslope.ToString() + " " + mintercept.ToString() + "\r\n";
 
                 }
 
@@ -5969,11 +6213,12 @@ namespace CComLibrary
                 CurveFit.LinearFit(inputxx, inputyy, NationalInstruments.Analysis.Math.FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
 
 
+              
                 value = mslope ;
                 a = mslope ;
                 b = mintercept ;
 
-                CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + value.ToString() + "\r\n";
+               // CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + value.ToString() + "\r\n";
 
 
                 if (mdraw == true)
@@ -6050,7 +6295,7 @@ namespace CComLibrary
 
             xx = x[maxindex] * 0.01;
 
-            segcount = 100;
+            segcount = m_len /10;
             mk = new double[segcount];
             mkstart = new int[segcount];
             mkend = new int[segcount];
@@ -6098,7 +6343,7 @@ namespace CComLibrary
             {
                 if (mk[i]<=mt*0.8)
                 {
-                    bi = i - 1;
+                    bi = i;
 
 
                     b = true;
@@ -6129,7 +6374,7 @@ namespace CComLibrary
 
             value = mvalue;
             index = mindex;
-
+         
 
 
             if (mdraw == true)

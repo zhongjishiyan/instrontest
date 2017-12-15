@@ -1062,8 +1062,12 @@ namespace TabHeaderDemo
 
             mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
                   (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
+            CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1 ;
 
-            CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
+            CComLibrary.GlobeVal.m_listline.Clear();
+           CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
+
+          
 
             if (CComLibrary.GlobeVal.filesave.mwizard == true)
             {
@@ -1102,6 +1106,31 @@ namespace TabHeaderDemo
             }
 
             GlobeVal.myarm.endtest();
+
+            if (CComLibrary.GlobeVal.m_test == false)
+            {
+                GlobeVal.UserControlGraph1.userGraph1.Annotations.Clear();
+                for (int i = 0; i < CComLibrary.GlobeVal.m_listline.Count; i++)
+                {
+                    if (CComLibrary.GlobeVal.m_listline[i].kind == 0)
+                    {
+
+                        GlobeVal.UserControlGraph1.userGraph1.drawsign(CComLibrary.GlobeVal.m_listline[i].xstart, CComLibrary.GlobeVal.m_listline[i].ystart, CComLibrary.GlobeVal.m_listline[i]);
+
+
+
+                    }
+                    else if (CComLibrary.GlobeVal.m_listline[i].kind == 1)
+                    {
+                        GlobeVal.UserControlGraph1.userGraph1.drawline(CComLibrary.GlobeVal.m_listline[i].xstart, CComLibrary.GlobeVal.m_listline[i].ystart,
+                             CComLibrary.GlobeVal.m_listline[i].xend, CComLibrary.GlobeVal.m_listline[i].yend, CComLibrary.GlobeVal.m_listline[i]);
+
+
+                    }
+
+                }
+
+            }
             timer1.Enabled = false;
             GlobeVal.MainStatusStrip.Items["toolstatustest"].Visible = false;
 

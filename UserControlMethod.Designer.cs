@@ -48,79 +48,81 @@
             treeNode8,
             treeNode9});
             System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("试验选项");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("测试前");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("测试");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("控制", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("应变");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("测试前");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("测试");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("控制", new System.Windows.Forms.TreeNode[] {
             treeNode11,
             treeNode12,
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("设定");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("计算", new System.Windows.Forms.TreeNode[] {
-            treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("实时显示");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("按键");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("主机");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("控制台", new System.Windows.Forms.TreeNode[] {
-            treeNode17,
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("设定");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("计算", new System.Windows.Forms.TreeNode[] {
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("实时显示");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("按键");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("主机");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("控制台", new System.Windows.Forms.TreeNode[] {
             treeNode18,
-            treeNode19});
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("列");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("统计");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("格式");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("结果1", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
+            treeNode19,
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("列");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("统计");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("格式");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("结果1", new System.Windows.Forms.TreeNode[] {
             treeNode22,
-            treeNode23});
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("列");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("统计");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("格式");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("结果2", new System.Windows.Forms.TreeNode[] {
-            treeNode25,
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("列");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("统计");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("格式");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("结果2", new System.Windows.Forms.TreeNode[] {
             treeNode26,
-            treeNode27});
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("类型");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("X轴数据");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Y轴数据");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("高级");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("曲线图1", new System.Windows.Forms.TreeNode[] {
-            treeNode29,
+            treeNode27,
+            treeNode28});
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("类型");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("X轴数据");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Y轴数据");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("高级");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("曲线图1", new System.Windows.Forms.TreeNode[] {
             treeNode30,
             treeNode31,
-            treeNode32});
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("类型");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("X轴数据");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Y轴数据");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("高级");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("曲线图2", new System.Windows.Forms.TreeNode[] {
-            treeNode34,
+            treeNode32,
+            treeNode33});
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("类型");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("X轴数据");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Y轴数据");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("高级");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("曲线图2", new System.Windows.Forms.TreeNode[] {
             treeNode35,
             treeNode36,
-            treeNode37});
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("电表设置");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("操作输入");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("其它显示", new System.Windows.Forms.TreeNode[] {
-            treeNode39,
-            treeNode40});
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("文档设置");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("原始数据输出");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("报告", new System.Windows.Forms.TreeNode[] {
-            treeNode42,
-            treeNode43});
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("提示顺序");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("开始前");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("试样试验前");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("试验前");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("计算前");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("试样试验后");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("结束前");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("测试提示", new System.Windows.Forms.TreeNode[] {
-            treeNode45,
+            treeNode37,
+            treeNode38});
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("电表设置");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("操作输入");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("其它显示", new System.Windows.Forms.TreeNode[] {
+            treeNode40,
+            treeNode41});
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("文档设置");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("原始数据输出");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("报告", new System.Windows.Forms.TreeNode[] {
+            treeNode43,
+            treeNode44});
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("提示顺序");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("开始前");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("试样试验前");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("试验前");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("计算前");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("试样试验后");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("结束前");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("测试提示", new System.Windows.Forms.TreeNode[] {
             treeNode46,
             treeNode47,
             treeNode48,
             treeNode49,
             treeNode50,
-            treeNode51});
+            treeNode51,
+            treeNode52});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMethod));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -226,137 +228,140 @@
             treeNode11.Name = "节点4";
             treeNode11.StateImageIndex = 0;
             treeNode11.Text = "试验选项";
-            treeNode12.Name = "节点8";
+            treeNode12.Name = "节点0";
             treeNode12.StateImageIndex = 0;
-            treeNode12.Text = "测试前";
-            treeNode13.Name = "节点9";
+            treeNode12.Text = "应变";
+            treeNode13.Name = "节点8";
             treeNode13.StateImageIndex = 0;
-            treeNode13.Text = "测试";
-            treeNode14.Name = "节点2";
-            treeNode14.StateImageIndex = 2;
-            treeNode14.Text = "控制";
-            treeNode15.Name = "节点14";
-            treeNode15.StateImageIndex = 0;
-            treeNode15.Text = "设定";
-            treeNode16.Name = "节点3";
-            treeNode16.StateImageIndex = 3;
-            treeNode16.Text = "计算";
-            treeNode17.Name = "节点0";
-            treeNode17.StateImageIndex = 0;
-            treeNode17.Text = "实时显示";
-            treeNode18.Name = "节点1";
+            treeNode13.Text = "测试前";
+            treeNode14.Name = "节点9";
+            treeNode14.StateImageIndex = 0;
+            treeNode14.Text = "测试";
+            treeNode15.Name = "节点2";
+            treeNode15.StateImageIndex = 2;
+            treeNode15.Text = "控制";
+            treeNode16.Name = "节点14";
+            treeNode16.StateImageIndex = 0;
+            treeNode16.Text = "设定";
+            treeNode17.Name = "节点3";
+            treeNode17.StateImageIndex = 3;
+            treeNode17.Text = "计算";
+            treeNode18.Name = "节点0";
             treeNode18.StateImageIndex = 0;
-            treeNode18.Text = "按键";
-            treeNode19.Name = "节点2";
+            treeNode18.Text = "实时显示";
+            treeNode19.Name = "节点1";
             treeNode19.StateImageIndex = 0;
-            treeNode19.Text = "主机";
-            treeNode20.Name = "节点0";
-            treeNode20.StateImageIndex = 13;
-            treeNode20.Text = "控制台";
-            treeNode21.Name = "节点15";
-            treeNode21.StateImageIndex = 0;
-            treeNode21.Text = "列";
-            treeNode22.Name = "节点16";
+            treeNode19.Text = "按键";
+            treeNode20.Name = "节点2";
+            treeNode20.StateImageIndex = 0;
+            treeNode20.Text = "主机";
+            treeNode21.Name = "节点0";
+            treeNode21.StateImageIndex = 13;
+            treeNode21.Text = "控制台";
+            treeNode22.Name = "节点15";
             treeNode22.StateImageIndex = 0;
-            treeNode22.Text = "统计";
-            treeNode23.Name = "节点17";
+            treeNode22.Text = "列";
+            treeNode23.Name = "节点16";
             treeNode23.StateImageIndex = 0;
-            treeNode23.Text = "格式";
-            treeNode24.Name = "节点0";
-            treeNode24.StateImageIndex = 4;
-            treeNode24.Text = "结果1";
-            treeNode25.Name = "节点18";
-            treeNode25.StateImageIndex = 0;
-            treeNode25.Text = "列";
-            treeNode26.Name = "节点19";
+            treeNode23.Text = "统计";
+            treeNode24.Name = "节点17";
+            treeNode24.StateImageIndex = 0;
+            treeNode24.Text = "格式";
+            treeNode25.Name = "节点0";
+            treeNode25.StateImageIndex = 4;
+            treeNode25.Text = "结果1";
+            treeNode26.Name = "节点18";
             treeNode26.StateImageIndex = 0;
-            treeNode26.Text = "统计";
-            treeNode27.Name = "节点20";
+            treeNode26.Text = "列";
+            treeNode27.Name = "节点19";
             treeNode27.StateImageIndex = 0;
-            treeNode27.Text = "格式";
-            treeNode28.Name = "节点1";
-            treeNode28.StateImageIndex = 5;
-            treeNode28.Text = "结果2";
-            treeNode29.Name = "节点21";
-            treeNode29.StateImageIndex = 0;
-            treeNode29.Text = "类型";
-            treeNode30.Name = "节点22";
+            treeNode27.Text = "统计";
+            treeNode28.Name = "节点20";
+            treeNode28.StateImageIndex = 0;
+            treeNode28.Text = "格式";
+            treeNode29.Name = "节点1";
+            treeNode29.StateImageIndex = 5;
+            treeNode29.Text = "结果2";
+            treeNode30.Name = "节点21";
             treeNode30.StateImageIndex = 0;
-            treeNode30.Text = "X轴数据";
-            treeNode31.Name = "节点23";
+            treeNode30.Text = "类型";
+            treeNode31.Name = "节点22";
             treeNode31.StateImageIndex = 0;
-            treeNode31.Text = "Y轴数据";
-            treeNode32.Name = "节点24";
+            treeNode31.Text = "X轴数据";
+            treeNode32.Name = "节点23";
             treeNode32.StateImageIndex = 0;
-            treeNode32.Text = "高级";
-            treeNode33.Name = "节点2";
-            treeNode33.StateImageIndex = 6;
-            treeNode33.Text = "曲线图1";
-            treeNode34.Name = "节点25";
-            treeNode34.StateImageIndex = 0;
-            treeNode34.Text = "类型";
-            treeNode35.Name = "节点26";
+            treeNode32.Text = "Y轴数据";
+            treeNode33.Name = "节点24";
+            treeNode33.StateImageIndex = 0;
+            treeNode33.Text = "高级";
+            treeNode34.Name = "节点2";
+            treeNode34.StateImageIndex = 6;
+            treeNode34.Text = "曲线图1";
+            treeNode35.Name = "节点25";
             treeNode35.StateImageIndex = 0;
-            treeNode35.Text = "X轴数据";
-            treeNode36.Name = "节点27";
+            treeNode35.Text = "类型";
+            treeNode36.Name = "节点26";
             treeNode36.StateImageIndex = 0;
-            treeNode36.Text = "Y轴数据";
-            treeNode37.Name = "节点28";
+            treeNode36.Text = "X轴数据";
+            treeNode37.Name = "节点27";
             treeNode37.StateImageIndex = 0;
-            treeNode37.Text = "高级";
-            treeNode38.Name = "节点3";
-            treeNode38.StateImageIndex = 7;
-            treeNode38.Text = "曲线图2";
-            treeNode39.Name = "节点1";
-            treeNode39.StateImageIndex = 0;
-            treeNode39.Text = "电表设置";
-            treeNode40.Name = "节点0";
-            treeNode40.SelectedImageIndex = -2;
+            treeNode37.Text = "Y轴数据";
+            treeNode38.Name = "节点28";
+            treeNode38.StateImageIndex = 0;
+            treeNode38.Text = "高级";
+            treeNode39.Name = "节点3";
+            treeNode39.StateImageIndex = 7;
+            treeNode39.Text = "曲线图2";
+            treeNode40.Name = "节点1";
             treeNode40.StateImageIndex = 0;
-            treeNode40.Text = "操作输入";
+            treeNode40.Text = "电表设置";
             treeNode41.Name = "节点0";
-            treeNode41.StateImageIndex = 14;
-            treeNode41.Text = "其它显示";
-            treeNode42.Name = "节点29";
-            treeNode42.StateImageIndex = 0;
-            treeNode42.Text = "文档设置";
-            treeNode43.Name = "节点0";
+            treeNode41.SelectedImageIndex = -2;
+            treeNode41.StateImageIndex = 0;
+            treeNode41.Text = "操作输入";
+            treeNode42.Name = "节点0";
+            treeNode42.StateImageIndex = 14;
+            treeNode42.Text = "其它显示";
+            treeNode43.Name = "节点29";
             treeNode43.StateImageIndex = 0;
-            treeNode43.Text = "原始数据输出";
-            treeNode44.Name = "节点5";
-            treeNode44.StateImageIndex = 9;
-            treeNode44.Text = "报告";
-            treeNode45.Name = "节点1";
-            treeNode45.StateImageKey = "(无)";
-            treeNode45.Text = "提示顺序";
-            treeNode46.Name = "节点2";
-            treeNode46.Text = "开始前";
-            treeNode47.Name = "节点3";
-            treeNode47.Text = "试样试验前";
-            treeNode48.Name = "节点4";
-            treeNode48.Text = "试验前";
-            treeNode49.Name = "节点5";
-            treeNode49.Text = "计算前";
-            treeNode50.Name = "节点6";
-            treeNode50.Text = "试样试验后";
-            treeNode51.Name = "节点7";
-            treeNode51.Text = "结束前";
-            treeNode52.Name = "节点0";
-            treeNode52.StateImageIndex = 13;
-            treeNode52.Text = "测试提示";
+            treeNode43.Text = "文档设置";
+            treeNode44.Name = "节点0";
+            treeNode44.StateImageIndex = 0;
+            treeNode44.Text = "原始数据输出";
+            treeNode45.Name = "节点5";
+            treeNode45.StateImageIndex = 9;
+            treeNode45.Text = "报告";
+            treeNode46.Name = "节点1";
+            treeNode46.StateImageKey = "(无)";
+            treeNode46.Text = "提示顺序";
+            treeNode47.Name = "节点2";
+            treeNode47.Text = "开始前";
+            treeNode48.Name = "节点3";
+            treeNode48.Text = "试样试验前";
+            treeNode49.Name = "节点4";
+            treeNode49.Text = "试验前";
+            treeNode50.Name = "节点5";
+            treeNode50.Text = "计算前";
+            treeNode51.Name = "节点6";
+            treeNode51.Text = "试样试验后";
+            treeNode52.Name = "节点7";
+            treeNode52.Text = "结束前";
+            treeNode53.Name = "节点0";
+            treeNode53.StateImageIndex = 13;
+            treeNode53.Text = "测试提示";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode5,
             treeNode10,
-            treeNode14,
-            treeNode16,
-            treeNode20,
-            treeNode24,
-            treeNode28,
-            treeNode33,
-            treeNode38,
-            treeNode41,
-            treeNode44,
-            treeNode52});
+            treeNode15,
+            treeNode17,
+            treeNode21,
+            treeNode25,
+            treeNode29,
+            treeNode34,
+            treeNode39,
+            treeNode42,
+            treeNode45,
+            treeNode53});
             this.treeView1.Scrollable = false;
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;

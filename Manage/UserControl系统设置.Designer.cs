@@ -36,6 +36,7 @@
             this.cbokind = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.grid1 = new SourceGrid2.Grid();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbomachine = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,10 +49,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -132,11 +137,40 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.grid1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(646, 524);
             this.panel2.TabIndex = 1;
+            // 
+            // grid1
+            // 
+            this.grid1.AutoSizeMinHeight = 10;
+            this.grid1.AutoSizeMinWidth = 10;
+            this.grid1.AutoStretchColumnsToFitWidth = true;
+            this.grid1.AutoStretchRowsToFitHeight = false;
+            this.grid1.BackColor = System.Drawing.Color.LightGray;
+            this.grid1.ContextMenuStyle = SourceGrid2.ContextMenuStyle.None;
+            this.grid1.CustomSort = false;
+            this.grid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid1.FocusStyle = SourceGrid2.FocusStyle.None;
+            this.grid1.GridToolTipActive = true;
+            this.grid1.Location = new System.Drawing.Point(0, 0);
+            this.grid1.Name = "grid1";
+            this.grid1.Size = new System.Drawing.Size(646, 524);
+            this.grid1.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
+            | SourceGrid2.GridSpecialKeys.Ctrl_X) 
+            | SourceGrid2.GridSpecialKeys.Delete) 
+            | SourceGrid2.GridSpecialKeys.Arrows) 
+            | SourceGrid2.GridSpecialKeys.Tab) 
+            | SourceGrid2.GridSpecialKeys.PageDownUp) 
+            | SourceGrid2.GridSpecialKeys.Enter) 
+            | SourceGrid2.GridSpecialKeys.Escape)));
+            this.grid1.TabIndex = 3;
+            this.grid1.CellGotFocus += new SourceGrid2.PositionCancelEventHandler(this.grid1_CellGotFocus);
+            this.grid1.CellLostFocus += new SourceGrid2.PositionCancelEventHandler(this.grid1_CellLostFocus);
             // 
             // groupBox2
             // 
@@ -157,6 +191,7 @@
             this.cbomachine.Name = "cbomachine";
             this.cbomachine.Size = new System.Drawing.Size(321, 20);
             this.cbomachine.TabIndex = 2;
+            this.cbomachine.SelectedIndexChanged += new System.EventHandler(this.cbomachine_SelectedIndexChanged);
             this.cbomachine.SelectionChangeCommitted += new System.EventHandler(this.cbomachine_SelectionChangeCommitted);
             // 
             // label5
@@ -173,7 +208,7 @@
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -188,19 +223,21 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(580, 4);
+            this.panel4.Location = new System.Drawing.Point(578, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(39, 42);
             this.panel4.TabIndex = 1;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(569, 84);
+            this.panel3.Size = new System.Drawing.Size(567, 84);
             this.panel3.TabIndex = 2;
             // 
             // label4
@@ -208,9 +245,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(40, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(281, 12);
+            this.label4.Size = new System.Drawing.Size(437, 12);
             this.label4.TabIndex = 3;
-            this.label4.Text = "改变控制器类型或主机类型后，需重新启动才能生效";
+            this.label4.Text = "改变控制器类型或主机类型或修改硬件通道参数后，需重新启动才能生效，请点击";
             // 
             // label1
             // 
@@ -269,6 +306,33 @@
             this.panel1.Size = new System.Drawing.Size(39, 42);
             this.panel1.TabIndex = 1;
             // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 485);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(646, 39);
+            this.panel5.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(483, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 20);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "保存并退出按钮";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(44, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(329, 12);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "仅可修改硬件通道量程和硬件通道闭环控制，其它不能修改。";
+            // 
             // UserControl系统设置
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -281,6 +345,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -313,5 +378,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbomachine;
         private System.Windows.Forms.Label label5;
+        public SourceGrid2.Grid grid1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
     }
 }

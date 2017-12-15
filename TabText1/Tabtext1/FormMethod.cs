@@ -215,6 +215,8 @@ namespace AppleLabApplication
             for (i = 0; i < filesave.moutput.Count; i++)
             {
                 bb = filesave.moutput[i];
+
+               
                 if (bb == null)
                 {
 
@@ -576,6 +578,7 @@ namespace AppleLabApplication
                 for (i = 0; i < cboitem.Items.Count; i++)
                 {
                     filesave.m_namelist.Add(Convert.ToString(cboitem.Items[i]));
+                   
                 }
 
                 filesave.mshapelist.Clear();
@@ -840,9 +843,13 @@ namespace AppleLabApplication
                     moutput.show = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).曲线显示;
                     moutput.check = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).是否计算;
                     moutput.formulaexplain = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式说明;
+
+                    
+                    
                     for (j = 0; j < ClsStaticStation.m_Global.mycls.SignalsNames.Length; j++)
                     {
                         if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == listEditor2.grid[i + 1, listEditor2.grid.ColumnsCount-1].Value.ToString())
+                       // if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == ClsStaticStation.m_Global.mycls.SignalsNames[(listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).量纲])
                         {
                             moutput.dimsel = j;
 
@@ -1263,6 +1270,8 @@ namespace AppleLabApplication
                         {
 
                             listEditor2.grid[e.Position.Row, 2].Value = ClsStaticStation.m_Global.mycls.signalskindlist[i].cUnits[0];
+
+                            
                             break;
                         }
                     }

@@ -33,6 +33,8 @@
             this.lblcaption = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelback = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelCurve = new System.Windows.Forms.TableLayoutPanel();
             this.scatterGraph = new NationalInstruments.UI.WindowsForms.ScatterGraph();
             this.xyCursor1 = new NationalInstruments.UI.XYCursor();
@@ -44,6 +46,17 @@
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.legend = new NationalInstruments.UI.WindowsForms.Legend();
             this.legendItem1 = new NationalInstruments.UI.LegendItem();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.userGraph1 = new AppleLabApplication.UserGraph();
+            this.scatterPlot1 = new NationalInstruments.UI.ScatterPlot();
+            this.xAxis3 = new NationalInstruments.UI.XAxis();
+            this.yAxis3 = new NationalInstruments.UI.YAxis();
+            this.scatterPlot2 = new NationalInstruments.UI.ScatterPlot();
+            this.scatterPlot4 = new NationalInstruments.UI.ScatterPlot();
+            this.scatterPlot5 = new NationalInstruments.UI.ScatterPlot();
+            this.scatterPlot6 = new NationalInstruments.UI.ScatterPlot();
+            this.scatterPlot7 = new NationalInstruments.UI.ScatterPlot();
+            this.scatterPlot8 = new NationalInstruments.UI.ScatterPlot();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsbdefault = new System.Windows.Forms.ToolStripButton();
@@ -59,11 +72,15 @@
             this.tsbpoint = new System.Windows.Forms.ToolStripButton();
             this.tsbcontrol = new System.Windows.Forms.ToolStripButton();
             this.panelback.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tableLayoutPanelCurve.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scatterGraph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xyCursor1)).BeginInit();
             this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.legend)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userGraph1)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +94,7 @@
             this.lblcaption.TabIndex = 3;
             this.lblcaption.Text = "曲线图1";
             this.lblcaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblcaption.Click += new System.EventHandler(this.lblcaption_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -95,7 +113,7 @@
             // panelback
             // 
             this.panelback.BackColor = System.Drawing.Color.White;
-            this.panelback.Controls.Add(this.tableLayoutPanelCurve);
+            this.panelback.Controls.Add(this.tabControl1);
             this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelback.Location = new System.Drawing.Point(0, 25);
             this.panelback.Name = "panelback";
@@ -103,6 +121,28 @@
             this.panelback.TabIndex = 4;
             this.panelback.SizeChanged += new System.EventHandler(this.panelback_SizeChanged);
             this.panelback.Paint += new System.Windows.Forms.PaintEventHandler(this.panelback_Paint);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(451, 306);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.tableLayoutPanelCurve);
+            this.tabPage1.Location = new System.Drawing.Point(4, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(443, 280);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanelCurve
             // 
@@ -112,13 +152,12 @@
             this.tableLayoutPanelCurve.Controls.Add(this.scatterGraph, 0, 0);
             this.tableLayoutPanelCurve.Controls.Add(this.tableLayoutPanel15, 1, 0);
             this.tableLayoutPanelCurve.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelCurve.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelCurve.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanelCurve.Name = "tableLayoutPanelCurve";
             this.tableLayoutPanelCurve.RowCount = 1;
             this.tableLayoutPanelCurve.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCurve.Size = new System.Drawing.Size(451, 306);
-            this.tableLayoutPanelCurve.TabIndex = 6;
-            this.tableLayoutPanelCurve.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelCurve_Paint);
+            this.tableLayoutPanelCurve.Size = new System.Drawing.Size(437, 274);
+            this.tableLayoutPanelCurve.TabIndex = 7;
             // 
             // scatterGraph
             // 
@@ -135,7 +174,7 @@
             this.scatterGraph.Plots.AddRange(new NationalInstruments.UI.ScatterPlot[] {
             this.scatterPlot3});
             this.scatterGraph.SelectionColor = System.Drawing.Color.Silver;
-            this.scatterGraph.Size = new System.Drawing.Size(346, 300);
+            this.scatterGraph.Size = new System.Drawing.Size(332, 268);
             this.scatterGraph.TabIndex = 5;
             this.scatterGraph.UseColorGenerator = true;
             this.scatterGraph.XAxes.AddRange(new NationalInstruments.UI.XAxis[] {
@@ -145,7 +184,6 @@
             this.yAxis1,
             this.yAxis2});
             this.scatterGraph.ZoomAnimation = false;
-            this.scatterGraph.PlotDataChanged += new NationalInstruments.UI.XYPlotDataChangedEventHandler(this.scatterGraph_PlotDataChanged);
             // 
             // xyCursor1
             // 
@@ -202,13 +240,13 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.Controls.Add(this.legend, 0, 1);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(355, 3);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(341, 3);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(93, 300);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(93, 268);
             this.tableLayoutPanel15.TabIndex = 4;
             // 
             // legend
@@ -222,13 +260,98 @@
             this.legend.ItemSize = new System.Drawing.Size(20, 3);
             this.legend.Location = new System.Drawing.Point(3, 47);
             this.legend.Name = "legend";
-            this.legend.Size = new System.Drawing.Size(87, 206);
+            this.legend.Size = new System.Drawing.Size(87, 174);
             this.legend.TabIndex = 4;
             // 
             // legendItem1
             // 
             this.legendItem1.Source = this.scatterPlot3;
             this.legendItem1.Text = "Item 0";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.userGraph1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(443, 280);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // userGraph1
+            // 
+            this.userGraph1.Border = NationalInstruments.UI.Border.None;
+            this.userGraph1.Caption = "标题";
+            this.userGraph1.CaptionBackColor = System.Drawing.Color.White;
+            this.userGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userGraph1.Location = new System.Drawing.Point(3, 3);
+            this.userGraph1.Name = "userGraph1";
+            this.userGraph1.PlotAreaBorder = NationalInstruments.UI.Border.None;
+            this.userGraph1.PlotAreaColor = System.Drawing.Color.White;
+            this.userGraph1.Plots.AddRange(new NationalInstruments.UI.ScatterPlot[] {
+            this.scatterPlot1,
+            this.scatterPlot2,
+            this.scatterPlot4,
+            this.scatterPlot5,
+            this.scatterPlot6,
+            this.scatterPlot7,
+            this.scatterPlot8});
+            this.userGraph1.Size = new System.Drawing.Size(437, 274);
+            this.userGraph1.TabIndex = 0;
+            this.userGraph1.UseColorGenerator = true;
+            this.userGraph1.XAxes.AddRange(new NationalInstruments.UI.XAxis[] {
+            this.xAxis3});
+            this.userGraph1.YAxes.AddRange(new NationalInstruments.UI.YAxis[] {
+            this.yAxis3});
+            // 
+            // scatterPlot1
+            // 
+            this.scatterPlot1.LineColor = System.Drawing.Color.OrangeRed;
+            this.scatterPlot1.LineColorPrecedence = NationalInstruments.UI.ColorPrecedence.UserDefinedColor;
+            this.scatterPlot1.PointColor = System.Drawing.Color.Gold;
+            this.scatterPlot1.XAxis = this.xAxis3;
+            this.scatterPlot1.YAxis = this.yAxis3;
+            // 
+            // xAxis3
+            // 
+            this.xAxis3.BaseLineVisible = true;
+            this.xAxis3.Caption = "X 轴";
+            this.xAxis3.OriginLineColor = System.Drawing.Color.Black;
+            // 
+            // yAxis3
+            // 
+            this.yAxis3.BaseLineVisible = true;
+            this.yAxis3.Caption = "Y轴";
+            // 
+            // scatterPlot2
+            // 
+            this.scatterPlot2.XAxis = this.xAxis3;
+            this.scatterPlot2.YAxis = this.yAxis3;
+            // 
+            // scatterPlot4
+            // 
+            this.scatterPlot4.XAxis = this.xAxis3;
+            this.scatterPlot4.YAxis = this.yAxis3;
+            // 
+            // scatterPlot5
+            // 
+            this.scatterPlot5.XAxis = this.xAxis3;
+            this.scatterPlot5.YAxis = this.yAxis3;
+            // 
+            // scatterPlot6
+            // 
+            this.scatterPlot6.XAxis = this.xAxis3;
+            this.scatterPlot6.YAxis = this.yAxis3;
+            // 
+            // scatterPlot7
+            // 
+            this.scatterPlot7.XAxis = this.xAxis3;
+            this.scatterPlot7.YAxis = this.yAxis3;
+            // 
+            // scatterPlot8
+            // 
+            this.scatterPlot8.XAxis = this.xAxis3;
+            this.scatterPlot8.YAxis = this.yAxis3;
             // 
             // timer1
             // 
@@ -429,11 +552,15 @@
             this.Name = "UserControlGraph";
             this.Size = new System.Drawing.Size(451, 331);
             this.panelback.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanelCurve.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scatterGraph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xyCursor1)).EndInit();
             this.tableLayoutPanel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.legend)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userGraph1)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -444,18 +571,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panelback;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
-        private NationalInstruments.UI.ScatterPlot scatterPlot3;
-        private NationalInstruments.UI.XAxis xAxis1;
-        private NationalInstruments.UI.YAxis yAxis1;
-        private NationalInstruments.UI.XAxis xAxis2;
-        private NationalInstruments.UI.YAxis yAxis2;
-        private NationalInstruments.UI.LegendItem legendItem1;
-        public NationalInstruments.UI.WindowsForms.ScatterGraph scatterGraph;
-        public NationalInstruments.UI.WindowsForms.Legend legend;
-        public System.Windows.Forms.TableLayoutPanel tableLayoutPanelCurve;
         private System.Windows.Forms.Timer timer1;
-        private NationalInstruments.UI.XYCursor xyCursor1;
         public System.Windows.Forms.Label lblcaption;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton tsbdefault;
@@ -470,7 +586,29 @@
         private System.Windows.Forms.ToolStripButton tsbrect;
         private System.Windows.Forms.ToolStripButton tsbpoint;
         private System.Windows.Forms.ToolStripButton tsbcontrol;
-
-
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanelCurve;
+        public NationalInstruments.UI.WindowsForms.ScatterGraph scatterGraph;
+        private NationalInstruments.UI.XYCursor xyCursor1;
+        private NationalInstruments.UI.ScatterPlot scatterPlot3;
+        private NationalInstruments.UI.XAxis xAxis1;
+        private NationalInstruments.UI.YAxis yAxis1;
+        private NationalInstruments.UI.XAxis xAxis2;
+        private NationalInstruments.UI.YAxis yAxis2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        public NationalInstruments.UI.WindowsForms.Legend legend;
+        private NationalInstruments.UI.LegendItem legendItem1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private NationalInstruments.UI.XAxis xAxis3;
+        private NationalInstruments.UI.YAxis yAxis3;
+        public AppleLabApplication.UserGraph userGraph1;
+        private NationalInstruments.UI.ScatterPlot scatterPlot1;
+        private NationalInstruments.UI.ScatterPlot scatterPlot2;
+        private NationalInstruments.UI.ScatterPlot scatterPlot4;
+        private NationalInstruments.UI.ScatterPlot scatterPlot5;
+        private NationalInstruments.UI.ScatterPlot scatterPlot6;
+        private NationalInstruments.UI.ScatterPlot scatterPlot7;
+        private NationalInstruments.UI.ScatterPlot scatterPlot8;
     }
 }

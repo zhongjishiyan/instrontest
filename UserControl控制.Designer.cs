@@ -53,18 +53,28 @@
             this.label23 = new System.Windows.Forms.Label();
             this.comboBox13 = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.chkremoveext = new System.Windows.Forms.CheckBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.cboextruler = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
+            this.cboextchannel = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
-            this.numericEdit7 = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.comboBox16 = new System.Windows.Forms.ComboBox();
+            this.numext = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.cboextunit = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.comboBox17 = new System.Windows.Forms.ComboBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.cboextact = new System.Windows.Forms.ComboBox();
+            this.chkfrozen = new System.Windows.Forms.CheckBox();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label83 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel83 = new System.Windows.Forms.TableLayoutPanel();
+            this.label91 = new System.Windows.Forms.Label();
+            this.numgauge = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.label94 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel84 = new System.Windows.Forms.TableLayoutPanel();
+            this.label95 = new System.Windows.Forms.Label();
+            this.numgauge1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -444,7 +454,13 @@
             this.tabPage5.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericEdit7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numext)).BeginInit();
+            this.panel20.SuspendLayout();
+            this.tableLayoutPanel83.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numgauge)).BeginInit();
+            this.panel21.SuspendLayout();
+            this.tableLayoutPanel84.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numgauge1)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -648,6 +664,7 @@
             this.groupBox11.TabIndex = 10;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "软限位保护";
+            this.groupBox11.Visible = false;
             // 
             // grid1
             // 
@@ -792,7 +809,7 @@
             this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 522F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 597F));
             this.tableLayoutPanel6.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -810,7 +827,7 @@
             this.label6.ForeColor = System.Drawing.Color.Teal;
             this.label6.Location = new System.Drawing.Point(4, 1);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 36);
+            this.label6.Size = new System.Drawing.Size(54, 36);
             this.label6.TabIndex = 0;
             this.label6.Text = "设置控制-开始试验";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -819,7 +836,7 @@
             // 
             this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(140, 4);
+            this.panel6.Location = new System.Drawing.Point(65, 4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(40, 30);
             this.panel6.TabIndex = 1;
@@ -837,25 +854,29 @@
             // tableLayoutPanel16
             // 
             this.tableLayoutPanel16.ColumnCount = 2;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.54546F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.45454F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 231F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.Controls.Add(this.label23, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.comboBox13, 1, 1);
             this.tableLayoutPanel16.Controls.Add(this.label24, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.checkBox3, 0, 2);
+            this.tableLayoutPanel16.Controls.Add(this.chkremoveext, 0, 2);
             this.tableLayoutPanel16.Controls.Add(this.label25, 0, 3);
-            this.tableLayoutPanel16.Controls.Add(this.comboBox14, 1, 3);
+            this.tableLayoutPanel16.Controls.Add(this.cboextruler, 1, 3);
             this.tableLayoutPanel16.Controls.Add(this.label26, 0, 4);
-            this.tableLayoutPanel16.Controls.Add(this.comboBox15, 1, 4);
+            this.tableLayoutPanel16.Controls.Add(this.cboextchannel, 1, 4);
             this.tableLayoutPanel16.Controls.Add(this.label27, 0, 5);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel22, 1, 5);
             this.tableLayoutPanel16.Controls.Add(this.label28, 0, 6);
-            this.tableLayoutPanel16.Controls.Add(this.comboBox17, 1, 6);
-            this.tableLayoutPanel16.Controls.Add(this.checkBox4, 0, 7);
+            this.tableLayoutPanel16.Controls.Add(this.cboextact, 1, 6);
+            this.tableLayoutPanel16.Controls.Add(this.chkfrozen, 0, 7);
+            this.tableLayoutPanel16.Controls.Add(this.panel20, 0, 8);
+            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel83, 1, 8);
+            this.tableLayoutPanel16.Controls.Add(this.panel21, 0, 9);
+            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel84, 1, 9);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 38);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
-            this.tableLayoutPanel16.RowCount = 8;
+            this.tableLayoutPanel16.RowCount = 11;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -863,8 +884,11 @@
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(660, 200);
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(660, 295);
             this.tableLayoutPanel16.TabIndex = 5;
             // 
             // label23
@@ -872,7 +896,7 @@
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Location = new System.Drawing.Point(3, 21);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(222, 24);
+            this.label23.Size = new System.Drawing.Size(225, 24);
             this.label23.TabIndex = 0;
             this.label23.Text = "    源数据通道：";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -883,9 +907,9 @@
             this.comboBox13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(231, 24);
+            this.comboBox13.Location = new System.Drawing.Point(234, 24);
             this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(426, 20);
+            this.comboBox13.Size = new System.Drawing.Size(423, 20);
             this.comboBox13.TabIndex = 1;
             this.comboBox13.Visible = false;
             // 
@@ -896,71 +920,74 @@
             this.label24.ForeColor = System.Drawing.Color.Teal;
             this.label24.Location = new System.Drawing.Point(3, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(222, 21);
+            this.label24.Size = new System.Drawing.Size(225, 21);
             this.label24.TabIndex = 2;
             this.label24.Text = "  变形";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // checkBox3
+            // chkremoveext
             // 
-            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox3.Location = new System.Drawing.Point(27, 48);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(198, 18);
-            this.checkBox3.TabIndex = 3;
-            this.checkBox3.Text = "试验过程中摘引伸计";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chkremoveext.Dock = System.Windows.Forms.DockStyle.Right;
+            this.chkremoveext.Location = new System.Drawing.Point(30, 48);
+            this.chkremoveext.Name = "chkremoveext";
+            this.chkremoveext.Size = new System.Drawing.Size(198, 18);
+            this.chkremoveext.TabIndex = 3;
+            this.chkremoveext.Text = "试验过程中摘引伸计";
+            this.chkremoveext.UseVisualStyleBackColor = true;
+            this.chkremoveext.CheckedChanged += new System.EventHandler(this.chkremoveext_CheckedChanged);
             // 
             // label25
             // 
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.Location = new System.Drawing.Point(3, 69);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(222, 23);
+            this.label25.Size = new System.Drawing.Size(225, 23);
             this.label25.TabIndex = 4;
             this.label25.Text = "       去除准则：";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // comboBox14
+            // cboextruler
             // 
-            this.comboBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Items.AddRange(new object[] {
+            this.cboextruler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboextruler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboextruler.FormattingEnabled = true;
+            this.cboextruler.Items.AddRange(new object[] {
             "数据通道值",
             "% 峰值载荷 ",
             "载荷门槛值"});
-            this.comboBox14.Location = new System.Drawing.Point(231, 72);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(426, 20);
-            this.comboBox14.TabIndex = 5;
+            this.cboextruler.Location = new System.Drawing.Point(234, 72);
+            this.cboextruler.Name = "cboextruler";
+            this.cboextruler.Size = new System.Drawing.Size(423, 20);
+            this.cboextruler.TabIndex = 5;
+            this.cboextruler.SelectionChangeCommitted += new System.EventHandler(this.cboextruler_SelectionChangeCommitted);
             // 
             // label26
             // 
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label26.Location = new System.Drawing.Point(3, 92);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(222, 29);
+            this.label26.Size = new System.Drawing.Size(225, 29);
             this.label26.TabIndex = 6;
             this.label26.Text = "       通道：";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // comboBox15
+            // cboextchannel
             // 
-            this.comboBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Location = new System.Drawing.Point(231, 95);
-            this.comboBox15.Name = "comboBox15";
-            this.comboBox15.Size = new System.Drawing.Size(426, 20);
-            this.comboBox15.TabIndex = 7;
+            this.cboextchannel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboextchannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboextchannel.FormattingEnabled = true;
+            this.cboextchannel.Location = new System.Drawing.Point(234, 95);
+            this.cboextchannel.Name = "cboextchannel";
+            this.cboextchannel.Size = new System.Drawing.Size(423, 20);
+            this.cboextchannel.TabIndex = 7;
+            this.cboextchannel.SelectionChangeCommitted += new System.EventHandler(this.cboextchannel_SelectionChangeCommitted);
             // 
             // label27
             // 
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label27.Location = new System.Drawing.Point(3, 121);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(222, 31);
+            this.label27.Size = new System.Drawing.Size(225, 31);
             this.label27.TabIndex = 8;
             this.label27.Text = "       值：";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -970,33 +997,35 @@
             this.tableLayoutPanel22.ColumnCount = 2;
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.67606F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.32394F));
-            this.tableLayoutPanel22.Controls.Add(this.numericEdit7, 0, 0);
-            this.tableLayoutPanel22.Controls.Add(this.comboBox16, 1, 0);
+            this.tableLayoutPanel22.Controls.Add(this.numext, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.cboextunit, 1, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(231, 124);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(234, 124);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(426, 25);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(423, 25);
             this.tableLayoutPanel22.TabIndex = 9;
             // 
-            // numericEdit7
+            // numext
             // 
-            this.numericEdit7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericEdit7.Location = new System.Drawing.Point(3, 3);
-            this.numericEdit7.Name = "numericEdit7";
-            this.numericEdit7.Size = new System.Drawing.Size(261, 21);
-            this.numericEdit7.TabIndex = 0;
+            this.numext.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numext.Location = new System.Drawing.Point(3, 3);
+            this.numext.Name = "numext";
+            this.numext.Size = new System.Drawing.Size(259, 21);
+            this.numext.TabIndex = 0;
+            this.numext.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numext_AfterChangeValue);
             // 
-            // comboBox16
+            // cboextunit
             // 
-            this.comboBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox16.FormattingEnabled = true;
-            this.comboBox16.Location = new System.Drawing.Point(270, 3);
-            this.comboBox16.Name = "comboBox16";
-            this.comboBox16.Size = new System.Drawing.Size(153, 20);
-            this.comboBox16.TabIndex = 1;
+            this.cboextunit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboextunit.FormattingEnabled = true;
+            this.cboextunit.Location = new System.Drawing.Point(268, 3);
+            this.cboextunit.Name = "cboextunit";
+            this.cboextunit.Size = new System.Drawing.Size(152, 20);
+            this.cboextunit.TabIndex = 1;
+            this.cboextunit.SelectionChangeCommitted += new System.EventHandler(this.cboextunit_SelectionChangeCommitted);
             // 
             // label28
             // 
@@ -1004,41 +1033,151 @@
             this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label28.Location = new System.Drawing.Point(3, 152);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(222, 20);
+            this.label28.Size = new System.Drawing.Size(225, 20);
             this.label28.TabIndex = 10;
             this.label28.Text = "       去除时动作：";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // comboBox17
+            // cboextact
             // 
-            this.comboBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox17.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Items.AddRange(new object[] {
+            this.cboextact.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboextact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboextact.FormattingEnabled = true;
+            this.cboextact.Items.AddRange(new object[] {
             "继续试验",
             "暂停试验但继续采集数据",
             "暂停试验且暂停采集数据"});
-            this.comboBox17.Location = new System.Drawing.Point(231, 155);
-            this.comboBox17.Name = "comboBox17";
-            this.comboBox17.Size = new System.Drawing.Size(426, 20);
-            this.comboBox17.TabIndex = 11;
+            this.cboextact.Location = new System.Drawing.Point(234, 155);
+            this.cboextact.Name = "cboextact";
+            this.cboextact.Size = new System.Drawing.Size(423, 20);
+            this.cboextact.TabIndex = 11;
+            this.cboextact.SelectionChangeCommitted += new System.EventHandler(this.cboextact_SelectionChangeCommitted);
             // 
-            // checkBox4
+            // chkfrozen
             // 
-            this.checkBox4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkBox4.Location = new System.Drawing.Point(27, 175);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(198, 22);
-            this.checkBox4.TabIndex = 12;
-            this.checkBox4.Text = "冻结去除点应变值";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chkfrozen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.chkfrozen.Location = new System.Drawing.Point(30, 175);
+            this.chkfrozen.Name = "chkfrozen";
+            this.chkfrozen.Size = new System.Drawing.Size(198, 22);
+            this.chkfrozen.TabIndex = 12;
+            this.chkfrozen.Text = "冻结去除点应变值";
+            this.chkfrozen.UseVisualStyleBackColor = true;
+            this.chkfrozen.CheckedChanged += new System.EventHandler(this.chkfrozen_CheckedChanged);
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.label83);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.Location = new System.Drawing.Point(3, 203);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(225, 27);
+            this.panel20.TabIndex = 13;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(46, 4);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(77, 12);
+            this.label83.TabIndex = 0;
+            this.label83.Text = "引伸计标距：";
+            // 
+            // tableLayoutPanel83
+            // 
+            this.tableLayoutPanel83.ColumnCount = 2;
+            this.tableLayoutPanel83.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.12057F));
+            this.tableLayoutPanel83.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.87943F));
+            this.tableLayoutPanel83.Controls.Add(this.label91, 1, 0);
+            this.tableLayoutPanel83.Controls.Add(this.numgauge, 0, 0);
+            this.tableLayoutPanel83.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel83.Location = new System.Drawing.Point(234, 203);
+            this.tableLayoutPanel83.Name = "tableLayoutPanel83";
+            this.tableLayoutPanel83.RowCount = 1;
+            this.tableLayoutPanel83.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel83.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel83.Size = new System.Drawing.Size(423, 27);
+            this.tableLayoutPanel83.TabIndex = 14;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label91.Location = new System.Drawing.Point(270, 0);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(150, 27);
+            this.label91.TabIndex = 0;
+            this.label91.Text = "mm";
+            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numgauge
+            // 
+            this.numgauge.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numgauge.Location = new System.Drawing.Point(3, 3);
+            this.numgauge.Name = "numgauge";
+            this.numgauge.Size = new System.Drawing.Size(261, 21);
+            this.numgauge.TabIndex = 1;
+            this.numgauge.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numgauge_AfterChangeValue);
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.label94);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(3, 236);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(225, 27);
+            this.panel21.TabIndex = 15;
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(46, 5);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(83, 12);
+            this.label94.TabIndex = 1;
+            this.label94.Text = "引伸计2标距：";
+            // 
+            // tableLayoutPanel84
+            // 
+            this.tableLayoutPanel84.ColumnCount = 2;
+            this.tableLayoutPanel84.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.12057F));
+            this.tableLayoutPanel84.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.87943F));
+            this.tableLayoutPanel84.Controls.Add(this.label95, 0, 0);
+            this.tableLayoutPanel84.Controls.Add(this.numgauge1, 0, 0);
+            this.tableLayoutPanel84.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel84.Location = new System.Drawing.Point(234, 236);
+            this.tableLayoutPanel84.Name = "tableLayoutPanel84";
+            this.tableLayoutPanel84.RowCount = 1;
+            this.tableLayoutPanel84.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel84.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel84.Size = new System.Drawing.Size(423, 27);
+            this.tableLayoutPanel84.TabIndex = 16;
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label95.Location = new System.Drawing.Point(270, 0);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(150, 27);
+            this.label95.TabIndex = 3;
+            this.label95.Text = "mm";
+            this.label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numgauge1
+            // 
+            this.numgauge1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numgauge1.Location = new System.Drawing.Point(3, 3);
+            this.numgauge1.Name = "numgauge1";
+            this.numgauge1.Size = new System.Drawing.Size(261, 21);
+            this.numgauge1.TabIndex = 2;
+            this.numgauge1.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numgauge1_AfterChangeValue);
             // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 524F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 599F));
             this.tableLayoutPanel5.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1056,7 +1195,7 @@
             this.label5.ForeColor = System.Drawing.Color.Teal;
             this.label5.Location = new System.Drawing.Point(4, 1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 36);
+            this.label5.Size = new System.Drawing.Size(52, 36);
             this.label5.TabIndex = 0;
             this.label5.Text = "设置控制-应变";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1065,7 +1204,7 @@
             // 
             this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(138, 4);
+            this.panel5.Location = new System.Drawing.Point(63, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(40, 30);
             this.panel5.TabIndex = 1;
@@ -1409,13 +1548,14 @@
             // cboprelaod_valueunit
             // 
             this.cboprelaod_valueunit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboprelaod_valueunit.Enabled = false;
+            this.cboprelaod_valueunit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboprelaod_valueunit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboprelaod_valueunit.FormattingEnabled = true;
             this.cboprelaod_valueunit.Location = new System.Drawing.Point(204, 3);
             this.cboprelaod_valueunit.Name = "cboprelaod_valueunit";
             this.cboprelaod_valueunit.Size = new System.Drawing.Size(195, 20);
             this.cboprelaod_valueunit.TabIndex = 1;
+            this.cboprelaod_valueunit.SelectionChangeCommitted += new System.EventHandler(this.cboprelaod_valueunit_SelectionChangeCommitted);
             // 
             // cbopreload_channel
             // 
@@ -1469,20 +1609,21 @@
             // cbopreload_speedunit
             // 
             this.cbopreload_speedunit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbopreload_speedunit.Enabled = false;
+            this.cbopreload_speedunit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbopreload_speedunit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbopreload_speedunit.FormattingEnabled = true;
             this.cbopreload_speedunit.Location = new System.Drawing.Point(204, 3);
             this.cbopreload_speedunit.Name = "cbopreload_speedunit";
             this.cbopreload_speedunit.Size = new System.Drawing.Size(195, 20);
             this.cbopreload_speedunit.TabIndex = 1;
+            this.cbopreload_speedunit.SelectionChangeCommitted += new System.EventHandler(this.cbopreload_speedunit_SelectionChangeCommitted);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 526F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 601F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1500,7 +1641,7 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 36);
+            this.label1.Size = new System.Drawing.Size(44, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "设置控制-测试前";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1509,7 +1650,7 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(130, 4);
+            this.panel4.Location = new System.Drawing.Point(55, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(40, 30);
             this.panel4.TabIndex = 1;
@@ -1701,13 +1842,13 @@
             // 
             this.cbovalueunit4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbovalueunit4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbovalueunit4.Enabled = false;
             this.cbovalueunit4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbovalueunit4.FormattingEnabled = true;
             this.cbovalueunit4.Location = new System.Drawing.Point(204, 3);
             this.cbovalueunit4.Name = "cbovalueunit4";
             this.cbovalueunit4.Size = new System.Drawing.Size(195, 20);
             this.cbovalueunit4.TabIndex = 1;
+            this.cbovalueunit4.SelectionChangeCommitted += new System.EventHandler(this.cbovalueunit4_SelectionChangeCommitted);
             // 
             // cbodestcontrol4
             // 
@@ -1762,13 +1903,13 @@
             // 
             this.cbospeedunit4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbospeedunit4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbospeedunit4.Enabled = false;
             this.cbospeedunit4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbospeedunit4.FormattingEnabled = true;
             this.cbospeedunit4.Location = new System.Drawing.Point(204, 3);
             this.cbospeedunit4.Name = "cbospeedunit4";
             this.cbospeedunit4.Size = new System.Drawing.Size(195, 20);
             this.cbospeedunit4.TabIndex = 1;
+            this.cbospeedunit4.SelectionChangeCommitted += new System.EventHandler(this.cbospeedunit4_SelectionChangeCommitted);
             // 
             // cbomode4
             // 
@@ -1963,13 +2104,13 @@
             // 
             this.cbovalueunit3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbovalueunit3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbovalueunit3.Enabled = false;
             this.cbovalueunit3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbovalueunit3.FormattingEnabled = true;
             this.cbovalueunit3.Location = new System.Drawing.Point(204, 3);
             this.cbovalueunit3.Name = "cbovalueunit3";
             this.cbovalueunit3.Size = new System.Drawing.Size(195, 20);
             this.cbovalueunit3.TabIndex = 1;
+            this.cbovalueunit3.SelectionChangeCommitted += new System.EventHandler(this.cbovalueunit3_SelectionChangeCommitted);
             // 
             // cbodestcontrol3
             // 
@@ -2024,13 +2165,13 @@
             // 
             this.cbospeedunit3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbospeedunit3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbospeedunit3.Enabled = false;
             this.cbospeedunit3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbospeedunit3.FormattingEnabled = true;
             this.cbospeedunit3.Location = new System.Drawing.Point(204, 3);
             this.cbospeedunit3.Name = "cbospeedunit3";
             this.cbospeedunit3.Size = new System.Drawing.Size(195, 20);
             this.cbospeedunit3.TabIndex = 1;
+            this.cbospeedunit3.SelectionChangeCommitted += new System.EventHandler(this.cbospeedunit3_SelectionChangeCommitted);
             // 
             // cbomode3
             // 
@@ -2225,13 +2366,13 @@
             // 
             this.cbovalueunit2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbovalueunit2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbovalueunit2.Enabled = false;
             this.cbovalueunit2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbovalueunit2.FormattingEnabled = true;
             this.cbovalueunit2.Location = new System.Drawing.Point(204, 3);
             this.cbovalueunit2.Name = "cbovalueunit2";
             this.cbovalueunit2.Size = new System.Drawing.Size(195, 20);
             this.cbovalueunit2.TabIndex = 1;
+            this.cbovalueunit2.SelectionChangeCommitted += new System.EventHandler(this.cbovalueunit2_SelectionChangeCommitted);
             // 
             // cbodestcontrol2
             // 
@@ -2286,13 +2427,13 @@
             // 
             this.cbospeedunit2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbospeedunit2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbospeedunit2.Enabled = false;
             this.cbospeedunit2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbospeedunit2.FormattingEnabled = true;
             this.cbospeedunit2.Location = new System.Drawing.Point(204, 3);
             this.cbospeedunit2.Name = "cbospeedunit2";
             this.cbospeedunit2.Size = new System.Drawing.Size(195, 20);
             this.cbospeedunit2.TabIndex = 1;
+            this.cbospeedunit2.SelectionChangeCommitted += new System.EventHandler(this.cbospeedunit2_SelectionChangeCommitted);
             // 
             // cbomode2
             // 
@@ -2488,13 +2629,13 @@
             // 
             this.cbovalueunit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbovalueunit1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbovalueunit1.Enabled = false;
             this.cbovalueunit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbovalueunit1.FormattingEnabled = true;
             this.cbovalueunit1.Location = new System.Drawing.Point(204, 3);
             this.cbovalueunit1.Name = "cbovalueunit1";
             this.cbovalueunit1.Size = new System.Drawing.Size(195, 20);
             this.cbovalueunit1.TabIndex = 1;
+            this.cbovalueunit1.SelectionChangeCommitted += new System.EventHandler(this.cbovalueunit1_SelectionChangeCommitted);
             // 
             // cbodestcontrol1
             // 
@@ -2549,13 +2690,13 @@
             // 
             this.cbospeedunit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbospeedunit1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbospeedunit1.Enabled = false;
             this.cbospeedunit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbospeedunit1.FormattingEnabled = true;
             this.cbospeedunit1.Location = new System.Drawing.Point(204, 3);
             this.cbospeedunit1.Name = "cbospeedunit1";
             this.cbospeedunit1.Size = new System.Drawing.Size(195, 20);
             this.cbospeedunit1.TabIndex = 1;
+            this.cbospeedunit1.SelectionChangeCommitted += new System.EventHandler(this.cbospeedunit1_SelectionChangeCommitted);
             // 
             // cbomode1
             // 
@@ -2584,7 +2725,7 @@
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 523F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 598F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2602,7 +2743,7 @@
             this.label2.ForeColor = System.Drawing.Color.Teal;
             this.label2.Location = new System.Drawing.Point(4, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 36);
+            this.label2.Size = new System.Drawing.Size(47, 36);
             this.label2.TabIndex = 0;
             this.label2.Text = "设置控制-测试";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2611,7 +2752,7 @@
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(133, 4);
+            this.panel1.Location = new System.Drawing.Point(58, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(40, 30);
             this.panel1.TabIndex = 1;
@@ -2903,7 +3044,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 524F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 599F));
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2921,7 +3062,7 @@
             this.label3.ForeColor = System.Drawing.Color.Teal;
             this.label3.Location = new System.Drawing.Point(4, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 36);
+            this.label3.Size = new System.Drawing.Size(52, 36);
             this.label3.TabIndex = 0;
             this.label3.Text = "设置控制-测试结束";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2930,7 +3071,7 @@
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(138, 4);
+            this.panel2.Location = new System.Drawing.Point(63, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(40, 30);
             this.panel2.TabIndex = 1;
@@ -3325,7 +3466,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 523F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 598F));
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -3343,7 +3484,7 @@
             this.label4.ForeColor = System.Drawing.Color.Teal;
             this.label4.Location = new System.Drawing.Point(4, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 36);
+            this.label4.Size = new System.Drawing.Size(53, 36);
             this.label4.TabIndex = 0;
             this.label4.Text = "设置控制-数据";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3352,7 +3493,7 @@
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(139, 4);
+            this.panel3.Location = new System.Drawing.Point(64, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(40, 30);
             this.panel3.TabIndex = 1;
@@ -3524,7 +3665,7 @@
             this.tableLayoutPanel29.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel29.ColumnCount = 2;
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 523F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 598F));
             this.tableLayoutPanel29.Controls.Add(this.label30, 0, 0);
             this.tableLayoutPanel29.Controls.Add(this.panel11, 1, 0);
             this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Top;
@@ -3542,7 +3683,7 @@
             this.label30.ForeColor = System.Drawing.Color.Teal;
             this.label30.Location = new System.Drawing.Point(4, 1);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(128, 36);
+            this.label30.Size = new System.Drawing.Size(53, 36);
             this.label30.TabIndex = 0;
             this.label30.Text = "设置控制-高级测试";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3551,7 +3692,7 @@
             // 
             this.panel11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel11.BackgroundImage")));
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel11.Location = new System.Drawing.Point(139, 4);
+            this.panel11.Location = new System.Drawing.Point(64, 4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(40, 30);
             this.panel11.TabIndex = 1;
@@ -3581,7 +3722,7 @@
             this.tableLayoutPanel17.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel17.ColumnCount = 2;
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 522F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 597F));
             this.tableLayoutPanel17.Controls.Add(this.label52, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.panel12, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Top;
@@ -3599,7 +3740,7 @@
             this.label52.ForeColor = System.Drawing.Color.Teal;
             this.label52.Location = new System.Drawing.Point(4, 1);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(129, 36);
+            this.label52.Size = new System.Drawing.Size(54, 36);
             this.label52.TabIndex = 0;
             this.label52.Text = "设置控制-简单控制";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3608,7 +3749,7 @@
             // 
             this.panel12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel12.BackgroundImage")));
             this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel12.Location = new System.Drawing.Point(140, 4);
+            this.panel12.Location = new System.Drawing.Point(65, 4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(40, 30);
             this.panel12.TabIndex = 1;
@@ -4642,7 +4783,7 @@
             this.tableLayoutPanel75.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel75.ColumnCount = 2;
             this.tableLayoutPanel75.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel75.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 291F));
+            this.tableLayoutPanel75.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 366F));
             this.tableLayoutPanel75.Controls.Add(this.numrectdowndest, 0, 0);
             this.tableLayoutPanel75.Controls.Add(this.txtrectdowndestunit, 1, 0);
             this.tableLayoutPanel75.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -4660,7 +4801,7 @@
             this.numrectdowndest.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectdowndest.Location = new System.Drawing.Point(4, 4);
             this.numrectdowndest.Name = "numrectdowndest";
-            this.numrectdowndest.Size = new System.Drawing.Size(65, 17);
+            this.numrectdowndest.Size = new System.Drawing.Size(1, 17);
             this.numrectdowndest.TabIndex = 0;
             this.numrectdowndest.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectdowndest_AfterChangeValue);
             // 
@@ -4668,10 +4809,10 @@
             // 
             this.txtrectdowndestunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrectdowndestunit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtrectdowndestunit.Location = new System.Drawing.Point(76, 4);
+            this.txtrectdowndestunit.Location = new System.Drawing.Point(1, 4);
             this.txtrectdowndestunit.Name = "txtrectdowndestunit";
             this.txtrectdowndestunit.ReadOnly = true;
-            this.txtrectdowndestunit.Size = new System.Drawing.Size(285, 14);
+            this.txtrectdowndestunit.Size = new System.Drawing.Size(360, 14);
             this.txtrectdowndestunit.TabIndex = 1;
             // 
             // tableLayoutPanel76
@@ -4680,7 +4821,7 @@
             this.tableLayoutPanel76.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel76.ColumnCount = 2;
             this.tableLayoutPanel76.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel76.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 289F));
+            this.tableLayoutPanel76.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 364F));
             this.tableLayoutPanel76.Controls.Add(this.numrectupdest, 0, 0);
             this.tableLayoutPanel76.Controls.Add(this.txtrectudestunit, 1, 0);
             this.tableLayoutPanel76.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -4698,7 +4839,7 @@
             this.numrectupdest.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectupdest.Location = new System.Drawing.Point(4, 4);
             this.numrectupdest.Name = "numrectupdest";
-            this.numrectupdest.Size = new System.Drawing.Size(67, 17);
+            this.numrectupdest.Size = new System.Drawing.Size(1, 17);
             this.numrectupdest.TabIndex = 0;
             this.numrectupdest.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectupdest_AfterChangeValue);
             // 
@@ -4706,10 +4847,10 @@
             // 
             this.txtrectudestunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrectudestunit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtrectudestunit.Location = new System.Drawing.Point(78, 4);
+            this.txtrectudestunit.Location = new System.Drawing.Point(3, 4);
             this.txtrectudestunit.Name = "txtrectudestunit";
             this.txtrectudestunit.ReadOnly = true;
-            this.txtrectudestunit.Size = new System.Drawing.Size(283, 14);
+            this.txtrectudestunit.Size = new System.Drawing.Size(358, 14);
             this.txtrectudestunit.TabIndex = 1;
             // 
             // tableLayoutPanel77
@@ -4718,7 +4859,7 @@
             this.tableLayoutPanel77.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel77.ColumnCount = 2;
             this.tableLayoutPanel77.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel77.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 291F));
+            this.tableLayoutPanel77.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 366F));
             this.tableLayoutPanel77.Controls.Add(this.numrectspeed, 0, 0);
             this.tableLayoutPanel77.Controls.Add(this.cborectspeedunit, 1, 0);
             this.tableLayoutPanel77.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -4736,7 +4877,7 @@
             this.numrectspeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectspeed.Location = new System.Drawing.Point(4, 4);
             this.numrectspeed.Name = "numrectspeed";
-            this.numrectspeed.Size = new System.Drawing.Size(65, 17);
+            this.numrectspeed.Size = new System.Drawing.Size(1, 17);
             this.numrectspeed.TabIndex = 0;
             this.numrectspeed.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectspeed_AfterChangeValue);
             // 
@@ -4745,9 +4886,9 @@
             this.cborectspeedunit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cborectspeedunit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cborectspeedunit.FormattingEnabled = true;
-            this.cborectspeedunit.Location = new System.Drawing.Point(76, 4);
+            this.cborectspeedunit.Location = new System.Drawing.Point(1, 4);
             this.cborectspeedunit.Name = "cborectspeedunit";
-            this.cborectspeedunit.Size = new System.Drawing.Size(285, 20);
+            this.cborectspeedunit.Size = new System.Drawing.Size(360, 20);
             this.cborectspeedunit.TabIndex = 1;
             this.cborectspeedunit.SelectionChangeCommitted += new System.EventHandler(this.cborectspeedunit_SelectionChangeCommitted);
             // 
@@ -4852,7 +4993,7 @@
             this.tableLayoutPanel78.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel78.ColumnCount = 2;
             this.tableLayoutPanel78.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel78.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 288F));
+            this.tableLayoutPanel78.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 363F));
             this.tableLayoutPanel78.Controls.Add(this.numrectupspeed, 0, 0);
             this.tableLayoutPanel78.Controls.Add(this.txtrectupspeedunit, 1, 0);
             this.tableLayoutPanel78.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -4870,7 +5011,7 @@
             this.numrectupspeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectupspeed.Location = new System.Drawing.Point(4, 4);
             this.numrectupspeed.Name = "numrectupspeed";
-            this.numrectupspeed.Size = new System.Drawing.Size(68, 17);
+            this.numrectupspeed.Size = new System.Drawing.Size(1, 17);
             this.numrectupspeed.TabIndex = 1;
             this.numrectupspeed.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectupspeed_AfterChangeValue);
             // 
@@ -4878,10 +5019,10 @@
             // 
             this.txtrectupspeedunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrectupspeedunit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtrectupspeedunit.Location = new System.Drawing.Point(79, 4);
+            this.txtrectupspeedunit.Location = new System.Drawing.Point(4, 4);
             this.txtrectupspeedunit.Name = "txtrectupspeedunit";
             this.txtrectupspeedunit.ReadOnly = true;
-            this.txtrectupspeedunit.Size = new System.Drawing.Size(282, 14);
+            this.txtrectupspeedunit.Size = new System.Drawing.Size(357, 14);
             this.txtrectupspeedunit.TabIndex = 2;
             // 
             // tableLayoutPanel79
@@ -4889,7 +5030,7 @@
             this.tableLayoutPanel79.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel79.ColumnCount = 2;
             this.tableLayoutPanel79.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel79.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 288F));
+            this.tableLayoutPanel79.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 363F));
             this.tableLayoutPanel79.Controls.Add(this.numrectdownspeed, 0, 0);
             this.tableLayoutPanel79.Controls.Add(this.txtrectdownspeedunit, 1, 0);
             this.tableLayoutPanel79.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -4907,7 +5048,7 @@
             this.numrectdownspeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectdownspeed.Location = new System.Drawing.Point(4, 4);
             this.numrectdownspeed.Name = "numrectdownspeed";
-            this.numrectdownspeed.Size = new System.Drawing.Size(68, 17);
+            this.numrectdownspeed.Size = new System.Drawing.Size(1, 17);
             this.numrectdownspeed.TabIndex = 1;
             this.numrectdownspeed.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectdownspeed_AfterChangeValue);
             // 
@@ -4915,10 +5056,10 @@
             // 
             this.txtrectdownspeedunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrectdownspeedunit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtrectdownspeedunit.Location = new System.Drawing.Point(79, 4);
+            this.txtrectdownspeedunit.Location = new System.Drawing.Point(4, 4);
             this.txtrectdownspeedunit.Name = "txtrectdownspeedunit";
             this.txtrectdownspeedunit.ReadOnly = true;
-            this.txtrectdownspeedunit.Size = new System.Drawing.Size(282, 14);
+            this.txtrectdownspeedunit.Size = new System.Drawing.Size(357, 14);
             this.txtrectdownspeedunit.TabIndex = 2;
             // 
             // label92
@@ -4937,7 +5078,7 @@
             this.tableLayoutPanel80.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel80.ColumnCount = 2;
             this.tableLayoutPanel80.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel80.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 288F));
+            this.tableLayoutPanel80.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 363F));
             this.tableLayoutPanel80.Controls.Add(this.numrectupkeeptime, 0, 0);
             this.tableLayoutPanel80.Controls.Add(this.txtrectupkeeptimeunit, 1, 0);
             this.tableLayoutPanel80.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -4955,7 +5096,7 @@
             this.numrectupkeeptime.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectupkeeptime.Location = new System.Drawing.Point(4, 4);
             this.numrectupkeeptime.Name = "numrectupkeeptime";
-            this.numrectupkeeptime.Size = new System.Drawing.Size(68, 17);
+            this.numrectupkeeptime.Size = new System.Drawing.Size(1, 17);
             this.numrectupkeeptime.TabIndex = 2;
             this.numrectupkeeptime.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectupkeeptime_AfterChangeValue);
             // 
@@ -4963,10 +5104,10 @@
             // 
             this.txtrectupkeeptimeunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrectupkeeptimeunit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtrectupkeeptimeunit.Location = new System.Drawing.Point(79, 4);
+            this.txtrectupkeeptimeunit.Location = new System.Drawing.Point(4, 4);
             this.txtrectupkeeptimeunit.Name = "txtrectupkeeptimeunit";
             this.txtrectupkeeptimeunit.ReadOnly = true;
-            this.txtrectupkeeptimeunit.Size = new System.Drawing.Size(282, 14);
+            this.txtrectupkeeptimeunit.Size = new System.Drawing.Size(357, 14);
             this.txtrectupkeeptimeunit.TabIndex = 3;
             // 
             // label93
@@ -4985,7 +5126,7 @@
             this.tableLayoutPanel81.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel81.ColumnCount = 2;
             this.tableLayoutPanel81.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel81.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 288F));
+            this.tableLayoutPanel81.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 363F));
             this.tableLayoutPanel81.Controls.Add(this.numrectdownkeeptime, 0, 0);
             this.tableLayoutPanel81.Controls.Add(this.txtrectdownkeeptimeunit, 1, 0);
             this.tableLayoutPanel81.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -5004,7 +5145,7 @@
             this.numrectdownkeeptime.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectdownkeeptime.Location = new System.Drawing.Point(4, 4);
             this.numrectdownkeeptime.Name = "numrectdownkeeptime";
-            this.numrectdownkeeptime.Size = new System.Drawing.Size(68, 17);
+            this.numrectdownkeeptime.Size = new System.Drawing.Size(1, 17);
             this.numrectdownkeeptime.TabIndex = 1;
             this.numrectdownkeeptime.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectdownkeeptime_AfterChangeValue);
             // 
@@ -5012,10 +5153,10 @@
             // 
             this.txtrectdownkeeptimeunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrectdownkeeptimeunit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtrectdownkeeptimeunit.Location = new System.Drawing.Point(79, 4);
+            this.txtrectdownkeeptimeunit.Location = new System.Drawing.Point(4, 4);
             this.txtrectdownkeeptimeunit.Name = "txtrectdownkeeptimeunit";
             this.txtrectdownkeeptimeunit.ReadOnly = true;
-            this.txtrectdownkeeptimeunit.Size = new System.Drawing.Size(282, 14);
+            this.txtrectdownkeeptimeunit.Size = new System.Drawing.Size(357, 14);
             this.txtrectdownkeeptimeunit.TabIndex = 2;
             // 
             // tabPage18
@@ -5429,7 +5570,7 @@
             this.tlpscroll.ColumnCount = 3;
             this.tlpscroll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tlpscroll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpscroll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tlpscroll.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tlpscroll.Controls.Add(this.panel13, 2, 0);
             this.tlpscroll.Controls.Add(this.panel14, 1, 0);
             this.tlpscroll.Controls.Add(this.panel15, 0, 0);
@@ -5446,9 +5587,9 @@
             this.panel13.Controls.Add(this.btnlast);
             this.panel13.Controls.Add(this.btnnext);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(601, 5);
+            this.panel13.Location = new System.Drawing.Point(616, 5);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(54, 172);
+            this.panel13.Size = new System.Drawing.Size(39, 172);
             this.panel13.TabIndex = 0;
             // 
             // btnlast
@@ -5485,7 +5626,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(52, 5);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(541, 172);
+            this.panel14.Size = new System.Drawing.Size(556, 172);
             this.panel14.TabIndex = 1;
             // 
             // pnledit
@@ -5495,7 +5636,7 @@
             this.pnledit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnledit.Location = new System.Drawing.Point(0, 0);
             this.pnledit.Name = "pnledit";
-            this.pnledit.Size = new System.Drawing.Size(541, 172);
+            this.pnledit.Size = new System.Drawing.Size(556, 172);
             this.pnledit.TabIndex = 0;
             // 
             // listViewEx1
@@ -5659,7 +5800,17 @@
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
             this.tableLayoutPanel22.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericEdit7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numext)).EndInit();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.tableLayoutPanel83.ResumeLayout(false);
+            this.tableLayoutPanel83.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numgauge)).EndInit();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.tableLayoutPanel84.ResumeLayout(false);
+            this.tableLayoutPanel84.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numgauge1)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -5937,18 +6088,18 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox comboBox13;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox chkremoveext;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox comboBox14;
+        private System.Windows.Forms.ComboBox cboextruler;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox comboBox15;
+        private System.Windows.Forms.ComboBox cboextchannel;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
-        private NationalInstruments.UI.WindowsForms.NumericEdit numericEdit7;
-        private System.Windows.Forms.ComboBox comboBox16;
+        private NationalInstruments.UI.WindowsForms.NumericEdit numext;
+        private System.Windows.Forms.ComboBox cboextunit;
         public System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox comboBox17;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.ComboBox cboextact;
+        private System.Windows.Forms.CheckBox chkfrozen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.ComboBox cbocontrolprocess;
@@ -6271,5 +6422,15 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel82;
         private NationalInstruments.UI.WindowsForms.NumericEdit numfreq;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel83;
+        private System.Windows.Forms.Label label91;
+        private NationalInstruments.UI.WindowsForms.NumericEdit numgauge;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel84;
+        private System.Windows.Forms.Label label95;
+        private NationalInstruments.UI.WindowsForms.NumericEdit numgauge1;
     }
 }
