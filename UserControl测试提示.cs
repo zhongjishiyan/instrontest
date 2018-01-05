@@ -449,7 +449,7 @@ namespace TabHeaderDemo
 
         private void numericEdit1_Validating(object sender, CancelEventArgs e)
         {
-            CComLibrary.GlobeVal.filesave.mspecount =  Convert.ToInt32(numericEdit1.Value); 
+           
         }
 
         private void rtxtooltip_TextChanged(object sender, EventArgs e)
@@ -506,6 +506,11 @@ namespace TabHeaderDemo
                 }
 
             }
+        }
+
+        private void numericEdit1_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.mspecount = Convert.ToInt32(numericEdit1.Value);
         }
     }
 }

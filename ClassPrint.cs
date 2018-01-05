@@ -354,6 +354,7 @@ namespace TabHeaderDemo
            mc = v;
            if (mc.Name == "方法名称")
            {
+               
                mc.txtresult = CComLibrary.GlobeVal.filesave.methodname;
            }
 

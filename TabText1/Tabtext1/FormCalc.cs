@@ -1212,8 +1212,7 @@ namespace AppleLabApplication
 
         private void toolStripButton1_Click_2(object sender, EventArgs e)
         {
-            TabText1 f = new TabText1();
-            f.Show();
+           
         }
 
         private void lvTips_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

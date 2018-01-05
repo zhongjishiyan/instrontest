@@ -4234,14 +4234,18 @@ namespace CComLibrary
 
         void ReleaseDLL()
         {
-            
-            byte[] byDll =global::AppleLabApplication.Properties.Resources.AppleLabApplication;//获取嵌入dll文件的字节数组  
-            string strPath = Application.CommonAppDataPath + @"\AppleLabAppliation.dll";//设置释放路径  
+           
+       
+           byte[] byDll =global::AppleLabApplication.Properties.Resources.AppleLabApplication;//获取嵌入dll文件的字节数组  
+            string strPath = Application.CommonAppDataPath + @"\AppleLabApplication.dll";//设置释放路径  
                                                                     //创建dll文件（覆盖模式）  
             using (FileStream fs = new FileStream(strPath, FileMode.Create))
             {
                 fs.Write(byDll, 0, byDll.Length);
             }
+
+           
+            
         }
 
         public MathExpressionParser()
@@ -4263,12 +4267,12 @@ namespace CComLibrary
             // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\NationalInstruments.Analysis.Enterprise.XML");
             // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\NationalInstruments.Common.dll");
             //cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\nianlys.dll");
-            if (File.Exists(Application.CommonAppDataPath + @"\AppleLabAppliation.dll"))
+            if (File.Exists(Application.CommonAppDataPath + @"\AppleLabApplication.dll"))
             {
-                cpar.ReferencedAssemblies.Add(Application.CommonAppDataPath + @"\AppleLabAppliation.dll");//添加可执行文件名
+                cpar.ReferencedAssemblies.Add(Application.CommonAppDataPath + @"\AppleLabApplication.dll");//添加可执行文件名
             }
             
-            //cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\ClsStaticStation.dll");//添加可执行文件名
+           // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\AppleLabApplication.dll");//添加可执行文件名
 
 
             //  cpar.ReferencedAssemblies.Add("NationalInstruments.UI.WindowsForms.Thermometer, NationalInstruments.UI.WindowsForms, Version = 12.0.35.318, Culture = neutral, PublicKeyToken = 18cbae0f9955702a");
@@ -4947,10 +4951,18 @@ namespace CComLibrary
             sp[1] = Convert.ToChar("\n");
 
 
+            /*
 
+            if (GlobeVal.m_richtextbox == null)
+            {
+                GlobeVal.m_richtextbox = new Compenkie.RichTextBoxExtend();
+            }
+           
+                GlobeVal.m_richtextbox.Text = src;
 
-
-
+                  GlobeVal.m_richtextbox.SaveFile("m:\\a.rtf");
+            
+            */
 
             cr = ic.CompileAssemblyFromSource(cpar, src);
             GlobeVal.errorline = 0;
@@ -5503,16 +5515,23 @@ namespace CComLibrary
         public static void InitUserCalcChannel() //初始化用户自定义通道
         {
             int j;
+
+         
+
             CComLibrary.GlobeVal.gcalc.Initialize通道();
 
+         
+
             Init_SystemPara通道();
+
+           
             for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
             {
 
                 CComLibrary.GlobeVal.gcalc.Initexpr通道(CComLibrary.GlobeVal.filesave.muserchannel[j].channelvalue, j + 1);
 
             }
-
+          
             CComLibrary.GlobeVal.gcalc.calc通道();
         }
 

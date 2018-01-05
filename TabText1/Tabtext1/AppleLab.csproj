@@ -142,7 +142,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\WizardBase.dll</HintPath>
     </Reference>
-    <Reference Include="XLNet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f8076e75ead654d9, processorArchitecture=x86">
+    <Reference Include="XLNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Debug\XLNet.dll</HintPath>
     </Reference>
@@ -174,12 +174,6 @@
     <Compile Include="ClsStatic.cs" />
     <Compile Include="ClsStaticClass.cs" />
     <Compile Include="Cls电机.cs" />
-    <Compile Include="EmotioconsCollector.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmotioconsCollector.designer.cs">
-      <DependentUpon>EmotioconsCollector.cs</DependentUpon>
-    </Compile>
     <Compile Include="ExRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -273,14 +267,16 @@
     <Compile Include="FormCalc.designer.cs">
       <DependentUpon>FormCalc.cs</DependentUpon>
     </Compile>
-    <Compile Include="HelpForm.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="HelpMenu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ListViewEx.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RicherTextBox2.cs">
       <SubType>Component</SubType>
@@ -313,12 +309,6 @@
     <Compile Include="SyntaxRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabText1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TabText1.Designer.cs">
-      <DependentUpon>TabText1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UltraHighAccurateTimer.cs" />
@@ -334,10 +324,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add Table.resx">
       <DependentUpon>Add Table.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EmotioconsCollector.resx">
-      <DependentUpon>EmotioconsCollector.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Extensions\DataColumnDialog.resx">
@@ -409,10 +395,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="HelpFile.srl" />
-    <EmbeddedResource Include="HelpForm.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>HelpForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ListViewEx.resx">
       <DependentUpon>ListViewEx.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -434,14 +416,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TabText1.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>TabText1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UResultControl.resx">
       <DependentUpon>UResultControl.cs</DependentUpon>
@@ -455,11 +433,6 @@
       <DependentUpon>FormMultiAxisNoGrid.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="default.sri" />
     <None Include="Extensions\vssver.scc" />
     <None Include="mylib.snk" />
@@ -538,7 +511,7 @@
     <Content Include="Extensions\ArrowUp.ICO" />
     <Content Include="Extensions\Delete.ICO" />
     <Content Include="Extensions\Refresh.ico" />
-    <Content Include="Resources\AppleLabApplication.dll" />
+    <None Include="Resources\AppleLabApplication.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

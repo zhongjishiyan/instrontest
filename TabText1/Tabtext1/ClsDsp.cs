@@ -3,10 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -970,7 +966,11 @@ namespace ClsStaticStation
         public override void CrossUp(int ctrlmode, double speed)
         {
             short tan = 0;
-            myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, XLNet.XLDOPE.CTRL.OPEN, speed/60 , ref tan);
+           
+           
+             myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, XLNet.XLDOPE.CTRL.OPEN, speed / 60, ref tan);
+            
+          
 
         }
         public override void CrossDown(int ctrlmode, double speed)
@@ -2211,7 +2211,7 @@ namespace ClsStaticStation
 
             try
             {
-               myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 1);
+               myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 2);
                //myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0);
 
             }

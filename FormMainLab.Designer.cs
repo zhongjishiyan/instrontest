@@ -63,6 +63,10 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tlbmeter = new System.Windows.Forms.TableLayoutPanel();
+            this.jMeter1 = new TabHeaderDemo.JMeter();
+            this.jMeter2 = new TabHeaderDemo.JMeter();
+            this.jMeter3 = new TabHeaderDemo.JMeter();
+            this.jMeter4 = new TabHeaderDemo.JMeter();
             this.btnmethod = new System.Windows.Forms.Button();
             this.btnon = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -84,11 +88,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.UTop = new TabHeaderDemo.UserControlTop();
-            this.jMeter1 = new TabHeaderDemo.JMeter();
-            this.jMeter2 = new TabHeaderDemo.JMeter();
-            this.jMeter3 = new TabHeaderDemo.JMeter();
-            this.jMeter4 = new TabHeaderDemo.JMeter();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tlprecord.SuspendLayout();
@@ -110,6 +110,7 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsluser,
             this.tslblmachine,
@@ -122,9 +123,10 @@
             this.tslbllimit,
             this.toolstatustest,
             this.tslblstate});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 703);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 882);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1350, 26);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1800, 29);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -136,7 +138,7 @@
             this.tsluser.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tsluser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsluser.Name = "tsluser";
-            this.tsluser.Size = new System.Drawing.Size(60, 21);
+            this.tsluser.Size = new System.Drawing.Size(73, 24);
             this.tsluser.Text = "安全关闭";
             // 
             // tslblmachine
@@ -146,7 +148,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblmachine.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
             this.tslblmachine.Name = "tslblmachine";
-            this.tslblmachine.Size = new System.Drawing.Size(96, 21);
+            this.tslblmachine.Size = new System.Drawing.Size(118, 24);
             this.tslblmachine.Text = "电子万能试验机";
             // 
             // tslbldevice
@@ -156,7 +158,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslbldevice.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslbldevice.Name = "tslbldevice";
-            this.tslbldevice.Size = new System.Drawing.Size(72, 21);
+            this.tslbldevice.Size = new System.Drawing.Size(88, 24);
             this.tslbldevice.Text = "无可用设备";
             // 
             // tslblkind
@@ -166,7 +168,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblkind.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblkind.Name = "tslblkind";
-            this.tslblkind.Size = new System.Drawing.Size(76, 21);
+            this.tslblkind.Size = new System.Drawing.Size(92, 24);
             this.tslblkind.Text = "试验类型 空";
             // 
             // tslblsample
@@ -177,7 +179,7 @@
             this.tslblsample.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblsample.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tslblsample.Name = "tslblsample";
-            this.tslblsample.Size = new System.Drawing.Size(72, 21);
+            this.tslblsample.Size = new System.Drawing.Size(88, 24);
             this.tslblsample.Text = "样品：关闭";
             // 
             // tslblmethod
@@ -187,7 +189,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblmethod.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblmethod.Name = "tslblmethod";
-            this.tslblmethod.Size = new System.Drawing.Size(72, 21);
+            this.tslblmethod.Size = new System.Drawing.Size(88, 24);
             this.tslblmethod.Text = "方法：关闭";
             // 
             // tslblreport
@@ -197,7 +199,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblreport.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblreport.Name = "tslblreport";
-            this.tslblreport.Size = new System.Drawing.Size(72, 21);
+            this.tslblreport.Size = new System.Drawing.Size(88, 24);
             this.tslblreport.Text = "报告：关闭";
             // 
             // tslblEmergencyStop
@@ -207,7 +209,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblEmergencyStop.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblEmergencyStop.Name = "tslblEmergencyStop";
-            this.tslblEmergencyStop.Size = new System.Drawing.Size(72, 21);
+            this.tslblEmergencyStop.Size = new System.Drawing.Size(88, 24);
             this.tslblEmergencyStop.Text = "急停：关闭";
             // 
             // tslbllimit
@@ -217,7 +219,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslbllimit.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslbllimit.Name = "tslbllimit";
-            this.tslbllimit.Size = new System.Drawing.Size(72, 21);
+            this.tslbllimit.Size = new System.Drawing.Size(88, 24);
             this.tslbllimit.Text = "限位：关闭";
             // 
             // toolstatustest
@@ -227,7 +229,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolstatustest.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolstatustest.Name = "toolstatustest";
-            this.toolstatustest.Size = new System.Drawing.Size(103, 21);
+            this.toolstatustest.Size = new System.Drawing.Size(127, 24);
             this.toolstatustest.Text = "高级测试：步骤1";
             this.toolstatustest.Visible = false;
             // 
@@ -238,7 +240,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblstate.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblstate.Name = "tslblstate";
-            this.tslblstate.Size = new System.Drawing.Size(72, 21);
+            this.tslblstate.Size = new System.Drawing.Size(88, 24);
             this.tslblstate.Text = "状态：运行";
             // 
             // panel4
@@ -252,29 +254,31 @@
             this.panel4.Controls.Add(this.btnon);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1350, 126);
+            this.panel4.Size = new System.Drawing.Size(1800, 158);
             this.panel4.TabIndex = 31;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // tlprecord
             // 
             this.tlprecord.ColumnCount = 5;
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
-            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
+            this.tlprecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.tlprecord.Controls.Add(this.recordStopButton, 0, 0);
             this.tlprecord.Controls.Add(this.playBackMacroButton, 0, 0);
             this.tlprecord.Controls.Add(this.recordStartButton, 0, 0);
             this.tlprecord.Controls.Add(this.btnread, 3, 0);
             this.tlprecord.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tlprecord.Location = new System.Drawing.Point(837, 0);
+            this.tlprecord.Location = new System.Drawing.Point(1116, 0);
+            this.tlprecord.Margin = new System.Windows.Forms.Padding(4);
             this.tlprecord.Name = "tlprecord";
             this.tlprecord.RowCount = 1;
             this.tlprecord.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlprecord.Size = new System.Drawing.Size(243, 42);
+            this.tlprecord.Size = new System.Drawing.Size(324, 53);
             this.tlprecord.TabIndex = 48;
             // 
             // recordStopButton
@@ -284,9 +288,10 @@
             this.recordStopButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recordStopButton.FlatAppearance.BorderSize = 0;
             this.recordStopButton.Image = ((System.Drawing.Image)(resources.GetObject("recordStopButton.Image")));
-            this.recordStopButton.Location = new System.Drawing.Point(92, 3);
+            this.recordStopButton.Location = new System.Drawing.Point(123, 4);
+            this.recordStopButton.Margin = new System.Windows.Forms.Padding(4);
             this.recordStopButton.Name = "recordStopButton";
-            this.recordStopButton.Size = new System.Drawing.Size(37, 36);
+            this.recordStopButton.Size = new System.Drawing.Size(49, 45);
             this.recordStopButton.TabIndex = 54;
             this.recordStopButton.Tag = "停止录制";
             this.recordStopButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -304,9 +309,10 @@
             this.playBackMacroButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playBackMacroButton.FlatAppearance.BorderSize = 0;
             this.playBackMacroButton.Image = ((System.Drawing.Image)(resources.GetObject("playBackMacroButton.Image")));
-            this.playBackMacroButton.Location = new System.Drawing.Point(45, 3);
+            this.playBackMacroButton.Location = new System.Drawing.Point(60, 4);
+            this.playBackMacroButton.Margin = new System.Windows.Forms.Padding(4);
             this.playBackMacroButton.Name = "playBackMacroButton";
-            this.playBackMacroButton.Size = new System.Drawing.Size(41, 36);
+            this.playBackMacroButton.Size = new System.Drawing.Size(55, 45);
             this.playBackMacroButton.TabIndex = 53;
             this.playBackMacroButton.Tag = "操作回放";
             this.playBackMacroButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -321,9 +327,10 @@
             this.recordStartButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recordStartButton.FlatAppearance.BorderSize = 0;
             this.recordStartButton.Image = ((System.Drawing.Image)(resources.GetObject("recordStartButton.Image")));
-            this.recordStartButton.Location = new System.Drawing.Point(3, 3);
+            this.recordStartButton.Location = new System.Drawing.Point(4, 4);
+            this.recordStartButton.Margin = new System.Windows.Forms.Padding(4);
             this.recordStartButton.Name = "recordStartButton";
-            this.recordStartButton.Size = new System.Drawing.Size(36, 36);
+            this.recordStartButton.Size = new System.Drawing.Size(48, 45);
             this.recordStartButton.TabIndex = 52;
             this.recordStartButton.Tag = "开始录制";
             this.recordStartButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -335,9 +342,10 @@
             // btnread
             // 
             this.btnread.Image = ((System.Drawing.Image)(resources.GetObject("btnread.Image")));
-            this.btnread.Location = new System.Drawing.Point(135, 3);
+            this.btnread.Location = new System.Drawing.Point(180, 4);
+            this.btnread.Margin = new System.Windows.Forms.Padding(4);
             this.btnread.Name = "btnread";
-            this.btnread.Size = new System.Drawing.Size(35, 36);
+            this.btnread.Size = new System.Drawing.Size(47, 45);
             this.btnread.TabIndex = 55;
             this.toolTip1.SetToolTip(this.btnread, "读取演示文件");
             this.btnread.UseVisualStyleBackColor = true;
@@ -354,11 +362,12 @@
             this.tableLayoutPanel4.Controls.Add(this.btnkey2, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnkey1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnkey4, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(88, 5);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(117, 6);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(711, 40);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(948, 50);
             this.tableLayoutPanel4.TabIndex = 45;
             this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
@@ -372,9 +381,10 @@
             this.btnkey3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnkey3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnkey3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnkey3.Location = new System.Drawing.Point(357, 3);
+            this.btnkey3.Location = new System.Drawing.Point(478, 4);
+            this.btnkey3.Margin = new System.Windows.Forms.Padding(4);
             this.btnkey3.Name = "btnkey3";
-            this.btnkey3.Size = new System.Drawing.Size(171, 34);
+            this.btnkey3.Size = new System.Drawing.Size(229, 42);
             this.btnkey3.TabIndex = 39;
             this.btnkey3.Text = "键3";
             this.btnkey3.UseVisualStyleBackColor = false;
@@ -392,9 +402,10 @@
             this.btnkey2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnkey2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnkey2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnkey2.Location = new System.Drawing.Point(180, 3);
+            this.btnkey2.Location = new System.Drawing.Point(241, 4);
+            this.btnkey2.Margin = new System.Windows.Forms.Padding(4);
             this.btnkey2.Name = "btnkey2";
-            this.btnkey2.Size = new System.Drawing.Size(171, 34);
+            this.btnkey2.Size = new System.Drawing.Size(229, 42);
             this.btnkey2.TabIndex = 37;
             this.btnkey2.Text = "键2";
             this.btnkey2.UseVisualStyleBackColor = false;
@@ -412,9 +423,10 @@
             this.btnkey1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnkey1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnkey1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnkey1.Location = new System.Drawing.Point(3, 3);
+            this.btnkey1.Location = new System.Drawing.Point(4, 4);
+            this.btnkey1.Margin = new System.Windows.Forms.Padding(4);
             this.btnkey1.Name = "btnkey1";
-            this.btnkey1.Size = new System.Drawing.Size(171, 34);
+            this.btnkey1.Size = new System.Drawing.Size(229, 42);
             this.btnkey1.TabIndex = 36;
             this.btnkey1.Text = "键1";
             this.btnkey1.UseVisualStyleBackColor = false;
@@ -432,9 +444,10 @@
             this.btnkey4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnkey4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnkey4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnkey4.Location = new System.Drawing.Point(534, 3);
+            this.btnkey4.Location = new System.Drawing.Point(715, 4);
+            this.btnkey4.Margin = new System.Windows.Forms.Padding(4);
             this.btnkey4.Name = "btnkey4";
-            this.btnkey4.Size = new System.Drawing.Size(174, 34);
+            this.btnkey4.Size = new System.Drawing.Size(229, 42);
             this.btnkey4.TabIndex = 38;
             this.btnkey4.Text = "键4";
             this.btnkey4.UseVisualStyleBackColor = false;
@@ -445,12 +458,12 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 6;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel3.Controls.Add(this.btnhand, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnext1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btntool, 0, 0);
@@ -458,11 +471,12 @@
             this.tableLayoutPanel3.Controls.Add(this.btnload, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnext2, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1080, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1440, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(270, 42);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(360, 53);
             this.tableLayoutPanel3.TabIndex = 44;
             // 
             // btnhand
@@ -471,9 +485,10 @@
             this.btnhand.FlatAppearance.BorderSize = 0;
             this.btnhand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhand.Image = ((System.Drawing.Image)(resources.GetObject("btnhand.Image")));
-            this.btnhand.Location = new System.Drawing.Point(46, 3);
+            this.btnhand.Location = new System.Drawing.Point(61, 4);
+            this.btnhand.Margin = new System.Windows.Forms.Padding(4);
             this.btnhand.Name = "btnhand";
-            this.btnhand.Size = new System.Drawing.Size(38, 33);
+            this.btnhand.Size = new System.Drawing.Size(51, 41);
             this.btnhand.TabIndex = 46;
             this.btnhand.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnhand.UseVisualStyleBackColor = false;
@@ -485,9 +500,10 @@
             this.btnext1.FlatAppearance.BorderSize = 0;
             this.btnext1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnext1.Image = ((System.Drawing.Image)(resources.GetObject("btnext1.Image")));
-            this.btnext1.Location = new System.Drawing.Point(142, 3);
+            this.btnext1.Location = new System.Drawing.Point(189, 4);
+            this.btnext1.Margin = new System.Windows.Forms.Padding(4);
             this.btnext1.Name = "btnext1";
-            this.btnext1.Size = new System.Drawing.Size(37, 33);
+            this.btnext1.Size = new System.Drawing.Size(49, 41);
             this.btnext1.TabIndex = 36;
             this.btnext1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnext1, "引伸计1设置");
@@ -500,9 +516,10 @@
             this.btntool.FlatAppearance.BorderSize = 0;
             this.btntool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btntool.Image = ((System.Drawing.Image)(resources.GetObject("btntool.Image")));
-            this.btntool.Location = new System.Drawing.Point(3, 3);
+            this.btntool.Location = new System.Drawing.Point(4, 4);
+            this.btntool.Margin = new System.Windows.Forms.Padding(4);
             this.btntool.Name = "btntool";
-            this.btntool.Size = new System.Drawing.Size(36, 33);
+            this.btntool.Size = new System.Drawing.Size(48, 41);
             this.btntool.TabIndex = 35;
             this.btntool.Tag = "";
             this.btntool.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -516,9 +533,10 @@
             this.btnpos.FlatAppearance.BorderSize = 0;
             this.btnpos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnpos.Image = ((System.Drawing.Image)(resources.GetObject("btnpos.Image")));
-            this.btnpos.Location = new System.Drawing.Point(230, 3);
+            this.btnpos.Location = new System.Drawing.Point(306, 4);
+            this.btnpos.Margin = new System.Windows.Forms.Padding(4);
             this.btnpos.Name = "btnpos";
-            this.btnpos.Size = new System.Drawing.Size(37, 33);
+            this.btnpos.Size = new System.Drawing.Size(49, 41);
             this.btnpos.TabIndex = 47;
             this.btnpos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnpos, "位移设置");
@@ -531,9 +549,10 @@
             this.btnload.FlatAppearance.BorderSize = 0;
             this.btnload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnload.Image = ((System.Drawing.Image)(resources.GetObject("btnload.Image")));
-            this.btnload.Location = new System.Drawing.Point(186, 3);
+            this.btnload.Location = new System.Drawing.Point(247, 4);
+            this.btnload.Margin = new System.Windows.Forms.Padding(4);
             this.btnload.Name = "btnload";
-            this.btnload.Size = new System.Drawing.Size(38, 33);
+            this.btnload.Size = new System.Drawing.Size(51, 41);
             this.btnload.TabIndex = 45;
             this.btnload.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnload, "力传感器设置");
@@ -546,9 +565,10 @@
             this.btnext2.FlatAppearance.BorderSize = 0;
             this.btnext2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnext2.Image = ((System.Drawing.Image)(resources.GetObject("btnext2.Image")));
-            this.btnext2.Location = new System.Drawing.Point(185, 3);
+            this.btnext2.Location = new System.Drawing.Point(246, 4);
+            this.btnext2.Margin = new System.Windows.Forms.Padding(4);
             this.btnext2.Name = "btnext2";
-            this.btnext2.Size = new System.Drawing.Size(1, 33);
+            this.btnext2.Size = new System.Drawing.Size(1, 41);
             this.btnext2.TabIndex = 44;
             this.btnext2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnext2, "引伸计2设置");
@@ -561,16 +581,17 @@
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tlbmeter, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 42);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 53);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1350, 84);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1800, 105);
             this.tableLayoutPanel2.TabIndex = 41;
             // 
             // pictureBox2
@@ -578,9 +599,10 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(1293, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(1724, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(54, 78);
+            this.pictureBox2.Size = new System.Drawing.Size(72, 97);
             this.pictureBox2.TabIndex = 41;
             this.pictureBox2.TabStop = false;
             // 
@@ -597,12 +619,53 @@
             this.tlbmeter.Controls.Add(this.jMeter3, 2, 0);
             this.tlbmeter.Controls.Add(this.jMeter4, 3, 0);
             this.tlbmeter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlbmeter.Location = new System.Drawing.Point(3, 3);
+            this.tlbmeter.Location = new System.Drawing.Point(4, 4);
+            this.tlbmeter.Margin = new System.Windows.Forms.Padding(4);
             this.tlbmeter.Name = "tlbmeter";
             this.tlbmeter.RowCount = 1;
             this.tlbmeter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlbmeter.Size = new System.Drawing.Size(1284, 78);
+            this.tlbmeter.Size = new System.Drawing.Size(1712, 97);
             this.tlbmeter.TabIndex = 40;
+            // 
+            // jMeter1
+            // 
+            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter1.Location = new System.Drawing.Point(5, 5);
+            this.jMeter1.Margin = new System.Windows.Forms.Padding(5);
+            this.jMeter1.Name = "jMeter1";
+            this.jMeter1.Size = new System.Drawing.Size(418, 87);
+            this.jMeter1.TabIndex = 0;
+            // 
+            // jMeter2
+            // 
+            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter2.Location = new System.Drawing.Point(433, 5);
+            this.jMeter2.Margin = new System.Windows.Forms.Padding(5);
+            this.jMeter2.Name = "jMeter2";
+            this.jMeter2.Size = new System.Drawing.Size(418, 87);
+            this.jMeter2.TabIndex = 1;
+            // 
+            // jMeter3
+            // 
+            this.jMeter3.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter3.Location = new System.Drawing.Point(861, 5);
+            this.jMeter3.Margin = new System.Windows.Forms.Padding(5);
+            this.jMeter3.Name = "jMeter3";
+            this.jMeter3.Size = new System.Drawing.Size(418, 87);
+            this.jMeter3.TabIndex = 2;
+            // 
+            // jMeter4
+            // 
+            this.jMeter4.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter4.Location = new System.Drawing.Point(1289, 5);
+            this.jMeter4.Margin = new System.Windows.Forms.Padding(5);
+            this.jMeter4.Name = "jMeter4";
+            this.jMeter4.Size = new System.Drawing.Size(418, 87);
+            this.jMeter4.TabIndex = 3;
             // 
             // btnmethod
             // 
@@ -610,9 +673,10 @@
             this.btnmethod.FlatAppearance.BorderSize = 0;
             this.btnmethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmethod.Image = ((System.Drawing.Image)(resources.GetObject("btnmethod.Image")));
-            this.btnmethod.Location = new System.Drawing.Point(6, 8);
+            this.btnmethod.Location = new System.Drawing.Point(8, 10);
+            this.btnmethod.Margin = new System.Windows.Forms.Padding(4);
             this.btnmethod.Name = "btnmethod";
-            this.btnmethod.Size = new System.Drawing.Size(38, 33);
+            this.btnmethod.Size = new System.Drawing.Size(51, 41);
             this.btnmethod.TabIndex = 33;
             this.btnmethod.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.btnmethod, "标准编辑器");
@@ -625,9 +689,10 @@
             this.btnon.FlatAppearance.BorderSize = 0;
             this.btnon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnon.Image = ((System.Drawing.Image)(resources.GetObject("btnon.Image")));
-            this.btnon.Location = new System.Drawing.Point(44, 9);
+            this.btnon.Location = new System.Drawing.Point(59, 11);
+            this.btnon.Margin = new System.Windows.Forms.Padding(4);
             this.btnon.Name = "btnon";
-            this.btnon.Size = new System.Drawing.Size(38, 33);
+            this.btnon.Size = new System.Drawing.Size(51, 41);
             this.btnon.TabIndex = 32;
             this.btnon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnon.UseVisualStyleBackColor = false;
@@ -642,21 +707,22 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.ItemSize = new System.Drawing.Size(20, 20);
-            this.tabControl1.Location = new System.Drawing.Point(0, 126);
+            this.tabControl1.Location = new System.Drawing.Point(0, 158);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1350, 577);
+            this.tabControl1.Size = new System.Drawing.Size(1800, 724);
             this.tabControl1.TabIndex = 33;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.UTop);
+            this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Location = new System.Drawing.Point(24, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1322, 569);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1772, 716);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -665,9 +731,10 @@
             // 
             this.tabPage2.Controls.Add(this.splitContainer1);
             this.tabPage2.Location = new System.Drawing.Point(24, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1322, 569);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1772, 716);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -677,7 +744,8 @@
             this.splitContainer1.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -687,8 +755,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1316, 563);
-            this.splitContainer1.SplitterDistance = 983;
+            this.splitContainer1.Size = new System.Drawing.Size(1764, 708);
+            this.splitContainer1.SplitterDistance = 1428;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainer1_SplitterMoving);
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -700,66 +769,72 @@
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(329, 563);
+            this.panel1.Size = new System.Drawing.Size(331, 708);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 563);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 708);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 41);
+            this.panel2.Location = new System.Drawing.Point(4, 52);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(323, 519);
+            this.panel2.Size = new System.Drawing.Size(323, 652);
             this.panel2.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tlpsel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Location = new System.Drawing.Point(4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(323, 32);
+            this.panel3.Size = new System.Drawing.Size(323, 40);
             this.panel3.TabIndex = 1;
             // 
             // tlpsel
             // 
             this.tlpsel.ColumnCount = 2;
-            this.tlpsel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tlpsel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
             this.tlpsel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpsel.Controls.Add(this.label1, 0, 0);
             this.tlpsel.Controls.Add(this.cbochannel, 1, 0);
             this.tlpsel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpsel.Location = new System.Drawing.Point(0, 0);
+            this.tlpsel.Margin = new System.Windows.Forms.Padding(4);
             this.tlpsel.Name = "tlpsel";
             this.tlpsel.RowCount = 1;
             this.tlpsel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpsel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlpsel.Size = new System.Drawing.Size(323, 32);
+            this.tlpsel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpsel.Size = new System.Drawing.Size(323, 40);
             this.tlpsel.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 32);
+            this.label1.Size = new System.Drawing.Size(120, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "控制通道：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -769,9 +844,10 @@
             this.cbochannel.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbochannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbochannel.FormattingEnabled = true;
-            this.cbochannel.Location = new System.Drawing.Point(99, 3);
+            this.cbochannel.Location = new System.Drawing.Point(132, 4);
+            this.cbochannel.Margin = new System.Windows.Forms.Padding(4);
             this.cbochannel.Name = "cbochannel";
-            this.cbochannel.Size = new System.Drawing.Size(152, 20);
+            this.cbochannel.Size = new System.Drawing.Size(185, 23);
             this.cbochannel.TabIndex = 1;
             this.cbochannel.SelectedIndexChanged += new System.EventHandler(this.cbochannel_SelectedIndexChanged);
             // 
@@ -812,60 +888,24 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // UTop
+            // panel5
             // 
-            this.UTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UTop.Location = new System.Drawing.Point(3, 3);
-            this.UTop.Name = "UTop";
-            this.UTop.Size = new System.Drawing.Size(1316, 563);
-            this.UTop.TabIndex = 0;
-            this.UTop.Load += new System.EventHandler(this.userControl11_Load);
-            // 
-            // jMeter1
-            // 
-            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter1.Location = new System.Drawing.Point(3, 3);
-            this.jMeter1.Name = "jMeter1";
-            this.jMeter1.Size = new System.Drawing.Size(315, 72);
-            this.jMeter1.TabIndex = 0;
-            // 
-            // jMeter2
-            // 
-            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter2.Location = new System.Drawing.Point(324, 3);
-            this.jMeter2.Name = "jMeter2";
-            this.jMeter2.Size = new System.Drawing.Size(315, 72);
-            this.jMeter2.TabIndex = 1;
-            // 
-            // jMeter3
-            // 
-            this.jMeter3.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter3.Location = new System.Drawing.Point(645, 3);
-            this.jMeter3.Name = "jMeter3";
-            this.jMeter3.Size = new System.Drawing.Size(315, 72);
-            this.jMeter3.TabIndex = 2;
-            // 
-            // jMeter4
-            // 
-            this.jMeter4.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter4.Location = new System.Drawing.Point(966, 3);
-            this.jMeter4.Name = "jMeter4";
-            this.jMeter4.Size = new System.Drawing.Size(315, 72);
-            this.jMeter4.TabIndex = 3;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(4, 4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1764, 708);
+            this.panel5.TabIndex = 0;
             // 
             // FormMainLab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(1800, 911);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormMainLab";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -906,7 +946,7 @@
         private System.Windows.Forms.Button btnon;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private UserControlTop UTop;
+        
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -958,5 +998,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripStatusLabel tslblstate;
+        public System.Windows.Forms.Panel panel5;
     }
 }

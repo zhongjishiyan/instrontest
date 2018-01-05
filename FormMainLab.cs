@@ -21,7 +21,7 @@ namespace TabHeaderDemo
     {
 
         public int l = 0;
-
+        public UserControlTop UTop;
 
         public MacroRecord myMacroRecord = new MacroRecord();
         int lastTimeRecorded = 0;
@@ -589,7 +589,9 @@ namespace TabHeaderDemo
             mlistkey.Add(btnkey2);
             mlistkey.Add(btnkey3);
             mlistkey.Add(btnkey4);
-
+            UTop = new TabHeaderDemo.UserControlTop();
+            UTop.Dock = DockStyle.Fill;
+            panel5.Controls.Add(UTop);
             umain = new UserControlMain();
             umain.Dock = DockStyle.Fill;
             splitContainer1.Panel1.Controls.Add(umain);
@@ -697,11 +699,13 @@ namespace TabHeaderDemo
 
             GlobeVal.mysys.softwareinstalldate = info;
 
-
+            
 
             software.Close();
 
     */
+           
+
             if (GlobeVal.mysys.showshorttitle == false)
             {
                 UTop.wordArt1.Caption = "AppleLab";

@@ -49,20 +49,22 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(490, 54);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(653, 68);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // lbltitle1
             // 
             this.lbltitle1.AutoSize = true;
             this.lbltitle1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbltitle1.Location = new System.Drawing.Point(3, 0);
+            this.lbltitle1.Location = new System.Drawing.Point(4, 0);
+            this.lbltitle1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltitle1.Name = "lbltitle1";
-            this.lbltitle1.Size = new System.Drawing.Size(484, 20);
+            this.lbltitle1.Size = new System.Drawing.Size(645, 25);
             this.lbltitle1.TabIndex = 0;
             this.lbltitle1.Text = "宽度：";
             this.lbltitle1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -75,28 +77,31 @@
             this.tableLayoutPanel3.Controls.Add(this.txtvalue1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.comboBox1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 23);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 29);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(484, 28);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(645, 35);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // txtvalue1
             // 
             this.txtvalue1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtvalue1.Location = new System.Drawing.Point(3, 3);
+            this.txtvalue1.Location = new System.Drawing.Point(4, 4);
+            this.txtvalue1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtvalue1.Name = "txtvalue1";
-            this.txtvalue1.Size = new System.Drawing.Size(277, 21);
+            this.txtvalue1.Size = new System.Drawing.Size(370, 25);
             this.txtvalue1.TabIndex = 0;
             // 
             // comboBox1
             // 
             this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(286, 3);
+            this.comboBox1.Location = new System.Drawing.Point(382, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 20);
+            this.comboBox1.Size = new System.Drawing.Size(259, 23);
             this.comboBox1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -131,16 +136,17 @@
             this.txtvalue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtvalue.Location = new System.Drawing.Point(180, 3);
             this.txtvalue.Name = "txtvalue";
-            this.txtvalue.Size = new System.Drawing.Size(126, 21);
+            this.txtvalue.Size = new System.Drawing.Size(126, 25);
             this.txtvalue.TabIndex = 1;
             // 
             // UserControlInputNumber
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UserControlInputNumber";
-            this.Size = new System.Drawing.Size(490, 54);
+            this.Size = new System.Drawing.Size(653, 68);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);

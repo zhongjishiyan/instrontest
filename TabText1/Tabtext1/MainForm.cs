@@ -642,8 +642,7 @@ namespace AppleLabApplication
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
-            TabText1 t = new TabText1();
-            t.Show();
+          
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)

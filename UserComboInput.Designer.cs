@@ -38,36 +38,39 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel1.Controls.Add(this.lbltitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbo, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(523, 29);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(697, 36);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lbltitle
             // 
             this.lbltitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbltitle.Location = new System.Drawing.Point(23, 0);
+            this.lbltitle.Location = new System.Drawing.Point(31, 0);
+            this.lbltitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(149, 29);
+            this.lbltitle.Size = new System.Drawing.Size(198, 36);
             this.lbltitle.TabIndex = 0;
             this.lbltitle.Text = "名称：";
             this.lbltitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(488, 3);
+            this.button1.Location = new System.Drawing.Point(649, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 23);
+            this.button1.Size = new System.Drawing.Size(43, 28);
             this.button1.TabIndex = 2;
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
@@ -77,18 +80,20 @@
             this.cbo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo.FormattingEnabled = true;
-            this.cbo.Location = new System.Drawing.Point(178, 3);
+            this.cbo.Location = new System.Drawing.Point(237, 4);
+            this.cbo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbo.Name = "cbo";
-            this.cbo.Size = new System.Drawing.Size(304, 20);
+            this.cbo.Size = new System.Drawing.Size(404, 23);
             this.cbo.TabIndex = 3;
             // 
             // UserComboInput
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UserComboInput";
-            this.Size = new System.Drawing.Size(523, 29);
+            this.Size = new System.Drawing.Size(697, 36);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

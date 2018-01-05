@@ -30,7 +30,7 @@
     <ManifestCertificateThumbprint>2BC86318C915CA08BA1410E1A20FFFF6F4794CD7</ManifestCertificateThumbprint>
     <ManifestKeyFile>TabHeaderDemo_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -168,7 +168,7 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <Reference Include="XLNet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f8076e75ead654d9, processorArchitecture=x86">
+    <Reference Include="XLNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\XLNet.dll</HintPath>
     </Reference>

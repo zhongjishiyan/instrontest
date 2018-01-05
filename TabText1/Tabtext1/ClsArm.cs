@@ -2083,6 +2083,8 @@ namespace ClsStaticStation
 
 			short e;
 
+
+
 			CComLibrary.GlobeVal.InitUserCalcChannel();//初始化用户自定义通道
 
 			e = System.Convert.ToInt16(a9500.ARM_DEC_Init(handle));

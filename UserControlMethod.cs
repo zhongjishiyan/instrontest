@@ -776,8 +776,11 @@ namespace TabHeaderDemo
             this.treeView1.CollapseAll();
             this.treeView1.SelectedNode = this.treeView1.Nodes[0].Nodes[0];
             methodon(this.treeView1.Nodes[0].Nodes[0].Text, this.treeView1.Nodes[0].Text);
+           
+
             CComLibrary.GlobeVal.InitUserCalcChannel();
-            
+
+          
         }
 
 
