@@ -300,7 +300,7 @@ namespace TabHeaderDemo
 
         }
 
-        private void btnmain_Click(object sender, EventArgs e)
+        public void btnmain_Click(object sender, EventArgs e)
         {
            
             ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]).SelectedIndex = 0;

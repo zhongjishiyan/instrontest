@@ -2211,7 +2211,7 @@ namespace ClsStaticStation
 
             try
             {
-               myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 2);
+               myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 2,0,0,0,0);
                //myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0);
 
             }

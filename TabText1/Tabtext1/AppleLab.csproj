@@ -165,6 +165,7 @@
       <DependentUpon>Add Table.cs</DependentUpon>
     </Compile>
     <Compile Include="AppleLab.cs" />
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CFileCom.cs" />
     <Compile Include="ClsArm.cs" />
     <Compile Include="ClsBaseControl.cs" />

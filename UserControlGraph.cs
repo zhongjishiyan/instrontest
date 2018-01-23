@@ -26,7 +26,7 @@ namespace TabHeaderDemo
         public double maxload;
 
         private double mstarttime;
-
+        int mk = 0;
         public void RefreshCaption()
         {
             string s;
@@ -48,6 +48,8 @@ namespace TabHeaderDemo
                 scatterGraph.Caption = s;
 
             }
+
+
         }
         public void startrun()
         {
@@ -131,7 +133,7 @@ namespace TabHeaderDemo
         }
         public void Init曲线(int plot)
         {
-           
+            
             if (plot == 1)
             {
                 myplotsettings = CComLibrary.GlobeVal.filesave.mplotpara1;
@@ -147,8 +149,9 @@ namespace TabHeaderDemo
                 lblcaption.Text = "曲线图2";
                 lblcaption.Tag = "";
             }
-           
 
+
+           
             scatterGraph.Plots.Clear();
             legend.Items.Clear();
             NationalInstruments.UI.ScatterPlot mplot;
@@ -189,7 +192,37 @@ namespace TabHeaderDemo
             {
                 myplotsettings.xchannelunit = 0;
             }
-            if ( myplotsettings.curvekind == 0)
+
+            x轴坐标ToolStripMenuItem.DropDownItems.Clear();
+            y轴坐标ToolStripMenuItem.DropDownItems.Clear();
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
+            {
+                ToolStripMenuItem ts_x = new ToolStripMenuItem(ClsStaticStation.m_Global.mycls.allsignals[i].cName);
+                ts_x.Tag = i;
+                ts_x.Click += Ts_x_Click;
+
+                ToolStripMenuItem ts_y = new ToolStripMenuItem(ClsStaticStation.m_Global.mycls.allsignals[i].cName);
+                ts_y.Tag = i;
+                ts_y.Click += Ts_y_Click;
+
+                if (myplotsettings.xchannel ==i)
+                {
+                    ts_x.Checked = true;
+                }
+
+                if (myplotsettings.ychannel ==i)
+                {
+                    ts_y.Checked = true;
+                }
+
+                x轴坐标ToolStripMenuItem.DropDownItems.Add(ts_x);
+
+
+                y轴坐标ToolStripMenuItem.DropDownItems.Add(ts_y);
+            }
+
+
+            if (( myplotsettings.curvekind == 0) || (myplotsettings.curvekind ==2))
             {
                 scatterGraph.YAxes[0].Visible = true;
                 scatterGraph.YAxes[1].Visible = false;
@@ -298,6 +331,7 @@ namespace TabHeaderDemo
                
             }
 
+            
             xyCursor1.Plot = scatterGraph.Plots[0];
 
             if (myplotsettings.showdatapointer == true)
@@ -312,6 +346,74 @@ namespace TabHeaderDemo
             mplot1 = plot;
 
 
+        }
+        private void change曲线标题()
+        {
+            if ((myplotsettings.curvekind == 0) || (myplotsettings.curvekind == 2))
+            {
+                scatterGraph.YAxes[0].Visible = true;
+                scatterGraph.YAxes[1].Visible = false;
+
+
+
+                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
+                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
+
+                scatterGraph.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName + "[" +
+                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit] + "]";
+            }
+
+
+            if (myplotsettings.curvekind == 1)
+            {
+               
+               
+                scatterGraph.YAxes[0].Visible = true;
+                scatterGraph.YAxes[1].Visible = true;
+
+                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
+               ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
+
+                scatterGraph.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName + "[" +
+                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit] + "]";
+
+                scatterGraph.YAxes[1].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cName + "[" +
+                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cUnits[myplotsettings.y1channelunit] + "]";
+
+
+            }
+        }
+        private void Ts_y_Click(object sender, EventArgs e)
+        {
+           for (int i=0;i<y轴坐标ToolStripMenuItem.DropDownItems.Count;i++)
+            {
+                (y轴坐标ToolStripMenuItem.DropDownItems[i] as ToolStripMenuItem).Checked = false;
+            }
+
+            int a = Convert.ToInt16( (sender as ToolStripMenuItem).Tag);
+
+            (sender as ToolStripMenuItem).Checked = true;
+            myplotsettings.ychannel = a;
+            scatterGraph.ClearData();
+
+            change曲线标题();
+        }
+
+        private void Ts_x_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < x轴坐标ToolStripMenuItem.DropDownItems.Count; i++)
+            {
+                (x轴坐标ToolStripMenuItem.DropDownItems[i] as ToolStripMenuItem).Checked = false;
+            }
+
+            int a = Convert.ToInt16((sender as ToolStripMenuItem).Tag);
+
+            (sender as ToolStripMenuItem).Checked = true;
+
+            myplotsettings.xchannel = a;
+            scatterGraph.ClearData();
+
+            change曲线标题();
         }
 
         public UserControlGraph()
@@ -347,7 +449,7 @@ namespace TabHeaderDemo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int mk=0;
+           
             int j = 0;
             int k=0;
             double  xi=0;
@@ -451,8 +553,11 @@ namespace TabHeaderDemo
                     
                  }
 
-                if ( Math.Abs(mtime - mstarttime) >= 0.02)
+                if ( Math.Abs(mtime - mstarttime) >= 0.01)
                 {
+
+                 
+
                     mstarttime = mtime;
                     if (myplotsettings.curvekind == 0)
                     {
@@ -486,7 +591,14 @@ namespace TabHeaderDemo
                             scatterGraph.Plots[mk - 1].PlotXYAppend(xi + 0.1 * (mk - 1), yi + 0.1 * (mk - 1));
                         }
 
+                        if (myplotsettings.dynamicdraw == true)
+                        {
+                            if (scatterGraph.Plots[mk - 1].HistoryCount >= myplotsettings.dynamicpointcount)
 
+                            {
+                                scatterGraph.Plots[mk - 1].ClearData();
+                            }
+                        }
                     }
                     if (myplotsettings.curvekind == 1)
                     {

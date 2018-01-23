@@ -105,24 +105,26 @@
             treeNode41});
             System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("文档设置");
             System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("原始数据输出");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("报告", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("数据库设置");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("报告", new System.Windows.Forms.TreeNode[] {
             treeNode43,
-            treeNode44});
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("提示顺序");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("开始前");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("试样试验前");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("试验前");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("计算前");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("试样试验后");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("结束前");
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("测试提示", new System.Windows.Forms.TreeNode[] {
-            treeNode46,
+            treeNode44,
+            treeNode45});
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("提示顺序");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("开始前");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("试样试验前");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("试验前");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("计算前");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("试样试验后");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("结束前");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("测试提示", new System.Windows.Forms.TreeNode[] {
             treeNode47,
             treeNode48,
             treeNode49,
             treeNode50,
             treeNode51,
-            treeNode52});
+            treeNode52,
+            treeNode53});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMethod));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -328,27 +330,30 @@
             treeNode44.Name = "节点0";
             treeNode44.StateImageIndex = 0;
             treeNode44.Text = "原始数据输出";
-            treeNode45.Name = "节点5";
-            treeNode45.StateImageIndex = 9;
-            treeNode45.Text = "报告";
-            treeNode46.Name = "节点1";
-            treeNode46.StateImageKey = "(无)";
-            treeNode46.Text = "提示顺序";
-            treeNode47.Name = "节点2";
-            treeNode47.Text = "开始前";
-            treeNode48.Name = "节点3";
-            treeNode48.Text = "试样试验前";
-            treeNode49.Name = "节点4";
-            treeNode49.Text = "试验前";
-            treeNode50.Name = "节点5";
-            treeNode50.Text = "计算前";
-            treeNode51.Name = "节点6";
-            treeNode51.Text = "试样试验后";
-            treeNode52.Name = "节点7";
-            treeNode52.Text = "结束前";
-            treeNode53.Name = "节点0";
-            treeNode53.StateImageIndex = 13;
-            treeNode53.Text = "测试提示";
+            treeNode45.Name = "节点0";
+            treeNode45.StateImageIndex = 0;
+            treeNode45.Text = "数据库设置";
+            treeNode46.Name = "节点5";
+            treeNode46.StateImageIndex = 9;
+            treeNode46.Text = "报告";
+            treeNode47.Name = "节点1";
+            treeNode47.StateImageKey = "(无)";
+            treeNode47.Text = "提示顺序";
+            treeNode48.Name = "节点2";
+            treeNode48.Text = "开始前";
+            treeNode49.Name = "节点3";
+            treeNode49.Text = "试样试验前";
+            treeNode50.Name = "节点4";
+            treeNode50.Text = "试验前";
+            treeNode51.Name = "节点5";
+            treeNode51.Text = "计算前";
+            treeNode52.Name = "节点6";
+            treeNode52.Text = "试样试验后";
+            treeNode53.Name = "节点7";
+            treeNode53.Text = "结束前";
+            treeNode54.Name = "节点0";
+            treeNode54.StateImageIndex = 13;
+            treeNode54.Text = "测试提示";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode5,
             treeNode10,
@@ -360,8 +365,8 @@
             treeNode34,
             treeNode39,
             treeNode42,
-            treeNode45,
-            treeNode53});
+            treeNode46,
+            treeNode54});
             this.treeView1.Scrollable = false;
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;

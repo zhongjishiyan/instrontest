@@ -56,7 +56,8 @@ namespace TabHeaderDemo
 
             chkdatapoint.Checked = myplotsettings.showdatapointer;
 
-
+            chkdynamic.Checked = myplotsettings.dynamicdraw;
+            numdynamic.Value = myplotsettings.dynamicpointcount;
 
         }
 
@@ -121,15 +122,66 @@ namespace TabHeaderDemo
                 grpy1define.Visible = false;
                 grpy1scale.Visible = false;
             }
-            else
+            else if (myplotsettings.curvekind ==1)
             {
                 grpydefine.Text = "左侧Y轴定义";
                 this.grpyscale.Text = "左侧Y轴缩放比例";
                 grpy1define.Text = "右侧Y轴定义";
                 grpy1scale.Text = "右侧Y轴缩放比例";
 
-                grpy1define.Visible = true ;
+                grpy1define.Visible = true;
                 grpy1scale.Visible = true;
+
+                cboy1channel.Items.Clear();
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
+                {
+
+                    cboy1channel.Items.Add(ClsStaticStation.m_Global.mycls.allsignals[i].cName);
+
+                }
+
+                if ((myplotsettings.y1channel >= 0) && (myplotsettings.y1channel < cboy1channel.Items.Count))
+                {
+                    cboy1channel.SelectedIndex = myplotsettings.y1channel;
+                }
+
+                cboy1channelunit.Items.Clear();
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cUnitCount; i++)
+                {
+                    cboy1channelunit.Items.Add(ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cUnits[i]);
+                }
+
+                if ((myplotsettings.y1channelunit >= 0) && (myplotsettings.y1channelunit < cboy1channelunit.Items.Count))
+                {
+                    cboy1channelunit.SelectedIndex = myplotsettings.y1channelunit;
+                }
+
+
+
+
+                this.scatterGraph1.YAxes[1].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cName + "[" +
+                  ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cUnits[myplotsettings.y1channelunit] + "]";
+
+
+
+                if (myplotsettings.y1channelzoom == true)
+                {
+                    rdby1autozoom.Checked = true;
+                }
+                else
+                {
+                    rdby1handzoom.Checked = true;
+                }
+            }
+            else
+            {
+                grpydefine.Text = "Y轴定义";
+                this.grpyscale.Text = "Y轴缩放比例";
+
+
+                grpy1define.Visible =false ;
+                grpy1scale.Visible = false ;
+
 
                 cboy1channel.Items.Clear();
                 for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
@@ -324,6 +376,42 @@ namespace TabHeaderDemo
                     mplot.YAxis = yAxis2;
                
 
+            }
+
+            if (myplotsettings.curvekind == 2)
+            {
+                scatterGraph1.YAxes[0].Visible = true;
+                scatterGraph1.YAxes[1].Visible = false;
+
+                for (int i = 0; i < myplotsettings.curvecount; i++)
+                {
+                    listBox1.Items.Add("曲线 " + (i + 1).ToString().Trim());
+                    mplot = new NationalInstruments.UI.ScatterPlot();
+                    mplot.LineColor = myplotsettings.PlotLineColor[i];
+                    mplot.LineStyle = myplotsettings.PlotLineStyle[i];
+                    mplot.PointStyle = myplotsettings.PlotLinePointStyle[i];
+                    mplot.PointSize = new Size(myplotsettings.PlotLineSize[i], myplotsettings.PlotLineSize[i]);
+                    mplot.PointColor = myplotsettings.PlotLinePointColor[i];
+                    mplot.LineWidth = myplotsettings.PlotLinePointSize[i];
+                    scatterGraph1.Plots.Add(mplot);
+
+                    mplot.ClearData();
+                    mplot.PlotXYAppend(0 + i * 0.2, 0);
+                    mplot.PlotXYAppend(2 + i * 0.2, 4);
+                    mplot.PlotXYAppend(8 + i * 0.2, 9);
+                    mlegitem = new NationalInstruments.UI.LegendItem();
+                    mlegitem.Source = mplot;
+                    mlegitem.Text = (i + 1).ToString().Trim();
+                    legend3.Items.Add(mlegitem);
+
+
+                }
+
+                if (myplotsettings.curvecount >= 2)
+                {
+                    scatterGraph1.Plots[1].YAxis = yAxis1;
+
+                }
             }
 
 
@@ -1011,8 +1099,8 @@ namespace TabHeaderDemo
         {
             if (radioButton3.Checked == true)
             {
-                tlpkind1.Visible = false;
-                tlpkind2.Visible = true;
+               // tlpkind1.Visible = false;
+               // tlpkind2.Visible = true;
 
                 myplotsettings.curvekind = 2;
             }
@@ -1376,6 +1464,21 @@ namespace TabHeaderDemo
             myplotsettings.xchannelunit = cboxchannelunit.SelectedIndex;
             this.scatterGraph1.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName + "[" +
                 ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit] + "]";
+        }
+
+        private void chkdynamic_CheckedChanged(object sender, EventArgs e)
+        {
+            myplotsettings.dynamicdraw = chkdynamic.Checked;
+        }
+
+        private void numdynamic_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            myplotsettings.dynamicpointcount = Convert.ToInt32(numdynamic.Value);
+        }
+
+        private void cbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

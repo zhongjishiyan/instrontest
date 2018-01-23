@@ -253,7 +253,7 @@ namespace ClsStaticStation
             mtimer = new System.Windows.Forms.Timer();
             mSerialPort = new System.IO.Ports.SerialPort();
             
-            mSerialPort.PortName = "COM8";
+            mSerialPort.PortName = "COM5";
             mSerialPort.StopBits = System.IO.Ports.StopBits.One;
             mSerialPort.BaudRate = 9600;
             mSerialPort.DataBits = 8;
@@ -929,6 +929,7 @@ namespace ClsStaticStation
 
                     mSerialPort.DiscardInBuffer();
                     load = BitConverter.ToSingle(BitConverter.GetBytes(mtemp), 0);
+
                     load = -load;
                    
                     time = System.Environment.TickCount / 1000.0;

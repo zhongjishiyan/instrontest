@@ -31,7 +31,10 @@ namespace ClsStaticStation
         public int total_returncount;//大循环总次数
 
         public string mtishi = "";
+        public virtual  void fatigtest(int wavekind, float freq, float ave, float  range, double count)
+        {
 
+        }
         public virtual  void Init(int handle)
         {
 

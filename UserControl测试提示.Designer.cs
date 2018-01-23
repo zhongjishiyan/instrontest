@@ -314,7 +314,7 @@
             this.tableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel7.ColumnCount = 2;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 334F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 335F));
             this.tableLayoutPanel7.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -332,7 +332,7 @@
             this.label7.ForeColor = System.Drawing.Color.Teal;
             this.label7.Location = new System.Drawing.Point(4, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(373, 36);
+            this.label7.Size = new System.Drawing.Size(372, 36);
             this.label7.TabIndex = 0;
             this.label7.Text = "设置测试提示-提示顺序";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -341,7 +341,7 @@
             // 
             this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(384, 4);
+            this.panel5.Location = new System.Drawing.Point(383, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(225, 30);
             this.panel5.TabIndex = 1;
@@ -368,8 +368,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(710, 612);
@@ -498,7 +498,7 @@
             this.tabControl2.Location = new System.Drawing.Point(4, 4);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(702, 47);
+            this.tabControl2.Size = new System.Drawing.Size(702, 69);
             this.tabControl2.TabIndex = 5;
             // 
             // tabPage9
@@ -507,7 +507,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(694, 21);
+            this.tabPage9.Size = new System.Drawing.Size(694, 43);
             this.tabPage9.TabIndex = 0;
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
@@ -516,7 +516,7 @@
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 184F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -534,7 +534,7 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(495, 36);
+            this.label1.Size = new System.Drawing.Size(494, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "设置测试提示-开始前";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -543,7 +543,7 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(506, 4);
+            this.panel4.Location = new System.Drawing.Point(505, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(43, 30);
             this.panel4.TabIndex = 1;
@@ -554,7 +554,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(694, 21);
+            this.tabPage10.Size = new System.Drawing.Size(694, 43);
             this.tabPage10.TabIndex = 1;
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
@@ -563,7 +563,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -581,7 +581,7 @@
             this.label4.ForeColor = System.Drawing.Color.Teal;
             this.label4.Location = new System.Drawing.Point(4, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(513, 36);
+            this.label4.Size = new System.Drawing.Size(512, 36);
             this.label4.TabIndex = 0;
             this.label4.Text = "设置测试提示-试样试验前";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -590,7 +590,7 @@
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(524, 4);
+            this.panel2.Location = new System.Drawing.Point(523, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(32, 30);
             this.panel2.TabIndex = 1;
@@ -600,7 +600,7 @@
             this.tabPage11.Controls.Add(this.panel8);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(694, 21);
+            this.tabPage11.Size = new System.Drawing.Size(694, 43);
             this.tabPage11.TabIndex = 2;
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
@@ -610,7 +610,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(694, 21);
+            this.panel8.Size = new System.Drawing.Size(694, 43);
             this.panel8.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -618,7 +618,7 @@
             this.tableLayoutPanel9.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.tableLayoutPanel9.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.panel20, 1, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Top;
@@ -636,7 +636,7 @@
             this.label8.ForeColor = System.Drawing.Color.Teal;
             this.label8.Location = new System.Drawing.Point(4, 1);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(519, 36);
+            this.label8.Size = new System.Drawing.Size(518, 36);
             this.label8.TabIndex = 0;
             this.label8.Text = "设置测试提示-试验前";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -645,7 +645,7 @@
             // 
             this.panel20.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel20.BackgroundImage")));
             this.panel20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel20.Location = new System.Drawing.Point(530, 4);
+            this.panel20.Location = new System.Drawing.Point(529, 4);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(32, 30);
             this.panel20.TabIndex = 1;
@@ -655,7 +655,7 @@
             this.tabPage12.Controls.Add(this.panel9);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(694, 21);
+            this.tabPage12.Size = new System.Drawing.Size(694, 43);
             this.tabPage12.TabIndex = 3;
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
@@ -665,7 +665,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(694, 21);
+            this.panel9.Size = new System.Drawing.Size(694, 43);
             this.panel9.TabIndex = 0;
             // 
             // tableLayoutPanel10
@@ -673,7 +673,7 @@
             this.tableLayoutPanel10.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel10.ColumnCount = 2;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.tableLayoutPanel10.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.panel21, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Top;
@@ -691,7 +691,7 @@
             this.label9.ForeColor = System.Drawing.Color.Teal;
             this.label9.Location = new System.Drawing.Point(4, 1);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(519, 36);
+            this.label9.Size = new System.Drawing.Size(518, 36);
             this.label9.TabIndex = 0;
             this.label9.Text = "设置测试提示-计算前";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -700,7 +700,7 @@
             // 
             this.panel21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel21.BackgroundImage")));
             this.panel21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel21.Location = new System.Drawing.Point(530, 4);
+            this.panel21.Location = new System.Drawing.Point(529, 4);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(32, 30);
             this.panel21.TabIndex = 1;
@@ -710,7 +710,7 @@
             this.tabPage13.Controls.Add(this.panel10);
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(694, 21);
+            this.tabPage13.Size = new System.Drawing.Size(694, 43);
             this.tabPage13.TabIndex = 4;
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
@@ -720,7 +720,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(694, 21);
+            this.panel10.Size = new System.Drawing.Size(694, 43);
             this.panel10.TabIndex = 0;
             // 
             // tableLayoutPanel11
@@ -728,7 +728,7 @@
             this.tableLayoutPanel11.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel11.ColumnCount = 2;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.tableLayoutPanel11.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.panel22, 1, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Top;
@@ -746,7 +746,7 @@
             this.label10.ForeColor = System.Drawing.Color.Teal;
             this.label10.Location = new System.Drawing.Point(4, 1);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(519, 36);
+            this.label10.Size = new System.Drawing.Size(518, 36);
             this.label10.TabIndex = 0;
             this.label10.Text = "设置测试提示-试样试验后";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -755,7 +755,7 @@
             // 
             this.panel22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel22.BackgroundImage")));
             this.panel22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel22.Location = new System.Drawing.Point(530, 4);
+            this.panel22.Location = new System.Drawing.Point(529, 4);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(32, 30);
             this.panel22.TabIndex = 1;
@@ -765,7 +765,7 @@
             this.tabPage14.Controls.Add(this.panel11);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(694, 21);
+            this.tabPage14.Size = new System.Drawing.Size(694, 43);
             this.tabPage14.TabIndex = 5;
             this.tabPage14.UseVisualStyleBackColor = true;
             // 
@@ -775,7 +775,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(694, 21);
+            this.panel11.Size = new System.Drawing.Size(694, 43);
             this.panel11.TabIndex = 0;
             // 
             // tableLayoutPanel12
@@ -783,7 +783,7 @@
             this.tableLayoutPanel12.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.tableLayoutPanel12.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.panel23, 1, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Top;
@@ -801,7 +801,7 @@
             this.label11.ForeColor = System.Drawing.Color.Teal;
             this.label11.Location = new System.Drawing.Point(4, 1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(519, 36);
+            this.label11.Size = new System.Drawing.Size(518, 36);
             this.label11.TabIndex = 0;
             this.label11.Text = "设置测试提示-结束前";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -810,7 +810,7 @@
             // 
             this.panel23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel23.BackgroundImage")));
             this.panel23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel23.Location = new System.Drawing.Point(530, 4);
+            this.panel23.Location = new System.Drawing.Point(529, 4);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(32, 30);
             this.panel23.TabIndex = 1;
@@ -820,7 +820,7 @@
             this.tabPage15.Controls.Add(this.panel12);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Size = new System.Drawing.Size(694, 21);
+            this.tabPage15.Size = new System.Drawing.Size(694, 43);
             this.tabPage15.TabIndex = 6;
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
@@ -830,7 +830,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(694, 21);
+            this.panel12.Size = new System.Drawing.Size(694, 43);
             this.panel12.TabIndex = 0;
             // 
             // tableLayoutPanel13
@@ -838,7 +838,7 @@
             this.tableLayoutPanel13.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel13.ColumnCount = 2;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             this.tableLayoutPanel13.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.panel24, 1, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Top;
@@ -856,7 +856,7 @@
             this.label12.ForeColor = System.Drawing.Color.Teal;
             this.label12.Location = new System.Drawing.Point(4, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(539, 36);
+            this.label12.Size = new System.Drawing.Size(538, 36);
             this.label12.TabIndex = 0;
             this.label12.Text = "设置测试提示-结束";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -865,7 +865,7 @@
             // 
             this.panel24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel24.BackgroundImage")));
             this.panel24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel24.Location = new System.Drawing.Point(550, 4);
+            this.panel24.Location = new System.Drawing.Point(549, 4);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(32, 30);
             this.panel24.TabIndex = 1;
@@ -875,9 +875,9 @@
             this.groupBox1.Controls.Add(this.rtxtooltip);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.ForeColor = System.Drawing.Color.Teal;
-            this.groupBox1.Location = new System.Drawing.Point(4, 58);
+            this.groupBox1.Location = new System.Drawing.Point(4, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(702, 104);
+            this.groupBox1.Size = new System.Drawing.Size(702, 82);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "请输入提示信息：";
@@ -888,7 +888,7 @@
             this.rtxtooltip.Location = new System.Drawing.Point(3, 17);
             this.rtxtooltip.Name = "rtxtooltip";
             this.rtxtooltip.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtxtooltip.Size = new System.Drawing.Size(696, 84);
+            this.rtxtooltip.Size = new System.Drawing.Size(696, 62);
             this.rtxtooltip.TabIndex = 1;
             this.rtxtooltip.Text = "";
             this.rtxtooltip.TextChanged += new System.EventHandler(this.rtxtooltip_TextChanged);

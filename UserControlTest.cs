@@ -948,7 +948,7 @@ namespace TabHeaderDemo
 
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        public void btnStart_Click(object sender, EventArgs e)
         {
             if (GlobeVal.myarm.connected == false)
             {

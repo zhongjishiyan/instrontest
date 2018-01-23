@@ -87,7 +87,7 @@ namespace TabHeaderDemo
            
         }
 
-        private void btntest_Click(object sender, EventArgs e)
+        public void btntest_Click(object sender, EventArgs e)
         {
            
 

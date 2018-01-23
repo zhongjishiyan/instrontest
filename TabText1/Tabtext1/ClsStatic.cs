@@ -185,7 +185,7 @@ namespace ClsStaticStation
              }
              if (machinekind ==3)
             {
-                initchannel标准8采集通道1控制通道(); 
+                initchannel标准();
             }
          }
 
@@ -535,8 +535,22 @@ namespace ClsStaticStation
              allsignals.Add(isi);
              originsignals.Add(isi);
 
+            isi = new ItemSignal();
 
-             if (CComLibrary.GlobeVal.filesave == null)
+            isi.cName = "次数";
+            isi.LName[0] = "次数";
+            isi.LName[1] = "Count";
+            isi.originprecise = 0;
+            isi.SignName = "Ch Count";
+            isi.cUnitKind = 20;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = 1000000000000;
+            isi.fullminbase = 0;
+            allsignals.Add(isi);
+            originsignals.Add(isi);
+
+            if (CComLibrary.GlobeVal.filesave == null)
              {
 
              }
@@ -1865,7 +1879,7 @@ namespace ClsStaticStation
         public string[] cUnits; //单位
 
 
-        public int cUnitKind;  //信号单位类型  //0 距离  1 力  2 距离速度 3 力速度  4 时间 5 电压  6 频率 // 7 段数 //8 Pid //9 命令 //10 //角度// 11扭矩 //12 角度速度 // 13 扭矩速度// 14 温度 //15 应力 16 //流量 17 //刚度 18//应变//19文本
+        public int cUnitKind;  //信号单位类型  //0 距离  1 力  2 距离速度 3 力速度  4 时间 5 电压  6 频率 // 7 段数 //8 Pid //9 命令 //10 //角度// 11扭矩 //12 角度速度 // 13 扭矩速度// 14 温度 //15 应力 16 //流量 17 //刚度 18//应变//19文本 20//次数
         public string SignName;//信号内部名称
         public double fullmaxbase;//默认单位下 满量程最大值 
         public double fullminbase;//默认单位下 满量程最小值
@@ -3174,6 +3188,15 @@ namespace ClsStaticStation
             {
                 return "0";
             }
+            if (cUnitKind ==20) //次数
+            {
+                if (mcUnitsel == 0)
+                {
+                    t = Convert.ToDouble(cValueOrigin) * 1;
+                    precise = originprecise + 1;
+                    return format(t, precise);
+                }
+            }
 
 
             return format(t, precise);
@@ -4155,6 +4178,18 @@ namespace ClsStaticStation
                 return "0";
             }
 
+            if (cUnitKind ==20) //次数
+            {
+                if (mcUnitsel == 0)
+                {
+                    t = Convert.ToDouble(cValueOrigin) * 1;
+                    precise = originprecise;
+                    return format(t, precise);
+                }
+
+            }
+
+
 
             return format(t, precise);
 
@@ -4395,6 +4430,12 @@ namespace ClsStaticStation
             {
                 cUnits[0] = " ";
                 cUnitCount = 1;
+            }
+
+            if (cUnitKind ==20) //次数
+            {
+                cUnits[0] = "次";
+                cUnitCount =1;
             }
         }
 

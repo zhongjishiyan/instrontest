@@ -384,7 +384,7 @@ namespace TabHeaderDemo
             {
                 if (CComLibrary.GlobeVal.filesave.mwizard == true)
                 {
-                    CComLibrary.GlobeVal.filesave.mspecount = 100;
+                   // CComLibrary.GlobeVal.filesave.mspecount = 100;
                 }
                 CComLibrary.GlobeVal.filesave.InitTable();
             }

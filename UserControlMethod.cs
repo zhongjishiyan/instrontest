@@ -28,8 +28,11 @@ namespace TabHeaderDemo
         private UserControl曲线 UserControl曲线2;
         private UserControl原始数据 UserControl原始数据1;
         private UserControl文件设置 UserControl文件设置1;
-        private UserControl缺省表格 UserControl缺省表格1; 
-       
+        private UserControl缺省表格 UserControl缺省表格1;
+        private UserControl数据库 UserControl数据库1;
+
+
+
 
         private string mmethodfilename;
         private void drawFigure(PaintEventArgs e, PointF[] points)
@@ -123,6 +126,7 @@ namespace TabHeaderDemo
             UserControl原始数据1 = new UserControl原始数据();
             UserControl文件设置1 = new UserControl文件设置();
             UserControl缺省表格1 = new UserControl缺省表格();
+            UserControl数据库1 = new UserControl数据库();
 
             UserControl试样1.musercontrolmethod = this;
             UserControl常规1.musercontrolmethod = this;
@@ -137,6 +141,7 @@ namespace TabHeaderDemo
             UserControl原始数据1.musercontrolmethod = this;
             UserControl文件设置1.musercontrolmethod = this;
             UserControl缺省表格1.musercontrolmethod = this;
+            UserControl数据库1.musercontrolmethod = this;
 
             UserControl常规1.Init(0);
             panelback.Visible = false;
@@ -672,6 +677,16 @@ namespace TabHeaderDemo
 
             }
 
+            if (t=="数据库设置")
+            {
+                UserControl数据库1.Init(0);
+                panelback.Visible = false;
+                panelback.Controls.Clear();
+                UserControl数据库1.Dock = DockStyle.Fill;
+                panelback.Controls.Add(UserControl数据库1);
+                panelback.Visible = true;
+            }
+
             if (t == "文档设置")
             {
                 
@@ -824,7 +839,7 @@ namespace TabHeaderDemo
         private void btnexsave_Click(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.currentspenumber = 0;
-            CComLibrary.GlobeVal.filesave.mspecount = 100;
+           
             CComLibrary.GlobeVal.filesave.SerializeNow(mmethodfilename);
             GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(mmethodfilename); 
             ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey() ;
@@ -870,7 +885,7 @@ namespace TabHeaderDemo
         private void btnexsaveclose_Click(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.currentspenumber = 0;
-            CComLibrary.GlobeVal.filesave.mspecount = 100;
+          
             CComLibrary.GlobeVal.filesave.SerializeNow(mmethodfilename);
             GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(mmethodfilename);
             ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey();

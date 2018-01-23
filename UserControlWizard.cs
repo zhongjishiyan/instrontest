@@ -414,5 +414,20 @@ namespace TabHeaderDemo
             
             
         }
+
+        private void btntest_Click(object sender, EventArgs e)
+        {
+            GlobeVal.userControltest1.btnStart_Click(null, null);
+        }
+
+        private void btnend_Click(object sender, EventArgs e)
+        {
+            GlobeVal.UserControlMain1.btnmain_Click(null, null);
+        }
+
+        private void btncontiune_Click(object sender, EventArgs e)
+        {
+            GlobeVal.UserControlMain1.OpenTest();
+        }
     }
 }

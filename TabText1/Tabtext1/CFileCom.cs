@@ -415,6 +415,9 @@ namespace CComLibrary
         public int y1channelunit = 0;
         public bool y1channelzoom = false;
 
+        public bool dynamicdraw = false;
+
+        public int dynamicpointcount = 1000;
 
         //以下为曲线高级设置
         private Color m_backcolor;
@@ -2443,6 +2446,71 @@ namespace CComLibrary
     }
 
     [Serializable]
+
+    public class DatabaseItem : ICloneable, IDisposable
+
+    {
+
+        public string KindName;
+        public string Name;
+
+        public int Ntype;
+
+        public string Value;
+
+
+        private bool disposed = false;
+
+        private void Dispose(bool disposing)
+        {
+            // Check to see if Dispose has already been called.
+            if (!this.disposed)
+            {
+                // If disposing equals true, dispose all managed
+                // and unmanaged resources.
+                if (disposing)
+                {
+                    // Dispose managed resources.
+
+
+
+                }
+
+                // Call the appropriate methods to clean up
+                // unmanaged resources here.
+                // If disposing is false,
+                // only the following code is executed.
+
+
+                // Note disposing has been done.
+                disposed = true;
+
+            }
+        }
+
+
+
+        public void Dispose()
+        {
+            Dispose(true);
+            // This object will be cleaned up by the Dispose method.
+            // Therefore, you should call GC.SupressFinalize to
+            // take this object off the finalization queue
+            // and prevent finalization code for this object
+            // from executing a second time.
+            GC.SuppressFinalize(this);
+        }
+
+        public virtual Object Clone()
+        {
+            return this.MemberwiseClone();
+
+        }
+
+
+
+    }
+    [Serializable]
     public class FileStruct : IEquatable<FileStruct>
     {
         public string SerializeObject(object obj)
@@ -2745,6 +2813,8 @@ namespace CComLibrary
 
         public Boolean ReportPrint;//是否打印报告
 
+
+
         public string lasttestdatatime;//最后试验日期
 
         public CmdSeg simple_cmd; //简单试验
@@ -2759,8 +2829,10 @@ namespace CComLibrary
         public int Extensometer_DataValueUnit;//引伸计去除值单位;
         public int Extensometer_Action;//引伸计去除时动作
         public bool  Extensometer_DataFrozen;//引伸计摘除时数据冻结
-        
 
+        public Boolean UseDatabase;//数据库是否有效
+        public List<DatabaseItem> mdatabaseitemlist;
+        public List<DatabaseItem> mdatabaseitemselect;
 
         public double StrainToLoad(double l)
         {
@@ -3594,6 +3666,8 @@ namespace CComLibrary
 
         public FileStruct()
         {
+            
+
             m_namelist = new List<string>();
             minput = new List<inputitem>();
             moutput = new List<outputitem>();
@@ -3689,6 +3763,150 @@ namespace CComLibrary
 
             mseglist = new List<CmdSeg>();
 
+            mdatabaseitemlist = new List<DatabaseItem>();
+            mdatabaseitemselect = new List<DatabaseItem>();
+            Init_databaselist();
+           
+
+        }
+
+        public void Init_databaselist()
+        {
+            mdatabaseitemlist.Clear();
+            DatabaseItem m = new CComLibrary.DatabaseItem();
+            m.Name = "方法名称";
+            m.Ntype = 0;
+            m.Value = this.methodname;
+
+            mdatabaseitemlist.Add(m);
+
+            m = new DatabaseItem();
+            m.Name = "方法作者";
+            m.Ntype = 0;
+            m.Value = this.methodauthor;
+            mdatabaseitemlist.Add(m);
+            m = new DatabaseItem();
+            m.Name = "方法说明";
+            m.Ntype = 0;
+            m.Value = this.methodauthor;
+            mdatabaseitemlist.Add(m);
+            m = new DatabaseItem();
+            m.Name = "样品名称";
+            m.Ntype = 0;
+            //m.Value = GlobeVal.mysys.SampleFile;
+            m.Value = "";
+            mdatabaseitemlist.Add(m);
+
+            m = new DatabaseItem();
+            m.Name = "样品注释1";
+            m.Ntype = 0;
+            m.Value = this.samplememo1;
+            mdatabaseitemlist.Add(m);
+
+            m = new DatabaseItem();
+            m.Name = "样品注释2";
+            m.Ntype = 0;
+            m.Value = this.samplememo2;
+            mdatabaseitemlist.Add(m);
+
+            m = new DatabaseItem();
+            m.Name = "样品注释3";
+            m.Ntype = 0;
+            m.Value = this.samplememo3;
+            mdatabaseitemlist.Add(m);
+
+            m = new DatabaseItem();
+            m.Name = "样品注释3";
+            m.Ntype = 0;
+            m.Value = this.samplememo;
+            mdatabaseitemlist.Add(m);
+
+
+            m = new DatabaseItem();
+            m.Name = "试样形状";
+            m.Ntype = 0;
+
+            if (this.mshapelist.Count > 0)
+            {
+                m.Value = this.mshapelist[this.shapeselect].shapename;
+            }
+            mdatabaseitemlist.Add(m);
+
+
+            for (int j = 0; j < this.mshapelist.Count; j++)
+            {
+
+
+                for (int i = 0; i <
+                   this.mshapelist[this.shapeselect].sizeitem.Length; i++)
+                {
+                    if (this.mshapelist[j].sizeitem[i].cName != "无")
+                    {
+                        m = new DatabaseItem();
+                        m.Name = this.mshapelist[j].shapename+"_"+this.mshapelist[j].sizeitem[i].cName;
+                        m.Ntype = 0;
+                        m.Value = this.mshapelist[j].sizeitem[i].cvalue.ToString();
+                        mdatabaseitemlist.Add(m);
+                    }
+
+                }
+            }
+
+
+
+            for (int i = 0; i <
+              this.minput.Count; i++)
+            {
+                m = new DatabaseItem();
+                m.Name = this.minput[i].name;
+                m.Ntype = 0;
+                m.Value = this.minput[i].value.ToString();
+                mdatabaseitemlist.Add(m);
+
+            }
+
+
+
+
+            for (int i = 0; i <
+              this.minputtext.Count; i++)
+            {
+                m = new DatabaseItem();
+                m.Name = this.minputtext[i].name;
+                m.Ntype = 0;
+                m.Value = this.minputtext[i].value;
+                mdatabaseitemlist.Add(m);
+            }
+
+
+
+
+            for (int i = 0; i < this.mcbo.Count; i++)
+            {
+                m = new DatabaseItem();
+                m.KindName = "试样选项输入";
+                m.Name = this.mcbo[i].Name;
+                m.Ntype = 0;
+                m.Value =this.mcbo[i].mlist[this.mcbo[i].value];
+                mdatabaseitemlist.Add(m);
+
+
+            }
+
+
+
+            for (int i = 0; i < this.moutput.Count; i++)
+            {
+
+                m = new DatabaseItem();
+                m.KindName = "计算项目";
+                m.Name = this.moutput[i].formulaname;
+                m.Ntype = 0;
+                m.Value = this.moutput[i].formulavalue;
+                mdatabaseitemlist.Add(m);
+
+
+            }
 
         }
 
@@ -4130,7 +4348,16 @@ namespace CComLibrary
                         c.simple_cmd = new CmdSeg();
                     }
 
+                    if(c.mdatabaseitemlist==null)
+                    {
+                        c.mdatabaseitemlist = new List<DatabaseItem>();
+                        c.Init_databaselist();
+                    }
 
+                    if (c.mdatabaseitemselect==null)
+                    {
+                        c.mdatabaseitemselect = new List<DatabaseItem>();
+                    }
 
                     fileStream.Close();
 
@@ -5351,7 +5578,7 @@ namespace CComLibrary
                 }
 
               
-                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Pos")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Disp")
                 {
                     s = s + "public double " + b.replaceName + "=" + "ClsStaticStation.m_Global.mpos" + ";" + "\r\n";
                 }
@@ -5450,7 +5677,7 @@ namespace CComLibrary
                     s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mload" + ";" + "\r\n";
                 }
 
-                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Pos")
+                else if (CComLibrary.GlobeVal.filesave.m_signnamelist[j] == "Ch Disp")
                 {
                     s = s + b.replaceName + "=" + "ClsStaticStation.m_Global.mpos" + ";" + "\r\n";
                 }

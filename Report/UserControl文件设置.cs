@@ -37,6 +37,8 @@ namespace TabHeaderDemo
             chksave.Checked = CComLibrary.GlobeVal.filesave.ReportSave;
             chkprint.Checked = CComLibrary.GlobeVal.filesave.ReportPrint;
 
+            chkdatabase.Checked = CComLibrary.GlobeVal.filesave.UseDatabase;
+
 
         }
         public  UserControl文件设置()
@@ -80,6 +82,8 @@ namespace TabHeaderDemo
 
                 CComLibrary.GlobeVal.filesave.SamplePath = this.folderBrowserDialog1.SelectedPath;
 
+               
+
                 txtpath.Text = CComLibrary.GlobeVal.filesave.SamplePath;
             
         }
@@ -107,6 +111,11 @@ namespace TabHeaderDemo
         private void chkprint_CheckedChanged(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.ReportPrint= chkprint.Checked;
+        }
+
+        private void chkdatabase_CheckedChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.UseDatabase = chkdatabase.Checked;
         }
     }
 }

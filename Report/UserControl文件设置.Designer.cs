@@ -45,7 +45,6 @@
             this.chksave = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnpath = new System.Windows.Forms.Button();
             this.txtpath = new System.Windows.Forms.TextBox();
@@ -53,6 +52,8 @@
             this.txtSampleName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.chkdatabase = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -69,6 +70,7 @@
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -123,10 +125,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel5);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 138);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(646, 227);
+            this.groupBox2.Size = new System.Drawing.Size(646, 149);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "报告";
@@ -145,23 +147,20 @@
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 6;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.38462F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.61538F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(640, 176);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(640, 128);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // chkprint
             // 
             this.chkprint.Dock = System.Windows.Forms.DockStyle.Right;
-            this.chkprint.Location = new System.Drawing.Point(30, 102);
+            this.chkprint.Location = new System.Drawing.Point(30, 92);
             this.chkprint.Name = "chkprint";
-            this.chkprint.Size = new System.Drawing.Size(213, 20);
+            this.chkprint.Size = new System.Drawing.Size(213, 33);
             this.chkprint.TabIndex = 8;
             this.chkprint.Text = "打印报告";
             this.chkprint.UseVisualStyleBackColor = true;
@@ -179,7 +178,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(388, 30);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(388, 27);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // btnchange
@@ -187,7 +186,7 @@
             this.btnchange.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnchange.Location = new System.Drawing.Point(299, 3);
             this.btnchange.Name = "btnchange";
-            this.btnchange.Size = new System.Drawing.Size(86, 24);
+            this.btnchange.Size = new System.Drawing.Size(86, 21);
             this.btnchange.TabIndex = 0;
             this.btnchange.Text = "更改";
             this.btnchange.UseVisualStyleBackColor = true;
@@ -206,7 +205,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(240, 36);
+            this.label6.Size = new System.Drawing.Size(240, 33);
             this.label6.TabIndex = 0;
             this.label6.Text = "    报告模板：";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -214,9 +213,9 @@
             // label7
             // 
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(3, 36);
+            this.label7.Location = new System.Drawing.Point(3, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(240, 29);
+            this.label7.Size = new System.Drawing.Size(240, 26);
             this.label7.TabIndex = 4;
             this.label7.Text = "    报告格式：";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,7 +225,7 @@
             this.cboformat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboformat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboformat.FormattingEnabled = true;
-            this.cboformat.Location = new System.Drawing.Point(249, 39);
+            this.cboformat.Location = new System.Drawing.Point(249, 36);
             this.cboformat.Name = "cboformat";
             this.cboformat.Size = new System.Drawing.Size(388, 20);
             this.cboformat.TabIndex = 5;
@@ -235,9 +234,9 @@
             // chksave
             // 
             this.chksave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.chksave.Location = new System.Drawing.Point(30, 68);
+            this.chksave.Location = new System.Drawing.Point(30, 62);
             this.chksave.Name = "chksave";
-            this.chksave.Size = new System.Drawing.Size(213, 28);
+            this.chksave.Size = new System.Drawing.Size(213, 24);
             this.chksave.TabIndex = 6;
             this.chksave.Text = "保存报告";
             this.chksave.UseVisualStyleBackColor = true;
@@ -256,35 +255,24 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 245F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 241F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtSampleName, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label5, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(640, 115);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(640, 121);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(239, 33);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "    位置";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel4
             // 
@@ -294,22 +282,23 @@
             this.tableLayoutPanel4.Controls.Add(this.btnpath, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.txtpath, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(248, 27);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(244, 27);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(389, 27);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(393, 26);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // btnpath
             // 
             this.btnpath.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnpath.Location = new System.Drawing.Point(300, 3);
+            this.btnpath.Location = new System.Drawing.Point(304, 3);
             this.btnpath.Name = "btnpath";
-            this.btnpath.Size = new System.Drawing.Size(86, 21);
+            this.btnpath.Size = new System.Drawing.Size(86, 20);
             this.btnpath.TabIndex = 0;
             this.btnpath.Text = "浏览";
             this.btnpath.UseVisualStyleBackColor = true;
+            this.btnpath.Visible = false;
             this.btnpath.Click += new System.EventHandler(this.btnpath_Click);
             // 
             // txtpath
@@ -318,35 +307,36 @@
             this.txtpath.Enabled = false;
             this.txtpath.Location = new System.Drawing.Point(3, 3);
             this.txtpath.Name = "txtpath";
-            this.txtpath.Size = new System.Drawing.Size(291, 21);
+            this.txtpath.Size = new System.Drawing.Size(295, 21);
             this.txtpath.TabIndex = 1;
+            this.txtpath.Visible = false;
             this.txtpath.TextChanged += new System.EventHandler(this.txtpath_TextChanged);
             // 
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 57);
+            this.label4.Location = new System.Drawing.Point(3, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(239, 29);
+            this.label4.Size = new System.Drawing.Size(235, 23);
             this.label4.TabIndex = 3;
-            this.label4.Text = "    样品文件名称：";
+            this.label4.Text = "    数据库文件名称：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtSampleName
             // 
             this.txtSampleName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSampleName.Location = new System.Drawing.Point(248, 60);
+            this.txtSampleName.Location = new System.Drawing.Point(244, 59);
             this.txtSampleName.Name = "txtSampleName";
-            this.txtSampleName.Size = new System.Drawing.Size(389, 21);
+            this.txtSampleName.Size = new System.Drawing.Size(393, 21);
             this.txtSampleName.TabIndex = 4;
             this.txtSampleName.TextChanged += new System.EventHandler(this.txtSampleName_TextChanged);
             // 
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(248, 86);
+            this.label5.Location = new System.Drawing.Point(244, 79);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(389, 29);
+            this.label5.Size = new System.Drawing.Size(393, 42);
             this.label5.TabIndex = 5;
             this.label5.Text = "不能使用下列无效字符\\ / : * ! < > |";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -356,10 +346,29 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(239, 24);
+            this.label8.Size = new System.Drawing.Size(235, 24);
             this.label8.TabIndex = 6;
-            this.label8.Text = "指定默认样品文件位置";
+            this.label8.Text = "数据库";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.chkdatabase);
+            this.panel3.Location = new System.Drawing.Point(3, 27);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(235, 26);
+            this.panel3.TabIndex = 7;
+            // 
+            // chkdatabase
+            // 
+            this.chkdatabase.AutoSize = true;
+            this.chkdatabase.Location = new System.Drawing.Point(27, 7);
+            this.chkdatabase.Name = "chkdatabase";
+            this.chkdatabase.Size = new System.Drawing.Size(180, 16);
+            this.chkdatabase.TabIndex = 8;
+            this.chkdatabase.Text = "试验结束后结果保存到数据库";
+            this.chkdatabase.UseVisualStyleBackColor = true;
+            this.chkdatabase.CheckedChanged += new System.EventHandler(this.chkdatabase_CheckedChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -437,6 +446,8 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -457,7 +468,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btnpath;
         private System.Windows.Forms.TextBox txtpath;
@@ -475,5 +485,7 @@
         private System.Windows.Forms.CheckBox chkprint;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.CheckBox chkdatabase;
     }
 }

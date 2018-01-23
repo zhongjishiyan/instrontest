@@ -110,10 +110,10 @@ namespace TabHeaderDemo
             MachineName[0] = "电子(液压)万能试验机";
             MachineName[1] = "扭转试验机";
             MachineName[2] = "岩石三轴试验机";
-            // MachineName[3] = "8采集通道1控制通道";
+            MachineName[3] = "换挡意图传感器试验机";
 
 
-            MachineCount = 3;
+            MachineCount = 4;
           
             ChannelRange = new double [20];
             ChannelControl = new bool[20];
@@ -239,8 +239,12 @@ namespace TabHeaderDemo
                     c.MachineName[0] = "电子(液压)万能试验机";
                     c.MachineName[1] = "扭转试验机";
                     c.MachineName[2] = "岩石三轴试验机";
-                   // c.MachineName[3] = "8采集通道1控制通道";
-                    c.MachineCount = 3;
+                    c.MachineName[3] = "换挡意图传感器试验机";
+
+
+                   
+               
+                    c.MachineCount = 4;
 
                     if (c.ChannelRange == null)
                     {

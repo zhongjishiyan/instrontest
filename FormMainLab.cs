@@ -45,6 +45,7 @@ namespace TabHeaderDemo
 
         private UserControl扭转 UserControl扭转1;
         private UserControl轴向 UserControl轴向1;
+        private UserControl东光 UserControl东光1;
         private List<JMeter> mlistmeter;
         private List<Button> mlistkey;
 
@@ -659,9 +660,9 @@ namespace TabHeaderDemo
 
                 tlpsel.Visible = false;
                 UserControl操作面板1 = new UserControl操作面板();
-                UserControl轴向1 = new UserControl轴向();
-                UserControl操作面板1.Controls.Add(UserControl轴向1);
-                UserControl轴向1.Dock = DockStyle.Fill;
+                UserControl东光1 = new UserControl东光();
+                UserControl操作面板1.Controls.Add(UserControl东光1);
+                UserControl东光1.Dock = DockStyle.Fill;
                 UserControl操作面板1.Dock = DockStyle.Fill;
                 panel2.Controls.Add(UserControl操作面板1);
             }
