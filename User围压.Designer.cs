@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User围压));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.jMeter1 = new TabHeaderDemo.JMeter();
+            this.jMeter2 = new TabHeaderDemo.JMeter();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
@@ -65,8 +67,6 @@
             this.led5 = new NationalInstruments.UI.WindowsForms.Led();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
-            this.jMeter1 = new TabHeaderDemo.JMeter();
-            this.jMeter2 = new TabHeaderDemo.JMeter();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -118,6 +118,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(324, 649);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // jMeter1
+            // 
+            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter1.Location = new System.Drawing.Point(25, 90);
+            this.jMeter1.Name = "jMeter1";
+            this.jMeter1.Size = new System.Drawing.Size(276, 67);
+            this.jMeter1.TabIndex = 0;
+            // 
+            // jMeter2
+            // 
+            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter2.Location = new System.Drawing.Point(25, 163);
+            this.jMeter2.Name = "jMeter2";
+            this.jMeter2.Size = new System.Drawing.Size(276, 67);
+            this.jMeter2.TabIndex = 1;
             // 
             // panel2
             // 
@@ -565,24 +583,6 @@
             this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
             this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList3.Images.SetKeyName(0, "3.ico");
-            // 
-            // jMeter1
-            // 
-            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter1.Location = new System.Drawing.Point(25, 90);
-            this.jMeter1.Name = "jMeter1";
-            this.jMeter1.Size = new System.Drawing.Size(276, 67);
-            this.jMeter1.TabIndex = 0;
-            // 
-            // jMeter2
-            // 
-            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter2.Location = new System.Drawing.Point(25, 163);
-            this.jMeter2.Name = "jMeter2";
-            this.jMeter2.Size = new System.Drawing.Size(276, 67);
-            this.jMeter2.TabIndex = 1;
             // 
             // User围压
             // 

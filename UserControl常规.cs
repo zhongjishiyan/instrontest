@@ -164,7 +164,7 @@ namespace TabHeaderDemo
 
             if (sel == 2)
             {
-
+                txtlay.Text = CComLibrary.GlobeVal.filesave.layfilename;
             }
 
         }
@@ -852,7 +852,7 @@ namespace TabHeaderDemo
                 tlbebase.ColumnCount = 1;
                 
  
-                textBox1.Text = System.IO.Path.GetFileName(openFileDialog1.FileName);
+                txtlay.Text = System.IO.Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
 
                 CComLibrary.FileLayoutStruct f = new CComLibrary.FileLayoutStruct();
 
@@ -1120,6 +1120,11 @@ namespace TabHeaderDemo
         private void txtmethodmemo_TextChanged(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.methodmemo = this.txtmethodmemo.Text; 
+        }
+
+        private void txtlay_TextChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.layfilename = txtlay.Text;
         }
     }
 }

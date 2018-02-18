@@ -901,6 +901,16 @@ namespace TabHeaderDemo
 
             }
 
+            chkSample.Checked = CComLibrary.GlobeVal.filesave.Samplecheck;
+            numsampletime.Value = CComLibrary.GlobeVal.filesave.SampleChecktime;
+
+            cbosamplemode.Items.Clear();
+            cbosamplemode.Items.Add("静态采集方式");
+            cbosamplemode.Items.Add("动态采集方式");
+            cbosamplemode.Items.Add("高级控制采集方式");
+            cbosamplemode.SelectedIndex = CComLibrary.GlobeVal.filesave.Samplingmode;
+            numsaveinterval.Value = CComLibrary.GlobeVal.filesave.SamplingInterval;
+            numsavepointcount.Value = CComLibrary.GlobeVal.filesave.SamplingCount;
 
 
         }
@@ -3155,6 +3165,31 @@ namespace TabHeaderDemo
         private void chkremoveext_CheckedChanged(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.chkextremove = chkremoveext.Checked;
+        }
+
+        private void chkSample_CheckedChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.Samplecheck = chkSample.Checked;
+        }
+
+        private void numsampletime_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.SampleChecktime = numsampletime.Value;
+        }
+
+        private void cbosamplemode_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.Samplingmode = cbosamplemode.SelectedIndex;
+        }
+
+        private void numsaveinterval_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.SamplingInterval = Convert.ToInt32(numsaveinterval.Value);
+        }
+
+        private void numsavepointcount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.SamplingCount = Convert.ToInt32(numsavepointcount.Value);
         }
     }
 }

@@ -92,8 +92,11 @@ namespace TabHeaderDemo
         public int[] ChannelDimension;//通道量纲
         public bool[] ChannelControl;//通道控制
         public bool[] ChannelStrainControl;//通道变形控制
+        public int[] ChannelSamplemode;//通道硬件采集方式
 
         public int ChannelCount = 8;//通道数量
+
+       
 
         public ClassSys()
         {
@@ -111,13 +114,14 @@ namespace TabHeaderDemo
             MachineName[1] = "扭转试验机";
             MachineName[2] = "岩石三轴试验机";
             MachineName[3] = "换挡意图传感器试验机";
+            MachineName[4] = "金属恒应变控制试验机";
 
-
-            MachineCount = 4;
+            MachineCount = 5;
           
             ChannelRange = new double [20];
             ChannelControl = new bool[20];
             ChannelDimension = new int[20];
+            ChannelSamplemode = new int[20];
 
             UserName = new string[100];
             UserPassword = new string[100];
@@ -150,6 +154,7 @@ namespace TabHeaderDemo
                 ChannelRange[i] = 10;
                 ChannelControl[i] = false ;
                 ChannelDimension[i] =0;
+                ChannelSamplemode[i] = 0;
 
             }
 
@@ -240,17 +245,23 @@ namespace TabHeaderDemo
                     c.MachineName[1] = "扭转试验机";
                     c.MachineName[2] = "岩石三轴试验机";
                     c.MachineName[3] = "换挡意图传感器试验机";
+                    c.MachineName[4] = "金属恒应变控制试验机";
 
 
-                   
-               
-                    c.MachineCount = 4;
+
+                    c.MachineCount = 5;
+
+                    if (c.ChannelSamplemode==null)
+                    {
+                        c.ChannelSamplemode = new int[20];
+                    }
 
                     if (c.ChannelRange == null)
                     {
                         c.ChannelRange = new double[20];
                         c.ChannelControl = new bool[20];
                         c.ChannelDimension = new int[20];
+                        
                         c.ChannelCount = 8;
                         for (int i = 0; i < c.ChannelCount; i++)
                         {
@@ -262,8 +273,9 @@ namespace TabHeaderDemo
 
                         }
                     }
+                
 
-                    fileStream.Close();
+        fileStream.Close();
 
 
 

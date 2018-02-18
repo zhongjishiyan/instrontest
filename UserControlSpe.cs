@@ -102,11 +102,18 @@ namespace TabHeaderDemo
         void cbo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ((sender as ComboBox).Tag as CComLibrary.PromptsItem).itemvalue = (sender as ComboBox).SelectedIndex;
+           // CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.spefilename);
+
+          
+
         }
 
         void txtvalue_TextChanged(object sender, EventArgs e)
         {
             ((sender as TextBox).Tag as CComLibrary.PromptsItem).itemvalue = (sender as TextBox).Text;
+           // CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.spefilename);
+
+
         }
 
         void txtvalue2_TextChanged(object sender, EventArgs e)
@@ -114,6 +121,8 @@ namespace TabHeaderDemo
             double t;
             double.TryParse((sender as TextBox).Text,  out t );
             ((sender as TextBox).Tag as CComLibrary.PromptsItem).itemvalue = t;
+           // CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.spefilename);
+            
         }
         public void setspe( int num, CComLibrary.TestStatus  state)
         {

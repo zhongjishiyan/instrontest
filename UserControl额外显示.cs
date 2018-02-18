@@ -137,7 +137,7 @@ namespace TabHeaderDemo
         
         private void btnadd_Click(object sender, EventArgs e)
         {
-            if (this.lstinclude.Items.Count < 4)
+            if (this.lstinclude.Items.Count < 8)
             {
                 if (this.lstavail.SelectedItem != null)
                 {

@@ -37,21 +37,26 @@ namespace TabHeaderDemo
 
         private  ClsStaticStation.ClsBaseControl myarm;
 
+        private ClsStaticStation.CArmCan marmcan;
         private ClsStaticStation.CArm marm;
         private ClsStaticStation.CDOLI mdoli;
         private ClsStaticStation.CDsp mdsp;
         private User围压 User围压1;
         private UserControl操作面板 UserControl操作面板1;
+        private UserControl轴向恒应变 UserControl轴向恒应变1;
 
         private UserControl扭转 UserControl扭转1;
         private UserControl轴向 UserControl轴向1;
-        private UserControl东光 UserControl东光1;
+        public UserControl东光 UserControl东光1;
         private List<JMeter> mlistmeter;
         private List<Button> mlistkey;
 
         public UserControlMain umain;
 
         private MainForm fdata;
+
+
+        public DriverDll.CDriver cdriverdll;
 
         private int msel = 0;
         [STAThread]
@@ -197,8 +202,17 @@ namespace TabHeaderDemo
             }
             if (GlobeVal.mysys.controllerkind == 0)
             {
-                marm = new CArm();
-                myarm = marm;
+                if (GlobeVal.mysys.machinekind == 3)
+                {
+                    marmcan  = new CArmCan();
+                    myarm = marmcan;
+                }
+                else
+                {
+                    marm = new CArm();
+                    myarm = marm;
+                }
+               
 
             }
 
@@ -662,11 +676,23 @@ namespace TabHeaderDemo
                 UserControl操作面板1 = new UserControl操作面板();
                 UserControl东光1 = new UserControl东光();
                 UserControl操作面板1.Controls.Add(UserControl东光1);
+              
                 UserControl东光1.Dock = DockStyle.Fill;
                 UserControl操作面板1.Dock = DockStyle.Fill;
                 panel2.Controls.Add(UserControl操作面板1);
             }
 
+            if (GlobeVal.mysys.machinekind ==4)
+            {
+                tlpsel.Visible = false;
+                UserControl操作面板1 = new UserControl操作面板();
+                UserControl轴向恒应变1 = new UserControl轴向恒应变();
+                UserControl操作面板1.Controls.Add(UserControl轴向恒应变1);
+                UserControl轴向恒应变1.Dock = DockStyle.Fill;
+                UserControl操作面板1.Dock = DockStyle.Fill;
+                panel2.Controls.Add(UserControl操作面板1);
+
+            }
             if (GlobeVal.mysys.demo == true)
             {
                 GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = "演示";
@@ -757,6 +783,9 @@ namespace TabHeaderDemo
                 Close();
             }
             f.Close();
+
+           cdriverdll = new DriverDll.CDriver();
+            cdriverdll.Start();
 
         }
 

@@ -106,7 +106,10 @@ namespace TabHeaderDemo
             }
             UserControlMain c = GlobeVal.FormmainLab.umain;
 
-         
+            if (GlobeVal.mysys.machinekind == 3)
+            {
+                GlobeVal.FormmainLab.UserControl东光1.Init();
+            }
             c.OpenTest();
             
             b.SelectedIndex = 1;
@@ -121,6 +124,12 @@ namespace TabHeaderDemo
         private void btnreport_Click(object sender, EventArgs e)
         {
 
+#if Demo
+
+            MessageBox.Show("演示版不能使用此功能");
+            return;
+
+#endif
             if (CComLibrary.GlobeVal.filesave == null)
             {
                 MessageBox.Show("请先读取试验方法");
@@ -160,6 +169,12 @@ namespace TabHeaderDemo
 
         private void btnmanage_Click(object sender, EventArgs e)
         {
+#if Demo
+
+            MessageBox.Show("演示版不能使用此功能");
+            return;
+
+#endif
             if (GlobeVal.mysys.AppUserLevel <2)
             {
                 MessageBox.Show("您的当前权限不够，请使用管理员权限登录");
@@ -176,6 +191,14 @@ namespace TabHeaderDemo
 
         private void btnmethod_Click(object sender, EventArgs e)
         {
+#if Demo 
+
+            MessageBox.Show("演示版不能使用此功能");
+            return;
+
+#endif
+
+
             if (GlobeVal.mysys.AppUserLevel < 1)
             {
                 MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
@@ -199,6 +222,12 @@ namespace TabHeaderDemo
 
         private void btnuser_Click(object sender, EventArgs e)
         {
+#if Demo
+
+            MessageBox.Show("演示版不能使用此功能");
+            return;
+
+#endif
             Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
             f.result = false;
 

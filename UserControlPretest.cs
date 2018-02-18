@@ -325,7 +325,15 @@ namespace TabHeaderDemo
                 GlobeVal.dynset.tlbetest.ColumnCount = 0;
                 GlobeVal.dynset.Dock = DockStyle.None;
 
-                GlobeVal.userControltest1.OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
+                if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\" + CComLibrary.GlobeVal.filesave.layfilename + ".lay"))
+                {
+                    GlobeVal.userControltest1.OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\" + CComLibrary.GlobeVal.filesave.layfilename + ".lay");
+
+                }
+                else
+                {
+                    GlobeVal.userControltest1.OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
+                }
 
                 GlobeVal.dynset.Dock = DockStyle.Fill;
                 GlobeVal.userControltest1.paneltestright.Controls.Clear();
@@ -423,9 +431,11 @@ namespace TabHeaderDemo
                     MessageBox.Show("请先读取样品文件");
                     return;
                 }
+              
 
+               
                 GlobeVal.spefilename = txtsamplepath.Text + "\\" + txtsample.Text + ".spe";
-
+            
 
                 SampleNextStep(false);
 
@@ -467,8 +477,11 @@ namespace TabHeaderDemo
 
                     return;
                 }
+               
+               
 
                 GlobeVal.spefilename = lblpath.Text + "\\" + txtsamplename.Text + ".spe";
+               
 
                 SampleNextStep(true);
 

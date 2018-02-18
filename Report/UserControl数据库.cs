@@ -19,6 +19,7 @@ namespace TabHeaderDemo
         {
             bool f = false;
 
+           
             listavail.ClearItem();
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mdatabaseitemlist.Count; i++)
@@ -110,17 +111,25 @@ namespace TabHeaderDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (File.Exists("d:\\test.mdb")==true)
+            button1.Enabled = false;
+
+            if (System.IO.Directory.Exists(Application.StartupPath + "\\mdb")==true)
             {
-                File.Delete("d:\\test.mdb");
+                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\mdb");
+            }
+
+
+            if (File.Exists(Application.StartupPath  + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb")== true)
+            {
+                File.Delete(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb");
             }
             
             ADOX.Catalog catalog = new Catalog();
-            catalog.Create("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=d:\\test.mdb;Jet OLEDB:Engine Type=5");
+            catalog.Create("Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+ Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb;" + "Jet OLEDB:Engine Type=5");
 
             ADODB.Connection cn = new ADODB.Connection();
 
-            cn.Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=d:\\test.mdb", null, null, -1);
+            cn.Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+ Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb", null, null, -1);
             catalog.ActiveConnection = cn;
 
             ADOX.Table table = new ADOX.Table();
@@ -134,9 +143,16 @@ namespace TabHeaderDemo
             column.Properties["AutoIncrement"].Value = true;
             table.Columns.Append(column, DataTypeEnum.adInteger, 9);
             table.Keys.Append("FirstTablePrimaryKey", KeyTypeEnum.adKeyPrimary, column, null, null);
-            table.Columns.Append("CustomerName", DataTypeEnum.adVarWChar, 50);
-            table.Columns.Append("Age", DataTypeEnum.adInteger, 9);
-            table.Columns.Append("生日", DataTypeEnum.adVarWChar, 80);
+
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count;i++)
+            {
+                table.Columns.Append(CComLibrary.GlobeVal.filesave.mdatabaseitemselect[i].Name, DataTypeEnum.adVarWChar, 80);
+            }
+
+
+          // table.Columns.Append("CustomerName", DataTypeEnum.adVarWChar, 50);
+           // table.Columns.Append("Age", DataTypeEnum.adInteger, 9);
+           // table.Columns.Append("生日", DataTypeEnum.adVarWChar, 80);
             
             catalog.Tables.Append(table);
 
@@ -147,30 +163,36 @@ namespace TabHeaderDemo
             rs.LockType = ADODB.LockTypeEnum.adLockPessimistic;
             rs.CursorType = ADODB.CursorTypeEnum.adOpenDynamic;
 
-            
-
-           // rs.MoveFirst();
-
-            for(int i=0;i<10;i++)
+            string sql = "select * from FirstTable";
+            rs.Open(sql, cn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, (int)ADODB.CommandTypeEnum.adCmdText);
+          //  rs.MoveFirst();
+          /*
+            for (int i=0;i<1;i++)
             {
                 
                
                 object missing = System.Reflection.Missing.Value;
                 rs.AddNew(missing, missing);
-                rs.Fields["CustomerName"].Value = "awer";
-                rs.Fields["Age"].Value = 21;
-                
-                rs.Fields["生日"].Value ="1976.7.13";
+
+                rs.Fields["RecordId"].Value  = i;
+
+                for (int j = 0; j < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count; j++)
+                {
+                    rs.Fields[j+1].Value = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value;
+                   
+                }
+                    
+               
                 rs.Update();
             }
-
+            */
 
             rs.Close();
             cn.Close();
 
-            
 
-         
+
+            button1.Enabled = true;
           
         }
     }

@@ -33,7 +33,12 @@ namespace TabHeaderDemo
                     if (tested == true)
                     {
 
-                        for (int j = 0; j < tabcol.Count; j++)
+                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; i++)
+                    {
+                        CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].setvalue();
+                    }
+
+                    for (int j = 0; j < tabcol.Count; j++)
                         {
                             for (int i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
                             {
@@ -51,7 +56,49 @@ namespace TabHeaderDemo
                                 }
                             }
 
+
+                        for (int i = 0; i <CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
+                        {
+                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                            {
+                                if (tabcol[j].formulaname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
+                                {
+                                    bool mb = false;
+                                    for (int k = 0; k < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; k++)
+                                    {
+                                        if (tabcol[j].formulaname == CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[k].itemname)
+                                        {
+
+                                            mb = true;
+
+                                        }
+                                    }
+                                    if (mb == false)
+                                    {
+                                        CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][tabcol[j].formulaname]
+                                        = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue.ToString();
+                                    }
+                                   
+                                }
+                            }
+
                         }
+                        /*
+                       for (int i=0;i< CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count;i++)
+                        {
+                            if (tabcol[j].formulaname == CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemname)
+                            {
+
+                                CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][tabcol[j].formulaname]
+                                   = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemvalue;
+
+                            }
+                        }
+                        */
+
+                    }
+
+
                     }
                 }
 

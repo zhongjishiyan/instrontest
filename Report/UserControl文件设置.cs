@@ -40,6 +40,10 @@ namespace TabHeaderDemo
             chkdatabase.Checked = CComLibrary.GlobeVal.filesave.UseDatabase;
 
 
+         
+
+
+
         }
         public  UserControl文件设置()
         {
@@ -117,5 +121,9 @@ namespace TabHeaderDemo
         {
             CComLibrary.GlobeVal.filesave.UseDatabase = chkdatabase.Checked;
         }
+
+       
+
+      
     }
 }

@@ -27,11 +27,25 @@ namespace ClsStaticStation
 
         public Boolean duanliebaohu;//断裂保护
 
+        public Boolean dianyabaohu;//电压保护
+
         public int current_returncount;//大循环次数
         public int total_returncount;//大循环总次数
 
+        public long totalcount;
+
         public string mtishi = "";
+
+        public virtual void  fatigstop()
+        {
+
+        }
         public virtual  void fatigtest(int wavekind, float freq, float ave, float  range, double count)
+        {
+
+        }
+
+        public virtual void SetBaseCount(int count)
         {
 
         }

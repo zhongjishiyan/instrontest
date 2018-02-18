@@ -82,7 +82,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(668, 507);
+            this.tabControl1.Size = new System.Drawing.Size(668, 590);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -92,7 +92,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(660, 481);
+            this.tabPage1.Size = new System.Drawing.Size(660, 564);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
@@ -109,7 +109,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(654, 398);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(654, 481);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -119,7 +119,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(646, 365);
+            this.panel2.Size = new System.Drawing.Size(646, 448);
             this.panel2.TabIndex = 0;
             // 
             // groupBox2
@@ -321,6 +321,7 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "    数据库文件名称：";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Visible = false;
             // 
             // txtSampleName
             // 
@@ -329,6 +330,7 @@
             this.txtSampleName.Name = "txtSampleName";
             this.txtSampleName.Size = new System.Drawing.Size(393, 21);
             this.txtSampleName.TabIndex = 4;
+            this.txtSampleName.Visible = false;
             this.txtSampleName.TextChanged += new System.EventHandler(this.txtSampleName_TextChanged);
             // 
             // label5
@@ -340,6 +342,7 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "不能使用下列无效字符\\ / : * ! < > |";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Visible = false;
             // 
             // label8
             // 
@@ -432,7 +435,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "UserControl文件设置";
-            this.Size = new System.Drawing.Size(668, 507);
+            this.Size = new System.Drawing.Size(668, 590);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

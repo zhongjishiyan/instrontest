@@ -13,6 +13,19 @@ namespace TabHeaderDemo
     public partial class UserControlGraph : UserControl
     {
 
+        private  class  rawdata
+        {
+           public  int len;
+           public  double[] data;
+            public rawdata()
+             {
+                data = new double[20];
+             }
+        };
+
+        List<rawdata> mrawdatalist;
+        rawdata mrawdata;
+
         public long count = 0;
         private CComLibrary.PlotSettings myplotsettings;
         private int mplot1;
@@ -61,9 +74,8 @@ namespace TabHeaderDemo
             maxload = 0;
             mstarttime = 0;
 
+            mrawdatalist = new List<TabHeaderDemo.UserControlGraph.rawdata>();
 
-            
-            
             
 
             if (myplotsettings.curvekind == 1)
@@ -84,7 +96,7 @@ namespace TabHeaderDemo
                 scatterGraph.Plots[mk - 1].ClearData();
             }
             
-            myarraydata.Clear();
+           
 
             if (mplot1 == 1)
             {
@@ -123,6 +135,9 @@ namespace TabHeaderDemo
                 }
                 fs.Close();
             }
+
+            myarraydata.Clear();
+
             timer1.Enabled = true;
         }
 
@@ -133,7 +148,7 @@ namespace TabHeaderDemo
         }
         public void Init曲线(int plot)
         {
-            
+
             if (plot == 1)
             {
                 myplotsettings = CComLibrary.GlobeVal.filesave.mplotpara1;
@@ -151,48 +166,65 @@ namespace TabHeaderDemo
             }
 
 
-           
+            if (myplotsettings.curvekind ==2)
+            {
+                scatterGraph.ContextMenuStrip  = null;
+            }
+            else if (myplotsettings.curvekind ==1)
+            {
+                scatterGraph.ContextMenuStrip = null;
+            }
+            else
+            {
+                scatterGraph.ContextMenuStrip  = contextMenuStrip1;
+            }
+
+
             scatterGraph.Plots.Clear();
             legend.Items.Clear();
             NationalInstruments.UI.ScatterPlot mplot;
             NationalInstruments.UI.LegendItem mlegitem;
 
-            if ((myplotsettings.ychannel>=0) && (myplotsettings.ychannel<ClsStaticStation.m_Global.mycls.allsignals.Count))
+            if (myplotsettings.curvekind != 2)
             {
 
-            }
-            else
-            {
-                myplotsettings.ychannel = 0;
-            }
+                if ((myplotsettings.ychannel[0] >= 0) && (myplotsettings.ychannel[0] < ClsStaticStation.m_Global.mycls.allsignals.Count))
+                {
 
-            if ((myplotsettings.xchannel >= 0) && (myplotsettings.xchannel < ClsStaticStation.m_Global.mycls.allsignals.Count))
-            {
+                }
+                else
+                {
+                    myplotsettings.ychannel[0] = 0;
+                }
 
-            }
-            else
-            {
-                myplotsettings.xchannel = 0;
-            }
+                if ((myplotsettings.xchannel >= 0) && (myplotsettings.xchannel < ClsStaticStation.m_Global.mycls.allsignals.Count))
+                {
 
-
-            if ((myplotsettings.ychannelunit >= 0) && (myplotsettings.ychannelunit < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnitCount))
-            {
-            }
-            else
-            {
-                myplotsettings.ychannelunit = 0;
-            }
+                }
+                else
+                {
+                    myplotsettings.xchannel = 0;
+                }
 
 
-            if ((myplotsettings.xchannelunit >= 0) && (myplotsettings.xchannelunit < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnitCount))
-            {
-            }
-            else
-            {
-                myplotsettings.xchannelunit = 0;
-            }
+                if ((myplotsettings.ychannelunit[0] >= 0) && (myplotsettings.ychannelunit[0] < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cUnitCount))
+                {
+                }
+                else
+                {
+                    myplotsettings.ychannelunit[0] = 0;
+                }
 
+
+                if ((myplotsettings.xchannelunit >= 0) && (myplotsettings.xchannelunit < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnitCount))
+                {
+                }
+                else
+                {
+                    myplotsettings.xchannelunit = 0;
+                }
+
+            }
             x轴坐标ToolStripMenuItem.DropDownItems.Clear();
             y轴坐标ToolStripMenuItem.DropDownItems.Clear();
             for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
@@ -210,7 +242,7 @@ namespace TabHeaderDemo
                     ts_x.Checked = true;
                 }
 
-                if (myplotsettings.ychannel ==i)
+                if (myplotsettings.ychannel[0] ==i)
                 {
                     ts_y.Checked = true;
                 }
@@ -227,10 +259,21 @@ namespace TabHeaderDemo
                 scatterGraph.YAxes[0].Visible = true;
                 scatterGraph.YAxes[1].Visible = false;
 
-                
 
-                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
-                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
+                if (myplotsettings.curvekind == 2)
+                {
+                    scatterGraph.YAxes[0].Caption = "";
+                    for (int i=0;i<myplotsettings.curvecount;i++)
+                    {
+                        scatterGraph.YAxes[0].Caption = scatterGraph.YAxes[0].Caption+ ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[i]].cName + "[" +
+                       ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[i]].cUnits[myplotsettings.ychannelunit[i]] + "]"+",";
+                    }
+                }
+                else
+                {
+                    scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cName + "[" +
+                    ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cUnits[myplotsettings.ychannelunit[0]] + "]";
+                }
 
                 scatterGraph.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName + "[" +
                 ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit] + "]";
@@ -247,7 +290,7 @@ namespace TabHeaderDemo
                     mplot.PointSize = new Size(myplotsettings.PlotLineSize[i], myplotsettings.PlotLineSize[i]);
                     mplot.PointColor = myplotsettings.PlotLinePointColor[i];
                     mplot.LineWidth = myplotsettings.PlotLinePointSize[i];
-                    mplot.HistoryCapacity = 300000;
+                    mplot.HistoryCapacity = 30000;
                     scatterGraph.Plots.Add(mplot);
                     
                        
@@ -266,7 +309,7 @@ namespace TabHeaderDemo
 
                 if (myplotsettings.curvecount >= 2)
                 {
-                    scatterGraph.Plots[1].YAxis = yAxis1;
+                  scatterGraph.Plots[1].YAxis = yAxis1;
 
                 }
             }
@@ -280,8 +323,8 @@ namespace TabHeaderDemo
                 scatterGraph.YAxes[0].Visible = true;
                 scatterGraph.YAxes[1].Visible = true;
 
-                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
-               ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
+                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cName + "[" +
+               ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cUnits[myplotsettings.ychannelunit[0]] + "]";
 
                 scatterGraph.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName + "[" +
                 ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit] + "]";
@@ -298,7 +341,7 @@ namespace TabHeaderDemo
                 mplot.PointSize = new Size(myplotsettings.PlotLineSize[i], myplotsettings.PlotLineSize[i]);
                 mplot.PointColor = myplotsettings.PlotLinePointColor[i];
                 mplot.LineWidth = myplotsettings.PlotLinePointSize[i];
-                mplot.HistoryCapacity = 300000;
+                mplot.HistoryCapacity = 30000;
                 scatterGraph.Plots.Add(mplot);
 
                 mplot.ClearData();
@@ -331,6 +374,60 @@ namespace TabHeaderDemo
                
             }
 
+            if (myplotsettings.xmin == myplotsettings.xmax)
+            {
+                scatterGraph.XAxes[0].Range = new NationalInstruments.UI.Range(myplotsettings.xmin, myplotsettings.xmax+1);
+            }
+            else
+            {
+                scatterGraph.XAxes[0].Range = new NationalInstruments.UI.Range(myplotsettings.xmin, myplotsettings.xmax);
+            }
+
+            if (myplotsettings.ymin == myplotsettings.ymax)
+            {
+                scatterGraph.YAxes[0].Range = new NationalInstruments.UI.Range(myplotsettings.ymin, myplotsettings.ymax+1);
+            }
+            else
+            {
+                scatterGraph.YAxes[0].Range = new NationalInstruments.UI.Range(myplotsettings.ymin, myplotsettings.ymax);
+            }
+
+            if (myplotsettings.y1min == myplotsettings.y1max)
+            {
+                scatterGraph.YAxes[1].Range = new NationalInstruments.UI.Range(myplotsettings.y1min, myplotsettings.y1max+1);
+            }
+            else
+            {
+                scatterGraph.YAxes[1].Range = new NationalInstruments.UI.Range(myplotsettings.y1min, myplotsettings.y1max);
+            }
+            if (myplotsettings.y1channelzoom==true)
+            {
+                scatterGraph.YAxes[1].Mode = NationalInstruments.UI.AxisMode.AutoScaleLoose;
+            }
+            else
+            {
+                scatterGraph.YAxes[1].Mode = NationalInstruments.UI.AxisMode.Fixed;
+            }
+
+            if (myplotsettings.xchannelzoom ==true)
+            {
+                scatterGraph.YAxes[0].Mode = NationalInstruments.UI.AxisMode.AutoScaleLoose;
+            }
+            else
+            {
+                scatterGraph.YAxes[0].Mode = NationalInstruments.UI.AxisMode.Fixed;
+            }
+
+            if (myplotsettings.xchannelzoom==true )
+            {
+                scatterGraph.XAxes[0].Mode = NationalInstruments.UI.AxisMode.AutoScaleLoose;
+            }
+            else
+            {
+                scatterGraph.XAxes[0].Mode = NationalInstruments.UI.AxisMode.Fixed;
+            }
+
+
             
             xyCursor1.Plot = scatterGraph.Plots[0];
 
@@ -356,8 +453,8 @@ namespace TabHeaderDemo
 
 
 
-                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
-                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
+                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cName + "[" +
+                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cUnits[myplotsettings.ychannelunit[0]] + "]";
 
                 scatterGraph.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName + "[" +
                 ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit] + "]";
@@ -371,8 +468,8 @@ namespace TabHeaderDemo
                 scatterGraph.YAxes[0].Visible = true;
                 scatterGraph.YAxes[1].Visible = true;
 
-                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
-               ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
+                scatterGraph.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cName + "[" +
+               ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].cUnits[myplotsettings.ychannelunit[0]] + "]";
 
                 scatterGraph.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName + "[" +
                 ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit] + "]";
@@ -393,7 +490,7 @@ namespace TabHeaderDemo
             int a = Convert.ToInt16( (sender as ToolStripMenuItem).Tag);
 
             (sender as ToolStripMenuItem).Checked = true;
-            myplotsettings.ychannel = a;
+            myplotsettings.ychannel[0] = a;
             scatterGraph.ClearData();
 
             change曲线标题();
@@ -456,6 +553,8 @@ namespace TabHeaderDemo
             double  yi=0;
             double y1i = 0;
             double mtime = 0;
+
+            long mcount = 0;
 
             double v=0;
 
@@ -521,12 +620,12 @@ namespace TabHeaderDemo
 
                     }
 
-                    if (m_Global.mycls.datalist[i].SignName == ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].SignName)
+                    if (m_Global.mycls.datalist[i].SignName == ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[0]].SignName)
 
                     {
 
-                        yi = Convert.ToDouble(m_Global.mycls.allsignals[myplotsettings.ychannel].GetValueFromUnit(b.data[m_Global.mycls.datalist[i].EdcId],
-                           myplotsettings.ychannelunit ));
+                        yi = Convert.ToDouble(m_Global.mycls.allsignals[myplotsettings.ychannel[0]].GetValueFromUnit(b.data[m_Global.mycls.datalist[i].EdcId],
+                           myplotsettings.ychannelunit[0] ));
 
                      
                      }
@@ -550,10 +649,14 @@ namespace TabHeaderDemo
                         mload = b.data[m_Global.mycls.datalist[i].EdcId];
                     }
                     
-                    
+                    if (m_Global.mycls.datalist[i].SignName =="Ch Count")
+                    {
+                        mcount = Convert.ToInt32( b.data[m_Global.mycls.datalist[i].EdcId]);
+                    }
                  }
 
-                if ( Math.Abs(mtime - mstarttime) >= 0.01)
+               
+               // if ( Math.Abs(mtime - mstarttime) >= 0.01)
                 {
 
                  
@@ -599,56 +702,215 @@ namespace TabHeaderDemo
                                 scatterGraph.Plots[mk - 1].ClearData();
                             }
                         }
+
+                        if (xi > scatterGraph.Plots[mk-1].XAxis.Range.Maximum)
+                        {
+                            scatterGraph.Plots[mk-1].XAxis.Range = new NationalInstruments.UI.Range(xi, xi + 10);
+
+                        }
                     }
                     if (myplotsettings.curvekind == 1)
                     {
 
                         scatterGraph.Plots[0].PlotXYAppend(xi, yi);
                         scatterGraph.Plots[1].PlotXYAppend(xi, y1i);
+
+                        if (myplotsettings.dynamicdraw == true)
+                        {
+                            if (scatterGraph.Plots[0].HistoryCount >= myplotsettings.dynamicpointcount)
+
+                            {
+                                scatterGraph.Plots[0].ClearData();
+                                scatterGraph.Plots[1].ClearData();
+                            }
+
+                            if (xi > scatterGraph.Plots[k].XAxis.Range.Maximum)
+                            {
+                                scatterGraph.Plots[k].XAxis.Range = new NationalInstruments.UI.Range(xi, xi + 10);
+
+                            }
+                        }
+
+                       
+                    }
+
+
+                    if (myplotsettings.curvekind ==2)
+                    {
+                        for ( k=0; k<myplotsettings.curvecount;k++)
+                        {
+                            for (int i = 0; i < m_Global.mycls.datalist.Count; i++)
+                            {
+
+
+                                if (m_Global.mycls.datalist[i].SignName == ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[k]].SignName)
+
+                                {
+
+                                    yi = Convert.ToDouble(m_Global.mycls.allsignals[myplotsettings.ychannel[k]].GetValueFromUnit(b.data[m_Global.mycls.datalist[i].EdcId],
+                                       myplotsettings.ychannelunit[k]));
+
+
+                                }
+                            }
+
+                                scatterGraph.Plots[k].PlotXYAppend(xi, yi);
+
+                            if (xi>scatterGraph.Plots[k].XAxis.Range.Maximum  )
+                            {
+                                scatterGraph.Plots[k].XAxis.Range = new NationalInstruments.UI.Range(xi, xi + 10);
+
+                            }
+                        }
+
+                        if (myplotsettings.dynamicdraw == true)
+                        {
+                            if (scatterGraph.Plots[0].HistoryCount >= myplotsettings.dynamicpointcount)
+
+                            {
+                                for (int i = 0; i < myplotsettings.curvecount; i++)
+                                {
+                                    scatterGraph.Plots[i].ClearData();
+                                }
+                            }
+                        }
                     }
                 }
                 if (mplot1 == 1)
                 {
-                    if (CComLibrary.GlobeVal.filesave.SampleInterval == 0)
+                    if (CComLibrary.GlobeVal.filesave.Samplingmode == 1)//动态采集
                     {
-                        CComLibrary.GlobeVal.filesave.SampleInterval = 10;
-                    }
+                        string fname = "";
+                        s = "";
 
-                    
+                        mrawdata = new rawdata();
+                        mrawdata.len = CComLibrary.GlobeVal.filesave.mrawdata.Count;
 
-                    if ((mtime - tstart) >= 1/CComLibrary.GlobeVal.filesave.SampleInterval)
-                    {
-                        tstart = mtime;
-                        using (StreamWriter w = File.AppendText(mspefiledat))
+                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
                         {
 
-                            s = "";
+                            for (j = 0; j < ClsStaticStation.m_Global.mycls.datalist.Count; j++)
+                            {
+                                if (ClsStaticStation.m_Global.mycls.datalist[j].SignName == CComLibrary.GlobeVal.filesave.mrawdata[i].SignName)
+                                {
+                                    k = ClsStaticStation.m_Global.mycls.datalist[j].EdcId;
 
-                            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+
+                                    double.TryParse(CComLibrary.GlobeVal.filesave.mrawdata[i].GetValueFromUnit(b.data[k],
+                                        CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel), out v);
+
+                                    mrawdata.data[i] = v;
+                                   
+                                }
+                            }
+                        }
+
+                        if (mrawdatalist.Count <CComLibrary.GlobeVal.filesave.SamplingCount )
+                        {
+                            mrawdatalist.Add(mrawdata);
+                        }
+                        else
+                        {
+                            mrawdatalist.RemoveAt(0);
+                            mrawdatalist.Add(mrawdata);
+                        }
+
+                        if ( ( Convert.ToInt64( mstarttime) % (CComLibrary.GlobeVal.filesave.SamplingInterval *60))==(CComLibrary.GlobeVal.filesave.SamplingInterval * 60 -1))
+                        {
+                           fname = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
+                              (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim()+"_"+mcount.ToString() + ".txt";
+
+
+                            if (File.Exists(fname ) == true)
+                            {
+                                File.Delete(fname);
+
+                            }
+
+                            FileStream fs = new FileStream(fname, FileMode.CreateNew);
+
+                            using (StreamWriter w = new StreamWriter(fs, System.Text.Encoding.Default))
                             {
 
-                                for (j = 0; j < ClsStaticStation.m_Global.mycls.datalist.Count; j++)
+                                s = "";
+
+                                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
                                 {
-                                    if (ClsStaticStation.m_Global.mycls.datalist[j].SignName == CComLibrary.GlobeVal.filesave.mrawdata[i].SignName)
-                                    {
-                                        k = ClsStaticStation.m_Global.mycls.datalist[j].EdcId;
-
-
-                                       double.TryParse(CComLibrary.GlobeVal.filesave.mrawdata[i].GetValueFromUnit(b.data[k],
-                                           CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel),out v);
-                                        s = s + v.ToString("F"+CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString()) + " ";
-                                    }
+                                    s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cName + " ";
                                 }
+
+                                w.WriteLine(s);
+
+                                s = "";
+                                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                                {
+                                    s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cUnits[CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel] + " ";
+                                }
+                                w.WriteLine(s);
+
+                                for (int i = 0; i < mrawdatalist.Count; i++)
+                                {
+                                    s = "";
+
+                                    for (int jj=0;jj<mrawdatalist[i].len;jj++ )
+                                    {
+                                        s = s + mrawdatalist[i].data[jj].ToString() + " ";
+                                    }
+                                    w.WriteLine(s);
+                                 }
+
+                            }
+                            fs.Close();
+                        }
+
+
+
+                    }
+                    else if (CComLibrary.GlobeVal.filesave.Samplingmode == 0)//静态采集
+
+                    {
+
+                        if (CComLibrary.GlobeVal.filesave.SampleInterval == 0)
+                        {
+                            CComLibrary.GlobeVal.filesave.SampleInterval = 10;
+                        }
+
+
+
+                        if ((mtime - tstart) >= 1 / CComLibrary.GlobeVal.filesave.SampleInterval)
+                        {
+                            tstart = mtime;
+                            using (StreamWriter w = File.AppendText(mspefiledat))
+                            {
+
+                                s = "";
+
+                                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                                {
+
+                                    for (j = 0; j < ClsStaticStation.m_Global.mycls.datalist.Count; j++)
+                                    {
+                                        if (ClsStaticStation.m_Global.mycls.datalist[j].SignName == CComLibrary.GlobeVal.filesave.mrawdata[i].SignName)
+                                        {
+                                            k = ClsStaticStation.m_Global.mycls.datalist[j].EdcId;
+
+
+                                            double.TryParse(CComLibrary.GlobeVal.filesave.mrawdata[i].GetValueFromUnit(b.data[k],
+                                                CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel), out v);
+                                            s = s + v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString()) + " ";
+                                        }
+                                    }
+
+
+
+                                }
+
+                                w.WriteLine(s);
+
 
 
 
                             }
-
-                            w.WriteLine(s);
-
-
-
-
                         }
                     }
                 }

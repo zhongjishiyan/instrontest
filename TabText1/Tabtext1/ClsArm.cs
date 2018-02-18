@@ -9,6 +9,7 @@ using System.IO;
 using Microsoft.VisualBasic.Compatibility;
 using System.Windows.Forms;
 
+using PipesServerTest;
 namespace ClsStaticStation
 {
 
@@ -28,6 +29,22 @@ namespace ClsStaticStation
 
     public class CArm : ClsBaseControl
     {
+        a9500.MDataIno m_MDataIno = new a9500.MDataIno();
+        public delegate void NewMessageDelegate(string NewMessage);
+
+        private PipeServer _pipeServer;
+       
+
+        static double m_samplestarttime;//采样信号开始时间
+
+      
+        long basecount = 0;
+
+
+        public long oldcount = 0;
+
+
+
         private RawDataDataGroup[] r = new RawDataDataGroup[1];
         [MarshalAs(UnmanagedType.FunctionPtr)]
         public a9500.DataInfo GGMsg;
@@ -35,18 +52,21 @@ namespace ClsStaticStation
         public short DeviceNum = 0;
         private float mLoadCapacity; //力满量程值
         private RawDataStruct b;
-        private List<Byte> madlist1;
-        private List<Byte> madlist2;
-        private List<Byte> madlist3;
+
+
+
+      
+
+
+
+
         private double mstarttime;
 
         private List<a9500.MDataIno> mdatalist;
 
         private System.Windows.Forms.Timer mtimer;
 
-        private System.IO.Ports.SerialPort mSerialPort1;
-        private System.IO.Ports.SerialPort mSerialPort2;
-        private System.IO.Ports.SerialPort mSerialPort3;
+
         private bool mdemotesting = false;
         private int mdemotestingp = 0;
 
@@ -57,6 +77,16 @@ namespace ClsStaticStation
         private double loadcmd;
         private double extcmd;
         private double time;
+
+        private double posmax;
+        private double posmin;
+        private double loadmax;
+        private double loadmin;
+        private double extmax;
+        private double extmin;
+
+        private double time2;
+
         private double moritime;
         private double count;
         private double pos1;//围压位移
@@ -74,9 +104,7 @@ namespace ClsStaticStation
         private double sensor7;
         private double sensor8;
 
-        private double advalue0;
-        private double advalue1;
-        private double advalue2;
+
 
 
 
@@ -202,156 +230,75 @@ namespace ClsStaticStation
             return t;
         }
 
+
+
+
+
+
+
+
+
+
+
+
         public CArm()
         {
+           
+            _pipeServer = new PipeServer();
+            _pipeServer.PipeMessage += new DelegateMessage(PipesMessageHandler);
+            _pipeServer.Listen("TestPipe");
             GGMsg = new a9500.DataInfo();
             mdatalist = new List<a9500.MDataIno>();
             mtimer = new System.Windows.Forms.Timer();
             mtimer.Tick += new EventHandler(mtimer_Tick);
-            mtimer.Interval = 10;
+            mtimer.Interval = 50;
             mtimer.Enabled = true;
             mtimer.Start();
 
-            mSerialPort1 = new System.IO.Ports.SerialPort();
-
-            mSerialPort1.PortName = "COM5";
-            mSerialPort1.StopBits = System.IO.Ports.StopBits.One;
-            mSerialPort1.BaudRate = 9600;
-            mSerialPort1.DataBits = 8;
-            mSerialPort1.Parity = System.IO.Ports.Parity.None;
-            mSerialPort1.ReadBufferSize = 1024;
-            mSerialPort1.DataReceived += MSerialPort1_DataReceived;
+           
 
 
-            mSerialPort2 = new System.IO.Ports.SerialPort();
 
-            mSerialPort2.PortName = "COM6";
-            mSerialPort2.StopBits = System.IO.Ports.StopBits.One;
-            mSerialPort2.BaudRate = 9600;
-            mSerialPort2.DataBits = 8;
-            mSerialPort2.Parity = System.IO.Ports.Parity.None;
-            mSerialPort2.ReadBufferSize = 1024;
-            mSerialPort2.DataReceived += MSerialPort2_DataReceived;
+        }
 
-            mSerialPort3 = new System.IO.Ports.SerialPort();
+        private void PipesMessageHandler(string message)
+        {
+            try
+            {
+                sensor5 = Convert.ToDouble(message.ToString());
+                
+            }
+            catch (Exception ex)
+            {
 
-            mSerialPort3.PortName = "COM7";
-            mSerialPort3.StopBits = System.IO.Ports.StopBits.One;
-            mSerialPort3.BaudRate = 9600;
-            mSerialPort3.DataBits = 8;
-            mSerialPort3.Parity = System.IO.Ports.Parity.None;
-            mSerialPort3.ReadBufferSize = 1024;
-            mSerialPort3.DataReceived += MSerialPort3_DataReceived;
+                Debug.WriteLine(ex.Message);
+            }
 
-            madlist1 = new List<Byte>();
-            madlist2 = new List<Byte>();
-            madlist3 = new List<Byte>();
+        }
+
+        ~CArm()
+        {
+            mtimer.Stop();
+            _pipeServer.PipeMessage -= new DelegateMessage(PipesMessageHandler);
+            _pipeServer = null;
+           
 
         }
 
         private void MSerialPort3_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            ulong mtemp = 0;
-            double t = 0;
-            byte[] msendbuf = new byte[3];
 
-            byte[] recbuf = new byte[20];
-            int l = 0;
-
-            bb:
-            l = mSerialPort3.Read(recbuf, 0, 7);
-
-            if (l >= 7)
-            {
-                if ((recbuf[0] == 0) && (recbuf[1] == 0))
-                {
-                    mtemp = Convert.ToUInt32(256.0 * 256 * 256 * recbuf[3 + 2] + recbuf[0 + 2] + 256.0 * recbuf[1 + 2] + 256.0 * 256 * recbuf[2 + 2]);
-
-
-                    // mSerialPort3.DiscardInBuffer();
-                    t = BitConverter.ToSingle(BitConverter.GetBytes(mtemp), 0);
-
-
-                    t = t / 16777216 * 5.0;
-
-                    if ((t > 0.5) && (t <= 5))
-                    {
-                        sensor7 = t;
-                    }
-                }
-
-                goto bb;
-            }
         }
 
         private void MSerialPort2_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            ulong mtemp = 0;
-            double t = 0;
-            byte[] msendbuf = new byte[3];
 
-            byte[] recbuf = new byte[20];
-            int l = 0;
-            bb:
-
-            l = mSerialPort2.Read(recbuf, 0, 7);
-
-            if (l >= 7)
-            {
-                if ((recbuf[0] == 0) && (recbuf[1] == 0))
-                {
-                    mtemp = Convert.ToUInt32(256.0 * 256 * 256 * recbuf[3 + 2] + recbuf[0 + 2] + 256.0 * recbuf[1 + 2] + 256.0 * 256 * recbuf[2 + 2]);
-
-
-                    // mSerialPort3.DiscardInBuffer();
-                    t = BitConverter.ToSingle(BitConverter.GetBytes(mtemp), 0);
-
-
-                    t = t / 16777216 * 5.0;
-
-                    if ((t > 0.5) && (t <= 5))
-                    {
-                        sensor6 = t;
-                    }
-                }
-                goto bb;
-
-            }
 
         }
 
         private void MSerialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            ulong mtemp = 0;
-            double t = 0;
-            byte[] msendbuf = new byte[3];
 
-            byte[] recbuf = new byte[20];
-            int l = 0;
-
-            bb:
-
-            l = mSerialPort1.Read(recbuf, 0, 7);
-
-            if (l >= 7)
-            {
-                if ((recbuf[0] == 0) && (recbuf[1] == 0))
-                {
-                    mtemp = Convert.ToUInt32(256.0 * 256 * 256 * recbuf[3 + 2] + recbuf[0 + 2] + 256.0 * recbuf[1 + 2] + 256.0 * 256 * recbuf[2 + 2]);
-
-
-                    //mSerialPort1.DiscardInBuffer();
-                    t = BitConverter.ToSingle(BitConverter.GetBytes(mtemp), 0);
-                    t = t / 16777216 * 5.0;
-
-                    if ((t > 0.5) && (t <= 5))
-                    {
-                        sensor5 = t;
-                    }
-                }
-
-                goto bb;
-            }
 
 
         }
@@ -359,53 +306,7 @@ namespace ClsStaticStation
         private void gatherdatafromSerialPort()
         {
 
-            ulong mtemp = 0;
 
-            byte[] msendbuf = new byte[3];
-
-            byte[] recbuf = new byte[8];
-
-
-            msendbuf[0] = 0;
-            msendbuf[1] = 0;
-            msendbuf[2] = 0;
-
-            try
-            {
-                mSerialPort1.Write(msendbuf, 0, 3);
-
-            }
-            catch
-            {
-
-            }
-
-            msendbuf[0] = 0;
-            msendbuf[1] = 0;
-            msendbuf[2] = 0;
-            try
-            {
-                mSerialPort2.Write(msendbuf, 0, 3);
-
-            }
-            catch
-            {
-
-            }
-
-            msendbuf[0] = 0;
-            msendbuf[1] = 0;
-            msendbuf[2] = 0;
-
-            try
-            {
-                mSerialPort3.Write(msendbuf, 0, 3);
-            }
-
-            catch
-            {
-
-            }
 
         }
 
@@ -544,6 +445,10 @@ namespace ClsStaticStation
             a9500.ARM_DEC_SendMove(0, DeviceNum, ref s1);
         }
 
+        public override void SetBaseCount(int count)
+        {
+            basecount = count;
+        }
         public override void CrossDown(int ctrlmode, double speed)
         {
             a9500.SIMPLELINE s1;
@@ -572,6 +477,11 @@ namespace ClsStaticStation
             a9500.ARM_DEC_MoveStop(0, DeviceNum, Convert.ToInt16(ConvertCtrlMode(ctrlmode)));
 
         }
+
+        public override  void fatigstop()
+        {
+           
+        }
         public override void fatigtest(int wavekind, float freq, float ave, float range, double count)
         {
             a9500.CSinWave SinS = new a9500.CSinWave();
@@ -579,7 +489,7 @@ namespace ClsStaticStation
             if (wavekind == 0)
             {
 
-                SinS.ctlMode = a9500.mCTRL_POS ;
+                SinS.ctlMode = a9500.mCTRL_LOAD;
                 SinS.fspeed = Convert.ToSingle(10.0 / 60);
                 SinS.fdestination = ave;
                 SinS.mdestination = range;
@@ -596,7 +506,7 @@ namespace ClsStaticStation
 
             else if (wavekind == 1)
             {
-                TriangleS.ctlMode = a9500.mCTRL_POS  ;
+                TriangleS.ctlMode = a9500.mCTRL_LOAD;
                 TriangleS.fspeed = Convert.ToSingle(10.0 / 60);
                 TriangleS.fdestination = ave;
                 TriangleS.mdestination = range;
@@ -615,8 +525,10 @@ namespace ClsStaticStation
 
             }
 
-
-
+            dianyabaohu = false;
+           ;
+          
+       
 
         }
         public override void DestStart(int ctrlmode, double dest, double speed)
@@ -674,10 +586,10 @@ namespace ClsStaticStation
                 pos = r.NextDouble();
                 ext = r.NextDouble();
                 sensor4 = r.NextDouble();
-                sensor5 = r.NextDouble();
-                sensor6 = r.NextDouble();
-                sensor7 = r.NextDouble();
-                sensor8 = r.NextDouble();
+               // sensor5 = r.NextDouble() + 1;
+                sensor6 = r.NextDouble() + 2;
+                sensor7 = r.NextDouble() + 3;
+                sensor8 = r.NextDouble() + 4;
                 time = System.Environment.TickCount / 1000.0;
                 poscmd = 0;
                 loadcmd = 0;
@@ -694,10 +606,10 @@ namespace ClsStaticStation
                 pos = r.NextDouble();
                 ext = r.NextDouble();
                 sensor4 = r.NextDouble();
-                sensor5 = r.NextDouble();
-                sensor6 = r.NextDouble();
-                sensor7 = r.NextDouble();
-                sensor8 = r.NextDouble();
+                sensor5 = r.NextDouble() + 1;
+                sensor6 = r.NextDouble() + 2;
+                sensor7 = r.NextDouble() + 3;
+                sensor8 = r.NextDouble() + 4;
                 time = System.Environment.TickCount / 1000;
                 poscmd = 0;
                 loadcmd = 0;
@@ -963,6 +875,51 @@ namespace ClsStaticStation
 
                     b.data[m_Global.mycls.datalist[j].EdcId] = count;
 
+                    if (oldcount != Convert.ToInt64(count))
+                    {
+                        for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                        {
+                            m_Global.mycls.chsignals[m].cvaluemax = m_Global.mycls.chsignals[m].bvaluemax;
+                            m_Global.mycls.chsignals[m].cvaluemin = m_Global.mycls.chsignals[m].bvaluemin;
+                            m_Global.mycls.chsignals[m].bvaluemax = m_Global.mycls.chsignals[m].fullminbase;
+                            m_Global.mycls.chsignals[m].bvaluemin = m_Global.mycls.chsignals[m].fullmaxbase;
+                        }
+
+                        oldcount = Convert.ToInt64(count);
+                    }
+                }
+
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Disp Max")
+                {
+                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[0].cvaluemax;
+
+                }
+                if (m_Global.mycls.datalist[j].SignName == "Ch Disp Min")
+                {
+                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[0].cvaluemin;
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Load Max")
+                {
+                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[1].cvaluemax;
+
+                }
+                if (m_Global.mycls.datalist[j].SignName == "Ch Load Min")
+                {
+                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[1].cvaluemin;
+
+                }
+
+                if (m_Global.mycls.datalist[j].SignName == "Ch Ext Max")
+                {
+                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[2].cvaluemax;
+
+                }
+                if (m_Global.mycls.datalist[j].SignName == "Ch Ext Min")
+                {
+                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[2].cvaluemin;
 
                 }
 
@@ -1071,7 +1028,7 @@ namespace ClsStaticStation
             RawDataDataGroup c = new RawDataDataGroup();
             c.ID = 0;
             m_Global.mycls.structcopy_RawDataData(ref c.rdata, b);
-            for (j = 0; j < 4; j++)
+            for (j = 0; j < 2; j++)
             {
 
                 if (ClsStatic.arraydatacount[j] >= ClsStatic.arraydata[j].NodeCount - 1)
@@ -1084,7 +1041,7 @@ namespace ClsStaticStation
                 ClsStatic.arraydatacount[j] = ClsStatic.arraydatacount[j] + 1;
                 ClsStatic.arraydata[j].Write<RawDataDataGroup>(ref c, 10);
             }
-
+            /*
             if (ClsStatic.savedatacount >= ClsStatic.savedata.NodeCount - 1)
             {
                 ClsStatic.savedata.Read<RawDataDataGroup>(out d, 10);
@@ -1092,6 +1049,8 @@ namespace ClsStaticStation
             }
             ClsStatic.savedatacount = ClsStatic.savedatacount + 1;
             ClsStatic.savedata.Write<RawDataDataGroup>(ref c, 10);
+
+            */
 
             for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
             {
@@ -1186,6 +1145,8 @@ namespace ClsStaticStation
                 {
                     m_Global.mycls.allsignals[j].cvalue = count;
 
+
+
                 }
 
                 if (m_Global.mycls.allsignals[j].SignName == "Ch Ext")
@@ -1226,6 +1187,7 @@ namespace ClsStaticStation
             else
             {
 
+
                 ii = mdatalist.Count;
 
                 for (jj = 0; jj < ii; jj++)
@@ -1234,6 +1196,7 @@ namespace ClsStaticStation
 
 
                     GGMsg = mdatalist[jj].mydatainfo;
+
 
 
                     if (mdatalist[jj].Id == 0)
@@ -1292,7 +1255,7 @@ namespace ClsStaticStation
 
                     b = new RawDataStruct();
                     b.data = new double[24];
-                    gatherdatafromSerialPort();
+
 
                     if (mdatalist[jj].Id == DeviceNum)
                     {
@@ -1305,7 +1268,11 @@ namespace ClsStaticStation
                                 ext = *(p + a9500.SENSOR_ARM_E);
                                 sensor4 = *(p + a9500.SENSOR_ARM_D);
 
-
+                                sensor5 = mdatalist[jj].sensor5;
+                                sensor6 = mdatalist[jj].sensor6;
+                                sensor7 = mdatalist[jj].sensor7;
+                                time = mdatalist[jj].time1;
+                                time2 = mdatalist[jj].time2;
                                 //sensor5 = *(p + a9500.SENSOR_ARM_4);
                                 //sensor6 = *(p + a9500.SENSOR_ARM_5);
                                 //sensor7 = *(p + a9500.SENSOR_ARM_6);
@@ -1321,12 +1288,13 @@ namespace ClsStaticStation
                                 extcmd = *(p1 + 2);
                             }
 
-                            time = GGMsg.time;
+                            //time = GGMsg.time;
                             moritime = time;
 
                             //time = time - mstarttime;
 
-                            count = GGMsg.incount;//?
+                            count = GGMsg.incount + basecount;//?
+                            totalcount = Convert.ToInt32(count);
                         }
                     }
 
@@ -1373,6 +1341,22 @@ namespace ClsStaticStation
                     ClsStaticStation.m_Global.msensor6 = sensor6;
                     ClsStaticStation.m_Global.msensor7 = sensor7;
                     ClsStaticStation.m_Global.msensor8 = sensor8;
+
+
+
+                    if (CComLibrary.GlobeVal.filesave == null)
+                    {
+
+                    }
+                    else
+                    {
+                        if (CComLibrary.GlobeVal.filesave.Samplecheck)
+                        {
+                           
+
+                            
+                        }
+                    }
 
                     if (time - mspeed_time0 >= 0.1)
                     {
@@ -1454,6 +1438,32 @@ namespace ClsStaticStation
 
 
                         }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Time1")
+                        {
+
+                            b.data[m_Global.mycls.datalist[j].EdcId] = time2;
+
+
+                            if (time > m_Global.mycls.datalist[j].bvaluemax)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemax = time2;
+                            }
+                            if (time < m_Global.mycls.datalist[j].bvaluemin)
+                            {
+                                m_Global.mycls.datalist[j].bvaluemin = time2;
+                            }
+
+
+                            m_Global.mycls.datalist[j].rvaluemax = time2;
+
+
+                            m_Global.mycls.datalist[j].rvaluemin = 0;
+
+
+
+                        }
+
 
                         if (m_Global.mycls.datalist[j].SignName == "Ch Disp")
                         {
@@ -1652,9 +1662,57 @@ namespace ClsStaticStation
                         {
 
                             b.data[m_Global.mycls.datalist[j].EdcId] = count;
+                           
 
+                            if (oldcount != Convert.ToInt64(count))
+                            {
+                                for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                                {
+                                    m_Global.mycls.chsignals[m].cvaluemax = m_Global.mycls.chsignals[m].bvaluemax;
+                                    m_Global.mycls.chsignals[m].cvaluemin = m_Global.mycls.chsignals[m].bvaluemin;
+                                    m_Global.mycls.chsignals[m].bvaluemax = m_Global.mycls.chsignals[m].fullminbase;
+                                    m_Global.mycls.chsignals[m].bvaluemin = m_Global.mycls.chsignals[m].fullmaxbase;
+                                }
+
+                                oldcount = Convert.ToInt64(count);
+                            }
 
                         }
+
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Max")
+                        {
+                            b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[0].cvaluemax;
+
+                        }
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Min")
+                        {
+                            b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[0].cvaluemin;
+
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Max")
+                        {
+                            b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[1].cvaluemax ;
+                            
+                        }
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Min")
+                        {
+                            b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[1].cvaluemin;
+
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Ext Max")
+                        {
+                            b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[2].cvaluemax;
+
+                        }
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Ext Min")
+                        {
+                            b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[2].cvaluemin;
+
+                        }
+
 
 
                         if (m_Global.mycls.datalist[j].SignName == "Ch Feed")
@@ -1697,7 +1755,7 @@ namespace ClsStaticStation
                     RawDataDataGroup c = new RawDataDataGroup();
                     c.ID = 0;
                     m_Global.mycls.structcopy_RawDataData(ref c.rdata, b);
-                    for (j = 0; j < 4; j++)
+                    for (j = 0; j < 2; j++)
                     {
 
                         if (ClsStatic.arraydatacount[j] >= ClsStatic.arraydata[j].NodeCount - 1)
@@ -1711,6 +1769,7 @@ namespace ClsStaticStation
                         ClsStatic.arraydata[j].Write<RawDataDataGroup>(ref c, 10);
                     }
 
+                    /*
                     if (ClsStatic.savedatacount >= ClsStatic.savedata.NodeCount - 1)
                     {
                         ClsStatic.savedata.Read<RawDataDataGroup>(out d, 10);
@@ -1718,7 +1777,7 @@ namespace ClsStaticStation
                     }
                     ClsStatic.savedatacount = ClsStatic.savedatacount + 1;
                     ClsStatic.savedata.Write<RawDataDataGroup>(ref c, 10);
-
+                    */
                     for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
                     {
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Command")
@@ -1760,6 +1819,12 @@ namespace ClsStaticStation
                         {
                             m_Global.mycls.allsignals[j].cvalue = time;
                         }
+
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Time1")
+                        {
+                            m_Global.mycls.allsignals[j].cvalue = time2;
+                        }
+
                         if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Disp")
                         {
                             m_Global.mycls.allsignals[j].cvalue = pos1;
@@ -1830,8 +1895,18 @@ namespace ClsStaticStation
 
                 }
 
+                for (jj = 0; jj < ii; jj++)
+                {
+                    //  mdatalist.RemoveAt(0);
+                }
 
-                mdatalist.Clear();
+                if (ii > 2)
+                {
+                    mdatalist.RemoveRange(0, ii - 1);
+
+                   
+                }
+                //mdatalist.Clear();
 
             }
 
@@ -1855,6 +1930,7 @@ namespace ClsStaticStation
 
             if (mdemo == true)
             {
+                m_runstate = 0;
             }
             else
             {
@@ -1887,28 +1963,20 @@ namespace ClsStaticStation
             short k = 0;
             RawDataDataGroup d;
 
+            dianyabaohu = false;
 
             maxload = 0;
             mstarttime = moritime;
             duanliebaohu = false;
+
+
 
             if (this.getrunstate() == 1)
             {
                 MessageBox.Show("请先停止运行然后开始");
                 return;
             }
-            /*
-            bool b = false;
-            while (b == false)
-            {
-                Application.DoEvents();
-                if (time < 1)
-                {
-                    b = true;
-                }
-            }
-            */
-
+          
             int iii = 0;
 
 
@@ -1918,7 +1986,7 @@ namespace ClsStaticStation
 
 
                 ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 10);
-                ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 10);
+
 
                 iii = iii + 1;
 
@@ -1926,6 +1994,22 @@ namespace ClsStaticStation
             }
 
             ClsStatic.arraydatacount[0] = 0;
+
+
+            iii = 0;
+
+            while (iii < ClsStatic.arraydata[1].NodeCount)
+            {
+
+
+                ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 10);
+
+
+                iii = iii + 1;
+
+
+            }
+
             ClsStatic.arraydatacount[1] = 0;
 
 
@@ -1938,6 +2022,8 @@ namespace ClsStaticStation
 
             mbeingtest = true;
             mtestrun = true;
+
+           
 
             if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)//简单试验
             {
@@ -1959,12 +2045,6 @@ namespace ClsStaticStation
                     k = 0;
                 }
 
-                /*
-				segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].destorigin(),
-					Convert.ToInt16(mrunlist[mcurseg].controlmode),
-					 Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-					k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0,0);
-                    */
 
 
             }
@@ -2457,92 +2537,10 @@ namespace ClsStaticStation
             a9500.ARM_DEC_OnCallBack(GetDataIns);
 
             OpenConnection();
+           
 
 
 
-
-            rp = 0;
-            foreach (string s in System.IO.Ports.SerialPort.GetPortNames())
-            {
-                if (s == mSerialPort1.PortName)
-                {
-
-                    rp = 1;
-                }
-
-            }
-
-            if (rp == 1)
-            {
-                try
-                {
-                    mSerialPort1.Open();
-                }
-                catch
-                {
-
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("电压传感器  串口" + mSerialPort1.PortName + "不存在");
-            }
-
-            rp = 0;
-            foreach (string s in System.IO.Ports.SerialPort.GetPortNames())
-            {
-                if (s == mSerialPort2.PortName)
-                {
-
-                    rp = 1;
-                }
-
-            }
-
-            if (rp == 1)
-            {
-                try
-                {
-                    mSerialPort2.Open();
-                }
-                catch
-                {
-
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("电压传感器  串口" + mSerialPort2.PortName + "不存在");
-            }
-
-            rp = 0;
-            foreach (string s in System.IO.Ports.SerialPort.GetPortNames())
-            {
-                if (s == mSerialPort3.PortName)
-                {
-
-                    rp = 1;
-                }
-
-            }
-
-            if (rp == 1)
-            {
-                try
-                {
-                    mSerialPort3.Open();
-                }
-                catch
-                {
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("电压传感器  串口" + mSerialPort3.PortName + "不存在");
-            }
             connected = true;
             //a9500.ARM_DEC_SetCtlerStyle((short)DeviceNum, (short)0); //蠕变方式 2017.05.02
 
@@ -2575,7 +2573,7 @@ namespace ClsStaticStation
                 a9500.ARM_DEC_ChannelZero(DeviceNum, a9500.SENSOR_ARM_S, 0);
             }
 
-            if (b.Text == "负荷")
+            if (b.Text == "力")
             {
                 a9500.ARM_DEC_ChannelZero(DeviceNum, a9500.SENSOR_ARM_F, 0);
             }
@@ -2607,7 +2605,7 @@ namespace ClsStaticStation
                 a9500.ARM_DEC_ChannelZero(DeviceNum, a9500.SENSOR_ARM_S, 1);
             }
 
-            if (b.Text == "负荷")
+            if (b.Text == "力")
             {
                 a9500.ARM_DEC_ChannelZero(DeviceNum, a9500.SENSOR_ARM_F, 1);
             }
@@ -2631,17 +2629,60 @@ namespace ClsStaticStation
         {
 
             double mload = 0;
-            a9500.MDataIno ma;
+
 
 
             GGMsg = Msg;
 
-            ma = new a9500.MDataIno();
-            ma.Id = num;
-            ma.mydatainfo = Msg;
-            mdatalist.Add(ma);
 
-            if (ma.Id == DeviceNum)
+
+            int m = m_Global.madlist.Count;
+
+
+
+            for (int i = 0; i < m; i++)
+
+
+            {
+               // m_MDataIno = new a9500.MDataIno();
+
+                m_MDataIno.sensor5 = m_Global.madlist[i].x;
+                m_MDataIno.sensor6 = m_Global.madlist[i].y;
+                m_MDataIno.sensor7 = m_Global.madlist[i].z;
+                m_MDataIno.time2 = m_Global.madlist[i].t;
+
+                m_MDataIno.Id = DeviceNum;
+                m_MDataIno.mydatainfo = GGMsg;
+
+                //  m_MDataIno.time1 = GGMsg.time;
+                m_MDataIno.time1 = m_Global.madlist[i].t;
+               
+
+
+               
+
+                mdatalist.Add(m_MDataIno);
+
+            }
+            if (m >= 2)
+            {
+                mdatalist.RemoveRange(0, m - 2);
+
+               
+            }
+
+
+
+
+
+
+
+
+            //   m_MDataIno.Id = num;
+            //  m_MDataIno.mydatainfo = Msg;
+
+
+            if (num == DeviceNum)
             {
                 unsafe
                 {
@@ -2656,22 +2697,29 @@ namespace ClsStaticStation
             {
                 if (duanliebaohu == false)
                 {
-                    if (CComLibrary.GlobeVal.filesave.crackcheck == true)
+                    if (CComLibrary.GlobeVal.filesave == null)
                     {
 
-                        if (load > maxload)
+                    }
+                    else
+                    {
+                        if (CComLibrary.GlobeVal.filesave.crackcheck == true)
                         {
-                            maxload = load;
-                        }
 
-                        if (maxload > 1)
-                        {
-                            if (load < maxload * CComLibrary.GlobeVal.filesave.crackvalue / 100.0)
+                            if (load > maxload)
                             {
+                                maxload = load;
+                            }
 
-                                CrossUp(0, 0.1);
-                                duanliebaohu = true;
+                            if (maxload > 1)
+                            {
+                                if (load < maxload * CComLibrary.GlobeVal.filesave.crackvalue / 100.0)
+                                {
 
+                                    CrossUp(0, 0.1);
+                                    duanliebaohu = true;
+
+                                }
                             }
                         }
                     }
@@ -2759,6 +2807,7 @@ namespace ClsStaticStation
                 www = m_runstate1;
             }
 
+            
 
         }
 
@@ -2846,6 +2895,11 @@ namespace ClsStaticStation
         {
             public int Id;
             public DataInfo mydatainfo;
+            public double sensor5;
+            public double sensor6;
+            public double sensor7;
+            public double time1;
+            public double time2;
         }
 
         public struct DataInfo

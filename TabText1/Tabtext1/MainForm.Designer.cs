@@ -513,7 +513,7 @@
             this.tsbnewproject.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbnewproject.Name = "tsbnewproject";
             this.tsbnewproject.Size = new System.Drawing.Size(23, 23);
-            this.tsbnewproject.Text = "新建工程";
+            this.tsbnewproject.Text = "新建试验标准";
             this.tsbnewproject.Click += new System.EventHandler(this.tsbnewproject_Click);
             // 
             // toolStripButton2

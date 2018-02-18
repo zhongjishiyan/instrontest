@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlTop));
             this.pnlback = new System.Windows.Forms.Panel();
             this.paneltip = new System.Windows.Forms.Panel();
             this.paneldefine = new System.Windows.Forms.Panel();
             this.wordArt1 = new TabHeaderDemo.WordArt();
-            this.btnuser = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnexit = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnhelp = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnmanage = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnreport = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnmethod = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btntest = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnuser = new TabHeaderDemo.ButtonExNew();
+            this.btnexit = new TabHeaderDemo.ButtonExNew();
+            this.btnhelp = new TabHeaderDemo.ButtonExNew();
+            this.btnmanage = new TabHeaderDemo.ButtonExNew();
+            this.btnreport = new TabHeaderDemo.ButtonExNew();
+            this.btnmethod = new TabHeaderDemo.ButtonExNew();
+            this.btntest = new TabHeaderDemo.ButtonExNew();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lbltip = new System.Windows.Forms.Label();
             this.pnlback.SuspendLayout();
@@ -99,7 +98,7 @@
             this.wordArt1.Location = new System.Drawing.Point(65, 410);
             this.wordArt1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.wordArt1.Name = "wordArt1";
-            this.wordArt1.Size = new System.Drawing.Size(303, 100);
+            this.wordArt1.Size = new System.Drawing.Size(392, 100);
             this.wordArt1.TabIndex = 23;
             this.wordArt1.WordArtBackColor = System.Drawing.Color.Gray;
             this.wordArt1.WordArtEffect = TabHeaderDemo.WordArtEffectStyle.projection;

@@ -743,7 +743,16 @@ namespace TabHeaderDemo
                     GlobeVal.dynset.Dock = DockStyle.None;
                     GlobeVal.UserControlResult1 = null;
                     GlobeVal.UserControlResult2 = null;
-                    OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
+
+                    if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\" + CComLibrary.GlobeVal.filesave.layfilename + ".lay"))
+                    {
+                        GlobeVal.userControltest1.OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\" + CComLibrary.GlobeVal.filesave.layfilename + ".lay");
+
+                    }
+                    else
+                    {
+                        OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
+                    }
                 }
                 
 
@@ -964,6 +973,7 @@ namespace TabHeaderDemo
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; i++)
             {
                 CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].getvalue();
+                
             }
 
 
@@ -1060,12 +1070,34 @@ namespace TabHeaderDemo
                 GlobeVal.UserControlGraph2.endrun();
             }
 
-            mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
-                  (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
-            CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1 ;
+            if (CComLibrary.GlobeVal.filesave.Samplingmode == 0)//静态采集
 
-            CComLibrary.GlobeVal.m_listline.Clear();
-           CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
+            {
+
+                mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
+       (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
+                CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1;
+
+                CComLibrary.GlobeVal.m_listline.Clear();
+                CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
+                if (CComLibrary.GlobeVal.filesave.UseDatabase==true)
+                {
+                    CComLibrary.GlobeVal.filesave.samplename = System.IO.Path.GetFileNameWithoutExtension( GlobeVal.spefilename);
+                    CComLibrary.GlobeVal.filesave.Init_databaselist();
+
+                     if (System.IO.File.Exists(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb") == false)
+                        {
+                        CComLibrary.GlobeVal.filesave.NewDatabase();
+                        }
+                    
+                    CComLibrary.GlobeVal.filesave.SaveDatabase();
+                }
+
+            }
+            else if (CComLibrary.GlobeVal.filesave.Samplingmode == 1)//动态采集
+            {
+
+            }
 
           
 

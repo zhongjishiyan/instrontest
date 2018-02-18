@@ -37,6 +37,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelCurve = new System.Windows.Forms.TableLayoutPanel();
             this.scatterGraph = new NationalInstruments.UI.WindowsForms.ScatterGraph();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.x轴坐标ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.y轴坐标ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xyCursor1 = new NationalInstruments.UI.XYCursor();
             this.scatterPlot3 = new NationalInstruments.UI.ScatterPlot();
             this.xAxis1 = new NationalInstruments.UI.XAxis();
@@ -71,21 +74,18 @@
             this.scatterPlot6 = new NationalInstruments.UI.ScatterPlot();
             this.scatterPlot7 = new NationalInstruments.UI.ScatterPlot();
             this.scatterPlot8 = new NationalInstruments.UI.ScatterPlot();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.x轴坐标ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.y轴坐标ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelback.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanelCurve.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scatterGraph)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xyCursor1)).BeginInit();
             this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.legend)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGraph1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblcaption
@@ -172,6 +172,7 @@
             this.scatterGraph.Cursors.AddRange(new NationalInstruments.UI.XYCursor[] {
             this.xyCursor1});
             this.scatterGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scatterGraph.ImmediateUpdates = true;
             this.scatterGraph.Location = new System.Drawing.Point(3, 3);
             this.scatterGraph.Name = "scatterGraph";
             this.scatterGraph.PlotAreaBorder = NationalInstruments.UI.Border.Solid;
@@ -189,6 +190,26 @@
             this.yAxis1,
             this.yAxis2});
             this.scatterGraph.ZoomAnimation = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.x轴坐标ToolStripMenuItem,
+            this.y轴坐标ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
+            // 
+            // x轴坐标ToolStripMenuItem
+            // 
+            this.x轴坐标ToolStripMenuItem.Name = "x轴坐标ToolStripMenuItem";
+            this.x轴坐标ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.x轴坐标ToolStripMenuItem.Text = "X轴通道";
+            // 
+            // y轴坐标ToolStripMenuItem
+            // 
+            this.y轴坐标ToolStripMenuItem.Name = "y轴坐标ToolStripMenuItem";
+            this.y轴坐标ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.y轴坐标ToolStripMenuItem.Text = "Y轴通道";
             // 
             // xyCursor1
             // 
@@ -214,6 +235,7 @@
             // 
             this.xAxis1.BaseLineVisible = true;
             this.xAxis1.Caption = "位移[mm]";
+            this.xAxis1.Mode = NationalInstruments.UI.AxisMode.Fixed;
             // 
             // yAxis1
             // 
@@ -222,6 +244,7 @@
             this.yAxis1.Caption = "负荷[N]";
             this.yAxis1.LeftCaptionOrientation = NationalInstruments.UI.VerticalCaptionOrientation.TopToBottom;
             this.yAxis1.MajorDivisions.TickColor = System.Drawing.Color.Black;
+            this.yAxis1.Mode = NationalInstruments.UI.AxisMode.Fixed;
             // 
             // xAxis2
             // 
@@ -237,6 +260,7 @@
             this.yAxis2.BaseLineVisible = true;
             this.yAxis2.Caption = "负荷[N]";
             this.yAxis2.CaptionPosition = NationalInstruments.UI.YAxisPosition.Right;
+            this.yAxis2.Mode = NationalInstruments.UI.AxisMode.Fixed;
             this.yAxis2.Position = NationalInstruments.UI.YAxisPosition.Right;
             // 
             // tableLayoutPanel15
@@ -547,26 +571,6 @@
             this.scatterPlot8.XAxis = this.xAxis3;
             this.scatterPlot8.YAxis = this.yAxis3;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.x轴坐标ToolStripMenuItem,
-            this.y轴坐标ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
-            // 
-            // x轴坐标ToolStripMenuItem
-            // 
-            this.x轴坐标ToolStripMenuItem.Name = "x轴坐标ToolStripMenuItem";
-            this.x轴坐标ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.x轴坐标ToolStripMenuItem.Text = "X轴通道";
-            // 
-            // y轴坐标ToolStripMenuItem
-            // 
-            this.y轴坐标ToolStripMenuItem.Name = "y轴坐标ToolStripMenuItem";
-            this.y轴坐标ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.y轴坐标ToolStripMenuItem.Text = "Y轴通道";
-            // 
             // UserControlGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -581,6 +585,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanelCurve.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scatterGraph)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xyCursor1)).EndInit();
             this.tableLayoutPanel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.legend)).EndInit();
@@ -588,7 +593,6 @@
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGraph1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

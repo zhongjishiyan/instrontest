@@ -19,15 +19,27 @@ namespace TabHeaderDemo
             mlistmeter.Add(jMeter2);
             mlistmeter.Add(jMeter3);
             mlistmeter.Add(jMeter4);
+            mlistmeter.Add(jMeter5);
+            mlistmeter.Add(jMeter6);
+            mlistmeter.Add(jMeter7);
+            mlistmeter.Add(jMeter8);
             jMeter1.BackColor = this.BackColor;
             jMeter2.BackColor = this.BackColor;
             jMeter3.BackColor = this.BackColor;
             jMeter4.BackColor = this.BackColor;
+            jMeter5.BackColor = this.BackColor;
+            jMeter6.BackColor = this.BackColor;
+            jMeter7.BackColor = this.BackColor;
+            jMeter8.BackColor = this.BackColor;
             jMeter1.Visible = false;
             jMeter2.Visible = false;
             jMeter3.Visible = false;
-            jMeter4.Visible = false; 
- 
+            jMeter4.Visible = false;
+            jMeter5.Visible = false;
+            jMeter6.Visible = false;
+            jMeter7.Visible = false;
+            jMeter8.Visible = false;
+
         }
 
         public void Init()

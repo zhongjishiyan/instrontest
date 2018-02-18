@@ -16,14 +16,14 @@ namespace TabHeaderDemo
         private CComLibrary.PlotSettings myplotsettings;
         public int curvetab = 0;
 
-        
+
 
         private int mcurveselect = 0;
 
-        public void Init曲线类型( )
+        public void Init曲线类型()
         {
 
-            
+
 
             if (myplotsettings.curvekind == 0)
             {
@@ -63,7 +63,7 @@ namespace TabHeaderDemo
 
         public void InitX轴数据()
         {
-            
+
 
             cboxchannel.Items.Clear();
             for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
@@ -93,11 +93,11 @@ namespace TabHeaderDemo
                 cboxchannelunit.SelectedIndex = myplotsettings.xchannelunit;
             }
 
-            this.scatterGraph1.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName +"["+
-                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit]+"]";
+            this.scatterGraph1.XAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cName + "[" +
+                ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.xchannel].cUnits[myplotsettings.xchannelunit] + "]";
 
 
-          
+
 
             if (myplotsettings.xchannelzoom == true)
             {
@@ -108,7 +108,9 @@ namespace TabHeaderDemo
                 rdbxhandzoom.Checked = true;
             }
 
-
+            numxmax.Value = myplotsettings.xmax;
+            numxmin.Value = myplotsettings.xmin;
+           
 
         }
 
@@ -116,14 +118,34 @@ namespace TabHeaderDemo
         {
             if (myplotsettings.curvekind == 0)
             {
+                cbocurve.Items.Clear();
+
+
+                cbocurve.Items.Add(1.ToString().Trim());
+
+
+                cbocurve.SelectedIndex = 0;
                 grpydefine.Text = "Y轴定义";
                 this.grpyscale.Text = "Y轴缩放比例";
 
                 grpy1define.Visible = false;
                 grpy1scale.Visible = false;
+
+                lblY轴.Visible = false;
+                cbocurve.Visible = false;
             }
-            else if (myplotsettings.curvekind ==1)
+            else if (myplotsettings.curvekind == 1)
             {
+
+                cbocurve.Items.Clear();
+
+
+                cbocurve.Items.Add(1.ToString().Trim());
+
+
+                cbocurve.SelectedIndex = 0;
+
+
                 grpydefine.Text = "左侧Y轴定义";
                 this.grpyscale.Text = "左侧Y轴缩放比例";
                 grpy1define.Text = "右侧Y轴定义";
@@ -131,6 +153,9 @@ namespace TabHeaderDemo
 
                 grpy1define.Visible = true;
                 grpy1scale.Visible = true;
+
+                lblY轴.Visible = false;
+                cbocurve.Visible = false;
 
                 cboy1channel.Items.Clear();
                 for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
@@ -179,8 +204,20 @@ namespace TabHeaderDemo
                 this.grpyscale.Text = "Y轴缩放比例";
 
 
-                grpy1define.Visible =false ;
-                grpy1scale.Visible = false ;
+                grpy1define.Visible = false;
+                grpy1scale.Visible = false;
+
+                lblY轴.Visible = true;
+                cbocurve.Visible = true;
+
+                cbocurve.Items.Clear();
+
+                for (int i = 0; i < myplotsettings.curvecount; i++)
+                {
+                    cbocurve.Items.Add((i+1).ToString().Trim());
+                }
+
+                cbocurve.SelectedIndex = 0;
 
 
                 cboy1channel.Items.Clear();
@@ -213,7 +250,7 @@ namespace TabHeaderDemo
                 this.scatterGraph1.YAxes[1].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cName + "[" +
                   ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cUnits[myplotsettings.y1channelunit] + "]";
 
-          
+
 
                 if (myplotsettings.y1channelzoom == true)
                 {
@@ -234,31 +271,31 @@ namespace TabHeaderDemo
 
             }
 
-            if ((myplotsettings.ychannel >= 0) && (myplotsettings.ychannel < cboychannel.Items.Count))
+            if ((myplotsettings.ychannel[cbocurve.SelectedIndex] >= 0) && (myplotsettings.ychannel[cbocurve.SelectedIndex] < cboychannel.Items.Count))
             {
-                cboychannel.SelectedIndex = myplotsettings.ychannel;
+                cboychannel.SelectedIndex = myplotsettings.ychannel[cbocurve.SelectedIndex];
             }
             else
             {
-                myplotsettings.ychannel = 0;
-                cboychannel.SelectedIndex = myplotsettings.ychannel;
+                myplotsettings.ychannel[cboy1channel.SelectedIndex] = 0;
+                cboychannel.SelectedIndex = myplotsettings.ychannel[cbocurve.SelectedIndex];
             }
 
 
-           
+
             cboychannelunit.Items.Clear();
-            for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnitCount; i++)
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cUnitCount; i++)
             {
-                cboychannelunit.Items.Add(ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[i]);
+                cboychannelunit.Items.Add(ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cUnits[i]);
             }
 
-            if ((myplotsettings.ychannelunit >= 0) && (myplotsettings.ychannelunit < cboychannelunit.Items.Count))
+            if ((myplotsettings.ychannelunit[cbocurve.SelectedIndex] >= 0) && (myplotsettings.ychannelunit[cbocurve.SelectedIndex] < cboychannelunit.Items.Count))
             {
-                cboychannelunit.SelectedIndex = myplotsettings.ychannelunit;
+                cboychannelunit.SelectedIndex = myplotsettings.ychannelunit[cbocurve.SelectedIndex];
             }
 
-            this.scatterGraph1.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
-            ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
+            this.scatterGraph1.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cName + "[" +
+            ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cUnits[myplotsettings.ychannelunit[cbocurve.SelectedIndex]] + "]";
 
 
             if (myplotsettings.ychannelzoom == true)
@@ -270,7 +307,12 @@ namespace TabHeaderDemo
                 rdbyhandzoom.Checked = true;
             }
 
+            numymax.Value = myplotsettings.ymax;
+            numymin.Value = myplotsettings.ymin;
+            numy1max.Value = myplotsettings.y1max;
+            numy1min.Value = myplotsettings.y1min;
         }
+
 
         public void Init高级()
         {
@@ -288,7 +330,7 @@ namespace TabHeaderDemo
             scatterGraph1.Plots.Clear();
             legend3.Items.Clear();
             NationalInstruments.UI.ScatterPlot mplot;
-            NationalInstruments.UI.LegendItem  mlegitem;
+            NationalInstruments.UI.LegendItem mlegitem;
             if (myplotsettings.curvekind == 0)
             {
                 scatterGraph1.YAxes[0].Visible = true;
@@ -321,7 +363,7 @@ namespace TabHeaderDemo
                 if (myplotsettings.curvecount >= 2)
                 {
                     scatterGraph1.Plots[1].YAxis = yAxis1;
-                 
+
                 }
             }
 
@@ -333,48 +375,48 @@ namespace TabHeaderDemo
                 scatterGraph1.YAxes[0].Visible = true;
                 scatterGraph1.YAxes[1].Visible = true;
 
-                    i=0;
-                    listBox1.Items.Add("左轴曲线 ");
-                    mplot = new NationalInstruments.UI.ScatterPlot();
-                    mplot.LineColor = myplotsettings.PlotLineColor[i];
-                    mplot.LineStyle = myplotsettings.PlotLineStyle[i];
-                    mplot.PointStyle = myplotsettings.PlotLinePointStyle[i];
-                    mplot.PointSize = new Size(myplotsettings.PlotLineSize[i], myplotsettings.PlotLineSize[i]);
-                    mplot.PointColor = myplotsettings.PlotLinePointColor[i];
-                    mplot.LineWidth = myplotsettings.PlotLinePointSize[i];
-                    scatterGraph1.Plots.Add(mplot);
+                i = 0;
+                listBox1.Items.Add("左轴曲线 ");
+                mplot = new NationalInstruments.UI.ScatterPlot();
+                mplot.LineColor = myplotsettings.PlotLineColor[i];
+                mplot.LineStyle = myplotsettings.PlotLineStyle[i];
+                mplot.PointStyle = myplotsettings.PlotLinePointStyle[i];
+                mplot.PointSize = new Size(myplotsettings.PlotLineSize[i], myplotsettings.PlotLineSize[i]);
+                mplot.PointColor = myplotsettings.PlotLinePointColor[i];
+                mplot.LineWidth = myplotsettings.PlotLinePointSize[i];
+                scatterGraph1.Plots.Add(mplot);
 
-                    mplot.ClearData();
-                    mplot.PlotXYAppend(0 + i * 0.2, 0);
-                    mplot.PlotXYAppend(2 + i * 0.2, 4);
-                    mplot.PlotXYAppend(8 + i * 0.2, 9);
-                    mlegitem = new NationalInstruments.UI.LegendItem();
-                    mlegitem.Source = mplot;
-                    mlegitem.Text = (i + 1).ToString().Trim();
-                    legend3.Items.Add(mlegitem);
+                mplot.ClearData();
+                mplot.PlotXYAppend(0 + i * 0.2, 0);
+                mplot.PlotXYAppend(2 + i * 0.2, 4);
+                mplot.PlotXYAppend(8 + i * 0.2, 9);
+                mlegitem = new NationalInstruments.UI.LegendItem();
+                mlegitem.Source = mplot;
+                mlegitem.Text = (i + 1).ToString().Trim();
+                legend3.Items.Add(mlegitem);
 
-                    i = 1;
-                    listBox1.Items.Add("右轴曲线 ");
-                    mplot = new NationalInstruments.UI.ScatterPlot();
-                    mplot.LineColor = myplotsettings.PlotLineColor[i];
-                    mplot.LineStyle = myplotsettings.PlotLineStyle[i];
-                    mplot.PointStyle = myplotsettings.PlotLinePointStyle[i];
-                    mplot.PointSize = new Size(myplotsettings.PlotLineSize[i], myplotsettings.PlotLineSize[i]);
-                    mplot.PointColor = myplotsettings.PlotLinePointColor[i];
-                    mplot.LineWidth = myplotsettings.PlotLinePointSize[i];
-                    scatterGraph1.Plots.Add(mplot);
+                i = 1;
+                listBox1.Items.Add("右轴曲线 ");
+                mplot = new NationalInstruments.UI.ScatterPlot();
+                mplot.LineColor = myplotsettings.PlotLineColor[i];
+                mplot.LineStyle = myplotsettings.PlotLineStyle[i];
+                mplot.PointStyle = myplotsettings.PlotLinePointStyle[i];
+                mplot.PointSize = new Size(myplotsettings.PlotLineSize[i], myplotsettings.PlotLineSize[i]);
+                mplot.PointColor = myplotsettings.PlotLinePointColor[i];
+                mplot.LineWidth = myplotsettings.PlotLinePointSize[i];
+                scatterGraph1.Plots.Add(mplot);
 
-                    mplot.ClearData();
-                    mplot.PlotXYAppend(0 + i * 0.2, 0);
-                    mplot.PlotXYAppend(2 + i * 0.2, 4);
-                    mplot.PlotXYAppend(8 + i * 0.2, 9);
-                    mlegitem = new NationalInstruments.UI.LegendItem();
-                    mlegitem.Source = mplot;
-                    mlegitem.Text = (i + 1).ToString().Trim();
-                    legend3.Items.Add(mlegitem);
-                   
-                    mplot.YAxis = yAxis2;
-               
+                mplot.ClearData();
+                mplot.PlotXYAppend(0 + i * 0.2, 0);
+                mplot.PlotXYAppend(2 + i * 0.2, 4);
+                mplot.PlotXYAppend(8 + i * 0.2, 9);
+                mlegitem = new NationalInstruments.UI.LegendItem();
+                mlegitem.Source = mplot;
+                mlegitem.Text = (i + 1).ToString().Trim();
+                legend3.Items.Add(mlegitem);
+
+                mplot.YAxis = yAxis2;
+
 
             }
 
@@ -416,16 +458,16 @@ namespace TabHeaderDemo
 
 
             listBox1.SelectedIndex = 0;
-            
+
 
             Apply高级();
         }
-        public  void Init(int sel)
+        public void Init(int sel)
         {
 
             tabControl1.SelectedIndex = sel;
 
-            if (GlobeVal.UserControlMain1.btnmtest.Visible==true)
+            if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
             {
                 tabControl1.Enabled = false;
             }
@@ -433,7 +475,7 @@ namespace TabHeaderDemo
             {
                 tabControl1.Enabled = true;
             }
-            
+
             myplotsettings = new CComLibrary.PlotSettings();
 
             if (curvetab == 0)
@@ -494,7 +536,7 @@ namespace TabHeaderDemo
 
 
         }
-        public  UserControl曲线()
+        public UserControl曲线()
         {
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
@@ -531,13 +573,13 @@ namespace TabHeaderDemo
 
         private void tableLayoutPanel11_SizeChanged(object sender, EventArgs e)
         {
-           
+
 
         }
 
         private void panel8_SizeChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void panel7_SizeChanged(object sender, EventArgs e)
@@ -545,7 +587,7 @@ namespace TabHeaderDemo
             tabControl2.Top = -5;
             tabControl2.Left = 0;
             tabControl2.Width = panel7.ClientSize.Width;
-            tabControl2.Height = panel7.ClientSize.Height+5;
+            tabControl2.Height = panel7.ClientSize.Height + 5;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -637,7 +679,7 @@ namespace TabHeaderDemo
             scatterGraph1.XAxes[0].MajorDivisions.GridVisible = this.myplotsettings.ShowGrid;
             scatterGraph1.YAxes[0].MajorDivisions.GridVisible = this.myplotsettings.ShowGrid;
 
-            NationalInstruments.UI.LineStyle p =default(NationalInstruments.UI.LineStyle);
+            NationalInstruments.UI.LineStyle p = default(NationalInstruments.UI.LineStyle);
             ;
             this.myplotsettings.SetGridLineStyle(ref p);
 
@@ -645,13 +687,13 @@ namespace TabHeaderDemo
 
             scatterGraph1.YAxes[0].MajorDivisions.GridLineStyle = p;
 
-           
-          
+
+
             scatterGraph1.XAxes[0].MajorDivisions.GridColor = this.myplotsettings.GridLineColor;
             scatterGraph1.YAxes[0].MajorDivisions.GridColor = this.myplotsettings.GridLineColor;
             if (this.myplotsettings.XCaption == true)
             {
-                scatterGraph1.XAxes[0].CaptionVisible  = true;
+                scatterGraph1.XAxes[0].CaptionVisible = true;
             }
             else
             {
@@ -661,37 +703,37 @@ namespace TabHeaderDemo
             if (this.myplotsettings.Xlog == false)
             {
                 scatterGraph1.XAxes[0].ScaleType = NationalInstruments.UI.ScaleType.Linear;
-              
+
             }
             else
             {
                 scatterGraph1.XAxes[0].ScaleType = NationalInstruments.UI.ScaleType.Logarithmic;
-             
+
             }
 
             scatterGraph1.XAxes[0].Inverted = this.myplotsettings.Xrevert;
 
             if (this.myplotsettings.YCaption == true)
             {
-                scatterGraph1.YAxes[0].CaptionVisible  =true;
+                scatterGraph1.YAxes[0].CaptionVisible = true;
                 scatterGraph1.YAxes[1].CaptionVisible = true;
             }
             else
             {
-                scatterGraph1.YAxes[0].CaptionVisible   = false ;
+                scatterGraph1.YAxes[0].CaptionVisible = false;
                 scatterGraph1.YAxes[1].CaptionVisible = false;
             }
 
-           
 
-            if (this.myplotsettings.Ylog== false)
+
+            if (this.myplotsettings.Ylog == false)
             {
-               
+
                 scatterGraph1.YAxes[0].ScaleType = NationalInstruments.UI.ScaleType.Linear;
             }
             else
             {
-               
+
                 scatterGraph1.YAxes[0].ScaleType = NationalInstruments.UI.ScaleType.Logarithmic;
             }
 
@@ -721,8 +763,8 @@ namespace TabHeaderDemo
 
             this.legend3.Font = this.myplotsettings.LegendFont;
 
-            NationalInstruments.UI.ShapeStyle p1=default(NationalInstruments.UI.ShapeStyle);
-           
+            NationalInstruments.UI.ShapeStyle p1 = default(NationalInstruments.UI.ShapeStyle);
+
             this.myplotsettings.SetSignPointStyle(ref p1);
 
             this.xyPointAnnotation1.ShapeStyle = p1;
@@ -736,7 +778,7 @@ namespace TabHeaderDemo
 
             this.xyPointAnnotation1.ShapeFillColor = this.myplotsettings.SignPointColor;
 
-            NationalInstruments.UI.LineStyle p2=default(NationalInstruments.UI.LineStyle);
+            NationalInstruments.UI.LineStyle p2 = default(NationalInstruments.UI.LineStyle);
             this.myplotsettings.SetSignLineStyle(ref p2);
 
             this.xyPointAnnotation2.ArrowLineStyle = p2;
@@ -767,7 +809,7 @@ namespace TabHeaderDemo
                 myplotsettings.PlotLinePointSize = new int[16];
             }
 
-            NationalInstruments.UI.PointStyle p3=default(NationalInstruments.UI.PointStyle);
+            NationalInstruments.UI.PointStyle p3 = default(NationalInstruments.UI.PointStyle);
 
             if (myplotsettings.curvekind == 0)
             {
@@ -830,37 +872,37 @@ namespace TabHeaderDemo
         private void button1_Click(object sender, EventArgs e)
         {
             FormPlotSet f = new FormPlotSet();
-             f.propertyEditor1.Source =new NationalInstruments.UI.PropertyEditorSource(this.myplotsettings,"backcolor");
-            
-             f.ShowDialog();
+            f.propertyEditor1.Source = new NationalInstruments.UI.PropertyEditorSource(this.myplotsettings, "backcolor");
 
-             this.myplotsettings.backcolor = (Color)f.propertyEditor1.Source.Value;
-            
+            f.ShowDialog();
 
-             Apply高级();
-             f.Dispose();
-            
+            this.myplotsettings.backcolor = (Color)f.propertyEditor1.Source.Value;
+
+
+            Apply高级();
+            f.Dispose();
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             FormPlotSet f = new FormPlotSet();
 
-            NationalInstruments.UI.LineStyle p=default(NationalInstruments.UI.LineStyle);
+            NationalInstruments.UI.LineStyle p = default(NationalInstruments.UI.LineStyle);
             this.myplotsettings.SetGridLineStyle(ref p);
             this.myplotsettings.GridLineStyle = p;
 
             f.propertyEditor1.Source = new NationalInstruments.UI.PropertyEditorSource(this.myplotsettings, "GridLineStyle");
-            
+
             f.ShowDialog();
 
-            this.myplotsettings.GridLineStyleName= ((NationalInstruments.UI.LineStyle) f.propertyEditor1.Source.Value).Name;
-            
-           
+            this.myplotsettings.GridLineStyleName = ((NationalInstruments.UI.LineStyle)f.propertyEditor1.Source.Value).Name;
+
+
             Apply高级();
 
             f.Dispose();
- 
+
 
         }
 
@@ -960,7 +1002,7 @@ namespace TabHeaderDemo
 
             f.ShowDialog();
 
-            this.myplotsettings.XCaption  = (bool)f.propertyEditor1.Source.Value;
+            this.myplotsettings.XCaption = (bool)f.propertyEditor1.Source.Value;
 
 
             Apply高级();
@@ -1065,7 +1107,7 @@ namespace TabHeaderDemo
             f.Dispose();
         }
 
-       
+
 
         private void button22_Click(object sender, EventArgs e)
         {
@@ -1099,8 +1141,8 @@ namespace TabHeaderDemo
         {
             if (radioButton3.Checked == true)
             {
-               // tlpkind1.Visible = false;
-               // tlpkind2.Visible = true;
+                // tlpkind1.Visible = false;
+                // tlpkind2.Visible = true;
 
                 myplotsettings.curvekind = 2;
             }
@@ -1113,7 +1155,7 @@ namespace TabHeaderDemo
 
         private void numcount_ValueChanged(object sender, EventArgs e)
         {
-            myplotsettings.curvecount = Convert.ToInt32( numcount.Value);
+            myplotsettings.curvecount = Convert.ToInt32(numcount.Value);
         }
 
         private void cbooffset_SelectedIndexChanged(object sender, EventArgs e)
@@ -1159,7 +1201,7 @@ namespace TabHeaderDemo
 
         private void cboxchannelunit_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void rdbxautozoom_CheckedChanged(object sender, EventArgs e)
@@ -1180,40 +1222,40 @@ namespace TabHeaderDemo
 
         private void cboychannel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            myplotsettings.ychannel = cboychannel.SelectedIndex;
+            myplotsettings.ychannel[cbocurve.SelectedIndex] = cboychannel.SelectedIndex;
             cboychannelunit.Items.Clear();
-            for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnitCount; i++)
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cUnitCount; i++)
             {
-                cboychannelunit.Items.Add(ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[i]);
+                cboychannelunit.Items.Add(ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cUnits[i]);
             }
 
-            if ((myplotsettings.ychannelunit >= 0) && (myplotsettings.ychannelunit < cboychannelunit.Items.Count))
+            if ((myplotsettings.ychannelunit[cbocurve.SelectedIndex] >= 0) && (myplotsettings.ychannelunit[cbocurve.SelectedIndex] < cboychannelunit.Items.Count))
             {
-                cboychannelunit.SelectedIndex = myplotsettings.ychannelunit;
+                cboychannelunit.SelectedIndex = myplotsettings.ychannelunit[cbocurve.SelectedIndex];
             }
             else
             {
-                    myplotsettings.ychannelunit = 0;
-                    cboychannelunit.SelectedIndex=0;
+                myplotsettings.ychannelunit[cbocurve.SelectedIndex] = 0;
+                cboychannelunit.SelectedIndex = 0;
             }
-            this.scatterGraph1.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
-           ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
-         
-        
+            this.scatterGraph1.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cName + "[" +
+           ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cUnits[myplotsettings.ychannelunit[cbocurve.SelectedIndex]] + "]";
+
+
 
         }
 
         private void cboychannelunit_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-         
-        
+
+
+
 
         }
 
         private void rdbyautozoom_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdbyautozoom.Checked==true)
+            if (rdbyautozoom.Checked == true)
             {
                 myplotsettings.ychannelzoom = true;
             }
@@ -1231,17 +1273,17 @@ namespace TabHeaderDemo
         {
             FormPlotSet f = new FormPlotSet();
 
-            NationalInstruments.UI.ShapeStyle  p = default(NationalInstruments.UI.ShapeStyle);
+            NationalInstruments.UI.ShapeStyle p = default(NationalInstruments.UI.ShapeStyle);
             this.myplotsettings.SetSignPointStyle(ref p);
-            xyPointAnnotation1.ShapeStyle=p;
+            xyPointAnnotation1.ShapeStyle = p;
 
 
 
             f.propertyEditor1.Source = new NationalInstruments.UI.PropertyEditorSource(xyPointAnnotation1, "ShapeStyle");
 
             f.ShowDialog();
-            
-            this.myplotsettings.SignPointStylName =((NationalInstruments.UI.ShapeStyle) f.propertyEditor1.Source.Value).Name;
+
+            this.myplotsettings.SignPointStylName = ((NationalInstruments.UI.ShapeStyle)f.propertyEditor1.Source.Value).Name;
 
 
             Apply高级();
@@ -1255,7 +1297,7 @@ namespace TabHeaderDemo
 
             f.ShowDialog();
 
-            this.myplotsettings.SignPointSize= (int)f.propertyEditor1.Source.Value;
+            this.myplotsettings.SignPointSize = (int)f.propertyEditor1.Source.Value;
 
 
             Apply高级();
@@ -1280,7 +1322,7 @@ namespace TabHeaderDemo
         {
             FormPlotSet f = new FormPlotSet();
 
-            NationalInstruments.UI.LineStyle  p = default(NationalInstruments.UI.LineStyle);
+            NationalInstruments.UI.LineStyle p = default(NationalInstruments.UI.LineStyle);
             this.myplotsettings.SetSignLineStyle(ref p);
             this.myplotsettings.SignLineStyle = p;
 
@@ -1290,7 +1332,7 @@ namespace TabHeaderDemo
 
             f.ShowDialog();
 
-            this.myplotsettings.SignLineStyleName = ((NationalInstruments.UI.LineStyle )f.propertyEditor1.Source.Value).Name;
+            this.myplotsettings.SignLineStyleName = ((NationalInstruments.UI.LineStyle)f.propertyEditor1.Source.Value).Name;
 
 
             Apply高级();
@@ -1316,8 +1358,8 @@ namespace TabHeaderDemo
             FormPlotSet f = new FormPlotSet();
 
             NationalInstruments.UI.LineStyle p = default(NationalInstruments.UI.LineStyle);
-            this.myplotsettings.SetPlotLineStyle(ref p,mcurveselect);
-            this.scatterGraph1.Plots[mcurveselect].LineStyle  = p;
+            this.myplotsettings.SetPlotLineStyle(ref p, mcurveselect);
+            this.scatterGraph1.Plots[mcurveselect].LineStyle = p;
 
 
 
@@ -1361,7 +1403,7 @@ namespace TabHeaderDemo
 
             f.ShowDialog();
 
-            this.myplotsettings.PlotLinePointStyleName[mcurveselect]= ((NationalInstruments.UI.PointStyle)f.propertyEditor1.Source.Value).Name;
+            this.myplotsettings.PlotLinePointStyleName[mcurveselect] = ((NationalInstruments.UI.PointStyle)f.propertyEditor1.Source.Value).Name;
 
 
             Apply高级();
@@ -1371,16 +1413,16 @@ namespace TabHeaderDemo
         private void button35_Click(object sender, EventArgs e)
         {
             FormPlotSet f = new FormPlotSet();
-            this.scatterGraph1.Plots[mcurveselect].PointSize  = new Size(this.myplotsettings.PlotLineSize[mcurveselect], this.myplotsettings.PlotLineSize[mcurveselect]);
+            this.scatterGraph1.Plots[mcurveselect].PointSize = new Size(this.myplotsettings.PlotLineSize[mcurveselect], this.myplotsettings.PlotLineSize[mcurveselect]);
             f.propertyEditor1.Source = new NationalInstruments.UI.PropertyEditorSource(this.scatterGraph1.Plots[mcurveselect].PointSize, "Width");
 
             f.ShowDialog();
 
 
-           
+
             this.myplotsettings.PlotLineSize[mcurveselect] = ((int)f.propertyEditor1.Source.Value);
 
-             
+
 
             Apply高级();
             f.Dispose();
@@ -1407,7 +1449,7 @@ namespace TabHeaderDemo
         private void button15_Click_1(object sender, EventArgs e)
         {
             FormPlotSet f = new FormPlotSet();
-            this.scatterGraph1.Plots[mcurveselect].LineWidth  = this.myplotsettings.PlotLinePointSize[mcurveselect];
+            this.scatterGraph1.Plots[mcurveselect].LineWidth = this.myplotsettings.PlotLinePointSize[mcurveselect];
             f.propertyEditor1.Source = new NationalInstruments.UI.PropertyEditorSource(this.scatterGraph1.Plots[mcurveselect], "LineWidth");
 
             f.ShowDialog();
@@ -1438,7 +1480,7 @@ namespace TabHeaderDemo
             this.scatterGraph1.YAxes[1].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cName + "[" +
              ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.y1channel].cUnits[myplotsettings.y1channelunit] + "]";
 
-           
+
 
         }
 
@@ -1454,9 +1496,9 @@ namespace TabHeaderDemo
 
         private void cboychannelunit_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            myplotsettings.ychannelunit = this.cboychannelunit.SelectedIndex;
-            this.scatterGraph1.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cName + "[" +
-            ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel].cUnits[myplotsettings.ychannelunit] + "]";
+            myplotsettings.ychannelunit[cbocurve.SelectedIndex] = this.cboychannelunit.SelectedIndex;
+            this.scatterGraph1.YAxes[0].Caption = ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cName + "[" +
+            ClsStaticStation.m_Global.mycls.allsignals[myplotsettings.ychannel[cbocurve.SelectedIndex]].cUnits[myplotsettings.ychannelunit[cbocurve.SelectedIndex]] + "]";
         }
 
         private void cboxchannelunit_SelectionChangeCommitted(object sender, EventArgs e)
@@ -1479,6 +1521,59 @@ namespace TabHeaderDemo
         private void cbo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbocurve_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if ((myplotsettings.ychannel[cbocurve.SelectedIndex] >= 0) && (myplotsettings.ychannel[cbocurve.SelectedIndex] < cboychannel.Items.Count))
+            {
+                cboychannel.SelectedIndex = myplotsettings.ychannel[cbocurve.SelectedIndex];
+            }
+            else
+            {
+                myplotsettings.ychannel[cboy1channel.SelectedIndex] = 0;
+                cboychannel.SelectedIndex = myplotsettings.ychannel[cbocurve.SelectedIndex];
+            }
+
+            if ((myplotsettings.ychannelunit[cbocurve.SelectedIndex] >= 0) && (myplotsettings.ychannelunit[cbocurve.SelectedIndex] < cboychannelunit.Items.Count))
+            {
+                cboychannelunit.SelectedIndex = myplotsettings.ychannelunit[cbocurve.SelectedIndex];
+            }
+
+
+        }
+
+        private void numxmax_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            myplotsettings.xmax = numxmax.Value;
+        }
+
+        private void numxmin_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            myplotsettings.xmin = numxmin.Value;
+        }
+
+        private void numymax_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            myplotsettings.ymax = numymax.Value;
+
+
+        }
+
+        private void numymin_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            myplotsettings.ymin = numymin.Value;
+        }
+
+        private void numy1max_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            myplotsettings.y1max = numy1max.Value;
+
+        }
+
+        private void numy1min_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            myplotsettings.y1min = numy1min.Value;
         }
     }
 }

@@ -21,6 +21,9 @@ using NationalInstruments;
 using ClsStaticStation;
 using System.Data;
 using System.Web.UI;
+using System.Data.SqlClient;
+using ADOX;
+
 namespace CComLibrary
 {
 
@@ -300,7 +303,15 @@ namespace CComLibrary
         public double getresult(int i)
         {
             double v = 0;
-            v = mp.eval_calcedchannel(i);
+
+            if (mp == null)
+            {
+                v = 0;
+            }
+            else
+            {
+                v = mp.eval_calcedchannel(i);
+            }
             return v;
 
         }
@@ -394,6 +405,12 @@ namespace CComLibrary
     public class PlotSettings
     {
 
+        public double xmax;
+        public double xmin;
+        public double ymax;
+        public double ymin;
+        public double y1max;
+        public double y1min;
 
         public int curvekind = 0;//曲线类型  //
         public string curvekind1_curvecaption = "试样 %n，共 %m 个";
@@ -407,8 +424,10 @@ namespace CComLibrary
         public int xchannelunit = 0;
         public bool xchannelzoom = false;
 
-        public int ychannel = 0;
-        public int ychannelunit = 0;
+        
+        public int[] ychannel;
+        public int[] ychannelunit;
+
         public bool ychannelzoom = false;
 
         public int y1channel = 0;
@@ -418,6 +437,8 @@ namespace CComLibrary
         public bool dynamicdraw = false;
 
         public int dynamicpointcount = 1000;
+
+        
 
         //以下为曲线高级设置
         private Color m_backcolor;
@@ -1118,7 +1139,8 @@ namespace CComLibrary
             PlotLineSize = new int[16];
             PlotLinePointColor = new Color[16];
 
-
+            ychannel = new int[16];
+            ychannelunit = new int[16];
 
             for (int i = 0; i < 16; i++)
             {
@@ -1524,11 +1546,13 @@ namespace CComLibrary
             }
 
             for (int i = 0; i <
-        CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
+                 CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
             {
 
                 if (itemname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
                 {
+
+
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToDouble(mitemvalue);
                     //CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue= Convert.ToDouble(mitemvalue);
 
@@ -2698,6 +2722,10 @@ namespace CComLibrary
         public string samplememo3;//样品注释3
         public string samplememo; //样品说明
 
+        public string samplename;//样品名称
+
+        public string layfilename;//布局文件名称
+
         public DataTable dt;
 
         public DataTable dtstatic;
@@ -2725,7 +2753,7 @@ namespace CComLibrary
 
         public bool mwizard = false; //试验向导是否有效
 
-        public int mspecount = 0;//试样数量
+        public int mspecount = 1;//试样数量
 
         public int mcontrolprocess = 0;//控制过程类型 0 普通，1 高级 2 简单控制
 
@@ -2787,6 +2815,9 @@ namespace CComLibrary
         public bool crackcheck = false;//断裂检测
         public double crackvalue = 10;//断裂阀值
 
+        public bool Samplecheck = false;//信号检测
+        public double SampleChecktime = 6;//信号检测时间
+
         public List<ItemSignal> mchsignals; //信号限位
 
         public List<PromptsItem> mFreeFormPromptsItem;
@@ -2814,6 +2845,9 @@ namespace CComLibrary
         public Boolean ReportPrint;//是否打印报告
 
 
+        public int Samplingmode;// 数据采集模式 是动态还是静态
+        public int SamplingInterval; //动态采集时间间隔
+        public int SamplingCount;// 动态采集点数
 
         public string lasttestdatatime;//最后试验日期
 
@@ -2833,6 +2867,163 @@ namespace CComLibrary
         public Boolean UseDatabase;//数据库是否有效
         public List<DatabaseItem> mdatabaseitemlist;
         public List<DatabaseItem> mdatabaseitemselect;
+        public void NewDatabase()
+        {
+            //CComLibrary.GlobeVal.filesave.SampleDefaultName
+
+            if (System.IO.Directory.Exists(Application.StartupPath + "\\mdb") == true)
+            {
+                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\mdb");
+            }
+
+
+            if (File.Exists(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb") == true)
+            {
+                File.Delete(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb");
+            }
+
+            ADOX.Catalog catalog = new Catalog();
+            catalog.Create("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb;" + "Jet OLEDB:Engine Type=5");
+
+            ADODB.Connection cn = new ADODB.Connection();
+
+            cn.Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb", null, null, -1);
+
+
+            
+            catalog.ActiveConnection = cn;
+
+            ADOX.Table table = new ADOX.Table();
+            table.Name = "FirstTable";
+
+            ADOX.Column column = new ADOX.Column();
+            column.ParentCatalog = catalog;
+            column.Name = "RecordId";
+            column.Type = DataTypeEnum.adInteger;
+            column.DefinedSize = 9;
+            column.Properties["AutoIncrement"].Value = true;
+            table.Columns.Append(column, DataTypeEnum.adInteger, 9);
+            table.Keys.Append("FirstTablePrimaryKey", KeyTypeEnum.adKeyPrimary, column, null, null);
+
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count; i++)
+            {
+                table.Columns.Append(CComLibrary.GlobeVal.filesave.mdatabaseitemselect[i].Name, DataTypeEnum.adVarWChar, 80);
+            }
+
+
+            // table.Columns.Append("CustomerName", DataTypeEnum.adVarWChar, 50);
+            // table.Columns.Append("Age", DataTypeEnum.adInteger, 9);
+            // table.Columns.Append("生日", DataTypeEnum.adVarWChar, 80);
+
+            catalog.Tables.Append(table);
+            cn.Close();
+
+        }
+        public void SaveDatabase()
+        {
+            ADODB.Connection cn = new ADODB.Connection();
+
+            cn.Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+ Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb", null, null, -1);
+            ADODB.Recordset rs;
+
+            rs = new ADODB.Recordset();
+
+            rs.LockType = ADODB.LockTypeEnum.adLockPessimistic;
+            rs.CursorType = ADODB.CursorTypeEnum.adOpenDynamic;
+
+            string sql = "select * from FirstTable";
+            rs.Open(sql, cn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic , (int)ADODB.CommandTypeEnum.adCmdText);
+
+            if ( (rs.RecordCount >0))
+            {
+                rs.MoveFirst();
+            }
+            string mshiyanghao = "";
+            string myangpinmingcheng = "";
+            int nshiyanhao = 0;
+            int nyangpinmingcheng = 0;
+            int nRecordId = 0;
+            for (int j = 0; j < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count; j++)
+            {
+               
+
+                if (CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Name=="试样号")
+                {
+                    mshiyanghao = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value;
+                    nshiyanhao = j;
+                }
+                if (CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Name =="样品名称")
+                {
+                    myangpinmingcheng = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value;
+                    nyangpinmingcheng = j;
+                }
+            }
+
+
+            bool mb = false;
+            string wshiyanghao = "";
+            string wyangpinmingcheng = "";
+            for (int i = 0; i < rs.RecordCount; i++)
+            {
+                wshiyanghao = rs.Fields[nshiyanhao + 1].Value;
+                wyangpinmingcheng = rs.Fields[nyangpinmingcheng + 1].Value;
+                if(( wshiyanghao==mshiyanghao) && ( wyangpinmingcheng ==myangpinmingcheng))
+               {
+                    mb = true;
+
+                    nRecordId = rs.Fields[0].Value;
+                    break;
+               }
+                else
+                {
+                    rs.MoveNext();
+                }
+
+            }
+
+            for (int i = 0; i < 1; i++)
+            {
+
+
+                object missing = System.Reflection.Missing.Value;
+                if (mb == false)
+                {
+                   
+                    rs.AddNew(missing, missing);
+                    rs.Fields["RecordId"].Value = rs.RecordCount;
+                }
+                else
+                {
+                    rs.Delete(ADODB.AffectEnum.adAffectCurrent);
+                    rs.AddNew(missing, missing);
+                    rs.Fields["RecordId"].Value = nRecordId;
+                }
+               
+               
+
+                for (int j = 0; j < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count; j++)
+                {
+                    if (CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value == null)
+                    {
+                        rs.Fields[j + 1].Value = "";
+                    }
+                    else
+                    {
+                        rs.Fields[j + 1].Value = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value;
+                    }
+
+                }
+
+
+                rs.Update();
+            }
+
+
+            rs.Close();
+            cn.Close();
+
+
+        }
 
         public double StrainToLoad(double l)
         {
@@ -3270,7 +3461,10 @@ namespace CComLibrary
 
 
 
-
+            if (File.Exists(filename) ==false)
+            {
+                return;
+            }
             i = readfilelen(filename, out L);
 
 
@@ -3790,11 +3984,12 @@ namespace CComLibrary
             m.Ntype = 0;
             m.Value = this.methodauthor;
             mdatabaseitemlist.Add(m);
+
+
             m = new DatabaseItem();
             m.Name = "样品名称";
             m.Ntype = 0;
-            //m.Value = GlobeVal.mysys.SampleFile;
-            m.Value = "";
+            m.Value = this.samplename;
             mdatabaseitemlist.Add(m);
 
             m = new DatabaseItem();
@@ -3823,6 +4018,26 @@ namespace CComLibrary
 
 
             m = new DatabaseItem();
+            m.Name = "试样数量";
+            m.Ntype = 0;
+            m.Value = this.mspecount.ToString();
+            mdatabaseitemlist.Add(m);
+
+            m = new DatabaseItem();
+            m.Name = "试样号";
+            m.Ntype = 0;
+            m.Value = (this.currentspenumber+1).ToString();
+            mdatabaseitemlist.Add(m);
+
+            m = new DatabaseItem();
+            m.Name = "试验日期";
+            m.Ntype = 0;
+            m.Value = DateTime.Now.ToLongDateString()+" "+ DateTime.Now.ToLongTimeString();
+            mdatabaseitemlist.Add(m);
+
+
+
+            m = new DatabaseItem();
             m.Name = "试样形状";
             m.Ntype = 0;
 
@@ -3845,8 +4060,24 @@ namespace CComLibrary
                         m = new DatabaseItem();
                         m.Name = this.mshapelist[j].shapename+"_"+this.mshapelist[j].sizeitem[i].cName;
                         m.Ntype = 0;
-                        m.Value = this.mshapelist[j].sizeitem[i].cvalue.ToString();
-                        mdatabaseitemlist.Add(m);
+
+                        bool mb = false;
+                        for (int k = 0; k < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; k++)
+                        {
+                            if (this.mshapelist[j].sizeitem[i].cName == CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[k].itemname)
+                            {
+
+                                mb = true;
+                                m.Value = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[k].itemvalue.ToString() ;
+                                mdatabaseitemlist.Add(m);
+
+                            }
+                        }
+                        if (mb == false)
+                        {
+                            m.Value = this.mshapelist[j].sizeitem[i].cvalue.ToString();
+                            mdatabaseitemlist.Add(m);
+                        }
                     }
 
                 }
@@ -3902,10 +4133,31 @@ namespace CComLibrary
                 m.KindName = "计算项目";
                 m.Name = this.moutput[i].formulaname;
                 m.Ntype = 0;
-                m.Value = this.moutput[i].formulavalue;
+                m.Value = "0";
+                if (CComLibrary.GlobeVal.gcalc == null)
+                {
+                    m.Value = "0";
+                }
+                else
+                {
+                    m.Value = CComLibrary.GlobeVal.gcalc.getresult(i + 1).ToString();
+                }
+                
+               
                 mdatabaseitemlist.Add(m);
 
 
+            }
+
+            for (int i=0;i<mdatabaseitemlist.Count;i++)
+            {
+                for (int j=0;j<mdatabaseitemselect.Count;j++)
+                {
+                    if (mdatabaseitemselect[j].Name ==mdatabaseitemlist[i].Name)
+                    {
+                        mdatabaseitemselect[j] = mdatabaseitemlist[i];
+                    }
+                }
             }
 
         }
@@ -4015,6 +4267,11 @@ namespace CComLibrary
                     {
                         init_mtable1statistics(c);
 
+                    }
+
+                    if (c.layfilename ==null)
+                    {
+                        c.layfilename = " ";
                     }
 
                     if (c.mtable2statistics == null)
@@ -4231,7 +4488,10 @@ namespace CComLibrary
                     {
                         c.samplememo2 = " ";
                     }
-
+                    if (c.samplename ==null)
+                    {
+                        c.samplename = " ";
+                    }
                     if (c.samplememo3 == null)
                     {
                         c.samplememo3 = " ";
@@ -4351,8 +4611,9 @@ namespace CComLibrary
                     if(c.mdatabaseitemlist==null)
                     {
                         c.mdatabaseitemlist = new List<DatabaseItem>();
-                        c.Init_databaselist();
+                        
                     }
+                    c.Init_databaselist();
 
                     if (c.mdatabaseitemselect==null)
                     {
