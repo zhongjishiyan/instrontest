@@ -16,6 +16,8 @@ namespace ClsStaticStation
 {
     public class CDsp : ClsBaseControl
     {
+        private double mstarttickcount;
+        private int  mspenum=0;
         private RawDataDataGroup[] r = new RawDataDataGroup[1];
         private float[] rr;
         private System.Windows.Forms.Timer mtimer;
@@ -49,6 +51,11 @@ namespace ClsStaticStation
 
         public double mrunstarttime = 0;
 
+        private double sensor4;
+        private double sensor5;
+        private double sensor6;
+        private double sensor7;
+        private double sensor8;
 
 
         private List<XLDOPE.MDataIno> mdatalist;
@@ -68,6 +75,27 @@ namespace ClsStaticStation
         private int m_returncount;//返回次数
         private List<demodata> mdemodata = new List<demodata>();
 
+        public override void DriveOn()
+        {
+            myedc.Move.On();
+        }
+        public override void DriveOff()
+        {
+            myedc.Move.Off();
+        }
+
+        public override void CrossDown(int ctrlmode, double speed)
+        {
+            short tan = 0;
+
+            double m =speed;
+
+
+            myedc.Move.FMove(XLNet.XLDOPE.MOVE.DOWN, (XLNet.XLDOPE.CTRL) ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
+
+        }
+
+
         private void demo()
         {
 
@@ -84,7 +112,7 @@ namespace ClsStaticStation
                 load = r.NextDouble();
                 pos = r.NextDouble();
                 ext = r.NextDouble();
-                time = System.Environment.TickCount / 1000;
+                time = (System.Environment.TickCount- mstarttickcount) / 1000.0;
                 poscmd = 0;
                 loadcmd = 0;
                 extcmd = 0;
@@ -99,7 +127,7 @@ namespace ClsStaticStation
                 load = r.NextDouble();
                 pos = r.NextDouble();
                 ext = r.NextDouble();
-                time = System.Environment.TickCount / 1000;
+                time = (System.Environment.TickCount-mstarttickcount) / 1000.0;
                 poscmd = 0;
                 loadcmd = 0;
                 extcmd = 0;
@@ -109,14 +137,15 @@ namespace ClsStaticStation
 
                 if (mdemotestingp < mdemodata.Count - 1)
                 {
-                    load = mdemodata[mdemotestingp].load;
-                    pos = mdemodata[mdemotestingp].pos;
-                    ext = mdemodata[mdemotestingp].ext;
+                    load = mdemodata[mdemotestingp].load*(50+mspenum-1)/50;
+                    pos = mdemodata[mdemotestingp].pos * (50 + mspenum-1) / 50;
+                    ext = mdemodata[mdemotestingp].ext * (50 + mspenum-1) / 50;
                     time = mdemodata[mdemotestingp].time;
                     mdemotestingp = mdemotestingp + 1;
                 }
                 else
                 {
+                   
                     mdemotesting = false;
                 }
 
@@ -684,45 +713,49 @@ namespace ClsStaticStation
 
 
         }
-        public override void starttest()
+        public override void starttest(int spenum)
         {
             short k = 0;
             RawDataDataGroup d;
-          
 
+            mspenum = spenum;
 
             myedc.Data.SetTime(XLDOPE.SETTIME_MODE.IMMEDIATE, 0);
 
-            bool b = false;
-            while (b == false)
-            {
-                Application.DoEvents();
-                if (time < 1)
-                {
-                    b = true;
-                }
-            }
 
+            if (mdemo == false )
+            {
+                bool b = false;
+                while (b == false)
+                {
+                    Application.DoEvents();
+                    if (time < 1)
+                    {
+                        b = true;
+                    }
+                }
+
+            }
 
             int iii = 0;
 
+            int a= ClsStatic.arraydata[0].NodeCount;
 
-
-            while (iii < ClsStatic.arraydata[0].NodeCount)
+            while (iii < a)
             {
 
 
-                ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 10);
-                ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 10);
+                ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 0);
+                ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 0);
 
                 iii = iii + 1;
 
 
             }
-
+            
             ClsStatic.arraydatacount[0] = 0;
             ClsStatic.arraydatacount[1] = 0;
-
+          
 
             mtestrun = true;
 
@@ -966,25 +999,20 @@ namespace ClsStaticStation
         public override void CrossUp(int ctrlmode, double speed)
         {
             short tan = 0;
-           
-           
-             myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, XLNet.XLDOPE.CTRL.OPEN, speed / 60, ref tan);
-            
-          
+            double m = speed ;
+
+          myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
+
 
         }
-        public override void CrossDown(int ctrlmode, double speed)
-        {
-            short tan = 0;
-            myedc.Move.FMove(XLNet.XLDOPE.MOVE.DOWN, XLNet.XLDOPE.CTRL.OPEN, speed/60 , ref tan);
-        }
+
 
         public override void CrossStop(int ctrlmode)
         {
             short tan = 0;
+            //myedc.Move.Halt((XLDOPE.CTRL)ctrlmode, ref tan);
 
-            XLNet.XLDOPE.ERR p;
-            p = myedc.Move.SHalt(ref tan);
+            myedc.Move.SHalt(ref tan);
         }
         public override void endtest()
         {
@@ -1372,7 +1400,7 @@ namespace ClsStaticStation
             mtimer.Tick += new EventHandler(mtimer_Tick);
             mtimer.Interval = 50;
 
-
+            mstarttickcount = Environment.TickCount;
          
 
         }
@@ -1450,7 +1478,7 @@ namespace ClsStaticStation
             ma.Id = 0;
             ma.mydatainfo = Sample;
             mdatalist.Add(ma);
-            oncount = oncount + 1;
+          //  oncount = oncount + 1;
 
             return ;
         }
@@ -1636,6 +1664,9 @@ namespace ClsStaticStation
                     loadcmd = 0;
                     extcmd = 0;
                     //time = AccurateTimer.GetTimeTick();
+
+
+
                     time = GGMsg.Time;
                     count = 0;
 
@@ -1643,7 +1674,7 @@ namespace ClsStaticStation
 
                     ClsStaticStation.m_Global.msensor4 = GGMsg.Sensor[3];
 
-                    ClsStaticStation.m_Global.msensor5 = GGMsg.Sensor[4];
+                    ClsStaticStation.m_Global.msensor5 = GGMsg.Test3;
 
                     ClsStaticStation.m_Global.msensor6 = GGMsg.Sensor[5];
 
@@ -2209,39 +2240,56 @@ namespace ClsStaticStation
         int OpenConnection()
         {
 
-            try
+            FormOnLine f = new FormOnLine();
+            f.sel = -1;
+
+            f.ShowDialog();
+            int w = f.sel;
+            uint n = f.device;
+            if (w == -1)
             {
-               myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0,2,0,0,0,0);
-               //myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0);
-
+                MessageBox.Show("请选择网卡");
             }
-            catch (System.BadImageFormatException)
+            else
             {
+                
 
 
-            }
+
+                try
+                {
+                    myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, n, w, f.byte0, f.byte1, f.byte2, f.byte3);
+                    //myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0);
+
+                }
+                catch (System.BadImageFormatException)
+                {
+
+
+                }
 
 #if DSP_ONDATABLOCK
 
             myedc.Eh.SetOnDataBlockSize(100);
 #else
-            myedc.Eh.SetOnDataBlockSize(0);
+                myedc.Eh.SetOnDataBlockSize(0);
 #endif
 
-            myedc.Eh.OnHandlerFuncHdlr += new XLDOPE.OnHandlerFuncHdlr(Eh_OnHandlerFuncHdlr);
+                myedc.Eh.OnHandlerFuncHdlr += new XLDOPE.OnHandlerFuncHdlr(Eh_OnHandlerFuncHdlr);
 
 #if DSP_ONDATABLOCK
             myedc.Eh.OnDataBlockHdlr += new XLDOPE.OnDataBlockHdlr(Eh_OnDataBlockHdlr);
 #else
-            myedc.Eh.OnDataHdlr += new XLDOPE.OnDataHdlr(Eh_OnDataHdlr);
+                myedc.Eh.OnDataHdlr += new XLDOPE.OnDataHdlr(Eh_OnDataHdlr);
 #endif
 
 
-            myedc.Eh.OnPosMsgHdlr += new XLDOPE.OnPosMsgHdlr(Eh_OnPosMsgHdlr);
+                myedc.Eh.OnPosMsgHdlr += new XLDOPE.OnPosMsgHdlr(Eh_OnPosMsgHdlr);
 
-            mtimer.Start();
+                mtimer.Start();
 
 
+            }
             return 0;
         }
 

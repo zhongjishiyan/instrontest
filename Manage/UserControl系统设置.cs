@@ -37,18 +37,28 @@ namespace TabHeaderDemo
                 cbokind.Items.Add(GlobeVal.mysys.ControllerName[i]);
               
             }
-            cbokind.SelectedIndex = GlobeVal.mysys.controllerkind;
 
+#if Demo 
+            cbokind.SelectedIndex = 2;
+            cbokind.Enabled = false;
+#else
+            cbokind.Enabled = true;
+            cbokind.SelectedIndex = GlobeVal.mysys.controllerkind;
+#endif
             cbomachine.Items.Clear();
             for (int i = 0; i < GlobeVal.mysys.MachineCount; i++)
             {
                 cbomachine.Items.Add(GlobeVal.mysys.MachineName[i]);
 
             }
-
+#if Demo
+            cbomachine.SelectedIndex = 0;
+            cbomachine.Enabled = false;
+#else
+             cbomachine.Enabled = true;
             cbomachine.SelectedIndex = GlobeVal.mysys.machinekind;
+#endif
 
-          
         }
         public  UserControl系统设置()
         {

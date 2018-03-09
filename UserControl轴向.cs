@@ -230,15 +230,24 @@ namespace TabHeaderDemo
 
                    GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
 
-           
-                 GlobeVal.myarm.Init((int)this.Handle);
+
+
+                GlobeVal.myarm.Init((int)this.Handle);
                 
                 
       
             GlobeVal.FormmainLab.timer1.Enabled =true;
-            if (GlobeVal.myarm.mdemo == true)
-            {
-                GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\拉伸1演示.txt");
+                if (GlobeVal.myarm.mdemo == true)
+                {
+                    if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\"+GlobeVal.mysys.demotxt) == true)
+                    {
+                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\"+ GlobeVal.mysys.demotxt);
+                    }
+                    else
+                    {
+                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\拉伸2演示.txt");
+                    }
+                
 
             }
 

@@ -195,6 +195,7 @@ namespace TabHeaderDemo
             tabControl1.SelectedIndex = sel;
             tabControl2.SelectedIndex = sel;
 
+            splitContainer1.SplitterDistance = this.Width / 3 * 2;
            
             if (sel == 0)
             {

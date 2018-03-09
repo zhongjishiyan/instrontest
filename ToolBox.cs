@@ -2890,6 +2890,8 @@ namespace ReportDesigner
 			_textBox.LostFocus += new EventHandler(OnTextBox_LostFocus);
 
 			//Prepare richTextbox's context menu.
+
+           
 			ContextMenu theMenu;
 			MenuItem    menuItem;
 
@@ -2926,7 +2928,7 @@ namespace ReportDesigner
 			theMenu.MenuItems.Add(menuItem);
 
 			theMenu.Popup += new EventHandler(OnTexBoxMenu_Popup);
-
+        
 			_textBox.ContextMenu = theMenu;
 
 			Controls.Add(_textBox);
@@ -3753,6 +3755,7 @@ namespace ReportDesigner
 
 		private void OnTexBoxMenu_Popup(object sender, EventArgs e)
 		{
+           
 			ContextMenu theMenu = sender as ContextMenu;
 			bool bHasSelection  = (0 < _textBox.SelectionLength);
 

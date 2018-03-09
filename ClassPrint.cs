@@ -744,7 +744,10 @@ namespace TabHeaderDemo
         {
             if (Visible)
             {
-                path.AddArc((float)x, (float)y, (float)width, (float)height, (float)startAngle, (float)(sweepAngle));
+               // RectangleF rc = new RectangleF((float)x, (float)y, (float)width, (float)height);
+              
+
+               // path.AddArc(rc, (float)startAngle, (float)(sweepAngle));
             }
         }
     }

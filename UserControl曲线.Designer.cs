@@ -60,6 +60,10 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numxmin = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.label31 = new System.Windows.Forms.Label();
+            this.numxmax = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.label30 = new System.Windows.Forms.Label();
             this.rdbxhandzoom = new System.Windows.Forms.RadioButton();
             this.rdbxautozoom = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -73,6 +77,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.grpy1scale = new System.Windows.Forms.GroupBox();
+            this.numy1min = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.label50 = new System.Windows.Forms.Label();
+            this.numy1max = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.label51 = new System.Windows.Forms.Label();
             this.rdby1handzoom = new System.Windows.Forms.RadioButton();
             this.rdby1autozoom = new System.Windows.Forms.RadioButton();
             this.grpy1define = new System.Windows.Forms.GroupBox();
@@ -81,6 +89,10 @@
             this.cboy1channel = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.grpyscale = new System.Windows.Forms.GroupBox();
+            this.numymin = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.label48 = new System.Windows.Forms.Label();
+            this.numymax = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.label49 = new System.Windows.Forms.Label();
             this.rdbyhandzoom = new System.Windows.Forms.RadioButton();
             this.rdbyautozoom = new System.Windows.Forms.RadioButton();
             this.grpydefine = new System.Windows.Forms.GroupBox();
@@ -207,18 +219,6 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.label30 = new System.Windows.Forms.Label();
-            this.numxmax = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.label31 = new System.Windows.Forms.Label();
-            this.numxmin = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.numymin = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.label48 = new System.Windows.Forms.Label();
-            this.numymax = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.label49 = new System.Windows.Forms.Label();
-            this.numy1min = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.label50 = new System.Windows.Forms.Label();
-            this.numy1max = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.label51 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -234,13 +234,19 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numxmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numxmax)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.grpy1scale.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numy1min)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numy1max)).BeginInit();
             this.grpy1define.SuspendLayout();
             this.grpyscale.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numymin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numymax)).BeginInit();
             this.grpydefine.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -277,12 +283,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.legend3)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numxmax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numxmin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numymin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numymax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numy1min)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numy1max)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -593,7 +593,7 @@
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel3.Controls.Add(this.lbltitle0, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -611,7 +611,7 @@
             this.lbltitle0.ForeColor = System.Drawing.Color.Teal;
             this.lbltitle0.Location = new System.Drawing.Point(4, 1);
             this.lbltitle0.Name = "lbltitle0";
-            this.lbltitle0.Size = new System.Drawing.Size(572, 36);
+            this.lbltitle0.Size = new System.Drawing.Size(678, 36);
             this.lbltitle0.TabIndex = 0;
             this.lbltitle0.Text = "设置曲线类型";
             this.lbltitle0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -620,7 +620,7 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(583, 4);
+            this.panel4.Location = new System.Drawing.Point(689, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(32, 30);
             this.panel4.TabIndex = 1;
@@ -677,6 +677,46 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "X 轴缩放比例";
+            // 
+            // numxmin
+            // 
+            this.numxmin.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
+            this.numxmin.Location = new System.Drawing.Point(356, 61);
+            this.numxmin.Name = "numxmin";
+            this.numxmin.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
+            this.numxmin.Size = new System.Drawing.Size(187, 21);
+            this.numxmin.TabIndex = 13;
+            this.numxmin.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numxmin_AfterChangeValue);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.ForeColor = System.Drawing.Color.Black;
+            this.label31.Location = new System.Drawing.Point(262, 65);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(53, 12);
+            this.label31.TabIndex = 12;
+            this.label31.Text = "最小值：";
+            // 
+            // numxmax
+            // 
+            this.numxmax.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
+            this.numxmax.Location = new System.Drawing.Point(356, 23);
+            this.numxmax.Name = "numxmax";
+            this.numxmax.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
+            this.numxmax.Size = new System.Drawing.Size(187, 21);
+            this.numxmax.TabIndex = 11;
+            this.numxmax.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numxmax_AfterChangeValue);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.Black;
+            this.label30.Location = new System.Drawing.Point(261, 28);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(53, 12);
+            this.label30.TabIndex = 2;
+            this.label30.Text = "最大值：";
             // 
             // rdbxhandzoom
             // 
@@ -765,7 +805,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel4.Controls.Add(this.lbltitle1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -783,7 +823,7 @@
             this.lbltitle1.ForeColor = System.Drawing.Color.Teal;
             this.lbltitle1.Location = new System.Drawing.Point(4, 1);
             this.lbltitle1.Name = "lbltitle1";
-            this.lbltitle1.Size = new System.Drawing.Size(586, 36);
+            this.lbltitle1.Size = new System.Drawing.Size(675, 36);
             this.lbltitle1.TabIndex = 0;
             this.lbltitle1.Text = "设置曲线-X轴数据 ";
             this.lbltitle1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -792,7 +832,7 @@
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(597, 4);
+            this.panel2.Location = new System.Drawing.Point(686, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(32, 30);
             this.panel2.TabIndex = 1;
@@ -835,6 +875,46 @@
             this.grpy1scale.TabIndex = 4;
             this.grpy1scale.TabStop = false;
             this.grpy1scale.Text = "Y 轴缩放比例";
+            // 
+            // numy1min
+            // 
+            this.numy1min.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
+            this.numy1min.Location = new System.Drawing.Point(325, 65);
+            this.numy1min.Name = "numy1min";
+            this.numy1min.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
+            this.numy1min.Size = new System.Drawing.Size(187, 21);
+            this.numy1min.TabIndex = 17;
+            this.numy1min.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numy1min_AfterChangeValue);
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.ForeColor = System.Drawing.Color.Black;
+            this.label50.Location = new System.Drawing.Point(231, 69);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(53, 12);
+            this.label50.TabIndex = 16;
+            this.label50.Text = "最小值：";
+            // 
+            // numy1max
+            // 
+            this.numy1max.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
+            this.numy1max.Location = new System.Drawing.Point(325, 27);
+            this.numy1max.Name = "numy1max";
+            this.numy1max.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
+            this.numy1max.Size = new System.Drawing.Size(187, 21);
+            this.numy1max.TabIndex = 15;
+            this.numy1max.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numy1max_AfterChangeValue);
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.ForeColor = System.Drawing.Color.Black;
+            this.label51.Location = new System.Drawing.Point(230, 32);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(53, 12);
+            this.label51.TabIndex = 14;
+            this.label51.Text = "最大值：";
             // 
             // rdby1handzoom
             // 
@@ -931,6 +1011,46 @@
             this.grpyscale.TabIndex = 2;
             this.grpyscale.TabStop = false;
             this.grpyscale.Text = "Y 轴缩放比例";
+            // 
+            // numymin
+            // 
+            this.numymin.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
+            this.numymin.Location = new System.Drawing.Point(325, 65);
+            this.numymin.Name = "numymin";
+            this.numymin.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
+            this.numymin.Size = new System.Drawing.Size(187, 21);
+            this.numymin.TabIndex = 17;
+            this.numymin.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numymin_AfterChangeValue);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.ForeColor = System.Drawing.Color.Black;
+            this.label48.Location = new System.Drawing.Point(231, 69);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(53, 12);
+            this.label48.TabIndex = 16;
+            this.label48.Text = "最小值：";
+            // 
+            // numymax
+            // 
+            this.numymax.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
+            this.numymax.Location = new System.Drawing.Point(325, 27);
+            this.numymax.Name = "numymax";
+            this.numymax.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
+            this.numymax.Size = new System.Drawing.Size(187, 21);
+            this.numymax.TabIndex = 15;
+            this.numymax.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numymax_AfterChangeValue);
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.ForeColor = System.Drawing.Color.Black;
+            this.label49.Location = new System.Drawing.Point(230, 32);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(53, 12);
+            this.label49.TabIndex = 14;
+            this.label49.Text = "最大值：";
             // 
             // rdbyhandzoom
             // 
@@ -1042,7 +1162,7 @@
             this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel6.Controls.Add(this.lbltitle2, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1060,7 +1180,7 @@
             this.lbltitle2.ForeColor = System.Drawing.Color.Teal;
             this.lbltitle2.Location = new System.Drawing.Point(4, 1);
             this.lbltitle2.Name = "lbltitle2";
-            this.lbltitle2.Size = new System.Drawing.Size(592, 36);
+            this.lbltitle2.Size = new System.Drawing.Size(680, 36);
             this.lbltitle2.TabIndex = 0;
             this.lbltitle2.Text = "设置曲线-Y轴数据";
             this.lbltitle2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1069,7 +1189,7 @@
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(603, 4);
+            this.panel3.Location = new System.Drawing.Point(691, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(32, 30);
             this.panel3.TabIndex = 1;
@@ -2379,7 +2499,7 @@
             this.tableLayoutPanel9.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel9.Controls.Add(this.lbltitle3, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2397,7 +2517,7 @@
             this.lbltitle3.ForeColor = System.Drawing.Color.Teal;
             this.lbltitle3.Location = new System.Drawing.Point(4, 1);
             this.lbltitle3.Name = "lbltitle3";
-            this.lbltitle3.Size = new System.Drawing.Size(601, 36);
+            this.lbltitle3.Size = new System.Drawing.Size(681, 36);
             this.lbltitle3.TabIndex = 0;
             this.lbltitle3.Text = "设置曲线-高级项目";
             this.lbltitle3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2406,7 +2526,7 @@
             // 
             this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel6.Location = new System.Drawing.Point(612, 4);
+            this.panel6.Location = new System.Drawing.Point(692, 4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(32, 30);
             this.panel6.TabIndex = 1;
@@ -2444,126 +2564,6 @@
             this.listBox2.Size = new System.Drawing.Size(288, 4);
             this.listBox2.TabIndex = 1;
             // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(261, 28);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(53, 12);
-            this.label30.TabIndex = 2;
-            this.label30.Text = "最大值：";
-            // 
-            // numxmax
-            // 
-            this.numxmax.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
-            this.numxmax.Location = new System.Drawing.Point(356, 23);
-            this.numxmax.Name = "numxmax";
-            this.numxmax.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
-            this.numxmax.Size = new System.Drawing.Size(187, 21);
-            this.numxmax.TabIndex = 11;
-            this.numxmax.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numxmax_AfterChangeValue);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(262, 65);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(53, 12);
-            this.label31.TabIndex = 12;
-            this.label31.Text = "最小值：";
-            // 
-            // numxmin
-            // 
-            this.numxmin.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
-            this.numxmin.Location = new System.Drawing.Point(356, 61);
-            this.numxmin.Name = "numxmin";
-            this.numxmin.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
-            this.numxmin.Size = new System.Drawing.Size(187, 21);
-            this.numxmin.TabIndex = 13;
-            this.numxmin.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numxmin_AfterChangeValue);
-            // 
-            // numymin
-            // 
-            this.numymin.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
-            this.numymin.Location = new System.Drawing.Point(325, 65);
-            this.numymin.Name = "numymin";
-            this.numymin.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
-            this.numymin.Size = new System.Drawing.Size(187, 21);
-            this.numymin.TabIndex = 17;
-            this.numymin.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numymin_AfterChangeValue);
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.ForeColor = System.Drawing.Color.Black;
-            this.label48.Location = new System.Drawing.Point(231, 69);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(53, 12);
-            this.label48.TabIndex = 16;
-            this.label48.Text = "最小值：";
-            // 
-            // numymax
-            // 
-            this.numymax.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
-            this.numymax.Location = new System.Drawing.Point(325, 27);
-            this.numymax.Name = "numymax";
-            this.numymax.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
-            this.numymax.Size = new System.Drawing.Size(187, 21);
-            this.numymax.TabIndex = 15;
-            this.numymax.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numymax_AfterChangeValue);
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.ForeColor = System.Drawing.Color.Black;
-            this.label49.Location = new System.Drawing.Point(230, 32);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(53, 12);
-            this.label49.TabIndex = 14;
-            this.label49.Text = "最大值：";
-            // 
-            // numy1min
-            // 
-            this.numy1min.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
-            this.numy1min.Location = new System.Drawing.Point(325, 65);
-            this.numy1min.Name = "numy1min";
-            this.numy1min.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
-            this.numy1min.Size = new System.Drawing.Size(187, 21);
-            this.numy1min.TabIndex = 17;
-            this.numy1min.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numy1min_AfterChangeValue);
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.ForeColor = System.Drawing.Color.Black;
-            this.label50.Location = new System.Drawing.Point(231, 69);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(53, 12);
-            this.label50.TabIndex = 16;
-            this.label50.Text = "最小值：";
-            // 
-            // numy1max
-            // 
-            this.numy1max.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
-            this.numy1max.Location = new System.Drawing.Point(325, 27);
-            this.numy1max.Name = "numy1max";
-            this.numy1max.OutOfRangeMode = NationalInstruments.UI.NumericOutOfRangeMode.CoerceToRange;
-            this.numy1max.Size = new System.Drawing.Size(187, 21);
-            this.numy1max.TabIndex = 15;
-            this.numy1max.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numy1max_AfterChangeValue);
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.ForeColor = System.Drawing.Color.Black;
-            this.label51.Location = new System.Drawing.Point(230, 32);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(53, 12);
-            this.label51.TabIndex = 14;
-            this.label51.Text = "最大值：";
-            // 
             // UserControl曲线
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2590,6 +2590,8 @@
             this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numxmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numxmax)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -2597,10 +2599,14 @@
             this.panel5.ResumeLayout(false);
             this.grpy1scale.ResumeLayout(false);
             this.grpy1scale.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numy1min)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numy1max)).EndInit();
             this.grpy1define.ResumeLayout(false);
             this.grpy1define.PerformLayout();
             this.grpyscale.ResumeLayout(false);
             this.grpyscale.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numymin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numymax)).EndInit();
             this.grpydefine.ResumeLayout(false);
             this.grpydefine.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -2647,12 +2653,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.legend3)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numxmax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numxmin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numymin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numymax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numy1min)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numy1max)).EndInit();
             this.ResumeLayout(false);
 
         }

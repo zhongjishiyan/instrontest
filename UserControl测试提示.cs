@@ -38,6 +38,9 @@ namespace TabHeaderDemo
                         listView1.Items[CComLibrary.GlobeVal.filesave.mstep[j].Id].Checked = true;
                 }
             }
+            listView1.Items[CComLibrary.GlobeVal.filesave.mstep[3].Id].Checked = true;
+            listView1.Items[CComLibrary.GlobeVal.filesave.mstep[5].Id].Checked = true;
+
             b = true;
             
         }
@@ -146,7 +149,8 @@ namespace TabHeaderDemo
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
                 if ((CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "试样数字输入")
-                    ||(CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "试样尺寸输入"))
+                    ||(CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "试样尺寸输入")|| 
+                    (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "试样选项输入"))
                 {
                     if (s != CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring)
                     {

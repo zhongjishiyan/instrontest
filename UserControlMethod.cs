@@ -839,10 +839,10 @@ namespace TabHeaderDemo
         private void btnexsave_Click(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.currentspenumber = 0;
-           
-            CComLibrary.GlobeVal.filesave.SerializeNow(mmethodfilename);
-            GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(mmethodfilename); 
-            ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey() ;
+            
+            CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.mmethodfilename);
+            GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(GlobeVal.mmethodfilename); 
+           ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey() ;
             ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
         }
 
@@ -872,10 +872,10 @@ namespace TabHeaderDemo
             }
             else
             {
-
-
-                CComLibrary.GlobeVal.filesave.SerializeNow(saveFileDialog1.FileName);
                 mmethodfilename = Path.GetFileName(saveFileDialog1.FileName);
+                CComLibrary.GlobeVal.filesave.methodname = Path.GetFileNameWithoutExtension(saveFileDialog1.FileName);
+                CComLibrary.GlobeVal.filesave.SerializeNow(saveFileDialog1.FileName);
+              
                 this.UserControl常规1.txtmethodname.Text = mmethodfilename;
             }
 

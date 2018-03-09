@@ -1508,9 +1508,10 @@ namespace ClsStaticStation
              c.sizeitem[2].fullminbase = 0;
              c.sizeitem[2].originprecise = 3;
 
-             
 
-             shapelist.Add(c);
+
+
+            shapelist.Add(c);
 
              c = new shapeitem();
              c.shapename = "圆形";

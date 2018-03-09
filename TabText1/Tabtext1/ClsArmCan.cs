@@ -25,7 +25,7 @@ namespace ClsStaticStation
 
         static double m_samplestarttime;//采样信号开始时间
 
-        bool m_dianyabaohucontrol = false;
+     
         bool m_sensor5state0 = false;
         bool m_sensor5state1 = false;
         bool m_sensor5state2 = false;
@@ -483,84 +483,9 @@ namespace ClsStaticStation
          
 
         }
-        private void ReadMessages(int i)
-        {
+     
 
-
-        }
-
-        private void ReadMessages3(int i)
-        {
-
-            CAN_OBJ frameinfo = new CAN_OBJ();
-            int mCount = 0;
-            while (this.mCan[i].gRecMsgBufHead != this.mCan[i].gRecMsgBufTail)
-            {
-                string tmpstr;
-                frameinfo = this.mCan[i].gRecMsgBuf[this.mCan[i].gRecMsgBufTail];
-                this.mCan[i].gRecMsgBufTail += 1;
-                if (this.mCan[i].gRecMsgBufTail >= ComProc.REC_MSG_BUF_MAX)
-                {
-                    this.mCan[i].gRecMsgBufTail = 0;
-                }
-                string str = "Rec: ";
-                if (frameinfo.TimeFlag == 0)
-                {
-                    tmpstr = "Time:  ";
-                }
-                else
-                {
-                    tmpstr = "Time:" + string.Format("{0:X8}h", frameinfo.TimeStamp);
-                }
-
-                if (frameinfo.ID == 0x139)
-                {
-                    mad0 = (frameinfo.data[0] + frameinfo.data[1] * 256) / 1000.0;
-
-                }
-
-                if (frameinfo.ID == 0x141)
-                {
-                    mad1 = (frameinfo.data[0] + frameinfo.data[1] * 256) / 1000.0;
-
-
-                }
-                if (frameinfo.ID == 0x143)
-                {
-                    mad2 = (frameinfo.data[0] + frameinfo.data[1] * 256) / 1000.0;
-
-
-                    m_MDataIno = new a9500.MDataIno();
-                    m_MDataIno.sensor5 = mad0;
-                    m_MDataIno.sensor6 = mad1;
-                    m_MDataIno.sensor7 = mad2;
-
-
-                    m_MDataIno.Id = DeviceNum;
-                    m_MDataIno.mydatainfo = GGMsg;
-
-
-                    m_starttime = m_starttime + 0.01;
-                    //m_MDataIno.time1 = GGMsg.time;
-                    m_MDataIno.time1 = m_starttime;
-
-                    // if (mCount % 2 == 1)
-                    {
-                        mdatalist.Add(m_MDataIno);
-                    }
-                }
-
-                mCount++;
-                if (mCount >= 10)
-                {
-                    break;
-                }
-                Application.DoEvents();
-            }
-
-
-
-        }
+        
         private void ReadMessages2(int i)
         {
 
@@ -1822,6 +1747,7 @@ namespace ClsStaticStation
                     }
                     else
                     {
+                        /*
                         if (CComLibrary.GlobeVal.filesave.Samplecheck)
                         {
                             if ((m_dianyabaohucontrol == true) )
@@ -1834,7 +1760,7 @@ namespace ClsStaticStation
 
                                         if (m_sensor5state3count>=10)
                                         {
-                                            m_sensor5state3 = true;
+                                            m_sensor5state3 = false;
                                         }
                                     }
                                     if ((sensor6>1.586) && (sensor6 <1.786))
@@ -1842,7 +1768,7 @@ namespace ClsStaticStation
                                         m_sensor6state3count = m_sensor6state3count + 1;
                                         if (m_sensor6state3count >= 10)
                                         {
-                                            m_sensor6state3 = true;
+                                            m_sensor6state3 = false;
                                         }
                                     }
                                     if ((sensor7 >1.586) && (sensor7 <1.786))
@@ -1850,7 +1776,7 @@ namespace ClsStaticStation
                                         m_sensor7state3count = m_sensor7state3count + 1;
                                         if (m_sensor7state3count >= 10)
                                         {
-                                            m_sensor7state3 = true;
+                                            m_sensor7state3 = false ;
                                         }
 
                                     }
@@ -2007,6 +1933,7 @@ namespace ClsStaticStation
 
                             }
                         }
+                        */
                     }
 
                     
@@ -2552,7 +2479,7 @@ namespace ClsStaticStation
 
 
 
-        public override void starttest()
+        public override void starttest(int spenum)
         {
             short k = 0;
             RawDataDataGroup d;
@@ -2584,14 +2511,14 @@ namespace ClsStaticStation
 
             int iii = 0;
 
+            int ncount = ClsStatic.arraydata[0].NodeCount;
 
-
-            while (iii < ClsStatic.arraydata[0].NodeCount)
+            while (iii < ncount)
             {
 
 
                 ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 10);
-
+              
 
                 iii = iii + 1;
 
@@ -2599,11 +2526,11 @@ namespace ClsStaticStation
             }
 
             ClsStatic.arraydatacount[0] = 0;
-
+       
 
             iii = 0;
-
-            while (iii < ClsStatic.arraydata[1].NodeCount)
+            ncount = ClsStatic.arraydata[1].NodeCount;
+            while (iii < ncount)
             {
 
 
@@ -3438,15 +3365,14 @@ namespace ClsStaticStation
                 www = m_runstate1;
             }
 
-            if (this.mcanenabled == true)
+           
+
+            if (ClsStaticStation.m_Global.madlist.Count > 1000)
             {
-                // ReadMessages(0);
-                //  ReadMessages2(0);
-                // ReadMessages3(1);
-                // ReadMessages4(1);
-                // ReadError1();
-                // ReadError2();
+                int a = ClsStaticStation.m_Global.madlist.Count - 1000-1;
+                ClsStaticStation.m_Global.madlist.RemoveRange(1000,a);
             }
+
 
         }
 

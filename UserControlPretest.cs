@@ -386,13 +386,14 @@ namespace TabHeaderDemo
             else
             {
                 GlobeVal.userControlmethod1.OpenTheMethodSilently(GlobeVal.userControlpretest1.gfilename);
+             
             }
 
             if (newfile == true)
             {
                 if (CComLibrary.GlobeVal.filesave.mwizard == true)
                 {
-                   // CComLibrary.GlobeVal.filesave.mspecount = 100;
+                  
                 }
                 CComLibrary.GlobeVal.filesave.InitTable();
             }
@@ -439,6 +440,10 @@ namespace TabHeaderDemo
 
                 SampleNextStep(false);
 
+              
+
+
+
             }
             else if (tabControl1.SelectedIndex == 0)
             {
@@ -481,7 +486,21 @@ namespace TabHeaderDemo
                
 
                 GlobeVal.spefilename = lblpath.Text + "\\" + txtsamplename.Text + ".spe";
-               
+
+
+                if (File.Exists(GlobeVal.spefilename)==true)
+                {
+                    DialogResult r = MessageBox.Show("相同文件名数据已经存在，是否覆盖？", "提示", MessageBoxButtons.YesNo);
+                    
+                    if (r == DialogResult.Yes)
+                    {
+
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
 
                 SampleNextStep(true);
 
@@ -851,14 +870,17 @@ namespace TabHeaderDemo
                         lv.SubItems.Add(System.IO.File.GetLastWriteTime(fileName).ToLongDateString() + " " + System.IO.File.GetLastWriteTime(fileName).ToLongTimeString());
                         lv.SubItems.Add(Path.GetDirectoryName(fileName));
 
-                        if (this.txtsample.Text == listView2.Items[0].Text)
+                        if (listView2.Items.Count > 0)
                         {
-                            listView2.Items.RemoveAt(0);
-                        }
+                            if (this.txtsample.Text == listView2.Items[0].Text)
+                            {
+                                listView2.Items.RemoveAt(0);
+                            }
 
-                        if (listView2.Items.Count >= 20)
-                        {
-                            listView2.Items.RemoveAt(19);
+                            if (listView2.Items.Count >= 20)
+                            {
+                                listView2.Items.RemoveAt(19);
+                            }
                         }
                         listView2.Items.Insert(0, lv);
 

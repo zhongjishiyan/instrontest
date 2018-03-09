@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.jMeter8 = new TabHeaderDemo.JMeter();
+            this.jMeter7 = new TabHeaderDemo.JMeter();
+            this.jMeter6 = new TabHeaderDemo.JMeter();
+            this.jMeter5 = new TabHeaderDemo.JMeter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.jMeter1 = new TabHeaderDemo.JMeter();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -38,10 +42,6 @@
             this.jMeter3 = new TabHeaderDemo.JMeter();
             this.jMeter4 = new TabHeaderDemo.JMeter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.jMeter5 = new TabHeaderDemo.JMeter();
-            this.jMeter6 = new TabHeaderDemo.JMeter();
-            this.jMeter7 = new TabHeaderDemo.JMeter();
-            this.jMeter8 = new TabHeaderDemo.JMeter();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -83,6 +83,42 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(319, 560);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // jMeter8
+            // 
+            this.jMeter8.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter8.Location = new System.Drawing.Point(3, 493);
+            this.jMeter8.Name = "jMeter8";
+            this.jMeter8.Size = new System.Drawing.Size(313, 64);
+            this.jMeter8.TabIndex = 8;
+            // 
+            // jMeter7
+            // 
+            this.jMeter7.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter7.Location = new System.Drawing.Point(3, 423);
+            this.jMeter7.Name = "jMeter7";
+            this.jMeter7.Size = new System.Drawing.Size(313, 64);
+            this.jMeter7.TabIndex = 7;
+            // 
+            // jMeter6
+            // 
+            this.jMeter6.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter6.Location = new System.Drawing.Point(3, 283);
+            this.jMeter6.Name = "jMeter6";
+            this.jMeter6.Size = new System.Drawing.Size(313, 64);
+            this.jMeter6.TabIndex = 6;
+            // 
+            // jMeter5
+            // 
+            this.jMeter5.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter5.Location = new System.Drawing.Point(3, 353);
+            this.jMeter5.Name = "jMeter5";
+            this.jMeter5.Size = new System.Drawing.Size(313, 64);
+            this.jMeter5.TabIndex = 5;
             // 
             // panel1
             // 
@@ -142,42 +178,6 @@
             // 
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // jMeter5
-            // 
-            this.jMeter5.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter5.Location = new System.Drawing.Point(3, 353);
-            this.jMeter5.Name = "jMeter5";
-            this.jMeter5.Size = new System.Drawing.Size(313, 64);
-            this.jMeter5.TabIndex = 5;
-            // 
-            // jMeter6
-            // 
-            this.jMeter6.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter6.Location = new System.Drawing.Point(3, 283);
-            this.jMeter6.Name = "jMeter6";
-            this.jMeter6.Size = new System.Drawing.Size(313, 64);
-            this.jMeter6.TabIndex = 6;
-            // 
-            // jMeter7
-            // 
-            this.jMeter7.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter7.Location = new System.Drawing.Point(3, 423);
-            this.jMeter7.Name = "jMeter7";
-            this.jMeter7.Size = new System.Drawing.Size(313, 64);
-            this.jMeter7.TabIndex = 7;
-            // 
-            // jMeter8
-            // 
-            this.jMeter8.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter8.Location = new System.Drawing.Point(3, 493);
-            this.jMeter8.Name = "jMeter8";
-            this.jMeter8.Size = new System.Drawing.Size(313, 64);
-            this.jMeter8.TabIndex = 8;
             // 
             // UserControlMeter
             // 

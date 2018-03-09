@@ -497,7 +497,7 @@
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 371F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 377F));
             this.tableLayoutPanel3.Controls.Add(this.lbltitle, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -515,7 +515,7 @@
             this.lbltitle.ForeColor = System.Drawing.Color.Teal;
             this.lbltitle.Location = new System.Drawing.Point(4, 1);
             this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(337, 50);
+            this.lbltitle.Size = new System.Drawing.Size(331, 50);
             this.lbltitle.TabIndex = 0;
             this.lbltitle.Text = "设置结果表 1-列 ";
             this.lbltitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -524,7 +524,7 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(348, 4);
+            this.panel4.Location = new System.Drawing.Point(342, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(44, 44);
             this.panel4.TabIndex = 1;
@@ -677,7 +677,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 356F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 362F));
             this.tableLayoutPanel4.Controls.Add(this.lbltitlestatic, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -695,7 +695,7 @@
             this.lbltitlestatic.ForeColor = System.Drawing.Color.Teal;
             this.lbltitlestatic.Location = new System.Drawing.Point(4, 1);
             this.lbltitlestatic.Name = "lbltitlestatic";
-            this.lbltitlestatic.Size = new System.Drawing.Size(352, 45);
+            this.lbltitlestatic.Size = new System.Drawing.Size(346, 45);
             this.lbltitlestatic.TabIndex = 0;
             this.lbltitlestatic.Text = "设置结果表 1-统计 ";
             this.lbltitlestatic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -704,7 +704,7 @@
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(363, 4);
+            this.panel2.Location = new System.Drawing.Point(357, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(33, 39);
             this.panel2.TabIndex = 1;
@@ -971,7 +971,7 @@
             this.tableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel7.ColumnCount = 2;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 356F));
             this.tableLayoutPanel7.Controls.Add(this.lbltitleformat, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -989,7 +989,7 @@
             this.lbltitleformat.ForeColor = System.Drawing.Color.Teal;
             this.lbltitleformat.Location = new System.Drawing.Point(4, 1);
             this.lbltitleformat.Name = "lbltitleformat";
-            this.lbltitleformat.Size = new System.Drawing.Size(364, 45);
+            this.lbltitleformat.Size = new System.Drawing.Size(358, 45);
             this.lbltitleformat.TabIndex = 0;
             this.lbltitleformat.Text = "设置结果表 1-格式 ";
             this.lbltitleformat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -998,7 +998,7 @@
             // 
             this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(375, 4);
+            this.panel5.Location = new System.Drawing.Point(369, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(47, 39);
             this.panel5.TabIndex = 1;

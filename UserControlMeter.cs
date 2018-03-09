@@ -45,7 +45,26 @@ namespace TabHeaderDemo
         public void Init()
         {
 
+          
             for (int i = 0; i < mlistmeter.Count; i++)
+
+            {
+
+               
+                if (Screen.PrimaryScreen.Bounds.Width == 1366)
+                {
+                    tableLayoutPanel1.RowStyles[i].Height  = 54;
+                }
+                else
+                {
+                   // tableLayoutPanel1.RowStyles[i].Height = 64;
+                }
+
+
+            }
+        
+
+                for (int i = 0; i < mlistmeter.Count; i++)
             {
                 mlistmeter[i].Visible = false;
             }

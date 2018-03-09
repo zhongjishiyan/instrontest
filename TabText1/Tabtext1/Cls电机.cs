@@ -1458,7 +1458,7 @@ namespace ClsStaticStation
 
 
 
-        public override void starttest()
+        public override void starttest(int spenum)
         {
             short k = 0;
 

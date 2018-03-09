@@ -97,7 +97,7 @@
             this.btnleft.Size = new System.Drawing.Size(24, 22);
             this.btnleft.TabIndex = 0;
             this.btnleft.UseVisualStyleBackColor = true;
-            this.btnleft.Click += new System.EventHandler(this.button1_Click);
+            this.btnleft.Click += new System.EventHandler(this.btnleft_Click);
             // 
             // btnright
             // 

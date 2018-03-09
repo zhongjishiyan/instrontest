@@ -47,11 +47,11 @@ namespace TabHeaderDemo
 
         public void Init()
         {
-           
+
 
 
         }
-        public  UserControl计算()
+        public UserControl计算()
         {
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
@@ -59,19 +59,20 @@ namespace TabHeaderDemo
 
         private void lstinclude_MouseClick(object sender, MouseEventArgs e)
         {
-            if  (lstinclude.SelectedIndex >=0)
+            if (lstinclude.SelectedIndex >= 0)
             {
                 mtempoutput = lstinclude.mlist[lstinclude.SelectedIndex];
-            lblcaption.Text = lstinclude.mlist[lstinclude.SelectedIndex].formulaname; 
-            this.txtExplain.Text = lstinclude.mlist[lstinclude.SelectedIndex].formulaexplain;
-            this.cbounit.Items.Clear();
-            for (int i = 0; i < lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.cUnitCount; i++)
-            {
-                this.cbounit.Items.Add(lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.cUnits[i]);  
-            }
-            this.cbounit.SelectedIndex = lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.cUnitsel;
-            this.txtprecise.Text = lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.precise.ToString();
-            this.chkshow.Checked = lstinclude.mlist[lstinclude.SelectedIndex].show; 
+                lblcaption.Text = lstinclude.mlist[lstinclude.SelectedIndex].formulaname;
+                this.txtExplain.Text = lstinclude.mlist[lstinclude.SelectedIndex].formulaexplain;
+
+                this.cbounit.Items.Clear();
+                for (int i = 0; i < lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.cUnitCount; i++)
+                {
+                    this.cbounit.Items.Add(lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.cUnits[i]);
+                }
+                this.cbounit.SelectedIndex = lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.cUnitsel;
+                this.txtprecise.Text = lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.precise.ToString();
+                this.chkshow.Checked = lstinclude.mlist[lstinclude.SelectedIndex].show;
 
 
             }
@@ -84,7 +85,7 @@ namespace TabHeaderDemo
 
         private void lstavail_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
 
             if (lstavail.SelectedIndex >= 0)
             {
@@ -110,7 +111,7 @@ namespace TabHeaderDemo
                 this.lstavail.mlist.Add(this.lstinclude.mlist[this.lstinclude.SelectedIndex]);
 
                 this.lstinclude.mlist[this.lstinclude.SelectedIndex].check = false;
-                    
+
                 this.lstinclude.mlist.RemoveAt(this.lstinclude.SelectedIndex);
                 this.lstinclude.Items.RemoveAt(this.lstinclude.SelectedIndex);
 
@@ -130,7 +131,7 @@ namespace TabHeaderDemo
                 this.lstavail.mlist.RemoveAt(this.lstavail.SelectedIndex);
                 this.lstavail.Items.RemoveAt(this.lstavail.SelectedIndex);
 
-               
+
 
             }
         }
@@ -139,9 +140,9 @@ namespace TabHeaderDemo
         {
             if (mtempoutput != null)
             {
-               mtempoutput.myitemsignal.cUnitsel= this.cbounit.SelectedIndex;
-               mtempoutput.myitemsignal.precise = Convert.ToInt32(this.txtprecise.Text);
-               mtempoutput.show = this.chkshow.Checked;
+                mtempoutput.myitemsignal.cUnitsel = this.cbounit.SelectedIndex;
+                mtempoutput.myitemsignal.precise = Convert.ToInt32(this.txtprecise.Text);
+                mtempoutput.show = this.chkshow.Checked;
             }
         }
     }

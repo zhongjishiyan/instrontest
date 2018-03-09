@@ -1958,7 +1958,7 @@ namespace ClsStaticStation
 
 
 
-        public override void starttest()
+        public override void starttest(int spenum)
         {
             short k = 0;
             RawDataDataGroup d;
@@ -1979,14 +1979,14 @@ namespace ClsStaticStation
           
             int iii = 0;
 
+            int ncount = ClsStatic.arraydata[0].NodeCount;
 
-
-            while (iii < ClsStatic.arraydata[0].NodeCount)
+            while (iii < ncount)
             {
 
 
                 ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 10);
-
+                ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 10);
 
                 iii = iii + 1;
 
@@ -1994,6 +1994,7 @@ namespace ClsStaticStation
             }
 
             ClsStatic.arraydatacount[0] = 0;
+            ClsStatic.arraydatacount[1] = 0;
 
 
             iii = 0;
@@ -2263,7 +2264,7 @@ namespace ClsStaticStation
 
             mrunstarttime = System.Environment.TickCount / 1000;
 
-            Debug.Print("mrunlist cunt=" + mrunlist.Count.ToString());
+           // Debug.Print("mrunlist cunt=" + mrunlist.Count.ToString());
 
 
         }

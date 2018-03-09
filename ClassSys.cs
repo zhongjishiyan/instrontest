@@ -85,6 +85,8 @@ namespace TabHeaderDemo
 
 
         public string bmplogo = "";
+
+        public string demotxt = "";
         public bool showlogo = false;
 
         public string[] ChannelName;//通道名称
@@ -206,6 +208,11 @@ namespace TabHeaderDemo
                     if (c.SamplePath == null)
                     {
                         c.SamplePath = "";
+                    }
+
+                    if (c.demotxt ==null)
+                    {
+                        c.demotxt = "";
                     }
                     if (c.RecentSampleFilename == null)
                     {

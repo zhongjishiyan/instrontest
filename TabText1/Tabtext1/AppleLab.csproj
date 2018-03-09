@@ -18,7 +18,7 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <StartupObject>
     </StartupObject>
     <SignAssembly>true</SignAssembly>
@@ -71,18 +71,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\AlphaBlendTextBox.dll</HintPath>
     </Reference>
-    <Reference Include="DoPENet, Version=2.82.0.0, Culture=neutral, PublicKeyToken=57cb194ebf911d69, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\Debug\DoPENet.dll</HintPath>
+    <Reference Include="DoPENet">
+      <HintPath>..\..\bin\发布\DoPENet.dll</HintPath>
     </Reference>
     <Reference Include="MCTBuffer, Version=1.0.1.0, Culture=neutral, PublicKeyToken=3c6f10d5f3df8ab7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Debug\MCTBuffer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Private>True</Private>
@@ -132,6 +126,7 @@
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms">
       <Private>True</Private>
     </Reference>
@@ -146,7 +141,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\WizardBase.dll</HintPath>
     </Reference>
-    <Reference Include="XLNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="XLNet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=27841c8096a2ec52, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Debug\XLNet.dll</HintPath>
     </Reference>
@@ -227,6 +222,12 @@
     <Compile Include="FormAxis.Designer.cs">
       <DependentUpon>FormAxis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOnline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOnline.Designer.cs">
+      <DependentUpon>FormOnline.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +239,12 @@
     </Compile>
     <Compile Include="FormPopupMenu.Designer.cs">
       <DependentUpon>FormPopupMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSpeInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSpeInput.Designer.cs">
+      <DependentUpon>FormSpeInput.cs</DependentUpon>
     </Compile>
     <Compile Include="FormWord.cs">
       <SubType>Form</SubType>
@@ -375,6 +382,9 @@
       <DependentUpon>FormAxis.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOnline.resx">
+      <DependentUpon>FormOnline.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPlot.resx">
       <DependentUpon>FormPlot.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -382,6 +392,9 @@
     <EmbeddedResource Include="FormPopupMenu.resx">
       <DependentUpon>FormPopupMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpeInput.resx">
+      <DependentUpon>FormSpeInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormWord.resx">
       <DependentUpon>FormWord.cs</DependentUpon>
@@ -477,24 +490,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="ADODB">
-      <Guid>{2A75196C-D9EB-4129-B803-931327F72D5C}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>8</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="ADOX">
-      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>8</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -538,7 +533,7 @@
     <Content Include="Extensions\ArrowUp.ICO" />
     <Content Include="Extensions\Delete.ICO" />
     <Content Include="Extensions\Refresh.ico" />
-    <None Include="Resources\AppleLabApplication.dll" />
+    <Content Include="Resources\AppleLabApplication.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

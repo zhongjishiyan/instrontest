@@ -70,9 +70,13 @@ namespace TabHeaderDemo
                     {
                         UserSizeInput m = new UserSizeInput();
                         m.lbltitle.Text = CComLibrary.GlobeVal.filesave.teststep[0].mstepPromptsItem[i].itemname;
-                        m.txtvalue.Text= CComLibrary.GlobeVal.filesave.teststep[0].mstepPromptsItem[i].itemvalue.ToString();
+                        m.txtvalue.Value = Convert.ToDouble( CComLibrary.GlobeVal.filesave.teststep[0].mstepPromptsItem[i].itemvalue);
                         m.txtvalue.Tag = CComLibrary.GlobeVal.filesave.teststep[0].mstepPromptsItem[i];
-                        m.txtvalue.TextChanged+=new EventHandler(txtvalue2_TextChanged);
+                       
+                        m.txtvalue.AfterChangeValue += Txtvalue_AfterChangeValue;
+                        m.cbounit.Items.Clear();
+                        m.cbounit.Items.Add(CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemunit);
+                        m.cbounit.SelectedIndex = 0;
                         m.Dock = DockStyle.Fill;
                         tlp0.Controls.Add(m);
                     }
@@ -99,7 +103,7 @@ namespace TabHeaderDemo
                     
                 }
 
-                CComLibrary.GlobeVal.filesave.currentspenumber=mold;
+                CComLibrary.GlobeVal.filesave.currentspenumber=0;
 
                 dataGridView1.DataSource = CComLibrary.GlobeVal.filesave.dt;
 
@@ -152,9 +156,12 @@ namespace TabHeaderDemo
                         {
                             UserSizeInput m = new UserSizeInput();
                             m.lbltitle.Text = CComLibrary.GlobeVal.filesave.teststep[1].mstepPromptsItem[i].itemname;
-                            m.txtvalue.Text = CComLibrary.GlobeVal.filesave.teststep[1].mstepPromptsItem[i].itemvalue.ToString();
+                            m.txtvalue.Value =Convert.ToDouble( CComLibrary.GlobeVal.filesave.teststep[1].mstepPromptsItem[i].itemvalue);
                             m.txtvalue.Tag = CComLibrary.GlobeVal.filesave.teststep[1].mstepPromptsItem[i];
-                            m.txtvalue.TextChanged += new EventHandler(txtvalue2_TextChanged);
+                            m.txtvalue.AfterChangeValue += Txtvalue_AfterChangeValue;
+                            m.cbounit.Items.Clear();
+                            m.cbounit.Items.Add(CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemunit);
+                            m.cbounit.SelectedIndex = 0;
                             m.Dock = DockStyle.Fill;
                             tlp1.Controls.Add(m);
                         }
@@ -235,9 +242,12 @@ namespace TabHeaderDemo
                     {
                         UserSizeInput m = new UserSizeInput();
                         m.lbltitle.Text = CComLibrary.GlobeVal.filesave.teststep[4].mstepPromptsItem[i].itemname;
-                        m.txtvalue.Text = CComLibrary.GlobeVal.filesave.teststep[4].mstepPromptsItem[i].itemvalue.ToString();
+                        m.txtvalue.Value  = Convert.ToDouble( CComLibrary.GlobeVal.filesave.teststep[4].mstepPromptsItem[i].itemvalue);
                         m.txtvalue.Tag = CComLibrary.GlobeVal.filesave.teststep[4].mstepPromptsItem[i];
-                        m.txtvalue.TextChanged += new EventHandler(txtvalue2_TextChanged);
+                        m.txtvalue.AfterChangeValue += Txtvalue_AfterChangeValue;
+                        m.cbounit.Items.Clear();
+                        m.cbounit.Items.Add(CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemunit);
+                        m.cbounit.SelectedIndex = 0;
                         m.Dock = DockStyle.Fill;
                         tlp3.Controls.Add(m);
                     }
@@ -311,9 +321,10 @@ namespace TabHeaderDemo
                     {
                         UserSizeInput m = new UserSizeInput();
                         m.lbltitle.Text = CComLibrary.GlobeVal.filesave.teststep[6].mstepPromptsItem[i].itemname;
-                        m.txtvalue.Text = CComLibrary.GlobeVal.filesave.teststep[6].mstepPromptsItem[i].itemvalue.ToString();
+                        m.txtvalue.Value = Convert.ToDouble( CComLibrary.GlobeVal.filesave.teststep[6].mstepPromptsItem[i].itemvalue);
                         m.txtvalue.Tag = CComLibrary.GlobeVal.filesave.teststep[6].mstepPromptsItem[i];
-                        m.txtvalue.TextChanged += new EventHandler(txtvalue2_TextChanged);
+                        m.txtvalue.AfterChangeValue += Txtvalue_AfterChangeValue;
+                      
                         m.Dock = DockStyle.Fill;
                         tlp4.Controls.Add(m);
                     }
@@ -348,6 +359,13 @@ namespace TabHeaderDemo
 
         }
 
+        private void Txtvalue_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+
+            ((sender as NationalInstruments.UI.WindowsForms.NumericEdit).Tag as CComLibrary.PromptsItem).itemvalue = (sender as NationalInstruments.UI.WindowsForms.NumericEdit).Value;
+        
+       }
+
         void cbo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ((sender as ComboBox).Tag as CComLibrary.PromptsItem).itemvalue = (sender as ComboBox).SelectedIndex;
@@ -358,10 +376,7 @@ namespace TabHeaderDemo
             ((sender as TextBox).Tag as CComLibrary.PromptsItem).itemvalue = (sender as TextBox).Text;
         }
 
-        void txtvalue2_TextChanged(object sender, EventArgs e)
-        {
-            ((sender as TextBox).Tag as CComLibrary.PromptsItem).itemvalue =Convert.ToDouble( (sender as TextBox).Text);
-        }
+      
         public UserControlWizard()
         {
             InitializeComponent();

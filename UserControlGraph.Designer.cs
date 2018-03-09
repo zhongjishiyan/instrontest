@@ -33,6 +33,7 @@
             this.lblcaption = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelback = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelCurve = new System.Windows.Forms.TableLayoutPanel();
@@ -65,15 +66,9 @@
             this.tsbpoint = new System.Windows.Forms.ToolStripButton();
             this.tsbcontrol = new System.Windows.Forms.ToolStripButton();
             this.userGraph1 = new AppleLabApplication.UserGraph();
-            this.scatterPlot1 = new NationalInstruments.UI.ScatterPlot();
             this.xAxis3 = new NationalInstruments.UI.XAxis();
             this.yAxis3 = new NationalInstruments.UI.YAxis();
-            this.scatterPlot2 = new NationalInstruments.UI.ScatterPlot();
-            this.scatterPlot4 = new NationalInstruments.UI.ScatterPlot();
-            this.scatterPlot5 = new NationalInstruments.UI.ScatterPlot();
-            this.scatterPlot6 = new NationalInstruments.UI.ScatterPlot();
-            this.scatterPlot7 = new NationalInstruments.UI.ScatterPlot();
-            this.scatterPlot8 = new NationalInstruments.UI.ScatterPlot();
+            this.scatterPlot1 = new NationalInstruments.UI.ScatterPlot();
             this.panelback.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -117,6 +112,7 @@
             // panelback
             // 
             this.panelback.BackColor = System.Drawing.Color.White;
+            this.panelback.Controls.Add(this.panel1);
             this.panelback.Controls.Add(this.tabControl1);
             this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelback.Location = new System.Drawing.Point(0, 25);
@@ -125,6 +121,14 @@
             this.panelback.TabIndex = 4;
             this.panelback.SizeChanged += new System.EventHandler(this.panelback_SizeChanged);
             this.panelback.Paint += new System.Windows.Forms.PaintEventHandler(this.panelback_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 298);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(451, 8);
+            this.panel1.TabIndex = 1;
             // 
             // tabControl1
             // 
@@ -152,7 +156,7 @@
             // 
             this.tableLayoutPanelCurve.ColumnCount = 2;
             this.tableLayoutPanelCurve.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCurve.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanelCurve.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanelCurve.Controls.Add(this.scatterGraph, 0, 0);
             this.tableLayoutPanelCurve.Controls.Add(this.tableLayoutPanel15, 1, 0);
             this.tableLayoutPanelCurve.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -180,7 +184,7 @@
             this.scatterGraph.Plots.AddRange(new NationalInstruments.UI.ScatterPlot[] {
             this.scatterPlot3});
             this.scatterGraph.SelectionColor = System.Drawing.Color.Silver;
-            this.scatterGraph.Size = new System.Drawing.Size(332, 268);
+            this.scatterGraph.Size = new System.Drawing.Size(355, 268);
             this.scatterGraph.TabIndex = 5;
             this.scatterGraph.UseColorGenerator = true;
             this.scatterGraph.XAxes.AddRange(new NationalInstruments.UI.XAxis[] {
@@ -269,13 +273,13 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.Controls.Add(this.legend, 0, 1);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(341, 3);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(364, 3);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 3;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(93, 268);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(70, 268);
             this.tableLayoutPanel15.TabIndex = 4;
             // 
             // legend
@@ -289,7 +293,7 @@
             this.legend.ItemSize = new System.Drawing.Size(20, 3);
             this.legend.Location = new System.Drawing.Point(3, 47);
             this.legend.Name = "legend";
-            this.legend.Size = new System.Drawing.Size(87, 174);
+            this.legend.Size = new System.Drawing.Size(64, 174);
             this.legend.TabIndex = 4;
             // 
             // legendItem1
@@ -498,22 +502,12 @@
             // 
             // userGraph1
             // 
-            this.userGraph1.Border = NationalInstruments.UI.Border.None;
-            this.userGraph1.Caption = "标题";
-            this.userGraph1.CaptionBackColor = System.Drawing.Color.White;
             this.userGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userGraph1.Location = new System.Drawing.Point(3, 3);
             this.userGraph1.Name = "userGraph1";
-            this.userGraph1.PlotAreaBorder = NationalInstruments.UI.Border.None;
             this.userGraph1.PlotAreaColor = System.Drawing.Color.White;
             this.userGraph1.Plots.AddRange(new NationalInstruments.UI.ScatterPlot[] {
-            this.scatterPlot1,
-            this.scatterPlot2,
-            this.scatterPlot4,
-            this.scatterPlot5,
-            this.scatterPlot6,
-            this.scatterPlot7,
-            this.scatterPlot8});
+            this.scatterPlot1});
             this.userGraph1.Size = new System.Drawing.Size(437, 274);
             this.userGraph1.TabIndex = 0;
             this.userGraph1.UseColorGenerator = true;
@@ -522,54 +516,21 @@
             this.userGraph1.YAxes.AddRange(new NationalInstruments.UI.YAxis[] {
             this.yAxis3});
             // 
-            // scatterPlot1
-            // 
-            this.scatterPlot1.LineColor = System.Drawing.Color.OrangeRed;
-            this.scatterPlot1.LineColorPrecedence = NationalInstruments.UI.ColorPrecedence.UserDefinedColor;
-            this.scatterPlot1.PointColor = System.Drawing.Color.Gold;
-            this.scatterPlot1.XAxis = this.xAxis3;
-            this.scatterPlot1.YAxis = this.yAxis3;
-            // 
             // xAxis3
             // 
-            this.xAxis3.BaseLineVisible = true;
-            this.xAxis3.Caption = "X 轴";
-            this.xAxis3.OriginLineColor = System.Drawing.Color.Black;
+            this.xAxis3.Range = new NationalInstruments.UI.Range(0D, 0.1D);
             // 
             // yAxis3
             // 
-            this.yAxis3.BaseLineVisible = true;
-            this.yAxis3.Caption = "Y轴";
+            this.yAxis3.Range = new NationalInstruments.UI.Range(0D, 0.1D);
             // 
-            // scatterPlot2
+            // scatterPlot1
             // 
-            this.scatterPlot2.XAxis = this.xAxis3;
-            this.scatterPlot2.YAxis = this.yAxis3;
-            // 
-            // scatterPlot4
-            // 
-            this.scatterPlot4.XAxis = this.xAxis3;
-            this.scatterPlot4.YAxis = this.yAxis3;
-            // 
-            // scatterPlot5
-            // 
-            this.scatterPlot5.XAxis = this.xAxis3;
-            this.scatterPlot5.YAxis = this.yAxis3;
-            // 
-            // scatterPlot6
-            // 
-            this.scatterPlot6.XAxis = this.xAxis3;
-            this.scatterPlot6.YAxis = this.yAxis3;
-            // 
-            // scatterPlot7
-            // 
-            this.scatterPlot7.XAxis = this.xAxis3;
-            this.scatterPlot7.YAxis = this.yAxis3;
-            // 
-            // scatterPlot8
-            // 
-            this.scatterPlot8.XAxis = this.xAxis3;
-            this.scatterPlot8.YAxis = this.yAxis3;
+            this.scatterPlot1.LineColor = System.Drawing.Color.Red;
+            this.scatterPlot1.LineColorPrecedence = NationalInstruments.UI.ColorPrecedence.UserDefinedColor;
+            this.scatterPlot1.LineWidth = 2F;
+            this.scatterPlot1.XAxis = this.xAxis3;
+            this.scatterPlot1.YAxis = this.yAxis3;
             // 
             // UserControlGraph
             // 
@@ -630,18 +591,13 @@
         public NationalInstruments.UI.WindowsForms.Legend legend;
         private NationalInstruments.UI.LegendItem legendItem1;
         private System.Windows.Forms.TabPage tabPage2;
-        private NationalInstruments.UI.XAxis xAxis3;
-        private NationalInstruments.UI.YAxis yAxis3;
-        public AppleLabApplication.UserGraph userGraph1;
-        private NationalInstruments.UI.ScatterPlot scatterPlot1;
-        private NationalInstruments.UI.ScatterPlot scatterPlot2;
-        private NationalInstruments.UI.ScatterPlot scatterPlot4;
-        private NationalInstruments.UI.ScatterPlot scatterPlot5;
-        private NationalInstruments.UI.ScatterPlot scatterPlot6;
-        private NationalInstruments.UI.ScatterPlot scatterPlot7;
-        private NationalInstruments.UI.ScatterPlot scatterPlot8;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem x轴坐标ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem y轴坐标ToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private NationalInstruments.UI.ScatterPlot scatterPlot1;
+        private NationalInstruments.UI.XAxis xAxis3;
+        private NationalInstruments.UI.YAxis yAxis3;
+        public AppleLabApplication.UserGraph userGraph1;
     }
 }

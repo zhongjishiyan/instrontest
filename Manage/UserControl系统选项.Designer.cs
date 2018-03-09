@@ -33,6 +33,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnlogo = new System.Windows.Forms.Button();
+            this.txtlogo = new System.Windows.Forms.TextBox();
+            this.chklogo = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtshort = new System.Windows.Forms.TextBox();
             this.chkshort = new System.Windows.Forms.CheckBox();
@@ -48,21 +52,19 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtlogo = new System.Windows.Forms.TextBox();
-            this.chklogo = new System.Windows.Forms.CheckBox();
-            this.btnlogo = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.txtdemo = new System.Windows.Forms.TextBox();
+            this.btndemotxt = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -115,6 +117,47 @@
             this.panel1.Size = new System.Drawing.Size(646, 404);
             this.panel1.TabIndex = 0;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnlogo);
+            this.groupBox5.Controls.Add(this.txtlogo);
+            this.groupBox5.Controls.Add(this.chklogo);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.Location = new System.Drawing.Point(0, 233);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(646, 53);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            // 
+            // btnlogo
+            // 
+            this.btnlogo.Location = new System.Drawing.Point(561, 18);
+            this.btnlogo.Name = "btnlogo";
+            this.btnlogo.Size = new System.Drawing.Size(71, 20);
+            this.btnlogo.TabIndex = 2;
+            this.btnlogo.Text = "浏览";
+            this.btnlogo.UseVisualStyleBackColor = true;
+            this.btnlogo.Click += new System.EventHandler(this.btnlogo_Click);
+            // 
+            // txtlogo
+            // 
+            this.txtlogo.Location = new System.Drawing.Point(196, 18);
+            this.txtlogo.Name = "txtlogo";
+            this.txtlogo.ReadOnly = true;
+            this.txtlogo.Size = new System.Drawing.Size(353, 21);
+            this.txtlogo.TabIndex = 1;
+            // 
+            // chklogo
+            // 
+            this.chklogo.AutoSize = true;
+            this.chklogo.Location = new System.Drawing.Point(52, 20);
+            this.chklogo.Name = "chklogo";
+            this.chklogo.Size = new System.Drawing.Size(72, 16);
+            this.chklogo.TabIndex = 0;
+            this.chklogo.Text = "图片logo";
+            this.chklogo.UseVisualStyleBackColor = true;
+            this.chklogo.CheckedChanged += new System.EventHandler(this.chklogo_CheckedChanged);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtshort);
@@ -128,9 +171,9 @@
             // 
             // txtshort
             // 
-            this.txtshort.Location = new System.Drawing.Point(175, 18);
+            this.txtshort.Location = new System.Drawing.Point(196, 18);
             this.txtshort.Name = "txtshort";
-            this.txtshort.Size = new System.Drawing.Size(374, 21);
+            this.txtshort.Size = new System.Drawing.Size(353, 21);
             this.txtshort.TabIndex = 1;
             this.txtshort.TextChanged += new System.EventHandler(this.txtshort_TextChanged);
             // 
@@ -158,9 +201,9 @@
             // 
             // txtAppTitle
             // 
-            this.txtAppTitle.Location = new System.Drawing.Point(175, 18);
+            this.txtAppTitle.Location = new System.Drawing.Point(196, 18);
             this.txtAppTitle.Name = "txtAppTitle";
-            this.txtAppTitle.Size = new System.Drawing.Size(374, 21);
+            this.txtAppTitle.Size = new System.Drawing.Size(353, 21);
             this.txtAppTitle.TabIndex = 1;
             this.txtAppTitle.TextChanged += new System.EventHandler(this.txtAppTitle_TextChanged);
             // 
@@ -177,6 +220,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btndemotxt);
+            this.groupBox2.Controls.Add(this.txtdemo);
             this.groupBox2.Controls.Add(this.chkdemo);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 78);
@@ -214,9 +259,9 @@
             // 
             this.cbostartup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbostartup.FormattingEnabled = true;
-            this.cbostartup.Location = new System.Drawing.Point(175, 42);
+            this.cbostartup.Location = new System.Drawing.Point(196, 42);
             this.cbostartup.Name = "cbostartup";
-            this.cbostartup.Size = new System.Drawing.Size(374, 20);
+            this.cbostartup.Size = new System.Drawing.Size(353, 20);
             this.cbostartup.TabIndex = 2;
             this.cbostartup.SelectionChangeCommitted += new System.EventHandler(this.cbostartup_SelectionChangeCommitted);
             // 
@@ -277,50 +322,26 @@
             this.panel4.Size = new System.Drawing.Size(32, 30);
             this.panel4.TabIndex = 1;
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.btnlogo);
-            this.groupBox5.Controls.Add(this.txtlogo);
-            this.groupBox5.Controls.Add(this.chklogo);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.Location = new System.Drawing.Point(0, 233);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(646, 53);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            // 
-            // txtlogo
-            // 
-            this.txtlogo.Location = new System.Drawing.Point(175, 18);
-            this.txtlogo.Name = "txtlogo";
-            this.txtlogo.ReadOnly = true;
-            this.txtlogo.Size = new System.Drawing.Size(374, 21);
-            this.txtlogo.TabIndex = 1;
-            // 
-            // chklogo
-            // 
-            this.chklogo.AutoSize = true;
-            this.chklogo.Location = new System.Drawing.Point(52, 20);
-            this.chklogo.Name = "chklogo";
-            this.chklogo.Size = new System.Drawing.Size(72, 16);
-            this.chklogo.TabIndex = 0;
-            this.chklogo.Text = "图片logo";
-            this.chklogo.UseVisualStyleBackColor = true;
-            this.chklogo.CheckedChanged += new System.EventHandler(this.chklogo_CheckedChanged);
-            // 
-            // btnlogo
-            // 
-            this.btnlogo.Location = new System.Drawing.Point(561, 18);
-            this.btnlogo.Name = "btnlogo";
-            this.btnlogo.Size = new System.Drawing.Size(71, 20);
-            this.btnlogo.TabIndex = 2;
-            this.btnlogo.Text = "浏览";
-            this.btnlogo.UseVisualStyleBackColor = true;
-            this.btnlogo.Click += new System.EventHandler(this.btnlogo_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // txtdemo
+            // 
+            this.txtdemo.Location = new System.Drawing.Point(196, 18);
+            this.txtdemo.Name = "txtdemo";
+            this.txtdemo.Size = new System.Drawing.Size(352, 21);
+            this.txtdemo.TabIndex = 1;
+            // 
+            // btndemotxt
+            // 
+            this.btndemotxt.Location = new System.Drawing.Point(561, 19);
+            this.btndemotxt.Name = "btndemotxt";
+            this.btndemotxt.Size = new System.Drawing.Size(71, 20);
+            this.btndemotxt.TabIndex = 3;
+            this.btndemotxt.Text = "浏览";
+            this.btndemotxt.UseVisualStyleBackColor = true;
+            this.btndemotxt.Click += new System.EventHandler(this.btndemotxt_Click);
             // 
             // UserControl系统选项
             // 
@@ -333,6 +354,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -342,8 +365,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -374,5 +395,7 @@
         private System.Windows.Forms.TextBox txtlogo;
         private System.Windows.Forms.CheckBox chklogo;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btndemotxt;
+        private System.Windows.Forms.TextBox txtdemo;
     }
 }

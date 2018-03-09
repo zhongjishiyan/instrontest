@@ -36,7 +36,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btndel = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
+            this.listBox2 = new AppleLabApplication.ListExt(this.components);
             this.label12 = new System.Windows.Forms.Label();
+            this.listBox1 = new AppleLabApplication.ListExt(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.cbokind = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -64,25 +66,23 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.cboshape = new System.Windows.Forms.ComboBox();
+            this.listEditor1 = new SampleProject.Extensions.ListEditor();
             this.intermediateStep5 = new WizardBase.IntermediateStep();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.uListEditor1 = new AppleLabApplication.Extensions.UListEditor();
+            this.listEditor4 = new SampleProject.Extensions.ListEditorText();
+            this.listEditor5 = new SampleProject.Extensions.ListEditorText();
             this.intermediateStep3 = new WizardBase.IntermediateStep();
             this.button1 = new System.Windows.Forms.Button();
+            this.listEditor2 = new SampleProject.Extensions.ListEditor();
             this.intermediateStep4 = new WizardBase.IntermediateStep();
+            this.listEditor3 = new SampleProject.Extensions.ListEditorEx();
             this.finishStep1 = new WizardBase.FinishStep();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.listBox2 = new AppleLabApplication.ListExt(this.components);
-            this.listBox1 = new AppleLabApplication.ListExt(this.components);
-            this.listEditor1 = new SampleProject.Extensions.ListEditor();
-            this.uListEditor1 = new AppleLabApplication.Extensions.UListEditor();
-            this.listEditor4 = new SampleProject.Extensions.ListEditorText();
-            this.listEditor5 = new SampleProject.Extensions.ListEditorText();
-            this.listEditor2 = new SampleProject.Extensions.ListEditor();
-            this.listEditor3 = new SampleProject.Extensions.ListEditorEx();
             this.intermediateStep1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -195,6 +195,16 @@
             this.btnadd.UseVisualStyleBackColor = true;
             this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
+            // listBox2
+            // 
+            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 12;
+            this.listBox2.Location = new System.Drawing.Point(1, 168);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(260, 86);
+            this.listBox2.TabIndex = 2;
+            // 
             // label12
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Top;
@@ -204,6 +214,16 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "形状选择：";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // listBox1
+            // 
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(1, 25);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(260, 98);
+            this.listBox1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -475,6 +495,19 @@
             this.cboshape.TabIndex = 1;
             this.cboshape.SelectionChangeCommitted += new System.EventHandler(this.cboshape_SelectionChangeCommitted);
             // 
+            // listEditor1
+            // 
+            this.listEditor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listEditor1.Editors = null;
+            this.listEditor1.ItemType = null;
+            this.listEditor1.List = null;
+            this.listEditor1.Location = new System.Drawing.Point(25, 261);
+            this.listEditor1.Name = "listEditor1";
+            this.listEditor1.Properties = null;
+            this.listEditor1.Size = new System.Drawing.Size(604, 169);
+            this.listEditor1.TabIndex = 0;
+            this.listEditor1.ListChanged += new SampleProject.Extensions.ListEditor.ListEventHandler(this.listEditor1_ListChanged);
+            // 
             // intermediateStep5
             // 
             this.intermediateStep5.BindingImage = ((System.Drawing.Image)(resources.GetObject("intermediateStep5.BindingImage")));
@@ -518,91 +551,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // intermediateStep3
-            // 
-            this.intermediateStep3.BindingImage = ((System.Drawing.Image)(resources.GetObject("intermediateStep3.BindingImage")));
-            this.intermediateStep3.Controls.Add(this.button1);
-            this.intermediateStep3.Controls.Add(this.listEditor2);
-            this.intermediateStep3.Name = "intermediateStep3";
-            this.intermediateStep3.Subtitle = "设置计算项目";
-            this.intermediateStep3.SubtitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.intermediateStep3.Title = "第四步";
-            this.intermediateStep3.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(56, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 20);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "编辑公式内容";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // intermediateStep4
-            // 
-            this.intermediateStep4.BindingImage = ((System.Drawing.Image)(resources.GetObject("intermediateStep4.BindingImage")));
-            this.intermediateStep4.Controls.Add(this.listEditor3);
-            this.intermediateStep4.Name = "intermediateStep4";
-            this.intermediateStep4.Subtitle = "计算结果编辑表格";
-            this.intermediateStep4.SubtitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.intermediateStep4.Title = "第五步";
-            this.intermediateStep4.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            // 
-            // finishStep1
-            // 
-            this.finishStep1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.finishStep1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("finishStep1.BackgroundImage")));
-            this.finishStep1.Controls.Add(this.label1);
-            this.finishStep1.Name = "finishStep1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(35, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "单击完成按钮，试验方法将保存到数据库中";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // listBox2
-            // 
-            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 12;
-            this.listBox2.Location = new System.Drawing.Point(1, 168);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(260, 86);
-            this.listBox2.TabIndex = 2;
-            // 
-            // listBox1
-            // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(1, 25);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(260, 98);
-            this.listBox1.TabIndex = 0;
-            // 
-            // listEditor1
-            // 
-            this.listEditor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listEditor1.Editors = null;
-            this.listEditor1.ItemType = null;
-            this.listEditor1.List = null;
-            this.listEditor1.Location = new System.Drawing.Point(25, 261);
-            this.listEditor1.Name = "listEditor1";
-            this.listEditor1.Properties = null;
-            this.listEditor1.Size = new System.Drawing.Size(604, 169);
-            this.listEditor1.TabIndex = 0;
-            this.listEditor1.ListChanged += new SampleProject.Extensions.ListEditor.ListEventHandler(this.listEditor1_ListChanged);
-            // 
             // uListEditor1
             // 
             this.uListEditor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -638,6 +586,27 @@
             this.listEditor5.Size = new System.Drawing.Size(657, 126);
             this.listEditor5.TabIndex = 10;
             // 
+            // intermediateStep3
+            // 
+            this.intermediateStep3.BindingImage = ((System.Drawing.Image)(resources.GetObject("intermediateStep3.BindingImage")));
+            this.intermediateStep3.Controls.Add(this.button1);
+            this.intermediateStep3.Controls.Add(this.listEditor2);
+            this.intermediateStep3.Name = "intermediateStep3";
+            this.intermediateStep3.Subtitle = "设置计算项目";
+            this.intermediateStep3.SubtitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.intermediateStep3.Title = "第四步";
+            this.intermediateStep3.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(56, 91);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 20);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "编辑公式内容";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // listEditor2
             // 
             this.listEditor2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -655,6 +624,16 @@
             this.listEditor2.Enter += new System.EventHandler(this.listEditor2_Enter);
             this.listEditor2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listEditor2_MouseDoubleClick);
             // 
+            // intermediateStep4
+            // 
+            this.intermediateStep4.BindingImage = ((System.Drawing.Image)(resources.GetObject("intermediateStep4.BindingImage")));
+            this.intermediateStep4.Controls.Add(this.listEditor3);
+            this.intermediateStep4.Name = "intermediateStep4";
+            this.intermediateStep4.Subtitle = "计算结果编辑表格";
+            this.intermediateStep4.SubtitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.intermediateStep4.Title = "第五步";
+            this.intermediateStep4.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            // 
             // listEditor3
             // 
             this.listEditor3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -667,6 +646,27 @@
             this.listEditor3.Size = new System.Drawing.Size(656, 336);
             this.listEditor3.TabIndex = 0;
             this.listEditor3.Load += new System.EventHandler(this.listEditor3_Load);
+            // 
+            // finishStep1
+            // 
+            this.finishStep1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.finishStep1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("finishStep1.BackgroundImage")));
+            this.finishStep1.Controls.Add(this.label1);
+            this.finishStep1.Name = "finishStep1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(35, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(233, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "单击完成按钮，试验方法将保存到数据库中";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormMethod
             // 

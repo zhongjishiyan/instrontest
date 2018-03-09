@@ -41,7 +41,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.Controls.Add(this.lbltitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtvalue, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 3, 0);
@@ -97,7 +97,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.Label lbltitle;
-        public System.Windows.Forms.TextBox txtvalue;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox txtvalue;
     }
 }

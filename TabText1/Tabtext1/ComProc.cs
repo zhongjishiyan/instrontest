@@ -180,11 +180,7 @@ namespace ECanTest
 
                         ClsStaticStation.m_Global.madlist.Add(p);
 
-                    if (ClsStaticStation.m_Global.madlist.Count > 1000)
-                    {
-                        ClsStaticStation.m_Global.madlist.RemoveAt(0);
-                    }
-
+                   
 
 
                 }

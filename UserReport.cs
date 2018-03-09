@@ -418,7 +418,8 @@ namespace TabHeaderDemo
                     string s = "";
 
                    
-                        
+                        //历史出错
+
                             if (CComLibrary.GlobeVal.filesave.dt.Rows[i - 1][CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname] is DBNull)
                             {
                                 CComLibrary.GlobeVal.filesave.dt.Rows[i - 1][CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname] = 0;

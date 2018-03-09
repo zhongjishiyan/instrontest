@@ -825,8 +825,9 @@ namespace TabHeaderDemo
             cbocontrolprocess.Items.Add("一般测试");
             cbocontrolprocess.Items.Add("中级测试");
             cbocontrolprocess.Items.Add("简单测试");
+#if Advanced
             cbocontrolprocess.Items.Add("高级测试");
-
+#endif
 
 
 
@@ -908,9 +909,12 @@ namespace TabHeaderDemo
             cbosamplemode.Items.Add("静态采集方式");
             cbosamplemode.Items.Add("动态采集方式");
             cbosamplemode.Items.Add("高级控制采集方式");
+
             cbosamplemode.SelectedIndex = CComLibrary.GlobeVal.filesave.Samplingmode;
             numsaveinterval.Value = CComLibrary.GlobeVal.filesave.SamplingInterval;
             numsavepointcount.Value = CComLibrary.GlobeVal.filesave.SamplingCount;
+
+            cbosamplemode_SelectionChangeCommitted(null, null);
 
 
         }
@@ -3180,6 +3184,25 @@ namespace TabHeaderDemo
         private void cbosamplemode_SelectionChangeCommitted(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.Samplingmode = cbosamplemode.SelectedIndex;
+
+            if (CComLibrary.GlobeVal.filesave.Samplingmode  ==0)
+            {
+                label98.Visible = false;
+                label97.Visible = false;
+                numsaveinterval.Visible = false;
+                numsavepointcount.Visible = false;
+                label48.Visible = true;
+                numericEdit1.Visible = true;
+            }
+            else
+            {
+                label98.Visible = true;
+                label97.Visible = true;
+                numsaveinterval.Visible = true;
+                numsavepointcount.Visible = true;
+                label48.Visible = false ;
+                numericEdit1.Visible = false ;
+            }
         }
 
         private void numsaveinterval_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)

@@ -11,6 +11,9 @@ namespace TabHeaderDemo
 {
     public partial class UserControlSpe : UserControl
     {
+
+        public int specount = 0;
+
         public UserControlSpe()
         {
             InitializeComponent();
@@ -63,10 +66,11 @@ namespace TabHeaderDemo
                 {
                     UserSizeInput m = new UserSizeInput();
                     m.lbltitle.Text = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemname;
-                    
-                    m.txtvalue.Text = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemvalue.ToString();
+                    double t = 0;
+                    double.TryParse(CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemvalue.ToString(), out  t);
+                    m.txtvalue.Value = t;
                     m.txtvalue.Tag = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i];
-                    m.txtvalue.TextChanged += new EventHandler(txtvalue2_TextChanged);
+                    m.txtvalue.AfterChangeValue += Txtvalue_AfterChangeValue;
                     m.cbounit.Items.Clear();
                     m.cbounit.Items.Add(CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemunit);
                     m.cbounit.SelectedIndex = 0;
@@ -99,6 +103,15 @@ namespace TabHeaderDemo
 
             }
         }
+
+        private void Txtvalue_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            double t;
+           
+            t = (sender as NationalInstruments.UI.WindowsForms.NumericEdit).Value;
+            ((sender as NationalInstruments.UI.WindowsForms.NumericEdit).Tag as CComLibrary.PromptsItem).itemvalue = t;
+        }
+
         void cbo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ((sender as ComboBox).Tag as CComLibrary.PromptsItem).itemvalue = (sender as ComboBox).SelectedIndex;
@@ -153,11 +166,6 @@ namespace TabHeaderDemo
               
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnright_Click(object sender, EventArgs e)
         {
             if (listBox1.Items[0].Text.Contains("未测试")==true)
@@ -166,37 +174,54 @@ namespace TabHeaderDemo
             }
             else
             {
-                CComLibrary.GlobeVal.filesave.currentspenumber = CComLibrary.GlobeVal.filesave.currentspenumber + 1;
 
+              
 
-                setspe(CComLibrary.GlobeVal.filesave.currentspenumber + 1, CComLibrary.TestStatus.Untested);
-                btnright.Enabled = false;
-
-                if (GlobeVal.userControltest1 != null)
+                if ((CComLibrary.GlobeVal.filesave.currentspenumber+1) > GlobeVal.userControltest1.lstspe.Items.Count)
                 {
-                    GlobeVal.userControltest1.lstspeRefresh();
+
+                    CComLibrary.GlobeVal.filesave.currentspenumber = CComLibrary.GlobeVal.filesave.currentspenumber + 1;
+                    CComLibrary.GlobeVal.filesave.testedcount = CComLibrary.GlobeVal.filesave.currentspenumber;
+                    setspe(CComLibrary.GlobeVal.filesave.currentspenumber + 1, CComLibrary.TestStatus.Untested);
+                    btnright.Enabled = false;
+
+                    if (GlobeVal.userControltest1 != null)
+                    {
+                        GlobeVal.userControltest1.lstspeRefresh();
+                    }
+
+                    if (GlobeVal.UserControlResult1 != null)
+                    {
+
+                        GlobeVal.UserControlResult1.InitGrid(1, false, false, CComLibrary.GlobeVal.filesave.mtablecol1, CComLibrary.GlobeVal.filesave.mtable1para,
+                            CComLibrary.GlobeVal.filesave.mtable1statistics);
+
+                    }
+
+                    if (GlobeVal.UserControlResult2 != null)
+                    {
+
+                        GlobeVal.UserControlResult2.InitGrid(2, false, false, CComLibrary.GlobeVal.filesave.mtablecol2, CComLibrary.GlobeVal.filesave.mtable2para,
+                            CComLibrary.GlobeVal.filesave.mtable2statistics);
+
+                    }
+
+
+                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; i++)
+                    {
+                        CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].setvalue();
+                    }
                 }
-
-                if (GlobeVal.UserControlResult1 != null)
+                else
                 {
-
-                    GlobeVal.UserControlResult1.InitGrid(1, false, false,CComLibrary.GlobeVal.filesave.mtablecol1,CComLibrary.GlobeVal.filesave.mtable1para,
-                        CComLibrary.GlobeVal.filesave.mtable1statistics);
-
-                }
-
-                if (GlobeVal.UserControlResult2 != null)
-                {
-
-                    GlobeVal.UserControlResult2.InitGrid(2, false, false, CComLibrary.GlobeVal.filesave.mtablecol2, CComLibrary.GlobeVal.filesave.mtable2para,
-                        CComLibrary.GlobeVal.filesave.mtable2statistics);
-
-                }
+                    CComLibrary.GlobeVal.filesave.currentspenumber = CComLibrary.GlobeVal.filesave.currentspenumber + 1;
 
 
-                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; i++)
-                {
-                    CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].setvalue();
+                    setspe(CComLibrary.GlobeVal.filesave.currentspenumber + 1, CComLibrary.TestStatus.tested);
+
+                    setinput();
+
+
                 }
             }
 
@@ -204,7 +229,40 @@ namespace TabHeaderDemo
 
         private void UserControlSpe_Load(object sender, EventArgs e)
         {
+            if (CComLibrary.GlobeVal.filesave.mwizard==true)
+            {
+
+                btnleft.Visible  = false;
+                btnright.Visible  = false;
+            }
+            else
+            {
+                btnleft.Visible  = true;
+                btnright.Visible = true;
+            }
+        }
+
+        private void btnleft_Click(object sender, EventArgs e)
+        {
+
+            if (CComLibrary.GlobeVal.filesave.currentspenumber >= 1)
+            {
+                CComLibrary.GlobeVal.filesave.currentspenumber = CComLibrary.GlobeVal.filesave.currentspenumber - 1;
+
+
+                setspe(CComLibrary.GlobeVal.filesave.currentspenumber + 1, CComLibrary.TestStatus.tested);
+
+               setinput();
+
             
+
+            }
+            else
+            {
+                btnleft.Enabled = false;
+            }
+            
+
         }
     }
 }

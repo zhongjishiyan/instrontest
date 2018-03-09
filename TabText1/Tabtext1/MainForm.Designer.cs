@@ -712,7 +712,7 @@
             this.toolStripButton16.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton16.Image")));
             this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.Size = new System.Drawing.Size(120, 23);
+            this.toolStripButton16.Size = new System.Drawing.Size(120, 21);
             this.toolStripButton16.Text = "自定义通道公式测试";
             this.toolStripButton16.Visible = false;
             this.toolStripButton16.Click += new System.EventHandler(this.toolStripButton16_Click);
@@ -723,7 +723,7 @@
             this.toolStripButton17.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton17.Image")));
             this.toolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton17.Name = "toolStripButton17";
-            this.toolStripButton17.Size = new System.Drawing.Size(23, 23);
+            this.toolStripButton17.Size = new System.Drawing.Size(23, 20);
             this.toolStripButton17.Text = "toolStripButton17";
             this.toolStripButton17.Visible = false;
             this.toolStripButton17.Click += new System.EventHandler(this.toolStripButton17_Click);

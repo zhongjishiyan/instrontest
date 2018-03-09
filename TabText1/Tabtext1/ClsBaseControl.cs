@@ -29,6 +29,8 @@ namespace ClsStaticStation
 
         public Boolean dianyabaohu;//电压保护
 
+        public bool m_dianyabaohucontrol = false;
+
         public int current_returncount;//大循环次数
         public int total_returncount;//大循环总次数
 
@@ -173,7 +175,7 @@ namespace ClsStaticStation
 
         }
 
-        public virtual  void starttest()
+        public virtual  void starttest(int spenum)
         {
         }
 

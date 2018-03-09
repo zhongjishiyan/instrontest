@@ -21,7 +21,7 @@ using NationalInstruments.Analysis.Monitoring;
 using NationalInstruments.Analysis.SignalGeneration;
 using NationalInstruments;
 using System.Drawing.Imaging;
-using Word = Microsoft.Office.Interop.Word;
+//using Word = Microsoft.Office.Interop.Word;
 
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -1550,7 +1550,7 @@ namespace AppleLabApplication
                                 rvalid[j + 1] = false;
                             }
 
-                            CComLibrary.GlobeVal.gcalc.getresult(j + 1);
+                           // CComLibrary.GlobeVal.gcalc.getresult(j + 1);
 
                             //rr[j + 1] = CComLibrary.GlobeVal.gcalc.getresult(j + 1);
                             //ClsStaticStation.m_Global.mresult[j + 1] = rr[j + 1];
@@ -1578,6 +1578,8 @@ namespace AppleLabApplication
                         b1.BackColor = Color.White;
 
                         b1.SubItems[1].Text = CComLibrary.GlobeVal.gcalc.getresult(i + 1).ToString();
+
+
                         _UResultControl.listView1.Items.Add(b1);
 
 
@@ -4209,145 +4211,14 @@ namespace AppleLabApplication
             this.Hide();
         }
 
+        
         private void toolStripButton15_Click(object sender, EventArgs e)
         {
-            object oMissing = System.Reflection.Missing.Value;
-
-            Bitmap b = new Bitmap(scatterGraph1.Width, scatterGraph1.Height);
-            Graphics f = scatterGraph1.CreateGraphics();
-
-            scatterGraph1.DrawToBitmap(b, new Rectangle(0, 0, b.Width, b.Height));
-
-            b.Save("d:\\1.jpg", ImageFormat.Jpeg);
-
-            Word._Application objApp = default(Word._Application);
-            Word._Document objDoc;
-            try
-            {
-                object objMiss = System.Reflection.Missing.Value;
-                object objEndOfDocFlag = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
-
-                //Start Word and create a new document.
-                objApp = new Word.Application();
-                objApp.Visible = true;
-                objDoc = objApp.Documents.Add(ref objMiss, ref objMiss,
-                    ref objMiss, ref objMiss);
-
-                //Insert a paragraph at the end of the document.
-                Word.Paragraph objPara2; //define paragraph object
-                object oRng = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range; //go to end of the page
-                objPara2 = objDoc.Content.Paragraphs.Add(ref oRng); //add paragraph at end of document
-                objPara2.Range.Text = tcboproject.Text  ; //add some text in paragraph
-                objPara2.Range.Font.Bold = 1;
-                objPara2.Range.Font.Size = 32;
-                objPara2.Range.ParagraphFormat.Alignment =
-                    Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-                objPara2.Format.SpaceAfter = 10; //defind some style
-                objPara2.Range.InsertParagraphAfter(); //insert paragraph
-                objPara2.Range.Font.Bold = 0;
-                objPara2.Range.Font.Size = 12;
-                objPara2.Range.ParagraphFormat.Alignment =
-                   Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
-                //Insert a 2 x 2 table, (table with 2 row and 2 column)
-                Word.Table objTab1; //create table object
-                Word.Range objWordRng = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range; //go to end of document
-
-                objTab1 = objDoc.Tables.Add(objWordRng, _UResultControl.listEditor1.List.Count, 3, ref objMiss, ref objMiss); //add table object in word document
-                object  c="网格型";
-                objTab1.set_Style(ref c);
-                objTab1.Range.ParagraphFormat.SpaceAfter = 6;
-                int iRow, iCols;
-                string strText;
-
-
-                for (iRow = 1; iRow <= _UResultControl.listEditor1.List.Count; iRow++)
-                 
-                    {
-                   
-                        objTab1.Cell(iRow, 1).Range.Text = (_UResultControl.listEditor1.List[iRow-1] as SampleProject.Extensions.ChartBar).名称;
-                       objTab1.Cell(iRow, 2).Range.Text = (_UResultControl.listEditor1.List[iRow-1] as SampleProject.Extensions.ChartBar).值.ToString();
-                        objTab1.Cell(iRow, 3).Range.Text = (_UResultControl.listEditor1.List[iRow-1] as SampleProject.Extensions.ChartBar).单位;
-
-
-                    }
-                //objTab1.Rows[1].Range.Font.Bold = 1; //make first row of table BOLD
-                //objTab1.Columns[1].Width = objApp.InchesToPoints(3); //increase first column width
-
-
-
-                //Add some text after table
-                objWordRng = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
-                objWordRng.InsertParagraphAfter(); //put enter in document
-                objWordRng.InsertAfter("计算结果:");
-                objWordRng.InsertParagraphAfter(); 
-
-               
-                objWordRng = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
-                objWordRng.InsertParagraphAfter(); //put enter in document
-
-                 objWordRng = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range; //go to end of document
-
-                objTab1 = objDoc.Tables.Add(objWordRng, _UResultControl.listView1.Items.Count,
-                    _UResultControl.listView1.Columns.Count 
-                    , ref objMiss, ref objMiss); //add table object in word document
-                c = "网格型";
-                objTab1.set_Style(ref c);
-                objTab1.Range.ParagraphFormat.SpaceAfter = 6;
-
-                
-                
-                for (iRow = 1; iRow <= _UResultControl.listView1.Items.Count ; iRow++)
-                {
-                    for (int j = 0; j < _UResultControl.listView1.Columns.Count  ; j++)
-                    {
-                        
-                        {
-                            //objTab1.Cell(iRow, j).Range.Text = _UResultControl.listView1.Items[iRow].SubItems[j].Text;
-                            //objTab1.Cell(iRow, 1).Range.Text = _UResultControl.listView1.Items[iRow - 1].Text;
-                            objTab1.Cell(iRow, j+1).Range.Text = _UResultControl.listView1.Items[iRow-1].SubItems[j].Text;
-
-                        }
-                        
-
-                    }
-
-                }
-                //objTab1.Rows[0].Range.Font.Bold = 1; //make first row of table BOLD
-
-                objWordRng = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
-                objWordRng.InsertParagraphAfter(); //put enter in document
-                objWordRng.InsertAfter("试验曲线:");
-                objWordRng.InsertParagraphAfter();
-                objWordRng = objDoc.Bookmarks.get_Item(ref objEndOfDocFlag).Range;
-
-                objWordRng.InlineShapes.AddPicture("d:\\1.jpg", ref oMissing, ref oMissing, ref oMissing);
-
-                object szPath = "test.docx"; //your file gets saved with name 'test.docx'
-                objDoc.SaveAs(ref szPath, ref oMissing, ref oMissing, ref oMissing,
-  ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
-  ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
-  ref oMissing, ref oMissing);
-
-                //objDoc.Close(ref oMissing, ref oMissing, ref oMissing);
-                //关闭word  
-                //objApp.Quit(ref oMissing, ref oMissing, ref oMissing);  
-
-
-                //KillWordProcess();
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Error occurred while executing code : " + ex.Message);
-            }
-            finally
-            {
-                //you can dispose object here
-            }
+            
+            
 
         }
-
+    
         private void tsbarrow_Click_1(object sender, EventArgs e)
         {
 

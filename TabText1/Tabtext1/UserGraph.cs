@@ -11,7 +11,7 @@ using NationalInstruments.UI;
 
 namespace AppleLabApplication
 {
-    public partial class UserGraph : ScatterGraph 
+    public partial class UserGraph : NationalInstruments.UI.WindowsForms.ScatterGraph 
     {
         private ScatterPlot scatterPlot1;
         public UserGraph()

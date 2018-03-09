@@ -84,9 +84,10 @@ namespace TabHeaderDemo
                     b.Dock = DockStyle.Fill;
 
                     b.lbltitle.Text = CComLibrary.GlobeVal.filesave.minput[i].name;
-                    b.txtvalue.Text= CComLibrary.GlobeVal.filesave.minput[i].value.ToString();
+                    b.txtvalue.Value= CComLibrary.GlobeVal.filesave.minput[i].value;
                     b.txtvalue.Tag = i;
-                    b.txtvalue.TextChanged += Txtvalue_TextChanged2;
+                    b.txtvalue.AfterChangeValue += Txtvalue_AfterChangeValue;
+                    
                     b.cbounit.Items.Clear();
                     for (int j = 0; j <CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnitCount ; j++)
                     {
@@ -104,12 +105,14 @@ namespace TabHeaderDemo
             }
         }
 
-        private void Txtvalue_TextChanged2(object sender, EventArgs e)
+        private void Txtvalue_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
-            int c = Convert.ToInt16((sender as TextBox).Tag);
-            double.TryParse((sender as TextBox).Text, out CComLibrary.GlobeVal.filesave.minput[c].value);
+            int c = Convert.ToInt16((sender as  NationalInstruments.UI.WindowsForms.NumericEdit ).Tag);
+
+            CComLibrary.GlobeVal.filesave.minput[c].value = (sender as NationalInstruments.UI.WindowsForms.NumericEdit).Value;
         }
 
+        
         private void Init_spesize()
         {
             if (cboshape.Text == "矩形")
@@ -147,10 +150,9 @@ namespace TabHeaderDemo
                     b.Dock = DockStyle.Fill;
 
                     b.lbltitle.Text = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName;
-                    b.txtvalue.Text = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cvalue.ToString();
+                    b.txtvalue.Value = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cvalue;
                     b.txtvalue.Tag = i;
-                    b.txtvalue.TextChanged += Txtvalue_TextChanged;
-              
+                    b.txtvalue.AfterChangeValue += Txtvalue_AfterChangeValue1; ;
                     b.cbounit.Items.Clear();
                     for (int j = 0; j < CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnitCount; j++)
                     {
@@ -169,6 +171,13 @@ namespace TabHeaderDemo
             }
 
 
+        }
+
+        private void Txtvalue_AfterChangeValue1(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            int c = Convert.ToInt16((sender as NationalInstruments.UI.WindowsForms.NumericEdit).Tag);
+            CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[c].cvalue= (sender as NationalInstruments.UI.WindowsForms.NumericEdit ).Value;
+           
         }
 
         private void Txtvalue_TextChanged(object sender, EventArgs e)
@@ -221,8 +230,12 @@ namespace TabHeaderDemo
 
         private void cboshape_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            cboshape.SelectedIndex = CComLibrary.GlobeVal.filesave.shapeselect; 
-            Init_spesize(); 
+            CComLibrary.GlobeVal.filesave.shapeselect = cboshape.SelectedIndex; 
+
+            
+            Init_spesize();
+
+            CComLibrary.GlobeVal.filesave.InitTable();
         }
     }
 }

@@ -32,17 +32,18 @@
             this.lbltitle = new System.Windows.Forms.Label();
             this.cbounit = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtvalue = new System.Windows.Forms.TextBox();
+            this.txtvalue = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvalue)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.64579F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.53132F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.97849F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.Controls.Add(this.lbltitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbounit, 3, 0);
@@ -61,7 +62,7 @@
             this.lbltitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbltitle.Location = new System.Drawing.Point(23, 0);
             this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(149, 29);
+            this.lbltitle.Size = new System.Drawing.Size(122, 29);
             this.lbltitle.TabIndex = 0;
             this.lbltitle.Text = "宽度：";
             this.lbltitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -71,14 +72,14 @@
             this.cbounit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbounit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbounit.FormattingEnabled = true;
-            this.cbounit.Location = new System.Drawing.Point(333, 3);
+            this.cbounit.Location = new System.Drawing.Point(422, 3);
             this.cbounit.Name = "cbounit";
-            this.cbounit.Size = new System.Drawing.Size(149, 20);
+            this.cbounit.Size = new System.Drawing.Size(58, 20);
             this.cbounit.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(488, 3);
+            this.button1.Location = new System.Drawing.Point(486, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 23);
             this.button1.TabIndex = 3;
@@ -88,9 +89,10 @@
             // txtvalue
             // 
             this.txtvalue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtvalue.Location = new System.Drawing.Point(178, 3);
+            this.txtvalue.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
+            this.txtvalue.Location = new System.Drawing.Point(151, 3);
             this.txtvalue.Name = "txtvalue";
-            this.txtvalue.Size = new System.Drawing.Size(149, 21);
+            this.txtvalue.Size = new System.Drawing.Size(265, 21);
             this.txtvalue.TabIndex = 4;
             // 
             // UserSizeInput
@@ -101,7 +103,7 @@
             this.Name = "UserSizeInput";
             this.Size = new System.Drawing.Size(523, 29);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvalue)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -112,6 +114,6 @@
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label lbltitle;
         public System.Windows.Forms.ComboBox cbounit;
-        public System.Windows.Forms.TextBox txtvalue;
+        public NationalInstruments.UI.WindowsForms.NumericEdit txtvalue;
     }
 }

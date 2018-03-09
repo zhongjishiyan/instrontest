@@ -54,28 +54,54 @@ namespace TabHeaderDemo
 
             {
 
-
-                myPen = new Pen(Color.SteelBlue, 3);//实例化Pen类
-                myRectangle = new Rectangle(pnlback.Width / 3, -50, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
-                e.Graphics.DrawArc(myPen, myRectangle, 180, 90);//绘制圆弧
-
-
-                e.Graphics.FillEllipse(Brushes.SteelBlue, myRectangle);
-
-                lbltip.BackColor = Color.SteelBlue;
-
-                // lbltip.BackColor = SystemColors.MenuHighlight;
-
-                myPen = new Pen(Color.CornflowerBlue, 3);//实例化Pen类
-                myRectangle = new Rectangle(pnlback.Width / 3 - 1, -51, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+                if (Screen.PrimaryScreen.Bounds.Width == 1366)
+                {
+                    myPen = new Pen(Color.SteelBlue, 3);//实例化Pen类
+                    myRectangle = new Rectangle(pnlback.Width / 3+60, -60, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+                    e.Graphics.DrawArc(myPen, myRectangle, 170, 90);//绘制圆弧
 
 
-                e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+                    e.Graphics.FillEllipse(Brushes.SteelBlue, myRectangle);
 
-                e.Graphics.DrawLine(myPen, pnlback.Width / 3 * 2 - 3, 1, pnlback.Width - 1, 1);
-                myPen = new Pen(Color.LightGray, 3);//实例化Pen类
-                myRectangle = new Rectangle(pnlback.Width / 3 - 3, -53, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
-                e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+                    lbltip.BackColor = Color.SteelBlue;
+
+                    // lbltip.BackColor = SystemColors.MenuHighlight;
+
+                    myPen = new Pen(Color.CornflowerBlue, 3);//实例化Pen类
+                    myRectangle = new Rectangle(pnlback.Width / 3+60 - 1, -61, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+
+
+                    e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+
+                    e.Graphics.DrawLine(myPen, (pnlback.Width / 3+60) * 2 - 3, 1, pnlback.Width - 1, 1);
+                    myPen = new Pen(Color.LightGray, 3);//实例化Pen类
+                    myRectangle = new Rectangle(pnlback.Width / 3+60- 3, -63, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+                    e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+                }
+                else
+                {
+                    myPen = new Pen(Color.SteelBlue, 3);//实例化Pen类
+                    myRectangle = new Rectangle(pnlback.Width / 3, -50, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+                    e.Graphics.DrawArc(myPen, myRectangle, 180, 90);//绘制圆弧
+
+
+                    e.Graphics.FillEllipse(Brushes.SteelBlue, myRectangle);
+
+                    lbltip.BackColor = Color.SteelBlue;
+
+                    // lbltip.BackColor = SystemColors.MenuHighlight;
+
+                    myPen = new Pen(Color.CornflowerBlue, 3);//实例化Pen类
+                    myRectangle = new Rectangle(pnlback.Width / 3 - 1, -51, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+
+
+                    e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+
+                    e.Graphics.DrawLine(myPen, pnlback.Width / 3 * 2 - 3, 1, pnlback.Width - 1, 1);
+                    myPen = new Pen(Color.LightGray, 3);//实例化Pen类
+                    myRectangle = new Rectangle(pnlback.Width / 3 - 3, -53, pnlback.Width, pnlback.Height * 2);//定义一个Rectangle结构
+                    e.Graphics.DrawArc(myPen, myRectangle, 0, 360);//绘制圆弧
+                }
             }
 
             catch
@@ -124,12 +150,7 @@ namespace TabHeaderDemo
         private void btnreport_Click(object sender, EventArgs e)
         {
 
-#if Demo
 
-            MessageBox.Show("演示版不能使用此功能");
-            return;
-
-#endif
             if (CComLibrary.GlobeVal.filesave == null)
             {
                 MessageBox.Show("请先读取试验方法");
@@ -169,12 +190,7 @@ namespace TabHeaderDemo
 
         private void btnmanage_Click(object sender, EventArgs e)
         {
-#if Demo
 
-            MessageBox.Show("演示版不能使用此功能");
-            return;
-
-#endif
             if (GlobeVal.mysys.AppUserLevel <2)
             {
                 MessageBox.Show("您的当前权限不够，请使用管理员权限登录");
@@ -191,12 +207,7 @@ namespace TabHeaderDemo
 
         private void btnmethod_Click(object sender, EventArgs e)
         {
-#if Demo 
 
-            MessageBox.Show("演示版不能使用此功能");
-            return;
-
-#endif
 
 
             if (GlobeVal.mysys.AppUserLevel < 1)
@@ -222,12 +233,7 @@ namespace TabHeaderDemo
 
         private void btnuser_Click(object sender, EventArgs e)
         {
-#if Demo
 
-            MessageBox.Show("演示版不能使用此功能");
-            return;
-
-#endif
             Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
             f.result = false;
 

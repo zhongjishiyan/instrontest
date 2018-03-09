@@ -22,7 +22,6 @@ using ClsStaticStation;
 using System.Data;
 using System.Web.UI;
 using System.Data.SqlClient;
-using ADOX;
 
 namespace CComLibrary
 {
@@ -1554,7 +1553,7 @@ namespace CComLibrary
 
 
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToDouble(mitemvalue);
-                    //CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue= Convert.ToDouble(mitemvalue);
+                    CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue= Convert.ToDouble(mitemvalue);
 
                 }
 
@@ -1566,7 +1565,7 @@ namespace CComLibrary
                 if (itemname == CComLibrary.GlobeVal.filesave.minputtext[i].name)
                 {
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToString(mitemvalue);
-                    // CComLibrary.GlobeVal.filesave.minputtext[i].value=Convert.ToString( mitemvalue);
+                     CComLibrary.GlobeVal.filesave.minputtext[i].value=Convert.ToString( mitemvalue);
                 }
             }
 
@@ -1577,7 +1576,7 @@ namespace CComLibrary
                 if (itemname == CComLibrary.GlobeVal.filesave.minput[i].name)
                 {
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToDouble(mitemvalue);
-                    //CComLibrary.GlobeVal.filesave.minput[i].value=Convert.ToDouble( mitemvalue) ;
+                    CComLibrary.GlobeVal.filesave.minput[i].value=Convert.ToDouble( mitemvalue) ;
 
                 }
             }
@@ -1589,7 +1588,7 @@ namespace CComLibrary
                 if (itemname == CComLibrary.GlobeVal.filesave.mcbo[i].Name)
                 {
                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToInt32(mitemvalue);
-                    // CComLibrary.GlobeVal.filesave.mcbo[i].value = Convert.ToInt32(mitemvalue);
+                     CComLibrary.GlobeVal.filesave.mcbo[i].value = Convert.ToInt32(mitemvalue);
 
 
                 }
@@ -2867,163 +2866,9 @@ namespace CComLibrary
         public Boolean UseDatabase;//数据库是否有效
         public List<DatabaseItem> mdatabaseitemlist;
         public List<DatabaseItem> mdatabaseitemselect;
-        public void NewDatabase()
-        {
-            //CComLibrary.GlobeVal.filesave.SampleDefaultName
 
-            if (System.IO.Directory.Exists(Application.StartupPath + "\\mdb") == true)
-            {
-                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\mdb");
-            }
-
-
-            if (File.Exists(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb") == true)
-            {
-                File.Delete(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb");
-            }
-
-            ADOX.Catalog catalog = new Catalog();
-            catalog.Create("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb;" + "Jet OLEDB:Engine Type=5");
-
-            ADODB.Connection cn = new ADODB.Connection();
-
-            cn.Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb", null, null, -1);
-
-
-            
-            catalog.ActiveConnection = cn;
-
-            ADOX.Table table = new ADOX.Table();
-            table.Name = "FirstTable";
-
-            ADOX.Column column = new ADOX.Column();
-            column.ParentCatalog = catalog;
-            column.Name = "RecordId";
-            column.Type = DataTypeEnum.adInteger;
-            column.DefinedSize = 9;
-            column.Properties["AutoIncrement"].Value = true;
-            table.Columns.Append(column, DataTypeEnum.adInteger, 9);
-            table.Keys.Append("FirstTablePrimaryKey", KeyTypeEnum.adKeyPrimary, column, null, null);
-
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count; i++)
-            {
-                table.Columns.Append(CComLibrary.GlobeVal.filesave.mdatabaseitemselect[i].Name, DataTypeEnum.adVarWChar, 80);
-            }
-
-
-            // table.Columns.Append("CustomerName", DataTypeEnum.adVarWChar, 50);
-            // table.Columns.Append("Age", DataTypeEnum.adInteger, 9);
-            // table.Columns.Append("生日", DataTypeEnum.adVarWChar, 80);
-
-            catalog.Tables.Append(table);
-            cn.Close();
-
-        }
-        public void SaveDatabase()
-        {
-            ADODB.Connection cn = new ADODB.Connection();
-
-            cn.Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+ Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb", null, null, -1);
-            ADODB.Recordset rs;
-
-            rs = new ADODB.Recordset();
-
-            rs.LockType = ADODB.LockTypeEnum.adLockPessimistic;
-            rs.CursorType = ADODB.CursorTypeEnum.adOpenDynamic;
-
-            string sql = "select * from FirstTable";
-            rs.Open(sql, cn, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic , (int)ADODB.CommandTypeEnum.adCmdText);
-
-            if ( (rs.RecordCount >0))
-            {
-                rs.MoveFirst();
-            }
-            string mshiyanghao = "";
-            string myangpinmingcheng = "";
-            int nshiyanhao = 0;
-            int nyangpinmingcheng = 0;
-            int nRecordId = 0;
-            for (int j = 0; j < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count; j++)
-            {
-               
-
-                if (CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Name=="试样号")
-                {
-                    mshiyanghao = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value;
-                    nshiyanhao = j;
-                }
-                if (CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Name =="样品名称")
-                {
-                    myangpinmingcheng = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value;
-                    nyangpinmingcheng = j;
-                }
-            }
-
-
-            bool mb = false;
-            string wshiyanghao = "";
-            string wyangpinmingcheng = "";
-            for (int i = 0; i < rs.RecordCount; i++)
-            {
-                wshiyanghao = rs.Fields[nshiyanhao + 1].Value;
-                wyangpinmingcheng = rs.Fields[nyangpinmingcheng + 1].Value;
-                if(( wshiyanghao==mshiyanghao) && ( wyangpinmingcheng ==myangpinmingcheng))
-               {
-                    mb = true;
-
-                    nRecordId = rs.Fields[0].Value;
-                    break;
-               }
-                else
-                {
-                    rs.MoveNext();
-                }
-
-            }
-
-            for (int i = 0; i < 1; i++)
-            {
-
-
-                object missing = System.Reflection.Missing.Value;
-                if (mb == false)
-                {
-                   
-                    rs.AddNew(missing, missing);
-                    rs.Fields["RecordId"].Value = rs.RecordCount;
-                }
-                else
-                {
-                    rs.Delete(ADODB.AffectEnum.adAffectCurrent);
-                    rs.AddNew(missing, missing);
-                    rs.Fields["RecordId"].Value = nRecordId;
-                }
-               
-               
-
-                for (int j = 0; j < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count; j++)
-                {
-                    if (CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value == null)
-                    {
-                        rs.Fields[j + 1].Value = "";
-                    }
-                    else
-                    {
-                        rs.Fields[j + 1].Value = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[j].Value;
-                    }
-
-                }
-
-
-                rs.Update();
-            }
-
-
-            rs.Close();
-            cn.Close();
-
-
-        }
+        public int testedcount = 0;
+      
 
         public double StrainToLoad(double l)
         {
@@ -3577,7 +3422,7 @@ namespace CComLibrary
                         rvalid[j + 1] = false;
                     }
 
-                    CComLibrary.GlobeVal.gcalc.getresult(j + 1).ToString();
+                   // CComLibrary.GlobeVal.gcalc.getresult(j + 1).ToString();
 
 
                 }
@@ -3603,6 +3448,7 @@ namespace CComLibrary
 
         public void InitTable()
         {
+            string s = "";
             dt = new DataTable();
 
 
@@ -3614,12 +3460,54 @@ namespace CComLibrary
             dc.AllowDBNull = true;//
 
             dc = dt.Columns.Add("试样状态", typeof(CComLibrary.TestStatus));
-
+            /*
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
 
                 dc = dt.Columns.Add(CComLibrary.GlobeVal.filesave.mpromptslist[i].itemname, System.Type.GetType("System.String"));
 
+
+            }
+            */
+
+            for (int i = 0; i <
+        CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
+            {
+                if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                {
+                   
+                    s = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName;
+                    dc = dt.Columns.Add(s, typeof(double));
+                }
+            }
+
+
+            for (int i = 0; i <
+              CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
+            {
+               
+                s = CComLibrary.GlobeVal.filesave.minputtext[i].name;
+                dc = dt.Columns.Add(s, typeof(double));
+               
+            }
+
+            for (int i = 0; i <
+             CComLibrary.GlobeVal.filesave.minput.Count; i++)
+            {
+                
+                s = CComLibrary.GlobeVal.filesave.minput[i].name;
+                dc = dt.Columns.Add(s, typeof(double));
+            }
+
+
+
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mcbo.Count; i++)
+            {
+             
+
+              
+                s= CComLibrary.GlobeVal.filesave.mcbo[i].Name;
+                dc = dt.Columns.Add(s, typeof(double));
 
             }
 
@@ -3959,12 +3847,12 @@ namespace CComLibrary
 
             mdatabaseitemlist = new List<DatabaseItem>();
             mdatabaseitemselect = new List<DatabaseItem>();
-            Init_databaselist();
+            Init_databaselist(false);
            
 
         }
 
-        public void Init_databaselist()
+        public void Init_databaselist(bool calced)
         {
             mdatabaseitemlist.Clear();
             DatabaseItem m = new CComLibrary.DatabaseItem();
@@ -4140,7 +4028,18 @@ namespace CComLibrary
                 }
                 else
                 {
-                    m.Value = CComLibrary.GlobeVal.gcalc.getresult(i + 1).ToString();
+
+                    if (calced == false)
+                    {
+                       m.Value = ClsStaticStation.m_Global.mresult[i + 1].ToString();
+                       // m.Value = CComLibrary.GlobeVal.gcalc.getresult(i + 1).ToString();
+                    }
+                    else
+
+                    {
+                        m.Value = CComLibrary.GlobeVal.gcalc.getresult(i + 1).ToString();
+                    }
+                   
                 }
                 
                
@@ -4613,7 +4512,7 @@ namespace CComLibrary
                         c.mdatabaseitemlist = new List<DatabaseItem>();
                         
                     }
-                    c.Init_databaselist();
+                    c.Init_databaselist(false);
 
                     if (c.mdatabaseitemselect==null)
                     {
@@ -4978,11 +4877,19 @@ namespace CComLibrary
             list.Items.Add("public int _取整(double v) {return Convert.ToInt32(v);}" + "\r\n");
             list.Items.Add("public double _修约(double v,int l){return Math.Round(v,l);}" + "\r\n");
             list.Items.Add("public double _maxpeak(int starti,int endi,double[] v)" + "\r\n" + "{ return  CComLibrary.GlobeVal._funmax(starti,endi,v); }" + "\r\n");
-            list.Items.Add("public double _拐点(double[] x,double[] y,bool mdraw)" + "\r\n" + " {  double v;  int i;\r\n  CComLibrary.GlobeVal._yield(x,y, mdraw, out v,out i);\r\n return v; \r\n}\r\n");
+            list.Items.Add("public double _拐点(double[] x,double[] y, double offset, bool mdraw)" + "\r\n" + " {  double v;  int i;\r\n  CComLibrary.GlobeVal._yield(x,y, offset, mdraw, out v,out i);\r\n return v; \r\n}\r\n");
             list.Items.Add("public double _斜率(double[] x,double[] y,bool mdraw) \r\n {double mslope; double a;double b; \r\n CComLibrary.GlobeVal._automodule(x,y,mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
-            list.Items.Add("public double _数组Y最大值(double[] x, double[] y, bool mdraw)\r\n{ double value;\r\n GlobeVal._maxyvalue(x,y,out value,mdraw); return value;\r\n}\r\n");
+            list.Items.Add("public double _斜率1(double[] x,double[] y, double yminpercent,double ymaxpercent, bool mdraw) \r\n {double mslope; double a;double b; \r\n CComLibrary.GlobeVal._module(x,y,yminpercent,ymaxpercent, mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
+
+            list.Items.Add("public double _数组Y最大值(double[] x, double[] y, bool mdraw)\r\n{ double value; int index; \r\n GlobeVal._maxyvalue(x,y,out value, out index, mdraw); return value;\r\n}\r\n");
+            list.Items.Add("public double _偏置斜率交点(double[] x, double[] y,  double yminpercent,double ymaxpercent,double oa, bool mdraw)\r\n{ double value;\r\n GlobeVal._offsetslopepoint(x,y,yminpercent,ymaxpercent,oa, out value,mdraw); return value;\r\n}\r\n");
+
 
             list.Items.Add("public double _曲线拟合(double[] x,double[] y) \r\n {double mslope; \r\n CComLibrary.GlobeVal._fit(x,y,out mslope); return mslope;\r\n}\r\n");
+            list.Items.Add("public double _断后面积()\r\n{ double value;\r\n CComLibrary.GlobeVal._BreakArea(out value); return value;\r\n}\r\n");
+            list.Items.Add("public double _断后标距()\r\n{ double value;\r\n CComLibrary.GlobeVal._Breakgauge(out value); return value;\r\n}\r\n");
+           
+
 
             list.Items.Add("public double _面积()\r\n{ double value;\r\n CComLibrary.GlobeVal._area(out value); return value;\r\n}\r\n");
             list.Items.Add("public double _引伸计标距()\r\n{ double value;\r\n CComLibrary.GlobeVal._gauge(out value); return value;\r\n} \r\n");
@@ -5711,7 +5618,7 @@ namespace CComLibrary
             }
             catch (Exception ex)
             {
-
+                
             }
         }
 
@@ -6310,6 +6217,47 @@ namespace CComLibrary
             value = (starty - endy) / (startx - endx);
             return false;
         }
+
+
+         public static bool _sizeinput(out double item1,out double item2,out double item3)
+        {
+            item1 = 0;
+            item2 = 0;
+            item3 = 0;
+
+            if (GlobeVal.filesave.mshapelist.Count > 0)
+            {
+
+                for (int i = 0; i <
+                      GlobeVal.filesave.mshapelist[GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
+                {
+                    if (GlobeVal.filesave.mshapelist[GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                    {
+                        FormSpeInput f = new AppleLabApplication.FormSpeInput();
+                        f.lblcaption.Text = GlobeVal.filesave.mshapelist[GlobeVal.filesave.shapeselect].sizeitem[i].cName;
+                        f.ShowDialog();
+
+                        if (i == 0)
+                        {
+                            item1 = f.txtvalue.Value;
+                        }
+                        if (i == 1)
+                        {
+                            item2 = f.txtvalue.Value;
+                        }
+                        if (i == 2)
+                        {
+                            item3 = f.txtvalue.Value;
+                        }
+
+                    }
+
+                }
+            }
+
+            return false;
+        }
+
         public static bool _autoYoungModulus(double[] x, double[] y, bool mdraw, out double value, out int starti, out int endi)
         {
             double yieldvalue;
@@ -6338,7 +6286,7 @@ namespace CComLibrary
             mslopev = new double[7];
             minterceptv = new double[7];
 
-            b = _yield(x, y, false, out yieldvalue, out yieldindex);
+            b = _yield(x, y, 0.1, false, out yieldvalue, out yieldindex);
 
             mxi[0] = 0;
             for (i = 1; i <= 7; i++)
@@ -6549,6 +6497,107 @@ namespace CComLibrary
             return false;
         }
 
+        //断后标距
+        public static bool _Breakgauge(out double value)
+        {
+            FormSpeInput f = new FormSpeInput();
+            f.lblcaption.Text ="断后标距";
+            f.ShowDialog();
+            
+            value = f.txtvalue.Value ;
+            f.Dispose();
+
+            return false;
+        }
+
+        //断后面积
+        public static bool _BreakArea(out double value)
+        {
+
+
+            double t = 0;
+
+            double m1;
+            double m2;
+
+
+            if (CComLibrary.GlobeVal.filesave.mshapelist.Count > 0)
+            {
+
+            }
+            else
+            {
+                value = 0;
+                return false;
+            }
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == "矩形")
+            {
+                FormSpeInput f = new FormSpeInput();
+                f.lblcaption.Text ="断后"+ CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                f.ShowDialog();
+                m1 = f.txtvalue.Value;
+                f.Dispose();
+
+                f = new FormSpeInput();
+                f.lblcaption.Text = "断后"+ CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cName;
+                f.ShowDialog();
+           
+                m2 = f.txtvalue.Value;
+                f.Dispose();
+                t = m1 * m2;
+                
+            }
+
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == "圆形")
+            {
+                FormSpeInput f = new FormSpeInput();
+                f.lblcaption.Text = "断后"+ CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                f.ShowDialog();
+                m1 = f.txtvalue.Value;
+                f.Dispose();
+                t = m1
+                 * m1 / 4 * 3.1415926;
+            }
+
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == "管状")
+            {
+                FormSpeInput f = new FormSpeInput();
+                f.lblcaption.Text = "断后"+ CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                f.ShowDialog();
+                m1 = f.txtvalue.Value;
+                f.Dispose();
+                f = new FormSpeInput();
+                f.lblcaption.Text = "断后"+ CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cName;
+                f.ShowDialog();
+                m2 = f.txtvalue.Value;
+                f.Dispose();
+             
+
+
+
+
+                t = 3.1415926 * (Math.Pow(m1 / 2, 2)
+                    - Math.Pow((m1 - m2 * 2) / 2, 2));
+
+            }
+
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == "不规则面积")
+            {
+                FormSpeInput f = new FormSpeInput();
+                f.lblcaption.Text = "断后"+ CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                f.ShowDialog();
+                m1 = f.txtvalue.Value;
+                f.Dispose();
+                t = m1;
+
+
+            }
+
+
+            value = t;
+
+            return false;
+        }
 
         public static bool _area(out double value )
         {
@@ -6556,7 +6605,17 @@ namespace CComLibrary
 
             double m1;
             double m2;
-           
+
+
+           if (CComLibrary.GlobeVal.filesave.mshapelist.Count >0)
+            {
+
+            }
+           else
+            {
+                value = 0;
+                return false;
+            }
                 if  (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename =="矩形")
                 {
                    t = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue 
@@ -6607,14 +6666,16 @@ namespace CComLibrary
             return offset;
         }
 
-        public static bool _maxyvalue(double[] x, double[]  y,out double value, bool mdraw)
+        public static bool _maxyvalue(double[] x, double[]  y,out double value, out int mindex, bool mdraw)
         {
             double t = 0;
             int index = 0;
             t = NationalInstruments.Analysis.Math.ArrayOperation.GetMax(y);
 
+           
             index = NationalInstruments.Analysis.Math.ArrayOperation.GetIndexOfMax(y);
             value = t;
+            mindex = index;
            
             if (mdraw == true)
             {
@@ -6627,6 +6688,281 @@ namespace CComLibrary
 
             }
             return false;
+        }
+
+        public static bool _offsetslopepoint(double[] x,double[] y, double yminpercent, double ymaxpercent, double oa,out double value,bool mdraw)
+        {
+            try
+            {
+                double yieldvalue;
+                int yieldindex;
+                int i;
+                int k;
+
+                double[] inputx;
+                double[] inputy;
+
+                double[] inputxx;
+                double[] inputyy;
+                double[] mx;
+                int[] mxi;
+
+                double mslope = 0;
+                double mintercept = 0;
+                double mresidue = 0;
+
+                double[] mslopev;
+
+                double[] minterceptv;
+
+                mx = new double[8];
+                mxi = new int[8];
+                mslopev = new double[7];
+                minterceptv = new double[7];
+
+                int mendi = 0;
+                int mstarti = 0;
+
+
+                _maxyvalue(x, y, out yieldvalue, out yieldindex, false);
+
+
+
+
+
+                for (i = 0; i < yieldindex; i++)
+                {
+
+                    if (y[i] >= yieldvalue * yminpercent / 100.0)
+                    {
+                        mstarti = i;
+                        break;
+                    }
+                }
+                for (i = 0; i < yieldindex; i++)
+                {
+
+                    if (y[i] >= yieldvalue * ymaxpercent / 100.0)
+                    {
+                        mendi = i;
+                        break;
+                    }
+                }
+
+
+
+
+                int m1 = mstarti;
+                int m2 = mendi;
+
+                inputxx = new double[m2 - m1 + 1];
+                inputyy = new double[m2 - m1 + 1];
+
+
+
+
+
+
+                if (m2 - m1 > 2)
+                {
+                   
+
+
+                    for (int j = m1; j <= m2; j++)
+                    {
+                        inputxx[j - m1] = x[j];
+                        inputyy[j - m1] = y[j];
+                    }
+
+                    CurveFit.LinearFit(inputxx, inputyy, NationalInstruments.Analysis.Math.FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
+                }
+
+
+                double tx=0;
+                double ty=0;
+                double mk = 0;
+                double mks = 0;
+                int msel = 0;
+
+               
+
+                tx = (ty - y[m1])/mslope   + x[m1];
+
+                tx = tx + oa;
+
+                mks = 10000000;
+                for (i=0;i<y.Length  ;i++)
+                {
+                    mk = (y[i] - ty) / (x[i] - tx);
+
+                   
+                        if (mks > Math.Abs(mk - mslope))
+                        {
+                            mks = Math.Abs(mk - mslope);
+                            msel = i;
+                        }
+                    
+                    
+                }
+                value = y[msel];
+
+
+                if (mdraw == true)
+                {
+                    LineStruct l = new LineStruct();
+                    l.kind = 1;
+                    l.xstart = tx;
+                    l.ystart = ty;
+
+                    l.xend = x[msel];
+                    l.yend = y[msel];
+
+                    m_listline.Add(l);
+
+                }
+
+
+            }
+            catch (Exception e1)
+            {
+
+                value = 0;
+
+              
+
+                MessageBox.Show(e1.Source);
+            }
+            return false;
+           
+        }
+
+        public static bool _module(double[] x, double[] y, double yminpercent,double ymaxpercent, bool mdraw, out double value, out double a, out double b)
+        {
+
+            try
+            {
+                double yieldvalue;
+                int yieldindex;
+
+
+
+                int i;
+                int k;
+
+                double[] inputx;
+                double[] inputy;
+
+                double[] inputxx;
+                double[] inputyy;
+                double[] mx;
+                int[] mxi;
+
+                double mslope = 0;
+                double mintercept = 0;
+                double mresidue = 0;
+
+                double[] mslopev;
+
+                double[] minterceptv;
+
+                mx = new double[8];
+                mxi = new int[8];
+                mslopev = new double[7];
+                minterceptv = new double[7];
+
+                int mendi = 0;
+                int mstarti = 0;
+
+
+                _maxyvalue(x, y, out yieldvalue, out yieldindex, false);
+
+                
+
+
+               
+                for (i = 0; i < yieldindex; i++)
+                {
+                   
+                    if (y[i] >= yieldvalue * yminpercent/100.0)
+                    {
+                        mstarti = i;
+                        break;
+                    }
+                }
+                for (i = 0; i < yieldindex; i++)
+                {
+                    
+                    if (y[i] >= yieldvalue * ymaxpercent / 100.0)
+                    {
+                        mendi = i;
+                        break;
+                    }
+                }
+
+
+              
+
+                int m1 = mstarti ;
+                int m2 = mendi;
+
+                inputxx = new double[m2 - m1 + 1];
+                inputyy = new double[m2 - m1 + 1];
+
+
+
+
+
+
+                if (m2 - m1 > 2)
+                {
+                    //value =NationalInstruments.Analysis.Math.ArrayOperation.GetMax(mslopev);
+
+
+                    for (int j = m1; j <= m2; j++)
+                    {
+                        inputxx[j - m1] = x[j];
+                        inputyy[j - m1] = y[j];
+                    }
+
+                    CurveFit.LinearFit(inputxx, inputyy, NationalInstruments.Analysis.Math.FitMethod.LeastSquare, out mslope, out mintercept, out mresidue);
+                }
+
+
+                    value = mslope;
+                    a = mslope;
+                    b = mintercept;
+                
+                    // CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + value.ToString() + "\r\n";
+
+
+                    if (mdraw == true)
+                    {
+                        LineStruct l = new LineStruct();
+                        l.kind = 1;
+                        l.xstart = x[m1];
+                        l.ystart = y[m1];
+
+                        l.xend = x[m2];
+                        l.yend = y[m2];
+
+                        m_listline.Add(l);
+
+                    }
+                
+                
+            }
+            catch (Exception e1)
+            {
+
+                value = 0;
+
+                a = 0;
+                b = 0;
+
+                MessageBox.Show(e1.Source);
+            }
+            return false;
+
         }
         public static bool _automodule(double[] x, double[] y, bool mdraw, out double value, out double a, out double b)
         {
@@ -6661,7 +6997,7 @@ namespace CComLibrary
                 mxi = new int[8];
                 mslopev = new double[7];
                 minterceptv = new double[7];
-                _yield(x, y, false, out yieldvalue, out yieldindex);
+                _yield(x, y, 0.1, false, out yieldvalue, out yieldindex);
 
                 mxi[0] = 0;
                 for (i = 1; i <= 7; i++)
@@ -6755,7 +7091,7 @@ namespace CComLibrary
             return false;
         }
 
-        public static bool _yield(double[] x, double[] y, bool mdraw, out double value, out int index)
+        public static bool _yield(double[] x, double[] y, double offset, bool mdraw, out double value, out int index)
         {
 
             int i;

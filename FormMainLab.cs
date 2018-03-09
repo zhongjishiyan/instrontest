@@ -56,7 +56,7 @@ namespace TabHeaderDemo
         private MainForm fdata;
 
 
-        public DriverDll.CDriver cdriverdll;
+       // public DriverDll.CDriver cdriverdll;
 
         private int msel = 0;
         [STAThread]
@@ -784,8 +784,32 @@ namespace TabHeaderDemo
             }
             f.Close();
 
-           cdriverdll = new DriverDll.CDriver();
-            cdriverdll.Start();
+            if (GlobeVal.mysys.controllerkind == 0)
+            {
+                if (GlobeVal.mysys.machinekind == 3)
+                {
+                }
+                else
+                {
+                    //cdriverdll = new DriverDll.CDriver();
+                   // cdriverdll.Start();
+
+                }
+
+            }
+
+            if (Screen.PrimaryScreen.Bounds.Width == 1366)
+            {
+                splitContainer1.SplitterDistance = 1050;
+                paneltop.Height = 106;
+                tlbmeterback.Height = 64;
+            }
+            else
+            {
+               // splitContainer1.SplitterDistance = 980;
+               // tlbmeterback.Height = 84;
+               // paneltop.Height = 126;
+            }
 
         }
 
@@ -816,12 +840,12 @@ namespace TabHeaderDemo
             PointF[] roundedRectangle = new PointF[5];
             roundedRectangle[0].X = 6;
             roundedRectangle[0].Y = 0;
-            roundedRectangle[1].X = panel4.Width - 2 - 3;
+            roundedRectangle[1].X = paneltop.Width - 2 - 3;
             roundedRectangle[1].Y = 0;
-            roundedRectangle[2].X = panel4.Width - 2 - 3;
-            roundedRectangle[2].Y = panel4.Height - 2 - 3;
+            roundedRectangle[2].X = paneltop.Width - 2 - 3;
+            roundedRectangle[2].Y = paneltop.Height - 2 - 3;
             roundedRectangle[3].X = 1;
-            roundedRectangle[3].Y = panel4.Height - 2 - 3;
+            roundedRectangle[3].Y = paneltop.Height - 2 - 3;
             roundedRectangle[4].X = 1;
             roundedRectangle[4].Y = 6;
             drawFigure(e, roundedRectangle);
@@ -1424,6 +1448,12 @@ namespace TabHeaderDemo
         private void btnext2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            AboutBox1 ab = new AboutBox1();
+            ab.Show();
         }
     }
 }

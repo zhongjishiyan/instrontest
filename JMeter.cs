@@ -17,6 +17,18 @@ namespace TabHeaderDemo
         public JMeter()
         {
             InitializeComponent();
+            if (Screen.PrimaryScreen.Bounds.Width ==1366)
+            {
+                this.lblcaption.Font = new Font("宋体", 8,FontStyle.Bold);
+                lblvalue.Font = new Font("宋体", 14, FontStyle.Bold);
+                lblunit.Font = new Font("宋体", 14, FontStyle.Bold);
+            }
+            else
+            {
+               // this.lblcaption.Font = new Font("宋体", 10,FontStyle.Bold );
+               // lblvalue.Font = new Font("宋体", 22, FontStyle.Bold);
+               // lblunit.Font = new Font("宋体", 22, FontStyle.Bold);
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -94,8 +106,11 @@ namespace TabHeaderDemo
             roundedRectangle[3].Y = this.Height - 2 - 4;
             roundedRectangle[4].X = 1;
             roundedRectangle[4].Y = 0;
-            drawFigure(e, roundedRectangle,Color.Gray);
 
+            if ((roundedRectangle[1].X > 0) && (roundedRectangle[2].X > 0) && (roundedRectangle[2].Y > 0) && (roundedRectangle[3].Y > 0))
+            {
+                drawFigure(e, roundedRectangle, Color.Gray);
+            }
             roundedRectangle = new PointF[5];
             roundedRectangle[0].X = 2;
             roundedRectangle[0].Y = 2;
@@ -107,7 +122,12 @@ namespace TabHeaderDemo
             roundedRectangle[3].Y = this.Height - 2 - 5;
             roundedRectangle[4].X = 2;
             roundedRectangle[4].Y =2;
-            drawFigure(e, roundedRectangle, lblvalue.BackColor);
+
+            if ((roundedRectangle[1].X > 0) && (roundedRectangle[2].X > 0) && (roundedRectangle[2].Y > 0) && (roundedRectangle[3].Y>0))
+            {
+
+                drawFigure(e, roundedRectangle, lblvalue.BackColor);
+            }
             e.Graphics.EndContainer(containerState);
         }
 
@@ -122,6 +142,11 @@ namespace TabHeaderDemo
         }
 
         private void panel1_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void JMeter_Resize(object sender, EventArgs e)
         {
 
         }

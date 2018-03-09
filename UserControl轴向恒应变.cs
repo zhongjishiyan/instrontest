@@ -238,7 +238,7 @@ namespace TabHeaderDemo
             GlobeVal.FormmainLab.timer1.Enabled =true;
             if (GlobeVal.myarm.mdemo == true)
             {
-                GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\拉伸1演示.txt");
+                GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\拉伸2演示.txt");
 
             }
 

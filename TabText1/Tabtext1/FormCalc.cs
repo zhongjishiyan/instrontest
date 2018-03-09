@@ -260,7 +260,7 @@ namespace AppleLabApplication
             a = new CComLibrary.Rule();
             a.OperaWordsName = "_拐点";
             a.replaceName = a.OperaWordsName;
-            a.count = 3;
+            a.count = 4;
             a.explain = "计算拐点";
             a.paraname[0] = "X";
             a.parakind[0] = "double []";
@@ -268,10 +268,16 @@ namespace AppleLabApplication
             a.paraname[1] = "Y";
             a.parakind[1] = "double []";
 
-            a.paraname[2] = "是否画特征点";
-            a.parakind[2] = "布尔型";
+            a.paraname[2] = "偏移值";
+            a.parakind[2] = "double";
+
+            a.paraname[3] = "是否画特征点";
+            a.parakind[3] = "布尔型";
 
             CComLibrary.GlobeVal.mfunc.Add(a);
+
+           
+            
 
 
             a = new CComLibrary.Rule();
@@ -288,6 +294,56 @@ namespace AppleLabApplication
             a.paraname[2] = "是否画特征点";
             a.parakind[2] = "布尔型";
             CComLibrary.GlobeVal.mfunc.Add(a);
+
+
+
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_斜率1";
+            a.replaceName = a.OperaWordsName;
+            a.count = 5;
+            a.explain = "计算斜率";
+            a.paraname[0] = "X";
+            a.parakind[0] = "double []";
+
+            a.paraname[1] = "Y";
+            a.parakind[1] = "double []";
+
+            a.paraname[2] = "YMin%";
+            a.parakind[2] = "double";
+
+            a.paraname[3] = "YMax%";
+            a.parakind[3] = "double";
+
+            a.paraname[4] = "是否画特征点";
+            a.parakind[4] = "布尔型";
+            CComLibrary.GlobeVal.mfunc.Add(a);
+
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_偏置斜率交点";
+            a.replaceName = a.OperaWordsName;
+            a.count = 6;
+            a.explain = "计算斜率平行线和曲线相交点";
+            a.paraname[0] = "X";
+            a.parakind[0] = "double []";
+
+            a.paraname[1] = "Y";
+            a.parakind[1] = "double []";
+
+            a.paraname[2] = "YMin%";
+            a.parakind[2] = "double";
+
+            a.paraname[3] = "YMax%";
+            a.parakind[3] = "double";
+
+            a.paraname[4] = "偏置量";
+            a.parakind[4] = "double";
+
+           
+
+            a.paraname[5] = "是否画特征点";
+            a.parakind[5] = "布尔型";
+            CComLibrary.GlobeVal.mfunc.Add(a);
+           
 
 
             a = new CComLibrary.Rule();
@@ -320,13 +376,29 @@ namespace AppleLabApplication
 
             CComLibrary.GlobeVal.mfunc.Add(a);
 
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_断后标距";
+            a.replaceName = a.OperaWordsName;
+            a.count = 0;
+            a.explain = "输入断后标距";
+            CComLibrary.GlobeVal.mfunc.Add(a);
+
 
             a = new CComLibrary.Rule();
             a.OperaWordsName = "_面积";
             a.replaceName = a.OperaWordsName;
             a.count = 0;
             a.explain = "计算面积";
-            
+
+            CComLibrary.GlobeVal.mfunc.Add(a);
+
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_断后面积";
+            a.replaceName = a.OperaWordsName;
+            a.count = 0;
+            a.explain = "输入并计算断后试样面积";
+
+
             CComLibrary.GlobeVal.mfunc.Add(a);
 
             a = new CComLibrary.Rule();
