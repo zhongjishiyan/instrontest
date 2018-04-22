@@ -138,6 +138,7 @@ namespace TabHeaderDemo
             ADOX.Column column = new ADOX.Column();
             column.ParentCatalog = catalog;
             column.Name = "RecordId";
+          
             column.Type = DataTypeEnum.adInteger;
             column.DefinedSize = 9;
             column.Properties["AutoIncrement"].Value = true;
@@ -146,15 +147,27 @@ namespace TabHeaderDemo
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count;i++)
             {
-                table.Columns.Append(CComLibrary.GlobeVal.filesave.mdatabaseitemselect[i].Name, DataTypeEnum.adVarWChar, 80);
+                column = new ADOX.Column();
+               
+                column.Name = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[i].Name;
+                column.Attributes = ColumnAttributesEnum.adColNullable;
+                table.Columns.Append(column, DataTypeEnum.adVarWChar, 80);
+               
+               
+                
             }
 
+           
 
-          // table.Columns.Append("CustomerName", DataTypeEnum.adVarWChar, 50);
-           // table.Columns.Append("Age", DataTypeEnum.adInteger, 9);
-           // table.Columns.Append("生日", DataTypeEnum.adVarWChar, 80);
-            
+
+
+            // table.Columns.Append("CustomerName", DataTypeEnum.adVarWChar, 50);
+            // table.Columns.Append("Age", DataTypeEnum.adInteger, 9);
+            // table.Columns.Append("生日", DataTypeEnum.adVarWChar, 80);
+
             catalog.Tables.Append(table);
+
+           
 
             ADODB.Recordset rs;
 

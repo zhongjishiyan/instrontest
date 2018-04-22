@@ -14,7 +14,19 @@ namespace AppleLabApplication
         NationalInstruments.UI.Axis xx;
 
         public NationalInstruments.UI.WindowsForms.ScatterGraph  myplot;
-  
+
+      
+
+        private static FormAxis _instance;
+
+        public static FormAxis InstanceObject()
+        {
+            if (_instance == null)
+                _instance = new FormAxis();
+            return _instance;
+        }
+
+
         public FormAxis()
         {
             InitializeComponent();
@@ -38,9 +50,10 @@ namespace AppleLabApplication
                 }
             }
                    
-            xx.Range = new NationalInstruments.UI.Range((double)propertyEditor2.Source.Value, (double)propertyEditor3.Source.Value); 
- 
-            Close();
+            xx.Range = new NationalInstruments.UI.Range((double)propertyEditor2.Source.Value, (double)propertyEditor3.Source.Value);
+
+            this.Close();
+         
         }
 
         private void FormAxis_Load(object sender, EventArgs e)
@@ -69,6 +82,11 @@ namespace AppleLabApplication
         private void propertyEditor8_SourceValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormAxis_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _instance = null;
         }
     }
 }

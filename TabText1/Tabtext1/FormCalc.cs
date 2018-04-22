@@ -295,6 +295,53 @@ namespace AppleLabApplication
             a.parakind[2] = "布尔型";
             CComLibrary.GlobeVal.mfunc.Add(a);
 
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_材料屈服点索引";
+            a.replaceName = a.OperaWordsName;
+            a.count = 3;
+            a.explain = "计算材料屈服点索引";
+            a.paraname[0] = "X";
+            a.parakind[0] = "double []";
+
+            a.paraname[1] = "Y";
+            a.parakind[1] = "double []";
+
+            a.paraname[2] = "是否画特征点";
+            a.parakind[2] = "布尔型";
+            CComLibrary.GlobeVal.mfunc.Add(a);
+
+
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_材料上屈服点索引";
+            a.replaceName = a.OperaWordsName;
+            a.count = 3;
+            a.explain = "计算材料上屈服点索引";
+            a.paraname[0] = "X";
+            a.parakind[0] = "double []";
+
+            a.paraname[1] = "Y";
+            a.parakind[1] = "double []";
+
+            a.paraname[2] = "是否画特征点";
+            a.parakind[2] = "布尔型";
+            CComLibrary.GlobeVal.mfunc.Add(a);
+
+
+            a = new CComLibrary.Rule();
+            a.OperaWordsName = "_材料下屈服点索引";
+            a.replaceName = a.OperaWordsName;
+            a.count = 3;
+            a.explain = "计算材料下屈服点索引";
+            a.paraname[0] = "X";
+            a.parakind[0] = "double []";
+
+            a.paraname[1] = "Y";
+            a.parakind[1] = "double []";
+
+            a.paraname[2] = "是否画特征点";
+            a.parakind[2] = "布尔型";
+            CComLibrary.GlobeVal.mfunc.Add(a);
+
 
 
             a = new CComLibrary.Rule();
@@ -1382,6 +1429,21 @@ namespace AppleLabApplication
         private void 全选ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.txtContent.Select(0, this.txtContent.Rtf.Length);
+        }
+
+        private void panel4_Scroll(object sender, ScrollEventArgs e)
+        {
+           
+        }
+
+        private void lvTips_VScroll(object sender, EventArgs e)
+        {
+            lvTips.Refresh();
+        }
+
+        private void lvTips_HScroll(object sender, EventArgs e)
+        {
+            lvTips.Refresh();
         }
     }
 }

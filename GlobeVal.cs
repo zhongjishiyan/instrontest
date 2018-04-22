@@ -7,7 +7,10 @@ using System.Runtime.InteropServices;
 using System.IO;
 using ADOX;
 
-
+using AForge.Video;
+using AForge.Video.DirectShow;
+using System.Diagnostics;
+using AForge.Video.FFMPEG;
 
 namespace TabHeaderDemo
 {
@@ -37,6 +40,8 @@ namespace TabHeaderDemo
         public static Button mbtntest;
         public static  UserControlDynSet dynset;
         public static  UserControlWizard wizard;
+
+        public static UserControlProcess UserControlProcess1;
         public static bool resizing = false;
         public static ClassSys mysys;
 
@@ -46,7 +51,15 @@ namespace TabHeaderDemo
         public static UserControlSpe UserControlSpe1;
         public static UserControlGraph UserControlGraph1;
         public static UserControlGraph UserControlGraph2;
+        public static UserControlCamera1 UserControlCamera;
+
+        public static UserControlRawdata UserControlRawdata1;
+
         public static bool suc = false;
+
+        public static bool ShowCameraForm = false;
+
+        public static  VideoCaptureDevice cam1;     //视频的来源选择
 
         public static ClsStaticStation.ClsBaseControl myarm;
 
@@ -104,7 +117,13 @@ namespace TabHeaderDemo
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mdatabaseitemselect.Count; i++)
             {
-                table.Columns.Append(CComLibrary.GlobeVal.filesave.mdatabaseitemselect[i].Name, DataTypeEnum.adVarWChar, 80);
+                column = new ADOX.Column();
+
+                column.Name = CComLibrary.GlobeVal.filesave.mdatabaseitemselect[i].Name;
+                column.Attributes = ColumnAttributesEnum.adColNullable;
+                table.Columns.Append(column, DataTypeEnum.adVarWChar, 80);
+
+               
             }
 
 

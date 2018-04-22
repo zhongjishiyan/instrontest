@@ -175,13 +175,15 @@ namespace TabHeaderDemo
             else
             {
 
-              
+               
 
-                if ((CComLibrary.GlobeVal.filesave.currentspenumber+1) > GlobeVal.userControltest1.lstspe.Items.Count)
+                if ((CComLibrary.GlobeVal.filesave.currentspenumber+1) > CComLibrary.GlobeVal.filesave.testedcount)
                 {
 
                     CComLibrary.GlobeVal.filesave.currentspenumber = CComLibrary.GlobeVal.filesave.currentspenumber + 1;
+
                     CComLibrary.GlobeVal.filesave.testedcount = CComLibrary.GlobeVal.filesave.currentspenumber;
+
                     setspe(CComLibrary.GlobeVal.filesave.currentspenumber + 1, CComLibrary.TestStatus.Untested);
                     btnright.Enabled = false;
 
@@ -254,6 +256,7 @@ namespace TabHeaderDemo
 
                setinput();
 
+               
             
 
             }

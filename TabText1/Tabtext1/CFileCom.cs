@@ -1191,7 +1191,9 @@ namespace CComLibrary
         public ItemSignal myitemsignal;
         public double limitup = 10000; //合格范围上限
         public double limitdown = 0;//合格范围下限
-        public bool apply = false;//合格范围判断统计值
+        public bool apply = false;//表格标题显示方式,false 显示公式名称 true 显示公式说明
+
+
 
         public Object Clone()
         {
@@ -1247,14 +1249,14 @@ namespace CComLibrary
 
         public FileLayoutStruct()
         {
-            ItemName = new string[10];
-            ItemCol = new int[10];
-            ItemRow = new int[10];
-            ItemColSpan = new int[10];
-            ItemRowSpan = new int[10];
-            Show = new bool[10];
-            rowheight = new int[10];
-            colWidth = new int[10];
+            ItemName = new string[20];
+            ItemCol = new int[20];
+            ItemRow = new int[20];
+            ItemColSpan = new int[20];
+            ItemRowSpan = new int[20];
+            Show = new bool[20];
+            rowheight = new int[20];
+            colWidth = new int[20];
 
         }
 
@@ -1669,6 +1671,8 @@ namespace CComLibrary
 
         public int destcontrolmode = 0;
 
+        public int destmode = 0;
+
         public double mtrirate;
         public int mtrirateunit = 0;
 
@@ -1704,9 +1708,7 @@ namespace CComLibrary
         public double mrectupkeeptime;
         public double mrectdownkeeptime;
 
-        public bool chkjump = false;//是否跳转
-        public int intjumpto = 0; //跳转到
-        public int cycliccount = 0;//循环次数
+       
 
         public int samplingmode = 0;//采样方式
 
@@ -1724,6 +1726,7 @@ namespace CComLibrary
             keeptime = 0;
             cycles = 0;
             direction = 0;
+            destmode = 0;
 
 
 
@@ -1857,6 +1860,9 @@ namespace CComLibrary
         public double mendstrain;
         public double mstrainspeed;
 
+
+        public int destmod = 0;//目标控制模式
+
         public string cyclicconvert()
         {
             string s = "";
@@ -1946,6 +1952,19 @@ namespace CComLibrary
                 else
                 {
                     s = s + ",保持" + keeptime.ToString() + "s";
+                }
+
+                if (destmod ==0)
+                {
+                    s = s + ",切换";
+                }
+                else if(destmod ==1)
+                {
+                    s = s + ",不切换";
+                }
+                else if (destmod ==2)
+                {
+                    s = s + ",跟随";
                 }
             }
             return s;
@@ -2126,6 +2145,12 @@ namespace CComLibrary
 
         public int speedunit=0;
         public int destunit=0;
+        public int currentcount = 1;
+        public int destmode = 0;//控制模式
+
+       
+
+
 
         public  double speedorigin()
         {
@@ -2169,6 +2194,9 @@ namespace CComLibrary
             speedunit = 0;
             destunit = 0;
             cmd = 0;
+
+            mseq = new Sequence();
+           
 
         }
 
@@ -2248,6 +2276,19 @@ namespace CComLibrary
                 else
                 {
                     s = s + ",保持" + keeptime.ToString() + "s";
+                }
+
+                if (destmode ==0)
+                {
+                    s = s + ",切换";
+                }
+                else if(destmode ==1)
+                {
+                    s = s + ",不切换";
+                }
+                else if(destmode ==2)
+                {
+                    s = s + ",跟随";
                 }
             }
             return s;
@@ -2868,7 +2909,13 @@ namespace CComLibrary
         public List<DatabaseItem> mdatabaseitemselect;
 
         public int testedcount = 0;
-      
+
+        public bool mplay = false;//是否播放录像
+        public string play_avi_file = "";
+        public bool mautorecord = false;//是否自动记录
+        public bool mautoplay = false;//是否自动播放
+        public bool mplayfile = false;//播放录像时是否播放
+        public string play_avi_datafile = "";
 
         public double StrainToLoad(double l)
         {
@@ -3057,7 +3104,7 @@ namespace CComLibrary
 
             }
 
-            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)//中级试验
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)//高级试验
             {
                 CComLibrary.GlobeVal.filesave.mseglist = new List<CComLibrary.CmdSeg>();
 
@@ -3072,6 +3119,7 @@ namespace CComLibrary
                     n.check = true;
                     n.explainkind = 1;
                     n.mseq = sqf.mSequencelist[i];
+                   
 
                     CComLibrary.GlobeVal.filesave.mseglist.Add(n);
                 }
@@ -3847,12 +3895,12 @@ namespace CComLibrary
 
             mdatabaseitemlist = new List<DatabaseItem>();
             mdatabaseitemselect = new List<DatabaseItem>();
-            Init_databaselist(false);
+            Init_databaselist(false,this.currentspenumber);
            
 
         }
 
-        public void Init_databaselist(bool calced)
+        public void Init_databaselist(bool calced,int inum)
         {
             mdatabaseitemlist.Clear();
             DatabaseItem m = new CComLibrary.DatabaseItem();
@@ -3914,7 +3962,7 @@ namespace CComLibrary
             m = new DatabaseItem();
             m.Name = "试样号";
             m.Ntype = 0;
-            m.Value = (this.currentspenumber+1).ToString();
+            m.Value = (inum+1).ToString();
             mdatabaseitemlist.Add(m);
 
             m = new DatabaseItem();
@@ -4031,8 +4079,7 @@ namespace CComLibrary
 
                     if (calced == false)
                     {
-                       m.Value = ClsStaticStation.m_Global.mresult[i + 1].ToString();
-                       // m.Value = CComLibrary.GlobeVal.gcalc.getresult(i + 1).ToString();
+                        // m.Value = ClsStaticStation.m_Global.mresult[i + 1].ToString();
                     }
                     else
 
@@ -4512,7 +4559,7 @@ namespace CComLibrary
                         c.mdatabaseitemlist = new List<DatabaseItem>();
                         
                     }
-                    c.Init_databaselist(false);
+                    c.Init_databaselist(false,c.currentspenumber);
 
                     if (c.mdatabaseitemselect==null)
                     {
@@ -4879,7 +4926,7 @@ namespace CComLibrary
             list.Items.Add("public double _maxpeak(int starti,int endi,double[] v)" + "\r\n" + "{ return  CComLibrary.GlobeVal._funmax(starti,endi,v); }" + "\r\n");
             list.Items.Add("public double _拐点(double[] x,double[] y, double offset, bool mdraw)" + "\r\n" + " {  double v;  int i;\r\n  CComLibrary.GlobeVal._yield(x,y, offset, mdraw, out v,out i);\r\n return v; \r\n}\r\n");
             list.Items.Add("public double _斜率(double[] x,double[] y,bool mdraw) \r\n {double mslope; double a;double b; \r\n CComLibrary.GlobeVal._automodule(x,y,mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
-            list.Items.Add("public double _斜率1(double[] x,double[] y, double yminpercent,double ymaxpercent, bool mdraw) \r\n {double mslope; double a;double b; \r\n CComLibrary.GlobeVal._module(x,y,yminpercent,ymaxpercent, mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
+            list.Items.Add("public double _斜率1(double[] x,double[] y, double yminpercent,double ymaxpercent, bool mdraw) \r\n {double mslope; int a;int b; \r\n CComLibrary.GlobeVal._module(x,y,yminpercent,ymaxpercent, mdraw, out mslope, out a, out b); return mslope;\r\n}\r\n");
 
             list.Items.Add("public double _数组Y最大值(double[] x, double[] y, bool mdraw)\r\n{ double value; int index; \r\n GlobeVal._maxyvalue(x,y,out value, out index, mdraw); return value;\r\n}\r\n");
             list.Items.Add("public double _偏置斜率交点(double[] x, double[] y,  double yminpercent,double ymaxpercent,double oa, bool mdraw)\r\n{ double value;\r\n GlobeVal._offsetslopepoint(x,y,yminpercent,ymaxpercent,oa, out value,mdraw); return value;\r\n}\r\n");
@@ -4888,8 +4935,10 @@ namespace CComLibrary
             list.Items.Add("public double _曲线拟合(double[] x,double[] y) \r\n {double mslope; \r\n CComLibrary.GlobeVal._fit(x,y,out mslope); return mslope;\r\n}\r\n");
             list.Items.Add("public double _断后面积()\r\n{ double value;\r\n CComLibrary.GlobeVal._BreakArea(out value); return value;\r\n}\r\n");
             list.Items.Add("public double _断后标距()\r\n{ double value;\r\n CComLibrary.GlobeVal._Breakgauge(out value); return value;\r\n}\r\n");
-           
 
+            list.Items.Add("public int _材料屈服点索引(double[] x,double[] y,bool mdraw) \r\n {int v;\r\n CComLibrary.GlobeVal._normalyield(x,y,mdraw,out v);return v;\r\n}\r\n");
+            list.Items.Add("public int _材料上屈服点索引(double[] x,double[] y,bool mdraw) \r\n {int v;\r\n CComLibrary.GlobeVal._upperyield(x,y,mdraw,out v);return v;\r\n}\r\n");
+            list.Items.Add("public int _材料下屈服点索引(double[] x,double[] y,bool mdraw) \r\n {int v;\r\n CComLibrary.GlobeVal._loweryield(x,y,mdraw,out v);return v;\r\n}\r\n");
 
             list.Items.Add("public double _面积()\r\n{ double value;\r\n CComLibrary.GlobeVal._area(out value); return value;\r\n}\r\n");
             list.Items.Add("public double _引伸计标距()\r\n{ double value;\r\n CComLibrary.GlobeVal._gauge(out value); return value;\r\n} \r\n");
@@ -5718,6 +5767,8 @@ namespace CComLibrary
         public static int yselcount = 0;
 
         public static SampleProject.Extensions.GridArray[] outgrid;
+       
+
 
         private static void Init_SystemPara通道()
         {
@@ -6011,6 +6062,407 @@ namespace CComLibrary
             //Console.WriteLine("剩余平方和： " + residualSS.ToString("0.0000"));
             //Console.WriteLine("回归平方和： " + regressionSS.ToString("0.0000"));
         }
+
+         public static int  _normalyield(double[] x, double[] y, bool mdraw, out int  v)
+        {
+
+            //为计算屈服点和上下屈服点做准备
+            //只在此时,给TempYieldIndex赋值
+            double tempk=0;
+            double zdl;
+            double zf;
+            int Num=0;
+            int Zi;
+            double XiShu=0.5;
+            double mslope=0;
+            int mstartindex = 0;
+            int mendindex = 0;
+            double temp = 0;
+            int TempYieldIndex = 0;
+            bool Findit = false;
+
+            _module(x, y, 10, 30, false, out mslope, out mstartindex, out mendindex);
+
+
+            for (Zi = mendindex; Zi < m_len - 3; Zi++)
+            {
+
+                zf = y[Zi + 2] - y[Zi];
+
+
+                zdl = x[Zi + 2] - x[Zi];
+
+
+                if (zdl !=0)
+                {
+                    tempk = zf / zdl;
+                }
+
+
+             
+
+                if (tempk < mslope * XiShu)
+                {
+                    
+                    TempYieldIndex = Zi;
+                    Num = Num + 1;
+
+                    if (Num >= 3)
+                    {
+                        
+                        if (zf < 0)
+                        {
+                            temp = -9999999;
+                            for (int i = mendindex; i < Zi; i++)
+                            {
+                                if (temp <y[i])
+                                {
+                                    temp = y[i];
+                                    TempYieldIndex = i;
+                                 }
+                            }
+                            Findit = true;
+
+                            v = TempYieldIndex;
+
+                           
+
+                            break;
+
+                        }
+                        else
+                        {
+                            TempYieldIndex = Zi + 2;
+                            Findit = false;
+                     
+                        }
+
+                        break;
+
+
+                    }
+                }
+                else
+                {
+                    Num = 0;
+
+                }
+
+             }
+
+            
+            v = TempYieldIndex;
+
+            if (mdraw == true)
+            {
+                LineStruct l = new LineStruct();
+                l.kind = 0;
+                l.indexstart = TempYieldIndex;
+                l.xstart = x[TempYieldIndex];
+                l.ystart = y[TempYieldIndex];
+                m_listline.Add(l);
+            }
+            return 0;
+        }
+
+        public static int _upperyield(double[] x, double[] y, bool mdraw, out int v)
+        {
+            //为计算屈服点和上下屈服点做准备
+            //只在此时,给TempYieldIndex赋值
+            double tempk = 0;
+            double zdl;
+            double zf;
+            int Num = 0;
+            int Zi;
+            double XiShu = 0.5;
+            double mslope = 0;
+            int mstartindex = 0;
+            int mendindex = 0;
+            double temp = 0;
+            int TempYieldIndex = 0;
+            bool Findit = false;
+            int mv = 0;
+
+            _module(x, y, 10, 30, false, out mslope, out mstartindex, out mendindex);
+
+
+            for (Zi = mendindex; Zi < m_len - 3; Zi++)
+            {
+
+                zf = y[Zi + 2] - y[Zi];
+
+
+                zdl = x[Zi + 2] - x[Zi];
+
+
+                if (zdl != 0)
+                {
+                    tempk = zf / zdl;
+                }
+
+
+
+
+                if (tempk < mslope * XiShu)
+                {
+
+                    TempYieldIndex = Zi;
+                    Num = Num + 1;
+
+                    if (Num >= 3)
+                    {
+
+                        if (zf < 0)
+                        {
+                            temp = -9999999;
+                            for (int i = mendindex; i < Zi; i++)
+                            {
+                                if (temp < y[i])
+                                {
+                                    temp = y[i];
+                                    TempYieldIndex = i;
+                                }
+                            }
+                            Findit = true;
+
+                            v = TempYieldIndex;
+
+
+
+                            break;
+
+                        }
+                        else
+                        {
+                            TempYieldIndex = Zi + 2;
+                            Findit = false;
+
+                        }
+
+                        break;
+
+
+                    }
+                }
+                else
+                {
+                    Num = 0;
+
+                }
+
+            }
+
+            if (Findit == true)
+            {
+                mv = TempYieldIndex;
+            }
+
+            else
+
+            {
+                int peak = 0;
+                bool  peakb = false;
+                int[] peakv = new int[1000];
+
+               for (int i= TempYieldIndex; i<m_len-3;i++)
+                {
+                    if (((y[i+2]-y[i])<0) && (peakb ==false))
+                    {
+                        peakv[peak] = i;
+                        peakb = true;
+                        peak = peak + 1;
+                       
+                    }
+
+                    if ((y[i+2]-y[i]>0))
+                    {
+                        peakb = false;
+                    }
+
+                }
+               
+               if (peak<=1)
+                {
+                    mv = -1;
+                }
+               if (peak==2)
+                {
+                    mv = peakv[0];
+                }
+
+               if (peak>2)
+                {
+                    mv = peakv[1];
+                }
+            }
+
+            v = mv;
+            if ((mdraw == true ) && (mv>=0))
+            {
+                LineStruct l = new LineStruct();
+                l.kind = 0;
+                l.indexstart = mv;
+                l.xstart = x[mv];
+                l.ystart = y[mv];
+                m_listline.Add(l);
+            }
+            return 0;
+        }
+
+
+        public static int  _loweryield(double[] x,double[] y, bool mdraw, out int v)
+        {
+            //为计算屈服点和上下屈服点做准备
+            //只在此时,给TempYieldIndex赋值
+            double tempk = 0;
+            double zdl;
+            double zf;
+            int Num = 0;
+            int Zi;
+            double XiShu = 0.5;
+            double mslope = 0;
+            int mstartindex = 0;
+            int mendindex = 0;
+            double temp = 0;
+            int TempYieldIndex = 0;
+            bool Findit = false;
+            int mv = 0;
+
+            _module(x, y, 10, 30, false, out mslope, out mstartindex, out mendindex);
+
+
+            for (Zi = mendindex; Zi < m_len - 3; Zi++)
+            {
+
+                zf = y[Zi + 2] - y[Zi];
+
+
+                zdl = x[Zi + 2] - x[Zi];
+
+
+                if (zdl != 0)
+                {
+                    tempk = zf / zdl;
+                }
+
+
+
+
+                if (tempk < mslope * XiShu)
+                {
+
+                    TempYieldIndex = Zi;
+                    Num = Num + 1;
+
+                    if (Num >= 3)
+                    {
+
+                        if (zf < 0)
+                        {
+                            temp = -9999999;
+                            for (int i = mendindex; i < Zi; i++)
+                            {
+                                if (temp < y[i])
+                                {
+                                    temp = y[i];
+                                    TempYieldIndex = i;
+                                }
+                            }
+                            Findit = true;
+
+                            v = TempYieldIndex;
+
+
+
+                            break;
+
+                        }
+                        else
+                        {
+                            TempYieldIndex = Zi + 2;
+                            Findit = false;
+
+                        }
+
+                        break;
+
+
+                    }
+                }
+                else
+                {
+                    Num = 0;
+
+                }
+
+            }
+
+          
+                int peak = 0;
+                bool peakb = false;
+                int[] peakv = new int[1000];
+
+                for (int i = TempYieldIndex; i < m_len - 3; i++)
+                {
+                    if (((y[i + 2] - y[i]) < 0) && (peakb == false))
+                    {
+                        peakv[peak] = i;
+                        peakb = true;
+                        peak = peak + 1;
+
+                    }
+
+                    if ((y[i + 2] - y[i] > 0))
+                    {
+                        peakb = false;
+                    }
+
+                }
+
+                if (peak <= 1)
+                {
+                    mv = -1;
+                }
+                if (peak == 2)
+                {
+                   double mt = y[peakv[0]];
+                   for (int i = peakv[0]; i < peakv[1]; i++)
+                   {
+                    if (mt>y[i])
+                    {
+                        mt = y[i];
+                        mv = i;
+                    }
+                   } 
+                }
+
+                if (peak > 2)
+                {
+                     double mt = y[peakv[1]];
+                     for (int i = peakv[1]; i < peakv[peak-1]; i++)
+                     {
+                       if (mt > y[i])
+                       {
+                        mt = y[i];
+                        mv = i;
+                        }
+                     }
+                }
+            
+
+            v = mv;
+            if ((mdraw == true) && (mv >= 0))
+            {
+                LineStruct l = new LineStruct();
+                l.kind = 0;
+                l.indexstart = mv;
+                l.xstart = x[mv];
+                l.ystart = y[mv];
+                m_listline.Add(l);
+            }
+            return 0;
+        }
+
         //拟合求斜率
         public static double _fit(double[] x, double[] y, out double slope)
         {
@@ -6836,7 +7288,7 @@ namespace CComLibrary
            
         }
 
-        public static bool _module(double[] x, double[] y, double yminpercent,double ymaxpercent, bool mdraw, out double value, out double a, out double b)
+        public static bool _module(double[] x, double[] y, double yminpercent,double ymaxpercent, bool mdraw, out double value, out int a, out int b)
         {
 
             try
@@ -6929,8 +7381,8 @@ namespace CComLibrary
 
 
                     value = mslope;
-                    a = mslope;
-                    b = mintercept;
+                    a = mstarti;
+                    b = mendi;
                 
                     // CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + value.ToString() + "\r\n";
 

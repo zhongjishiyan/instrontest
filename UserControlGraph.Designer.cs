@@ -51,8 +51,9 @@
             this.legend = new NationalInstruments.UI.WindowsForms.Legend();
             this.legendItem1 = new NationalInstruments.UI.LegendItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.userGraph1 = new AppleLabApplication.UserGraph();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLeft = new System.Windows.Forms.ToolStrip();
             this.tsbdefault = new System.Windows.Forms.ToolStripButton();
             this.tsbzoomin = new System.Windows.Forms.ToolStripButton();
             this.tsbzoomout = new System.Windows.Forms.ToolStripButton();
@@ -65,7 +66,6 @@
             this.tsbrect = new System.Windows.Forms.ToolStripButton();
             this.tsbpoint = new System.Windows.Forms.ToolStripButton();
             this.tsbcontrol = new System.Windows.Forms.ToolStripButton();
-            this.userGraph1 = new AppleLabApplication.UserGraph();
             this.xAxis3 = new NationalInstruments.UI.XAxis();
             this.yAxis3 = new NationalInstruments.UI.YAxis();
             this.scatterPlot1 = new NationalInstruments.UI.ScatterPlot();
@@ -79,8 +79,7 @@
             this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.legend)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGraph1)).BeginInit();
+            this.toolStripLeft.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblcaption
@@ -311,17 +310,25 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // userGraph1
+            // 
+            this.userGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userGraph1.Location = new System.Drawing.Point(3, 3);
+            this.userGraph1.Name = "userGraph1";
+            this.userGraph1.Size = new System.Drawing.Size(437, 274);
+            this.userGraph1.TabIndex = 0;
+            // 
             // timer1
             // 
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // toolStrip2
+            // toolStripLeft
             // 
-            this.toolStrip2.AutoSize = false;
-            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLeft.AutoSize = false;
+            this.toolStripLeft.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripLeft.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripLeft.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbdefault,
             this.tsbzoomin,
             this.tsbzoomout,
@@ -334,12 +341,12 @@
             this.tsbrect,
             this.tsbpoint,
             this.tsbcontrol});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(121, 25);
-            this.toolStrip2.Stretch = true;
-            this.toolStrip2.TabIndex = 10;
-            this.toolStrip2.Text = "toolStrip2";
+            this.toolStripLeft.Location = new System.Drawing.Point(3, 0);
+            this.toolStripLeft.Name = "toolStripLeft";
+            this.toolStripLeft.Size = new System.Drawing.Size(121, 25);
+            this.toolStripLeft.Stretch = true;
+            this.toolStripLeft.TabIndex = 10;
+            this.toolStripLeft.Text = "toolStrip2";
             // 
             // tsbdefault
             // 
@@ -500,22 +507,6 @@
             this.tsbcontrol.Size = new System.Drawing.Size(23, 20);
             this.tsbcontrol.Visible = false;
             // 
-            // userGraph1
-            // 
-            this.userGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userGraph1.Location = new System.Drawing.Point(3, 3);
-            this.userGraph1.Name = "userGraph1";
-            this.userGraph1.PlotAreaColor = System.Drawing.Color.White;
-            this.userGraph1.Plots.AddRange(new NationalInstruments.UI.ScatterPlot[] {
-            this.scatterPlot1});
-            this.userGraph1.Size = new System.Drawing.Size(437, 274);
-            this.userGraph1.TabIndex = 0;
-            this.userGraph1.UseColorGenerator = true;
-            this.userGraph1.XAxes.AddRange(new NationalInstruments.UI.XAxis[] {
-            this.xAxis3});
-            this.userGraph1.YAxes.AddRange(new NationalInstruments.UI.YAxis[] {
-            this.yAxis3});
-            // 
             // xAxis3
             // 
             this.xAxis3.Range = new NationalInstruments.UI.Range(0D, 0.1D);
@@ -536,7 +527,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.toolStrip2);
+            this.Controls.Add(this.toolStripLeft);
             this.Controls.Add(this.panelback);
             this.Controls.Add(this.lblcaption);
             this.Name = "UserControlGraph";
@@ -551,9 +542,8 @@
             this.tableLayoutPanel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.legend)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGraph1)).EndInit();
+            this.toolStripLeft.ResumeLayout(false);
+            this.toolStripLeft.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -564,7 +554,7 @@
         private System.Windows.Forms.Panel panelback;
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Label lblcaption;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStrip toolStripLeft;
         private System.Windows.Forms.ToolStripButton tsbdefault;
         private System.Windows.Forms.ToolStripButton tsbzoomin;
         private System.Windows.Forms.ToolStripButton tsbzoomout;

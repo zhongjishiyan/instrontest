@@ -160,7 +160,15 @@ namespace ClsStaticStation
 
         private List<demodata> mdemodata = new List<demodata>();
 
+        public override void btnzeroall()
+        {
 
+        }
+
+        public override void btnrestoreall()
+        {
+
+        }
         public override void startcontrol()
         {
 
@@ -1986,7 +1994,7 @@ namespace ClsStaticStation
 
 
                 ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 10);
-                ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 10);
+              
 
                 iii = iii + 1;
 
@@ -1999,7 +2007,9 @@ namespace ClsStaticStation
 
             iii = 0;
 
-            while (iii < ClsStatic.arraydata[1].NodeCount)
+            ncount = ClsStatic.arraydata[1].NodeCount;
+
+            while (iii < ncount )
             {
 
 
@@ -2032,21 +2042,7 @@ namespace ClsStaticStation
                 mrunlist.Clear();
 
 
-                mrunlist.Add(CComLibrary.GlobeVal.filesave.simple_cmd);
-
-                mcurseg = 0;
-
-                if (mrunlist[mcurseg].controlmode ==
-                    mrunlist[mcurseg].destcontrolmode)
-                {
-                    k = 1;
-                }
-                else
-                {
-                    k = 0;
-                }
-
-
+              
 
             }
 
@@ -2106,7 +2102,7 @@ namespace ClsStaticStation
                 segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].destorigin(),
                     Convert.ToInt16(mrunlist[mcurseg].controlmode),
                      Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0);
+                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0,0);
 
 
 
@@ -2219,7 +2215,7 @@ namespace ClsStaticStation
                            Convert.ToInt16(mrunlist[ii].controlmode),
                              Convert.ToInt16(mrunlist[ii].destcontrolmode),
                             k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
+                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,0);
 
                         mcurseg = ii;
 
@@ -2240,7 +2236,7 @@ namespace ClsStaticStation
                            Convert.ToInt16(mrunlist[ii].controlmode),
                               Convert.ToInt16(mrunlist[ii].destcontrolmode),
                           k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
+                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,0);
 
                             mcurseg = ii;
                         }
@@ -2269,7 +2265,7 @@ namespace ClsStaticStation
 
         }
 
-        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action)
+        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action,int destmode)
         {
             bool b = false;
             m_keeptime = keeptime;
@@ -2476,7 +2472,7 @@ namespace ClsStaticStation
                                        Convert.ToInt16(mrunlist[ii].controlmode),
                                          Convert.ToInt16(mrunlist[ii].destcontrolmode),
                                         k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
+                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,0);
                                     mcurseg = ii;
                                     tongbu = tongbu + 1;
                                     if (tongbu >= 2)
@@ -2492,7 +2488,7 @@ namespace ClsStaticStation
                                    Convert.ToInt16(mrunlist[ii].controlmode),
                                     Convert.ToInt16(mrunlist[ii].destcontrolmode),
                                    k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action);
+                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,0);
 
                                         mcurseg = ii;
                                     }
@@ -3298,7 +3294,7 @@ namespace ClsStaticStation
         //输 入 参 数： handle：主窗体句柄
 
         //输 出 参 数：无
-        [DllImport("WNetCtrl.dll", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]
+        [DllImport("WNetCtrl.dll", ExactSpelling =true , CharSet = CharSet.Ansi, SetLastError = true )]
         public static extern short ARM_DEC_Init(int handle);
 
         //函 数 名 称： DEC_Connect()

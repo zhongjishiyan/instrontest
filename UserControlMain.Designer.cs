@@ -198,7 +198,7 @@
             this.btnmmanage.Name = "btnmmanage";
             this.btnmmanage.Size = new System.Drawing.Size(138, 29);
             this.btnmmanage.TabIndex = 35;
-            this.btnmmanage.Text = " 管理器";
+            this.btnmmanage.Text = "管理器";
             this.btnmmanage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnmmanage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnmmanage.UseCompatibleTextRendering = true;
@@ -284,8 +284,8 @@
             this.Name = "UserControlMain";
             this.Size = new System.Drawing.Size(1042, 589);
             this.Load += new System.EventHandler(this.UserControlMain_Load);
-            this.Resize += new System.EventHandler(this.UserControlMain_Resize);
             this.SizeChanged += new System.EventHandler(this.UserControlMain_SizeChanged);
+            this.Resize += new System.EventHandler(this.UserControlMain_Resize);
             this.panelback.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

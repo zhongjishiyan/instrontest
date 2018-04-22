@@ -56,7 +56,7 @@
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;DEBUG;TowAxis  : Demo=-1:Advanced=-1</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;TowAxis  : Demo=-1:Advanced=1:</DefineConstants>
     <DocumentationFile>
     </DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
@@ -109,7 +109,31 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4, processorArchitecture=MSIL">
+    <Reference Include="AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.FFMPEG, Version=2.2.5.0, Culture=neutral, PublicKeyToken=03563089b1be05dd, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Video.FFMPEG.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.VFW, Version=2.2.4.0, Culture=neutral, PublicKeyToken=a82f807c999637c8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Video.VFW.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.Ximea, Version=2.2.4.0, Culture=neutral, PublicKeyToken=5cdcd64958730f99, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AForge.Video.Ximea.dll</HintPath>
+    </Reference>
+    <Reference Include="AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\AppleLabApplication.dll</HintPath>
     </Reference>
@@ -188,11 +212,26 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CircularIndeterminateProgress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frm\FormLink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FormLink.Designer.cs">
+      <DependentUpon>FormLink.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\FormLoadTransducer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm\FormLoadTransducer.Designer.cs">
       <DependentUpon>FormLoadTransducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FormPanelSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FormPanelSet.Designer.cs">
+      <DependentUpon>FormPanelSet.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\FormTest.cs">
       <SubType>Form</SubType>
@@ -304,11 +343,44 @@
     <Compile Include="Report\UserControl数据库.Designer.cs">
       <DependentUpon>UserControl数据库.cs</DependentUpon>
     </Compile>
+    <Compile Include="SControls\ListViewProgress.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControlCamera.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCamera.Designer.cs">
+      <DependentUpon>UserControlCamera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCamera1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCamera1.Designer.cs">
+      <DependentUpon>UserControlCamera1.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlFont.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControlFont.Designer.cs">
       <DependentUpon>UserControlFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlProcess.Designer.cs">
+      <DependentUpon>UserControlProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlStatus.Designer.cs">
+      <DependentUpon>UserControlStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlBlock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlBlock.Designer.cs">
+      <DependentUpon>UserControlBlock.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlStep.cs">
       <SubType>UserControl</SubType>
@@ -321,6 +393,15 @@
     </Compile>
     <Compile Include="UserControl扭转.Designer.cs">
       <DependentUpon>UserControl扭转.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl摄像.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl摄像.Designer.cs">
+      <DependentUpon>UserControl摄像.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Content Include="142.ico" />
     <Content Include="App.ico" />
@@ -768,6 +849,10 @@
     <Content Include="LBIndustrialCtrls\obj\Debug\LBIndustrialCtrls.csproj.FileListAbsolute.txt" />
     <Content Include="LBIndustrialCtrls\obj\Debug\LBIndustrialCtrls.dll" />
     <Content Include="LBIndustrialCtrls\obj\Debug\LBIndustrialCtrls.pdb" />
+    <None Include="Resources\50.ico" />
+    <None Include="Resources\50-1.ico" />
+    <None Include="Resources\r2-2.ico" />
+    <None Include="Resources\r2.ico" />
     <Content Include="Resources\报告提示1.ico" />
     <Content Include="Resources\方法提示1.ico" />
     <Content Include="Resources\管理器提示1.ico" />
@@ -799,8 +884,14 @@
       <DependentUpon>FrmMima.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FormLink.resx">
+      <DependentUpon>FormLink.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\FormLoadTransducer.resx">
       <DependentUpon>FormLoadTransducer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FormPanelSet.resx">
+      <DependentUpon>FormPanelSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FormTest.resx">
       <DependentUpon>FormTest.cs</DependentUpon>
@@ -920,6 +1011,12 @@
       <DependentUpon>TxtOpenFileDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCamera.resx">
+      <DependentUpon>UserControlCamera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCamera1.resx">
+      <DependentUpon>UserControlCamera1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlFont.resx">
       <DependentUpon>UserControlFont.cs</DependentUpon>
     </EmbeddedResource>
@@ -939,6 +1036,9 @@
       <DependentUpon>UserControlMeter.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProcess.resx">
+      <DependentUpon>UserControlProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlResult.resx">
       <DependentUpon>UserControlResult.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -946,6 +1046,12 @@
     <EmbeddedResource Include="UserControlSpe.resx">
       <DependentUpon>UserControlSpe.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlStatus.resx">
+      <DependentUpon>UserControlStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlBlock.resx">
+      <DependentUpon>UserControlBlock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlStep.resx">
       <DependentUpon>UserControlStep.cs</DependentUpon>
@@ -984,6 +1090,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl测试提示.resx">
       <DependentUpon>UserControl测试提示.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl摄像.resx">
+      <DependentUpon>UserControl摄像.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl试样.resx">

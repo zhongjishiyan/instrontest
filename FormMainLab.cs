@@ -647,7 +647,7 @@ namespace TabHeaderDemo
 
             }
 
-            if (GlobeVal.mysys.machinekind == 0)
+            if ((GlobeVal.mysys.machinekind == 0) ||(GlobeVal.mysys.machinekind == 5))
             {
                 tlpsel.Visible = false;
                 UserControl操作面板1 = new UserControl操作面板();
@@ -1044,6 +1044,8 @@ namespace TabHeaderDemo
 
         private void btntool_Click(object sender, EventArgs e)
         {
+            return;
+
             int i;
 
            if (CComLibrary.GlobeVal.filesave==null)
@@ -1119,17 +1121,27 @@ namespace TabHeaderDemo
         private void btnon_Click(object sender, EventArgs e)
         {
 
-
-
+            if (Convert.ToInt16( btnon.Tag)==0)
+            {
+                btnon.Image = imageList2.Images[1];
+                btnon.Tag = 1;
+                GlobeVal.myarm.btnzeroall();
+            }
+            else
+            {
+                btnon.Image = imageList2.Images[0];
+                btnon.Tag = 0;
+                GlobeVal.myarm.btnrestoreall();
+            }
 
 
         }
 
         private void btnhand_Click(object sender, EventArgs e)
         {
-            return;
-            Frm.FormTest f = new Frm.FormTest();
-            f.Show();
+
+            Frm.FormPanelSet f = new Frm.FormPanelSet();
+            f.ShowDialog();
         }
 
 

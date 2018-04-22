@@ -283,8 +283,9 @@ namespace TabHeaderDemo
                 int w;
                 int h;
 
-                Control b = GlobeVal.UserControlGraph2.Parent;
-
+               
+                Control b = GlobeVal.UserControlGraph1.Parent;
+                
                 GlobeVal.UserControlGraph1.Parent = null;
 
                 GlobeVal.UserControlGraph1.Dock = DockStyle.None;

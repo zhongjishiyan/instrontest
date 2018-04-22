@@ -13,7 +13,7 @@ namespace TabHeaderDemo
 {
     public partial class UserControl轴向 : UserControl
     {
-
+        private List<int> mlistbox1 = new List<int>();
         private void drawFigure(PaintEventArgs e, PointF[] points)
         {
             GraphicsPath path = new GraphicsPath();
@@ -69,9 +69,26 @@ namespace TabHeaderDemo
         {
             InitializeComponent();
             cboctrl.Items.Clear();
-            cboctrl.Items.Add("位移");
-            cboctrl.Items.Add("负荷");
+
+            mlistbox1.Clear();
+        
+          
+
+
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
+            {
+                if ((ClsStaticStation.m_Global.mycls.chsignals[i].SensorId == 0) && (ClsStaticStation.m_Global.mycls.chsignals[i].ClosedControl == true))
+                {
+                    cboctrl.Items.Add(ClsStaticStation.m_Global.mycls.chsignals[i].cName);
+                    mlistbox1.Add(i);
+                }
+            }
+
+
             cboctrl.SelectedIndex = 0;
+
+
+            
             //Application.StartupPath
 
             SetStyle(ControlStyles.UserPaint, true);
@@ -88,8 +105,12 @@ namespace TabHeaderDemo
 
             this.tableLayoutPanel9.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel9, true, null);
 
-           
-            
+            cbowave.Items.Clear();
+            cbowave.Items.Add("正弦波");
+            cbowave.Items.Add("三角波");
+            cbowave.Items.Add("方波");
+            cbowave.SelectedIndex = 0;
+
         }
 
         private void switch1_ValueChanged(object sender, EventArgs e)
@@ -125,34 +146,19 @@ namespace TabHeaderDemo
 
         
 
-        private void cboweiya_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboctrl.SelectedIndex == 0)
-            {
-                lblunit.Text = "mm/min";
-                lblmunit.Text = "mm";
-
-            }
-            else
-            {
-                lblunit.Text = "kN/min";
-                lblmunit.Text = "kN";
-            }
-        }
-
         private void btnup_Click(object sender, EventArgs e)
         {
-            GlobeVal.myarm.CrossUp(cboctrl.SelectedIndex, numericEdit1.Value);
+            GlobeVal.myarm.CrossUp(mlistbox1[cboctrl.SelectedIndex], numericEdit1.Value);
         }
 
         private void btndown_Click(object sender, EventArgs e)
         {
-            GlobeVal.myarm.CrossDown(cboctrl.SelectedIndex, numericEdit1.Value);
+            GlobeVal.myarm.CrossDown(mlistbox1[cboctrl.SelectedIndex], numericEdit1.Value);
         }
 
         private void btnstop_Click(object sender, EventArgs e)
         {
-            GlobeVal.myarm.CrossStop(cboctrl.SelectedIndex);
+            GlobeVal.myarm.CrossStop(mlistbox1[cboctrl.SelectedIndex]);
          }
 
 
@@ -160,13 +166,13 @@ namespace TabHeaderDemo
         private void btnstart_Click(object sender, EventArgs e)
         {
 
-            GlobeVal.myarm.DestStart(cboctrl.SelectedIndex, numericEdit2.Value, numericEdit1.Value);
+            GlobeVal.myarm.DestStart(mlistbox1[cboctrl.SelectedIndex], numericEdit2.Value, numericEdit1.Value);
         }
 
         private void btnend_Click(object sender, EventArgs e)
         {
 
-            GlobeVal.myarm.DestStop(cboctrl.SelectedIndex);
+            GlobeVal.myarm.DestStop(mlistbox1[cboctrl.SelectedIndex]);
         }
 
         private void switch2_StateChanged(object sender, NationalInstruments.UI.ActionEventArgs e)
@@ -230,49 +236,131 @@ namespace TabHeaderDemo
 
                    GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
 
+                if (GlobeVal.mysys.controllerkind != 2)
+                {
 
+                    try
+                    {
+                        WaitFormService.CreateWaitForm();
+                        // Assembly asmb = Assembly.GetExecutingAssembly();
 
+                    }
+                    catch (Exception ex)
+                    {
+                        WaitFormService.CloseWaitForm();
+                    }
+                }
+               
+ 
                 GlobeVal.myarm.Init((int)this.Handle);
                 
                 
       
             GlobeVal.FormmainLab.timer1.Enabled =true;
-                if (GlobeVal.myarm.mdemo == true)
-                {
-                    if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\"+GlobeVal.mysys.demotxt) == true)
-                    {
-                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\"+ GlobeVal.mysys.demotxt);
-                    }
-                    else
-                    {
-                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\拉伸2演示.txt");
-                    }
-                
-
-            }
+             
 
             GlobeVal.FormmainLab.InitMeter();
             GlobeVal.FormmainLab.InitKey();
 
-            GlobeVal.myarm.connected = true;
+            if (GlobeVal.myarm.connected ==true)
+                {
+                    WaitFormService.CloseWaitForm();
+                }
+            else
+                {
+                    //WaitFormService.SetWaitFormCaption("联机失败");
+                    WaitFormService.CloseWaitForm();
+                }
+
+
+             GlobeVal.myarm.connected = true;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
-            GlobeVal.myarm.startcontrol();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            GlobeVal.myarm.endcontrol();
-            timer1.Enabled = false;
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label3.Text = GlobeVal.myarm.merrorcount.ToString();
+           
+        }
+
+        private void UserControl轴向_Load(object sender, EventArgs e)
+        {
+            if (GlobeVal.mysys.chk_hlimit==true)
+            {
+                ledhlimit.Visible = true;
+                lblhlimit.Visible = true;
+            }
+            else
+            {
+                ledhlimit.Visible = false;
+                ledslimit.Visible = false;
+            }
+            if(GlobeVal.mysys.chk_slimit ==true)
+            {
+                ledslimit.Visible = true;
+                lblslimit.Visible = true;
+            }
+            else
+            {
+                ledslimit.Visible = false ;
+                lblslimit.Visible = false ;
+            }
+
+            if (GlobeVal.mysys.chk_alarm ==true)
+            {
+                ledalarm.Visible = true;
+                lblalarm.Visible = true;
+            }
+            else
+            {
+                ledalarm.Visible = false;
+                lblalarm.Visible = false;
+            }
+
+            if (GlobeVal.mysys.chk_cyclc ==true)
+            {
+                pnlcyclc.Visible = true;
+                tplcycle.Visible = true;
+            }
+            else
+
+            {
+                pnlcyclc.Visible = false;
+                tplcycle.Visible = false;
+            }
+
+            btnup.Text = GlobeVal.mysys.lbl_up;
+            btnstop.Text = GlobeVal.mysys.lbl_stop;
+            btndown.Text = GlobeVal.mysys.lbl_down;
+            btnstart.Text = GlobeVal.mysys.lbl_start;
+            btnend.Text = GlobeVal.mysys.lbl_end;
+
+        }
+
+        private void cboctrl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboctrl.SelectedIndex >= 0)
+            {
+
+                lblunit.Text = ClsStaticStation.m_Global.mycls.chsignals[mlistbox1[cboctrl.SelectedIndex]].cUnits[0] + "/min";
+                lblmunit.Text = ClsStaticStation.m_Global.mycls.chsignals[mlistbox1[cboctrl.SelectedIndex]].cUnits[0];
+                lblrangeunit.Text = ClsStaticStation.m_Global.mycls.chsignals[mlistbox1[cboctrl.SelectedIndex]].cUnits[0];
+                lblaveunit.Text = ClsStaticStation.m_Global.mycls.chsignals[mlistbox1[cboctrl.SelectedIndex]].cUnits[0];
+            }
+        }
+
+        private void btnteststart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

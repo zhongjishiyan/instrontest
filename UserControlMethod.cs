@@ -30,6 +30,7 @@ namespace TabHeaderDemo
         private UserControl文件设置 UserControl文件设置1;
         private UserControl缺省表格 UserControl缺省表格1;
         private UserControl数据库 UserControl数据库1;
+        private UserControl摄像 UserControl摄像1;
 
 
 
@@ -127,6 +128,7 @@ namespace TabHeaderDemo
             UserControl文件设置1 = new UserControl文件设置();
             UserControl缺省表格1 = new UserControl缺省表格();
             UserControl数据库1 = new UserControl数据库();
+            UserControl摄像1 = new UserControl摄像();
 
             UserControl试样1.musercontrolmethod = this;
             UserControl常规1.musercontrolmethod = this;
@@ -142,6 +144,7 @@ namespace TabHeaderDemo
             UserControl文件设置1.musercontrolmethod = this;
             UserControl缺省表格1.musercontrolmethod = this;
             UserControl数据库1.musercontrolmethod = this;
+            UserControl摄像1.musercontrolmethod = this;
 
             UserControl常规1.Init(0);
             panelback.Visible = false;
@@ -190,11 +193,21 @@ namespace TabHeaderDemo
 
             if (GlobeVal.UserControlMain1.btnmtest.Visible==true)
             {
-                panelbutton.Visible = false;
+                if (CComLibrary.GlobeVal.filesave.mcontrolprocess != 2)
+                {
+                    panelbutton.Visible = false;
+                    treeView1.Visible = false;
+                }
+                else
+                {
+                    panelbutton.Visible = true;
+                    treeView1.Visible = true;
+                } 
             }
             else
             {
                 panelbutton.Visible = true;
+                treeView1.Visible = true;
             }
         }
 
@@ -328,6 +341,11 @@ namespace TabHeaderDemo
                 {
                     UserControl控制1.Init(8);
                 }
+                else if(CComLibrary.GlobeVal.filesave.mcontrolprocess ==4 )
+                {
+                    UserControl控制1.Init(9);
+                }
+
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl控制1.Dock = DockStyle.Fill;
@@ -665,7 +683,16 @@ namespace TabHeaderDemo
                     panelback.Visible = true;
                 }
             }
+            if (t=="摄像")
+            {
+                UserControl摄像1.Init(0);
+                panelback.Visible = false;
+                panelback.Controls.Clear();
+                UserControl摄像1.Dock = DockStyle.Fill;
+                panelback.Controls.Add(UserControl摄像1);
+                panelback.Visible = true;
 
+            }
             if (t == "原始数据输出")
             {
                 UserControl原始数据1.Init(0);
@@ -710,6 +737,24 @@ namespace TabHeaderDemo
             }
 
 
+        }
+        private TreeNode FindNode(TreeNode tnParent, string strValue)
+        {
+            if (tnParent == null) return null;
+            if (tnParent.Text == strValue) return tnParent;
+
+            TreeNode tnRet = null;
+            foreach (TreeNode tn in tnParent.Nodes)
+            {
+                tnRet = FindNode(tn, strValue);
+                if (tnRet != null) break;
+            }
+            return tnRet;
+        }
+
+        public TreeNode TreeViewFindNode(string str)
+        {
+          return   FindNode(treeView1.Nodes[0], str);
         }
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {

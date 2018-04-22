@@ -35,9 +35,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.grid1 = new SourceGrid2.Grid();
             this.grid2 = new SourceGrid2.Grid();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.grid1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -84,6 +86,7 @@
             this.grid1.AutoStretchRowsToFitHeight = false;
             this.grid1.BackColor = System.Drawing.Color.White;
             this.grid1.ContextMenuStyle = SourceGrid2.ContextMenuStyle.None;
+            this.grid1.Controls.Add(this.toolStrip1);
             this.grid1.CustomSort = false;
             this.grid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid1.FocusStyle = SourceGrid2.FocusStyle.None;
@@ -91,14 +94,14 @@
             this.grid1.Location = new System.Drawing.Point(0, 0);
             this.grid1.Name = "grid1";
             this.grid1.Size = new System.Drawing.Size(457, 195);
-            this.grid1.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V)
-                        | SourceGrid2.GridSpecialKeys.Ctrl_X)
-                        | SourceGrid2.GridSpecialKeys.Delete)
-                        | SourceGrid2.GridSpecialKeys.Arrows)
-                        | SourceGrid2.GridSpecialKeys.Tab)
-                        | SourceGrid2.GridSpecialKeys.PageDownUp)
-                        | SourceGrid2.GridSpecialKeys.Enter)
-                        | SourceGrid2.GridSpecialKeys.Escape)));
+            this.grid1.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
+            | SourceGrid2.GridSpecialKeys.Ctrl_X) 
+            | SourceGrid2.GridSpecialKeys.Delete) 
+            | SourceGrid2.GridSpecialKeys.Arrows) 
+            | SourceGrid2.GridSpecialKeys.Tab) 
+            | SourceGrid2.GridSpecialKeys.PageDownUp) 
+            | SourceGrid2.GridSpecialKeys.Enter) 
+            | SourceGrid2.GridSpecialKeys.Escape)));
             this.grid1.TabIndex = 9;
             this.grid1.HScrollPositionChanged += new SourceGrid2.ScrollPositionChangedEventHandler(this.grid1_HScrollPositionChanged);
             // 
@@ -117,17 +120,25 @@
             this.grid2.Location = new System.Drawing.Point(0, 0);
             this.grid2.Name = "grid2";
             this.grid2.Size = new System.Drawing.Size(457, 208);
-            this.grid2.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V)
-                        | SourceGrid2.GridSpecialKeys.Ctrl_X)
-                        | SourceGrid2.GridSpecialKeys.Delete)
-                        | SourceGrid2.GridSpecialKeys.Arrows)
-                        | SourceGrid2.GridSpecialKeys.Tab)
-                        | SourceGrid2.GridSpecialKeys.PageDownUp)
-                        | SourceGrid2.GridSpecialKeys.Enter)
-                        | SourceGrid2.GridSpecialKeys.Escape)));
+            this.grid2.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
+            | SourceGrid2.GridSpecialKeys.Ctrl_X) 
+            | SourceGrid2.GridSpecialKeys.Delete) 
+            | SourceGrid2.GridSpecialKeys.Arrows) 
+            | SourceGrid2.GridSpecialKeys.Tab) 
+            | SourceGrid2.GridSpecialKeys.PageDownUp) 
+            | SourceGrid2.GridSpecialKeys.Enter) 
+            | SourceGrid2.GridSpecialKeys.Escape)));
             this.grid2.TabIndex = 10;
             this.grid2.VScrollPositionChanged += new SourceGrid2.ScrollPositionChangedEventHandler(this.grid2_VScrollPositionChanged);
             this.grid2.HScrollPositionChanged += new SourceGrid2.ScrollPositionChangedEventHandler(this.grid2_HScrollPositionChanged);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(457, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // UserControlResult
             // 
@@ -140,6 +151,8 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.grid1.ResumeLayout(false);
+            this.grid1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -151,6 +164,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         public SourceGrid2.Grid grid1;
         public SourceGrid2.Grid grid2;
-
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }

@@ -59,9 +59,18 @@ namespace TabHeaderDemo
                     CComLibrary.GlobeVal.filesave.mtable1para.mTableHeaderPara.HeaderFont.Size);
                     boldHeader.EnableSort = false;
                     boldHeader.WordWrap = true;
-                    boldHeader.Value = CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname + "(" +
-                        CComLibrary.GlobeVal.filesave.mtablecol1[i].myitemsignal.cUnits[
-                        CComLibrary.GlobeVal.filesave.mtablecol1[i].myitemsignal.cUnitsel] + ")";
+                    if (CComLibrary.GlobeVal.filesave.mtablecol1[i].apply == false)
+                    {
+                        boldHeader.Value = CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname + "(" +
+                            CComLibrary.GlobeVal.filesave.mtablecol1[i].myitemsignal.cUnits[
+                            CComLibrary.GlobeVal.filesave.mtablecol1[i].myitemsignal.cUnitsel] + ")";
+                    }
+                    else
+                    {
+                        boldHeader.Value = CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaexplain + "(" +
+                            CComLibrary.GlobeVal.filesave.mtablecol1[i].myitemsignal.cUnits[
+                            CComLibrary.GlobeVal.filesave.mtablecol1[i].myitemsignal.cUnitsel] + ")";
+                    }
                     boldHeader.TextAlignment = CComLibrary.GlobeVal.filesave.mtable1para.mTableHeaderPara.HeaderAlignment;
                     boldHeader.BackColor = CComLibrary.GlobeVal.filesave.mtable1para.mTableHeaderPara.HeaderBackColor;
                     boldHeader.ForeColor = CComLibrary.GlobeVal.filesave.mtable1para.mTableHeaderPara.HeaderForeColor;
@@ -223,9 +232,19 @@ namespace TabHeaderDemo
                     CComLibrary.GlobeVal.filesave.mtable2para.mTableHeaderPara.HeaderFont.Size);
                     boldHeader.EnableSort = false;
                     boldHeader.WordWrap = true;
-                    boldHeader.Value = CComLibrary.GlobeVal.filesave.mtablecol2[i].formulaname + "(" +
-                        CComLibrary.GlobeVal.filesave.mtablecol2[i].myitemsignal.cUnits[
-                        CComLibrary.GlobeVal.filesave.mtablecol2[i].myitemsignal.cUnitsel] + ")";
+
+                    if (CComLibrary.GlobeVal.filesave.mtablecol2[i].apply == false)
+                    {
+                        boldHeader.Value = CComLibrary.GlobeVal.filesave.mtablecol2[i].formulaname + "(" +
+                            CComLibrary.GlobeVal.filesave.mtablecol2[i].myitemsignal.cUnits[
+                            CComLibrary.GlobeVal.filesave.mtablecol2[i].myitemsignal.cUnitsel] + ")";
+                    }
+                    else
+                    {
+                        boldHeader.Value = CComLibrary.GlobeVal.filesave.mtablecol2[i].formulaexplain + "(" +
+                            CComLibrary.GlobeVal.filesave.mtablecol2[i].myitemsignal.cUnits[
+                            CComLibrary.GlobeVal.filesave.mtablecol2[i].myitemsignal.cUnitsel] + ")";
+                    }
                     boldHeader.TextAlignment = CComLibrary.GlobeVal.filesave.mtable2para.mTableHeaderPara.HeaderAlignment;
                     boldHeader.BackColor = CComLibrary.GlobeVal.filesave.mtable2para.mTableHeaderPara.HeaderBackColor;
                     boldHeader.ForeColor = CComLibrary.GlobeVal.filesave.mtable2para.mTableHeaderPara.HeaderForeColor;
@@ -568,7 +587,18 @@ namespace TabHeaderDemo
                 this.editcolprecise.Value =lstinclude.mlist[lstinclude.SelectedIndex].myitemsignal.precise;
                 this.editcolup.Value = lstinclude.mlist[lstinclude.SelectedIndex].limitup;
                 this.editcoldown.Value = lstinclude.mlist[lstinclude.SelectedIndex].limitdown;
-                this.chkapplystatic.Checked = lstinclude.mlist[lstinclude.SelectedIndex].apply;
+                this.cbomode.Items.Clear();
+                cbomode.Items.Add("公式名称");
+                cbomode.Items.Add("公式说明");
+               
+                if (lstinclude.mlist[lstinclude.SelectedIndex].apply ==false )
+                {
+                    cbomode.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbomode.SelectedIndex = 1;
+                }
 
 
 
@@ -583,7 +613,14 @@ namespace TabHeaderDemo
                 mtempoutput.myitemsignal.precise=Convert.ToInt32( this.editcolprecise.Value);
                 mtempoutput.limitup=this.editcolup.Value;
                 mtempoutput.limitdown=this.editcoldown.Value ;
-                mtempoutput.apply=this.chkapplystatic.Checked ;
+                if (cbomode.SelectedIndex ==0)
+                {
+                    mtempoutput.apply = false;
+                }
+                 else
+                {
+                    mtempoutput.apply = true;
+                }
 
             }
         }

@@ -712,7 +712,7 @@
             this.toolStripButton16.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton16.Image")));
             this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.Size = new System.Drawing.Size(120, 21);
+            this.toolStripButton16.Size = new System.Drawing.Size(120, 23);
             this.toolStripButton16.Text = "自定义通道公式测试";
             this.toolStripButton16.Visible = false;
             this.toolStripButton16.Click += new System.EventHandler(this.toolStripButton16_Click);
@@ -723,7 +723,7 @@
             this.toolStripButton17.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton17.Image")));
             this.toolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton17.Name = "toolStripButton17";
-            this.toolStripButton17.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton17.Size = new System.Drawing.Size(23, 23);
             this.toolStripButton17.Text = "toolStripButton17";
             this.toolStripButton17.Visible = false;
             this.toolStripButton17.Click += new System.EventHandler(this.toolStripButton17_Click);
@@ -819,6 +819,7 @@
             this.tsbdefault.Size = new System.Drawing.Size(23, 23);
             this.tsbdefault.Text = "指针";
             this.tsbdefault.CheckedChanged += new System.EventHandler(this.tsbdefault_Click);
+            this.tsbdefault.Click += new System.EventHandler(this.tsbdefault_Click_1);
             // 
             // tsbzoomin
             // 
@@ -873,6 +874,7 @@
             this.tsbreader.Size = new System.Drawing.Size(23, 23);
             this.tsbreader.ToolTipText = "数据读数";
             this.tsbreader.CheckedChanged += new System.EventHandler(this.tsbreader_Click);
+            this.tsbreader.Click += new System.EventHandler(this.tsbreader_Click_1);
             // 
             // tsbselector
             // 
@@ -1245,6 +1247,7 @@
             this.yAxis8,
             this.yAxis9,
             this.yAxis10});
+            this.scatterGraph1.ZoomAnimation = false;
             this.scatterGraph1.AfterDrawPlot += new NationalInstruments.UI.AfterDrawXYPlotEventHandler(this.scatterGraph1_AfterDrawPlot);
             this.scatterGraph1.AnnotationsChanged += new System.ComponentModel.CollectionChangeEventHandler(this.scatterGraph1_AnnotationsChanged);
             this.scatterGraph1.AfterDragAnnotationCaption += new NationalInstruments.UI.AfterDragXYAnnotationCaptionEventHandler(this.scatterGraph1_AfterDragAnnotationCaption);

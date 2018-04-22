@@ -368,7 +368,7 @@ namespace TabHeaderDemo
         {
             lstspe.Items.Clear();
 
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.currentspenumber + 1; i++)
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.testedcount + 1; i++)
             {
                 IP.Components.Toolbox.Item m = new IP.Components.Toolbox.Item();
                 m.Text = (i + 1).ToString();
@@ -477,10 +477,10 @@ namespace TabHeaderDemo
 
 
 
+            GlobeVal.ShowCameraForm = false;
 
 
-
-            for (int k = 0; k < 10; k++)
+            for (int k = 0; k < 20; k++)
             {
                 if (f.Show[k] == true)
                 {
@@ -561,6 +561,8 @@ namespace TabHeaderDemo
 
                         GlobeVal.dynset.tlbetest.Controls.Add(ug);
 
+                        ug.Init();
+                        GlobeVal.UserControlRawdata1 = ug;
 
                     }
 
@@ -618,6 +620,67 @@ namespace TabHeaderDemo
                     }
 
 
+                 
+                    if (f.ItemName[k] == "摄像")
+                    {
+                        UserControlCamera1 ug = new  UserControlCamera1();
+                        ug.Init();
+
+                        ug.Dock = DockStyle.Fill;
+                        GlobeVal.dynset.tlbetest.SetCellPosition(ug, new TableLayoutPanelCellPosition(f.ItemCol[k], f.ItemRow[k]));
+
+                        GlobeVal.dynset.tlbetest.SetColumnSpan(ug, f.ItemColSpan[k]);
+                        GlobeVal.dynset.tlbetest.SetRowSpan(ug, f.ItemRowSpan[k]);
+
+
+
+                        GlobeVal.dynset.tlbetest.Controls.Add(ug);
+
+                        GlobeVal.UserControlCamera = ug;
+
+                        ug.Visible = true;
+
+                        GlobeVal.ShowCameraForm = true;
+
+                    }
+
+                    if (f.ItemName[k] == "过程提示")
+                    {
+                        UserControlProcess ug = new  UserControlProcess();
+                        ug.Init();
+
+                        ug.Dock = DockStyle.Fill;
+                        GlobeVal.dynset.tlbetest.SetCellPosition(ug, new TableLayoutPanelCellPosition(f.ItemCol[k], f.ItemRow[k]));
+
+                        GlobeVal.dynset.tlbetest.SetColumnSpan(ug, f.ItemColSpan[k]);
+                        GlobeVal.dynset.tlbetest.SetRowSpan(ug, f.ItemRowSpan[k]);
+
+
+
+                        GlobeVal.dynset.tlbetest.Controls.Add(ug);
+                        GlobeVal.UserControlProcess1 = ug;
+                        ug.Visible = true;
+
+                    }
+
+                    if (f.ItemName[k] == "状态提示")
+                    {
+                        UserControlStatus  ug = new UserControlStatus();
+                        ug.Init();
+
+                        ug.Dock = DockStyle.Fill;
+                        GlobeVal.dynset.tlbetest.SetCellPosition(ug, new TableLayoutPanelCellPosition(f.ItemCol[k], f.ItemRow[k]));
+
+                        GlobeVal.dynset.tlbetest.SetColumnSpan(ug, f.ItemColSpan[k]);
+                        GlobeVal.dynset.tlbetest.SetRowSpan(ug, f.ItemRowSpan[k]);
+
+
+
+                        GlobeVal.dynset.tlbetest.Controls.Add(ug);
+
+                        ug.Visible = true;
+
+                    }
 
                 }
             }
@@ -631,7 +694,7 @@ namespace TabHeaderDemo
         {
             lstspe.Items.Clear();
 
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.currentspenumber + 1; i++)
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.testedcount + 1; i++)
             {
                 IP.Components.Toolbox.Item m = new IP.Components.Toolbox.Item();
                 m.Text = (i + 1).ToString();
@@ -797,9 +860,11 @@ namespace TabHeaderDemo
 
                       string  mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
                (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
-                        CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1;
+                        CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1.scatterGraph1 ;
 
                         CComLibrary.GlobeVal.m_listline.Clear();
+                        CComLibrary.GlobeVal.mscattergraph.Annotations.Clear();
+
                         CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
                         if (CComLibrary.GlobeVal.filesave.UseDatabase == true)
                         {
@@ -808,7 +873,7 @@ namespace TabHeaderDemo
                                 System.IO.Directory.CreateDirectory(Application.StartupPath + "\\mdb\\");
                             }
                             CComLibrary.GlobeVal.filesave.samplename = System.IO.Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
-                            CComLibrary.GlobeVal.filesave.Init_databaselist(true);
+                            CComLibrary.GlobeVal.filesave.Init_databaselist(true,CComLibrary.GlobeVal.filesave.currentspenumber);
 
                             if (System.IO.File.Exists(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb") == false)
                             {
@@ -1021,19 +1086,28 @@ namespace TabHeaderDemo
 
             }
 
-            if (Convert.ToInt16 (CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["试样状态"])== Convert.ToInt16( CComLibrary.TestStatus.tested))
+            if (CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["试样状态"] is DBNull)
             {
-                DialogResult r = MessageBox.Show("当前试样数据已存在,是否覆盖？", "提示", MessageBoxButtons.YesNo);
-                if (r==DialogResult.Yes)
-                {
 
-                }
-                else
+            }
+            else
+            {
+
+                if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["试样状态"]) == Convert.ToInt16(CComLibrary.TestStatus.tested))
                 {
-                    return;
+                    DialogResult r = MessageBox.Show("当前试样数据已存在,是否覆盖？", "提示", MessageBoxButtons.YesNo);
+                    if (r == DialogResult.Yes)
+                    {
+
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
           
+
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; i++)
             {
@@ -1080,6 +1154,22 @@ namespace TabHeaderDemo
             {
 
                 GlobeVal.myarm.demotest(true);
+                if ((GlobeVal.ShowCameraForm == true) && (CComLibrary.GlobeVal.filesave.mplay == true) && (CComLibrary.GlobeVal.filesave.mplayfile == true))
+                {
+
+                   
+
+                    if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\" + CComLibrary.GlobeVal.filesave.play_avi_datafile) == true)
+                    {
+
+                        if (GlobeVal.UserControlCamera != null)
+                        {
+                            GlobeVal.UserControlCamera.play();
+                        }
+
+                    }
+                }
+
             }
             else
             {
@@ -1111,13 +1201,18 @@ namespace TabHeaderDemo
             timer1.Enabled = true;
             GlobeVal.MainStatusStrip.Items["toolstatustest"].Visible = true;
 
-
+            GlobeVal.UserControlMain1.btnmmethod.Visible  = false;
+            GlobeVal.UserControlMain1.btnmreport.Visible = false;
+            GlobeVal.UserControlMain1.btnmmanage.Visible  = false; 
 
 
         }
 
         private void btnend_Click(object sender, EventArgs e)
         {
+
+            timer1.Enabled = false;
+
             string mspefiledat;
 
             CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["试样状态"] = CComLibrary.TestStatus.tested;
@@ -1147,13 +1242,27 @@ namespace TabHeaderDemo
             {
 
                 GlobeVal.myarm.demotest(false);
+                GlobeVal.myarm.endtest();
+                if ((GlobeVal.ShowCameraForm == true) && (CComLibrary.GlobeVal.filesave.mplay == true) && (CComLibrary.GlobeVal.filesave.mplayfile == true))
+                {
+
+
+
+                    if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\" + CComLibrary.GlobeVal.filesave.play_avi_datafile) == true)
+                    {
+                        if (GlobeVal.UserControlCamera != null)
+                        {
+                            GlobeVal.UserControlCamera.stop();
+                        }
+                    }  
+                }
             }
             else
             {
 
             }
 
-            GlobeVal.myarm.endtest();
+          
 
 
             if (CComLibrary.GlobeVal.filesave.mwizard == true)
@@ -1188,9 +1297,11 @@ namespace TabHeaderDemo
 
                     mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
            (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
-                    CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1;
+                    CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1.scatterGraph1;
 
                     CComLibrary.GlobeVal.m_listline.Clear();
+                    CComLibrary.GlobeVal.mscattergraph.Annotations.Clear();
+
                     CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
                     if (CComLibrary.GlobeVal.filesave.UseDatabase == true)
                     {
@@ -1199,7 +1310,7 @@ namespace TabHeaderDemo
                             System.IO.Directory.CreateDirectory(Application.StartupPath + "\\mdb\\");
                         }
                         CComLibrary.GlobeVal.filesave.samplename = System.IO.Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
-                        CComLibrary.GlobeVal.filesave.Init_databaselist(true);
+                        CComLibrary.GlobeVal.filesave.Init_databaselist(true,CComLibrary.GlobeVal.filesave.currentspenumber);
 
                         if (System.IO.File.Exists(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb") == false)
                         {
@@ -1223,7 +1334,7 @@ namespace TabHeaderDemo
 
             if (CComLibrary.GlobeVal.m_test == false)
             {
-                GlobeVal.UserControlGraph1.userGraph1.Annotations.Clear();
+                GlobeVal.UserControlGraph1.scatterGraph.Annotations.Clear();
                 for (int i = 0; i < CComLibrary.GlobeVal.m_listline.Count; i++)
                 {
                     if (CComLibrary.GlobeVal.m_listline[i].kind == 0)
@@ -1245,9 +1356,12 @@ namespace TabHeaderDemo
                 }
 
             }
-            timer1.Enabled = false;
+           
             GlobeVal.MainStatusStrip.Items["toolstatustest"].Visible = false;
 
+            GlobeVal.UserControlMain1.btnmmethod.Visible  = true;
+            GlobeVal.UserControlMain1.btnmreport.Visible  = true;
+            GlobeVal.UserControlMain1.btnmmanage.Visible  = true ;
 
         }
 
@@ -1275,9 +1389,12 @@ namespace TabHeaderDemo
 
             }
 
-            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
+            else if ((CComLibrary.GlobeVal.filesave.mcontrolprocess == 1) ||(CComLibrary.GlobeVal.filesave.mcontrolprocess == 3))
             {
-
+                if ((GlobeVal.myarm.mcurseg + 1)> CComLibrary.GlobeVal.filesave.mseglist.Count)
+                {
+                    btnend_Click(null, null);
+                }
                 if (GlobeVal.myarm.keepingstate == true)
                 {
 
@@ -1340,7 +1457,16 @@ namespace TabHeaderDemo
                 splitContainer1.SplitterDistance = 100;
                 tableLayoutPanelback.ColumnStyles[0].Width = 50;
             }
+
+            imageList4.Images.Clear();
+            imageList4.Images.Add(TabHeaderDemo.Properties.Resources._50);
+            imageList4.Images.Add(TabHeaderDemo.Properties.Resources._50_1);
+            imageList4.Images.Add(TabHeaderDemo.Properties.Resources.r2_2);
+            imageList4.Images.Add(TabHeaderDemo.Properties.Resources.r2);
+
             timermain.Enabled = true;
+
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -1419,13 +1545,35 @@ namespace TabHeaderDemo
 
            num= Convert.ToInt16( lstspe.SelectedItem.Text);
 
-          
+            if (CComLibrary.GlobeVal.filesave.dt.Rows[num-1]["试样状态"] is DBNull)
+            {
+                MessageBox.Show("试验后才能计算");
+                return;
+            }
+            else
+            {
+                if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[num-1]["试样状态"]) == Convert.ToInt16(CComLibrary.TestStatus.Untested))
+                {
+                    MessageBox.Show("试验后才能计算");
+                    return;
+                }
+            }
 
-           mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
+
+
+            mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
           (num).ToString().Trim() + ".txt";
-            CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1;
+
+            CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1.scatterGraph1;
+
+           
+            
+     
+
 
             CComLibrary.GlobeVal.m_listline.Clear();
+            CComLibrary.GlobeVal.mscattergraph.Annotations.Clear();
+
             CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
             if (CComLibrary.GlobeVal.filesave.UseDatabase == true)
             {
@@ -1434,7 +1582,7 @@ namespace TabHeaderDemo
                     System.IO.Directory.CreateDirectory(Application.StartupPath + "\\mdb\\");
                 }
                 CComLibrary.GlobeVal.filesave.samplename = System.IO.Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
-                CComLibrary.GlobeVal.filesave.Init_databaselist(true);
+                CComLibrary.GlobeVal.filesave.Init_databaselist(true,num-1);
 
                 if (System.IO.File.Exists(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb") == false)
                 {
@@ -1459,9 +1607,47 @@ namespace TabHeaderDemo
             }
 
 
+            if (GlobeVal.UserControlGraph1  !=null)
+            {
+                GlobeVal.UserControlGraph1.userGraph1.Init();
+            }
+
+            if (GlobeVal.UserControlGraph2 !=null)
+            {
+                GlobeVal.UserControlGraph2.userGraph1.Init();
+            }
+             
+
             // FreeFormRefresh(true, false);
 
+           
+
             CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.spefilename);
+
+            if (CComLibrary.GlobeVal.m_test == false)
+            {
+                GlobeVal.UserControlGraph1.scatterGraph.Annotations.Clear();
+                for (int i = 0; i < CComLibrary.GlobeVal.m_listline.Count; i++)
+                {
+                    if (CComLibrary.GlobeVal.m_listline[i].kind == 0)
+                    {
+
+                        GlobeVal.UserControlGraph1.userGraph1.drawsign(CComLibrary.GlobeVal.m_listline[i].xstart, CComLibrary.GlobeVal.m_listline[i].ystart, CComLibrary.GlobeVal.m_listline[i]);
+
+
+
+                    }
+                    else if (CComLibrary.GlobeVal.m_listline[i].kind == 1)
+                    {
+                        GlobeVal.UserControlGraph1.userGraph1.drawline(CComLibrary.GlobeVal.m_listline[i].xstart, CComLibrary.GlobeVal.m_listline[i].ystart,
+                             CComLibrary.GlobeVal.m_listline[i].xend, CComLibrary.GlobeVal.m_listline[i].yend, CComLibrary.GlobeVal.m_listline[i]);
+
+
+                    }
+
+                }
+
+            }
 
         }
     }

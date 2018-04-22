@@ -184,9 +184,24 @@ namespace TabHeaderDemo
                 mtablepara.mTableHeaderPara.HeaderFont.Size);
                 boldHeader.EnableSort = false;
                 boldHeader.WordWrap = true;
-                boldHeader.Value = tabcol[i].formulaname + "(" +
-                    tabcol[i].myitemsignal.cUnits[
-                    tabcol[i].myitemsignal.cUnitsel] + ")";
+
+                if (tabcol[i].apply == false)
+                {
+                    boldHeader.Value = tabcol[i].formulaname + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+                }
+                else
+                {
+                    boldHeader.Value = tabcol[i].formulaexplain + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+                }
+
+                boldHeader.ToolTipText = tabcol[i].formulaname + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+
                 boldHeader.TextAlignment = mtablepara.mTableHeaderPara.HeaderAlignment;
                 boldHeader.BackColor = mtablepara.mTableHeaderPara.HeaderBackColor;
                 boldHeader.ForeColor = mtablepara.mTableHeaderPara.HeaderForeColor;
@@ -223,7 +238,7 @@ namespace TabHeaderDemo
 
 
 
-            for (int i = 1; i <= CComLibrary.GlobeVal.filesave.currentspenumber + 1; i++)
+            for (int i = 1; i <= CComLibrary.GlobeVal.filesave.testedcount + 1; i++)
             {
                 grid1.Rows.Insert(i);
 
@@ -377,9 +392,23 @@ namespace TabHeaderDemo
                 mtablepara.mTableHeaderPara.HeaderFont.Size);
                 boldHeader.EnableSort = false;
                 boldHeader.WordWrap = true;
-                boldHeader.Value = tabcol[i].formulaname + "(" +
-                    tabcol[i].myitemsignal.cUnits[
-                    tabcol[i].myitemsignal.cUnitsel] + ")";
+                if (tabcol[i].apply == false)
+                {
+                    boldHeader.Value = tabcol[i].formulaname + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+                }
+                else
+                {
+                    boldHeader.Value = tabcol[i].formulaexplain+ "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+                }
+
+                boldHeader.ToolTipText =  tabcol[i].formulaname + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+
                 boldHeader.TextAlignment = mtablepara.mTableHeaderPara.HeaderAlignment;
                 boldHeader.BackColor = mtablepara.mTableHeaderPara.HeaderBackColor;
                 boldHeader.ForeColor = mtablepara.mTableHeaderPara.HeaderForeColor;
@@ -523,7 +552,33 @@ namespace TabHeaderDemo
 
 
         }
+        public string StringTruncat(string oldStr, int maxLength, string endWith)
+        {
+            //判断原字符串是否为空
+            if (string.IsNullOrEmpty(oldStr))
+                return oldStr + endWith;
 
+
+            //返回字符串的长度必须大于1
+            if (maxLength < 1)
+                throw new Exception("返回的字符串长度必须大于[0] ");
+
+
+            //判断原字符串是否大于最大长度
+            if (oldStr.Length > maxLength)
+            {
+                //截取原字符串
+                string strTmp = oldStr.Substring(0, maxLength);
+
+
+                //判断后缀是否为空
+                if (string.IsNullOrEmpty(endWith))
+                    return strTmp;
+                else
+                    return strTmp + endWith;
+            }
+            return oldStr;
+        }
         public void InitGrid(int index, bool tested, bool read, List<CComLibrary.outputitem> tabcol, CComLibrary.TablePara mtablepara, List<CComLibrary.outputitem> mstatic)
         {
             double result = 0;
@@ -551,6 +606,7 @@ namespace TabHeaderDemo
                             {
                                 if (tabcol[j].formulaname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
                                 {
+
 
                                     CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][tabcol[j].formulaname]
                                         = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue.ToString();
@@ -693,10 +749,44 @@ namespace TabHeaderDemo
                 boldHeader.Font = new Font(mtablepara.mTableHeaderPara.HeaderFont.FontFamily,
                 mtablepara.mTableHeaderPara.HeaderFont.Size);
                 boldHeader.EnableSort = false;
-                boldHeader.WordWrap = true;
-                boldHeader.Value = tabcol[i].formulaname + "(" +
-                    tabcol[i].myitemsignal.cUnits[
-                    tabcol[i].myitemsignal.cUnitsel] + ")";
+                boldHeader.WordWrap = false;
+                string s = "";
+                if (tabcol[i].apply == false)
+                {
+                     s = tabcol[i].formulaname + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+                }
+                else
+                {
+                     s = tabcol[i].formulaexplain + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+
+                }
+                /*
+                Graphics g = this.CreateGraphics();
+
+                //单位为mm
+                g.PageUnit = GraphicsUnit.Point;
+                SizeF sim = g.MeasureString("A", boldHeader.Font);
+                SizeF im = g.MeasureString(s, boldHeader.Font);
+                if (im.Width-10 > grid1.Columns[i].Width)
+                {
+                    boldHeader.Value = StringTruncat(s, Convert.ToInt16(grid1.Columns[0].Width / sim.Width), "...");
+                }
+                else
+                {
+                    boldHeader.Value = s;
+                }
+                g.Dispose();
+                */
+
+                boldHeader.Value = s;
+                boldHeader.ToolTipText = tabcol[i].formulaname + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")"; ;
+
                 boldHeader.TextAlignment = mtablepara.mTableHeaderPara.HeaderAlignment;
                 boldHeader.BackColor = mtablepara.mTableHeaderPara.HeaderBackColor;
                 boldHeader.ForeColor = mtablepara.mTableHeaderPara.HeaderForeColor;
@@ -733,7 +823,7 @@ namespace TabHeaderDemo
 
 
 
-            for (int i = 1; i <= CComLibrary.GlobeVal.filesave.currentspenumber + 1; i++)
+            for (int i = 1; i <= CComLibrary.GlobeVal.filesave.testedcount + 1; i++)
             {
                 grid1.Rows.Insert(i);
 
@@ -887,9 +977,24 @@ namespace TabHeaderDemo
                 mtablepara.mTableHeaderPara.HeaderFont.Size);
                 boldHeader.EnableSort = false;
                 boldHeader.WordWrap = true;
-                boldHeader.Value = tabcol[i].formulaname + "(" +
-                    tabcol[i].myitemsignal.cUnits[
-                    tabcol[i].myitemsignal.cUnitsel] + ")";
+
+                if (tabcol[i].apply == false)
+                {
+                    boldHeader.Value = tabcol[i].formulaname + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+                }
+                else
+                {
+                    boldHeader.Value = tabcol[i].formulaexplain + "(" +
+                      tabcol[i].myitemsignal.cUnits[
+                      tabcol[i].myitemsignal.cUnitsel] + ")";
+                }
+
+                boldHeader.ToolTipText = tabcol[i].formulaname + "(" +
+                        tabcol[i].myitemsignal.cUnits[
+                        tabcol[i].myitemsignal.cUnitsel] + ")";
+
                 boldHeader.TextAlignment = mtablepara.mTableHeaderPara.HeaderAlignment;
                 boldHeader.BackColor = mtablepara.mTableHeaderPara.HeaderBackColor;
                 boldHeader.ForeColor = mtablepara.mTableHeaderPara.HeaderForeColor;

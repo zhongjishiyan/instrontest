@@ -47,6 +47,7 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.lblcaption = new System.Windows.Forms.Label();
             this.tlpitem = new System.Windows.Forms.TableLayoutPanel();
+            this.btnedit = new System.Windows.Forms.Button();
             this.editcoldown = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.label14 = new System.Windows.Forms.Label();
             this.cbocolunit = new System.Windows.Forms.ComboBox();
@@ -55,8 +56,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.editcolup = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.label17 = new System.Windows.Forms.Label();
-            this.btnedit = new System.Windows.Forms.Button();
-            this.chkapplystatic = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbomode = new System.Windows.Forms.ComboBox();
             this.lstinclude = new TabHeaderDemo.ListExt(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lbltitle = new System.Windows.Forms.Label();
@@ -349,6 +350,7 @@
             this.tlpitem.ColumnCount = 2;
             this.tlpitem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpitem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpitem.Controls.Add(this.btnedit, 0, 5);
             this.tlpitem.Controls.Add(this.editcoldown, 1, 3);
             this.tlpitem.Controls.Add(this.label14, 0, 0);
             this.tlpitem.Controls.Add(this.cbocolunit, 1, 0);
@@ -357,8 +359,8 @@
             this.tlpitem.Controls.Add(this.label16, 0, 2);
             this.tlpitem.Controls.Add(this.editcolup, 1, 2);
             this.tlpitem.Controls.Add(this.label17, 0, 3);
-            this.tlpitem.Controls.Add(this.btnedit, 0, 4);
-            this.tlpitem.Controls.Add(this.chkapplystatic, 0, 5);
+            this.tlpitem.Controls.Add(this.label1, 0, 4);
+            this.tlpitem.Controls.Add(this.cbomode, 1, 4);
             this.tlpitem.Dock = System.Windows.Forms.DockStyle.Top;
             this.tlpitem.Location = new System.Drawing.Point(3, 25);
             this.tlpitem.Name = "tlpitem";
@@ -369,8 +371,19 @@
             this.tlpitem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tlpitem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tlpitem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tlpitem.Size = new System.Drawing.Size(311, 157);
+            this.tlpitem.Size = new System.Drawing.Size(311, 159);
             this.tlpitem.TabIndex = 3;
+            // 
+            // btnedit
+            // 
+            this.btnedit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnedit.Location = new System.Drawing.Point(3, 135);
+            this.btnedit.Name = "btnedit";
+            this.btnedit.Size = new System.Drawing.Size(138, 21);
+            this.btnedit.TabIndex = 16;
+            this.btnedit.Text = "修改";
+            this.btnedit.UseVisualStyleBackColor = true;
+            this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
             // 
             // editcoldown
             // 
@@ -458,27 +471,26 @@
             this.label17.Text = "合格范围下限：";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnedit
+            // label1
             // 
-            this.btnedit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnedit.Location = new System.Drawing.Point(3, 107);
-            this.btnedit.Name = "btnedit";
-            this.btnedit.Size = new System.Drawing.Size(138, 22);
-            this.btnedit.TabIndex = 15;
-            this.btnedit.Text = "修改";
-            this.btnedit.UseVisualStyleBackColor = true;
-            this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 104);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 28);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "显示方式：";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // chkapplystatic
+            // cbomode
             // 
-            this.chkapplystatic.AutoSize = true;
-            this.chkapplystatic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkapplystatic.Location = new System.Drawing.Point(3, 135);
-            this.chkapplystatic.Name = "chkapplystatic";
-            this.chkapplystatic.Size = new System.Drawing.Size(149, 19);
-            this.chkapplystatic.TabIndex = 16;
-            this.chkapplystatic.Text = "应用到统计值";
-            this.chkapplystatic.UseVisualStyleBackColor = true;
+            this.cbomode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbomode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbomode.FormattingEnabled = true;
+            this.cbomode.Location = new System.Drawing.Point(158, 107);
+            this.cbomode.Name = "cbomode";
+            this.cbomode.Size = new System.Drawing.Size(150, 20);
+            this.cbomode.TabIndex = 18;
             // 
             // lstinclude
             // 
@@ -497,7 +509,7 @@
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 377F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
             this.tableLayoutPanel3.Controls.Add(this.lbltitle, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -515,7 +527,7 @@
             this.lbltitle.ForeColor = System.Drawing.Color.Teal;
             this.lbltitle.Location = new System.Drawing.Point(4, 1);
             this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(331, 50);
+            this.lbltitle.Size = new System.Drawing.Size(328, 50);
             this.lbltitle.TabIndex = 0;
             this.lbltitle.Text = "设置结果表 1-列 ";
             this.lbltitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -524,7 +536,7 @@
             // 
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(342, 4);
+            this.panel4.Location = new System.Drawing.Point(339, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(44, 44);
             this.panel4.TabIndex = 1;
@@ -677,7 +689,7 @@
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 362F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 365F));
             this.tableLayoutPanel4.Controls.Add(this.lbltitlestatic, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -695,7 +707,7 @@
             this.lbltitlestatic.ForeColor = System.Drawing.Color.Teal;
             this.lbltitlestatic.Location = new System.Drawing.Point(4, 1);
             this.lbltitlestatic.Name = "lbltitlestatic";
-            this.lbltitlestatic.Size = new System.Drawing.Size(346, 45);
+            this.lbltitlestatic.Size = new System.Drawing.Size(343, 45);
             this.lbltitlestatic.TabIndex = 0;
             this.lbltitlestatic.Text = "设置结果表 1-统计 ";
             this.lbltitlestatic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -704,7 +716,7 @@
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(357, 4);
+            this.panel2.Location = new System.Drawing.Point(354, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(33, 39);
             this.panel2.TabIndex = 1;
@@ -971,7 +983,7 @@
             this.tableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel7.ColumnCount = 2;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 356F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 359F));
             this.tableLayoutPanel7.Controls.Add(this.lbltitleformat, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -989,7 +1001,7 @@
             this.lbltitleformat.ForeColor = System.Drawing.Color.Teal;
             this.lbltitleformat.Location = new System.Drawing.Point(4, 1);
             this.lbltitleformat.Name = "lbltitleformat";
-            this.lbltitleformat.Size = new System.Drawing.Size(358, 45);
+            this.lbltitleformat.Size = new System.Drawing.Size(355, 45);
             this.lbltitleformat.TabIndex = 0;
             this.lbltitleformat.Text = "设置结果表 1-格式 ";
             this.lbltitleformat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -998,7 +1010,7 @@
             // 
             this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(369, 4);
+            this.panel5.Location = new System.Drawing.Point(366, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(47, 39);
             this.panel5.TabIndex = 1;
@@ -1338,8 +1350,6 @@
         private System.Windows.Forms.Label label16;
         private NationalInstruments.UI.WindowsForms.NumericEdit editcolup;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button btnedit;
-        private System.Windows.Forms.CheckBox chkapplystatic;
         private ListExt lstinclude;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
@@ -1357,5 +1367,8 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button btnedit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbomode;
     }
 }

@@ -250,6 +250,8 @@ namespace TabHeaderDemo
                 }
             }
 
+          
+
             if (CComLibrary.GlobeVal.filesave.mwizard == true)
             {
 
@@ -300,6 +302,8 @@ namespace TabHeaderDemo
 
                 GlobeVal.userControltest1.tableLayoutPanelTop.Visible = false;
 
+                
+              
 
                 GlobeVal.userControltest1.splitContainer1.SplitterDistance = 100;
 
@@ -366,11 +370,16 @@ namespace TabHeaderDemo
                 }
 
 
-                GlobeVal.userControltest1.Visible = true;
+                GlobeVal.userControltest1.Visible = true ;
                 GlobeVal.userControltest1.Visible = false;
                 GlobeVal.dynset.tlbetest.ResetSizeAndSizeTypes();
-
-
+                /*
+                double t = Environment.TickCount;
+                while((Environment.TickCount -t)<500)
+                        {
+                    Application.DoEvents();
+                }
+                */
                 GlobeVal.userControltest1.Visible = true;
             }
 
@@ -404,6 +413,31 @@ namespace TabHeaderDemo
             GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "样品：" + Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
 
             GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "方法:" + txtmethod.Text;
+
+            GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
+
+            if (GlobeVal.myarm.mdemo == true)
+            {
+                if ((GlobeVal.ShowCameraForm == true) && (CComLibrary.GlobeVal.filesave.mplay == true) && (CComLibrary.GlobeVal.filesave.mplayfile == true))
+                {
+                    if (File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\"+CComLibrary.GlobeVal.filesave.play_avi_datafile)==true)
+                    {
+                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\" + CComLibrary.GlobeVal.filesave.play_avi_datafile);
+                    }
+                }
+                else
+                {
+                    if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\" + GlobeVal.mysys.demotxt) == true)
+                    {
+                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\" + GlobeVal.mysys.demotxt);
+                    }
+                    else
+                    {
+                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\拉伸2演示.txt");
+                    }
+                }
+
+            }
 
         }
 

@@ -100,6 +100,9 @@
             this.仪表2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.试样输入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.原始数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.摄像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.过程提示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.状态提示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnsavelayout = new System.Windows.Forms.Button();
             this.btnreadlayout = new System.Windows.Forms.Button();
@@ -336,7 +339,7 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 502F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 597F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(623, 55);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
@@ -390,7 +393,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 496);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 591);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // label7
@@ -1019,7 +1022,10 @@
             this.仪表1ToolStripMenuItem,
             this.仪表2ToolStripMenuItem,
             this.试样输入ToolStripMenuItem,
-            this.原始数据ToolStripMenuItem});
+            this.原始数据ToolStripMenuItem,
+            this.摄像ToolStripMenuItem,
+            this.过程提示ToolStripMenuItem,
+            this.状态提示ToolStripMenuItem});
             this.添加对象ToolStripMenuItem.Name = "添加对象ToolStripMenuItem";
             this.添加对象ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.添加对象ToolStripMenuItem.Text = "添加屏幕组件";
@@ -1079,6 +1085,27 @@
             this.原始数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.原始数据ToolStripMenuItem.Text = "原始数据";
             this.原始数据ToolStripMenuItem.Click += new System.EventHandler(this.原始数据ToolStripMenuItem_Click);
+            // 
+            // 摄像ToolStripMenuItem
+            // 
+            this.摄像ToolStripMenuItem.Name = "摄像ToolStripMenuItem";
+            this.摄像ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.摄像ToolStripMenuItem.Text = "摄像";
+            this.摄像ToolStripMenuItem.Click += new System.EventHandler(this.摄像ToolStripMenuItem_Click);
+            // 
+            // 过程提示ToolStripMenuItem
+            // 
+            this.过程提示ToolStripMenuItem.Name = "过程提示ToolStripMenuItem";
+            this.过程提示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.过程提示ToolStripMenuItem.Text = "过程提示";
+            this.过程提示ToolStripMenuItem.Click += new System.EventHandler(this.过程提示ToolStripMenuItem_Click);
+            // 
+            // 状态提示ToolStripMenuItem
+            // 
+            this.状态提示ToolStripMenuItem.Name = "状态提示ToolStripMenuItem";
+            this.状态提示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.状态提示ToolStripMenuItem.Text = "状态提示";
+            this.状态提示ToolStripMenuItem.Click += new System.EventHandler(this.状态提示ToolStripMenuItem_Click);
             // 
             // panel6
             // 
@@ -1243,6 +1270,9 @@
             this.imageList1.Images.SetKeyName(2, "输入layout1.bmp");
             this.imageList1.Images.SetKeyName(3, "额外显示layout1.bmp");
             this.imageList1.Images.SetKeyName(4, "原始数据layout1.bmp");
+            this.imageList1.Images.SetKeyName(5, "摄像头layout1.bmp");
+            this.imageList1.Images.SetKeyName(6, "进程layout1.bmp");
+            this.imageList1.Images.SetKeyName(7, "状态layout1.bmp");
             // 
             // UserControl常规
             // 
@@ -1384,5 +1414,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtmethodmemo;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ToolStripMenuItem 摄像ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 过程提示ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 状态提示ToolStripMenuItem;
     }
 }

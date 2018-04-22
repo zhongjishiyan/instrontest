@@ -231,7 +231,7 @@ namespace TabHeaderDemo
                 
                     }
 
-                   GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
+                 
 
            
                  GlobeVal.myarm.Init((int)this.Handle);

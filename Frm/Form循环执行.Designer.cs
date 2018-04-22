@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form循环执行));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericEdit2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.chkcyclic = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numericEdit1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.chkcyclic = new System.Windows.Forms.CheckBox();
-            this.numericEdit2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -67,6 +67,26 @@
             this.groupBox1.Size = new System.Drawing.Size(264, 90);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // numericEdit2
+            // 
+            this.numericEdit2.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(0);
+            this.numericEdit2.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
+            this.numericEdit2.Location = new System.Drawing.Point(124, 53);
+            this.numericEdit2.Name = "numericEdit2";
+            this.numericEdit2.Size = new System.Drawing.Size(112, 21);
+            this.numericEdit2.TabIndex = 5;
+            // 
+            // chkcyclic
+            // 
+            this.chkcyclic.AutoSize = true;
+            this.chkcyclic.Location = new System.Drawing.Point(22, 0);
+            this.chkcyclic.Name = "chkcyclic";
+            this.chkcyclic.Size = new System.Drawing.Size(72, 16);
+            this.chkcyclic.TabIndex = 4;
+            this.chkcyclic.Text = "循环执行";
+            this.chkcyclic.UseVisualStyleBackColor = true;
+            this.chkcyclic.CheckedChanged += new System.EventHandler(this.chkcyclic_CheckedChanged);
             // 
             // label2
             // 
@@ -108,25 +128,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // chkcyclic
-            // 
-            this.chkcyclic.AutoSize = true;
-            this.chkcyclic.Location = new System.Drawing.Point(22, 0);
-            this.chkcyclic.Name = "chkcyclic";
-            this.chkcyclic.Size = new System.Drawing.Size(72, 16);
-            this.chkcyclic.TabIndex = 4;
-            this.chkcyclic.Text = "循环执行";
-            this.chkcyclic.UseVisualStyleBackColor = true;
-            // 
-            // numericEdit2
-            // 
-            this.numericEdit2.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(0);
-            this.numericEdit2.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
-            this.numericEdit2.Location = new System.Drawing.Point(124, 53);
-            this.numericEdit2.Name = "numericEdit2";
-            this.numericEdit2.Size = new System.Drawing.Size(112, 21);
-            this.numericEdit2.TabIndex = 5;
-            // 
             // Form循环执行
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -141,8 +142,8 @@
             this.Text = "循环";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }

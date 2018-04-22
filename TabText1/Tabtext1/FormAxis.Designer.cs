@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.propertyEditor8 = new NationalInstruments.UI.WindowsForms.PropertyEditor();
+            this.label8 = new System.Windows.Forms.Label();
             this.propertyEditor1 = new NationalInstruments.UI.WindowsForms.PropertyEditor();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -47,8 +49,6 @@
             this.propertyEditor5 = new NationalInstruments.UI.WindowsForms.PropertyEditor();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.propertyEditor8 = new NationalInstruments.UI.WindowsForms.PropertyEditor();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -79,6 +79,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "外观";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // propertyEditor8
+            // 
+            this.propertyEditor8.Location = new System.Drawing.Point(116, 79);
+            this.propertyEditor8.Name = "propertyEditor8";
+            this.propertyEditor8.Size = new System.Drawing.Size(152, 21);
+            this.propertyEditor8.TabIndex = 3;
+            this.propertyEditor8.SourceValueChanged += new System.EventHandler(this.propertyEditor8_SourceValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(38, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "标题：";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // propertyEditor1
             // 
@@ -233,29 +251,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // propertyEditor8
-            // 
-            this.propertyEditor8.Location = new System.Drawing.Point(116, 79);
-            this.propertyEditor8.Name = "propertyEditor8";
-            this.propertyEditor8.Size = new System.Drawing.Size(152, 21);
-            this.propertyEditor8.TabIndex = 3;
-            this.propertyEditor8.SourceValueChanged += new System.EventHandler(this.propertyEditor8_SourceValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(38, 83);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 12);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "标题：";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
             // FormAxis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 273);
+            this.ClientSize = new System.Drawing.Size(469, 282);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -263,6 +263,7 @@
             this.Name = "FormAxis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "坐标轴设置";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAxis_FormClosing);
             this.Load += new System.EventHandler(this.FormAxis_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

@@ -100,31 +100,33 @@
             treeNode38});
             System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("电表设置");
             System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("操作输入");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("其它显示", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("摄像");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("其它显示", new System.Windows.Forms.TreeNode[] {
             treeNode40,
-            treeNode41});
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("文档设置");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("原始数据输出");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("数据库设置");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("报告", new System.Windows.Forms.TreeNode[] {
-            treeNode43,
+            treeNode41,
+            treeNode42});
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("文档设置");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("原始数据输出");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("数据库设置");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("报告", new System.Windows.Forms.TreeNode[] {
             treeNode44,
-            treeNode45});
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("提示顺序");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("开始前");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("试样试验前");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("试验前");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("计算前");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("试样试验后");
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("结束前");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("测试提示", new System.Windows.Forms.TreeNode[] {
-            treeNode47,
+            treeNode45,
+            treeNode46});
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("提示顺序");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("开始前");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("试样试验前");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("试验前");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("计算前");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("试样试验后");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("结束前");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("测试提示", new System.Windows.Forms.TreeNode[] {
             treeNode48,
             treeNode49,
             treeNode50,
             treeNode51,
             treeNode52,
-            treeNode53});
+            treeNode53,
+            treeNode54});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMethod));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -158,7 +160,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelbutton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
@@ -322,38 +324,41 @@
             treeNode41.StateImageIndex = 0;
             treeNode41.Text = "操作输入";
             treeNode42.Name = "节点0";
-            treeNode42.StateImageIndex = 14;
-            treeNode42.Text = "其它显示";
-            treeNode43.Name = "节点29";
-            treeNode43.StateImageIndex = 0;
-            treeNode43.Text = "文档设置";
-            treeNode44.Name = "节点0";
+            treeNode42.StateImageIndex = 0;
+            treeNode42.Text = "摄像";
+            treeNode43.Name = "节点0";
+            treeNode43.StateImageIndex = 14;
+            treeNode43.Text = "其它显示";
+            treeNode44.Name = "节点29";
             treeNode44.StateImageIndex = 0;
-            treeNode44.Text = "原始数据输出";
+            treeNode44.Text = "文档设置";
             treeNode45.Name = "节点0";
             treeNode45.StateImageIndex = 0;
-            treeNode45.Text = "数据库设置";
-            treeNode46.Name = "节点5";
-            treeNode46.StateImageIndex = 9;
-            treeNode46.Text = "报告";
-            treeNode47.Name = "节点1";
-            treeNode47.StateImageKey = "(无)";
-            treeNode47.Text = "提示顺序";
-            treeNode48.Name = "节点2";
-            treeNode48.Text = "开始前";
-            treeNode49.Name = "节点3";
-            treeNode49.Text = "试样试验前";
-            treeNode50.Name = "节点4";
-            treeNode50.Text = "试验前";
-            treeNode51.Name = "节点5";
-            treeNode51.Text = "计算前";
-            treeNode52.Name = "节点6";
-            treeNode52.Text = "试样试验后";
-            treeNode53.Name = "节点7";
-            treeNode53.Text = "结束前";
-            treeNode54.Name = "节点0";
-            treeNode54.StateImageIndex = 13;
-            treeNode54.Text = "测试提示";
+            treeNode45.Text = "原始数据输出";
+            treeNode46.Name = "节点0";
+            treeNode46.StateImageIndex = 0;
+            treeNode46.Text = "数据库设置";
+            treeNode47.Name = "节点5";
+            treeNode47.StateImageIndex = 9;
+            treeNode47.Text = "报告";
+            treeNode48.Name = "节点1";
+            treeNode48.StateImageKey = "(无)";
+            treeNode48.Text = "提示顺序";
+            treeNode49.Name = "节点2";
+            treeNode49.Text = "开始前";
+            treeNode50.Name = "节点3";
+            treeNode50.Text = "试样试验前";
+            treeNode51.Name = "节点4";
+            treeNode51.Text = "试验前";
+            treeNode52.Name = "节点5";
+            treeNode52.Text = "计算前";
+            treeNode53.Name = "节点6";
+            treeNode53.Text = "试样试验后";
+            treeNode54.Name = "节点7";
+            treeNode54.Text = "结束前";
+            treeNode55.Name = "节点0";
+            treeNode55.StateImageIndex = 13;
+            treeNode55.Text = "测试提示";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode5,
             treeNode10,
@@ -364,9 +369,9 @@
             treeNode29,
             treeNode34,
             treeNode39,
-            treeNode42,
-            treeNode46,
-            treeNode54});
+            treeNode43,
+            treeNode47,
+            treeNode55});
             this.treeView1.Scrollable = false;
             this.treeView1.ShowLines = false;
             this.treeView1.ShowPlusMinus = false;
@@ -417,9 +422,9 @@
             this.panelbutton.Controls.Add(this.btnsaveas);
             this.panelbutton.Controls.Add(this.btnexnew);
             this.panelbutton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelbutton.Location = new System.Drawing.Point(968, 3);
+            this.panelbutton.Location = new System.Drawing.Point(981, 3);
             this.panelbutton.Name = "panelbutton";
-            this.panelbutton.Size = new System.Drawing.Size(95, 586);
+            this.panelbutton.Size = new System.Drawing.Size(82, 586);
             this.panelbutton.TabIndex = 2;
             // 
             // btnexprint
@@ -433,7 +438,7 @@
             this.btnexprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexprint.ForeColor = System.Drawing.Color.White;
             this.btnexprint.Image = ((System.Drawing.Image)(resources.GetObject("btnexprint.Image")));
-            this.btnexprint.Location = new System.Drawing.Point(3, 304);
+            this.btnexprint.Location = new System.Drawing.Point(-6, 304);
             this.btnexprint.Name = "btnexprint";
             this.btnexprint.Size = new System.Drawing.Size(89, 67);
             this.btnexprint.TabIndex = 77;
@@ -455,7 +460,7 @@
             this.btnexsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexsave.ForeColor = System.Drawing.Color.White;
             this.btnexsave.Image = ((System.Drawing.Image)(resources.GetObject("btnexsave.Image")));
-            this.btnexsave.Location = new System.Drawing.Point(3, 152);
+            this.btnexsave.Location = new System.Drawing.Point(-6, 152);
             this.btnexsave.Name = "btnexsave";
             this.btnexsave.Size = new System.Drawing.Size(89, 67);
             this.btnexsave.TabIndex = 76;
@@ -477,7 +482,7 @@
             this.btnexsaveclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexsaveclose.ForeColor = System.Drawing.Color.White;
             this.btnexsaveclose.Image = ((System.Drawing.Image)(resources.GetObject("btnexsaveclose.Image")));
-            this.btnexsaveclose.Location = new System.Drawing.Point(3, 76);
+            this.btnexsaveclose.Location = new System.Drawing.Point(-6, 76);
             this.btnexsaveclose.Name = "btnexsaveclose";
             this.btnexsaveclose.Size = new System.Drawing.Size(89, 67);
             this.btnexsaveclose.TabIndex = 75;
@@ -499,7 +504,7 @@
             this.btnexread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexread.ForeColor = System.Drawing.Color.White;
             this.btnexread.Image = ((System.Drawing.Image)(resources.GetObject("btnexread.Image")));
-            this.btnexread.Location = new System.Drawing.Point(9, 516);
+            this.btnexread.Location = new System.Drawing.Point(0, 516);
             this.btnexread.Name = "btnexread";
             this.btnexread.Size = new System.Drawing.Size(89, 67);
             this.btnexread.TabIndex = 74;
@@ -520,7 +525,7 @@
             this.btnexopen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexopen.ForeColor = System.Drawing.Color.White;
             this.btnexopen.Image = ((System.Drawing.Image)(resources.GetObject("btnexopen.Image")));
-            this.btnexopen.Location = new System.Drawing.Point(3, 3);
+            this.btnexopen.Location = new System.Drawing.Point(-6, 3);
             this.btnexopen.Name = "btnexopen";
             this.btnexopen.Size = new System.Drawing.Size(89, 67);
             this.btnexopen.TabIndex = 73;
@@ -542,7 +547,7 @@
             this.btnsaveas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsaveas.ForeColor = System.Drawing.Color.White;
             this.btnsaveas.Image = ((System.Drawing.Image)(resources.GetObject("btnsaveas.Image")));
-            this.btnsaveas.Location = new System.Drawing.Point(3, 228);
+            this.btnsaveas.Location = new System.Drawing.Point(-6, 228);
             this.btnsaveas.Name = "btnsaveas";
             this.btnsaveas.Size = new System.Drawing.Size(89, 67);
             this.btnsaveas.TabIndex = 72;
@@ -587,7 +592,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(749, 586);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(762, 586);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // panelback1
@@ -597,7 +602,7 @@
             this.panelback1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelback1.Location = new System.Drawing.Point(3, 8);
             this.panelback1.Name = "panelback1";
-            this.panelback1.Size = new System.Drawing.Size(743, 570);
+            this.panelback1.Size = new System.Drawing.Size(756, 570);
             this.panelback1.TabIndex = 0;
             // 
             // panelback
@@ -605,7 +610,7 @@
             this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelback.Location = new System.Drawing.Point(0, 0);
             this.panelback.Name = "panelback";
-            this.panelback.Size = new System.Drawing.Size(743, 570);
+            this.panelback.Size = new System.Drawing.Size(756, 570);
             this.panelback.TabIndex = 0;
             this.panelback.Paint += new System.Windows.Forms.PaintEventHandler(this.panelback_Paint);
             // 
@@ -650,7 +655,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private TreeListEx treeView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList2;
@@ -668,6 +672,6 @@
         private System.Windows.Forms.ImageList imageList3;
         public System.Windows.Forms.Panel panelbutton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-
+        public TreeListEx treeView1;
     }
 }

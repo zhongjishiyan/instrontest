@@ -335,6 +335,7 @@ namespace TabHeaderDemo
                         f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].dest;
                         f.numericEdit2.Value = sf.mseglist[e.Position.Row - 1].dest;
                         f.numericEdit3.Value = sf.mseglist[e.Position.Row - 1].keeptime;
+
                         f.ShowDialog();
 
                         if (f.result == true)
@@ -375,6 +376,8 @@ namespace TabHeaderDemo
                         f.comboBox1.Items.Add(ClsStaticStation.m_Global.mycls.hardsignals[i].cName);
                     }
 
+
+
                     if ((sf.mseglist[e.Position.Row - 1].destcontrolmode >= 0) && (sf.mseglist[e.Position.Row - 1].destcontrolmode < f.comboBox1.Items.Count))
                     {
 
@@ -385,6 +388,14 @@ namespace TabHeaderDemo
                     }
 
                     f.comboBox1.SelectedIndex = sf.mseglist[e.Position.Row - 1].destcontrolmode;
+
+
+                    f.cbomode.Items.Clear();
+                    f.cbomode.Items.Add("切换");
+                    f.cbomode.Items.Add("不切换");
+                    f.cbomode.Items.Add("跟随");
+                    f.cbomode.SelectedIndex = sf.mseglist[e.Position.Row - 1].destmod; 
+
 
                     f.lblunit.Text = ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].destcontrolmode].cUnits[0];
 
@@ -408,6 +419,7 @@ namespace TabHeaderDemo
                         sf.mseglist[e.Position.Row - 1].destcontrolmode = f.comboBox1.SelectedIndex;
                         sf.mseglist[e.Position.Row - 1].dest = f.numericEdit2.Value;
                         sf.mseglist[e.Position.Row - 1].keeptime = f.numericEdit3.Value;
+                        sf.mseglist[e.Position.Row - 1].destmod = f.cbomode.SelectedIndex;
                     }
 
                     grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].destconvert();
@@ -468,20 +480,9 @@ namespace TabHeaderDemo
 
             sf.mseglist[e.Position.Row - 1].cmd = c;
 
-            if (c == 0)
-            {
-                sf.mseglist[e.Position.Row - 1].controlmode = 0;
+            sf.mseglist[e.Position.Row - 1].controlmode = c;
 
-            }
-            if (c == 1)
-            {
-                sf.mseglist[e.Position.Row - 1].controlmode = 1;
-            }
-
-            if (c == 2)
-            {
-                sf.mseglist[e.Position.Row - 1].controlmode = -1;
-            }
+           
 
 
             SourceGrid2.PositionEventArgs m;
@@ -561,6 +562,11 @@ namespace TabHeaderDemo
 
         }
 
+        public void Init_块谱()
+        {
+            tlpblock.ColumnStyles[0].Width = 50;
+            tlpblock.ColumnStyles[2].Width = 50;
+        }
         public void Init_高级()
         {
 
@@ -576,16 +582,16 @@ namespace TabHeaderDemo
 
             cbocontrol.Items.Clear();
 
-            for (int i = 0; i < m_Global.mycls.chsignals.Count; i++)
+            for (int i = 0; i < m_Global.mycls.hardsignals.Count; i++)
             {
-                cbocontrol.Items.Add(m_Global.mycls.chsignals[i].cName);
+                cbocontrol.Items.Add(m_Global.mycls.hardsignals[i].cName);
             }
             cbocontrol.SelectedIndex = 0;
             cbodestcontrol.Items.Clear();
 
-            for (int i = 0; i < m_Global.mycls.chsignals.Count; i++)
+            for (int i = 0; i < m_Global.mycls.hardsignals.Count; i++)
             {
-                cbodestcontrol.Items.Add(m_Global.mycls.chsignals[i].cName);
+                cbodestcontrol.Items.Add(m_Global.mycls.hardsignals[i].cName);
             }
             cbodestcontrol.SelectedIndex = 0;
 
@@ -637,12 +643,12 @@ namespace TabHeaderDemo
 
             grid2.ColumnsCount = 7;
             grid2.Columns[0].Width = 50;
-            grid2.Columns[1].Width = grid1.Width / 7;
-            grid2.Columns[2].Width = grid1.Width / 7;
-            grid2.Columns[3].Width = grid1.Width / 7;
-            grid2.Columns[4].Width = grid1.Width / 7;
-            grid2.Columns[5].Width = grid1.Width / 7;
-            grid2.Columns[6].Width = grid1.Width / 7;
+            grid2.Columns[1].Width = grid2.Width / 7;
+            grid2.Columns[2].Width = grid2.Width / 7;
+            grid2.Columns[3].Width = grid2.Width / 7;
+            grid2.Columns[4].Width = grid2.Width / 7;
+            grid2.Columns[5].Width = grid2.Width / 7;
+            grid2.Columns[6].Width = grid2.Width / 7;
             grid2.CustomSort = false;
             grid2.Columns[1].AutoSizeMode = SourceGrid2.AutoSizeMode.EnableStretch;
             grid2.FixedRows = 1;
@@ -825,9 +831,12 @@ namespace TabHeaderDemo
             cbocontrolprocess.Items.Add("一般测试");
             cbocontrolprocess.Items.Add("中级测试");
             cbocontrolprocess.Items.Add("简单测试");
-#if Advanced
-            cbocontrolprocess.Items.Add("高级测试");
-#endif
+
+            if ((GlobeVal.mysys.controllerkind == 1) || (GlobeVal.mysys.controllerkind == 2))
+            {
+                cbocontrolprocess.Items.Add("高级测试");
+                cbocontrolprocess.Items.Add("块谱测试");
+            }
 
 
 
@@ -1359,7 +1368,15 @@ namespace TabHeaderDemo
 
             if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
             {
-                tabControl1.Enabled = false;
+                if (CComLibrary.GlobeVal.filesave.mcontrolprocess != 2)
+                {
+
+                    tabControl1.Enabled = true;
+                }
+                else
+                {
+                    tabControl1.Enabled = false;
+                }
             }
             else
             {
@@ -1396,6 +1413,27 @@ namespace TabHeaderDemo
             if (sel == 6)
             {
                 Init_中级();
+                if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
+                {
+                    tscbo.Enabled = false ;
+                    tsbtnnew.Enabled = false;
+                    tsbtnkill.Enabled = false;
+                    tsbtnrename.Enabled = false;
+                    tsbtnadd.Enabled = false;
+                    tsbtninsert.Enabled = false;
+                    tsbtndel.Enabled = false;
+                }
+                else
+                {
+                    tscbo.Enabled = true ;
+                    tsbtnnew.Enabled = true ;
+                    tsbtnkill.Enabled = true ;
+                    tsbtnrename.Enabled = true ;
+                    tsbtnadd.Enabled = true ;
+                    tsbtninsert.Enabled = true ;
+                    tsbtndel.Enabled = true ;
+                
+                }
             }
 
             if (sel == 7)
@@ -1405,11 +1443,29 @@ namespace TabHeaderDemo
             if (sel == 8)
             {
                 Init_高级();
+
+                if (GlobeVal.UserControlMain1.btnmtest.Visible == true)
+                {
+                    tscbos.Enabled = false;
+                    tsopens.Enabled = false;
+                    tsdels.Enabled = false;
+
+                }
+                else
+                {
+                    tscbos.Enabled = true;
+                    tsopens.Enabled =true;
+                    tsdels.Enabled = true;
+                }
+
+
+            }
+            if (sel == 9)
+            {
+                Init_块谱();
             }
 
-
-
-        }
+         }
         public UserControl控制()
         {
             InitializeComponent();
@@ -1490,6 +1546,12 @@ namespace TabHeaderDemo
 
             cbospeedunit.SelectedIndex = getselect().msequence.mrateunit;
             numspeed.Value = getselect().msequence.mrate;
+            cbodestmode.Items.Clear();
+            cbodestmode.Items.Add("切换");
+            cbodestmode.Items.Add("不切换");
+            cbodestmode.Items.Add("跟随");
+            cbodestmode.SelectedIndex = getselect().msequence.destmode;
+
            
         }
 
@@ -1590,15 +1652,15 @@ namespace TabHeaderDemo
             txtstep.Text = (sender as UserControlStep).msequence.stepname;
 
 
-            chkjump.Checked = (sender as UserControlStep).msequence.chkjump;
+            chkjump.Checked = (sender as UserControlStep).msequence.loop;
             cbojump.Items.Clear();
 
             for( int i=0;i<listViewEx1.mlist.Count;i++)
             {
                 cbojump.Items.Add((i+1).ToString());
             }
-            cbojump.SelectedIndex = (sender as UserControlStep).msequence.intjumpto;
-            numcount.Value = (sender as UserControlStep).msequence.cycliccount;
+            cbojump.SelectedIndex = (sender as UserControlStep).msequence.returnstep-1;
+            numcount.Value = (sender as UserControlStep).msequence.loopcount ;
 
             cbomethod.SelectedIndex = (sender as UserControlStep).msequence.samplingmode;
 
@@ -2177,6 +2239,29 @@ namespace TabHeaderDemo
         private void tsbtnsave_Click(object sender, EventArgs e)
         {
 
+            bool fb = false;
+
+            for (int i = 0; i < sf.mseglist.Count; i++)
+            {
+                if (sf.mseglist[i].cyclicrun == true)
+                {
+                    for (int j = sf.mseglist[i].returnstep; j < i; j++)
+                    {
+                        if (sf.mseglist[j].cyclicrun ==true)
+                        {
+                            fb = true;
+                        }
+                    }
+                   
+                }
+            }
+
+            if (fb==true)
+            {
+                MessageBox.Show("错误，循环中包括子循环");
+                return;
+            }
+
             if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text) == true)
             {
                 System.IO.File.Delete(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text);
@@ -2391,6 +2476,9 @@ namespace TabHeaderDemo
             toolStripButton8.Checked = false;
             toolStripButton9.Checked = false;
 
+            lblcontrolmode.Visible = true ;
+            cbocontrol.Visible = true;
+
             waveshape0_sel();
             
         }
@@ -2406,6 +2494,10 @@ namespace TabHeaderDemo
             toolStripButton7.Checked = false;
             toolStripButton8.Checked = false;
             toolStripButton9.Checked = false;
+
+            lblcontrolmode.Visible = false;
+            cbocontrol.Visible = false;
+
             waveshape1_sel();
         }
 
@@ -2420,6 +2512,9 @@ namespace TabHeaderDemo
             toolStripButton7.Checked = false;
             toolStripButton8.Checked = false;
             toolStripButton9.Checked = false;
+
+            lblcontrolmode.Visible = true;
+            cbocontrol.Visible = true;
             waveshape2_sel();
         }
 
@@ -2439,7 +2534,94 @@ namespace TabHeaderDemo
 
         }
 
+        private void addBlock()
+        {
+            listViewBlock1.mlist.Clear();
 
+            listViewBlock1.Columns.Clear();
+
+            UserControlBlock p = new UserControlBlock();
+
+            p.Kind = 0;
+            p.selected = true;
+
+            p.Id = 0;
+            p.btnrightevent += listViewBlock1_btnrightevent;
+            p.btncopyevent += listViewBlock1_btncopyevent;
+            p.btncutevent += listViewBlock1_btncutevent;
+            p.btnleftevent += listViewBlock1_btnleftevent;
+            p.btnselectevent += listViewBlock1_btnselectevent;
+            p.Width = 230;
+            ColumnHeader m = new ColumnHeader();
+            m.Width = p.Width;
+
+            listViewBlock1.mlist.Add(p);
+            listViewBlock1.Columns.Add(m);
+
+            listViewBlock1.AddEmbeddedControl(p, 0, 0);
+        }
+
+        private void listViewBlock1_btnselectevent(object sender, int index)
+        {
+            if ((sender as  UserControlBlock ).selected)
+            {
+                return;
+            }
+            for (int i = 0; i < listViewBlock1.mlist.Count; i++)
+            {
+                listViewBlock1.mlist[i].selected = false;
+            }
+
+
+
+            (sender as UserControlBlock).selected = true;
+
+            return;
+        }
+
+        private void listViewBlock1_btnleftevent(object sender, int index)
+        {
+            return;
+        }
+
+        private void listViewBlock1_btncutevent(object sender, int index)
+        {
+            return;
+        }
+
+        private void listViewBlock1_btncopyevent(object sender, int index)
+        {
+
+            return;
+        }
+
+        private void listViewBlock1_btnrightevent(object sender, int index)
+        {
+            UserControlBlock  p = new UserControlBlock();
+
+            p.Kind = 0;
+            p.selected = false;
+
+           
+            p.btnrightevent += listViewBlock1_btnrightevent;
+            p.btncopyevent += this.listViewBlock1_btncopyevent;
+            p.btncutevent += this.listViewBlock1_btncutevent;
+            p.btnleftevent += this.listViewBlock1_btnleftevent;
+            p.btnselectevent += this.listViewBlock1_btnselectevent;
+
+            int mm = (sender as UserControlBlock ).Id;
+            ColumnHeader m = new ColumnHeader();
+            p.Width = 230;
+            m.Width = p.Width;
+
+
+            this.listViewBlock1.mlist.Insert(mm + 1, p);
+            this.listViewBlock1.Columns.Insert(mm + 1, m);
+
+            this.listViewBlock1.reset();
+
+            return;
+        }
 
         private void addSequence(CComLibrary.Sequence seq)
         {
@@ -2517,6 +2699,28 @@ namespace TabHeaderDemo
             {
                 sqf.add(listViewEx1.mlist[i].msequence);
             }
+
+            bool fb = false;
+
+            for (int i = 0; i < sqf.mSequencelist.Count; i++)
+            {
+                if (sqf.mSequencelist[i].loop == true)
+                {
+                    for (int j = sqf.mSequencelist[i].returnstep; j < i; j++)
+                    {
+                        if (sqf.mSequencelist[j].loop == true)
+                        {
+                            fb = true;
+                        }
+                    }
+                }
+            }
+
+            if (fb==true)
+            {
+                MessageBox.Show("错误，循环中包括子循环");
+                return;
+            }
             sqf.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + tscbos.Text);
 
 
@@ -2551,7 +2755,7 @@ namespace TabHeaderDemo
                    
                     p.selected = false;
 
-                    if (sqf.mSequencelist[i].chkjump == true)
+                    if (sqf.mSequencelist[i].loop == true)
                     {
                         p.settail(2);
                        
@@ -2739,6 +2943,10 @@ namespace TabHeaderDemo
             toolStripButton7.Checked = true;
             toolStripButton8.Checked = false;
             toolStripButton9.Checked = false;
+
+            lblcontrolmode.Visible = true;
+            cbocontrol.Visible = true ;
+
             waveshape3_sel();
         }
 
@@ -2753,6 +2961,9 @@ namespace TabHeaderDemo
             toolStripButton7.Checked = false;
             toolStripButton8.Checked = true;
             toolStripButton9.Checked = false;
+
+            lblcontrolmode.Visible = true;
+            cbocontrol.Visible = true ;
             waveshape4_sel();
         }
 
@@ -2767,7 +2978,10 @@ namespace TabHeaderDemo
             toolStripButton7.Checked = false;
             toolStripButton8.Checked = false;
             toolStripButton9.Checked = true;
-            
+
+            lblcontrolmode.Visible = true ;
+            cbocontrol.Visible = true ;
+
         }
 
         private void txtstep_TextChanged(object sender, EventArgs e)
@@ -2949,7 +3163,7 @@ namespace TabHeaderDemo
 
         private void chkjump_CheckStateChanged(object sender, EventArgs e)
         {
-            getselect().msequence.chkjump = chkjump.Checked;
+            getselect().msequence.loop = chkjump.Checked;
 
             if (chkjump.Checked == true)
             {
@@ -2974,13 +3188,13 @@ namespace TabHeaderDemo
 
         private void cbojump_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            getselect().msequence.intjumpto = cbojump.SelectedIndex;
+            getselect().msequence.returnstep = cbojump.SelectedIndex+1;
         }
 
         private void numcount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
-            getselect().msequence.cycliccount = Convert.ToInt32( numcount.Value);
-        }
+
+        }        
 
         private void btnpre_Click(object sender, EventArgs e)
         {
@@ -3213,6 +3427,22 @@ namespace TabHeaderDemo
         private void numsavepointcount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
             CComLibrary.GlobeVal.filesave.SamplingCount = Convert.ToInt32(numsavepointcount.Value);
+        }
+
+        private void numcount_TextChanged(object sender, EventArgs e)
+        {
+            getselect().msequence.loopcount = Convert.ToInt32(numcount.Value);
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            addBlock();
+        }
+
+        private void cbodestmode_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.destmode = cbodestmode.SelectedIndex;
         }
     }
 }

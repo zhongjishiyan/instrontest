@@ -43,7 +43,6 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtContent = new Compenkie.RichTextBoxExtend();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.剪切ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lvTips = new System.Windows.Forms.ListView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMethodName = new System.Windows.Forms.TextBox();
@@ -67,6 +65,8 @@
             this.dgvParameters = new System.Windows.Forms.DataGridView();
             this.colParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colParamType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtContent = new Compenkie.RichTextBoxExtend();
+            this.lvTips = new ClsStaticStation.ListViewEx();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -88,7 +88,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1024, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1350, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -145,7 +145,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(509, 665);
+            this.groupBox2.Size = new System.Drawing.Size(663, 665);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "公式编写";
@@ -157,21 +157,8 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 48);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(503, 614);
+            this.panel5.Size = new System.Drawing.Size(657, 614);
             this.panel5.TabIndex = 4;
-            // 
-            // txtContent
-            // 
-            this.txtContent.ContextMenuStrip = this.contextMenuStrip1;
-            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtContent.HiglightColor = Khendys.Controls.RtfColor.White;
-            this.txtContent.Location = new System.Drawing.Point(0, 0);
-            this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(503, 537);
-            this.txtContent.TabIndex = 2;
-            this.txtContent.Text = "";
-            this.txtContent.TextColor = Khendys.Controls.RtfColor.Black;
-            this.txtContent.TextChanged += new System.EventHandler(this.txtContent_TextChanged);
             // 
             // contextMenuStrip1
             // 
@@ -217,7 +204,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 537);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(503, 77);
+            this.panel1.Size = new System.Drawing.Size(657, 77);
             this.panel1.TabIndex = 1;
             // 
             // panel6
@@ -227,7 +214,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(3, 17);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(503, 31);
+            this.panel6.Size = new System.Drawing.Size(657, 31);
             this.panel6.TabIndex = 4;
             // 
             // txtPropName
@@ -252,53 +239,23 @@
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(509, 25);
+            this.groupBox1.Location = new System.Drawing.Point(663, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(515, 665);
+            this.groupBox1.Size = new System.Drawing.Size(687, 665);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "资源";
             // 
             // panel4
             // 
+            this.panel4.AutoScroll = true;
             this.panel4.Controls.Add(this.lvTips);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 17);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(509, 474);
+            this.panel4.Size = new System.Drawing.Size(681, 474);
             this.panel4.TabIndex = 2;
-            // 
-            // lvTips
-            // 
-            this.lvTips.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup1.Header = "系统变量";
-            listViewGroup1.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup1.Name = "lvgKeyword";
-            listViewGroup2.Header = "数学运算";
-            listViewGroup2.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup2.Name = "lvgCompare";
-            listViewGroup3.Header = "用户变量";
-            listViewGroup3.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup3.Name = "lvgMethod";
-            listViewGroup4.Header = "函数";
-            listViewGroup4.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup4.Name = "listFunction";
-            listViewGroup5.Header = "系统常量";
-            listViewGroup5.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup5.Name = "listConst";
-            this.lvTips.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5});
-            this.lvTips.Location = new System.Drawing.Point(0, 0);
-            this.lvTips.Name = "lvTips";
-            this.lvTips.Size = new System.Drawing.Size(509, 474);
-            this.lvTips.TabIndex = 1;
-            this.lvTips.UseCompatibleStateImageBehavior = false;
-            this.lvTips.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvTips_ItemSelectionChanged);
-            this.lvTips.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvTips_MouseDoubleClick);
+            this.panel4.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panel4_Scroll);
             // 
             // panel3
             // 
@@ -313,7 +270,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(3, 491);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(509, 171);
+            this.panel3.Size = new System.Drawing.Size(681, 171);
             this.panel3.TabIndex = 1;
             // 
             // label8
@@ -410,11 +367,63 @@
             this.colParamType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colParamType.Width = 120;
             // 
+            // txtContent
+            // 
+            this.txtContent.ContextMenuStrip = this.contextMenuStrip1;
+            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtContent.HiglightColor = Khendys.Controls.RtfColor.White;
+            this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Name = "txtContent";
+            this.txtContent.Size = new System.Drawing.Size(657, 537);
+            this.txtContent.TabIndex = 2;
+            this.txtContent.Text = "";
+            this.txtContent.TextColor = Khendys.Controls.RtfColor.Black;
+            this.txtContent.TextChanged += new System.EventHandler(this.txtContent_TextChanged);
+            // 
+            // lvTips
+            // 
+            this.lvTips.AutoArrange = false;
+            this.lvTips.Dock = System.Windows.Forms.DockStyle.Fill;
+            listViewGroup1.Header = "系统变量";
+            listViewGroup1.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup1.Name = "lvgKeyword";
+            listViewGroup2.Header = "数学运算";
+            listViewGroup2.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup2.Name = "lvgCompare";
+            listViewGroup3.Header = "用户变量";
+            listViewGroup3.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup3.Name = "lvgMethod";
+            listViewGroup4.Header = "函数";
+            listViewGroup4.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup4.Name = "listFunction";
+            listViewGroup5.Header = "系统常量";
+            listViewGroup5.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup5.Name = "listConst";
+            this.lvTips.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
+            this.lvTips.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvTips.HideSelection = false;
+            this.lvTips.Location = new System.Drawing.Point(0, 0);
+            this.lvTips.MultiSelect = false;
+            this.lvTips.Name = "lvTips";
+            this.lvTips.Size = new System.Drawing.Size(681, 474);
+            this.lvTips.TabIndex = 1;
+            this.lvTips.UseCompatibleStateImageBehavior = false;
+            this.lvTips.View = System.Windows.Forms.View.SmallIcon;
+            this.lvTips.HScroll += new System.EventHandler(this.lvTips_HScroll);
+            this.lvTips.VScroll += new System.EventHandler(this.lvTips_VScroll);
+            this.lvTips.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvTips_ItemSelectionChanged);
+            this.lvTips.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvTips_MouseDoubleClick);
+            // 
             // FormCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 690);
+            this.ClientSize = new System.Drawing.Size(1350, 690);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
@@ -473,6 +482,6 @@
         private System.Windows.Forms.ToolStripMenuItem 全选ToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private Compenkie.RichTextBoxExtend txtContent;
-        private System.Windows.Forms.ListView lvTips;
+        private ClsStaticStation.ListViewEx  lvTips;
     }
 }

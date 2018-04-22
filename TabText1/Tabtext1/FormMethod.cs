@@ -422,8 +422,84 @@ namespace AppleLabApplication
 
             
 
-            CComLibrary.GlobeVal.formulakind = 1; 
+            CComLibrary.GlobeVal.formulakind = 1;
 
+            filesave.moutput.Clear();
+
+            for (i = 0; i < listEditor2.List.Count; i++)
+            {
+                CComLibrary.outputitem moutput = new CComLibrary.outputitem();
+                moutput.formulaname = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式名称;
+                moutput.formulavalue = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).value;
+                moutput.formulaunit = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式单位;
+                moutput.show = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).曲线显示;
+                moutput.check = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).是否计算;
+                moutput.formulaexplain = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式说明;
+
+
+
+                for (j = 0; j < ClsStaticStation.m_Global.mycls.SignalsNames.Length; j++)
+                {
+                    if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == listEditor2.grid[i + 1, listEditor2.grid.ColumnsCount - 1].Value.ToString())
+                    // if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == ClsStaticStation.m_Global.mycls.SignalsNames[(listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).量纲])
+                    {
+                        moutput.dimsel = j;
+
+                        break;
+                    }
+                }
+
+
+                if (moutput.myitemsignal == null)
+                {
+
+                    moutput.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].Clone() as ItemSignal;
+                    moutput.myitemsignal.cUnitsel = 0;
+
+                }
+                else if (moutput.myitemsignal.cName != ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].cName)
+                {
+                    moutput.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].Clone() as ItemSignal;
+                    moutput.myitemsignal.cUnitsel = 0;
+
+                }
+
+                if (filesave.moutput.Count == 0)
+                {
+                    filesave.moutput.Add(moutput);
+
+                }
+
+                else
+                {
+
+                    Boolean mb = false;
+                    for (j = 0; j < filesave.moutput.Count; j++)
+                    {
+
+                        if (moutput.formulaname == filesave.moutput[j].formulaname)
+                        {
+                            mb = true;
+
+                        }
+
+                    }
+
+                    if (mb == false)
+                    {
+                        filesave.moutput.Add(moutput);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("自定义公式定义重复，请重新定义");
+                      
+                        return;
+                    }
+                }
+            }
+
+            /*
             filesave.moutput.Clear();
 
             for (i = 0; i < listEditor2.List.Count; i++)
@@ -470,7 +546,7 @@ namespace AppleLabApplication
                 }
 
             }
-
+            */
             k = listEditor2.row-1; 
              
               if (k >=0)
@@ -532,7 +608,7 @@ namespace AppleLabApplication
 
             (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).value = CComLibrary.GlobeVal._programstring;
             
-            listEditor2.LoadList(); 
+           // listEditor2.LoadList(); 
 
                 
         }
@@ -863,11 +939,13 @@ namespace AppleLabApplication
 
                         moutput.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].Clone() as ItemSignal;
                         moutput.myitemsignal.cUnitsel = 0;
+                        
                     }
                     else if (moutput.myitemsignal.cName != ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].cName)
                     {
                         moutput.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].Clone() as ItemSignal;
                         moutput.myitemsignal.cUnitsel = 0;
+                        
                     }
 
                     if (filesave.moutput.Count == 0)

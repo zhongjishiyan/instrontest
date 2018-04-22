@@ -85,6 +85,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.jMeter1 = new TabHeaderDemo.JMeter();
             this.jMeter2 = new TabHeaderDemo.JMeter();
             this.jMeter3 = new TabHeaderDemo.JMeter();
@@ -100,7 +101,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-          
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -632,9 +632,10 @@
             this.btnon.Name = "btnon";
             this.btnon.Size = new System.Drawing.Size(38, 33);
             this.btnon.TabIndex = 32;
+            this.btnon.Tag = "0";
             this.btnon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnon, "全部清零");
             this.btnon.UseVisualStyleBackColor = false;
-            this.btnon.Visible = false;
             this.btnon.Click += new System.EventHandler(this.btnon_Click);
             // 
             // tabControl1
@@ -824,12 +825,20 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "24.bmp");
+            this.imageList2.Images.SetKeyName(1, "24红.bmp");
+            // 
             // jMeter1
             // 
             this.jMeter1.BackColor = System.Drawing.Color.Transparent;
             this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter1.Location = new System.Drawing.Point(4, 4);
             this.jMeter1.Margin = new System.Windows.Forms.Padding(4);
+            this.jMeter1.MinimumSize = new System.Drawing.Size(10, 10);
             this.jMeter1.Name = "jMeter1";
             this.jMeter1.Size = new System.Drawing.Size(313, 70);
             this.jMeter1.TabIndex = 0;
@@ -840,6 +849,7 @@
             this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter2.Location = new System.Drawing.Point(325, 4);
             this.jMeter2.Margin = new System.Windows.Forms.Padding(4);
+            this.jMeter2.MinimumSize = new System.Drawing.Size(10, 10);
             this.jMeter2.Name = "jMeter2";
             this.jMeter2.Size = new System.Drawing.Size(313, 70);
             this.jMeter2.TabIndex = 1;
@@ -850,6 +860,7 @@
             this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter3.Location = new System.Drawing.Point(646, 4);
             this.jMeter3.Margin = new System.Windows.Forms.Padding(4);
+            this.jMeter3.MinimumSize = new System.Drawing.Size(10, 10);
             this.jMeter3.Name = "jMeter3";
             this.jMeter3.Size = new System.Drawing.Size(313, 70);
             this.jMeter3.TabIndex = 2;
@@ -860,6 +871,7 @@
             this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jMeter4.Location = new System.Drawing.Point(967, 4);
             this.jMeter4.Margin = new System.Windows.Forms.Padding(4);
+            this.jMeter4.MinimumSize = new System.Drawing.Size(10, 10);
             this.jMeter4.Name = "jMeter4";
             this.jMeter4.Size = new System.Drawing.Size(313, 70);
             this.jMeter4.TabIndex = 3;
@@ -893,7 +905,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-           
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -967,5 +978,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripStatusLabel tslblstate;
         public System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ImageList imageList2;
     }
 }

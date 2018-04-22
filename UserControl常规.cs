@@ -195,6 +195,11 @@ namespace TabHeaderDemo
             仪表1ToolStripMenuItem.Enabled = true;
             仪表2ToolStripMenuItem.Enabled = true;
             试样输入ToolStripMenuItem.Enabled = true;
+            this.原始数据ToolStripMenuItem.Enabled = true;
+            this.摄像ToolStripMenuItem.Enabled = true;
+            this.状态提示ToolStripMenuItem.Enabled = true;
+            this.过程提示ToolStripMenuItem.Enabled = true;
+
             
         }
 
@@ -350,6 +355,27 @@ namespace TabHeaderDemo
                 {
                     试样输入ToolStripMenuItem.Enabled = true;
                 }
+
+                if (e1.caption =="原始数据")
+                {
+                    this.原始数据ToolStripMenuItem.Enabled = true;
+                }
+
+                if (e1.caption =="摄像")
+                {
+                    this.摄像ToolStripMenuItem.Enabled = true;
+
+                }
+                if (e1.caption =="过程提示")
+                {
+                    this.过程提示ToolStripMenuItem.Enabled = true;
+                }
+
+                if (e1.caption == "状态提示")
+                {
+                    this.状态提示ToolStripMenuItem.Enabled = true;
+                }
+
 
             }
         }
@@ -629,6 +655,19 @@ namespace TabHeaderDemo
 
         private void btnreadlayout_Click(object sender, EventArgs e)
         {
+
+            结果1ToolStripMenuItem.Enabled = true;
+            结果2ToolStripMenuItem.Enabled = true;
+            曲线图1ToolStripMenuItem.Enabled = true;
+            曲线图2ToolStripMenuItem.Enabled = true;
+            仪表1ToolStripMenuItem.Enabled = true;
+            仪表2ToolStripMenuItem.Enabled = true;
+            试样输入ToolStripMenuItem.Enabled = true;
+            this.原始数据ToolStripMenuItem.Enabled = true;
+            this.摄像ToolStripMenuItem.Enabled = true;
+            this.状态提示ToolStripMenuItem.Enabled = true;
+            this.过程提示ToolStripMenuItem.Enabled = true;
+
             openFileDialog1.FileName = "";
             openFileDialog1.Filter = "(*.lay" + ")|*.lay";
             openFileDialog1.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\";
@@ -663,7 +702,7 @@ namespace TabHeaderDemo
                     tlbe.GetRowHeights()[i] = f.rowheight[i];
                 }
 
-                for (int k = 0; k < 10; k++)
+                for (int k = 0; k < 20; k++)
                 {
                     if (f.Show[k] == true)
                     {
@@ -747,7 +786,30 @@ namespace TabHeaderDemo
                             原始数据ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[4];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
-                        } 
+                        }
+
+                        if (label1.Text == "摄像")
+                        {
+                            this.摄像ToolStripMenuItem.Enabled  = false;
+                            label1.Image = imageList1.Images[5];
+                            label1.ImageAlign = ContentAlignment.MiddleCenter;
+                        }
+
+                        if (label1.Text == "过程提示")
+                        {
+                            this.过程提示ToolStripMenuItem.Enabled = false;
+                            label1.Image = imageList1.Images[6];
+                            label1.ImageAlign = ContentAlignment.MiddleCenter;
+                        }
+
+                        if (label1.Text == "状态提示")
+                        {
+                            this.状态提示ToolStripMenuItem.Enabled = false;
+                            label1.Image = imageList1.Images[7];
+                            label1.ImageAlign = ContentAlignment.MiddleCenter;
+                        }
+
+
                     }
                 }
             }
@@ -781,7 +843,7 @@ namespace TabHeaderDemo
                 f.rowheight[i]= tlbe.GetRowHeights()[i]; 
             }
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
                 f.ItemName[i] = "";
                 f.Show[i] = false;
@@ -795,6 +857,9 @@ namespace TabHeaderDemo
             f.ItemName[5] = "仪表2";
             f.ItemName[6] = "试样输入";
             f.ItemName[7] = "原始数据";
+            f.ItemName[8] = "摄像";
+            f.ItemName[9] = "过程提示";
+            f.ItemName[10] = "状态提示";
 
 
             for (int i = 0; i < f.colcount; i++)
@@ -807,7 +872,7 @@ namespace TabHeaderDemo
                     }
                     else
                     {
-                        for (int k = 0; k < 10; k++)
+                        for (int k = 0; k < 20; k++)
                         {
                             if (f.ItemName[k] == (tlbe.GetControlFromPosition(i, j) as   Button ).Text)
                             {
@@ -870,7 +935,7 @@ namespace TabHeaderDemo
                     tlbebase.GetRowHeights()[i] = f.rowheight[i];
                 }
 
-                for (int k = 0; k < 10; k++)
+                for (int k = 0; k < 20; k++)
                 {
                     if (f.Show[k] == true)
                     {
@@ -955,7 +1020,28 @@ namespace TabHeaderDemo
                             原始数据ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[4];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
-                        } 
+                        }
+
+                        if (label1.Text == "摄像")
+                        {
+                            this.摄像ToolStripMenuItem.Enabled = false;
+                            label1.Image = imageList1.Images[5];
+                            label1.ImageAlign = ContentAlignment.MiddleCenter;
+                        }
+
+                        if (label1.Text == "过程提示")
+                        {
+                            this.过程提示ToolStripMenuItem.Enabled = false;
+                            label1.Image = imageList1.Images[6];
+                            label1.ImageAlign = ContentAlignment.MiddleCenter;
+                        }
+
+                        if (label1.Text == "状态提示")
+                        {
+                            this.状态提示ToolStripMenuItem.Enabled = false;
+                            label1.Image = imageList1.Images[7];
+                            label1.ImageAlign = ContentAlignment.MiddleCenter;
+                        }
                     }
                 }
             }
@@ -1125,6 +1211,93 @@ namespace TabHeaderDemo
         private void txtlay_TextChanged(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.layfilename = txtlay.Text;
+        }
+
+        private void 摄像ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button label1;
+            label1 = new Button();
+            label1.TextImageRelation = TextImageRelation.ImageAboveText;
+            label1.FlatStyle = FlatStyle.Flat;
+            label1.Text = "摄像";
+            label1.AutoSize = false;
+            label1.Dock = DockStyle.Fill;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            tlbe.SetCellPosition(label1, new TableLayoutPanelCellPosition(tlbe.SelectColumn, tlbe.SelectRow));
+            //label1.ContextMenuStrip  = this.contextMenuStrip2;
+            label1.BackColor = Color.White;
+            label1.ForeColor = Color.Blue;
+            label1.Image = imageList1.Images[5];
+            label1.ImageAlign = ContentAlignment.MiddleCenter;
+
+            PPP mp = new PPP(tlbe.SelectColumn, tlbe.SelectRow);
+            mp.caption = label1.Text;
+            label1.Tag = mp;
+            label1.MouseUp += new MouseEventHandler(label1_MouseUp);
+            label1.MouseMove += new MouseEventHandler(label1_MouseMove);
+
+            btnadvanceadd.Enabled = false;
+            btnadvancedec.Enabled = false;
+            摄像ToolStripMenuItem.Enabled = false;
+            tlbe.Controls.Add(label1);
+        }
+
+        private void 过程提示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button label1;
+            label1 = new Button();
+            label1.TextImageRelation = TextImageRelation.ImageAboveText;
+            label1.FlatStyle = FlatStyle.Flat;
+            label1.Text = "过程提示";
+            label1.AutoSize = false;
+            label1.Dock = DockStyle.Fill;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            tlbe.SetCellPosition(label1, new TableLayoutPanelCellPosition(tlbe.SelectColumn, tlbe.SelectRow));
+            //label1.ContextMenuStrip  = this.contextMenuStrip2;
+            label1.BackColor = Color.White;
+            label1.ForeColor = Color.Blue;
+            label1.Image = imageList1.Images[6];
+            label1.ImageAlign = ContentAlignment.MiddleCenter;
+
+            PPP mp = new PPP(tlbe.SelectColumn, tlbe.SelectRow);
+            mp.caption = label1.Text;
+            label1.Tag = mp;
+            label1.MouseUp += new MouseEventHandler(label1_MouseUp);
+            label1.MouseMove += new MouseEventHandler(label1_MouseMove);
+
+            btnadvanceadd.Enabled = false;
+            btnadvancedec.Enabled = false;
+            过程提示ToolStripMenuItem.Enabled = false;
+            tlbe.Controls.Add(label1);
+        }
+
+        private void 状态提示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button label1;
+            label1 = new Button();
+            label1.TextImageRelation = TextImageRelation.ImageAboveText;
+            label1.FlatStyle = FlatStyle.Flat;
+            label1.Text = "状态提示";
+            label1.AutoSize = false;
+            label1.Dock = DockStyle.Fill;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            tlbe.SetCellPosition(label1, new TableLayoutPanelCellPosition(tlbe.SelectColumn, tlbe.SelectRow));
+            //label1.ContextMenuStrip  = this.contextMenuStrip2;
+            label1.BackColor = Color.White;
+            label1.ForeColor = Color.Blue;
+            label1.Image = imageList1.Images[7];
+            label1.ImageAlign = ContentAlignment.MiddleCenter;
+
+            PPP mp = new PPP(tlbe.SelectColumn, tlbe.SelectRow);
+            mp.caption = label1.Text;
+            label1.Tag = mp;
+            label1.MouseUp += new MouseEventHandler(label1_MouseUp);
+            label1.MouseMove += new MouseEventHandler(label1_MouseMove);
+
+            btnadvanceadd.Enabled = false;
+            btnadvancedec.Enabled = false;
+            状态提示ToolStripMenuItem.Enabled = false;
+            tlbe.Controls.Add(label1);
         }
     }
 }

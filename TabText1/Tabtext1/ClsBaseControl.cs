@@ -38,6 +38,9 @@ namespace ClsStaticStation
 
         public string mtishi = "";
 
+
+        public double dogtime = 0;
+
         public virtual void  fatigstop()
         {
 
@@ -57,6 +60,16 @@ namespace ClsStaticStation
 
         }
         public virtual  void btnkey(Button b)
+        {
+
+        }
+
+        public virtual  void btnzeroall()
+        {
+
+        }
+
+        public virtual void btnrestoreall()
         {
 
         }
@@ -115,7 +128,7 @@ namespace ClsStaticStation
         {
         }
 
-        public  virtual  void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount,int action)
+        public  virtual  void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount,int action,int destmode)
         {
         }
 

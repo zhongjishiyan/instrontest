@@ -29,5 +29,10 @@ namespace TabHeaderDemo.Frm
             result = false;
             Close();
         }
+
+        private void chkcyclic_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

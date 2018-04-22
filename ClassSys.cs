@@ -98,7 +98,18 @@ namespace TabHeaderDemo
 
         public int ChannelCount = 8;//通道数量
 
-       
+        public string lbl_up = "上升";
+        public string lbl_stop = "停止";
+        public string lbl_down = "下降";
+        public string lbl_start = "目标开始";
+        public string lbl_end = "目标结束";
+
+        public bool chk_hlimit = false;
+        public bool chk_slimit = false;
+        public bool chk_alarm = false;
+
+        public bool chk_cyclc = false;
+
 
         public ClassSys()
         {
@@ -117,8 +128,9 @@ namespace TabHeaderDemo
             MachineName[2] = "岩石三轴试验机";
             MachineName[3] = "换挡意图传感器试验机";
             MachineName[4] = "金属恒应变控制试验机";
+            MachineName[5] = "车身刚度试验台";
 
-            MachineCount = 5;
+            MachineCount = 6;
           
             ChannelRange = new double [20];
             ChannelControl = new bool[20];
@@ -253,10 +265,10 @@ namespace TabHeaderDemo
                     c.MachineName[2] = "岩石三轴试验机";
                     c.MachineName[3] = "换挡意图传感器试验机";
                     c.MachineName[4] = "金属恒应变控制试验机";
+                    c.MachineName[5] = "车身刚度试验台";
 
 
-
-                    c.MachineCount = 5;
+                    c.MachineCount = 6;
 
                     if (c.ChannelSamplemode==null)
                     {

@@ -1792,6 +1792,46 @@ namespace AppleLabApplication
 
         private void drawmline(double x1, double y1, double x2, double y2,CComLibrary.LineStruct l)
         {
+            if (double.IsNaN(x1)==true)
+            {
+                x1 = 0;
+                return;
+            }
+            if (double.IsInfinity(x1) == true)
+            {
+                x1 = 0;
+                return;
+            }
+            if (double.IsNaN(y1)==true)
+            {
+                y1 = 0;
+                return;
+            }
+            if (double.IsInfinity(y1) == true)
+            {
+                y1 = 0;
+                return;
+            }
+            if (double.IsNaN(x2)==true)
+            {
+                x2 = 0;
+                return;
+            }
+            if (double.IsInfinity(x2) == true)
+            {
+                x2 = 0;
+                return;
+            }
+            if (double.IsNaN(y2)==true)
+            {
+                y2 = 0;
+                return;
+            }
+            if (double.IsInfinity(y2) == true)
+            {
+                y2 = 0;
+                return;
+            }
 
             XYPointAnnotation u = new XYPointAnnotation(scatterPlot1.XAxis, scatterPlot1.YAxis);
             u.ArrowColor = Color.Green ;
@@ -1830,7 +1870,50 @@ namespace AppleLabApplication
         
         private void drawline(double x1, double y1, double x2, double y2,CComLibrary.LineStruct l)
         {
-           
+            if(double.IsNaN(x1)==true)
+            {
+                x1 = 0;
+                return;
+            }
+            if (double.IsInfinity(x1) == true)
+            {
+                x1 = 0;
+                return;
+            }
+            if (double.IsNaN(y1)==true)
+            {
+                y1 = 0;
+                return;
+            }
+            if (double.IsInfinity(y1) == true)
+            {
+                y1 = 0;
+                return;
+            }
+            if (double.IsNaN(x2)==true)
+            {
+                x2 = 0;
+                return;
+            }
+            if (double.IsInfinity(x2) == true)
+            {
+                x2 = 0;
+                return;
+            }
+            if (double.IsNaN(y2)==true)
+            {
+                y2 = 0;
+
+            }
+            if (double.IsInfinity(y2) == true)
+            {
+                y2 = 0;
+                return;
+            }
+
+
+
+
             XYPointAnnotation u = new XYPointAnnotation(scatterPlot1.XAxis, scatterPlot1.YAxis);
             u.ArrowColor = Color.Green ;
 
@@ -1867,7 +1950,30 @@ namespace AppleLabApplication
         }
         private void drawsign(double x,double y,CComLibrary.LineStruct l)
         {
-            
+            if (double.IsNaN(x)==true)
+            {
+                x = 0;
+                return;
+            }
+
+            if (double.IsInfinity(x) == true)
+            {
+                x = 0;
+                return;
+            }
+            if (double.IsNaN(y)==true)
+            {
+                y = 0;
+                return;
+
+            }
+            if (double.IsInfinity(y)==true)
+            {
+                y = 0;
+                return;
+            }
+
+
             XYPointAnnotation u = new XYPointAnnotation(scatterPlot1.XAxis, scatterPlot1.YAxis);
             u.ArrowColor = Color.Green;
 
@@ -2170,7 +2276,8 @@ namespace AppleLabApplication
                     u.Visible = true;
                     u.CaptionVisible = false;
                     u.Caption = "";
-                    u.RangeFillStyle = FillStyle.DiagonalBrick; 
+                    u.RangeFillStyle = FillStyle.DiagonalBrick;
+                    u.CaptionForeColor = Color.Black;
 
                     scatterPlot1.InverseMapDataPoint(scatterPlot1.GetBounds(), mP6F, out x, out y);
 
@@ -2213,7 +2320,7 @@ namespace AppleLabApplication
 
                 XYPointAnnotation u = new XYPointAnnotation(scatterPlot1.XAxis, scatterPlot1.YAxis);
                 u.ArrowColor = scatterGraph1.ForeColor;
-
+                u.CaptionForeColor = scatterGraph1.ForeColor; 
                 u.Visible = true;
                 scatterPlot1.InverseMapDataPoint(scatterPlot1.GetBounds(), mP10F, out x, out y);
                 u.ShapeVisible = true;
@@ -2258,7 +2365,7 @@ namespace AppleLabApplication
                
                 XYPointAnnotation u = new XYPointAnnotation(scatterPlot1.XAxis, scatterPlot1.YAxis);
                 u.ArrowColor =scatterGraph1.ForeColor;
-                 
+                u.CaptionForeColor = scatterGraph1.ForeColor;
                 u.Visible = true;
                 scatterPlot1.InverseMapDataPoint(scatterPlot1.GetBounds(), mP4F, out x, out y);
                 u.XPosition = x;
@@ -2300,6 +2407,7 @@ namespace AppleLabApplication
                 XYPointAnnotation  u = new XYPointAnnotation(scatterPlot1.XAxis,scatterPlot1.YAxis)  ;
                
                 u.ArrowColor = scatterGraph1.ForeColor;
+                u.CaptionForeColor = scatterGraph1.ForeColor;
                 u.Visible = true;
                 scatterPlot1.InverseMapDataPoint(scatterPlot1.GetBounds(), mP2F, out x, out y);
                 u.XPosition = x;
@@ -4032,7 +4140,7 @@ namespace AppleLabApplication
                 FormAxis f = new FormAxis();
                 f.myplot = scatterGraph1;
                 f.Tag = xx;
-                f.Show();
+                f.ShowDialog();
 
             }
 
@@ -4045,7 +4153,7 @@ namespace AppleLabApplication
                 FormAxis f = new FormAxis();
                 f.myplot = scatterGraph1; 
                 f.Tag = yy;
-                f.Show();
+                f.ShowDialog();
             }
 
 
@@ -4543,6 +4651,16 @@ namespace AppleLabApplication
                 }
 
             }
+        }
+
+        private void tsbdefault_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbreader_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

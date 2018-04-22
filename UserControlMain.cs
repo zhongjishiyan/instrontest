@@ -320,12 +320,22 @@ namespace TabHeaderDemo
 
               
                 tabControl1.SelectedIndex =3;
+             
+                if (GlobeVal.UserControlProcess1==null)
+                {
 
-                
+                }
+                else
+                {
+                    GlobeVal.UserControlProcess1.Init();
 
-               
+                }
+
+
+
             }
         }
+      
 
         private void btnmmethod_Click(object sender, EventArgs e)
         {
@@ -337,6 +347,19 @@ namespace TabHeaderDemo
                 btnmmanage.ForeColor = Color.White;
 
                 tabControl1.SelectedIndex = 1;
+
+                if (GlobeVal.UserControlMain1.btnmtest.Visible ==true)
+                {
+                    if (CComLibrary.GlobeVal.filesave.mcontrolprocess !=2)
+                    {
+                        GlobeVal.userControlmethod1.methodon("测试", "控制");
+                    }
+                 
+                }
+                else
+                {
+                    
+                }
 
                 
             }

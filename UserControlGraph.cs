@@ -15,6 +15,10 @@ namespace TabHeaderDemo
         double msavestartime = 0;
         bool msavebool = false;
 
+        double mdogtimelast = 0;
+
+        double mdogstarttime = 0;
+
         string  s_sensor5state0 ="";
         string  s_sensor5state1 ="";
         string  s_sensor5state2 ="";
@@ -128,6 +132,10 @@ namespace TabHeaderDemo
             tstart = 0;
             maxload = 0;
             mstarttime = 0;
+
+             mdogtimelast = 0;
+
+             mdogstarttime = 0;
 
             mrawdatalist = new List<TabHeaderDemo.UserControlGraph.rawdata>();
 
@@ -250,6 +258,7 @@ namespace TabHeaderDemo
         }
         public void Init曲线(int plot)
         {
+            userGraph1.datapath = GlobeVal.mysys.SamplePath;
 
             tabControl1.ItemSize = new Size(1, 1);
 
@@ -537,12 +546,12 @@ namespace TabHeaderDemo
 
             if (myplotsettings.showdatapointer == true)
             {
-                toolStrip2.Visible = true;
+                toolStripLeft.Visible = true;
 
             }
             else
             {
-                toolStrip2.Visible = false;
+                toolStripLeft.Visible = false;
             }
             mplot1 = plot;
 
@@ -680,7 +689,11 @@ namespace TabHeaderDemo
                 ClsStatic.arraydatacount[mplot1 - 1] = ClsStatic.arraydatacount[mplot1 - 1] - 1;
             }
 
+           // if ((System.Environment.TickCount - mdogstarttime)>10)
+             {
+                //mdogstarttime = System.Environment.TickCount;
 
+            }
 
             while (ll != 0)
             {
@@ -1297,13 +1310,13 @@ namespace TabHeaderDemo
                                         if ((sensor5 > 2.5) && (sensor5 < 2.7))
                                         {
                                         
-                                            m_sensor5state2 = true;
+                                           m_sensor5state2 = true;
                                         }
 
                                         if ((sensor6 > 2.5) && (sensor6 < 2.7))
                                         {
                                           
-                                            m_sensor6state2 = true;
+                                           m_sensor6state2 = true;
                                         }
 
                                         if ((sensor7 > 2.5) && (sensor7 < 2.7))
@@ -1312,8 +1325,9 @@ namespace TabHeaderDemo
                                             m_sensor7state2 = true;
                                         }
 
-
-
+                                        m_sensor5state2 = true;
+                                        m_sensor6state2 = true;
+                                        m_sensor7state2 = true;
                                     }
 
 
@@ -1443,6 +1457,7 @@ namespace TabHeaderDemo
 
                     {
 
+
                         if (mrawdatalist.Count < 100)
                         {
                             mrawdatalist.Add(mrawdata);
@@ -1467,10 +1482,13 @@ namespace TabHeaderDemo
                             {
 
                                 s = "";
+                                 object[] mt = new  object[CComLibrary.GlobeVal.filesave.mrawdata.Count];
 
                                 for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
                                 {
+                                    DataGridViewRow m = new DataGridViewRow();
 
+                                  
                                     for (j = 0; j < ClsStaticStation.m_Global.mycls.datalist.Count; j++)
                                     {
                                         if (ClsStaticStation.m_Global.mycls.datalist[j].SignName == CComLibrary.GlobeVal.filesave.mrawdata[i].SignName)
@@ -1481,11 +1499,23 @@ namespace TabHeaderDemo
                                             double.TryParse(CComLibrary.GlobeVal.filesave.mrawdata[i].GetValueFromUnit(b.data[k],
                                                 CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel), out v);
                                             s = s + v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString()) + " ";
+                                            mt[i]= v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString());
+                                           
+
                                         }
                                     }
+                                    
+
+                                }
+
+                                if (GlobeVal.UserControlRawdata1 == null)
+                                {
+                                }
+                                else
+                                {
 
 
-
+                                    GlobeVal.UserControlRawdata1.dataGridView1.Rows.Add(mt);
                                 }
 
                                 w.WriteLine(s);
@@ -1556,12 +1586,14 @@ namespace TabHeaderDemo
                     lblcaption.Tag = true;
                     lblcaption.Text = "分析图1";
                     tabControl1.SelectedIndex = 1;
+                    toolStripLeft.Visible = false;
                 }
                 else
                 {
                     lblcaption.Text = "曲线图1";
                     lblcaption.Tag = false;
                     tabControl1.SelectedIndex = 0;
+                    toolStripLeft.Visible = true;
                 }
             }
         }
