@@ -686,6 +686,7 @@
             this.switchLink.SwitchStyle = NationalInstruments.UI.SwitchStyle.PushButton;
             this.switchLink.TabIndex = 46;
             this.switchLink.UseWaitCursor = true;
+            this.switchLink.StateChanged += new NationalInstruments.UI.ActionEventHandler(this.switchLink_StateChanged);
             this.switchLink.ValueChanged += new System.EventHandler(this.switch2_ValueChanged_1);
             // 
             // switchDriver
@@ -1028,10 +1029,6 @@
             this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
             this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList3.Images.SetKeyName(0, "3.ico");
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // UserControl轴向
             // 

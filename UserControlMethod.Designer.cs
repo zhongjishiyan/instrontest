@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMethod));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("方法");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("样品");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("基本布局");
@@ -49,66 +50,66 @@
             treeNode9});
             System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("试验选项");
             System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("应变");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("测试前");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("测试");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("控制", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("测试");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("控制", new System.Windows.Forms.TreeNode[] {
             treeNode11,
             treeNode12,
-            treeNode13,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("设定");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("计算", new System.Windows.Forms.TreeNode[] {
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("实时显示");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("按键");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("主机");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("控制台", new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("设定");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("计算", new System.Windows.Forms.TreeNode[] {
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("实时显示");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("按键");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("主机");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("控制台", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
             treeNode18,
-            treeNode19,
-            treeNode20});
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("列");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("统计");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("格式");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("结果1", new System.Windows.Forms.TreeNode[] {
+            treeNode19});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("列");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("统计");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("格式");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("结果1", new System.Windows.Forms.TreeNode[] {
+            treeNode21,
             treeNode22,
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("列");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("统计");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("格式");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("结果2", new System.Windows.Forms.TreeNode[] {
+            treeNode23});
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("列");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("统计");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("格式");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("结果2", new System.Windows.Forms.TreeNode[] {
+            treeNode25,
             treeNode26,
-            treeNode27,
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("类型");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("X轴数据");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Y轴数据");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("高级");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("曲线图1", new System.Windows.Forms.TreeNode[] {
+            treeNode27});
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("类型");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("X轴数据");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Y轴数据");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("高级");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("曲线图1", new System.Windows.Forms.TreeNode[] {
+            treeNode29,
             treeNode30,
             treeNode31,
-            treeNode32,
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("类型");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("X轴数据");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Y轴数据");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("高级");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("曲线图2", new System.Windows.Forms.TreeNode[] {
+            treeNode32});
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("类型");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("X轴数据");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Y轴数据");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("高级");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("曲线图2", new System.Windows.Forms.TreeNode[] {
+            treeNode34,
             treeNode35,
             treeNode36,
-            treeNode37,
-            treeNode38});
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("电表设置");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("操作输入");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("摄像");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("其它显示", new System.Windows.Forms.TreeNode[] {
+            treeNode37});
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("电表设置");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("操作输入");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("摄像");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("其它显示", new System.Windows.Forms.TreeNode[] {
+            treeNode39,
             treeNode40,
-            treeNode41,
-            treeNode42});
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("文档设置");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("原始数据输出");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("数据库设置");
+            treeNode41});
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("文档设置");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("原始数据输出");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("数据库设置");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("长时数据输出");
             System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("报告", new System.Windows.Forms.TreeNode[] {
+            treeNode43,
             treeNode44,
             treeNode45,
             treeNode46});
@@ -127,20 +128,11 @@
             treeNode52,
             treeNode53,
             treeNode54});
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlMethod));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.treeView1 = new TabHeaderDemo.TreeListEx(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelbutton = new System.Windows.Forms.Panel();
-            this.btnexprint = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnexsave = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnexsaveclose = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnexread = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnexopen = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnsaveas = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnexnew = new TabHeaderDemo.ButtonExNew(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panelback1 = new System.Windows.Forms.Panel();
             this.panelback = new System.Windows.Forms.Panel();
@@ -148,6 +140,16 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.treeView1 = new TabHeaderDemo.TreeListEx(this.components);
+            this.btnexprint = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnexsave = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnexsaveclose = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnexread = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnexopen = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnsaveas = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnexnew = new TabHeaderDemo.ButtonExNew(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panelbutton.SuspendLayout();
@@ -187,6 +189,110 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 586F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(204, 586);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Red;
+            this.imageList1.Images.SetKeyName(0, "mt1.png");
+            this.imageList1.Images.SetKeyName(1, "mt2.png");
+            this.imageList1.Images.SetKeyName(2, "mt3.png");
+            this.imageList1.Images.SetKeyName(3, "mt4.png");
+            this.imageList1.Images.SetKeyName(4, "mt5.png");
+            this.imageList1.Images.SetKeyName(5, "mt5.png");
+            this.imageList1.Images.SetKeyName(6, "mt6.png");
+            this.imageList1.Images.SetKeyName(7, "mt7.png");
+            this.imageList1.Images.SetKeyName(8, "mt8.png");
+            this.imageList1.Images.SetKeyName(9, "mt9.png");
+            this.imageList1.Images.SetKeyName(10, "mt10.png");
+            this.imageList1.Images.SetKeyName(11, "mt11.ico");
+            this.imageList1.Images.SetKeyName(12, "mt12.ico");
+            this.imageList1.Images.SetKeyName(13, "控制台图标.png");
+            this.imageList1.Images.SetKeyName(14, "额外显示图标.png");
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(14, 380);
+            this.panel1.TabIndex = 3;
+            // 
+            // panelbutton
+            // 
+            this.panelbutton.BackColor = System.Drawing.Color.Silver;
+            this.panelbutton.Controls.Add(this.btnexprint);
+            this.panelbutton.Controls.Add(this.btnexsave);
+            this.panelbutton.Controls.Add(this.btnexsaveclose);
+            this.panelbutton.Controls.Add(this.btnexread);
+            this.panelbutton.Controls.Add(this.btnexopen);
+            this.panelbutton.Controls.Add(this.btnsaveas);
+            this.panelbutton.Controls.Add(this.btnexnew);
+            this.panelbutton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelbutton.Location = new System.Drawing.Point(981, 3);
+            this.panelbutton.Name = "panelbutton";
+            this.panelbutton.Size = new System.Drawing.Size(82, 586);
+            this.panelbutton.TabIndex = 2;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.panelback1, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(213, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(762, 586);
+            this.tableLayoutPanel3.TabIndex = 3;
+            // 
+            // panelback1
+            // 
+            this.panelback1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelback1.Controls.Add(this.panelback);
+            this.panelback1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelback1.Location = new System.Drawing.Point(3, 8);
+            this.panelback1.Name = "panelback1";
+            this.panelback1.Size = new System.Drawing.Size(756, 570);
+            this.panelback1.TabIndex = 0;
+            // 
+            // panelback
+            // 
+            this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelback.Location = new System.Drawing.Point(0, 0);
+            this.panelback.Name = "panelback";
+            this.panelback.Size = new System.Drawing.Size(756, 570);
+            this.panelback.TabIndex = 0;
+            this.panelback.Paint += new System.Windows.Forms.PaintEventHandler(this.panelback_Paint);
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Black;
+            this.imageList2.Images.SetKeyName(0, "mt11.ico");
+            this.imageList2.Images.SetKeyName(1, "mt12.ico");
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "12.ico");
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // treeView1
             // 
@@ -235,109 +341,109 @@
             treeNode12.Name = "节点0";
             treeNode12.StateImageIndex = 0;
             treeNode12.Text = "应变";
-            treeNode13.Name = "节点8";
+            treeNode13.Name = "节点9";
             treeNode13.StateImageIndex = 0;
-            treeNode13.Text = "测试前";
-            treeNode14.Name = "节点9";
-            treeNode14.StateImageIndex = 0;
-            treeNode14.Text = "测试";
-            treeNode15.Name = "节点2";
-            treeNode15.StateImageIndex = 2;
-            treeNode15.Text = "控制";
-            treeNode16.Name = "节点14";
-            treeNode16.StateImageIndex = 0;
-            treeNode16.Text = "设定";
-            treeNode17.Name = "节点3";
-            treeNode17.StateImageIndex = 3;
-            treeNode17.Text = "计算";
-            treeNode18.Name = "节点0";
+            treeNode13.Text = "测试";
+            treeNode14.Name = "控制";
+            treeNode14.StateImageIndex = 2;
+            treeNode14.Text = "控制";
+            treeNode15.Name = "节点14";
+            treeNode15.StateImageIndex = 0;
+            treeNode15.Text = "设定";
+            treeNode16.Name = "节点3";
+            treeNode16.StateImageIndex = 3;
+            treeNode16.Text = "计算";
+            treeNode17.Name = "节点0";
+            treeNode17.StateImageIndex = 0;
+            treeNode17.Text = "实时显示";
+            treeNode18.Name = "节点1";
             treeNode18.StateImageIndex = 0;
-            treeNode18.Text = "实时显示";
-            treeNode19.Name = "节点1";
+            treeNode18.Text = "按键";
+            treeNode19.Name = "节点2";
             treeNode19.StateImageIndex = 0;
-            treeNode19.Text = "按键";
-            treeNode20.Name = "节点2";
-            treeNode20.StateImageIndex = 0;
-            treeNode20.Text = "主机";
-            treeNode21.Name = "节点0";
-            treeNode21.StateImageIndex = 13;
-            treeNode21.Text = "控制台";
-            treeNode22.Name = "节点15";
+            treeNode19.Text = "主机";
+            treeNode20.Name = "节点0";
+            treeNode20.StateImageIndex = 13;
+            treeNode20.Text = "控制台";
+            treeNode21.Name = "节点15";
+            treeNode21.StateImageIndex = 0;
+            treeNode21.Text = "列";
+            treeNode22.Name = "节点16";
             treeNode22.StateImageIndex = 0;
-            treeNode22.Text = "列";
-            treeNode23.Name = "节点16";
+            treeNode22.Text = "统计";
+            treeNode23.Name = "节点17";
             treeNode23.StateImageIndex = 0;
-            treeNode23.Text = "统计";
-            treeNode24.Name = "节点17";
-            treeNode24.StateImageIndex = 0;
-            treeNode24.Text = "格式";
-            treeNode25.Name = "节点0";
-            treeNode25.StateImageIndex = 4;
-            treeNode25.Text = "结果1";
-            treeNode26.Name = "节点18";
+            treeNode23.Text = "格式";
+            treeNode24.Name = "节点0";
+            treeNode24.StateImageIndex = 4;
+            treeNode24.Text = "结果1";
+            treeNode25.Name = "节点18";
+            treeNode25.StateImageIndex = 0;
+            treeNode25.Text = "列";
+            treeNode26.Name = "节点19";
             treeNode26.StateImageIndex = 0;
-            treeNode26.Text = "列";
-            treeNode27.Name = "节点19";
+            treeNode26.Text = "统计";
+            treeNode27.Name = "节点20";
             treeNode27.StateImageIndex = 0;
-            treeNode27.Text = "统计";
-            treeNode28.Name = "节点20";
-            treeNode28.StateImageIndex = 0;
-            treeNode28.Text = "格式";
-            treeNode29.Name = "节点1";
-            treeNode29.StateImageIndex = 5;
-            treeNode29.Text = "结果2";
-            treeNode30.Name = "节点21";
+            treeNode27.Text = "格式";
+            treeNode28.Name = "节点1";
+            treeNode28.StateImageIndex = 5;
+            treeNode28.Text = "结果2";
+            treeNode29.Name = "节点21";
+            treeNode29.StateImageIndex = 0;
+            treeNode29.Text = "类型";
+            treeNode30.Name = "节点22";
             treeNode30.StateImageIndex = 0;
-            treeNode30.Text = "类型";
-            treeNode31.Name = "节点22";
+            treeNode30.Text = "X轴数据";
+            treeNode31.Name = "节点23";
             treeNode31.StateImageIndex = 0;
-            treeNode31.Text = "X轴数据";
-            treeNode32.Name = "节点23";
+            treeNode31.Text = "Y轴数据";
+            treeNode32.Name = "节点24";
             treeNode32.StateImageIndex = 0;
-            treeNode32.Text = "Y轴数据";
-            treeNode33.Name = "节点24";
-            treeNode33.StateImageIndex = 0;
-            treeNode33.Text = "高级";
-            treeNode34.Name = "节点2";
-            treeNode34.StateImageIndex = 6;
-            treeNode34.Text = "曲线图1";
-            treeNode35.Name = "节点25";
+            treeNode32.Text = "高级";
+            treeNode33.Name = "节点2";
+            treeNode33.StateImageIndex = 6;
+            treeNode33.Text = "曲线图1";
+            treeNode34.Name = "节点25";
+            treeNode34.StateImageIndex = 0;
+            treeNode34.Text = "类型";
+            treeNode35.Name = "节点26";
             treeNode35.StateImageIndex = 0;
-            treeNode35.Text = "类型";
-            treeNode36.Name = "节点26";
+            treeNode35.Text = "X轴数据";
+            treeNode36.Name = "节点27";
             treeNode36.StateImageIndex = 0;
-            treeNode36.Text = "X轴数据";
-            treeNode37.Name = "节点27";
+            treeNode36.Text = "Y轴数据";
+            treeNode37.Name = "节点28";
             treeNode37.StateImageIndex = 0;
-            treeNode37.Text = "Y轴数据";
-            treeNode38.Name = "节点28";
-            treeNode38.StateImageIndex = 0;
-            treeNode38.Text = "高级";
-            treeNode39.Name = "节点3";
-            treeNode39.StateImageIndex = 7;
-            treeNode39.Text = "曲线图2";
-            treeNode40.Name = "节点1";
+            treeNode37.Text = "高级";
+            treeNode38.Name = "节点3";
+            treeNode38.StateImageIndex = 7;
+            treeNode38.Text = "曲线图2";
+            treeNode39.Name = "节点1";
+            treeNode39.StateImageIndex = 0;
+            treeNode39.Text = "电表设置";
+            treeNode40.Name = "节点0";
+            treeNode40.SelectedImageIndex = -2;
             treeNode40.StateImageIndex = 0;
-            treeNode40.Text = "电表设置";
+            treeNode40.Text = "操作输入";
             treeNode41.Name = "节点0";
-            treeNode41.SelectedImageIndex = -2;
             treeNode41.StateImageIndex = 0;
-            treeNode41.Text = "操作输入";
+            treeNode41.Text = "摄像";
             treeNode42.Name = "节点0";
-            treeNode42.StateImageIndex = 0;
-            treeNode42.Text = "摄像";
-            treeNode43.Name = "节点0";
-            treeNode43.StateImageIndex = 14;
-            treeNode43.Text = "其它显示";
-            treeNode44.Name = "节点29";
+            treeNode42.StateImageIndex = 14;
+            treeNode42.Text = "其它显示";
+            treeNode43.Name = "节点29";
+            treeNode43.StateImageIndex = 0;
+            treeNode43.Text = "文档设置";
+            treeNode44.Name = "节点0";
             treeNode44.StateImageIndex = 0;
-            treeNode44.Text = "文档设置";
+            treeNode44.Text = "原始数据输出";
             treeNode45.Name = "节点0";
             treeNode45.StateImageIndex = 0;
-            treeNode45.Text = "原始数据输出";
+            treeNode45.Text = "数据库设置";
             treeNode46.Name = "节点0";
             treeNode46.StateImageIndex = 0;
-            treeNode46.Text = "数据库设置";
+            treeNode46.Text = "长时数据输出";
             treeNode47.Name = "节点5";
             treeNode47.StateImageIndex = 9;
             treeNode47.Text = "报告";
@@ -362,14 +468,14 @@
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode5,
             treeNode10,
-            treeNode15,
-            treeNode17,
-            treeNode21,
-            treeNode25,
-            treeNode29,
-            treeNode34,
-            treeNode39,
-            treeNode43,
+            treeNode14,
+            treeNode16,
+            treeNode20,
+            treeNode24,
+            treeNode28,
+            treeNode33,
+            treeNode38,
+            treeNode42,
             treeNode47,
             treeNode55});
             this.treeView1.Scrollable = false;
@@ -384,49 +490,6 @@
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             this.treeView1.EnabledChanged += new System.EventHandler(this.treeView1_EnabledChanged);
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Red;
-            this.imageList1.Images.SetKeyName(0, "mt1.png");
-            this.imageList1.Images.SetKeyName(1, "mt2.png");
-            this.imageList1.Images.SetKeyName(2, "mt3.png");
-            this.imageList1.Images.SetKeyName(3, "mt4.png");
-            this.imageList1.Images.SetKeyName(4, "mt5.png");
-            this.imageList1.Images.SetKeyName(5, "mt5.png");
-            this.imageList1.Images.SetKeyName(6, "mt6.png");
-            this.imageList1.Images.SetKeyName(7, "mt7.png");
-            this.imageList1.Images.SetKeyName(8, "mt8.png");
-            this.imageList1.Images.SetKeyName(9, "mt9.png");
-            this.imageList1.Images.SetKeyName(10, "mt10.png");
-            this.imageList1.Images.SetKeyName(11, "mt11.ico");
-            this.imageList1.Images.SetKeyName(12, "mt12.ico");
-            this.imageList1.Images.SetKeyName(13, "控制台图标.png");
-            this.imageList1.Images.SetKeyName(14, "额外显示图标.png");
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(14, 380);
-            this.panel1.TabIndex = 3;
-            // 
-            // panelbutton
-            // 
-            this.panelbutton.BackColor = System.Drawing.Color.Silver;
-            this.panelbutton.Controls.Add(this.btnexprint);
-            this.panelbutton.Controls.Add(this.btnexsave);
-            this.panelbutton.Controls.Add(this.btnexsaveclose);
-            this.panelbutton.Controls.Add(this.btnexread);
-            this.panelbutton.Controls.Add(this.btnexopen);
-            this.panelbutton.Controls.Add(this.btnsaveas);
-            this.panelbutton.Controls.Add(this.btnexnew);
-            this.panelbutton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelbutton.Location = new System.Drawing.Point(981, 3);
-            this.panelbutton.Name = "panelbutton";
-            this.panelbutton.Size = new System.Drawing.Size(82, 586);
-            this.panelbutton.TabIndex = 2;
-            // 
             // btnexprint
             // 
             this.btnexprint.BackColor = System.Drawing.Color.Transparent;
@@ -438,7 +501,7 @@
             this.btnexprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexprint.ForeColor = System.Drawing.Color.White;
             this.btnexprint.Image = ((System.Drawing.Image)(resources.GetObject("btnexprint.Image")));
-            this.btnexprint.Location = new System.Drawing.Point(-6, 304);
+            this.btnexprint.Location = new System.Drawing.Point(-4, 380);
             this.btnexprint.Name = "btnexprint";
             this.btnexprint.Size = new System.Drawing.Size(89, 67);
             this.btnexprint.TabIndex = 77;
@@ -447,7 +510,7 @@
             this.btnexprint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnexprint.UseMnemonic = false;
             this.btnexprint.UseVisualStyleBackColor = false;
-            this.btnexprint.Visible = false;
+            this.btnexprint.Click += new System.EventHandler(this.btnexprint_Click);
             // 
             // btnexsave
             // 
@@ -460,7 +523,7 @@
             this.btnexsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexsave.ForeColor = System.Drawing.Color.White;
             this.btnexsave.Image = ((System.Drawing.Image)(resources.GetObject("btnexsave.Image")));
-            this.btnexsave.Location = new System.Drawing.Point(-6, 152);
+            this.btnexsave.Location = new System.Drawing.Point(-4, 228);
             this.btnexsave.Name = "btnexsave";
             this.btnexsave.Size = new System.Drawing.Size(89, 67);
             this.btnexsave.TabIndex = 76;
@@ -482,7 +545,7 @@
             this.btnexsaveclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexsaveclose.ForeColor = System.Drawing.Color.White;
             this.btnexsaveclose.Image = ((System.Drawing.Image)(resources.GetObject("btnexsaveclose.Image")));
-            this.btnexsaveclose.Location = new System.Drawing.Point(-6, 76);
+            this.btnexsaveclose.Location = new System.Drawing.Point(-4, 152);
             this.btnexsaveclose.Name = "btnexsaveclose";
             this.btnexsaveclose.Size = new System.Drawing.Size(89, 67);
             this.btnexsaveclose.TabIndex = 75;
@@ -547,7 +610,7 @@
             this.btnsaveas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsaveas.ForeColor = System.Drawing.Color.White;
             this.btnsaveas.Image = ((System.Drawing.Image)(resources.GetObject("btnsaveas.Image")));
-            this.btnsaveas.Location = new System.Drawing.Point(-6, 228);
+            this.btnsaveas.Location = new System.Drawing.Point(-4, 304);
             this.btnsaveas.Name = "btnsaveas";
             this.btnsaveas.Size = new System.Drawing.Size(89, 67);
             this.btnsaveas.TabIndex = 72;
@@ -579,57 +642,6 @@
             this.btnexnew.UseMnemonic = false;
             this.btnexnew.UseVisualStyleBackColor = false;
             this.btnexnew.Visible = false;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.panelback1, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(213, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(762, 586);
-            this.tableLayoutPanel3.TabIndex = 3;
-            // 
-            // panelback1
-            // 
-            this.panelback1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panelback1.Controls.Add(this.panelback);
-            this.panelback1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelback1.Location = new System.Drawing.Point(3, 8);
-            this.panelback1.Name = "panelback1";
-            this.panelback1.Size = new System.Drawing.Size(756, 570);
-            this.panelback1.TabIndex = 0;
-            // 
-            // panelback
-            // 
-            this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelback.Location = new System.Drawing.Point(0, 0);
-            this.panelback.Name = "panelback";
-            this.panelback.Size = new System.Drawing.Size(756, 570);
-            this.panelback.TabIndex = 0;
-            this.panelback.Paint += new System.Windows.Forms.PaintEventHandler(this.panelback_Paint);
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Black;
-            this.imageList2.Images.SetKeyName(0, "mt11.ico");
-            this.imageList2.Images.SetKeyName(1, "mt12.ico");
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // imageList3
-            // 
-            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
-            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList3.Images.SetKeyName(0, "12.ico");
             // 
             // UserControlMethod
             // 
@@ -673,5 +685,7 @@
         public System.Windows.Forms.Panel panelbutton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         public TreeListEx treeView1;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

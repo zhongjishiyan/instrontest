@@ -37,9 +37,12 @@
             this.numericEdit1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.numericEdit3 = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEdit3)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -57,6 +60,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numericEdit3);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.numericEdit2);
             this.groupBox1.Controls.Add(this.chkcyclic);
             this.groupBox1.Controls.Add(this.label2);
@@ -64,7 +69,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(264, 90);
+            this.groupBox1.Size = new System.Drawing.Size(264, 116);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
@@ -91,11 +96,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 53);
+            this.label2.Location = new System.Drawing.Point(23, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.Size = new System.Drawing.Size(71, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "返回到步骤：";
+            this.label2.Text = "返回到步骤:";
             // 
             // numericEdit1
             // 
@@ -128,11 +133,31 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // numericEdit3
+            // 
+            this.numericEdit3.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(0);
+            this.numericEdit3.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
+            this.numericEdit3.Location = new System.Drawing.Point(124, 89);
+            this.numericEdit3.Name = "numericEdit3";
+            this.numericEdit3.Size = new System.Drawing.Size(112, 21);
+            this.numericEdit3.TabIndex = 7;
+            this.numericEdit3.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "起始次数:";
+            this.label3.Visible = false;
+            // 
             // Form循环执行
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 102);
+            this.ClientSize = new System.Drawing.Size(388, 122);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -144,6 +169,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEdit3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -158,5 +184,7 @@
         public NationalInstruments.UI.WindowsForms.NumericEdit numericEdit1;
         public NationalInstruments.UI.WindowsForms.NumericEdit numericEdit2;
         public System.Windows.Forms.CheckBox chkcyclic;
+        public NationalInstruments.UI.WindowsForms.NumericEdit numericEdit3;
+        private System.Windows.Forms.Label label3;
     }
 }

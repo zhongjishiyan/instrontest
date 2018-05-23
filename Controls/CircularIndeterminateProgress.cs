@@ -606,29 +606,40 @@ namespace CircularIndeterminateProgress
         /// methods to draw points, strings, lines, arcs, ellipses, 
         /// and other shapes
         /// </param>
-        protected override void OnPaint ( PaintEventArgs e )
+        protected override void OnPaint(PaintEventArgs e)
+        {
+
+            base.OnPaint(e);
+
+            try
             {
 
-            base.OnPaint ( e );
 
-            if ( control_graphic == null )
+                if (control_graphic == null)
                 {
-                create_control_graphic ( );
+                    create_control_graphic();
                 }
-            control_graphic.RenderGraphicsBuffer ( e.Graphics );
+                control_graphic.RenderGraphicsBuffer(e.Graphics);
 
-            create_indicator_graphic ( );
-            indicator_graphic.RenderGraphicsBuffer ( e.Graphics );
-                                        // revise rotation angle and
-                                        // avoid overflow
-            indicator_angle += indicator_angular_advance;
-            if ( indicator_angle > ( float ) ( 2.0 * Math.PI ) )
+                create_indicator_graphic();
+                indicator_graphic.RenderGraphicsBuffer(e.Graphics);
+                // revise rotation angle and
+                // avoid overflow
+                indicator_angle += indicator_angular_advance;
+                if (indicator_angle > (float)(2.0 * Math.PI))
                 {
-                indicator_angle -= ( float ) ( 2.0 * Math.PI );
+                    indicator_angle -= (float)(2.0 * Math.PI);
                 }
+
             }
+            catch (Exception e1)
+            {
 
-        } // class CircularIndeterminateProgress
+            }
+        }
+            
+
+      } // class CircularIndeterminateProgress
 
     // ****************************************** class GraphicsBuffer
     

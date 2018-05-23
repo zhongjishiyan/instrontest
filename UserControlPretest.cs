@@ -222,7 +222,14 @@ namespace TabHeaderDemo
             string s;
 
 
-
+            if (newfile ==true)
+            {
+                CComLibrary.GlobeVal.continuetest = false;
+            }
+            else
+            {
+                CComLibrary.GlobeVal.continuetest = true;
+            }
 
 
 
@@ -412,7 +419,7 @@ namespace TabHeaderDemo
 
             GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "样品：" + Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
 
-            GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "方法:" + txtmethod.Text;
+            GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "方法:" + CComLibrary.GlobeVal.filesave.methodname;
 
             GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
 
@@ -589,43 +596,9 @@ namespace TabHeaderDemo
 
                         CComLibrary.GlobeVal.currentfilesavename = fileName;
 
+                        GlobeVal.putlistboxitem(listBox1);
 
-                        listBox1.Items.Clear();
-                        listBox1.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-                        listBox1.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
-                        listBox1.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
-                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-                        {
-                            listBox1.Items.Add("控制过程:" + "一般测控");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-                        {
-                            listBox1.Items.Add("控制过程:" + "中级测控");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-                        {
-                            listBox1.Items.Add("控制过程:" + "简单控制");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
-                        {
-                            listBox1.Items.Add("控制过程:" + "高级测控");
-                        }
-
-
-
-                        CComLibrary.GlobeVal.filesave.InitExplainList();
-
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
-                        {
-                            string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
-                            listBox1.Items.Add(s);
-                        }
-                        listBox1.Items.Add("结果表格1：");
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
-                        {
-                            string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
-                            listBox1.Items.Add(s);
-                        }
+                      
 
 
 
@@ -724,44 +697,9 @@ namespace TabHeaderDemo
 
                         CComLibrary.GlobeVal.currentfilesavename = fileName;
 
+                        GlobeVal.putlistboxitem(listBox2);
 
-                        listBox2.Items.Clear();
-                        listBox2.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-                        listBox2.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
-                        listBox2.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
-
-                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-                        {
-                            listBox2.Items.Add("控制过程:" + "一般测控");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-                        {
-                            listBox2.Items.Add("控制过程:" + "中级测控");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-                        {
-                            listBox2.Items.Add("控制过程:" + "简单控制");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
-                        {
-                            listBox2.Items.Add("控制过程:" + "高级测控");
-                        }
-
-
-                        CComLibrary.GlobeVal.filesave.InitExplainList();
-
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
-                        {
-                            string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
-                            listBox2.Items.Add(s);
-                        }
-
-                        listBox2.Items.Add("结果表格1：");
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
-                        {
-                            string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
-                            listBox2.Items.Add(s);
-                        }
+                        
                         ListViewItem lv = new ListViewItem();
                         lv.Text = this.txtsample.Text;
 
@@ -860,42 +798,9 @@ namespace TabHeaderDemo
                         CComLibrary.GlobeVal.currentfilesavename = fileName;
 
 
-                        listBox2.Items.Clear();
-                        listBox2.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-                        listBox2.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
-                        listBox2.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
+                        GlobeVal.putlistboxitem(listBox2);
 
-                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-                        {
-                            listBox2.Items.Add("控制过程:" + "一般测控");
-                        }
-                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-                        {
-                            listBox2.Items.Add("控制过程:" + "中级测控");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-                        {
-                            listBox2.Items.Add("控制过程:" + "简单控制");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
-                        {
-                            listBox2.Items.Add("控制过程:" + "高级测控");
-                        }
-
-                            CComLibrary.GlobeVal.filesave.InitExplainList();
-
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
-                        {
-                            string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
-                            listBox2.Items.Add(s);
-                        }
-
-                        listBox2.Items.Add("结果表格1：");
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
-                        {
-                            string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
-                            listBox2.Items.Add(s);
-                        }
+                        
                         ListViewItem lv = new ListViewItem();
                         lv.Text = this.txtsample.Text;
 
@@ -1004,42 +909,9 @@ namespace TabHeaderDemo
 
                         CComLibrary.GlobeVal.currentfilesavename = fileName;
 
+                        GlobeVal.putlistboxitem(listBox1);
 
-                        listBox1.Items.Clear();
-                        listBox1.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-                        listBox1.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
-                        listBox1.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
-
-                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-                        {
-                            listBox1.Items.Add("控制过程:" + "一般测控");
-                        }
-                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-                        {
-                            listBox1.Items.Add("控制过程:" + "中级测控");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-                        {
-                            listBox1.Items.Add("控制过程:" + "简单控制");
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
-                        {
-                            listBox1.Items.Add("控制过程:" + "高级测控");
-                        }
-
-                            CComLibrary.GlobeVal.filesave.InitExplainList();
-
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
-                        {
-                            string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
-                            listBox1.Items.Add(s);
-                        }
-                        listBox1.Items.Add("结果表格1：");
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
-                        {
-                            string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
-                            listBox1.Items.Add(s);
-                        }
+                       
                         ListViewItem lv = new ListViewItem();
                         lv.Text = this.txtmethod.Text;
 
@@ -1379,6 +1251,15 @@ namespace TabHeaderDemo
         private void txtsample_TextChanged(object sender, EventArgs e)
         {
             GlobeVal.mysys.SampleFile = txtsample.Text;
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo info = listView1.HitTest(e.X, e.Y);
+            if (info.Item !=null)
+            {
+                btneopen_Click(null, null);  
+            }
         }
     }
 }

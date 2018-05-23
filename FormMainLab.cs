@@ -192,6 +192,8 @@ namespace TabHeaderDemo
 
             m_Global.mycls = new ItemSignalStation(Convert.ToInt32(GlobeVal.mysys.machinekind));
 
+
+
             m_Global.mycls.ChannelCount = GlobeVal.mysys.ChannelCount;
 
             for (int i = 0; i < GlobeVal.mysys.ChannelCount ; i++)
@@ -769,20 +771,27 @@ namespace TabHeaderDemo
 
             timermain.Enabled = true;
 
-            Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
-            f.result = false;
-
-            f.ShowDialog();
-
-            if (f.result == true)
+            if (GlobeVal.mysys.safe == true)
             {
 
+                Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
+
+
+                f.result = false;
+
+                f.ShowDialog();
+
+                if (f.result == true)
+                {
+
+                }
+                else
+                {
+                    Close();
+                }
+                f.Close();
+
             }
-            else
-            {
-                Close();
-            }
-            f.Close();
 
             if (GlobeVal.mysys.controllerkind == 0)
             {
@@ -811,6 +820,78 @@ namespace TabHeaderDemo
                // paneltop.Height = 126;
             }
 
+
+           if( GlobeVal.mysys.startupscreen==1)
+            {
+               
+
+
+                ((SplitContainer)tabControl1.TabPages[1].Controls[0]).Panel2Collapsed = false;
+
+                double t = System.Environment.TickCount;
+
+
+
+
+                while (System.Environment.TickCount - t <= 500)
+                {
+                    Application.DoEvents();
+                }
+               
+
+                if (GlobeVal.mysys.machinekind == 3)
+                {
+                    GlobeVal.FormmainLab.UserControl东光1.Init();
+                }
+                umain.OpenTest();
+
+                tabControl1.SelectedIndex = 1;
+
+                string fileName = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method\\" +
+                    GlobeVal.userControlpretest1.listView1.Items[0].SubItems[1].Text + "\\"
+                      + GlobeVal.userControlpretest1.listView1.Items[0].Text + ".dat";
+                if (CComLibrary.GlobeVal.filesave == null)
+                {
+                    CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
+                }
+                CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
+
+                ClsStaticStation.m_Global.mycls.initchannel();
+                ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey();
+                ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
+
+
+                GlobeVal.userControlpretest1.gfilename = fileName;
+                CComLibrary.GlobeVal.currentfilesavename = fileName;
+
+                if (System.IO.Directory.Exists(GlobeVal.mysys.SamplePath))
+                {
+                }
+                else
+                {
+                    MessageBox.Show("数据保存路径不存在,请点击浏览选择试验路径");
+                    return;
+                }
+                if (GlobeVal.mysys.SamplePath == "")
+                {
+                    MessageBox.Show("请设置数据保存路径");
+
+                    return;
+                }
+         
+
+
+
+                GlobeVal.spefilename = GlobeVal.mysys.SamplePath + "\\" + "未命名"+ ".spe";
+
+
+              
+
+                GlobeVal.userControlpretest1.SampleNextStep(true);
+
+                CComLibrary.GlobeVal.filesave.currentspenumber = 0;
+
+            }
         }
 
         void m_toolbox_Load(object sender, EventArgs e)

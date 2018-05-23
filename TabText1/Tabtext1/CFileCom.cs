@@ -23,9 +23,100 @@ using System.Data;
 using System.Web.UI;
 using System.Data.SqlClient;
 
+
 namespace CComLibrary
 {
+    [Serializable]
+    public class Student
+    {
+        public Student(string name, string sex, int age)
+        {
+            this.Name = name;
+            this.Sex = sex;
+            this.Age = age;
+        }
+        public string Name { get; set; }
+        public string Sex { get; set; }
+        public int Age { get; set; }
+    }
+    public class BoTree<T>
+    {
+        public BoTree()
+        {
+            nodes = new List<BoTree<T>>();
+        }
 
+        public BoTree(T data)
+        {
+            this.Data = data;
+            nodes = new List<BoTree<T>>();
+        }
+
+        private BoTree<T> parent;
+        /// <summary>
+        /// 父结点
+        /// </summary>
+        public BoTree<T> Parent
+        {
+            get { return parent; }
+        }
+        /// <summary>
+        /// 结点数据
+        /// </summary>
+        public T Data { get; set; }
+
+        private List<BoTree<T>> nodes;
+        /// <summary>
+        /// 子结点
+        /// </summary>
+        public List<BoTree<T>> Nodes
+        {
+            get { return nodes; }
+        }
+        /// <summary>
+        /// 添加结点
+        /// </summary>
+        /// <param name="node">结点</param>
+        public void AddNode(BoTree<T> node)
+        {
+            if (!nodes.Contains(node))
+            {
+                node.parent = this;
+                nodes.Add(node);
+            }
+        }
+        /// <summary>
+        /// 添加结点
+        /// </summary>
+        /// <param name="nodes">结点集合</param>
+        public void AddNode(List<BoTree<T>> nodes)
+        {
+            foreach (var node in nodes)
+            {
+                if (!nodes.Contains(node))
+                {
+                    node.parent = this;
+                    nodes.Add(node);
+                }
+            }
+        }
+        /// <summary>
+        /// 移除结点
+        /// </summary>
+        /// <param name="node"></param>
+        public void Remove(BoTree<T> node)
+        {
+            if (nodes.Contains(node))
+                nodes.Remove(node);
+        }
+        /// <summary>
+        /// 清空结点集合
+        /// </summary>
+        public void RemoveAll()
+        {
+            nodes.Clear();
+        }
+    }
 
 
 
@@ -1849,6 +1940,7 @@ namespace CComLibrary
         public bool cyclicrun;//循环执行
         public int returnstep; //返回到步骤
         public int cycliccount;//循环次数
+        public int havedcount;//已经循环次数
         public string explain;//说明
 
         public double keeptime;//保持时间
@@ -2722,6 +2814,17 @@ namespace CComLibrary
         public string methodname = ""; //方法名称
         public string datapath = "";
 
+
+        public CheckState  _flow测试前=CheckState.Unchecked  ;
+        public CheckState  _flow测试结束 = CheckState.Unchecked;
+        public CheckState _flow数据采集 = CheckState.Unchecked;
+        public CheckState _flow应变 = CheckState.Unchecked;
+        public CheckState _flow试验选项 = CheckState.Unchecked;
+        public CheckState _flow测试 = CheckState.Unchecked;
+
+
+
+
         public List<string> m_namelist;
 
         public List<string> m_signnamelist;
@@ -2787,6 +2890,8 @@ namespace CComLibrary
 
         public List<ItemSignal> mrawdata;
 
+        public List<ItemSignal> mlongdata;
+
         public List<CTestStep> mstep;
 
         public List<int> mtestlist;
@@ -2851,12 +2956,15 @@ namespace CComLibrary
         public int cbosampleinterval = 0;
         public List<double> mcbosampleinterval;
 
-        public double SampleInterval = 50; //采样频率
-        public bool crackcheck = false;//断裂检测
-        public double crackvalue = 10;//断裂阀值
+       
+        //public bool crackcheck = false;//断裂检测
+        //public double crackvalue = 10;//断裂阀值
+        public double LongDataInterval = 1;//长时记录时间间隔 单位分
 
-        public bool Samplecheck = false;//信号检测
-        public double SampleChecktime = 6;//信号检测时间
+        public bool m_dyninterval = false;//动态曲线保存
+        public bool m_dynlongdata = false;//动态长时记录
+
+       
 
         public List<ItemSignal> mchsignals; //信号限位
 
@@ -2916,6 +3024,9 @@ namespace CComLibrary
         public bool mautoplay = false;//是否自动播放
         public bool mplayfile = false;//播放录像时是否播放
         public string play_avi_datafile = "";
+
+
+       
 
         public double StrainToLoad(double l)
         {
@@ -3119,7 +3230,9 @@ namespace CComLibrary
                     n.check = true;
                     n.explainkind = 1;
                     n.mseq = sqf.mSequencelist[i];
-                   
+
+
+                 
 
                     CComLibrary.GlobeVal.filesave.mseglist.Add(n);
                 }
@@ -3823,6 +3936,8 @@ namespace CComLibrary
             mtable2para = new TablePara();
             mplotpara1 = new PlotSettings();
             mplotpara2 = new PlotSettings();
+
+            mlongdata = new List<ClsStaticStation.ItemSignal>();
 
             init_mtable1statistics(this);
             init_mtable2statistics(this);
@@ -4566,6 +4681,11 @@ namespace CComLibrary
                         c.mdatabaseitemselect = new List<DatabaseItem>();
                     }
 
+                    if (c.mlongdata ==null)
+                    {
+                        c.mlongdata = new List<ClsStaticStation.ItemSignal>();
+                    }
+
                     fileStream.Close();
 
 
@@ -4666,12 +4786,19 @@ namespace CComLibrary
 
         public ArrayList errorMessages;
 
+        public  DirectoryInfo info;
+
         void ReleaseDLL()
         {
-           
-       
-           byte[] byDll =global::AppleLabApplication.Properties.Resources.AppleLabApplication;//获取嵌入dll文件的字节数组  
-            string strPath = Application.CommonAppDataPath + @"\AppleLabApplication.dll";//设置释放路径  
+
+            string temp = System.Environment.GetEnvironmentVariable("TEMP");
+            info = new DirectoryInfo(temp);
+
+            byte[] byDll =global::AppleLabApplication.Properties.Resources.AppleLabApplication;//获取嵌入dll文件的字节数组  
+
+        
+
+            string strPath = info.FullName + @"\AppleLabApplication.dll";//设置释放路径  
                                                                     //创建dll文件（覆盖模式）  
             using (FileStream fs = new FileStream(strPath, FileMode.Create))
             {
@@ -4701,9 +4828,9 @@ namespace CComLibrary
             // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\NationalInstruments.Analysis.Enterprise.XML");
             // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\NationalInstruments.Common.dll");
             //cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\nianlys.dll");
-            if (File.Exists(Application.CommonAppDataPath + @"\AppleLabApplication.dll"))
+            if (File.Exists(info.FullName + @"\AppleLabApplication.dll"))
             {
-                cpar.ReferencedAssemblies.Add(Application.CommonAppDataPath + @"\AppleLabApplication.dll");//添加可执行文件名
+                cpar.ReferencedAssemblies.Add(info.FullName + @"\AppleLabApplication.dll");//添加可执行文件名
             }
             
            // cpar.ReferencedAssemblies.Add(Application.StartupPath + "\\AppleLabApplication.dll");//添加可执行文件名
@@ -5740,7 +5867,7 @@ namespace CComLibrary
         public static int m_len;
         public static string _programname;
         public static string _programstring;
-
+        public static bool continuetest = false;
         public static CComLibrary.FileStruct filesave;
         public static string currentfilesavename;
         public static List<CComLibrary.Rule> mrule = new List<CComLibrary.Rule>();

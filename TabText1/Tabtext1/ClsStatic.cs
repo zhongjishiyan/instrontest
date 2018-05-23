@@ -683,20 +683,7 @@ namespace ClsStaticStation
             originsignals.Add(isi);
 
 
-            isi = new ItemSignal();
-
-            isi.cName = "时间1";
-            isi.LName[0] = "时间1";
-            isi.LName[1] = "Time1";
-            isi.originprecise = 3;
-            isi.SignName = "Ch Time1";
-            isi.cUnitKind = 4;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 316000000;
-            isi.fullminbase = 0;
-            allsignals.Add(isi);
-            originsignals.Add(isi);
+           
 
 
 
@@ -1082,25 +1069,6 @@ namespace ClsStaticStation
             isi.fullminbase = 0;
             allsignals.Add(isi);
             originsignals.Add(isi);
-
-
-            isi = new ItemSignal();
-
-            isi.cName = "时间1";
-            isi.LName[0] = "时间1";
-            isi.LName[1] = "Time1";
-            isi.originprecise = 3;
-            isi.SignName = "Ch Time1";
-            isi.cUnitKind = 4;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 316000000;
-            isi.fullminbase = 0;
-            allsignals.Add(isi);
-            originsignals.Add(isi);
-
-
-
 
             if (CComLibrary.GlobeVal.filesave == null)
              {
@@ -2819,8 +2787,8 @@ namespace ClsStaticStation
         public int uplimit_unitsel = 0;
         public int downlimit_unitsel = 0;
 
-        public bool uplimitselect = false;
-        public bool downlimitselect = false;
+        public bool limitselect = false;
+      
 
 
         public double sli_max = 0;
@@ -5283,7 +5251,7 @@ namespace ClsStaticStation
 
             if (cUnitKind ==20) //次数
             {
-                cUnits[0] = "次";
+                cUnits[0] = "cycl";
                 cUnitCount =1;
             }
         }

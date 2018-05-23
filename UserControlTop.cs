@@ -40,6 +40,9 @@ namespace TabHeaderDemo
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
 
+            string chmpath = Application.StartupPath + "help.chm";
+            helpProvider1.HelpNamespace = chmpath;
+
 
         }
 
@@ -144,7 +147,23 @@ namespace TabHeaderDemo
 
         private void btnhelp_Click(object sender, EventArgs e)
         {
-           
+            String  s = Application.StartupPath;
+            if (s.Contains("#") == true)
+            {
+                MessageBox.Show("软件目录中包含#字符，不能显示帮助");
+            }
+            else
+            {
+                if (System.IO.File.Exists(Application.StartupPath + @"\help.chm") == true)
+                {
+
+                    Help.ShowHelp(this, Application.StartupPath + @"\help.chm");//打开chm文件
+                }
+                else
+                {
+                    MessageBox.Show("帮助文件不存在");
+                }
+            }
         }
 
         private void btnreport_Click(object sender, EventArgs e)
@@ -233,14 +252,20 @@ namespace TabHeaderDemo
 
         private void btnuser_Click(object sender, EventArgs e)
         {
+            if (GlobeVal.mysys.safe == true)
+            {
+                Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
+                f.result = false;
 
-            Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
-            f.result = false;
+                f.ShowDialog();
 
-            f.ShowDialog();
 
-            
-            f.Close();
+                f.Close();
+            }
+            else
+            {
+                MessageBox.Show("安全策略没有启用");
+            }
         }
 
         private void btntest_MouseMove(object sender, MouseEventArgs e)

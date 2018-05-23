@@ -369,13 +369,16 @@ namespace TabHeaderDemo
         {
             if (this.btnmreport.ForeColor == Color.White)
             {
-                btnmtest.ForeColor = Color.White;
-                btnmmethod.ForeColor = Color.White;
-                btnmreport.ForeColor = Color.Yellow;
-                btnmmanage.ForeColor = Color.White;
-                userreport1.Refresh();
-                tabControl1.SelectedIndex = 4;
-
+             
+                    btnmtest.ForeColor = Color.White;
+                    btnmmethod.ForeColor = Color.White;
+                    btnmreport.ForeColor = Color.Yellow;
+                    btnmmanage.ForeColor = Color.White;
+                   
+                    userreport1.Refresh();
+                   
+                    tabControl1.SelectedIndex = 4;
+                
                 
             }
         }

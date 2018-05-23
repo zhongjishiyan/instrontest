@@ -60,6 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -190,6 +191,7 @@
             this.btnchange.TabIndex = 0;
             this.btnchange.Text = "更改";
             this.btnchange.UseVisualStyleBackColor = true;
+            this.btnchange.Click += new System.EventHandler(this.btnchange_Click);
             // 
             // txtReportTemplate
             // 
@@ -199,6 +201,7 @@
             this.txtReportTemplate.Name = "txtReportTemplate";
             this.txtReportTemplate.Size = new System.Drawing.Size(290, 21);
             this.txtReportTemplate.TabIndex = 1;
+            this.txtReportTemplate.TextChanged += new System.EventHandler(this.txtReportTemplate_TextChanged);
             // 
             // label6
             // 
@@ -429,6 +432,10 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "输出文件设置";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // UserControl文件设置
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -490,5 +497,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.CheckBox chkdatabase;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

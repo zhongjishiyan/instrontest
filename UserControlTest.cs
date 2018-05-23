@@ -12,6 +12,10 @@ using Spire.Doc.Documents;
 using Spire.Doc.Fields;
 using System.Drawing.Imaging;
 
+using System.IO;
+using org.in2bits.MyXls;
+
+
 namespace TabHeaderDemo
 {
     public partial class UserControlTest : UserControl
@@ -43,6 +47,35 @@ namespace TabHeaderDemo
         private int mstepi = 0;
 
         private bool mbtnnextpress = false;
+
+        public  void ExportToExcel(DataTable dtSource, string strFileName)
+        {
+            XlsDocument xls = new XlsDocument();
+            Worksheet sheet = xls.Workbook.Worksheets.Add("sheet1");
+            int i = 0;
+
+            //write data from datatable in Excel file 
+            foreach (DataColumn column in dtSource.Columns)
+            {
+                sheet.Cells.Add(1, i + 1, column.ColumnName);
+                i++;
+            }
+            for (int j = 0; j < dtSource.Rows.Count; j++)
+            {
+                for (int k = 0; k < dtSource.Columns.Count; k++)
+                {
+                    sheet.Cells.Add(j + 2, k + 1, dtSource.Rows[j][k].ToString());
+                }
+            }
+            // save
+            xls.FileName = strFileName;
+            if (File.Exists(strFileName))
+            {
+                File.Delete(strFileName);
+            }
+            xls.Save();
+        }
+
 
         public UserControlTest()
         {
@@ -201,7 +234,7 @@ namespace TabHeaderDemo
 
 
 
-            Color c = (imageList3.Images[0] as Bitmap).GetPixel(imageList3.Images[0].Width - 5, imageList3.Images[0].Height / 2);
+           System.Drawing.Color c = (imageList3.Images[0] as Bitmap).GetPixel(imageList3.Images[0].Width - 5, imageList3.Images[0].Height / 2);
 
 
 
@@ -231,7 +264,7 @@ namespace TabHeaderDemo
             path.Dispose();
         }
 
-        private static void drawPath(PaintEventArgs e, GraphicsPath path, Color color)
+        private static void drawPath(PaintEventArgs e, GraphicsPath path,  System.Drawing.Color color)
         {
             LinearGradientBrush brush = new LinearGradientBrush(path.GetBounds(),
                 color, color, LinearGradientMode.Horizontal);
@@ -252,11 +285,11 @@ namespace TabHeaderDemo
             }
 
             GraphicsContainer containerState = e.Graphics.BeginContainer();
-            tableLayoutPanelback.BackColor = Color.Transparent;
+            tableLayoutPanelback.BackColor = System.Drawing.Color.Transparent;
 
             e.Graphics.PageUnit = System.Drawing.GraphicsUnit.Pixel;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            e.Graphics.Clear(Color.White);
+            e.Graphics.Clear(System.Drawing.Color.White);
 
 
 
@@ -309,12 +342,12 @@ namespace TabHeaderDemo
             Matrix matrix = new Matrix();
             matrix.Translate(0, 0);
             path.Transform(matrix);
-            drawPath1(e, path, Color.White);
+            drawPath1(e, path,System.Drawing.Color.White);
             path.Dispose();
 
         }
 
-        private static void drawPath1(PaintEventArgs e, GraphicsPath path, Color color)
+        private static void drawPath1(PaintEventArgs e, GraphicsPath path, System.Drawing.Color color)
         {
             LinearGradientBrush brush = new LinearGradientBrush(path.GetBounds(),
                 color, color, LinearGradientMode.Horizontal);
@@ -584,6 +617,8 @@ namespace TabHeaderDemo
 
 
                     }
+
+
                     if (f.ItemName[k] == "仪表1")
                     {
                         UserControlMeter ug = new UserControlMeter();
@@ -681,6 +716,24 @@ namespace TabHeaderDemo
                         ug.Visible = true;
 
                     }
+
+                    if (f.ItemName[k] == "长时数据")
+                    {
+                        UserControlLongRecord ug = new  UserControlLongRecord();
+                        ug.Visible = true;
+                        ug.Dock = DockStyle.Fill;
+                        GlobeVal.dynset.tlbetest.SetCellPosition(ug, new TableLayoutPanelCellPosition(f.ItemCol[k], f.ItemRow[k]));
+
+                        GlobeVal.dynset.tlbetest.SetColumnSpan(ug, f.ItemColSpan[k]);
+                        GlobeVal.dynset.tlbetest.SetRowSpan(ug, f.ItemRowSpan[k]);
+
+                        GlobeVal.dynset.tlbetest.Controls.Add(ug);
+
+                        ug.Init();
+                        GlobeVal.UserControlLongRecord1 = ug;
+
+                    }
+
 
                 }
             }
@@ -814,7 +867,7 @@ namespace TabHeaderDemo
 
                     GlobeVal.dynset = new UserControlDynSet();
                     GlobeVal.dynset.Dock = DockStyle.Fill;
-                    GlobeVal.dynset.BackColor = Color.Cyan;
+                    GlobeVal.dynset.BackColor = System.Drawing.Color.Cyan;
                     GlobeVal.dynset.tlbetest.Controls.Clear();
                     GlobeVal.dynset.tlbetest.RowCount = 0;
                     GlobeVal.dynset.tlbetest.ColumnCount = 0;
@@ -1033,6 +1086,7 @@ namespace TabHeaderDemo
                 if (CComLibrary.GlobeVal.filesave.currentspenumber + 1 < CComLibrary.GlobeVal.filesave.mspecount)
                 {
                     CComLibrary.GlobeVal.filesave.currentspenumber = CComLibrary.GlobeVal.filesave.currentspenumber + 1;
+                    CComLibrary.GlobeVal.filesave.testedcount = CComLibrary.GlobeVal.filesave.currentspenumber;
                 }
                 else
                 {
@@ -1235,14 +1289,14 @@ namespace TabHeaderDemo
                 GlobeVal.UserControlGraph2.endrun();
             }
 
-            
+
 
 
             if (GlobeVal.myarm.mdemo == true)
             {
 
                 GlobeVal.myarm.demotest(false);
-                GlobeVal.myarm.endtest();
+
                 if ((GlobeVal.ShowCameraForm == true) && (CComLibrary.GlobeVal.filesave.mplay == true) && (CComLibrary.GlobeVal.filesave.mplayfile == true))
                 {
 
@@ -1254,13 +1308,17 @@ namespace TabHeaderDemo
                         {
                             GlobeVal.UserControlCamera.stop();
                         }
-                    }  
+                    }
                 }
             }
             else
             {
 
             }
+
+            GlobeVal.myarm.endtest();
+               
+          
 
           
 
@@ -1329,8 +1387,10 @@ namespace TabHeaderDemo
                 }
                 FreeFormRefresh(true, false);
 
-                CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.spefilename);
+              
             }
+
+            CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.spefilename);
 
             if (CComLibrary.GlobeVal.m_test == false)
             {
@@ -1648,6 +1708,120 @@ namespace TabHeaderDemo
                 }
 
             }
+
+        }
+
+        private void 试验数据导出为ExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mspefiledat = "";
+            string firstline = "";
+            string secondline = "";
+
+            int i = 0;
+
+            int num = 0;
+
+            if (lstspe.SelectedItem == null)
+            {
+                return;
+            }
+
+
+            num = Convert.ToInt16(lstspe.SelectedItem.Text);
+
+            if (CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["试样状态"] is DBNull)
+            {
+                MessageBox.Show("试验后数据才能导出Excel");
+                return;
+            }
+            else
+            {
+                if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["试样状态"]) == Convert.ToInt16(CComLibrary.TestStatus.Untested))
+                {
+                    MessageBox.Show("试验后数据才能导出Excel");
+                    return;
+                }
+            }
+
+            mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
+       (num).ToString().Trim() + ".txt";
+
+            StreamReader m_streamReader = new StreamReader(mspefiledat, System.Text.Encoding.Default);
+
+            XlsDocument xls = new XlsDocument();
+            Worksheet sheet = xls.Workbook.Worksheets.Add("sheet1");
+
+            try
+            {
+                //使用StreamReader类来读取文件
+                m_streamReader.BaseStream.Seek(0, SeekOrigin.Begin);
+                // 从数据流中读取每一行，直到文件的最后一行，并在richTextBox1中显示出内容
+
+
+                string strLine = "";
+
+                char[] sp;
+                char[] sp1;
+                string[] ww ;
+                bool r = true;
+               
+                sp = new char[2];
+                sp1 = new char[2];
+
+                sp[0] = Convert.ToChar(" ");
+
+
+
+
+                i = 0;
+                while (r == true)
+                {
+
+                    strLine = m_streamReader.ReadLine();
+
+
+
+                    if (strLine == null)
+                    {
+                        r = false;
+
+                    }
+                    else
+                    {
+
+                        ww = strLine.Split(sp);
+
+                        for (int j = 0; j < ww.Length; j++)
+                        {
+                            sheet.Cells.Add(i + 1, j + 1, ww[j].ToString());
+                        }
+                        i = i + 1;
+                    }
+
+                }
+                //关闭此StreamReader对象
+                m_streamReader.Close();
+
+              
+                // legend.Items[curvescount - 1].Text = fileName;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            xls.FileName = Application.StartupPath+"\\ExcelData\\"+ "导出数据.xls";
+            if (File.Exists(xls.FileName))
+            {
+                File.Delete(xls.FileName);
+            }
+            xls.Save();
+
+
+            MessageBox.Show("数据已经导出到" + xls.FileName);
+
 
         }
     }

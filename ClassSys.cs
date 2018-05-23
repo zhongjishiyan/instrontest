@@ -44,6 +44,9 @@ namespace TabHeaderDemo
         public string[] UserPassword;
         public int[] UserLevels;
 
+
+        public bool safe = false;//是否启用系统安全
+
         public int startupscreen = 0;//启动模式
 
         public bool demo = false;//演示试验 

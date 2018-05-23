@@ -56,6 +56,8 @@
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.dialog = new System.Windows.Forms.PrintDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelbutton.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -131,12 +133,12 @@
             this.btnopen.Name = "btnopen";
             this.btnopen.Size = new System.Drawing.Size(48, 67);
             this.btnopen.TabIndex = 47;
-            this.btnopen.Text = "打开";
+            this.btnopen.Text = "浏览";
             this.btnopen.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnopen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnopen.UseMnemonic = false;
             this.btnopen.UseVisualStyleBackColor = false;
-            this.btnopen.Click += new System.EventHandler(this.buttonEx2_Click_2);
+            this.btnopen.Click += new System.EventHandler(this.btnopen_Click);
             // 
             // buttonEx1
             // 
@@ -179,7 +181,7 @@
             this.btnsave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnsave.UseMnemonic = false;
             this.btnsave.UseVisualStyleBackColor = false;
-            this.btnsave.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
             // btnsaveas
             // 
@@ -201,7 +203,7 @@
             this.btnsaveas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnsaveas.UseMnemonic = false;
             this.btnsaveas.UseVisualStyleBackColor = false;
-            this.btnsaveas.Click += new System.EventHandler(this.button7_Click);
+            this.btnsaveas.Click += new System.EventHandler(this.btnsaveas_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -318,6 +320,10 @@
             // 
             this.dialog.UseEXDialog = true;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // UserReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -357,5 +363,7 @@
         public ButtonExNew btnsaveas;
         private System.Windows.Forms.PrintDialog dialog;
         public TreeListEx treeView1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

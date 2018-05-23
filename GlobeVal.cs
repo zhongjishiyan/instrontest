@@ -54,6 +54,7 @@ namespace TabHeaderDemo
         public static UserControlCamera1 UserControlCamera;
 
         public static UserControlRawdata UserControlRawdata1;
+        public static UserControlLongRecord UserControlLongRecord1;
 
         public static bool suc = false;
 
@@ -63,7 +64,8 @@ namespace TabHeaderDemo
 
         public static ClsStaticStation.ClsBaseControl myarm;
 
-      
+
+        public static UserReport muserreport;
 
 
         public static string username = "";
@@ -76,7 +78,113 @@ namespace TabHeaderDemo
 
         public static FormMainLab FormmainLab;
 
+        public static void putlistboxitem(ListBox listBox1)
+        {
+            listBox1.Items.Clear();
+            listBox1.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
+            listBox1.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
+            listBox1.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
 
+            string ms = "";
+
+            if (CComLibrary.GlobeVal.filesave.UseDatabase == true)
+            {
+                ms = "是";
+            }
+            else
+            {
+                ms = "否";
+            }
+
+            listBox1.Items.Add("试验结果是否保存到数据库：" + ms);
+
+            if (CComLibrary.GlobeVal.filesave.mwizard == true)
+            {
+                ms = "是";
+            }
+            else
+            {
+                ms = "否";
+            }
+
+            listBox1.Items.Add("试验过程带提示：" + ms);
+
+
+
+            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
+            {
+                listBox1.Items.Add("控制过程:" + "一般测控");
+            }
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
+            {
+                listBox1.Items.Add("控制过程:" + "中级测控");
+            }
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
+            {
+                listBox1.Items.Add("控制过程:" + "简单控制");
+            }
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+            {
+                listBox1.Items.Add("控制过程:" + "高级测控");
+            }
+
+
+            CComLibrary.GlobeVal.filesave.InitExplainList();
+
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
+            {
+                string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
+                listBox1.Items.Add(s);
+            }
+
+            if (CComLibrary.GlobeVal.filesave.Samplingmode == 0)
+            {
+                ms = "静态采集";
+
+
+            }
+            else
+            {
+                ms = "动态采集";
+            }
+
+
+
+            listBox1.Items.Add("数据采集方式：" + ms);
+
+            if (CComLibrary.GlobeVal.filesave.mplotpara1.dynamicdraw == true)
+            {
+                ms = "动态绘制方式";
+                listBox1.Items.Add("曲线1：" + ms);
+            }
+
+
+            listBox1.Items.Add("结果表格1：");
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
+            {
+                string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
+                listBox1.Items.Add(s);
+            }
+
+            if (CComLibrary.GlobeVal.filesave.mrawdata.Count > 0)
+            {
+                listBox1.Items.Add("原始数据输出：");
+                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                {
+                    string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mrawdata[i].cName;
+                    listBox1.Items.Add(s);
+                }
+            }
+            if (CComLibrary.GlobeVal.filesave.mlongdata.Count > 0)
+            {
+                listBox1.Items.Add("长时数据输出：");
+                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mlongdata.Count; i++)
+                {
+                    string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mlongdata[i].cName;
+                    listBox1.Items.Add(s);
+                }
+            }
+        }
         public static  void NewDatabase()
         {
             //CComLibrary.GlobeVal.filesave.SampleDefaultName

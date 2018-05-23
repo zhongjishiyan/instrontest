@@ -116,28 +116,15 @@ namespace TabHeaderDemo
 
                     int i = GlobeVal.myarm.mcurseg;
                     /*
-                   // for (int i = 0; i < CComLibrary.GlobeVal.filesave.mseglist.Count; i++)
+                    for (int j = 0; j < CComLibrary.GlobeVal.filesave.mseglist.Count; j++)
                     {
-                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
+                        if (CComLibrary.GlobeVal.filesave.mseglist[j].returncount > 0)
                         {
-                            if (CComLibrary.GlobeVal.filesave.mseglist[i].returncount > 0)
-                            {
-                                CComLibrary.GlobeVal.filesave.mseglist[i].currentcount = GlobeVal.myarm.
-                                current_returncount;
-                                listViewPro1.Items[3].SubItems[i + 1].Text = CComLibrary.GlobeVal.filesave.mseglist[i].currentcount.ToString() + "|" + CComLibrary.GlobeVal.filesave.mseglist[i].returncount.ToString();
-                            }
-                        }
-                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
-                        {
-                            if (CComLibrary.GlobeVal.filesave.mseglist[i].mseq.loop == true)
-                            {
-                                CComLibrary.GlobeVal.filesave.mseglist[i].currentcount = GlobeVal.myarm.current_returncount;
-                                listViewPro1.Items[3].SubItems[i + 1].Text = CComLibrary.GlobeVal.filesave.mseglist[i].currentcount.ToString() + "|" + CComLibrary.GlobeVal.filesave.mseglist[i].mseq.loopcount.ToString();
-                            }
+                            CComLibrary.GlobeVal.filesave.mseglist[j].currentcount = GlobeVal.myarm.current_returncount;
+                            listViewPro1.Items[3].SubItems[j + 1].Text = CComLibrary.GlobeVal.filesave.mseglist[j].currentcount.ToString() + "|" + CComLibrary.GlobeVal.filesave.mseglist[j].returncount.ToString();
                         }
                     }
-                    */
-
+                     */
 
                     if (CComLibrary.GlobeVal.filesave.mseglist[i].returncount > 0)
                     {

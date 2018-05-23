@@ -71,10 +71,12 @@
             this.intermediateStep3 = new WizardBase.IntermediateStep();
             this.button1 = new System.Windows.Forms.Button();
             this.intermediateStep4 = new WizardBase.IntermediateStep();
+            this.intermediateStep6 = new WizardBase.IntermediateStep();
             this.finishStep1 = new WizardBase.FinishStep();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.checklist = new System.Windows.Forms.CheckedListBox();
             this.listBox2 = new AppleLabApplication.ListExt(this.components);
             this.listBox1 = new AppleLabApplication.ListExt(this.components);
             this.listEditor1 = new SampleProject.Extensions.ListEditor();
@@ -93,6 +95,7 @@
             this.intermediateStep5.SuspendLayout();
             this.intermediateStep3.SuspendLayout();
             this.intermediateStep4.SuspendLayout();
+            this.intermediateStep6.SuspendLayout();
             this.finishStep1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +123,7 @@
             this.wizardControl1.WizardSteps.Add(this.intermediateStep5);
             this.wizardControl1.WizardSteps.Add(this.intermediateStep3);
             this.wizardControl1.WizardSteps.Add(this.intermediateStep4);
+            this.wizardControl1.WizardSteps.Add(this.intermediateStep6);
             this.wizardControl1.WizardSteps.Add(this.finishStep1);
             this.wizardControl1.CancelButtonClick += new System.EventHandler(this.wizardControl1_CancelButtonClick);
             this.wizardControl1.FinishButtonClick += new System.EventHandler(this.wizardControl1_FinishButtonClick);
@@ -549,6 +553,16 @@
             this.intermediateStep4.Title = "第五步";
             this.intermediateStep4.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             // 
+            // intermediateStep6
+            // 
+            this.intermediateStep6.BindingImage = ((System.Drawing.Image)(resources.GetObject("intermediateStep6.BindingImage")));
+            this.intermediateStep6.Controls.Add(this.checklist);
+            this.intermediateStep6.Name = "intermediateStep6";
+            this.intermediateStep6.Subtitle = "设置试验流程是否显示";
+            this.intermediateStep6.SubtitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.intermediateStep6.Title = "第六步";
+            this.intermediateStep6.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            // 
             // finishStep1
             // 
             this.finishStep1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -569,6 +583,23 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // checklist
+            // 
+            this.checklist.FormattingEnabled = true;
+            this.checklist.Items.AddRange(new object[] {
+            "控制-测试前",
+            "控制-测试结束",
+            "控制-数据采集",
+            "控制-应变",
+            "控制-试验选项",
+            "控制-设定"});
+            this.checklist.Location = new System.Drawing.Point(111, 104);
+            this.checklist.Name = "checklist";
+            this.checklist.Size = new System.Drawing.Size(463, 260);
+            this.checklist.TabIndex = 0;
+            this.checklist.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checklist_ItemCheck);
+            this.checklist.SelectedValueChanged += new System.EventHandler(this.checklist_SelectedValueChanged);
             // 
             // listBox2
             // 
@@ -693,6 +724,7 @@
             this.intermediateStep5.PerformLayout();
             this.intermediateStep3.ResumeLayout(false);
             this.intermediateStep4.ResumeLayout(false);
+            this.intermediateStep6.ResumeLayout(false);
             this.finishStep1.ResumeLayout(false);
             this.finishStep1.PerformLayout();
             this.ResumeLayout(false);
@@ -755,6 +787,7 @@
         private System.Windows.Forms.Label label13;
         private SampleProject.Extensions.ListEditorText listEditor4;
         private SampleProject.Extensions.ListEditorText listEditor5;
-
+        private WizardBase.IntermediateStep intermediateStep6;
+        private System.Windows.Forms.CheckedListBox checklist;
     }
 }

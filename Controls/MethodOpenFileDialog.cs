@@ -59,42 +59,9 @@ namespace CustomControls
                     }
                     CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(filePath);
 
-                    listBox1.Items.Clear();
-                    listBox1.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-                    listBox1.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
-                    listBox1.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
-                    if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-                    {
-                        listBox1.Items.Add("控制过程:" + "一般测控");
-                    }
-                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-                    {
-                        listBox1.Items.Add("控制过程:" + "中级测控");
-                    }
-                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-                    {
-                        listBox1.Items.Add("控制过程:" + "简单控制");
-                    }
-                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess ==3)
-                    {
-                        listBox1.Items.Add("控制过程:" + "高级测控");
-                    }
-                    CComLibrary.GlobeVal.filesave.InitExplainList();
 
-                   
-
-                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
-                        {
-                            string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(Convert.ToInt32(GlobeVal.mysys.machinekind));
-                            listBox1.Items.Add(s);
-                       }
-                   
-                    listBox1.Items.Add("结果表格1：");
-                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
-                    {
-                        string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
-                        listBox1.Items.Add(s);
-                    }
+                    GlobeVal.putlistboxitem(listBox1);
+                 
                     lblSizeValue.Text   = (fi.Length / 1024).ToString() + "KB";
                     
                 }
@@ -113,41 +80,9 @@ namespace CustomControls
                         CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
                     }
                     CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(filePath);
+                    GlobeVal.putlistboxitem(listBox1);
 
-                    listBox1.Items.Clear();
-                    listBox1.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-                    listBox1.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
-                    listBox1.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
-                    if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-                    {
-                        listBox1.Items.Add("控制过程:" + "一般测控");
-                    }
-                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-                    {
-                        listBox1.Items.Add("控制过程:" + "中级测控");
-                    }
-                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-                    {
-                        listBox1.Items.Add("控制过程:" + "简单控制");
-                    }
-                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess ==3)
-                    {
-                        listBox1.Items.Add("控制过程:" + "高级测控");
-                    }
-
-                    CComLibrary.GlobeVal.filesave.InitExplainList();
-
-                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
-                    {
-                        string s = "   " + "步骤" + (i + 1).ToString()+" " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(Convert.ToInt32( GlobeVal.mysys.machinekind));
-                        listBox1.Items.Add(s);
-                    }
-                    listBox1.Items.Add("结果表格1：");
-                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
-                    {
-                        string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
-                        listBox1.Items.Add(s);
-                    }
+                  
                     lblSizeValue.Text = (fi.Length / 1024).ToString() + "KB";
 
                 }

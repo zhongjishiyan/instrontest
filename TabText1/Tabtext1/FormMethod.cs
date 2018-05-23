@@ -57,7 +57,22 @@ namespace AppleLabApplication
         {
             int i;
 
-            
+
+            filesave._flow测试前 = checklist.GetItemCheckState(0);
+
+            filesave._flow测试结束=checklist.GetItemCheckState(1);
+
+            filesave._flow数据采集=checklist.GetItemCheckState(2);
+
+            filesave._flow应变= checklist.GetItemCheckState(3);
+
+
+            filesave._flow试验选项= checklist.GetItemCheckState(4);
+
+
+
+            filesave._flow测试= checklist.GetItemCheckState(5);
+
 
             filesave.fileextname = ".txt";
 
@@ -108,7 +123,9 @@ namespace AppleLabApplication
         {
             int i;
 
-           
+         
+
+
 
             cbokind.Items.Clear();
 
@@ -1052,8 +1069,29 @@ namespace AppleLabApplication
                     }
                 }
 
+               
+                checklist.SetItemCheckState(0, filesave._flow测试前);
+
+                checklist.SetItemCheckState(1, filesave._flow测试结束);
+
+                checklist.SetItemCheckState(2, filesave._flow数据采集);
+
+                checklist.SetItemCheckState(3, filesave._flow应变);
+               
+               
+                checklist.SetItemCheckState(4, filesave._flow试验选项);
+
+
+
+                checklist.SetItemCheckState(5, filesave._flow测试);
+               
+
             }
-        }
+
+           
+          }
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -1362,11 +1400,40 @@ namespace AppleLabApplication
             filesave.methodkind = cbokind.SelectedIndex;
         }
 
-       
+        private void checklist_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+        }
 
-       
+        private void checklist_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+                 if(e.Index==0)
+            {
+                filesave._flow测试前 = e.NewValue;
+            }
 
-
-
+                 if (e.Index ==1)
+            {
+                filesave._flow测试结束 = e.NewValue;
+            }
+                 if (e.Index ==2)
+            {
+                filesave._flow数据采集 = e.NewValue;
+            }
+                 if (e.Index ==3)
+            {
+                filesave._flow应变 = e.NewValue;
+            }
+                 if(e.Index ==4)
+            {
+                filesave._flow试验选项 = e.NewValue;
+               
+            }
+                 if (e.Index ==5)
+            {
+                filesave._flow测试 = e.NewValue;
+            }
+                 
+        }
     }
 }

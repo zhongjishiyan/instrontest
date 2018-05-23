@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace TabHeaderDemo
 {
     public partial class UserControl报告常规 : UserControl
     {
-        public UserReport muserreport;
+        //public UserReport GlobeVal.muserreport;
         private ReportItem mreportitem;
 
         public void Init页脚()
@@ -21,37 +22,37 @@ namespace TabHeaderDemo
            this.cbopostionfooter.Items.Add("居左");
            this.cbopostionfooter.Items.Add("居中");
            this.cbopostionfooter.Items.Add("居右");
-           cbopostionfooter.SelectedIndex = muserreport.mReportApp.footerposition;
+           cbopostionfooter.SelectedIndex = GlobeVal.muserreport.mReportApp.footerposition;
 
            listBox3.ClearItem();
-           for (int i = 0; i < muserreport.mReportApp.mreportitemlist.Count; i++)
+           for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportitemlist.Count; i++)
            {
                b = false;
-               for (int j = 0; j< muserreport.mReportApp.mreportfooter.Count; j++)
+               for (int j = 0; j< GlobeVal.muserreport.mReportApp.mreportfooter.Count; j++)
                {
                   
-                   if (muserreport.mReportApp.mreportfooter[j].Name == muserreport.mReportApp.mreportitemlist[i].Name)
+                   if (GlobeVal.muserreport.mReportApp.mreportfooter[j].Name == GlobeVal.muserreport.mReportApp.mreportitemlist[i].Name)
                    {
                        b = true;
                    }
                    
                }
-               if ((muserreport.mReportApp.mreportitemlist[i].kind == 1) || (muserreport.mReportApp.mreportitemlist[i].kind == 1))
+               if ((GlobeVal.muserreport.mReportApp.mreportitemlist[i].kind == 1) || (GlobeVal.muserreport.mReportApp.mreportitemlist[i].kind == 1))
                {
-                   listBox3.AddItem(muserreport.mReportApp.mreportitemlist[i]);
+                   listBox3.AddItem(GlobeVal.muserreport.mReportApp.mreportitemlist[i]);
                }
                else
                {
                    if (b == false)
                    {
-                       listBox3.AddItem(muserreport.mReportApp.mreportitemlist[i]);
+                       listBox3.AddItem(GlobeVal.muserreport.mReportApp.mreportitemlist[i]);
                    }
                }
            }
            listReport3.ClearItem();
-           for (int i = 0; i < muserreport.mReportApp.mreportfooter.Count; i++)
+           for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportfooter.Count; i++)
            {
-               listReport3.AddItem(muserreport.mReportApp.mreportfooter[i]);
+               listReport3.AddItem(GlobeVal.muserreport.mReportApp.mreportfooter[i]);
            }
 
         }
@@ -64,28 +65,28 @@ namespace TabHeaderDemo
             cbopostionheader.Items.Add("居左");
             cbopostionheader.Items.Add("居中");
             cbopostionheader.Items.Add("居右");
-            cbopostionheader.SelectedIndex = muserreport.mReportApp.headerposition;
+            cbopostionheader.SelectedIndex = GlobeVal.muserreport.mReportApp.headerposition;
             listBox2.ClearItem();
-            for (int i = 0; i < muserreport.mReportApp.mreportitemlist.Count; i++)
+            for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportitemlist.Count; i++)
             {
                 f = false;
-                for (int j = 0; j < muserreport.mReportApp.mreportheader.Count; j++)
+                for (int j = 0; j < GlobeVal.muserreport.mReportApp.mreportheader.Count; j++)
                 {
-                    if (muserreport.mReportApp.mreportheader[j].Name == muserreport.mReportApp.mreportitemlist[i].Name)
+                    if (GlobeVal.muserreport.mReportApp.mreportheader[j].Name == GlobeVal.muserreport.mReportApp.mreportitemlist[i].Name)
                     {
                         f = true;
                     }
                 }
 
-                if ((muserreport.mReportApp.mreportitemlist[i].kind == 1) || (muserreport.mReportApp.mreportitemlist[i].kind == 2))
+                if ((GlobeVal.muserreport.mReportApp.mreportitemlist[i].kind == 1) || (GlobeVal.muserreport.mReportApp.mreportitemlist[i].kind == 2))
                 {
-                    listBox2.AddItem(muserreport.mReportApp.mreportitemlist[i]);
+                    listBox2.AddItem(GlobeVal.muserreport.mReportApp.mreportitemlist[i]);
                 }
                 else
                 {
                     if (f == false)
                     {
-                        listBox2.AddItem(muserreport.mReportApp.mreportitemlist[i]);
+                        listBox2.AddItem(GlobeVal.muserreport.mReportApp.mreportitemlist[i]);
                     }
                 }
             }
@@ -93,9 +94,9 @@ namespace TabHeaderDemo
 
            
             listReport2.ClearItem();
-            for (int i = 0; i < muserreport.mReportApp.mreportheader.Count; i++)
+            for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportheader.Count; i++)
             {
-                listReport2.AddItem(muserreport.mReportApp.mreportheader[i]);
+                listReport2.AddItem(GlobeVal.muserreport.mReportApp.mreportheader[i]);
             }
 
 
@@ -103,17 +104,19 @@ namespace TabHeaderDemo
 
         public void Init常规()
         {
-             //this.peditMargins.Source=new NationalInstruments.UI.PropertyEditorSource (muserreport.mReportApp,"Margins");
+            //this.peditMargins.Source=new NationalInstruments.UI.PropertyEditorSource (GlobeVal.muserreport.mReportApp,"Margins");
 
-            nummargins.Value = muserreport.mReportApp.Margins;
+            rtxttemplatename.Text = CComLibrary.GlobeVal.filesave.ReportTemplate; 
+
+            nummargins.Value = GlobeVal.muserreport.mReportApp.Margins;
 
             cbopagesize.Items.Clear();
 
-            for (int i=0;i<muserreport.mReportApp.mPagelist.Count;i++)
+            for (int i=0;i<GlobeVal.muserreport.mReportApp.mPagelist.Count;i++)
             {
-              cbopagesize.Items.Add(muserreport.mReportApp.mPagelist[i].Name.ToString());
+              cbopagesize.Items.Add(GlobeVal.muserreport.mReportApp.mPagelist[i].Name.ToString());
 
-                if (muserreport.mReportApp.mPagelist[i].Name.ToString()==muserreport.mReportApp.pagesize)
+                if (GlobeVal.muserreport.mReportApp.mPagelist[i].Name.ToString()==GlobeVal.muserreport.mReportApp.pagesize)
                 {
                     cbopagesize.SelectedIndex =i;
                 }
@@ -124,7 +127,7 @@ namespace TabHeaderDemo
             cboLandscape.Items.Clear();
             cboLandscape.Items.Add("横向");
             cboLandscape.Items.Add("竖向");
-            if (muserreport.mReportApp.Landscape == true)
+            if (GlobeVal.muserreport.mReportApp.Landscape == true)
             {
                 cboLandscape.SelectedIndex = 0;
             }
@@ -150,35 +153,35 @@ namespace TabHeaderDemo
 
             listBox1.ClearItem();
 
-            for (int i = 0; i < muserreport.mReportApp.mreportitemlist.Count; i++)
+            for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportitemlist.Count; i++)
             {
                 f = false;
 
                 
-                for (int j = 0; j < muserreport.mReportApp.mreportbody.Count; j++)
+                for (int j = 0; j < GlobeVal.muserreport.mReportApp.mreportbody.Count; j++)
                 {
-                    if (muserreport.mReportApp.mreportitemlist[i].Name == muserreport.mReportApp.mreportbody[j].Name)
+                    if (GlobeVal.muserreport.mReportApp.mreportitemlist[i].Name == GlobeVal.muserreport.mReportApp.mreportbody[j].Name)
                     {
                         f = true;
                     }
                 }
 
-                if ((muserreport.mReportApp.mreportitemlist[i].kind == 1) || (muserreport.mReportApp.mreportitemlist[i].kind == 2))
+                if ((GlobeVal.muserreport.mReportApp.mreportitemlist[i].kind == 1) || (GlobeVal.muserreport.mReportApp.mreportitemlist[i].kind == 2))
                 {
-                    listBox1.AddItem(muserreport.mReportApp.mreportitemlist[i]);
+                    listBox1.AddItem(GlobeVal.muserreport.mReportApp.mreportitemlist[i]);
                 }
                 else
                 {
                     if (f == false)
                     {
-                        listBox1.AddItem(muserreport.mReportApp.mreportitemlist[i]);
+                        listBox1.AddItem(GlobeVal.muserreport.mReportApp.mreportitemlist[i]);
                     }
                 }
             }
             listReport1.ClearItem();
-            for (int i = 0; i < muserreport.mReportApp.mreportbody.Count; i++)
+            for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportbody.Count; i++)
             {
-                listReport1.AddItem(muserreport.mReportApp.mreportbody[i]); 
+                listReport1.AddItem(GlobeVal.muserreport.mReportApp.mreportbody[i]); 
             }
 
             cbobodypostion.Items.Clear();
@@ -222,6 +225,7 @@ namespace TabHeaderDemo
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
             tabControl2.ItemSize = new Size(1, 1);
+
         }
 
         private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
@@ -231,57 +235,57 @@ namespace TabHeaderDemo
 
         private void propertyEditor1_SourceValueChanged(object sender, EventArgs e)
         {
-            //muserreport.daPrintDocument.Margins = (System.Drawing.Printing.Margins) propertyEditor1.Source.Value;
+            //GlobeVal.muserreport.daPrintDocument.Margins = (System.Drawing.Printing.Margins) propertyEditor1.Source.Value;
         }
 
         private void propertyEditor2_SourceValueChanged(object sender, EventArgs e)
         {
-            //muserreport.daPrintDocument.PaperType = (AppleReport.Paper.Type)propertyEditor2.Source.Value;
+            //GlobeVal.muserreport.daPrintDocument.PaperType = (AppleReport.Paper.Type)propertyEditor2.Source.Value;
         }
 
         private void propertyEditor3_SourceValueChanged(object sender, EventArgs e)
         {
-            //muserreport.daPrintDocument.DefaultPageSettings.Landscape = (bool)propertyEditor3.Source.Value;
+            //GlobeVal.muserreport.daPrintDocument.DefaultPageSettings.Landscape = (bool)propertyEditor3.Source.Value;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            muserreport.nextpage();
+            GlobeVal.muserreport.nextpage();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            muserreport.prepage();
+            GlobeVal.muserreport.prepage();
         }
 
         private void nummargins_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
-            muserreport.mReportApp.Margins=Convert.ToSingle(nummargins.Value);
+            GlobeVal.muserreport.mReportApp.Margins=Convert.ToSingle(nummargins.Value);
         }
 
         private void cbopagesize_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            muserreport.mReportApp.pagesize = cbopagesize.Text;
+            GlobeVal.muserreport.mReportApp.pagesize = cbopagesize.Text;
         }
 
         private void cboLandscape_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cboLandscape.SelectedIndex == 0)
             {
-                muserreport.mReportApp.Landscape = true;
+                GlobeVal.muserreport.mReportApp.Landscape = true;
             }
             else
             {
-                muserreport.mReportApp.Landscape = false;
+                GlobeVal.muserreport.mReportApp.Landscape = false;
             }
         }
         private void list_setvalue()
         {
             int i;
-            muserreport.mReportApp.mreportbody.Clear();
+            GlobeVal.muserreport.mReportApp.mreportbody.Clear();
             for (i = 0; i < this.listReport1.Items.Count; i++)
             {
-                muserreport.mReportApp.mreportbody.Add(this.listReport1.mlist[i]);
+                GlobeVal.muserreport.mReportApp.mreportbody.Add(this.listReport1.mlist[i]);
             }
         }
 
@@ -289,10 +293,10 @@ namespace TabHeaderDemo
         {
             int i;
 
-            muserreport.mReportApp.mreportheader.Clear();
+            GlobeVal.muserreport.mReportApp.mreportheader.Clear();
             for (i = 0; i < this.listReport2.Items.Count; i++)
             {
-                muserreport.mReportApp.mreportheader.Add(this.listReport2.mlist[i]);
+                GlobeVal.muserreport.mReportApp.mreportheader.Add(this.listReport2.mlist[i]);
             }
 
 
@@ -301,10 +305,10 @@ namespace TabHeaderDemo
         private void list_setvalue3()
         {
             int i;
-            muserreport.mReportApp.mreportfooter.Clear();
+            GlobeVal.muserreport.mReportApp.mreportfooter.Clear();
             for (i = 0; i < this.listReport3.Items.Count; i++)
             {
-                muserreport.mReportApp.mreportfooter.Add(this.listReport3.mlist[i]);
+                GlobeVal.muserreport.mReportApp.mreportfooter.Add(this.listReport3.mlist[i]);
             }
 
 
@@ -526,7 +530,7 @@ namespace TabHeaderDemo
                 if (listReport2.SelectedIndex >= 0)
                 {
                     mreportitem.txtresult = txtheader.Text;
-                    muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].txtresult = txtheader.Text;
+                    GlobeVal.muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].txtresult = txtheader.Text;
 
                 }
             }
@@ -565,7 +569,7 @@ namespace TabHeaderDemo
             {
 
                 mreportitem.filename = txtheaderpicture.Text;
-                muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].filename = txtheaderpicture.Text;
+                GlobeVal.muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].filename = txtheaderpicture.Text;
             }
            
         }
@@ -576,7 +580,7 @@ namespace TabHeaderDemo
             {
 
                mreportitem.mspace = numheaderspace.Value;
-                muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].mspace = numheaderspace.Value;
+                GlobeVal.muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].mspace = numheaderspace.Value;
             }
         }
 
@@ -587,7 +591,7 @@ namespace TabHeaderDemo
 
                 mreportitem.font = peditheaderfont.Source.Value as Font;
 
-                muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].font = peditheaderfont.Source.Value as Font;
+                GlobeVal.muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].font = peditheaderfont.Source.Value as Font;
             }
         }
 
@@ -599,7 +603,7 @@ namespace TabHeaderDemo
 
         private void cbopostionheader_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            muserreport.mReportApp.headerposition = cbopostionheader.SelectedIndex;
+            GlobeVal.muserreport.mReportApp.headerposition = cbopostionheader.SelectedIndex;
         }
 
         private void chkheader_CheckedChanged(object sender, EventArgs e)
@@ -607,7 +611,7 @@ namespace TabHeaderDemo
             if (listReport2.SelectedIndex >= 0)
             {
                 mreportitem.showcaption = chkheader.Checked;
-                muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].showcaption = chkheader.Checked ;
+                GlobeVal.muserreport.mReportApp.mreportheader[listReport2.SelectedIndex].showcaption = chkheader.Checked ;
             }
         }
 
@@ -668,7 +672,7 @@ namespace TabHeaderDemo
             {
 
                 mreportitem.mspace = numbodyspace.Value;
-                muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].mspace = numbodyspace.Value;
+                GlobeVal.muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].mspace = numbodyspace.Value;
             }
         }
 
@@ -678,7 +682,7 @@ namespace TabHeaderDemo
             {
 
                 mreportitem.vspace = numbodymspace.Value;
-                muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].vspace = numbodymspace.Value;
+                GlobeVal.muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].vspace = numbodymspace.Value;
             }
         }
 
@@ -689,7 +693,7 @@ namespace TabHeaderDemo
 
                 mreportitem.font = peditbodyfont.Source.Value as Font;
 
-                muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].font = peditbodyfont.Source.Value as Font;
+                GlobeVal.muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].font = peditbodyfont.Source.Value as Font;
             }
         }
 
@@ -772,7 +776,7 @@ namespace TabHeaderDemo
             {
 
                 mreportitem.filename = txtfooterpicture.Text;
-                muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].filename = txtfooterpicture.Text;
+                GlobeVal.muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].filename = txtfooterpicture.Text;
             }
         }
 
@@ -783,7 +787,7 @@ namespace TabHeaderDemo
 
                 mreportitem.font = peditfooterfont.Source.Value as Font;
 
-                muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].font = peditfooterfont.Source.Value as Font;
+                GlobeVal.muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].font = peditfooterfont.Source.Value as Font;
             }
         }
 
@@ -793,7 +797,7 @@ namespace TabHeaderDemo
             {
 
                 mreportitem.mspace = numfooterspace.Value;
-                muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].mspace = numfooterspace.Value;
+                GlobeVal.muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].mspace = numfooterspace.Value;
             }
         }
 
@@ -802,13 +806,13 @@ namespace TabHeaderDemo
             if (listReport3.SelectedIndex >= 0)
             {
                 mreportitem.showcaption = chkfooter.Checked;
-                muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].showcaption = chkfooter.Checked;
+                GlobeVal.muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].showcaption = chkfooter.Checked;
             }
         }
 
         private void cbopostionfooter_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            muserreport.mReportApp.footerposition  = cbopostionfooter.SelectedIndex;
+            GlobeVal.muserreport.mReportApp.footerposition  = cbopostionfooter.SelectedIndex;
         }
 
         private void txtfooter_TextChanged(object sender, EventArgs e)
@@ -821,7 +825,7 @@ namespace TabHeaderDemo
                 if (listReport3.SelectedIndex >= 0)
                 {
                     mreportitem.txtresult = txtfooter.Text;
-                    muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].txtresult = txtfooter.Text;
+                    GlobeVal.muserreport.mReportApp.mreportfooter[listReport3.SelectedIndex].txtresult = txtfooter.Text;
 
                 }
             }
@@ -832,7 +836,7 @@ namespace TabHeaderDemo
             if (listReport1.SelectedIndex >= 0)
             {
                 mreportitem.showcaption = chkbody.Checked;
-                muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].showcaption = chkbody.Checked;
+                GlobeVal.muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].showcaption = chkbody.Checked;
             }
         }
 
@@ -846,7 +850,7 @@ namespace TabHeaderDemo
                 if (listReport1.SelectedIndex >= 0)
                 {
                     mreportitem.txtresult = txtbodyvalue.Text;
-                    muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].txtresult = txtbodyvalue.Text;
+                    GlobeVal.muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].txtresult = txtbodyvalue.Text;
 
                 }
             }
@@ -884,8 +888,13 @@ namespace TabHeaderDemo
             {
 
                 mreportitem.filename = txtbodypicture.Text;
-                muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].filename = txtbodypicture.Text;
+                GlobeVal.muserreport.mReportApp.mreportbody[listReport1.SelectedIndex].filename = txtbodypicture.Text;
             }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

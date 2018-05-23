@@ -3274,6 +3274,7 @@ namespace ClsStaticStation
                     }
                     else
                     {
+                        /*
                         if (CComLibrary.GlobeVal.filesave.crackcheck == true)
                         {
 
@@ -3293,6 +3294,8 @@ namespace ClsStaticStation
                                 }
                             }
                         }
+                        */
+
                     }
                 }
             }

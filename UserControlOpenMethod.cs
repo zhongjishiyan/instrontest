@@ -26,7 +26,7 @@ namespace TabHeaderDemo
         
         public UserControl常规 UserControl常规1;
 
-        private string mmethodfilename;
+        
 
         
 
@@ -175,7 +175,7 @@ namespace TabHeaderDemo
             if (t == "打开方法")
             {
 
-                UserControl常规1.Init(0);
+                UserControl常规1.Init(0,false );
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl常规1.Dock = DockStyle.Fill;
@@ -216,7 +216,7 @@ namespace TabHeaderDemo
            
 
             UserControl常规1 = new UserControl常规();
-            UserControl常规1.Init(0);
+            UserControl常规1.Init(0,true);
            
             panelback.Controls.Clear();
             UserControl常规1.Dock = DockStyle.Fill;
@@ -244,55 +244,12 @@ namespace TabHeaderDemo
       
         private void btnexopen_Click(object sender, EventArgs e)
         {
-            CustomControls.MethodOpenFileDialog controlex = new CustomControls.MethodOpenFileDialog();
-            controlex.StartLocation = AddonWindowLocation.Right;
-            controlex.DefaultViewMode = FolderViewMode.Details;
-            controlex.OpenDialog.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method";
-            controlex.OpenDialog.AddExtension = true;
-            controlex.OpenDialog.Filter = "试验方法文件(*.dat)|*.dat";
-            controlex.ShowDialog(this);
-            
+           
+            UserControl常规1.OpenRecentMethod();
 
+           
+           
 
-
-            
-            if (controlex.OpenDialog.FileName== null)
-            {
-
-                return;
-            }
-            else
-            {
-                string fileName = controlex.OpenDialog.FileName;
-
-                if (fileName == "")
-                {
-                    return;
-                }
-                else
-                {
-                    mmethodfilename = fileName;
-                    UserControl常规1.txtmethodname.Text = Path.GetFileNameWithoutExtension(fileName);
-                    UserControl常规1.txtmethodpath.Text = Path.GetDirectoryName(fileName);
-
-                    if (CComLibrary.GlobeVal.filesave == null)
-                    {
-                        CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
-                    }
-                    CComLibrary.GlobeVal.filesave=CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
-
-
-                    CComLibrary.GlobeVal.currentfilesavename = fileName;
-                    UserControl常规1.Open_method();
-                    ClsStaticStation.m_Global.mycls.initchannel();
-
-
-                    ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey();
-                    ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
-                }
-            }
-
-            controlex.Dispose();
 
         }
 
@@ -310,7 +267,7 @@ namespace TabHeaderDemo
            
             
             
-            GlobeVal.UserControlMain1.MethodNext(this.mmethodfilename);
+            GlobeVal.UserControlMain1.MethodNext(CComLibrary.GlobeVal.currentfilesavename);
 
 
 
@@ -353,6 +310,64 @@ namespace TabHeaderDemo
         {
             timer1.Enabled = false;
             this.Visible = true;
+        }
+
+        private void buttonExLook_Click(object sender, EventArgs e)
+        {
+            CustomControls.MethodOpenFileDialog controlex = new CustomControls.MethodOpenFileDialog();
+            controlex.StartLocation = AddonWindowLocation.Right;
+            controlex.DefaultViewMode = FolderViewMode.Details;
+            controlex.OpenDialog.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method";
+            controlex.OpenDialog.AddExtension = true;
+            controlex.OpenDialog.Filter = "试验方法文件(*.dat)|*.dat";
+            controlex.ShowDialog(this);
+
+
+
+
+
+            if (controlex.OpenDialog.FileName == null)
+            {
+
+                return;
+            }
+            else
+            {
+                string fileName = controlex.OpenDialog.FileName;
+
+                if (fileName == "")
+                {
+                    return;
+                }
+                else
+                {
+                  
+                    UserControl常规1.txtmethodname.Text = Path.GetFileNameWithoutExtension(fileName);
+                    UserControl常规1.txtmethodpath.Text = Path.GetDirectoryName(fileName);
+
+                    if (CComLibrary.GlobeVal.filesave == null)
+                    {
+                        CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
+                    }
+                    CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
+
+
+                    CComLibrary.GlobeVal.currentfilesavename = fileName;
+                    UserControl常规1.Open_method();
+                    ClsStaticStation.m_Global.mycls.initchannel();
+
+
+                    ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey();
+                    ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
+                }
+            }
+
+            controlex.Dispose();
+        }
+
+        private void btnexsaveclose_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlTest));
-            IP.Components.Toolbox.Item item1 = new IP.Components.Toolbox.Item();
-            IP.Components.Toolbox.Item item2 = new IP.Components.Toolbox.Item();
-            IP.Components.Toolbox.Item item3 = new IP.Components.Toolbox.Item();
+            IP.Components.Toolbox.Item item4 = new IP.Components.Toolbox.Item();
+            IP.Components.Toolbox.Item item5 = new IP.Components.Toolbox.Item();
+            IP.Components.Toolbox.Item item6 = new IP.Components.Toolbox.Item();
             this.pictureBox1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanelback = new System.Windows.Forms.TableLayoutPanel();
             this.paneltop = new System.Windows.Forms.Panel();
@@ -84,6 +84,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.重新计算当前试样ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重新计算全部试样ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.原始数据导出为ExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button7 = new TabHeaderDemo.ButtonExNew(this.components);
             this.buttonEx3 = new TabHeaderDemo.ButtonExNew(this.components);
             this.pictureBox1.SuspendLayout();
@@ -165,8 +166,8 @@
             this.tableLayoutPanelTop.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanelTop.Name = "tableLayoutPanelTop";
             this.tableLayoutPanelTop.RowCount = 1;
-            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 841F));
-            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 841F));
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 850F));
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 850F));
             this.tableLayoutPanelTop.Size = new System.Drawing.Size(1109, 78);
             this.tableLayoutPanelTop.TabIndex = 4;
             // 
@@ -734,22 +735,22 @@
             this.lstspe.AllowToolboxItems = true;
             this.lstspe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lstspe.Dock = System.Windows.Forms.DockStyle.Fill;
-            item1.Image = ((System.Drawing.Image)(resources.GetObject("item1.Image")));
-            item1.Tag = null;
-            item1.Text = "试样1";
-            item1.Tooltip = "试样1";
-            item2.Image = ((System.Drawing.Image)(resources.GetObject("item2.Image")));
-            item2.Tag = null;
-            item2.Text = "试样2";
-            item2.Tooltip = "试样2";
-            item3.Image = ((System.Drawing.Image)(resources.GetObject("item3.Image")));
-            item3.Tag = null;
-            item3.Text = "试样3";
-            item3.Tooltip = "Item";
+            item4.Image = ((System.Drawing.Image)(resources.GetObject("item4.Image")));
+            item4.Tag = null;
+            item4.Text = "试样1";
+            item4.Tooltip = "试样1";
+            item5.Image = ((System.Drawing.Image)(resources.GetObject("item5.Image")));
+            item5.Tag = null;
+            item5.Text = "试样2";
+            item5.Tooltip = "试样2";
+            item6.Image = ((System.Drawing.Image)(resources.GetObject("item6.Image")));
+            item6.Tag = null;
+            item6.Text = "试样3";
+            item6.Tooltip = "Item";
             this.lstspe.Items.AddRange(new IP.Components.Toolbox.Item[] {
-            item1,
-            item2,
-            item3});
+            item4,
+            item5,
+            item6});
             this.lstspe.Location = new System.Drawing.Point(0, 0);
             this.lstspe.Name = "lstspe";
             this.lstspe.ShowPointer = false;
@@ -938,9 +939,10 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.重新计算当前试样ToolStripMenuItem,
-            this.重新计算全部试样ToolStripMenuItem});
+            this.重新计算全部试样ToolStripMenuItem,
+            this.原始数据导出为ExcelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(233, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(233, 70);
             // 
             // 重新计算当前试样ToolStripMenuItem
             // 
@@ -955,6 +957,13 @@
             this.重新计算全部试样ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.重新计算全部试样ToolStripMenuItem.Text = "修改输入并重新计算选中试样";
             this.重新计算全部试样ToolStripMenuItem.Visible = false;
+            // 
+            // 原始数据导出为ExcelToolStripMenuItem
+            // 
+            this.原始数据导出为ExcelToolStripMenuItem.Name = "原始数据导出为ExcelToolStripMenuItem";
+            this.原始数据导出为ExcelToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.原始数据导出为ExcelToolStripMenuItem.Text = "原始数据导出为Excel格式";
+            this.原始数据导出为ExcelToolStripMenuItem.Click += new System.EventHandler(this.试验数据导出为ExcelToolStripMenuItem_Click);
             // 
             // button7
             // 
@@ -1090,5 +1099,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 重新计算当前试样ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重新计算全部试样ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 原始数据导出为ExcelToolStripMenuItem;
     }
 }

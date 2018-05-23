@@ -14,7 +14,8 @@ namespace TabHeaderDemo
 {
     public partial class UserControlMethod : UserControl
     {
-        
+        private int linesPrinted;
+        private string[] lines;
 
         private UserControl试样 UserControl试样1;
         private UserControl常规 UserControl常规1;
@@ -31,7 +32,7 @@ namespace TabHeaderDemo
         private UserControl缺省表格 UserControl缺省表格1;
         private UserControl数据库 UserControl数据库1;
         private UserControl摄像 UserControl摄像1;
-
+        private UserControl长时数据 UserControl长时数据1;
 
 
 
@@ -129,6 +130,7 @@ namespace TabHeaderDemo
             UserControl缺省表格1 = new UserControl缺省表格();
             UserControl数据库1 = new UserControl数据库();
             UserControl摄像1 = new UserControl摄像();
+            UserControl长时数据1 = new UserControl长时数据();
 
             UserControl试样1.musercontrolmethod = this;
             UserControl常规1.musercontrolmethod = this;
@@ -145,8 +147,9 @@ namespace TabHeaderDemo
             UserControl缺省表格1.musercontrolmethod = this;
             UserControl数据库1.musercontrolmethod = this;
             UserControl摄像1.musercontrolmethod = this;
+            UserControl长时数据1.musercontrolmethod = this;
 
-            UserControl常规1.Init(0);
+            UserControl常规1.Init(0,false);
             panelback.Visible = false;
             panelback.Controls.Clear();
             UserControl常规1.Dock = DockStyle.Fill;
@@ -232,7 +235,7 @@ namespace TabHeaderDemo
             if (t == "方法")
             {
 
-                UserControl常规1.Init(0);
+                UserControl常规1.Init(0,false);
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl常规1.Dock = DockStyle.Fill;
@@ -243,7 +246,7 @@ namespace TabHeaderDemo
             if (t == "样品")
             {
 
-                UserControl常规1.Init(1);
+                UserControl常规1.Init(1,false);
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl常规1.Dock = DockStyle.Fill;
@@ -254,7 +257,7 @@ namespace TabHeaderDemo
             if (t == "基本布局")
             {
 
-                UserControl常规1.Init(2);
+                UserControl常规1.Init(2,false);
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl常规1.Dock = DockStyle.Fill;
@@ -264,7 +267,7 @@ namespace TabHeaderDemo
             if (t == "高级布局")
             {
 
-                UserControl常规1.Init(3);
+                UserControl常规1.Init(3,false );
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl常规1.Dock = DockStyle.Fill;
@@ -714,6 +717,16 @@ namespace TabHeaderDemo
                 panelback.Visible = true;
             }
 
+            if (t=="长时数据输出")
+            {
+                UserControl长时数据1.Init(0);
+                panelback.Visible = false;
+                panelback.Controls.Clear();
+                UserControl长时数据1.Dock = DockStyle.Fill;
+                panelback.Controls.Add(UserControl长时数据1);
+                panelback.Visible = true;
+            }
+
             if (t == "文档设置")
             {
                 
@@ -825,7 +838,12 @@ namespace TabHeaderDemo
                 CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
             }
             CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
+            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate) == true)
+            {
 
+                GlobeVal.UserControlMain1.userreport1.mReportApp = GlobeVal.UserControlMain1.userreport1.mReportApp.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate);
+
+            }
             GlobeVal.filesavecmp = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName); 
 
 
@@ -840,7 +858,44 @@ namespace TabHeaderDemo
 
             CComLibrary.GlobeVal.InitUserCalcChannel();
 
-          
+            treeView1.Nodes["控制"].Nodes.Clear();
+
+            if (CComLibrary.GlobeVal.filesave._flow试验选项 ==  CheckState.Checked)
+            {
+                treeView1.Nodes["控制"].Nodes.Add("试验选项");
+
+            }
+
+            if (CComLibrary.GlobeVal.filesave._flow应变 == CheckState.Checked)
+            {
+                treeView1.Nodes["控制"].Nodes.Add("应变");
+
+            }
+
+            if (CComLibrary.GlobeVal.filesave._flow测试前 == CheckState.Checked)
+            {
+                treeView1.Nodes["控制"].Nodes.Add("测试前");
+
+            }
+
+            if (CComLibrary.GlobeVal.filesave._flow测试 == CheckState.Checked)
+            {
+                treeView1.Nodes["控制"].Nodes.Add("测试");
+
+            }
+
+            if (CComLibrary.GlobeVal.filesave._flow数据采集 == CheckState.Checked)
+            {
+                treeView1.Nodes["控制"].Nodes.Add("数据采集");
+
+            }
+
+            if (CComLibrary.GlobeVal.filesave._flow测试结束 == CheckState.Checked)
+            {
+                treeView1.Nodes["控制"].Nodes.Add("测试结束");
+
+            }
+
         }
 
 
@@ -941,6 +996,56 @@ namespace TabHeaderDemo
         private void UserControlMethod_TabIndexChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void btnexprint_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            int i = 0;
+            char[] param = { '\n' };
+
+            ListBox ml = new ListBox();
+            GlobeVal.putlistboxitem(ml);
+
+            lines = new string[ml.Items.Count];
+
+            for ( i=0;i<ml.Items.Count;i++)
+            {
+                lines[i] = Convert.ToString( ml.Items[i]);
+            }
+            
+
+          
+           
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int x = e.MarginBounds.Left;
+            int y = e.MarginBounds.Top;
+            Brush brush = new SolidBrush(Color.Black);
+
+            while (linesPrinted < lines.Length)
+            {
+                e.Graphics.DrawString(lines[linesPrinted++],
+                    this.Font, brush, x, y);
+                y += 15;
+                if (y >= e.MarginBounds.Bottom)
+                {
+                    e.HasMorePages = true;
+                    return;
+                }
+            }
+
+            linesPrinted = 0;
+            e.HasMorePages = false;
         }
     }
 }

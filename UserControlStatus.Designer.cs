@@ -37,8 +37,10 @@
             this.lblstep = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblrun = new System.Windows.Forms.Label();
+            this.lblcurlargecount = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbllargecount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +76,7 @@
             // 
             this.lblstate.AutoSize = true;
             this.lblstate.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblstate.Location = new System.Drawing.Point(122, 71);
+            this.lblstate.Location = new System.Drawing.Point(137, 72);
             this.lblstate.Name = "lblstate";
             this.lblstate.Size = new System.Drawing.Size(37, 14);
             this.lblstate.TabIndex = 9;
@@ -93,7 +95,7 @@
             // 
             this.lblstep.AutoSize = true;
             this.lblstep.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblstep.Location = new System.Drawing.Point(122, 106);
+            this.lblstep.Location = new System.Drawing.Point(137, 107);
             this.lblstep.Name = "lblstep";
             this.lblstep.Size = new System.Drawing.Size(47, 14);
             this.lblstep.TabIndex = 11;
@@ -115,28 +117,49 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 13;
-            this.label8.Text = "波形次数：";
+            this.label8.Text = "当前次数：";
             // 
-            // lblrun
+            // lblcurlargecount
             // 
-            this.lblrun.AutoSize = true;
-            this.lblrun.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblrun.Location = new System.Drawing.Point(122, 179);
-            this.lblrun.Name = "lblrun";
-            this.lblrun.Size = new System.Drawing.Size(15, 14);
-            this.lblrun.TabIndex = 14;
-            this.lblrun.Text = "0";
+            this.lblcurlargecount.AutoSize = true;
+            this.lblcurlargecount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblcurlargecount.Location = new System.Drawing.Point(137, 177);
+            this.lblcurlargecount.Name = "lblcurlargecount";
+            this.lblcurlargecount.Size = new System.Drawing.Size(15, 14);
+            this.lblcurlargecount.TabIndex = 14;
+            this.lblcurlargecount.Text = "0";
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 216);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "设置次数：";
+            // 
+            // lbllargecount
+            // 
+            this.lbllargecount.AutoSize = true;
+            this.lbllargecount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbllargecount.Location = new System.Drawing.Point(137, 216);
+            this.lbllargecount.Name = "lbllargecount";
+            this.lbllargecount.Size = new System.Drawing.Size(15, 14);
+            this.lbllargecount.TabIndex = 16;
+            this.lbllargecount.Text = "0";
             // 
             // UserControlStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.lblrun);
+            this.Controls.Add(this.lbllargecount);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblcurlargecount);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblstep);
@@ -162,7 +185,9 @@
         private System.Windows.Forms.Label lblstep;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblrun;
+        private System.Windows.Forms.Label lblcurlargecount;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbllargecount;
     }
 }

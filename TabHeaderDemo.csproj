@@ -56,7 +56,7 @@
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;DEBUG;TowAxis  : Demo=-1:Advanced=1:</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;ABC;</DefineConstants>
     <DocumentationFile>
     </DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
@@ -144,6 +144,10 @@
     <Reference Include="MCTBuffer, Version=1.0.1.0, Culture=neutral, PublicKeyToken=3c6f10d5f3df8ab7, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0" />
+    <Reference Include="MyXls.SL2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MyXls.SL2.dll</HintPath>
+    </Reference>
     <Reference Include="NationalInstruments.Common, Version=15.0.40.49154, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\NationalInstruments.Common.dll</HintPath>
@@ -215,6 +219,7 @@
     <Compile Include="Controls\CircularIndeterminateProgress.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Define.cs" />
     <Compile Include="Frm\FormLink.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +342,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Report\UserControl长时数据.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\UserControl长时数据.Designer.cs">
+      <DependentUpon>UserControl长时数据.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\UserControl数据库.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -369,6 +380,12 @@
     </Compile>
     <Compile Include="UserControlProcess.Designer.cs">
       <DependentUpon>UserControlProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlLongRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlLongRecord.Designer.cs">
+      <DependentUpon>UserControlLongRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlStatus.cs">
       <SubType>UserControl</SubType>
@@ -980,6 +997,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl长时数据.resx">
+      <DependentUpon>UserControl长时数据.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\UserControl数据库.resx">
       <DependentUpon>UserControl数据库.cs</DependentUpon>
     </EmbeddedResource>
@@ -1038,6 +1059,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlProcess.resx">
       <DependentUpon>UserControlProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlLongRecord.resx">
+      <DependentUpon>UserControlLongRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlResult.resx">
       <DependentUpon>UserControlResult.cs</DependentUpon>

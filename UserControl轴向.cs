@@ -84,9 +84,10 @@ namespace TabHeaderDemo
                 }
             }
 
-
-            cboctrl.SelectedIndex = 0;
-
+            if (cboctrl.Items.Count > 0)
+            {
+                cboctrl.SelectedIndex = 0;
+            }
 
             
             //Application.StartupPath
@@ -100,6 +101,10 @@ namespace TabHeaderDemo
             this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
             this.tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel2, true, null);
             this.tableLayoutPanel8.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel8, true, null);
+            this.tableLayoutPanel15.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel15, true, null);
+            this.tableLayoutPanel16.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel16, true, null);
+            this.tableLayoutPanel17.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel17, true, null);
+
 
             this.tableLayoutPanel11.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel11, true, null);
 
@@ -232,12 +237,11 @@ namespace TabHeaderDemo
                   else
                   {
                 
-                    }
+                  }
 
-                   GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
+               GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
 
-                if (GlobeVal.mysys.controllerkind != 2)
-                {
+               
 
                     try
                     {
@@ -249,7 +253,7 @@ namespace TabHeaderDemo
                     {
                         WaitFormService.CloseWaitForm();
                     }
-                }
+              
                
  
                 GlobeVal.myarm.Init((int)this.Handle);
@@ -268,8 +272,10 @@ namespace TabHeaderDemo
                 }
             else
                 {
-                    //WaitFormService.SetWaitFormCaption("联机失败");
+                   
                     WaitFormService.CloseWaitForm();
+
+                    MessageBox.Show("联机失败");
                 }
 
 
@@ -277,21 +283,7 @@ namespace TabHeaderDemo
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-           
-        }
-
+    
         private void UserControl轴向_Load(object sender, EventArgs e)
         {
             if (GlobeVal.mysys.chk_hlimit==true)
@@ -359,6 +351,11 @@ namespace TabHeaderDemo
         }
 
         private void btnteststart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void switchLink_StateChanged(object sender, NationalInstruments.UI.ActionEventArgs e)
         {
 
         }

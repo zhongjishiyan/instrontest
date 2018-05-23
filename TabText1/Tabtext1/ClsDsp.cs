@@ -17,19 +17,19 @@ namespace ClsStaticStation
     public class CDsp : ClsBaseControl
     {
         private double mstarttickcount;
-        private int  mspenum=0;
+        private int mspenum = 0;
         private RawDataDataGroup[] r = new RawDataDataGroup[1];
         private float[] rr;
         private System.Windows.Forms.Timer mtimer;
-        public XLNet.XLDOPE.Data  GGMsg;
+        public XLNet.XLDOPE.Data GGMsg;
         private RawDataStruct b;
         public short DeviceNum = 1;
 
         private int m_runstate;
-       
+
 
         private XLDOPE.MDataIno ma;
-     
+
         private bool mdemotesting = false;
         private int mdemotestingp = 0;
 
@@ -45,7 +45,7 @@ namespace ClsStaticStation
         private double load1;//围压负荷
 
         public List<CComLibrary.CmdSeg> mrunlist;
-       
+
 
         private double mstarttime;
         private double moritime;
@@ -89,10 +89,10 @@ namespace ClsStaticStation
         {
             short tan = 0;
 
-            double m =speed;
+            double m = speed;
 
 
-            myedc.Move.FMove(XLNet.XLDOPE.MOVE.DOWN, (XLNet.XLDOPE.CTRL) ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
+            myedc.Move.FMove(XLNet.XLDOPE.MOVE.DOWN, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
 
         }
 
@@ -101,15 +101,15 @@ namespace ClsStaticStation
             for (int i = 0; i < m_Global.mycls.chsignals.Count; i++)
             {
 
-            
-                        XLDOPE.Data Sample = default(XLDOPE.Data);
-                        myedc.Data.CurrentData(ref Sample);
+
+                XLDOPE.Data Sample = default(XLDOPE.Data);
+                myedc.Data.CurrentData(ref Sample);
 
 
-                        myedc.Tare.SetTare((XLDOPE.SENSOR)i, Sample.Sensor[i]);
-                   
-             }
-            
+                myedc.Tare.SetTare((XLDOPE.SENSOR)i, Sample.Sensor[i]);
+
+            }
+
         }
 
         public override void btnrestoreall()
@@ -117,12 +117,12 @@ namespace ClsStaticStation
 
             for (int i = 0; i < m_Global.mycls.chsignals.Count; i++)
             {
-               
 
-                  
 
-                        myedc.Tare.SetTare((XLDOPE.SENSOR)i, 0);
-                    
+
+
+                myedc.Tare.SetTare((XLDOPE.SENSOR)i, 0);
+
             }
         }
 
@@ -138,11 +138,11 @@ namespace ClsStaticStation
             b.data = new double[24];
             if (mdemotesting == false)
             {
-               r = new Random(System.Environment.TickCount);
+                r = new Random(System.Environment.TickCount);
                 load = r.NextDouble();
                 pos = r.NextDouble();
                 ext = r.NextDouble();
-                time = (System.Environment.TickCount- mstarttickcount) / 1000.0;
+                time = (System.Environment.TickCount - mstarttickcount) / 1000.0;
                 poscmd = 0;
                 loadcmd = 0;
                 extcmd = 0;
@@ -157,7 +157,7 @@ namespace ClsStaticStation
                 load = r.NextDouble();
                 pos = r.NextDouble();
                 ext = r.NextDouble();
-                time = (System.Environment.TickCount-mstarttickcount) / 1000.0;
+                time = (System.Environment.TickCount - mstarttickcount) / 1000.0;
                 poscmd = 0;
                 loadcmd = 0;
                 extcmd = 0;
@@ -167,15 +167,15 @@ namespace ClsStaticStation
 
                 if (mdemotestingp < mdemodata.Count - 1)
                 {
-                    load = mdemodata[mdemotestingp].load*(50+mspenum-1)/50;
-                    pos = mdemodata[mdemotestingp].pos * (50 + mspenum-1) / 50;
-                    ext = mdemodata[mdemotestingp].ext * (50 + mspenum-1) / 50;
+                    load = mdemodata[mdemotestingp].load * (50 + mspenum - 1) / 50;
+                    pos = mdemodata[mdemotestingp].pos * (50 + mspenum - 1) / 50;
+                    ext = mdemodata[mdemotestingp].ext * (50 + mspenum - 1) / 50;
                     time = mdemodata[mdemotestingp].time;
                     mdemotestingp = mdemotestingp + 1;
                 }
                 else
                 {
-                   
+
                     mdemotesting = false;
                 }
 
@@ -192,7 +192,7 @@ namespace ClsStaticStation
             ClsStaticStation.m_Global.mload1 = load1;
             ClsStaticStation.m_Global.mpos1 = pos1;
 
-            ClsStaticStation.m_Global.msensor4 = r.NextDouble()+1;
+            ClsStaticStation.m_Global.msensor4 = r.NextDouble() + 1;
 
             ClsStaticStation.m_Global.msensor5 = r.NextDouble() + 2;
 
@@ -599,7 +599,7 @@ namespace ClsStaticStation
                 }
 
 
-              
+
 
 
             }
@@ -659,9 +659,9 @@ namespace ClsStaticStation
             {
 
 
-               
 
-              
+
+
 
                 if (m_Global.mycls.allsignals[j].SignName == "Ch Time")
                 {
@@ -755,7 +755,7 @@ namespace ClsStaticStation
             m_runstate = 0;
 
 
-            if (mdemo == false )
+            if (mdemo == false)
             {
                 bool b = false;
                 while (b == false)
@@ -771,14 +771,14 @@ namespace ClsStaticStation
 
             int iii = 0;
 
-            int a= ClsStatic.arraydata[0].NodeCount;
+            int a = ClsStatic.arraydata[0].NodeCount;
 
             while (iii < a)
             {
 
 
                 ClsStatic.arraydata[0].Read<RawDataDataGroup>(out d, 0);
-               
+
                 iii = iii + 1;
 
 
@@ -790,7 +790,7 @@ namespace ClsStaticStation
             while (iii < a)
             {
 
- 
+
                 ClsStatic.arraydata[1].Read<RawDataDataGroup>(out d, 0);
 
                 iii = iii + 1;
@@ -800,7 +800,7 @@ namespace ClsStaticStation
 
             ClsStatic.arraydatacount[0] = 0;
             ClsStatic.arraydatacount[1] = 0;
-          
+
 
             mtestrun = true;
 
@@ -867,7 +867,7 @@ namespace ClsStaticStation
                 segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].destorigin(),
                     Convert.ToInt16(mrunlist[mcurseg].controlmode),
                      Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0,mrunlist[mcurseg].destmode);
+                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0, mrunlist[mcurseg].destmode);
 
 
 
@@ -877,111 +877,127 @@ namespace ClsStaticStation
             }
             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3) //高级试验
             {
-
-                CComLibrary.SequenceFile sqf = new CComLibrary.SequenceFile();
-                sqf = sqf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + CComLibrary.GlobeVal.filesave.SequenceName);
-
-                CComLibrary.GlobeVal.filesave.mseglist = new List<CComLibrary.CmdSeg>();
+                
+                    CComLibrary.SequenceFile sqf = new CComLibrary.SequenceFile();
+                    sqf = sqf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + CComLibrary.GlobeVal.filesave.SequenceName);
 
 
-                for (int i = 0; i < sqf.mSequencelist.Count; i++)
-                {
-                    CComLibrary.CmdSeg n = new CComLibrary.CmdSeg();
-                    n.check = true;
-                    if (sqf.mSequencelist[i].wavekind == 0) //斜波
+                    CComLibrary.GlobeVal.filesave.mseglist = new List<CComLibrary.CmdSeg>();
+
+
+                    for (int i = 0; i < sqf.mSequencelist.Count; i++)
                     {
-                        n.controlmode = sqf.mSequencelist[i].controlmode;
-
-                        n.cmd = 0;
-
-                        n.speed = Convert.ToDouble( ClsStaticStation.m_Global.mycls.hardsignals[n.controlmode].speedSignal.GetOriValue(sqf.mSequencelist[i].mrate,sqf.mSequencelist[i].mrateunit));
-                        n.destcontrolmode = sqf.mSequencelist[i].destcontrolmode;
-                        n.dest = Convert.ToDouble( ClsStaticStation.m_Global.mycls.hardsignals[n.controlmode].GetOriValue(sqf.mSequencelist[i].mdest, sqf.mSequencelist[i].mdestunit));
-                        n.keeptime = 0;
-                        n.mseq.wavekind  = sqf.mSequencelist[i].wavekind;
-
-                        n.destmode = sqf.mSequencelist[i].destmode;
-                       
-                        n.action = 0; //始终保持异步控制
-                        if (sqf.mSequencelist[i].loop == true)
+                        CComLibrary.CmdSeg n = new CComLibrary.CmdSeg();
+                        n.check = true;
+                        if (sqf.mSequencelist[i].wavekind == 0) //斜波
                         {
-                            n.returncount = sqf.mSequencelist[i].loopcount;
-                            n.returnstep = sqf.mSequencelist[i].returnstep;
+                            n.controlmode = sqf.mSequencelist[i].controlmode;
+
+                            n.cmd = 0;
+
+                            n.speed = Convert.ToDouble(ClsStaticStation.m_Global.mycls.hardsignals[n.controlmode].speedSignal.GetOriValue(sqf.mSequencelist[i].mrate, sqf.mSequencelist[i].mrateunit));
+                            n.destcontrolmode = sqf.mSequencelist[i].destcontrolmode;
+                            n.dest = Convert.ToDouble(ClsStaticStation.m_Global.mycls.hardsignals[n.controlmode].GetOriValue(sqf.mSequencelist[i].mdest, sqf.mSequencelist[i].mdestunit));
+                            n.keeptime = 0;
+
+                            n.mseq = sqf.mSequencelist[i];
+                            n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                            n.mseq.stepname = sqf.mSequencelist[i].stepname;
+
+                            n.destmode = sqf.mSequencelist[i].destmode;
+
+                            n.action = 0; //始终保持异步控制
+                            if (sqf.mSequencelist[i].loop == true)
+                            {
+                           
+                                n.returncount = sqf.mSequencelist[i].loopcount;
+                                n.returnstep = sqf.mSequencelist[i].returnstep;
+                            }
+                            else
+                            {
+                                n.returncount = 0;
+                                n.returnstep = 0;
+                            }
+
                         }
-                        else
+
+                        if (sqf.mSequencelist[i].wavekind == 1) //保持波
                         {
-                            n.returncount = 0;
-                            n.returnstep = 0;
+                            n.keeptime = sqf.mSequencelist[i].keeptime;
+                            n.mseq = sqf.mSequencelist[i];
+                            n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                            n.mseq.stepname = sqf.mSequencelist[i].stepname;
+
+                            n.cmd = 0;
+
+                            n.action = 0; //始终保持异步控制
+                            if (sqf.mSequencelist[i].loop == true)
+                            {
+
+                               
+                                n.returncount = sqf.mSequencelist[i].loopcount;
+                                n.returnstep = sqf.mSequencelist[i].returnstep;
+                            }
+                            else
+                            {
+                                n.returncount = 0;
+                                n.returnstep = 0;
+                            }
+
                         }
-                        
+
+                        if (sqf.mSequencelist[i].wavekind == 2) //循环波
+                        {
+                            n.keeptime = sqf.mSequencelist[i].keeptime;
+
+                            n.mseq = sqf.mSequencelist[i];
+                            n.mseq.stepname = sqf.mSequencelist[i].stepname;
+                            n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                            n.cmd = 0;
+
+                            n.action = 0; //始终保持异步控制
+                            if (sqf.mSequencelist[i].loop == true)
+                            {
+                                n.returncount = sqf.mSequencelist[i].loopcount;
+                                n.returnstep = sqf.mSequencelist[i].returnstep;
+                            }
+                            else
+                            {
+                                n.returncount = 0;
+                                n.returnstep = 0;
+                            }
+
+                        }
+
+                        if (sqf.mSequencelist[i].wavekind == 3) //正弦波
+                        {
+                            n.keeptime = sqf.mSequencelist[i].keeptime;
+
+                            n.mseq = sqf.mSequencelist[i];
+                            n.mseq.stepname = sqf.mSequencelist[i].stepname;
+                            n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                            n.cmd = 0;
+
+                            n.action = 0; //始终保持异步控制
+                            if (sqf.mSequencelist[i].loop == true)
+                            {
+                                n.returncount = sqf.mSequencelist[i].loopcount;
+                                n.returnstep = sqf.mSequencelist[i].returnstep;
+                            }
+                            else
+                            {
+                                n.returncount = 0;
+                                n.returnstep = 0;
+                            }
+
+                        }
+
+
+
+                        CComLibrary.GlobeVal.filesave.mseglist.Add(n);
                     }
+                
 
-                    if (sqf.mSequencelist[i].wavekind == 1) //保持波
-                    {
-                        n.keeptime = sqf.mSequencelist[i].keeptime;
-                        n.mseq.wavekind  = sqf.mSequencelist[i].wavekind;
-                        n.cmd = 0;
-
-                        n.action = 0; //始终保持异步控制
-                        if (sqf.mSequencelist[i].loop == true)
-                        {
-                            n.returncount = sqf.mSequencelist[i].loopcount;
-                            n.returnstep = sqf.mSequencelist[i].returnstep;
-                        }
-                        else
-                        {
-                            n.returncount = 0;
-                            n.returnstep = 0;
-                        }
-
-                    }
-
-                    if (sqf.mSequencelist[i].wavekind == 2) //循环波
-                    {
-                        n.keeptime = sqf.mSequencelist[i].keeptime;
-                        n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
-                        n.mseq = sqf.mSequencelist[i];
-                        n.cmd = 0;
-
-                        n.action = 0; //始终保持异步控制
-                        if (sqf.mSequencelist[i].loop == true)
-                        {
-                            n.returncount = sqf.mSequencelist[i].loopcount;
-                            n.returnstep = sqf.mSequencelist[i].returnstep;
-                        }
-                        else
-                        {
-                            n.returncount = 0;
-                            n.returnstep = 0;
-                        }
-
-                    }
-
-                    if (sqf.mSequencelist[i].wavekind == 3) //正弦波
-                    {
-                        n.keeptime = sqf.mSequencelist[i].keeptime;
-                        n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
-                        n.mseq = sqf.mSequencelist[i];
-                        n.cmd = 0;
-
-                        n.action = 0; //始终保持异步控制
-                        if (sqf.mSequencelist[i].loop == true)
-                        {
-                            n.returncount = sqf.mSequencelist[i].loopcount;
-                            n.returnstep = sqf.mSequencelist[i].returnstep;
-                        }
-                        else
-                        {
-                            n.returncount = 0;
-                            n.returnstep = 0;
-                        }
-
-                    }
-
-
-
-                    CComLibrary.GlobeVal.filesave.mseglist.Add(n);
-                }
 
                 mrunlist = new List<CComLibrary.CmdSeg>();
                 mrunlist.Clear();
@@ -1020,7 +1036,7 @@ namespace ClsStaticStation
                     return;
                 }
 
-             
+
 
                 mcurseg = 0;
 
@@ -1037,31 +1053,32 @@ namespace ClsStaticStation
                     {
                         k = 0;
                     }
-                   
-
-                        if (ii == mcurseg)
-                        {
-                            segstep(mrunlist[ii].cmd, mrunlist[ii].destorigin(),
-                       Convert.ToInt16(mrunlist[ii].controlmode),
-                        Convert.ToInt16(mrunlist[ii].destcontrolmode),
-                       k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                       mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
-
-                            mcurseg = ii;
-                        }
-                        break;
 
 
-                    
+                    if (ii == mcurseg)
+                    {
+                        segstep(mrunlist[ii].cmd, mrunlist[ii].destorigin(),
+                   Convert.ToInt16(mrunlist[ii].controlmode),
+                    Convert.ToInt16(mrunlist[ii].destcontrolmode),
+                   k, Convert.ToSingle(mrunlist[ii].speedorigin()),
+                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
+
+                        mcurseg = ii;
+                    }
+                    break;
+
+
+
 
                 }
 
 
                 total_returncount = 0;
 
+                
                 current_returncount = 1;
 
-
+              
 
 
             }
@@ -1094,6 +1111,7 @@ namespace ClsStaticStation
                     n.keeptime = sf.mseglist[i].keeptime;
                     n.cmd = sf.mseglist[i].cmd;
                     n.action = sf.mseglist[i].action;
+
                     if (sf.mseglist[i].cyclicrun == true)
                     {
                         n.returncount = sf.mseglist[i].cycliccount;
@@ -1116,7 +1134,7 @@ namespace ClsStaticStation
                 {
                     mrunlist.Add(CComLibrary.GlobeVal.filesave.pretest_cmd);
                     mrunlist[0].keeptime = 0;
-                    
+
                     mrunlist[0].action = 0;
 
                 }
@@ -1167,7 +1185,7 @@ namespace ClsStaticStation
                            Convert.ToInt16(mrunlist[ii].controlmode),
                              Convert.ToInt16(mrunlist[ii].destcontrolmode),
                             k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
 
                         mcurseg = ii;
                     }
@@ -1180,7 +1198,7 @@ namespace ClsStaticStation
                        Convert.ToInt16(mrunlist[ii].controlmode),
                         Convert.ToInt16(mrunlist[ii].destcontrolmode),
                        k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                       mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                       mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
 
                             mcurseg = ii;
                         }
@@ -1200,7 +1218,7 @@ namespace ClsStaticStation
 
             }
 
-           
+
 
             mrunstarttime = System.Environment.TickCount / 1000;
         }
@@ -1214,7 +1232,7 @@ namespace ClsStaticStation
 
 
             mspeed = speed / 60;
-             
+
 
             control = (XLDOPE.CTRL)ConvertCtrlMode(ctrlmode);
 
@@ -1252,7 +1270,7 @@ namespace ClsStaticStation
         public override void CrossUp(int ctrlmode, double speed)
         {
             short tan = 0;
-            double m = speed ;
+            double m = speed;
 
 
             try
@@ -1260,7 +1278,7 @@ namespace ClsStaticStation
 
                 myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
             }
-             catch (NullReferenceException)
+            catch (NullReferenceException)
             {
 
 
@@ -1273,10 +1291,10 @@ namespace ClsStaticStation
         public override void CrossStop(int ctrlmode)
         {
             short tan = 0;
-           
+
             try
             {
-                myedc.Move.SHalt(ref tan);
+                myedc.Move.Halt((XLDOPE.CTRL) ctrlmode, ref tan);
             }
             catch (NullReferenceException)
             {
@@ -1289,11 +1307,12 @@ namespace ClsStaticStation
 
             endcontrol();
 
+            mtestrun = false;
+            mrun = false;
 
-             if ((CComLibrary.GlobeVal.filesave.mcontrolprocess == 3) || (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1))
-            {
-                mrunlist.Clear();
-            }
+
+
+
 
 
             if (mdemo == true)
@@ -1306,6 +1325,8 @@ namespace ClsStaticStation
 
 
             }
+
+           
 
             mtestrun = false;
 
@@ -1409,14 +1430,14 @@ namespace ClsStaticStation
 
 
         }
-      
+
         public override int ConvertCtrlMode(int ctrl)
         {
             XLDOPE.CTRL t = default(XLDOPE.CTRL);
             if (ctrl == 0) //位移
             {
-                 t = XLDOPE.CTRL.POS;
-               
+                t = XLDOPE.CTRL.POS;
+
             }
             if (ctrl == 1)  //负荷
             {
@@ -1431,7 +1452,7 @@ namespace ClsStaticStation
             return Convert.ToInt16(t);
 
 
-           
+
         }
         public override bool getlimit(int ch)
         {
@@ -1442,7 +1463,7 @@ namespace ClsStaticStation
         {
             return false;
         }
-        public override  void btnkey(Button b)
+        public override void btnkey(Button b)
         {
             if (Convert.ToBoolean(b.Tag) == false)
             {
@@ -1454,7 +1475,7 @@ namespace ClsStaticStation
             else
             {
                 b.ForeColor = System.Drawing.Color.Black;
-                    
+
                 b.Tag = false;
                 restorezero(b);
             }
@@ -1465,43 +1486,43 @@ namespace ClsStaticStation
         public override void btnzero(Button b)
         {
 
-            for (int i=0;i<m_Global.mycls.chsignals.Count;i++)
+            for (int i = 0; i < m_Global.mycls.chsignals.Count; i++)
             {
 
                 if (b.Text == m_Global.mycls.chsignals[i].cName)
                 {
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Disp")
-                    if (i==0)
+                    if (i == 0)
                     {
-                        XLDOPE.Data Sample=default(XLDOPE.Data);
+                        XLDOPE.Data Sample = default(XLDOPE.Data);
                         myedc.Data.CurrentData(ref Sample);
 
-                       
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_S, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_S)]);
                     }
-                    if (i==1)
-                   // if (m_Global.mycls.hardsignals[i].SignName == "Ch Load")
+                    if (i == 1)
+                    // if (m_Global.mycls.hardsignals[i].SignName == "Ch Load")
                     {
                         XLDOPE.Data Sample = default(XLDOPE.Data);
                         myedc.Data.CurrentData(ref Sample);
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_F, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_F)]);
                     }
 
-                    if (i==2)
+                    if (i == 2)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Ext")
                     {
                         XLDOPE.Data Sample = default(XLDOPE.Data);
                         myedc.Data.CurrentData(ref Sample);
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_E, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_E)]);
                     }
-                    if (i==3)
+                    if (i == 3)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor3")
                     {
                         XLDOPE.Data Sample = default(XLDOPE.Data);
                         myedc.Data.CurrentData(ref Sample);
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_3, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_3)]);
                     }
-                    if (i==4)
+                    if (i == 4)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor4")
                     {
                         XLDOPE.Data Sample = default(XLDOPE.Data);
@@ -1509,21 +1530,21 @@ namespace ClsStaticStation
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_4, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_4)]);
                     }
 
-                    if (i==5)
+                    if (i == 5)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor5")
                     {
                         XLDOPE.Data Sample = default(XLDOPE.Data);
                         myedc.Data.CurrentData(ref Sample);
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_5, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_5)]);
                     }
-                    if (i==6)
-                   // if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor6")
+                    if (i == 6)
+                    // if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor6")
                     {
                         XLDOPE.Data Sample = default(XLDOPE.Data);
                         myedc.Data.CurrentData(ref Sample);
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_6, Sample.Sensor[Convert.ToInt16(XLDOPE.SENSOR.SENSOR_6)]);
                     }
-                    if (i==7)
+                    if (i == 7)
 
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor7")
                     {
@@ -1536,64 +1557,64 @@ namespace ClsStaticStation
 
                 }
             }
-           
+
 
         }
         void restorezero(Button b)
         {
             for (int i = 0; i < m_Global.mycls.chsignals.Count; i++)
             {
-                if (b.Text ==m_Global.mycls.chsignals[i].cName)
+                if (b.Text == m_Global.mycls.chsignals[i].cName)
                 {
-                    if (i==0)
+                    if (i == 0)
 
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Disp")
                     {
-                     
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_S, 0);
                     }
-                    if (i==1)
+                    if (i == 1)
 
-                   // if (m_Global.mycls.hardsignals[i].SignName == "Ch Load")
+                    // if (m_Global.mycls.hardsignals[i].SignName == "Ch Load")
                     {
-                        
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_F, 0);
                     }
-                    if (i==2)
+                    if (i == 2)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Ext")
                     {
-                       
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_E, 0);
                     }
-                    if (i==3)
+                    if (i == 3)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor3")
                     {
-                       
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_3, 0);
                     }
-                    if (i==4)
+                    if (i == 4)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor4")
                     {
-                      
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_4, 0);
                     }
-                    if (i==5)
+                    if (i == 5)
 
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor5")
                     {
-                      
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_5, 0);
                     }
-                    if (i==6)
+                    if (i == 6)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor6")
                     {
-                       
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_6, 0);
                     }
-                    if (i==7)
+                    if (i == 7)
                     //if (m_Global.mycls.hardsignals[i].SignName == "Ch Sensor7")
                     {
-                      
+
                         myedc.Tare.SetTare(XLDOPE.SENSOR.SENSOR_7, 0);
                     }
 
@@ -1609,7 +1630,7 @@ namespace ClsStaticStation
         }
 
 
-        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action,int destmode)
+        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action, int destmode)
         {
 
             bool b = false;
@@ -1635,12 +1656,12 @@ namespace ClsStaticStation
 
                 if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
                 {
-                    if (mrunlist[mcurseg].mseq.wavekind <=0)
+                    if (mrunlist[mcurseg].mseq.wavekind <= 0)
                     {
                         m_runstate = 1;
 
-                        myedc.Move.PosExt((XLDOPE.CTRL)ConvertCtrlMode(firstctl), Convert.ToSingle(speed), XLDOPE.LIMITMODE.NOT_ACTIVE,5, (XLDOPE.CTRL)ConvertCtrlMode(destctl)
-                            , Convert.ToSingle(dest), (XLDOPE.DESTMODE)destmode , ref tan);
+                        myedc.Move.PosExt((XLDOPE.CTRL)ConvertCtrlMode(firstctl), Convert.ToSingle(speed), XLDOPE.LIMITMODE.NOT_ACTIVE, 5, (XLDOPE.CTRL)ConvertCtrlMode(destctl)
+                            , Convert.ToSingle(dest), (XLDOPE.DESTMODE)destmode, ref tan);
 
                     }
 
@@ -1649,13 +1670,13 @@ namespace ClsStaticStation
                         m_runstate = 0;
                     }
 
-                    if (mrunlist[mcurseg].mseq.wavekind ==2)
+                    if (mrunlist[mcurseg].mseq.wavekind == 2)
 
                     {
                         m_runstate = 1;
-                        double m_speed =  Convert.ToDouble( m_Global.mycls.hardsignals[mrunlist[mcurseg].controlmode].speedSignal.GetOriValue(mrunlist[mcurseg].mseq.mtrirate, mrunlist[mcurseg].mseq.mtrirateunit));
+                        double m_speed = Convert.ToDouble(m_Global.mycls.hardsignals[mrunlist[mcurseg].controlmode].speedSignal.GetOriValue(mrunlist[mcurseg].mseq.mtrirate, mrunlist[mcurseg].mseq.mtrirateunit));
                         double m_dest1 = mrunlist[mcurseg].mseq.mtrimax;
-                        double m_dest2 =mrunlist[mcurseg].mseq.mtrimin;
+                        double m_dest2 = mrunlist[mcurseg].mseq.mtrimin;
 
 
                         myedc.Move.Cycle((XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed, m_dest1, 0, m_speed, m_dest2, 0, (DoPE_HANDLE)mrunlist[mcurseg].mseq.mtricount, m_speed, m_dest2, ref tan);
@@ -1666,13 +1687,13 @@ namespace ClsStaticStation
 
                     {
                         m_runstate = 1;
-                        double m_speed = Convert.ToDouble(m_Global.mycls.hardsignals[mrunlist[mcurseg].controlmode].speedSignal.GetOriValue(mrunlist[mcurseg].mseq.msinrate , mrunlist[mcurseg].mseq.msinrateunit));
+                        double m_speed = Convert.ToDouble(m_Global.mycls.hardsignals[mrunlist[mcurseg].controlmode].speedSignal.GetOriValue(mrunlist[mcurseg].mseq.msinrate, mrunlist[mcurseg].mseq.msinrateunit));
                         double m_dest1 = mrunlist[mcurseg].mseq.msinmax;
                         double m_dest2 = mrunlist[mcurseg].mseq.mtrimin;
 
                         double m_offset = 0;
                         double m_amp = 0;
-                        if (m_dest1 <m_dest2 )
+                        if (m_dest1 < m_dest2)
                         {
                             m_offset = m_dest1 + (m_dest2 - m_dest1) / 2;
                             m_amp = (m_dest2 - m_dest1) / 2;
@@ -1686,14 +1707,14 @@ namespace ClsStaticStation
 
                         myedc.Move.DynCyclesSimple(XLDOPE.DYN_WAVEFORM.COSINE, (XLDOPE.DYN_PEAKCTRL)0, (XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, false, m_speed, m_offset, m_amp,
                             mrunlist[mcurseg].mseq.msinfreq, (DoPE_HANDLE)mrunlist[mcurseg].mseq.msincount, m_speed, m_offset, ref tan);
-                     }
+                    }
 
 
                     mrun = true;
 
                 }
                 else
-                { 
+                {
 
                     if (cmd == 2)
                     {
@@ -1708,7 +1729,7 @@ namespace ClsStaticStation
 
                         m_runstate = 1;
                         myedc.Move.PosExt((XLDOPE.CTRL)ConvertCtrlMode(firstctl), Convert.ToSingle(speed), XLDOPE.LIMITMODE.NOT_ACTIVE, 5, (XLDOPE.CTRL)ConvertCtrlMode(destctl)
-                            , Convert.ToSingle(dest), (XLDOPE.DESTMODE)destmode , ref tan);
+                            , Convert.ToSingle(dest), (XLDOPE.DESTMODE)destmode, ref tan);
 
                         mrun = true;
 
@@ -1728,13 +1749,13 @@ namespace ClsStaticStation
             rr = new float[10];
             GGMsg = new XLDOPE.Data();
             mdatalist = new List<XLDOPE.MDataIno>();
-          
+
             mtimer = new System.Windows.Forms.Timer();
             mtimer.Tick += new EventHandler(mtimer_Tick);
             mtimer.Interval = 50;
 
             mstarttickcount = Environment.TickCount;
-         
+
 
         }
 
@@ -1762,14 +1783,14 @@ namespace ClsStaticStation
             return 0;
         }
 #else
-        private void  Eh_OnDataHdlr(ref XLDOPE.OnData m)
+        private void Eh_OnDataHdlr(ref XLDOPE.OnData m)
         {
             XLDOPE.Data Sample = new XLDOPE.Data();
             Sample = m.Data;
 
-            
-            
-           
+
+
+
             b.hardlimitlow = Sample.LowerLimits;
             b.hardlimitup = Sample.UpperLimits;
             b.softlimitlow = Sample.LowerSft;
@@ -1798,23 +1819,23 @@ namespace ClsStaticStation
             b.ctrl_upper_sft_e = (ushort)((Sample.CtrlState2 >> 6) & 1);
 
 
-           
 
 
-            
+
+
             moritime = m.Data.Time;
             ma = new XLDOPE.MDataIno();
             ma.Id = 0;
             ma.mydatainfo = Sample;
             mdatalist.Add(ma);
-          //  oncount = oncount + 1;
+            //  oncount = oncount + 1;
 
-            return ;
+            return;
         }
 #endif
         private void Eh_OnHandlerFuncHdlr(int NamelessParameter1, int NamelessParameter2, int NamelessParameter3)
         {
-           // oncount = oncount + 1;
+            // oncount = oncount + 1;
             return;
         }
         public override int getrunstate() // 1运行 0 停止
@@ -1825,7 +1846,7 @@ namespace ClsStaticStation
 
             else
             {
-               
+
             }
 
             return m_runstate;
@@ -1884,7 +1905,7 @@ namespace ClsStaticStation
 
                             if (current_returncount > m_returncount)
                             {
-                                mcurseg=mcurseg +1;
+                                mcurseg = mcurseg + 1;
                                 total_returncount = 0;
                                 current_returncount = 1;
 
@@ -1921,7 +1942,7 @@ namespace ClsStaticStation
                                        Convert.ToInt16(mrunlist[ii].controlmode),
                                          Convert.ToInt16(mrunlist[ii].destcontrolmode),
                                         k, Convert.ToSingle(mrunlist[ii].speed),
-                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
                                 }
                                 else
                                 {
@@ -1931,7 +1952,7 @@ namespace ClsStaticStation
                                    Convert.ToInt16(mrunlist[ii].controlmode),
                                     Convert.ToInt16(mrunlist[ii].destcontrolmode),
                                    k, Convert.ToSingle(mrunlist[ii].speed),
-                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
 
                                         mcurseg = ii;
                                     }
@@ -1957,7 +1978,7 @@ namespace ClsStaticStation
 
 
             return;
-           
+
         }
 
         void Timer()
@@ -1988,8 +2009,8 @@ namespace ClsStaticStation
 
 
 
-                    pos = GGMsg.Sensor[0] ;
-                    load =GGMsg.Sensor[1] ;
+                    pos = GGMsg.Sensor[0];
+                    load = GGMsg.Sensor[1];
                     ext = GGMsg.Sensor[2];
                     poscmd = 0;
                     loadcmd = 0;
@@ -2020,7 +2041,7 @@ namespace ClsStaticStation
 
                     ClsStaticStation.m_Global.mpos = pos;
 
-                
+
 
                     double[] rr;
 
@@ -2250,7 +2271,7 @@ namespace ClsStaticStation
 
                         }
 
-                    
+
 
 
 
@@ -2431,7 +2452,7 @@ namespace ClsStaticStation
                         {
                             m_Global.mycls.allsignals[j].cvalue = time;
                         }
-                       
+
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Sensor4")
                         {
                             m_Global.mycls.allsignals[j].cvalue = ClsStaticStation.m_Global.msensor4;
@@ -2461,7 +2482,7 @@ namespace ClsStaticStation
                         {
                             m_Global.mycls.allsignals[j].cvalue = pos;
                         }
-                       
+
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Load")
                         {
                             m_Global.mycls.allsignals[j].cvalue = load;
@@ -2508,26 +2529,16 @@ namespace ClsStaticStation
             short tan = 0;
 
 
-            FormOnLine f = new FormOnLine();
-            f.sel = -1;
-
-            f.ShowDialog();
-            int w = f.sel;
-            uint n = f.device;
-            if (w == -1)
-            {
-                MessageBox.Show("请选择网卡");
-            }
-            else
-            {
-                
+           
 
 
 
                 try
                 {
-                    myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, n, w, f.byte0, f.byte1, f.byte2, f.byte3);
-                    //myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0);
+                    myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0, 0, 0, 0, 0, 0);
+                //myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0);
+
+                connected = myedc.IsConnected();
 
                 }
                 catch (System.BadImageFormatException)
@@ -2566,23 +2577,24 @@ namespace ClsStaticStation
                     }
                 }
 
-              
+
 
                 // Select machine setup and initialize
-                myedc.Setup.SelSetup(XLDOPE.SETUP_NUMBER.SETUP_1, userScale, ref tan, ref tan );
+                myedc.Setup.SelSetup(XLDOPE.SETUP_NUMBER.SETUP_1, userScale, ref tan, ref tan);
 
 
                 mtimer.Start();
 
 
-            }
+            
             return 0;
         }
 
         public override int CloseConnection()
         {
             mtimer.Stop();
-          
+
+
 
 
             return 0;

@@ -61,6 +61,7 @@
             this.progress_CPI.Location = new System.Drawing.Point(35, 22);
             this.progress_CPI.Margin = new System.Windows.Forms.Padding(2);
             this.progress_CPI.Name = "progress_CPI";
+            this.progress_CPI.RefreshRate = 300;
             this.progress_CPI.Size = new System.Drawing.Size(160, 160);
             this.progress_CPI.TabIndex = 1;
             // 

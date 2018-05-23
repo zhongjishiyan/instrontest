@@ -33,6 +33,8 @@ namespace TabHeaderDemo
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
             chksystem.Checked = false;
+            chksafe.Checked = GlobeVal.mysys.safe;
+
         }
 
         private void chksystem_CheckedChanged(object sender, EventArgs e)
@@ -136,6 +138,32 @@ namespace TabHeaderDemo
             }
 
 
+        }
+
+        private void chksafe_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chksafe.Checked == true)
+            {
+                FormMima f = new FormMima();
+                f.ShowDialog();
+
+                if (f.suc == true)
+                {
+
+                    GlobeVal.mysys.safe = chksafe.Checked;
+
+                }
+                else
+                {
+                    chksafe.Checked = false;
+                }
+            }
+            else
+            {
+                GlobeVal.mysys.safe = chksafe.Checked;
+            }
+
+           
         }
     }
 }

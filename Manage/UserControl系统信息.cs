@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
+
 namespace TabHeaderDemo
 {
     public partial class UserControl系统信息 : UserControl
@@ -41,7 +42,9 @@ namespace TabHeaderDemo
             grid1.Rows.Insert(i);
             grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
                     "软件设置", typeof(string));
-#if  Demo
+
+  
+#if Demo
             grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(
                     "演示版", typeof(string));
             labelVersion1.Text = "版本 演示版";
@@ -65,9 +68,13 @@ namespace TabHeaderDemo
 
             string ss = "";
 
-            DateTime dt = new DateTime(2018, 2, 18).
+            DateTime dt;
 
-                   AddDays(Assembly.GetExecutingAssembly().GetName().Version.Build).AddSeconds(Assembly.GetExecutingAssembly().GetName().Version.Revision * 2f);
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
+            
+            dt=  System.IO.File.GetLastWriteTime(this.GetType().Assembly.Location);
+
+            //  AddDays(Assembly.GetExecutingAssembly().GetName().Version.Build).AddSeconds(Assembly.GetExecutingAssembly().GetName().Version.Revision * 2f);
 
             ss = Assembly.GetExecutingAssembly().GetName().Version.Major.ToString() + "." + Assembly.GetExecutingAssembly().GetName().Version.Minor.ToString() + "(Build " +
                 dt.ToString("yyyy-MM-dd HH:mm:ss") + ")";

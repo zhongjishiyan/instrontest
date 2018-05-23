@@ -2305,7 +2305,10 @@ namespace ClsStaticStation
                         n.destcontrolmode = sqf.mSequencelist[i].destcontrolmode;
                         n.dest = Convert.ToDouble(ClsStaticStation.m_Global.mycls.hardsignals[n.controlmode].GetOriValue(sqf.mSequencelist[i].mdest, sqf.mSequencelist[i].mdestunit));
                         n.keeptime = 0;
+                        n.mseq = sqf.mSequencelist[i];
                         n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                        n.mseq.stepname = sqf.mSequencelist[i].stepname;
+
 
                         n.action = 0; //始终保持异步控制
                         if (sqf.mSequencelist[i].loop == true)
@@ -2325,6 +2328,8 @@ namespace ClsStaticStation
                     {
                         n.keeptime = sqf.mSequencelist[i].keeptime;
                         n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                        n.mseq.stepname = sqf.mSequencelist[i].stepname;
+                        n.mseq = sqf.mSequencelist[i];
                         n.cmd = 0;
 
                         n.action = 0; //始终保持异步控制
@@ -2344,8 +2349,12 @@ namespace ClsStaticStation
                     if (sqf.mSequencelist[i].wavekind == 2) //循环波
                     {
                         n.keeptime = sqf.mSequencelist[i].keeptime;
-                        n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                       
                         n.mseq = sqf.mSequencelist[i];
+                        n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+
+                        n.mseq.stepname = sqf.mSequencelist[i].stepname;
+
                         n.cmd = 0;
 
                         n.action = 0; //始终保持异步控制
@@ -2365,8 +2374,10 @@ namespace ClsStaticStation
                     if (sqf.mSequencelist[i].wavekind == 3) //正弦波
                     {
                         n.keeptime = sqf.mSequencelist[i].keeptime;
-                        n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                     
                         n.mseq = sqf.mSequencelist[i];
+                        n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
+                        n.mseq.stepname  = sqf.mSequencelist[i].stepname ;
                         n.cmd = 0;
 
                         n.action = 0; //始终保持异步控制

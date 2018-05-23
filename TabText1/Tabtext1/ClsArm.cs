@@ -1358,12 +1358,7 @@ namespace ClsStaticStation
                     }
                     else
                     {
-                        if (CComLibrary.GlobeVal.filesave.Samplecheck)
-                        {
-                           
-
-                            
-                        }
+                        
                     }
 
                     if (time - mspeed_time0 >= 0.1)
@@ -2700,6 +2695,8 @@ namespace ClsStaticStation
                     }
                     else
                     {
+                        //断裂检测判断
+                        /*
                         if (CComLibrary.GlobeVal.filesave.crackcheck == true)
                         {
 
@@ -2719,6 +2716,7 @@ namespace ClsStaticStation
                                 }
                             }
                         }
+                        */
                     }
                 }
             }

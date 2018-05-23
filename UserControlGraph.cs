@@ -834,7 +834,7 @@ namespace TabHeaderDemo
                         }
                         else
                         {
-                            if (Math.Abs(mtime - mstarttime) >= 1 / CComLibrary.GlobeVal.filesave.SampleInterval)
+                            if (Math.Abs(mtime - mstarttime) >= 1 / 10)
                             {
                                 mstarttime = mtime;
 
@@ -911,7 +911,7 @@ namespace TabHeaderDemo
                         }
                         else
                         {
-                            if (Math.Abs(mtime - mstarttime) >= 1 / CComLibrary.GlobeVal.filesave.SampleInterval)
+                            if (Math.Abs(mtime - mstarttime) >= 1 / 10)
                             {
                                 mstarttime = mtime;
                                 scatterGraph.Plots[0].PlotXYAppend(xi, yi);
@@ -990,7 +990,7 @@ namespace TabHeaderDemo
 
                         else
                         {
-                            if (Math.Abs(mtime - mstarttime) >= 1 / CComLibrary.GlobeVal.filesave.SampleInterval)
+                            if (Math.Abs(mtime - mstarttime) >= 1 / 10)
                             {
                                 mstarttime = mtime;
                                 for (k = 0; k < myplotsettings.curvecount; k++)
@@ -1084,370 +1084,121 @@ namespace TabHeaderDemo
                             msavebool = false;
                         }
 
-                        if (((Convert.ToInt64(mtime) % (CComLibrary.GlobeVal.filesave.SamplingInterval * 60)) == (CComLibrary.GlobeVal.filesave.SamplingInterval * 60 - 1))
-                            && (msavebool == false))
+
+                        if (CComLibrary.GlobeVal.filesave.m_dynlongdata==true)
                         {
-                            msavebool = true;
-
-                            fname = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
-                               (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + "_" + mcount.ToString() + ".txt";
-
-
-                            if (File.Exists(fname) == true)
+                            if ((mtime - tstart) >= 1 / (CComLibrary.GlobeVal.filesave.LongDataInterval*60.0))
                             {
-                                File.Delete(fname);
-
-                            }
-
-                            FileStream fs = new FileStream(fname, FileMode.CreateNew);
-
-                            using (StreamWriter w = new StreamWriter(fs, System.Text.Encoding.Default))
-                            {
-
-                                s = "";
-
-                                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                                tstart = mtime;
+                                using (StreamWriter w = File.AppendText(mspefiledat))
                                 {
-                                    s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cName + " ";
-                                }
 
-                                w.WriteLine(s);
-
-                                s = "";
-                                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
-                                {
-                                    s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cUnits[CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel] + " ";
-                                }
-                                w.WriteLine(s);
-
-                                for (int i = 0; i < mrawdatalist.Count; i++)
-                                {
                                     s = "";
+                                    object[] mt = new object[CComLibrary.GlobeVal.filesave.mlongdata.Count];
 
-                                    for (int jj = 0; jj < mrawdatalist[i].len; jj++)
+                                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mlongdata.Count; i++)
                                     {
-                                        s = s + mrawdatalist[i].data[jj].ToString() + " ";
-                                    }
-                                    w.WriteLine(s);
-                                }
+                                        DataGridViewRow m = new DataGridViewRow();
 
 
+                                        for (j = 0; j < ClsStaticStation.m_Global.mycls.datalist.Count; j++)
+                                        {
+                                            if (ClsStaticStation.m_Global.mycls.datalist[j].SignName == CComLibrary.GlobeVal.filesave.mlongdata[i].SignName)
+                                            {
+                                                k = ClsStaticStation.m_Global.mycls.datalist[j].EdcId;
 
-                                int m1 = 0;
-                                int m2 = 0;
-                                int m3 = 0;
 
-                                
-                                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
-                                {
-                                    if (CComLibrary.GlobeVal.filesave.mrawdata[i].cName == "测量1")
-                                    {
-                                        m1 = i;
-                                    }
+                                                double.TryParse(CComLibrary.GlobeVal.filesave.mlongdata[i].GetValueFromUnit(b.data[k],
+                                                    CComLibrary.GlobeVal.filesave.mlongdata[i].cUnitsel), out v);
+                                                s = s + v.ToString("F" + CComLibrary.GlobeVal.filesave.mlongdata[i].precise.ToString()) + " ";
+                                                mt[i] = v.ToString("F" + CComLibrary.GlobeVal.filesave.mlongdata[i].precise.ToString());
 
-                                    if (CComLibrary.GlobeVal.filesave.mrawdata[i].cName == "测量2")
-                                    {
-                                        m2 = i;
-                                    }
 
-                                    if (CComLibrary.GlobeVal.filesave.mrawdata[i].cName == "测量3")
-                                    {
-                                        m3 = i;
+                                            }
+                                        }
+
+
                                     }
 
-                                }
-
-                                if ((CComLibrary.GlobeVal.filesave.Samplecheck) && (GlobeVal.myarm.m_dianyabaohucontrol = true))
-                                {
-                                    for (int jj = 0; jj < mrawdatalist.Count; jj++)
+                                    if (GlobeVal.UserControlRawdata1 == null)
                                     {
-
-                                        sensor5 = mrawdatalist[jj].data[m1];
-
-                                        sensor6 = mrawdatalist[jj].data[m2];
-                                        sensor7 = mrawdatalist[jj].data[m3];
-
-
-                                        if ((sensor5 > 1.636) && (sensor5 < 1.736))
-                                        {
-                                           
-                                            m_sensor5state3count = m_sensor5state3count + 1;
-
-                                            if (m_sensor5state3count >= 10)
-                                            {
-                                                s_sensor5state3 = " 测量1 1.636-1.736";
-                                                m_sensor5state3 = true;
-                                            }
-                                        }
-                                        if ((sensor6 > 1.636) && (sensor6 < 1.736))
-                                        {
-                                           
-
-                                            m_sensor6state3count = m_sensor6state3count + 1;
-                                            if (m_sensor6state3count >= 10)
-                                            {
-                                                s_sensor6state3 = " 测量2 1.636-1.736";
-                                                m_sensor6state3 = true;
-                                            }
-                                        }
-                                        if ((sensor7 > 1.636) && (sensor7 < 1.736))
-                                        {
-                                           
-
-                                            m_sensor7state3count = m_sensor7state3count + 1;
-                                            if (m_sensor7state3count >= 10)
-                                            {
-                                                s_sensor7state3 = " 测量3 1.636-1.736";
-                                                m_sensor7state3 = true;
-                                            }
-
-                                        }
-
-                                        if ((sensor5 > 3.003) && (sensor5 < 3.203))
-                                        {
-                                            
-
-                                            m_sensor5state4count = m_sensor5state4count + 1;
-
-                                            if (m_sensor5state4count >= 10)
-                                            {
-                                                s_sensor5state4 = " 测量1 3.003-3.203";
-                                                m_sensor5state4 = true;
-                                            }
-                                        }
-                                        if ((sensor6 > 3.003) && (sensor6 < 3.203))
-                                        {
-                                           
-                                            m_sensor6state4count = m_sensor6state4count + 1;
-                                            if (m_sensor6state4count >= 10)
-                                            {
-                                                s_sensor6state4 = " 测量2 3.003-3.203";
-                                                m_sensor6state4 = true;
-                                            }
-                                        }
-                                        if ((sensor7 > 3.003) && (sensor7 < 3.203))
-                                        {
-                                           
-                                            m_sensor7state4count = m_sensor7state4count + 1;
-                                            if (m_sensor7state4count >= 10)
-                                            {
-                                                s_sensor7state4 = " 测量3 3.003-3.203";
-                                                m_sensor7state4 = true;
-                                            }
-
-                                        }
-
-                                        if ((sensor5 > 4.416) && (sensor5 < 4.616))
-                                        {
-                                           
-                                            m_sensor5state5count = m_sensor5state5count + 1;
-
-                                            if (m_sensor5state5count >= 10)
-                                            {
-                                                s_sensor5state5 = " 测量1 4.416-4.616";
-                                                m_sensor5state5 = true;
-                                            }
-                                        }
-                                        if ((sensor6 > 4.416) && (sensor6 < 4.616))
-                                        {
-                                            
-                                            m_sensor6state5count = m_sensor6state5count + 1;
-                                            if (m_sensor6state5count >= 10)
-                                            {
-                                                s_sensor6state5 = " 测量2 4.416-4.616";
-                                                m_sensor6state5 = true;
-                                            }
-                                        }
-                                        if ((sensor7 > 4.416) && (sensor7 < 4.616))
-                                        {
-                                           
-                                            m_sensor7state5count = m_sensor7state5count + 1;
-                                            if (m_sensor7state5count >= 10)
-                                            {
-                                                s_sensor7state5 = " 测量3 4.416-4.616";
-                                                m_sensor7state5 = true;
-                                            }
-
-                                        }
-
-
-                                        if ((sensor5 > 1.200) && (sensor5 < 1.400))
-                                        {
-                                          
-                                            m_sensor5state0 = true;
-                                        }
-
-                                        if ((sensor6 > 1.200) && (sensor6 < 1.400))
-                                        {
-                                           
-                                            m_sensor6state0 = true;
-                                        }
-
-                                        if ((sensor7 > 1.200) && (sensor7 < 1.400))
-                                        {
-                                          
-                                            m_sensor7state0 = true;
-                                        }
-
-                                        if ((sensor5 > 1.950) && (sensor5 < 2.150))
-                                        {
-                                           
-                                            m_sensor5state1 = true;
-                                        }
-
-                                        if ((sensor6 > 1.95) && (sensor6 < 2.15))
-                                        {
-                                           
-                                            m_sensor6state1 = true;
-                                        }
-
-                                        if ((sensor7 > 1.95) && (sensor7 < 2.15))
-                                        {
-                                           
-                                            m_sensor7state1 = true;
-                                        }
-
-                                        if ((sensor5 > 2.5) && (sensor5 < 2.7))
-                                        {
-                                        
-                                           m_sensor5state2 = true;
-                                        }
-
-                                        if ((sensor6 > 2.5) && (sensor6 < 2.7))
-                                        {
-                                          
-                                           m_sensor6state2 = true;
-                                        }
-
-                                        if ((sensor7 > 2.5) && (sensor7 < 2.7))
-                                        {
-                                            
-                                            m_sensor7state2 = true;
-                                        }
-
-                                        m_sensor5state2 = true;
-                                        m_sensor6state2 = true;
-                                        m_sensor7state2 = true;
-                                    }
-
-
-                                    if ((m_sensor5state0 == true) && (m_sensor5state1 == true) && (m_sensor5state2 == true)
-                                                   && (m_sensor6state0 == true) && (m_sensor6state1 == true) && (m_sensor6state2 == true)
-                                                 && (m_sensor7state0 == true) && (m_sensor7state1 == true) && (m_sensor7state2 == true)
-                                                && (m_sensor5state3 == false) && (m_sensor5state4 == false) && (m_sensor5state5 == false)
-                                                 && (m_sensor6state3 == false) && (m_sensor6state4 == false) && (m_sensor6state5 == false)
-                                                 && (m_sensor7state3 == false) && (m_sensor7state4 == false) && (m_sensor7state5 == false))
-                                    {
-
-
-
-                                        m_sensor5state0 = false;
-                                        m_sensor5state1 = false;
-                                        m_sensor5state2 = false;
-                                        m_sensor6state0 = false;
-                                        m_sensor6state1 = false;
-                                        m_sensor6state2 = false;
-                                        m_sensor7state0 = false;
-                                        m_sensor7state1 = false;
-                                        m_sensor7state2 = false;
-
-                                        m_sensor5state3 = false;
-                                        m_sensor5state4 = false;
-                                        m_sensor5state5 = false;
-                                        m_sensor5state3count = 0;
-                                        m_sensor5state4count = 0;
-                                        m_sensor5state5count = 0;
-                                        m_sensor6state3 = false;
-                                        m_sensor6state4 = false;
-                                        m_sensor6state5 = false;
-                                        m_sensor6state3count = 0;
-                                        m_sensor6state4count = 0;
-                                        m_sensor6state5count = 0;
-                                        m_sensor7state3 = false;
-                                        m_sensor7state4 = false;
-                                        m_sensor7state5 = false;
-                                        m_sensor7state3count = 0;
-                                        m_sensor7state4count = 0;
-                                        m_sensor7state5count = 0;
-                                        s_sensor5state0 = "";
-                                        s_sensor6state0 = "";
-                                        s_sensor7state0 = "";
-                                        s_sensor5state1 = "";
-                                        s_sensor6state1 = "";
-                                        s_sensor7state1 = "";
-                                        s_sensor5state2 = "";
-                                        s_sensor6state2 = "";
-                                        s_sensor7state2 = "";
-                                        s_sensor5state3 = "";
-                                        s_sensor6state3 = "";
-                                        s_sensor7state3 = "";
-                                        s_sensor5state4 = "";
-                                        s_sensor6state4 = "";
-                                        s_sensor7state4 = "";
-                                        s_sensor5state5 = "";
-                                        s_sensor6state5 = "";
-                                        s_sensor7state5 = "";
-
-
                                     }
                                     else
                                     {
-                                        if (m_sensor5state0 == false)
-                                        {
-                                            s_sensor5state0 = "测量1 1.2-1.4";
-                                        }
-                                        if (m_sensor6state0==false)
-                                       {
-                                            s_sensor6state0 = "测量2 1.2-1.4";
-                                        }
-
-                                        if (m_sensor7state0 == false)
-                                        {
-                                            s_sensor7state0 = "测量3 1.2-1.4";
-                                        }
-
-                                        if (m_sensor5state1 == false)
-                                        {
-                                            s_sensor5state1 = "测量1 1.95-2.15";
-                                        }
-                                        if (m_sensor6state1 == false)
-                                        {
-                                            s_sensor6state1 = "测量2 1.95-2.15";
-                                        }
-                                        if (m_sensor7state1 == false)
-                                        {
-                                            s_sensor7state1 = "测量3 1.95-2.15";
-                                        }
-
-                                        if (m_sensor5state2 == false)
-                                        {
-                                            s_sensor5state2 = "测量1 2.5-2.7";
-                                        }
-
-                                        if (m_sensor6state2 == false)
-                                        {
-                                            s_sensor6state2 = "测量2 2.5-2.7";
-                                        }
-
-                                        if (m_sensor7state2 == false)
-                                        {
-                                            s_sensor7state2 = "测量3 2.5-2.7";
-                                        }
 
 
-                                        s = s_sensor5state0 + s_sensor5state1 + s_sensor5state2 + s_sensor5state3 + s_sensor5state4 + s_sensor5state5
-                                            + s_sensor6state0 + s_sensor6state1 + s_sensor6state2 + s_sensor6state3 + s_sensor6state4 + s_sensor6state5
-                                            + s_sensor7state0 + s_sensor7state1 + s_sensor7state2 + s_sensor7state3 + s_sensor7state4 + s_sensor7state5;
-                                        w.WriteLine(s);
-
-                                        GlobeVal.myarm.m_dianyabaohucontrol = false;
-                                        GlobeVal.myarm.dianyabaohu = true;
+                                        GlobeVal.UserControlLongRecord1.dataGridView1.Rows.Add(mt);
                                     }
+
+                                    w.WriteLine(s);
+
+
+
+
+                                }
+                            }
+                        }
+
+                        if (CComLibrary.GlobeVal.filesave.m_dyninterval==true)
+                        {
+                            if (((Convert.ToInt64(mtime) % (CComLibrary.GlobeVal.filesave.SamplingInterval * 60)) == (CComLibrary.GlobeVal.filesave.SamplingInterval * 60 - 1))
+                                && (msavebool == false))
+                            {
+                                msavebool = true;
+
+                                fname = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
+                                   (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + "_" + mcount.ToString() + ".txt";
+
+
+                                if (File.Exists(fname) == true)
+                                {
+                                    File.Delete(fname);
+
                                 }
 
-                            }
+                                FileStream fs = new FileStream(fname, FileMode.CreateNew);
 
-                            fs.Close();
+                                using (StreamWriter w = new StreamWriter(fs, System.Text.Encoding.Default))
+                                {
+
+                                    s = "";
+
+                                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                                    {
+                                        s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cName + " ";
+                                    }
+
+                                    w.WriteLine(s);
+
+                                    s = "";
+                                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                                    {
+                                        s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cUnits[CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel] + " ";
+                                    }
+                                    w.WriteLine(s);
+
+                                    for (int i = 0; i < mrawdatalist.Count; i++)
+                                    {
+                                        s = "";
+
+                                        for (int jj = 0; jj < mrawdatalist[i].len; jj++)
+                                        {
+                                            s = s + mrawdatalist[i].data[jj].ToString() + " ";
+                                        }
+                                        w.WriteLine(s);
+                                    }
+
+
+
+
+
+
+
+
+                                }
+
+                                fs.Close();
+                            }
                         }
 
 
@@ -1467,20 +1218,17 @@ namespace TabHeaderDemo
                             mrawdatalist.RemoveAt(0);
                             mrawdatalist.Add(mrawdata);
                         }
-
-                        if (CComLibrary.GlobeVal.filesave.SampleInterval == 0)
-                        {
-                            CComLibrary.GlobeVal.filesave.SampleInterval = 10;
-                        }
+                        //静态采集开始
+                       
 
 
 
-                        if ((mtime - tstart) >= 1 / CComLibrary.GlobeVal.filesave.SampleInterval)
+                        if ((mtime - tstart) >= 1 / 10)
                         {
                             tstart = mtime;
                             using (StreamWriter w = File.AppendText(mspefiledat))
                             {
-
+                                
                                 s = "";
                                  object[] mt = new  object[CComLibrary.GlobeVal.filesave.mrawdata.Count];
 

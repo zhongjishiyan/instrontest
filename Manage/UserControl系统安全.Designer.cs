@@ -41,6 +41,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chksafe = new System.Windows.Forms.CheckBox();
             this.chksystem = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -169,7 +170,7 @@
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(0, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(327, 244);
+            this.listBox1.Size = new System.Drawing.Size(327, 247);
             this.listBox1.TabIndex = 1;
             // 
             // label6
@@ -183,6 +184,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chksafe);
             this.groupBox1.Controls.Add(this.chksystem);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -191,14 +193,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // chksafe
+            // 
+            this.chksafe.AutoSize = true;
+            this.chksafe.Location = new System.Drawing.Point(35, 20);
+            this.chksafe.Name = "chksafe";
+            this.chksafe.Size = new System.Drawing.Size(96, 16);
+            this.chksafe.TabIndex = 1;
+            this.chksafe.Text = "启用安全管理";
+            this.chksafe.UseVisualStyleBackColor = true;
+            this.chksafe.CheckedChanged += new System.EventHandler(this.chksafe_CheckedChanged);
+            // 
             // chksystem
             // 
             this.chksystem.AutoSize = true;
-            this.chksystem.Location = new System.Drawing.Point(23, 20);
+            this.chksystem.Location = new System.Drawing.Point(258, 20);
             this.chksystem.Name = "chksystem";
-            this.chksystem.Size = new System.Drawing.Size(72, 16);
+            this.chksystem.Size = new System.Drawing.Size(96, 16);
             this.chksystem.TabIndex = 0;
-            this.chksystem.Text = "系统权限";
+            this.chksystem.Text = "系统权限管理";
             this.chksystem.UseVisualStyleBackColor = true;
             this.chksystem.CheckedChanged += new System.EventHandler(this.chksystem_CheckedChanged);
             // 
@@ -332,5 +345,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chksafe;
     }
 }

@@ -29,22 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlOpenMethod));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("选择方法");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("打开方法", new System.Windows.Forms.TreeNode[] {
             treeNode1});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlOpenMethod));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelbutton = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelback1 = new System.Windows.Forms.Panel();
-            this.panelback = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonExNext = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnexprint = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnexsave = new TabHeaderDemo.ButtonExNew(this.components);
@@ -53,7 +43,18 @@
             this.btnexread = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnexopen = new TabHeaderDemo.ButtonExNew(this.components);
             this.btnexnew = new TabHeaderDemo.ButtonExNew(this.components);
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelback1 = new System.Windows.Forms.Panel();
+            this.panelback = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new TabHeaderDemo.TreeListEx(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonExLook = new TabHeaderDemo.ButtonExNew(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panelbutton.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -81,6 +82,7 @@
             // panelbutton
             // 
             this.panelbutton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelbutton.Controls.Add(this.buttonExLook);
             this.panelbutton.Controls.Add(this.buttonExNext);
             this.panelbutton.Controls.Add(this.btnexprint);
             this.panelbutton.Controls.Add(this.btnexsave);
@@ -94,107 +96,6 @@
             this.panelbutton.Name = "panelbutton";
             this.panelbutton.Size = new System.Drawing.Size(95, 586);
             this.panelbutton.TabIndex = 5;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.panelback1, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(162, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 586);
-            this.tableLayoutPanel3.TabIndex = 4;
-            // 
-            // panelback1
-            // 
-            this.panelback1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panelback1.Controls.Add(this.panelback);
-            this.panelback1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelback1.Location = new System.Drawing.Point(3, 8);
-            this.panelback1.Name = "panelback1";
-            this.panelback1.Size = new System.Drawing.Size(794, 570);
-            this.panelback1.TabIndex = 0;
-            // 
-            // panelback
-            // 
-            this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelback.Location = new System.Drawing.Point(0, 0);
-            this.panelback.Name = "panelback";
-            this.panelback.Size = new System.Drawing.Size(794, 570);
-            this.panelback.TabIndex = 1;
-            this.panelback.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.panelback_ControlAdded);
-            this.panelback.Paint += new System.Windows.Forms.PaintEventHandler(this.panelback_Paint);
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.treeView1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 586F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(153, 586);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Red;
-            this.imageList1.Images.SetKeyName(0, "mt1.png");
-            this.imageList1.Images.SetKeyName(1, "mt2.png");
-            this.imageList1.Images.SetKeyName(2, "mt3.png");
-            this.imageList1.Images.SetKeyName(3, "mt4.png");
-            this.imageList1.Images.SetKeyName(4, "mt5.png");
-            this.imageList1.Images.SetKeyName(5, "mt5.png");
-            this.imageList1.Images.SetKeyName(6, "mt6.png");
-            this.imageList1.Images.SetKeyName(7, "mt7.png");
-            this.imageList1.Images.SetKeyName(8, "mt8.png");
-            this.imageList1.Images.SetKeyName(9, "mt9.png");
-            this.imageList1.Images.SetKeyName(10, "mt10.png");
-            this.imageList1.Images.SetKeyName(11, "mt11.ico");
-            this.imageList1.Images.SetKeyName(12, "mt12.ico");
-            this.imageList1.Images.SetKeyName(13, "控制台图标.png");
-            this.imageList1.Images.SetKeyName(14, "额外显示图标.png");
-            this.imageList1.Images.SetKeyName(15, "打开方法图标.ico");
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(14, 380);
-            this.panel1.TabIndex = 3;
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Black;
-            this.imageList2.Images.SetKeyName(0, "mt11.ico");
-            this.imageList2.Images.SetKeyName(1, "mt12.ico");
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // imageList3
-            // 
-            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
-            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList3.Images.SetKeyName(0, "12.ico");
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 200;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // buttonExNext
             // 
@@ -283,6 +184,7 @@
             this.btnexsaveclose.UseMnemonic = false;
             this.btnexsaveclose.UseVisualStyleBackColor = false;
             this.btnexsaveclose.Visible = false;
+            this.btnexsaveclose.Click += new System.EventHandler(this.btnexsaveclose_Click);
             // 
             // btnsaveas
             // 
@@ -360,7 +262,7 @@
             this.btnexnew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexnew.ForeColor = System.Drawing.Color.White;
             this.btnexnew.Image = ((System.Drawing.Image)(resources.GetObject("btnexnew.Image")));
-            this.btnexnew.Location = new System.Drawing.Point(3, 159);
+            this.btnexnew.Location = new System.Drawing.Point(3, 232);
             this.btnexnew.Name = "btnexnew";
             this.btnexnew.Size = new System.Drawing.Size(89, 67);
             this.btnexnew.TabIndex = 69;
@@ -371,6 +273,57 @@
             this.btnexnew.UseVisualStyleBackColor = false;
             this.btnexnew.Visible = false;
             this.btnexnew.Click += new System.EventHandler(this.btnexnew_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.panelback1, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(162, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 586);
+            this.tableLayoutPanel3.TabIndex = 4;
+            // 
+            // panelback1
+            // 
+            this.panelback1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelback1.Controls.Add(this.panelback);
+            this.panelback1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelback1.Location = new System.Drawing.Point(3, 8);
+            this.panelback1.Name = "panelback1";
+            this.panelback1.Size = new System.Drawing.Size(794, 570);
+            this.panelback1.TabIndex = 0;
+            // 
+            // panelback
+            // 
+            this.panelback.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelback.Location = new System.Drawing.Point(0, 0);
+            this.panelback.Name = "panelback";
+            this.panelback.Size = new System.Drawing.Size(794, 570);
+            this.panelback.TabIndex = 1;
+            this.panelback.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.panelback_ControlAdded);
+            this.panelback.Paint += new System.Windows.Forms.PaintEventHandler(this.panelback_Paint);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.treeView1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 586F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(153, 586);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // treeView1
             // 
@@ -402,6 +355,78 @@
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Red;
+            this.imageList1.Images.SetKeyName(0, "mt1.png");
+            this.imageList1.Images.SetKeyName(1, "mt2.png");
+            this.imageList1.Images.SetKeyName(2, "mt3.png");
+            this.imageList1.Images.SetKeyName(3, "mt4.png");
+            this.imageList1.Images.SetKeyName(4, "mt5.png");
+            this.imageList1.Images.SetKeyName(5, "mt5.png");
+            this.imageList1.Images.SetKeyName(6, "mt6.png");
+            this.imageList1.Images.SetKeyName(7, "mt7.png");
+            this.imageList1.Images.SetKeyName(8, "mt8.png");
+            this.imageList1.Images.SetKeyName(9, "mt9.png");
+            this.imageList1.Images.SetKeyName(10, "mt10.png");
+            this.imageList1.Images.SetKeyName(11, "mt11.ico");
+            this.imageList1.Images.SetKeyName(12, "mt12.ico");
+            this.imageList1.Images.SetKeyName(13, "控制台图标.png");
+            this.imageList1.Images.SetKeyName(14, "额外显示图标.png");
+            this.imageList1.Images.SetKeyName(15, "打开方法图标.ico");
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(14, 380);
+            this.panel1.TabIndex = 3;
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Black;
+            this.imageList2.Images.SetKeyName(0, "mt11.ico");
+            this.imageList2.Images.SetKeyName(1, "mt12.ico");
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "12.ico");
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // buttonExLook
+            // 
+            this.buttonExLook.BackColor = System.Drawing.Color.Transparent;
+            this.buttonExLook.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonExLook.BackgroundImage")));
+            this.buttonExLook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonExLook.FlatAppearance.BorderSize = 0;
+            this.buttonExLook.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonExLook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonExLook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExLook.ForeColor = System.Drawing.Color.White;
+            this.buttonExLook.Image = ((System.Drawing.Image)(resources.GetObject("buttonExLook.Image")));
+            this.buttonExLook.Location = new System.Drawing.Point(3, 149);
+            this.buttonExLook.Name = "buttonExLook";
+            this.buttonExLook.Size = new System.Drawing.Size(89, 67);
+            this.buttonExLook.TabIndex = 83;
+            this.buttonExLook.Text = "浏览";
+            this.buttonExLook.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonExLook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonExLook.UseMnemonic = false;
+            this.buttonExLook.UseVisualStyleBackColor = false;
+            this.buttonExLook.Click += new System.EventHandler(this.buttonExLook_Click);
             // 
             // UserControlOpenMethod
             // 
@@ -447,6 +472,6 @@
         public System.Windows.Forms.Panel panelbutton;
         private System.Windows.Forms.ImageList imageList3;
         private System.Windows.Forms.Timer timer1;
-
+        public ButtonExNew buttonExLook;
     }
 }

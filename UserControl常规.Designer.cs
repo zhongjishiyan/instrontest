@@ -39,10 +39,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblunit = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.grid1 = new SourceGrid2.Grid();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.grid1 = new SourceGrid2.Grid();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.txtmethodpath = new System.Windows.Forms.TextBox();
@@ -103,6 +111,7 @@
             this.摄像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.过程提示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.状态提示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.长时数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnsavelayout = new System.Windows.Forms.Button();
             this.btnreadlayout = new System.Windows.Forms.Button();
@@ -128,6 +137,10 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -208,7 +221,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(229, 27);
+            this.label3.Location = new System.Drawing.Point(169, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 12);
             this.label3.TabIndex = 2;
@@ -248,12 +261,12 @@
             // 
             this.tableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.7299F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.2701F));
-            this.tableLayoutPanel7.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.78456F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.21544F));
+            this.tableLayoutPanel7.Controls.Add(this.lblunit, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.label12, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.grid1, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.listBox1, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.panel11, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 55);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -263,27 +276,119 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(623, 282);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
-            // label11
+            // lblunit
             // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(4, 1);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(265, 25);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "单位系统：";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblunit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblunit.Location = new System.Drawing.Point(4, 1);
+            this.lblunit.Name = "lblunit";
+            this.lblunit.Size = new System.Drawing.Size(284, 25);
+            this.lblunit.TabIndex = 0;
+            this.lblunit.Text = "单位系统：";
+            this.lblunit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
             this.label12.BackColor = System.Drawing.Color.DodgerBlue;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(276, 1);
+            this.label12.Location = new System.Drawing.Point(295, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(343, 25);
+            this.label12.Size = new System.Drawing.Size(324, 25);
             this.label12.TabIndex = 1;
             this.label12.Text = "预览";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(295, 30);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(324, 248);
+            this.listBox1.TabIndex = 3;
+            this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
+            this.listBox1.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.listBox1_MeasureItem);
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.SizeChanged += new System.EventHandler(this.listBox1_SizeChanged);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.tabControl2);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(4, 30);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(284, 248);
+            this.panel11.TabIndex = 4;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage5);
+            this.tabControl2.Controls.Add(this.tabPage6);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(0, 0);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(284, 248);
+            this.tabControl2.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.listView1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(276, 222);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listView1.BackColor = System.Drawing.Color.White;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.FullRowSelect = true;
+            this.listView1.HideSelection = false;
+            this.listView1.HotTracking = true;
+            this.listView1.HoverSelection = true;
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(270, 216);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "方法名称";
+            this.columnHeader1.Width = 350;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "测试类型";
+            this.columnHeader2.Width = 115;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "修改日期";
+            this.columnHeader3.Width = 100;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.grid1);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(276, 222);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // grid1
             // 
@@ -297,9 +402,9 @@
             this.grid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid1.FocusStyle = SourceGrid2.FocusStyle.None;
             this.grid1.GridToolTipActive = true;
-            this.grid1.Location = new System.Drawing.Point(4, 30);
+            this.grid1.Location = new System.Drawing.Point(3, 3);
             this.grid1.Name = "grid1";
-            this.grid1.Size = new System.Drawing.Size(265, 248);
+            this.grid1.Size = new System.Drawing.Size(270, 216);
             this.grid1.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
             | SourceGrid2.GridSpecialKeys.Ctrl_X) 
             | SourceGrid2.GridSpecialKeys.Delete) 
@@ -308,23 +413,7 @@
             | SourceGrid2.GridSpecialKeys.PageDownUp) 
             | SourceGrid2.GridSpecialKeys.Enter) 
             | SourceGrid2.GridSpecialKeys.Escape)));
-            this.grid1.TabIndex = 2;
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(276, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(343, 248);
-            this.listBox1.TabIndex = 3;
-            this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
-            this.listBox1.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.listBox1_MeasureItem);
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            this.listBox1.SizeChanged += new System.EventHandler(this.listBox1_SizeChanged);
+            this.grid1.TabIndex = 3;
             // 
             // tableLayoutPanel4
             // 
@@ -339,7 +428,7 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 597F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 631F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(623, 55);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
@@ -393,7 +482,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 591);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 625);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // label7
@@ -1025,7 +1114,8 @@
             this.原始数据ToolStripMenuItem,
             this.摄像ToolStripMenuItem,
             this.过程提示ToolStripMenuItem,
-            this.状态提示ToolStripMenuItem});
+            this.状态提示ToolStripMenuItem,
+            this.长时数据ToolStripMenuItem});
             this.添加对象ToolStripMenuItem.Name = "添加对象ToolStripMenuItem";
             this.添加对象ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.添加对象ToolStripMenuItem.Text = "添加屏幕组件";
@@ -1106,6 +1196,13 @@
             this.状态提示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.状态提示ToolStripMenuItem.Text = "状态提示";
             this.状态提示ToolStripMenuItem.Click += new System.EventHandler(this.状态提示ToolStripMenuItem_Click);
+            // 
+            // 长时数据ToolStripMenuItem
+            // 
+            this.长时数据ToolStripMenuItem.Name = "长时数据ToolStripMenuItem";
+            this.长时数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.长时数据ToolStripMenuItem.Text = "长时数据";
+            this.长时数据ToolStripMenuItem.Click += new System.EventHandler(this.长时数据ToolStripMenuItem_Click);
             // 
             // panel6
             // 
@@ -1289,6 +1386,10 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
@@ -1334,7 +1435,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblunit;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TabPage tabPage2;
@@ -1361,7 +1462,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        public SourceGrid2.Grid grid1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
@@ -1417,5 +1517,15 @@
         private System.Windows.Forms.ToolStripMenuItem 摄像ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 过程提示ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 状态提示ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 长时数据ToolStripMenuItem;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        public SourceGrid2.Grid grid1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

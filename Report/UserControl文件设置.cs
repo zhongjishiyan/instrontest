@@ -122,8 +122,38 @@ namespace TabHeaderDemo
             CComLibrary.GlobeVal.filesave.UseDatabase = chkdatabase.Checked;
         }
 
-       
+        private void btnchange_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\";
+            this.openFileDialog1.AddExtension = true;
+            this.openFileDialog1.Filter = "试验报告模板文件(*.it)|*.it";
+            this.openFileDialog1.FileName = "";
+            this.openFileDialog1.ShowDialog(this);
+            if (this.openFileDialog1.FileName == null)
+            {
 
-      
+                return;
+            }
+            else
+            {
+                string fileName = this.openFileDialog1.FileName;
+
+                if (fileName == "")
+                {
+                    return;
+                }
+                else
+                {
+                    txtReportTemplate.Text = System.IO.Path.GetFileName(fileName);
+
+                }
+
+            }
+        }
+
+        private void txtReportTemplate_TextChanged(object sender, EventArgs e)
+        {
+             CComLibrary.GlobeVal.filesave.ReportTemplate= txtReportTemplate.Text;
+        }
     }
 }

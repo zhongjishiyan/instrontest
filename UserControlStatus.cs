@@ -17,7 +17,23 @@ namespace TabHeaderDemo
 
             timer1.Enabled = true;
 
-            return;
+            if (CComLibrary.GlobeVal.filesave.Samplingmode == 0)
+            {
+                label8.Visible = false;
+                label4.Visible = false;
+                lblcurlargecount.Visible = false;
+                lbllargecount.Visible = false;
+
+            }
+            else
+            {
+                label8.Visible = true;
+                label4.Visible = true;
+                lblcurlargecount.Visible = true;
+                lbllargecount.Visible = true;
+
+            }
+                return;
         }
         public UserControlStatus()
         {
@@ -38,12 +54,26 @@ namespace TabHeaderDemo
             if (CComLibrary.GlobeVal.filesave != null)
             {
 
+
                 if (CComLibrary.GlobeVal.filesave.mseglist.Count > 0)
                 {
                     if (GlobeVal.myarm.mcurseg < CComLibrary.GlobeVal.filesave.mseglist.Count)
                     {
-                        lblstep.Text = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.stepname;
+                        if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
+                        {
+                          
+                            lblstep.Text = "步骤" + (GlobeVal.myarm.mcurseg).ToString();
+                        }
+                        else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+                        {
+                          
+                            lblstep.Text =CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.stepname;
+                        }
+
+                       
                     }
+
+
                 }
             }
         }
