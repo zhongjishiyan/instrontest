@@ -38,9 +38,9 @@
             this.tslblsample = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslblmethod = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslblreport = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolstatustest = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslblEmergencyStop = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslbllimit = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolstatustest = new System.Windows.Forms.ToolStripStatusLabel();
             this.tslblstate = new System.Windows.Forms.ToolStripStatusLabel();
             this.paneltop = new System.Windows.Forms.Panel();
             this.tlprecord = new System.Windows.Forms.TableLayoutPanel();
@@ -63,6 +63,10 @@
             this.tlbmeterback = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tlbmeter = new System.Windows.Forms.TableLayoutPanel();
+            this.jMeter1 = new TabHeaderDemo.JMeter();
+            this.jMeter2 = new TabHeaderDemo.JMeter();
+            this.jMeter3 = new TabHeaderDemo.JMeter();
+            this.jMeter4 = new TabHeaderDemo.JMeter();
             this.btnmethod = new System.Windows.Forms.Button();
             this.btnon = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -86,10 +90,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.jMeter1 = new TabHeaderDemo.JMeter();
-            this.jMeter2 = new TabHeaderDemo.JMeter();
-            this.jMeter3 = new TabHeaderDemo.JMeter();
-            this.jMeter4 = new TabHeaderDemo.JMeter();
+            this.imageListState = new System.Windows.Forms.ImageList(this.components);
             this.statusStrip1.SuspendLayout();
             this.paneltop.SuspendLayout();
             this.tlprecord.SuspendLayout();
@@ -120,13 +121,13 @@
             this.tslblsample,
             this.tslblmethod,
             this.tslblreport,
+            this.toolstatustest,
             this.tslblEmergencyStop,
             this.tslbllimit,
-            this.toolstatustest,
             this.tslblstate});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 703);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 700);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1350, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1350, 29);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -138,7 +139,7 @@
             this.tsluser.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tsluser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsluser.Name = "tsluser";
-            this.tsluser.Size = new System.Drawing.Size(60, 21);
+            this.tsluser.Size = new System.Drawing.Size(60, 24);
             this.tsluser.Text = "安全关闭";
             // 
             // tslblmachine
@@ -148,7 +149,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblmachine.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
             this.tslblmachine.Name = "tslblmachine";
-            this.tslblmachine.Size = new System.Drawing.Size(96, 21);
+            this.tslblmachine.Size = new System.Drawing.Size(96, 24);
             this.tslblmachine.Text = "电子万能试验机";
             // 
             // tslbldevice
@@ -158,7 +159,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslbldevice.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslbldevice.Name = "tslbldevice";
-            this.tslbldevice.Size = new System.Drawing.Size(72, 21);
+            this.tslbldevice.Size = new System.Drawing.Size(72, 24);
             this.tslbldevice.Text = "无可用设备";
             // 
             // tslblkind
@@ -168,7 +169,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblkind.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblkind.Name = "tslblkind";
-            this.tslblkind.Size = new System.Drawing.Size(76, 21);
+            this.tslblkind.Size = new System.Drawing.Size(76, 24);
             this.tslblkind.Text = "试验类型 空";
             // 
             // tslblsample
@@ -179,7 +180,7 @@
             this.tslblsample.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblsample.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tslblsample.Name = "tslblsample";
-            this.tslblsample.Size = new System.Drawing.Size(72, 21);
+            this.tslblsample.Size = new System.Drawing.Size(72, 24);
             this.tslblsample.Text = "样品：关闭";
             // 
             // tslblmethod
@@ -189,7 +190,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblmethod.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblmethod.Name = "tslblmethod";
-            this.tslblmethod.Size = new System.Drawing.Size(72, 21);
+            this.tslblmethod.Size = new System.Drawing.Size(72, 24);
             this.tslblmethod.Text = "方法：关闭";
             // 
             // tslblreport
@@ -199,28 +200,8 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblreport.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.tslblreport.Name = "tslblreport";
-            this.tslblreport.Size = new System.Drawing.Size(72, 21);
+            this.tslblreport.Size = new System.Drawing.Size(72, 24);
             this.tslblreport.Text = "报告：关闭";
-            // 
-            // tslblEmergencyStop
-            // 
-            this.tslblEmergencyStop.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.tslblEmergencyStop.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            this.tslblEmergencyStop.Name = "tslblEmergencyStop";
-            this.tslblEmergencyStop.Size = new System.Drawing.Size(72, 21);
-            this.tslblEmergencyStop.Text = "急停：关闭";
-            // 
-            // tslbllimit
-            // 
-            this.tslbllimit.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.tslbllimit.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
-            this.tslbllimit.Name = "tslbllimit";
-            this.tslbllimit.Size = new System.Drawing.Size(72, 21);
-            this.tslbllimit.Text = "限位：关闭";
             // 
             // toolstatustest
             // 
@@ -229,9 +210,36 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolstatustest.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolstatustest.Name = "toolstatustest";
-            this.toolstatustest.Size = new System.Drawing.Size(103, 21);
+            this.toolstatustest.Size = new System.Drawing.Size(103, 24);
             this.toolstatustest.Text = "高级测试：步骤1";
             this.toolstatustest.Visible = false;
+            // 
+            // tslblEmergencyStop
+            // 
+            this.tslblEmergencyStop.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslblEmergencyStop.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.tslblEmergencyStop.Image = ((System.Drawing.Image)(resources.GetObject("tslblEmergencyStop.Image")));
+            this.tslblEmergencyStop.ImageTransparentColor = System.Drawing.Color.Silver;
+            this.tslblEmergencyStop.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.tslblEmergencyStop.Name = "tslblEmergencyStop";
+            this.tslblEmergencyStop.Size = new System.Drawing.Size(92, 24);
+            this.tslblEmergencyStop.Text = "急停：关闭";
+            this.tslblEmergencyStop.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // tslbllimit
+            // 
+            this.tslbllimit.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tslbllimit.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.tslbllimit.Image = ((System.Drawing.Image)(resources.GetObject("tslbllimit.Image")));
+            this.tslbllimit.ImageTransparentColor = System.Drawing.Color.Silver;
+            this.tslbllimit.Name = "tslbllimit";
+            this.tslbllimit.Size = new System.Drawing.Size(92, 24);
+            this.tslbllimit.Text = "限位：正常";
+            this.tslbllimit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // tslblstate
             // 
@@ -239,9 +247,12 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tslblstate.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.tslblstate.Image = ((System.Drawing.Image)(resources.GetObject("tslblstate.Image")));
+            this.tslblstate.ImageTransparentColor = System.Drawing.Color.Silver;
             this.tslblstate.Name = "tslblstate";
-            this.tslblstate.Size = new System.Drawing.Size(72, 21);
-            this.tslblstate.Text = "状态：运行";
+            this.tslblstate.Size = new System.Drawing.Size(92, 24);
+            this.tslblstate.Text = "状态：停止";
+            this.tslblstate.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // paneltop
             // 
@@ -607,6 +618,50 @@
             this.tlbmeter.Size = new System.Drawing.Size(1284, 78);
             this.tlbmeter.TabIndex = 40;
             // 
+            // jMeter1
+            // 
+            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter1.Location = new System.Drawing.Point(4, 4);
+            this.jMeter1.Margin = new System.Windows.Forms.Padding(4);
+            this.jMeter1.MinimumSize = new System.Drawing.Size(10, 10);
+            this.jMeter1.Name = "jMeter1";
+            this.jMeter1.Size = new System.Drawing.Size(313, 70);
+            this.jMeter1.TabIndex = 0;
+            // 
+            // jMeter2
+            // 
+            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter2.Location = new System.Drawing.Point(325, 4);
+            this.jMeter2.Margin = new System.Windows.Forms.Padding(4);
+            this.jMeter2.MinimumSize = new System.Drawing.Size(10, 10);
+            this.jMeter2.Name = "jMeter2";
+            this.jMeter2.Size = new System.Drawing.Size(313, 70);
+            this.jMeter2.TabIndex = 1;
+            // 
+            // jMeter3
+            // 
+            this.jMeter3.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter3.Location = new System.Drawing.Point(646, 4);
+            this.jMeter3.Margin = new System.Windows.Forms.Padding(4);
+            this.jMeter3.MinimumSize = new System.Drawing.Size(10, 10);
+            this.jMeter3.Name = "jMeter3";
+            this.jMeter3.Size = new System.Drawing.Size(313, 70);
+            this.jMeter3.TabIndex = 2;
+            // 
+            // jMeter4
+            // 
+            this.jMeter4.BackColor = System.Drawing.Color.Transparent;
+            this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jMeter4.Location = new System.Drawing.Point(967, 4);
+            this.jMeter4.Margin = new System.Windows.Forms.Padding(4);
+            this.jMeter4.MinimumSize = new System.Drawing.Size(10, 10);
+            this.jMeter4.Name = "jMeter4";
+            this.jMeter4.Size = new System.Drawing.Size(313, 70);
+            this.jMeter4.TabIndex = 3;
+            // 
             // btnmethod
             // 
             this.btnmethod.BackColor = System.Drawing.Color.Transparent;
@@ -651,7 +706,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1350, 577);
+            this.tabControl1.Size = new System.Drawing.Size(1350, 574);
             this.tabControl1.TabIndex = 33;
             // 
             // tabPage1
@@ -660,7 +715,7 @@
             this.tabPage1.Location = new System.Drawing.Point(24, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1322, 569);
+            this.tabPage1.Size = new System.Drawing.Size(1322, 566);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -671,7 +726,7 @@
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1316, 563);
+            this.panel5.Size = new System.Drawing.Size(1316, 560);
             this.panel5.TabIndex = 0;
             // 
             // tabPage2
@@ -680,7 +735,7 @@
             this.tabPage2.Location = new System.Drawing.Point(24, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1322, 569);
+            this.tabPage2.Size = new System.Drawing.Size(1322, 566);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -700,7 +755,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1316, 563);
+            this.splitContainer1.Size = new System.Drawing.Size(1316, 560);
             this.splitContainer1.SplitterDistance = 980;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainer1_SplitterMoving);
@@ -714,7 +769,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(332, 563);
+            this.panel1.Size = new System.Drawing.Size(332, 560);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -730,7 +785,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(332, 563);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(332, 560);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -738,7 +793,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(326, 519);
+            this.panel2.Size = new System.Drawing.Size(326, 516);
             this.panel2.TabIndex = 0;
             // 
             // panel3
@@ -832,49 +887,12 @@
             this.imageList2.Images.SetKeyName(0, "24.bmp");
             this.imageList2.Images.SetKeyName(1, "24红.bmp");
             // 
-            // jMeter1
+            // imageListState
             // 
-            this.jMeter1.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter1.Location = new System.Drawing.Point(4, 4);
-            this.jMeter1.Margin = new System.Windows.Forms.Padding(4);
-            this.jMeter1.MinimumSize = new System.Drawing.Size(10, 10);
-            this.jMeter1.Name = "jMeter1";
-            this.jMeter1.Size = new System.Drawing.Size(313, 70);
-            this.jMeter1.TabIndex = 0;
-            // 
-            // jMeter2
-            // 
-            this.jMeter2.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter2.Location = new System.Drawing.Point(325, 4);
-            this.jMeter2.Margin = new System.Windows.Forms.Padding(4);
-            this.jMeter2.MinimumSize = new System.Drawing.Size(10, 10);
-            this.jMeter2.Name = "jMeter2";
-            this.jMeter2.Size = new System.Drawing.Size(313, 70);
-            this.jMeter2.TabIndex = 1;
-            // 
-            // jMeter3
-            // 
-            this.jMeter3.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter3.Location = new System.Drawing.Point(646, 4);
-            this.jMeter3.Margin = new System.Windows.Forms.Padding(4);
-            this.jMeter3.MinimumSize = new System.Drawing.Size(10, 10);
-            this.jMeter3.Name = "jMeter3";
-            this.jMeter3.Size = new System.Drawing.Size(313, 70);
-            this.jMeter3.TabIndex = 2;
-            // 
-            // jMeter4
-            // 
-            this.jMeter4.BackColor = System.Drawing.Color.Transparent;
-            this.jMeter4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jMeter4.Location = new System.Drawing.Point(967, 4);
-            this.jMeter4.Margin = new System.Windows.Forms.Padding(4);
-            this.jMeter4.MinimumSize = new System.Drawing.Size(10, 10);
-            this.jMeter4.Name = "jMeter4";
-            this.jMeter4.Size = new System.Drawing.Size(313, 70);
-            this.jMeter4.TabIndex = 3;
+            this.imageListState.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListState.ImageStream")));
+            this.imageListState.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListState.Images.SetKeyName(0, "1.bmp");
+            this.imageListState.Images.SetKeyName(1, "3.bmp");
             // 
             // FormMainLab
             // 
@@ -889,6 +907,7 @@
             this.Name = "FormMainLab";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AppleLab 微机控制岩石静试验机";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMainLab_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMainLab_FormClosed);
             this.Load += new System.EventHandler(this.FormMainLab_Load);
             this.statusStrip1.ResumeLayout(false);
@@ -979,5 +998,6 @@
         private System.Windows.Forms.ToolStripStatusLabel tslblstate;
         public System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ImageList imageList2;
+        public System.Windows.Forms.ImageList imageListState;
     }
 }

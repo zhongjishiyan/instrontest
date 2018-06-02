@@ -1736,7 +1736,7 @@ namespace ClsStaticStation
 
                 total_returncount = 0;
 
-                current_returncount = 1;
+                current_returncount = 0;
 
 
             }

@@ -488,7 +488,7 @@ namespace TabHeaderDemo
                     this.状态提示ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "长时数据")
+                if (e1.caption == "峰值趋势数据")
                 {
                     this.长时数据ToolStripMenuItem.Enabled = true;
                 }
@@ -923,7 +923,7 @@ namespace TabHeaderDemo
                             label1.Image = imageList1.Images[7];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
-                        if (label1.Text == "长时数据")
+                        if (label1.Text == "峰值趋势数据")
                         {
                             this.长时数据ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[4];
@@ -980,7 +980,7 @@ namespace TabHeaderDemo
                 f.ItemName[8] = "摄像";
                 f.ItemName[9] = "过程提示";
                 f.ItemName[10] = "状态提示";
-                f.ItemName[11] = "长时数据";
+                f.ItemName[11] = "峰值趋势数据";
 
 
                 for (int i = 0; i < f.colcount; i++)
@@ -1427,7 +1427,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "长时数据";
+            label1.Text = "峰值趋势数据";
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;

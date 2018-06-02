@@ -2474,8 +2474,17 @@ namespace ClsStaticStation
 
 
                 total_returncount = 0;
-                //CComLibrary.GlobeVal.filesave.mseglist[mcurseg].currentcount = 1;
-                current_returncount = 1;
+
+
+
+                for (int ii = mcurseg; ii < mrunlist.Count; ii++)
+                {
+                    if (mrunlist[ii].mseq.loopcount > 0)
+                    {
+                        current_returncount = mrunlist[ii].mseq.finishedloopcount;
+                        break;
+                    }
+                }
 
 
 
@@ -2611,7 +2620,7 @@ namespace ClsStaticStation
 
                 total_returncount = 0;
 
-                current_returncount = 1;
+                current_returncount = 0;
 
 
             }
@@ -2672,7 +2681,7 @@ namespace ClsStaticStation
                         double m_dest2 = mrunlist[mcurseg].mseq.mtrimin;
 
 
-                        MyEdc[DeviceNum].Move.Cycle((DoPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed, m_dest1, 0, m_speed, m_dest2, 0, Convert.ToInt32( mrunlist[mcurseg].mseq.mtricount), m_speed, m_dest2, ref tan);
+                        MyEdc[DeviceNum].Move.Cycle((DoPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed, m_dest1, 0, m_speed, m_dest2, 0, Convert.ToInt32( mrunlist[mcurseg].mseq.mcount- mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_dest2, ref tan);
                     }
 
 
@@ -2699,7 +2708,7 @@ namespace ClsStaticStation
 
 
                         MyEdc[DeviceNum].Move.DynCycles(DoPE.DYN_WAVEFORM.COSINE,false, (DoPE.DYN_PEAKCTRL)0, (DoPE.CTRL)mrunlist[mcurseg].mseq.controlmode, false, m_speed, m_offset, m_amp,0,0,
-                            mrunlist[mcurseg].mseq.msinfreq, Convert.ToInt32( mrunlist[mcurseg].mseq.msincount), m_speed, m_offset,DoPE.DYN_SWEEP.OFF,0,0,0,DoPE.DYN_SWEEP.OFF,0,0,0,DoPE.DYN_SWEEP.OFF,0,0,0,
+                            mrunlist[mcurseg].mseq.msinfreq, Convert.ToInt32( mrunlist[mcurseg].mseq.mcount- mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_offset,DoPE.DYN_SWEEP.OFF,0,0,0,DoPE.DYN_SWEEP.OFF,0,0,0,DoPE.DYN_SWEEP.OFF,0,0,0,
                             DoPE.DYN_SUPERPOS.OFF,0,0,DoPE.DYN_BIMODAL.CTRL_OFF,DoPE.SENSOR.SENSOR_S,0,0,0, ref tan);
                     }
 
@@ -2790,14 +2799,14 @@ namespace ClsStaticStation
                         if (m_returncount > 0)
                         {
                             current_returncount = current_returncount + 1;
-
+                            mrunlist[mcurseg].mseq.finishedloopcount = current_returncount;
                       
 
-                            if (current_returncount > m_returncount)
+                            if (current_returncount >= m_returncount)
                             {
                                 mcurseg = mcurseg + 1;
                                 total_returncount = 0;
-                                current_returncount = 1;
+                                current_returncount = 0;
 
                             }
                             else

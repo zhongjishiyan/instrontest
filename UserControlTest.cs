@@ -717,7 +717,7 @@ namespace TabHeaderDemo
 
                     }
 
-                    if (f.ItemName[k] == "长时数据")
+                    if (f.ItemName[k] == "峰值趋势数据")
                     {
                         UserControlLongRecord ug = new  UserControlLongRecord();
                         ug.Visible = true;
@@ -1135,10 +1135,18 @@ namespace TabHeaderDemo
                 return;
             }
 
-            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
+            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
             {
-
+                for (int j = 0; j < CComLibrary.GlobeVal.filesave.mseglist.Count; j++)
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        CComLibrary.GlobeVal.filesave.mseglist[j].mseq.sampleintervaltemp[i]=0;                        
+                    }
+                }
             }
+
+
 
             if (CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["试样状态"] is DBNull)
             {
@@ -1237,6 +1245,17 @@ namespace TabHeaderDemo
             }
 
 
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.numintervallast.Length; i++)
+            {
+                CComLibrary.GlobeVal.filesave.numintervallast[i] = 0;
+            }
+
+            CComLibrary.GlobeVal.filesave.endoftest1tempmax = 0;
+            CComLibrary.GlobeVal.filesave.endoftest1tempbool = false;
+            CComLibrary.GlobeVal.filesave.endoftest2tempbool = false; 
+            CComLibrary.GlobeVal.filesave.endoftest2tempmax =0;
+
+
             GlobeVal.myarm.starttest(CComLibrary.GlobeVal.filesave.currentspenumber + 1);
 
 
@@ -1257,12 +1276,19 @@ namespace TabHeaderDemo
 
             GlobeVal.UserControlMain1.btnmmethod.Visible  = false;
             GlobeVal.UserControlMain1.btnmreport.Visible = false;
-            GlobeVal.UserControlMain1.btnmmanage.Visible  = false; 
+            GlobeVal.UserControlMain1.btnmmanage.Visible  = false;
+            GlobeVal.UserControlMain1.btnmain.Visible = false;
 
+            GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：运行";
+
+            GlobeVal.MainStatusStrip.Items["tslblstate"].Image = GlobeVal.FormmainLab.imageListState.Images[1];
+
+            lstspe.Items[CComLibrary.GlobeVal.filesave.currentspenumber].Image = imageList2.Images[4];
+            lstspe.Refresh();
 
         }
 
-        private void btnend_Click(object sender, EventArgs e)
+        public void btnend_Click(object sender, EventArgs e)
         {
 
             timer1.Enabled = false;
@@ -1387,7 +1413,20 @@ namespace TabHeaderDemo
                 }
                 FreeFormRefresh(true, false);
 
-              
+                if (GlobeVal.myarm.duanliebaohu == true)
+                {
+                    GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：断裂保护,停止";
+                    GlobeVal.MainStatusStrip.Items["tslblstate"].Image = GlobeVal.FormmainLab.imageListState.Images[0];
+
+                }
+                else
+                {
+                    GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：停止";
+
+                    GlobeVal.MainStatusStrip.Items["tslblstate"].Image = GlobeVal.FormmainLab.imageListState.Images[0];
+                }
+
+
             }
 
             CComLibrary.GlobeVal.filesave.SerializeNow(GlobeVal.spefilename);
@@ -1422,6 +1461,7 @@ namespace TabHeaderDemo
             GlobeVal.UserControlMain1.btnmmethod.Visible  = true;
             GlobeVal.UserControlMain1.btnmreport.Visible  = true;
             GlobeVal.UserControlMain1.btnmmanage.Visible  = true ;
+            GlobeVal.UserControlMain1.btnmain.Visible = true;
 
         }
 
@@ -1438,7 +1478,7 @@ namespace TabHeaderDemo
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-
+           
 
 
 
@@ -1469,10 +1509,7 @@ namespace TabHeaderDemo
 
                 }
 
-                if (GlobeVal.myarm.duanliebaohu == true)
-                {
-                    GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "断裂保护：进入位移控制";
-                }
+               
 
 
                 if (GlobeVal.myarm.total_returncount > 0)

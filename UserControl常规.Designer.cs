@@ -428,7 +428,7 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 631F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 634F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(623, 55);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
@@ -482,7 +482,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 625);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(269, 628);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // label7
@@ -1123,85 +1123,85 @@
             // 结果1ToolStripMenuItem
             // 
             this.结果1ToolStripMenuItem.Name = "结果1ToolStripMenuItem";
-            this.结果1ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.结果1ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.结果1ToolStripMenuItem.Text = "结果1";
             this.结果1ToolStripMenuItem.Click += new System.EventHandler(this.结果1ToolStripMenuItem_Click);
             // 
             // 结果2ToolStripMenuItem
             // 
             this.结果2ToolStripMenuItem.Name = "结果2ToolStripMenuItem";
-            this.结果2ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.结果2ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.结果2ToolStripMenuItem.Text = "结果2";
             this.结果2ToolStripMenuItem.Click += new System.EventHandler(this.结果2ToolStripMenuItem_Click);
             // 
             // 曲线图1ToolStripMenuItem
             // 
             this.曲线图1ToolStripMenuItem.Name = "曲线图1ToolStripMenuItem";
-            this.曲线图1ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.曲线图1ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.曲线图1ToolStripMenuItem.Text = "曲线图1";
             this.曲线图1ToolStripMenuItem.Click += new System.EventHandler(this.曲线图1ToolStripMenuItem_Click);
             // 
             // 曲线图2ToolStripMenuItem
             // 
             this.曲线图2ToolStripMenuItem.Name = "曲线图2ToolStripMenuItem";
-            this.曲线图2ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.曲线图2ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.曲线图2ToolStripMenuItem.Text = "曲线图2";
             this.曲线图2ToolStripMenuItem.Click += new System.EventHandler(this.曲线图2ToolStripMenuItem_Click);
             // 
             // 仪表1ToolStripMenuItem
             // 
             this.仪表1ToolStripMenuItem.Name = "仪表1ToolStripMenuItem";
-            this.仪表1ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.仪表1ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.仪表1ToolStripMenuItem.Text = "仪表1";
             this.仪表1ToolStripMenuItem.Click += new System.EventHandler(this.仪表1ToolStripMenuItem_Click);
             // 
             // 仪表2ToolStripMenuItem
             // 
             this.仪表2ToolStripMenuItem.Name = "仪表2ToolStripMenuItem";
-            this.仪表2ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.仪表2ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.仪表2ToolStripMenuItem.Text = "仪表2";
             this.仪表2ToolStripMenuItem.Click += new System.EventHandler(this.仪表2ToolStripMenuItem_Click);
             // 
             // 试样输入ToolStripMenuItem
             // 
             this.试样输入ToolStripMenuItem.Name = "试样输入ToolStripMenuItem";
-            this.试样输入ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.试样输入ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.试样输入ToolStripMenuItem.Text = "试样输入";
             this.试样输入ToolStripMenuItem.Click += new System.EventHandler(this.试样输入ToolStripMenuItem_Click);
             // 
             // 原始数据ToolStripMenuItem
             // 
             this.原始数据ToolStripMenuItem.Name = "原始数据ToolStripMenuItem";
-            this.原始数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.原始数据ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.原始数据ToolStripMenuItem.Text = "原始数据";
             this.原始数据ToolStripMenuItem.Click += new System.EventHandler(this.原始数据ToolStripMenuItem_Click);
             // 
             // 摄像ToolStripMenuItem
             // 
             this.摄像ToolStripMenuItem.Name = "摄像ToolStripMenuItem";
-            this.摄像ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.摄像ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.摄像ToolStripMenuItem.Text = "摄像";
             this.摄像ToolStripMenuItem.Click += new System.EventHandler(this.摄像ToolStripMenuItem_Click);
             // 
             // 过程提示ToolStripMenuItem
             // 
             this.过程提示ToolStripMenuItem.Name = "过程提示ToolStripMenuItem";
-            this.过程提示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.过程提示ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.过程提示ToolStripMenuItem.Text = "过程提示";
             this.过程提示ToolStripMenuItem.Click += new System.EventHandler(this.过程提示ToolStripMenuItem_Click);
             // 
             // 状态提示ToolStripMenuItem
             // 
             this.状态提示ToolStripMenuItem.Name = "状态提示ToolStripMenuItem";
-            this.状态提示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.状态提示ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.状态提示ToolStripMenuItem.Text = "状态提示";
             this.状态提示ToolStripMenuItem.Click += new System.EventHandler(this.状态提示ToolStripMenuItem_Click);
             // 
             // 长时数据ToolStripMenuItem
             // 
             this.长时数据ToolStripMenuItem.Name = "长时数据ToolStripMenuItem";
-            this.长时数据ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.长时数据ToolStripMenuItem.Text = "长时数据";
+            this.长时数据ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.长时数据ToolStripMenuItem.Text = "峰值趋势数据";
             this.长时数据ToolStripMenuItem.Click += new System.EventHandler(this.长时数据ToolStripMenuItem_Click);
             // 
             // panel6

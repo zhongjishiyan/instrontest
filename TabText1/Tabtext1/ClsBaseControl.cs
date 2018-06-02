@@ -10,6 +10,10 @@ namespace ClsStaticStation
    public  class ClsBaseControl
     {
 
+        public int oldcount = 0;
+
+      
+
         public UInt32  debug;
         public Boolean connected = false;//判断是否联机
         public Boolean mtestrun = false; //程序执行完成判断
@@ -34,7 +38,10 @@ namespace ClsStaticStation
         public int current_returncount;//大循环次数
         public int total_returncount;//大循环总次数
 
-        public long totalcount;
+        public long count = 0;//试验次数
+
+
+        
 
         public string mtishi = "";
 

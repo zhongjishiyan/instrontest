@@ -33,13 +33,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.ledalarm = new LBSoft.IndustrialCtrls.Leds.LBLed();
             this.lblalarm = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.ledslimit = new LBSoft.IndustrialCtrls.Leds.LBLed();
             this.lblslimit = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.ledhlimit = new LBSoft.IndustrialCtrls.Leds.LBLed();
             this.lblhlimit = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -96,6 +93,9 @@
             this.cbowave = new System.Windows.Forms.ComboBox();
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ledalarm = new LBSoft.IndustrialCtrls.Leds.LBLed();
+            this.ledslimit = new LBSoft.IndustrialCtrls.Leds.LBLed();
+            this.ledhlimit = new LBSoft.IndustrialCtrls.Leds.LBLed();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -186,22 +186,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(462, 34);
             this.tableLayoutPanel5.TabIndex = 5;
             // 
-            // ledalarm
-            // 
-            this.ledalarm.BackColor = System.Drawing.Color.Transparent;
-            this.ledalarm.BlinkInterval = 500;
-            this.ledalarm.Label = "";
-            this.ledalarm.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
-            this.ledalarm.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ledalarm.LedSize = new System.Drawing.SizeF(20F, 20F);
-            this.ledalarm.Location = new System.Drawing.Point(3, 3);
-            this.ledalarm.Name = "ledalarm";
-            this.ledalarm.Renderer = null;
-            this.ledalarm.Size = new System.Drawing.Size(32, 28);
-            this.ledalarm.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
-            this.ledalarm.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
-            this.ledalarm.TabIndex = 4;
-            // 
             // lblalarm
             // 
             this.lblalarm.AutoSize = true;
@@ -230,22 +214,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(462, 34);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
-            // ledslimit
-            // 
-            this.ledslimit.BackColor = System.Drawing.Color.Transparent;
-            this.ledslimit.BlinkInterval = 500;
-            this.ledslimit.Label = "";
-            this.ledslimit.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
-            this.ledslimit.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ledslimit.LedSize = new System.Drawing.SizeF(20F, 20F);
-            this.ledslimit.Location = new System.Drawing.Point(3, 3);
-            this.ledslimit.Name = "ledslimit";
-            this.ledslimit.Renderer = null;
-            this.ledslimit.Size = new System.Drawing.Size(32, 28);
-            this.ledslimit.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
-            this.ledslimit.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
-            this.ledslimit.TabIndex = 4;
-            // 
             // lblslimit
             // 
             this.lblslimit.AutoSize = true;
@@ -273,22 +241,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(462, 34);
             this.tableLayoutPanel2.TabIndex = 3;
-            // 
-            // ledhlimit
-            // 
-            this.ledhlimit.BackColor = System.Drawing.Color.Transparent;
-            this.ledhlimit.BlinkInterval = 500;
-            this.ledhlimit.Label = "";
-            this.ledhlimit.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
-            this.ledhlimit.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ledhlimit.LedSize = new System.Drawing.SizeF(20F, 20F);
-            this.ledhlimit.Location = new System.Drawing.Point(3, 3);
-            this.ledhlimit.Name = "ledhlimit";
-            this.ledhlimit.Renderer = null;
-            this.ledhlimit.Size = new System.Drawing.Size(32, 28);
-            this.ledhlimit.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
-            this.ledhlimit.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
-            this.ledhlimit.TabIndex = 3;
             // 
             // lblhlimit
             // 
@@ -1029,6 +981,54 @@
             this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
             this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList3.Images.SetKeyName(0, "3.ico");
+            // 
+            // ledalarm
+            // 
+            this.ledalarm.BackColor = System.Drawing.Color.Transparent;
+            this.ledalarm.BlinkInterval = 500;
+            this.ledalarm.Label = "";
+            this.ledalarm.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
+            this.ledalarm.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ledalarm.LedSize = new System.Drawing.SizeF(20F, 20F);
+            this.ledalarm.Location = new System.Drawing.Point(3, 3);
+            this.ledalarm.Name = "ledalarm";
+            this.ledalarm.Renderer = null;
+            this.ledalarm.Size = new System.Drawing.Size(32, 28);
+            this.ledalarm.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
+            this.ledalarm.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
+            this.ledalarm.TabIndex = 4;
+            // 
+            // ledslimit
+            // 
+            this.ledslimit.BackColor = System.Drawing.Color.Transparent;
+            this.ledslimit.BlinkInterval = 500;
+            this.ledslimit.Label = "";
+            this.ledslimit.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
+            this.ledslimit.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ledslimit.LedSize = new System.Drawing.SizeF(20F, 20F);
+            this.ledslimit.Location = new System.Drawing.Point(3, 3);
+            this.ledslimit.Name = "ledslimit";
+            this.ledslimit.Renderer = null;
+            this.ledslimit.Size = new System.Drawing.Size(32, 28);
+            this.ledslimit.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
+            this.ledslimit.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
+            this.ledslimit.TabIndex = 4;
+            // 
+            // ledhlimit
+            // 
+            this.ledhlimit.BackColor = System.Drawing.Color.Transparent;
+            this.ledhlimit.BlinkInterval = 500;
+            this.ledhlimit.Label = "";
+            this.ledhlimit.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
+            this.ledhlimit.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ledhlimit.LedSize = new System.Drawing.SizeF(20F, 20F);
+            this.ledhlimit.Location = new System.Drawing.Point(3, 3);
+            this.ledhlimit.Name = "ledhlimit";
+            this.ledhlimit.Renderer = null;
+            this.ledhlimit.Size = new System.Drawing.Size(32, 28);
+            this.ledhlimit.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
+            this.ledhlimit.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
+            this.ledhlimit.TabIndex = 3;
             // 
             // UserControl轴向
             // 

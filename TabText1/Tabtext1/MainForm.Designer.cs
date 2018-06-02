@@ -772,7 +772,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabel2.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(1022, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(991, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // toolStrip2

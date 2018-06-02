@@ -1703,7 +1703,7 @@ namespace ClsStaticStation
                             //time = time - mstarttime;
 
                             count = GGMsg.incount + basecount;//?
-                            totalcount = Convert.ToInt32(count);
+                         
                         }
                     }
 

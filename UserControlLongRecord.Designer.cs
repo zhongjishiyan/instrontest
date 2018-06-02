@@ -45,11 +45,13 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(457, 21);
             this.label1.TabIndex = 4;
-            this.label1.Text = "长时记录";
+            this.label1.Text = "峰值趋势记录";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,

@@ -1750,7 +1750,7 @@ namespace CComLibrary
         public bool loop = false;
         public int returnstep = 0;
         public int loopcount = 0;
-
+        public int finishedloopcount = 0;
 
         public ItemSignal[] sign = new ItemSignal[20];
 
@@ -1767,7 +1767,14 @@ namespace CComLibrary
         public double mtrirate;
         public int mtrirateunit = 0;
 
-        public long mtricount;
+        public long mcount;
+
+        public long mfinishedcount=0;
+
+        public long mcurrentcount = 0;//用作变量使用
+
+     
+
         public int mtriinitdir;
 
         public int mtricbomax;
@@ -1780,11 +1787,16 @@ namespace CComLibrary
         public ItemSignal sinrate;
         public double msinrate;
         public int msinrateunit = 0;
-        public int msincount;
+      
         public int msininitdir;
         public double msinmax;
         public double msinmin;
         public double msinfreq;
+
+
+
+
+        public bool runfinished = false;
 
 
         public ItemSignal rectrate;
@@ -1805,6 +1817,20 @@ namespace CComLibrary
 
         public Boolean[] chkchannel = new Boolean[20];
         public double[] sampleinterval = new double[20];
+        public double[] sampleintervaltemp = new double[20];
+
+
+        public bool msavetracking = false;
+        public bool msavepeaktrend = false;
+        public int[] msavetrackingrow1;
+        public int[] msavetrackingrow2;
+        public int[] msavetrackingrow3;
+
+        public int[] msavepeaktrendrow1;
+        public int[] msavepeaktrendrow2;
+        public int[] msavepeaktrendrow3;
+
+
 
         public int chkchannelcount = 0;
         public Sequence()
@@ -1819,6 +1845,13 @@ namespace CComLibrary
             direction = 0;
             destmode = 0;
 
+            msavetrackingrow1 = new int[20];
+            msavetrackingrow2 = new int[20];
+            msavetrackingrow3 = new int[20];
+
+            msavepeaktrendrow1 = new int[20];
+            msavepeaktrendrow2 = new int[20];
+            msavepeaktrendrow3 = new int[20];
 
 
         }
@@ -1904,6 +1937,45 @@ namespace CComLibrary
                         {
                             c.mSequencelist[i].sampleinterval = new double[20];
                         }
+                        if (c.mSequencelist[i].sampleintervaltemp == null)
+                        {
+                            c.mSequencelist[i].sampleintervaltemp = new double[20];
+                        }
+
+                        if (c.mSequencelist[i].msavetrackingrow1 ==null)
+                        {
+                            c.mSequencelist[i].msavetrackingrow1 = new int[20];
+
+                        }
+
+                        if (c.mSequencelist[i].msavetrackingrow2 == null)
+                        {
+                            c.mSequencelist[i].msavetrackingrow2 = new int[20];
+
+                        }
+                        if (c.mSequencelist[i].msavetrackingrow3 == null)
+                        {
+                            c.mSequencelist[i].msavetrackingrow3 = new int[20];
+
+                        }
+
+                        if (c.mSequencelist[i].msavepeaktrendrow1 == null)
+                        {
+                            c.mSequencelist[i].msavepeaktrendrow1 = new int[20];
+
+                        }
+
+                        if (c.mSequencelist[i].msavepeaktrendrow2  == null)
+                        {
+                            c.mSequencelist[i].msavepeaktrendrow2 = new int[20];
+
+                        }
+                        if (c.mSequencelist[i].msavepeaktrendrow3 == null)
+                        {
+                            c.mSequencelist[i].msavepeaktrendrow3 = new int[20];
+
+                        }
+
                     }
 
                     fileStream.Close();
@@ -2449,7 +2521,7 @@ namespace CComLibrary
                     }
                 }
 
-                s = s + " 次数：" + mseq.mtricount.ToString();
+                s = s + " 次数：" + mseq.mcount.ToString();
 
                 if (mseq.mtriinitdir == 0)
                 {
@@ -2477,7 +2549,7 @@ namespace CComLibrary
                     }
                 }
 
-                s = s + " 次数：" + mseq.msincount.ToString();
+                s = s + " 次数：" + mseq.mcount.ToString();
 
                 if (mseq.msininitdir == 0)
                 {
@@ -2924,20 +2996,25 @@ namespace CComLibrary
         public bool[] chkcriteria;//  数据采集准则
         public int[] cbomeasurement;//数据采集通道
         public double[] numinterval;//数据采集间隔
+        public double[] numintervallast;//作为变量使用
 
 
         public bool endoftest1 = false;// 试验结束1
         public int endoftest1criteria = 0;//试验结束1准则
         public double endoftest1value = 0;//试验结束1变量值
 
+        public int endoftest1usechannel;//试验结束时所使用的判断通道
+        public bool endoftest1tempbool = false;//作为变量使用
 
-
-
+        public double endoftest1tempmax = 0;//作为变量使用
 
         public bool endoftest2 = false;// 试验结束2
         public int endoftest2criteria = 0;//试验结束2准则
         public double endoftest2value = 0;//试验结束2变量值
+        public int endoftest2usechannel;//试验结束时所使用的判断通道
 
+        public bool endoftest2tempbool = false;//作为变量使用
+        public double endoftest2tempmax = 0;//作为变量使用
 
         public int testaction = 0;//试验结束动作
 
@@ -2959,11 +3036,9 @@ namespace CComLibrary
        
         //public bool crackcheck = false;//断裂检测
         //public double crackvalue = 10;//断裂阀值
-        public double LongDataInterval = 1;//长时记录时间间隔 单位分
+      
 
-        public bool m_dyninterval = false;//动态曲线保存
-        public bool m_dynlongdata = false;//动态长时记录
-
+       
        
 
         public List<ItemSignal> mchsignals; //信号限位
@@ -2994,8 +3069,7 @@ namespace CComLibrary
 
 
         public int Samplingmode;// 数据采集模式 是动态还是静态
-        public int SamplingInterval; //动态采集时间间隔
-        public int SamplingCount;// 动态采集点数
+      
 
         public string lasttestdatatime;//最后试验日期
 
@@ -3946,6 +4020,7 @@ namespace CComLibrary
             chkcriteria = new bool[3];
             cbomeasurement = new int[3];
             numinterval = new double[3];
+            numintervallast = new double[3];
 
             teststep = new List<CTestStep>();
             for (int i = 0; i < 9; i++)
@@ -4490,6 +4565,15 @@ namespace CComLibrary
                         {
                             c.numinterval[i] = 0;
                         }
+                    }
+
+                    if(c.numintervallast ==null)
+                    {
+                        c.numintervallast = new double[3];
+                        for (int i=0;i<3;i++)
+                        {
+                            c.numintervallast[i] = 0;
+                        } 
                     }
 
                     if (c.cbomeasurement == null)

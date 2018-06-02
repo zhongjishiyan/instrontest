@@ -1070,6 +1070,25 @@ namespace ClsStaticStation
             allsignals.Add(isi);
             originsignals.Add(isi);
 
+
+            isi = new ItemSignal();
+
+            isi.cName = "命令";
+            isi.LName[0] = "命令";
+            isi.LName[1] = "Command";
+            isi.originprecise = 4;
+            isi.SignName = "Ch Command";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = 1000000000000;
+            isi.fullminbase = -100000000000;
+            allsignals.Add(isi);
+            originsignals.Add(isi);
+
+
+
+
             if (CComLibrary.GlobeVal.filesave == null)
              {
 

@@ -69,6 +69,7 @@
             this.xAxis3 = new NationalInstruments.UI.XAxis();
             this.yAxis3 = new NationalInstruments.UI.YAxis();
             this.scatterPlot1 = new NationalInstruments.UI.ScatterPlot();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panelback.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -523,6 +524,10 @@
             this.scatterPlot1.XAxis = this.xAxis3;
             this.scatterPlot1.YAxis = this.yAxis3;
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // UserControlGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -589,5 +594,6 @@
         private NationalInstruments.UI.XAxis xAxis3;
         private NationalInstruments.UI.YAxis yAxis3;
         public AppleLabApplication.UserGraph userGraph1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

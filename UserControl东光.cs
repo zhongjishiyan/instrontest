@@ -375,7 +375,7 @@ namespace TabHeaderDemo
         private void btnteststart_Click(object sender, EventArgs e)
         {
             
-            CComLibrary.GlobeVal.filesave.SamplingInterval = Convert.ToInt32( mybinfile.dg_minute);
+          
             GlobeVal.myarm.fatigtest(cbowave.SelectedIndex,Convert.ToSingle( numfreq1.Value),Convert.ToSingle(numave.Value), Convert.ToSingle( numrange.Value), numcount.Value);
             GlobeVal.myarm.SetBaseCount(Convert.ToInt32( mybinfile.dg_totalcount));
 
@@ -384,9 +384,9 @@ namespace TabHeaderDemo
 
         private void btntestend_Click(object sender, EventArgs e)
         {
-            if (GlobeVal.myarm.totalcount > numtotalcount.Value)
+            if (GlobeVal.myarm.count > numtotalcount.Value)
             {
-                numtotalcount.Value = GlobeVal.myarm.totalcount;
+                numtotalcount.Value = GlobeVal.myarm.count;
 
                 mybinfile.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\东光.参数");
             }

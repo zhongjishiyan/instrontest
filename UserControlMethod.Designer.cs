@@ -443,7 +443,7 @@
             treeNode45.Text = "数据库设置";
             treeNode46.Name = "节点0";
             treeNode46.StateImageIndex = 0;
-            treeNode46.Text = "长时数据输出";
+            treeNode46.Text = "峰值趋势数据输出";
             treeNode47.Name = "节点5";
             treeNode47.StateImageIndex = 9;
             treeNode47.Text = "报告";

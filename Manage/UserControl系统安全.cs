@@ -25,7 +25,9 @@ namespace TabHeaderDemo
                 listBox1.Items.Add(GlobeVal.mysys.UserName[i]);
 
             }
-           
+
+            chksafe.Checked = GlobeVal.mysys.safe  ;
+
 
         }
         public UserControl系统安全()
@@ -33,30 +35,13 @@ namespace TabHeaderDemo
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
             chksystem.Checked = false;
-            chksafe.Checked = GlobeVal.mysys.safe;
+           
 
         }
 
         private void chksystem_CheckedChanged(object sender, EventArgs e)
         {
-            if (chksystem.Checked == true)
-            {
-
-                FormMima f = new FormMima();
-                f.ShowDialog();
-
-                if (f.suc == true)
-                {
-                    chksystem.Checked = true;
-                    grpuser.Visible = true;
-                }
-                else
-                {
-                    chksystem.Checked = false;
-                    grpuser.Visible = false;
-                }
-
-            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -142,6 +127,12 @@ namespace TabHeaderDemo
 
         private void chksafe_CheckedChanged(object sender, EventArgs e)
         {
+           
+           
+        }
+
+        private void chksafe_Click(object sender, EventArgs e)
+        {
             if (chksafe.Checked == true)
             {
                 FormMima f = new FormMima();
@@ -163,7 +154,28 @@ namespace TabHeaderDemo
                 GlobeVal.mysys.safe = chksafe.Checked;
             }
 
-           
+        }
+
+        private void chksystem_Click(object sender, EventArgs e)
+        {
+            if (chksystem.Checked == true)
+            {
+
+                FormMima f = new FormMima();
+                f.ShowDialog();
+
+                if (f.suc == true)
+                {
+                    chksystem.Checked = true;
+                    grpuser.Visible = true;
+                }
+                else
+                {
+                    chksystem.Checked = false;
+                    grpuser.Visible = false;
+                }
+
+            }
         }
     }
 }

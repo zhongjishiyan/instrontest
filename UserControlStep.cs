@@ -230,16 +230,22 @@ namespace TabHeaderDemo
 
         private static void drawPath(PaintEventArgs e, GraphicsPath path, Color color)
         {
+            try
+            {
+                LinearGradientBrush brush = new LinearGradientBrush(path.GetBounds(),
+                    Color.FromArgb(5, color), Color.FromArgb(10, color), LinearGradientMode.Vertical);
+                e.Graphics.FillPath(brush, path);
+                Pen pen = new Pen(Color.FromArgb(5, color), 1);
 
-            LinearGradientBrush brush = new LinearGradientBrush(path.GetBounds(),
-                Color.FromArgb(5, color), Color.FromArgb(10, color), LinearGradientMode.Vertical);
-            e.Graphics.FillPath(brush, path);
-            Pen pen = new Pen(Color.FromArgb(5, color), 1);
+                e.Graphics.DrawPath(pen, path);
 
-            e.Graphics.DrawPath(pen, path);
+                brush.Dispose();
+                pen.Dispose();
+            }
+            catch(Exception e1)
+            {
 
-            brush.Dispose();
-            pen.Dispose();
+            }
         }
         public UserControlStep()
         {
@@ -324,7 +330,7 @@ namespace TabHeaderDemo
         private void button5_Click(object sender, EventArgs e)
         {
 
-        }
+        }  
 
         private void UserControlStep_Enter(object sender, EventArgs e)
         {
@@ -350,7 +356,7 @@ namespace TabHeaderDemo
         {
             
 
-           if (  btnselectevent!=null)
+           if (btnselectevent!=null)
             {
 
                 btnselectevent(this, 0);

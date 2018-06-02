@@ -773,7 +773,7 @@ namespace TabHeaderDemo
 
             if (GlobeVal.mysys.safe == true)
             {
-
+                
                 Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
 
 
@@ -790,6 +790,8 @@ namespace TabHeaderDemo
                     Close();
                 }
                 f.Close();
+
+    
 
             }
 
@@ -990,40 +992,36 @@ namespace TabHeaderDemo
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            if (GlobeVal.myarm.getrunstate() == 1)
-            {
-                GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：运行";
-
-            }
-            else
-            {
-                GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：停止";
-            }
+          
 
 
             if ((GlobeVal.myarm.getlimit(0) == true) || (GlobeVal.myarm.getlimit(0) == true))
             {
                 GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "限位：保护";
-                GlobeVal.MainStatusStrip.Items["tslbllimit"].BackColor = Color.Red;
+                //GlobeVal.MainStatusStrip.Items["tslbllimit"].BackColor = Color.Red;
+                GlobeVal.MainStatusStrip.Items["tslbllimit"].Image = imageListState.Images[0];
 
             }
             else
             {
                 GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "限位：正常";
-
-                GlobeVal.MainStatusStrip.Items["tslbllimit"].BackColor = SystemColors.Control;
+                GlobeVal.MainStatusStrip.Items["tslbllimit"].Image = imageListState.Images[1];
+                //GlobeVal.MainStatusStrip.Items["tslbllimit"].BackColor = SystemColors.Control;
             }
 
             if (GlobeVal.myarm.getEmergencyStop() == true)
             {
                 GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "急停：保护";
-                GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].BackColor = Color.Red;
+
+                GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Image = imageListState.Images[0];
+                // GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].BackColor = Color.Red;
             }
 
             else
             {
                 GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "急停：正常";
-                GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].BackColor = SystemColors.Control;
+                GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Image = imageListState.Images[1];
+                //  GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].BackColor = SystemColors.Control;
             }
 
 
@@ -1118,6 +1116,8 @@ namespace TabHeaderDemo
 
         private void FormMainLab_FormClosed(object sender, FormClosedEventArgs e)
         {
+          
+
             myarm.Exit();
             myarm.CloseConnection();
             GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
@@ -1547,6 +1547,14 @@ namespace TabHeaderDemo
         {
             AboutBox1 ab = new AboutBox1();
             ab.Show();
+        }
+
+        private void FormMainLab_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (GlobeVal.myarm.mtestrun == true)
+            {
+                e.Cancel= true;
+            }
         }
     }
 }

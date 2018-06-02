@@ -717,7 +717,7 @@ namespace TabHeaderDemo
                 panelback.Visible = true;
             }
 
-            if (t=="长时数据输出")
+            if (t=="峰值趋势数据输出")
             {
                 UserControl长时数据1.Init(0);
                 panelback.Visible = false;

@@ -203,6 +203,7 @@
             this.chksafe.Text = "启用安全管理";
             this.chksafe.UseVisualStyleBackColor = true;
             this.chksafe.CheckedChanged += new System.EventHandler(this.chksafe_CheckedChanged);
+            this.chksafe.Click += new System.EventHandler(this.chksafe_Click);
             // 
             // chksystem
             // 
@@ -214,6 +215,7 @@
             this.chksystem.Text = "系统权限管理";
             this.chksystem.UseVisualStyleBackColor = true;
             this.chksystem.CheckedChanged += new System.EventHandler(this.chksystem_CheckedChanged);
+            this.chksystem.Click += new System.EventHandler(this.chksystem_Click);
             // 
             // tableLayoutPanel3
             // 

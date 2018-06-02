@@ -26,13 +26,33 @@ namespace TabHeaderDemo
 
         public void Init_测试结束()
         {
+
+            cbostopchannel1.Items.Clear();
+
+
+
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
+            {
+                cbostopchannel1.Items.Add(ClsStaticStation.m_Global.mycls.allsignals[i].cName);
+            }
+
+
+            cbostopchannel1.SelectedIndex = CComLibrary.GlobeVal.filesave.endoftest1usechannel ;
+
+            cbostopchannel1_SelectionChangeCommitted(null, null);
+
+
+
             chktestend1.Checked = CComLibrary.GlobeVal.filesave.endoftest1;
             cbotestendCriteria1.Items.Clear();
-            cbotestendCriteria1.Items.Add("载荷率");
-            cbotestendCriteria1.Items.Add("载荷门槛值");
-            cbotestendCriteria1.Items.Add("峰值载荷");
+            cbotestendCriteria1.Items.Add("下降百分率");
+            cbotestendCriteria1.Items.Add("下降门槛值");
+            cbotestendCriteria1.Items.Add("峰值");
 
             cbotestendCriteria1.SelectedIndex = CComLibrary.GlobeVal.filesave.endoftest1criteria;
+
+
+         
 
 
             numtestendvalue1.Value = CComLibrary.GlobeVal.filesave.endoftest1value;
@@ -40,43 +60,59 @@ namespace TabHeaderDemo
 
             if (cbotestendCriteria1.SelectedIndex == 0)
             {
-                lbltestend1.Text = "灵敏度 (%)";
+                lbltestend1.Text = "灵敏度 (%)：";
 
 
             }
             else if (cbotestendCriteria1.SelectedIndex == 1)
             {
-                lbltestend1.Text = "载荷下降到 ";
+                lbltestend1.Text = "下降到：";
 
             }
             else if (cbotestendCriteria1.SelectedIndex == 2)
             {
-                lbltestend1.Text = "超过载荷门槛值";
+                lbltestend1.Text = "超过峰值：";
             }
 
 
+
+            cbostopchannel2.Items.Clear();
+
+
+
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
+            {
+                cbostopchannel2.Items.Add(ClsStaticStation.m_Global.mycls.allsignals[i].cName);
+            }
+
+
+            cbostopchannel2.SelectedIndex = CComLibrary.GlobeVal.filesave.endoftest2usechannel;
+            cbostopchannel2_SelectionChangeCommitted(null, null);
+
             chktestend2.Checked = CComLibrary.GlobeVal.filesave.endoftest2;
             cbotestendCriteria2.Items.Clear();
-            cbotestendCriteria2.Items.Add("载荷率");
-            cbotestendCriteria2.Items.Add("载荷门槛值");
-            cbotestendCriteria2.Items.Add("峰值载荷");
+            cbotestendCriteria2.Items.Add("下降百分率");
+            cbotestendCriteria2.Items.Add("下降门槛值");
+            cbotestendCriteria2.Items.Add("峰值");
 
             cbotestendCriteria2.SelectedIndex = CComLibrary.GlobeVal.filesave.endoftest2criteria;
 
+           
+
             if (cbotestendCriteria2.SelectedIndex == 0)
             {
-                lbltestend2.Text = "灵敏度 (%)";
+                lbltestend2.Text = "灵敏度 (%)：";
 
 
             }
             else if (cbotestendCriteria2.SelectedIndex == 1)
             {
-                lbltestend2.Text = "载荷下降到 ";
+                lbltestend2.Text = "载荷下降到： ";
 
             }
             else if (cbotestendCriteria2.SelectedIndex == 2)
             {
-                lbltestend2.Text = "超过载荷门槛值";
+                lbltestend2.Text = "超过峰值：";
             }
 
             numtestendvalue2.Value = CComLibrary.GlobeVal.filesave.endoftest2value;
@@ -838,7 +874,7 @@ namespace TabHeaderDemo
             cbocontrolprocess.Items.Add("中级测试");
             cbocontrolprocess.Items.Add("简单测试");
 
-            if ((GlobeVal.mysys.controllerkind == 1) || (GlobeVal.mysys.controllerkind == 2))
+            if ((GlobeVal.mysys.controllerkind == 0)||(GlobeVal.mysys.controllerkind == 1) || (GlobeVal.mysys.controllerkind == 2))
             {
                 cbocontrolprocess.Items.Add("高级测试");
                // cbocontrolprocess.Items.Add("块谱测试");
@@ -927,13 +963,8 @@ namespace TabHeaderDemo
             //cbosamplemode.Items.Add("高级控制采集方式");
 
             cbosamplemode.SelectedIndex = CComLibrary.GlobeVal.filesave.Samplingmode;
-            numsaveinterval.Value = CComLibrary.GlobeVal.filesave.SamplingInterval;
-            numsavepointcount.Value = CComLibrary.GlobeVal.filesave.SamplingCount;
-
-            chkdyninterval.Checked = CComLibrary.GlobeVal.filesave.m_dyninterval;
-            chklongdatainterval.Checked = CComLibrary.GlobeVal.filesave.m_dynlongdata;
-
-            numericEdit2.Value = CComLibrary.GlobeVal.filesave.LongDataInterval;
+           
+            
 
 
 
@@ -1586,7 +1617,10 @@ namespace TabHeaderDemo
             cbocontrol.SelectedIndex = getselect().msequence.controlmode;
             cbocontrol_SelectionChangeCommitted(null, null);
             numtrispeed.Value = getselect().msequence.mtrirate;
-            numtricount.Value = getselect().msequence.mtricount;
+
+            numtricount.Value = getselect().msequence.mcount;
+            numtrifinishedcount.Value = getselect().msequence.mfinishedcount;
+
 
             cbotriinitdir.Items.Clear();
             cbotriinitdir.Items.Add("向上");
@@ -1596,7 +1630,28 @@ namespace TabHeaderDemo
 
             numtrimax.Value = getselect().msequence.mtrimax;
             numtrimin.Value = getselect().msequence.mtrimin;
-           
+
+
+            chksavetracking.Checked = getselect().msequence.msavetracking;
+            chksavepeaktrenddata.Checked = getselect().msequence.msavepeaktrend;
+
+
+            dgridsavetrack.Rows.Clear();
+            dgridsavetrack.Rows.Add(10);
+            dgridsavepeaktrend.Rows.Clear();
+            dgridsavepeaktrend.Rows.Add(10);
+
+            for (int i = 0; i < 10; i++)
+            {
+                dgridsavetrack.Rows[i].Cells[0].Value = getselect().msequence.msavetrackingrow1[i];
+                dgridsavetrack.Rows[i].Cells[1].Value = getselect().msequence.msavetrackingrow2[i];
+                dgridsavetrack.Rows[i].Cells[2].Value = getselect().msequence.msavetrackingrow3[i];
+                dgridsavepeaktrend.Rows[i].Cells[0].Value = getselect().msequence.msavepeaktrendrow1[i];
+                dgridsavepeaktrend.Rows[i].Cells[1].Value = getselect().msequence.msavepeaktrendrow2[i];
+                dgridsavepeaktrend.Rows[i].Cells[2].Value = getselect().msequence.msavepeaktrendrow3[i];
+            }
+
+         
         }
 
 
@@ -1606,7 +1661,9 @@ namespace TabHeaderDemo
             cbocontrol_SelectionChangeCommitted(null, null);
             cbosinspeedunit.SelectedIndex = getselect().msequence.msinrateunit;
             numsinspeed.Value = getselect().msequence.msinrate;
-            numsincount.Value = getselect().msequence.msincount;
+            numsincount.Value = getselect().msequence.mcount;
+            numsinfinishedcount.Value = getselect().msequence.mfinishedcount;
+
             cbosininitdir.Items.Clear();
             cbosininitdir.Items.Add("向上");
             cbosininitdir.Items.Add("向下");
@@ -1614,6 +1671,26 @@ namespace TabHeaderDemo
             numfreq.Value = getselect().msequence.msinfreq;
             numsinmax.Value = getselect().msequence.msinmax;
             numsinmin.Value = getselect().msequence.msinmin;
+
+            chksavetracking.Checked = getselect().msequence.msavetracking;
+            chksavepeaktrenddata.Checked = getselect().msequence.msavepeaktrend;
+
+
+            dgridsavetrack.Rows.Clear();
+            dgridsavetrack.Rows.Add(10);
+            dgridsavepeaktrend.Rows.Clear();
+            dgridsavepeaktrend.Rows.Add(10);
+
+            for(int i=0;i<10;i++)
+            {
+                dgridsavetrack.Rows[i].Cells[0].Value = getselect().msequence.msavetrackingrow1[i];
+                dgridsavetrack.Rows[i].Cells[1].Value = getselect().msequence.msavetrackingrow2[i];
+                dgridsavetrack.Rows[i].Cells[2].Value = getselect().msequence.msavetrackingrow3[i];
+                dgridsavepeaktrend.Rows[i].Cells[0].Value = getselect().msequence.msavepeaktrendrow1[i];
+                dgridsavepeaktrend.Rows[i].Cells[1].Value = getselect().msequence.msavepeaktrendrow2[i];
+                dgridsavepeaktrend.Rows[i].Cells[2].Value = getselect().msequence.msavepeaktrendrow3[i];
+            }
+
 
         }
 
@@ -1675,6 +1752,8 @@ namespace TabHeaderDemo
             }
             cbojump.SelectedIndex = (sender as UserControlStep).msequence.returnstep-1;
             numcount.Value = (sender as UserControlStep).msequence.loopcount ;
+
+            numfinishedcount.Value= (sender as UserControlStep).msequence.finishedloopcount ;
 
             cbomethod.SelectedIndex = (sender as UserControlStep).msequence.samplingmode;
 
@@ -2506,7 +2585,11 @@ namespace TabHeaderDemo
             cbocontrol.Visible = true;
 
             waveshape0_sel();
-            
+            tabControl2.TabPages.Clear();
+            tabControl2.TabPages.Add(tabPage10);
+            tabControl2.TabPages.Add(tabPage11);
+            tabControl2.TabPages.Add(tabPage12);
+
         }
 
         private void tbtnkeep_Click(object sender, EventArgs e)
@@ -2525,6 +2608,10 @@ namespace TabHeaderDemo
             cbocontrol.Visible = false;
 
             waveshape1_sel();
+            tabControl2.TabPages.Clear();
+            tabControl2.TabPages.Add(tabPage10);
+            tabControl2.TabPages.Add(tabPage11);
+            tabControl2.TabPages.Add(tabPage12);
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -2542,6 +2629,14 @@ namespace TabHeaderDemo
             lblcontrolmode.Visible = true;
             cbocontrol.Visible = true;
             waveshape2_sel();
+
+
+            tabControl2.TabPages.Clear();
+            tabControl2.TabPages.Add(tabPage10);
+            tabControl2.TabPages.Add(tabPage11);
+            tabControl2.TabPages.Add(tabPage12);
+            tabControl2.TabPages.Add(tabPage21);
+            tabControl2.TabPages.Add(tabPage22);
         }
 
         private void tlpedit_Paint(object sender, PaintEventArgs e)
@@ -2974,6 +3069,13 @@ namespace TabHeaderDemo
             cbocontrol.Visible = true ;
 
             waveshape3_sel();
+
+            tabControl2.TabPages.Clear();
+            tabControl2.TabPages.Add(tabPage10);
+            tabControl2.TabPages.Add(tabPage11);
+            tabControl2.TabPages.Add(tabPage12);
+            tabControl2.TabPages.Add(tabPage21);
+            tabControl2.TabPages.Add(tabPage22); 
         }
 
         private void toolStripButton8_Click(object sender, EventArgs e)
@@ -3033,7 +3135,7 @@ namespace TabHeaderDemo
 
         private void numtricount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
-            getselect().msequence.mtricount = Convert.ToInt32( numtricount.Value);
+            getselect().msequence.mcount = Convert.ToInt32( numtricount.Value);
         }
 
         private void numtrimax_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
@@ -3063,7 +3165,7 @@ namespace TabHeaderDemo
 
         private void numsincount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
-            getselect().msequence.msincount = Convert.ToInt32( numsincount.Value);
+            getselect().msequence.mcount = Convert.ToInt32( numsincount.Value);
         }
 
         private void cbosininitdir_SelectionChangeCommitted(object sender, EventArgs e)
@@ -3419,42 +3521,23 @@ namespace TabHeaderDemo
 
             if (CComLibrary.GlobeVal.filesave.Samplingmode  ==0)
             {
-                label98.Visible = false;
-                label97.Visible = false;
-                numsaveinterval.Visible = false;
-                numsavepointcount.Visible = false;
-                
-                chkdyninterval.Visible = false;
-                chklongdatainterval.Visible = false;
-                label101.Visible = false;
-                numericEdit2.Visible = false;
-
+              
+                grpcriteria1.Visible = true;
+                grpcriteria2.Visible = true;
+                grpcriteria3.Visible = true;
 
             }
             else
             {
-                label98.Visible = true;
-                label97.Visible = true;
-                numsaveinterval.Visible = true;
-                numsavepointcount.Visible = true;
-               
-                chkdyninterval.Visible = true;
-                chklongdatainterval.Visible = true;
-                label101.Visible =true ;
-                numericEdit2.Visible = true ;
+                
+                grpcriteria1.Visible = false ;
+                grpcriteria2.Visible = false ;
+                grpcriteria3.Visible = false ;
 
             }
         }
 
-        private void numsaveinterval_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
-        {
-            CComLibrary.GlobeVal.filesave.SamplingInterval = Convert.ToInt32(numsaveinterval.Value);
-        }
-
-        private void numsavepointcount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
-        {
-            CComLibrary.GlobeVal.filesave.SamplingCount = Convert.ToInt32(numsavepointcount.Value);
-        }
+       
 
         private void numcount_TextChanged(object sender, EventArgs e)
         {
@@ -3472,21 +3555,7 @@ namespace TabHeaderDemo
             getselect().msequence.destmode = cbodestmode.SelectedIndex;
         }
 
-        private void numericEdit2_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
-        {
-            CComLibrary.GlobeVal.filesave.LongDataInterval = numericEdit2.Value;
-
-        }
-
-        private void chkdyninterval_CheckedChanged(object sender, EventArgs e)
-        {
-            CComLibrary.GlobeVal.filesave.m_dyninterval = chkdyninterval.Checked;
-        }
-
-        private void chklongdatainterval_CheckedChanged(object sender, EventArgs e)
-        {
-            CComLibrary.GlobeVal.filesave.m_dynlongdata = chklongdatainterval.Checked;
-        }
+       
 
         private void cbomeasurement1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -3561,6 +3630,149 @@ namespace TabHeaderDemo
             }
 
            
+        }
+
+        private void chktestend1_CheckedChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.endoftest1 = chktestend1.Checked;
+        }
+
+        private void chktestend2_CheckedChanged(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.endoftest2 = chktestend2.Checked;
+        }
+
+        private void numtestendvalue1_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+          CComLibrary.GlobeVal.filesave.endoftest1value = numtestendvalue1.Value;
+        }
+
+        private void numtestendvalue2_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.endoftest2value = numtestendvalue2.Value;
+
+
+        }
+
+      
+        private void cbostopchannel1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.endoftest1usechannel = cbostopchannel1.SelectedIndex;
+            lbltestendCriteria1.Text = ClsStaticStation.m_Global.mycls.allsignals[cbostopchannel1.SelectedIndex].cUnits[0];
+        }
+
+        private void cbostopchannel2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CComLibrary.GlobeVal.filesave.endoftest2usechannel = cbostopchannel2.SelectedIndex;
+
+            lbltestendCriteria2.Text = ClsStaticStation.m_Global.mycls.allsignals[cbostopchannel2.SelectedIndex].cUnits[0];
+        }
+
+        private void numsinfinishedcount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mfinishedcount = Convert.ToInt32( numsinfinishedcount.Value);
+        }
+
+        private void numtrifinishedcount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mfinishedcount = Convert.ToInt32(numtrifinishedcount.Value);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            for (int i=0;i<10;i++)
+            {
+                dgridsavetrack.Rows[i].Cells[0].Value = 1 * Math.Pow(10, i);
+                dgridsavetrack.Rows[i].Cells[1].Value = 1 * Math.Pow(10, i);
+                dgridsavetrack.Rows[i].Cells[2].Value = 1;
+            }
+        }
+
+        private void dgridsavetrack_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int a;
+
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    Int32.TryParse(dgridsavetrack.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out a);
+                    getselect().msequence.msavetrackingrow1[e.RowIndex] = a;
+                }
+                if (e.ColumnIndex == 1)
+                {
+                    Int32.TryParse(dgridsavetrack.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out a);
+                    getselect().msequence.msavetrackingrow2[e.RowIndex] = a;
+                }
+
+                if (e.ColumnIndex == 2)
+                {
+                    Int32.TryParse(dgridsavetrack.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out a);
+                    getselect().msequence.msavetrackingrow3[e.RowIndex] = a;
+                }
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                dgridsavepeaktrend.Rows[i].Cells[0].Value = 1 * Math.Pow(10, i);
+                dgridsavepeaktrend.Rows[i].Cells[1].Value = 10;
+                dgridsavepeaktrend.Rows[i].Cells[2].Value = 1;
+            }
+        }
+
+        private void dgridsavepeaktrend_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int a;
+
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    Int32.TryParse(dgridsavepeaktrend.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out a);
+                    getselect().msequence.msavepeaktrendrow1[e.RowIndex] = a;
+                }
+                if (e.ColumnIndex == 1)
+                {
+                    Int32.TryParse(dgridsavepeaktrend.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out a);
+                    getselect().msequence.msavepeaktrendrow2[e.RowIndex] = a;
+                }
+
+                if (e.ColumnIndex == 2)
+                {
+                    Int32.TryParse(dgridsavepeaktrend.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out a);
+                    getselect().msequence.msavepeaktrendrow3[e.RowIndex] = a;
+                }
+            }
+        }
+
+        private void chksavetracking_CheckedChanged(object sender, EventArgs e)
+        {
+
+            getselect().msequence.msavetracking = chksavetracking.Checked;
+        }
+
+        private void chksavepeaktrenddata_CheckedChanged(object sender, EventArgs e)
+        {
+            getselect().msequence.msavepeaktrend = chksavepeaktrenddata.Checked;
+        }
+
+        private void numfinishedcount_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.finishedloopcount = Convert.ToInt32( numfinishedcount.Value);
+        }
+
+        private void tsreset_Click(object sender, EventArgs e)
+        {
+            for (int i=0;i<sqf.mSequencelist.Count;i++)
+            {
+                sqf.mSequencelist[i].finishedloopcount = 0;
+                sqf.mSequencelist[i].mfinishedcount = 0;
+            }
+
+
         }
     }
 }

@@ -175,10 +175,13 @@ namespace TabHeaderDemo
                 MessageBox.Show("请先读取试验方法");
                 return;
             }
-            if (GlobeVal.mysys.AppUserLevel < 1)
+            if (GlobeVal.mysys.safe == true)
             {
-                MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
-                return;
+                if (GlobeVal.mysys.AppUserLevel < 1)
+                {
+                    MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
+                    return;
+                }
             }
 
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
@@ -209,11 +212,13 @@ namespace TabHeaderDemo
 
         private void btnmanage_Click(object sender, EventArgs e)
         {
-
-            if (GlobeVal.mysys.AppUserLevel <2)
+            if (GlobeVal.mysys.safe == true)
             {
-                MessageBox.Show("您的当前权限不够，请使用管理员权限登录");
-                return;
+                if (GlobeVal.mysys.AppUserLevel < 2)
+                {
+                    MessageBox.Show("您的当前权限不够，请使用管理员权限登录");
+                    return;
+                }
             }
 
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
@@ -226,13 +231,16 @@ namespace TabHeaderDemo
 
         private void btnmethod_Click(object sender, EventArgs e)
         {
-
-
-
-            if (GlobeVal.mysys.AppUserLevel < 1)
+          
+            if (GlobeVal.mysys.safe == true)
             {
-                MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
-                return;
+
+
+                if (GlobeVal.mysys.AppUserLevel < 1)
+                {
+                    MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
+                    return;
+                }
             }
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
             ((SplitContainer)b.TabPages[1].Controls[0]).Panel2Collapsed =true;

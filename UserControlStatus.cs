@@ -68,6 +68,27 @@ namespace TabHeaderDemo
                         {
                           
                             lblstep.Text =CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.stepname;
+
+                            if ((CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.wavekind ==2) ||(CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.wavekind == 3))
+                            {
+                                label8.Visible = true;
+                                label4.Visible = true;
+                                lblcurlargecount.Visible = true;
+                                lbllargecount.Visible = true;
+
+                                lblcurlargecount.Text = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.mfinishedcount.ToString();
+                                lbllargecount.Text = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.mcount.ToString();
+                            }
+                           
+                            else
+                            {
+                                label8.Visible = false ;
+                                label4.Visible = false ;
+                                lblcurlargecount.Visible = false ;
+                                lbllargecount.Visible = false ;
+                            } 
+
+
                         }
 
                        

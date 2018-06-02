@@ -36,9 +36,9 @@ namespace ClsStaticStation
         private double pos;
         private double load;
         private double ext;
-        private double poscmd;
-        private double loadcmd;
-        private double extcmd;
+
+        private double cmd;
+        
         private double time;
         private double count;
         private double pos1;//围压位移
@@ -143,9 +143,7 @@ namespace ClsStaticStation
                 pos = r.NextDouble();
                 ext = r.NextDouble();
                 time = (System.Environment.TickCount - mstarttickcount) / 1000.0;
-                poscmd = 0;
-                loadcmd = 0;
-                extcmd = 0;
+                
                 count = 0;
                 load1 = r.NextDouble();
                 pos1 = r.NextDouble();
@@ -158,9 +156,7 @@ namespace ClsStaticStation
                 pos = r.NextDouble();
                 ext = r.NextDouble();
                 time = (System.Environment.TickCount - mstarttickcount) / 1000.0;
-                poscmd = 0;
-                loadcmd = 0;
-                extcmd = 0;
+             
                 count = 0;
                 load1 = r.NextDouble();
                 pos1 = r.NextDouble();
@@ -543,31 +539,12 @@ namespace ClsStaticStation
                 if (m_Global.mycls.datalist[j].SignName == "Ch Command")
                 {
 
-                    b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
+                    b.data[m_Global.mycls.datalist[j].EdcId] = cmd;
 
 
                 }
 
-                if (m_Global.mycls.datalist[j].SignName == "Ch Disp Command")
-                {
-
-
-                    b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
-
-
-
-                }
-
-                if (m_Global.mycls.datalist[j].SignName == "Ch Load Command")
-                {
-
-
-                    b.data[m_Global.mycls.datalist[j].EdcId] = loadcmd;
-
-
-
-
-                }
+             
 
 
                 if (m_Global.mycls.datalist[j].SignName == "Ch Count")
@@ -635,23 +612,11 @@ namespace ClsStaticStation
                 if (m_Global.mycls.allsignals[j].SignName == "Ch Command")
                 {
 
-                    m_Global.mycls.allsignals[j].cvalue = poscmd;
+                    m_Global.mycls.allsignals[j].cvalue = cmd;
 
                 }
 
-                if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Command")
-                {
-
-                    m_Global.mycls.allsignals[j].cvalue = poscmd;
-
-                }
-
-                if (m_Global.mycls.allsignals[j].SignName == "Ch Load Command")
-                {
-
-                    m_Global.mycls.allsignals[j].cvalue = loadcmd;
-
-                }
+              
 
 
             }
@@ -748,12 +713,20 @@ namespace ClsStaticStation
             short k = 0;
             RawDataDataGroup d;
 
+            oldcount = 0;
             mspenum = spenum;
+
+
+            duanliebaohu = false;
+
+           
 
             myedc.Data.SetTime(XLDOPE.SETTIME_MODE.IMMEDIATE, 0);
 
             m_runstate = 0;
-
+            
+            
+            
 
             if (mdemo == false)
             {
@@ -1075,8 +1048,18 @@ namespace ClsStaticStation
 
                 total_returncount = 0;
 
-                
-                current_returncount = 1;
+
+                for (int ii = mcurseg; ii < mrunlist.Count; ii++)
+                {
+                    if (mrunlist[ii].mseq.loopcount >0)
+                    {
+                        current_returncount =  mrunlist[ii].mseq.finishedloopcount ;
+                        break;
+                    }
+                }
+
+                   
+
 
               
 
@@ -1213,7 +1196,7 @@ namespace ClsStaticStation
 
                 total_returncount = 0;
 
-                current_returncount = 1;
+                current_returncount = 0;
 
 
             }
@@ -1636,6 +1619,8 @@ namespace ClsStaticStation
             bool b = false;
             short tan = 0;
 
+           
+
             m_keeptime = keeptime;
             m_keepstart = false;
             keepingstate = false;
@@ -1679,7 +1664,7 @@ namespace ClsStaticStation
                         double m_dest2 = mrunlist[mcurseg].mseq.mtrimin;
 
 
-                        myedc.Move.Cycle((XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed, m_dest1, 0, m_speed, m_dest2, 0, (DoPE_HANDLE)mrunlist[mcurseg].mseq.mtricount, m_speed, m_dest2, ref tan);
+                        myedc.Move.Cycle((XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed, m_dest1, 0, m_speed, m_dest2, 0, (DoPE_HANDLE)(mrunlist[mcurseg].mseq.mcount- mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_dest2, ref tan);
                     }
 
 
@@ -1689,10 +1674,11 @@ namespace ClsStaticStation
                         m_runstate = 1;
                         double m_speed = Convert.ToDouble(m_Global.mycls.hardsignals[mrunlist[mcurseg].controlmode].speedSignal.GetOriValue(mrunlist[mcurseg].mseq.msinrate, mrunlist[mcurseg].mseq.msinrateunit));
                         double m_dest1 = mrunlist[mcurseg].mseq.msinmax;
-                        double m_dest2 = mrunlist[mcurseg].mseq.mtrimin;
+                        double m_dest2 = mrunlist[mcurseg].mseq.msinmin;
 
                         double m_offset = 0;
                         double m_amp = 0;
+
                         if (m_dest1 < m_dest2)
                         {
                             m_offset = m_dest1 + (m_dest2 - m_dest1) / 2;
@@ -1706,7 +1692,7 @@ namespace ClsStaticStation
 
 
                         myedc.Move.DynCyclesSimple(XLDOPE.DYN_WAVEFORM.COSINE, (XLDOPE.DYN_PEAKCTRL)0, (XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, false, m_speed, m_offset, m_amp,
-                            mrunlist[mcurseg].mseq.msinfreq, (DoPE_HANDLE)mrunlist[mcurseg].mseq.msincount, m_speed, m_offset, ref tan);
+                            mrunlist[mcurseg].mseq.msinfreq, (DoPE_HANDLE)(mrunlist[mcurseg].mseq.mcount- mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_offset, ref tan);
                     }
 
 
@@ -1903,11 +1889,18 @@ namespace ClsStaticStation
                         {
                             current_returncount = current_returncount + 1;
 
-                            if (current_returncount > m_returncount)
+                            mrunlist[mcurseg].mseq.finishedloopcount = current_returncount;
+
+
+                            if (current_returncount >=m_returncount)
                             {
+                                
+                                CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.mfinishedcount= CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.mcurrentcount;
+                                
+
                                 mcurseg = mcurseg + 1;
                                 total_returncount = 0;
-                                current_returncount = 1;
+                                current_returncount = 0;
 
                             }
                             else
@@ -1918,6 +1911,9 @@ namespace ClsStaticStation
                         }
                         else
                         {
+                           
+                                CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.mfinishedcount = CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.mcurrentcount;
+                           
 
                             mcurseg = mcurseg + 1;
                         }
@@ -2012,18 +2008,29 @@ namespace ClsStaticStation
                     pos = GGMsg.Sensor[0];
                     load = GGMsg.Sensor[1];
                     ext = GGMsg.Sensor[2];
-                    poscmd = 0;
-                    loadcmd = 0;
-                    extcmd = 0;
+
                     //time = AccurateTimer.GetTimeTick();
 
-
+                    cmd = GGMsg.Test1;
 
                     time = GGMsg.Time;
-                    count = 0;
 
+                  
+                    count = CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.mfinishedcount+GGMsg.Cycles;
+                    
 
+                    base.count = Convert.ToInt64(count);
+                    
+                    if ((CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.wavekind == 2) || (CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.wavekind == 3))
+                    { 
+                        CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.mcurrentcount = Convert.ToInt32(count);
+                    }
+                    else
+                    {
+                        CComLibrary.GlobeVal.filesave.mseglist[mcurseg].mseq.mcurrentcount = 0;
+                    }
 
+                 
                     ClsStaticStation.m_Global.msensor4 = GGMsg.Sensor[3];
 
                     ClsStaticStation.m_Global.msensor5 = GGMsg.Sensor[4];
@@ -2334,31 +2341,12 @@ namespace ClsStaticStation
                         if (m_Global.mycls.datalist[j].SignName == "Ch Command")
                         {
 
-                            b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
+                            b.data[m_Global.mycls.datalist[j].EdcId] = cmd;
 
 
                         }
 
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Command")
-                        {
-
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = poscmd;
-
-
-
-                        }
-
-                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Command")
-                        {
-
-
-                            b.data[m_Global.mycls.datalist[j].EdcId] = loadcmd;
-
-
-
-
-                        }
+                      
 
 
                         if (m_Global.mycls.datalist[j].SignName == "Ch Count")
@@ -2367,8 +2355,77 @@ namespace ClsStaticStation
                             b.data[m_Global.mycls.datalist[j].EdcId] = count;
 
 
+                            
+
+
+                        }
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Max")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
+                                {
+                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemax;
+                                 }
+                             }
                         }
 
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Min")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
+                                {
+                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemin;
+                                }
+                            }
+                        }
+
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Max")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Load")
+                                {
+                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemax;
+                                }
+                            }
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Min")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Load")
+                                {
+                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemin;
+                                }
+                            }
+                        }
+
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Ext Max")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Ext")
+                                {
+                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemax;
+                                }
+                            }
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Ext Min")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Ext")
+                                {
+                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemin;
+                                }
+                            }
+                        }
 
                         if (m_Global.mycls.datalist[j].SignName == "Ch Feed")
                         {
@@ -2425,23 +2482,11 @@ namespace ClsStaticStation
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Command")
                         {
 
-                            m_Global.mycls.allsignals[j].cvalue = poscmd;
+                            m_Global.mycls.allsignals[j].cvalue = cmd;
 
                         }
 
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Command")
-                        {
-
-                            m_Global.mycls.allsignals[j].cvalue = poscmd;
-
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Load Command")
-                        {
-
-                            m_Global.mycls.allsignals[j].cvalue = loadcmd;
-
-                        }
+                     
 
 
                     }
@@ -2481,11 +2526,46 @@ namespace ClsStaticStation
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Disp")
                         {
                             m_Global.mycls.allsignals[j].cvalue = pos;
+                            if (pos > m_Global.mycls.allsignals[j].bvaluemax)
+                            {
+                                m_Global.mycls.allsignals[j].bvaluemax = pos;
+                            }
+                            if (pos < m_Global.mycls.allsignals[j].bvaluemin)
+                            {
+                                m_Global.mycls.allsignals[j].bvaluemin = pos;
+                            }
+                            if (pos > m_Global.mycls.allsignals[j].rvaluemax)
+                            {
+                                m_Global.mycls.allsignals[j].rvaluemax = pos;
+                            }
+                            if (pos < m_Global.mycls.allsignals[j].rvaluemin)
+                            {
+                                m_Global.mycls.allsignals[j].rvaluemin = pos;
+                            }
+
                         }
 
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Load")
                         {
                             m_Global.mycls.allsignals[j].cvalue = load;
+
+                            if (load > m_Global.mycls.allsignals[j].bvaluemax)
+                            {
+                                m_Global.mycls.allsignals[j].bvaluemax = load;
+                            }
+                            if (load < m_Global.mycls.allsignals[j].bvaluemin)
+                            {
+                                m_Global.mycls.allsignals[j].bvaluemin = load;
+                            }
+                            if (load > m_Global.mycls.allsignals[j].rvaluemax)
+                            {
+                                m_Global.mycls.allsignals[j].rvaluemax = load;
+                            }
+                            if (load < m_Global.mycls.allsignals[j].rvaluemin)
+                            {
+                                m_Global.mycls.allsignals[j].rvaluemin = load;
+                            }
+
 
                         }
 
@@ -2493,8 +2573,75 @@ namespace ClsStaticStation
                         {
                             m_Global.mycls.allsignals[j].cvalue = ext;
 
+                            if (ext > m_Global.mycls.allsignals[j].bvaluemax)
+                            {
+                                m_Global.mycls.allsignals[j].bvaluemax =ext;
+                            }
+                            if (ext< m_Global.mycls.allsignals[j].bvaluemin)
+                            {
+                                m_Global.mycls.allsignals[j].bvaluemin = ext;
+                            }
+                            if (ext> m_Global.mycls.allsignals[j].rvaluemax)
+                            {
+                                m_Global.mycls.allsignals[j].rvaluemax =ext;
+                            }
+                            if (ext < m_Global.mycls.allsignals[j].rvaluemin)
+                            {
+                                m_Global.mycls.allsignals[j].rvaluemin = ext;
+                            }
+
+
 
                         }
+
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Count")
+                        {
+                            m_Global.mycls.allsignals[j].cvalue = count;
+                            
+                            if ( Math.Abs( Convert.ToInt32(count)-oldcount) >=2)
+                            {
+                                for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                                {
+                                    m_Global.mycls.chsignals[m].cvaluemax = m_Global.mycls.chsignals[m].bvaluemax;
+                                    m_Global.mycls.chsignals[m].cvaluemin = m_Global.mycls.chsignals[m].bvaluemin;
+                                    m_Global.mycls.chsignals[m].bvaluemax = m_Global.mycls.chsignals[m].fullminbase;
+                                    m_Global.mycls.chsignals[m].bvaluemin = m_Global.mycls.chsignals[m].fullmaxbase;
+
+
+
+
+                                }
+                               
+                                oldcount = Convert.ToInt32(count);
+                            }
+
+                           
+                        }
+
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Max")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
+                                {
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemax;
+                                }
+                            }
+                        }
+
+                        if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Min")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
+                                {
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemin;
+                                }
+                            }
+                        }
+
+
+
 
                         for (int m = 0; m < 100; m++)
                         {

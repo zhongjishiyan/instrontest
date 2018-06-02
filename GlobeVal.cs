@@ -177,7 +177,7 @@ namespace TabHeaderDemo
             }
             if (CComLibrary.GlobeVal.filesave.mlongdata.Count > 0)
             {
-                listBox1.Items.Add("长时数据输出：");
+                listBox1.Items.Add("峰值趋势数据输出：");
                 for (int i = 0; i < CComLibrary.GlobeVal.filesave.mlongdata.Count; i++)
                 {
                     string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mlongdata[i].cName;

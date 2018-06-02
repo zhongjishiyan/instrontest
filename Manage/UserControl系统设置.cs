@@ -125,11 +125,28 @@ namespace TabHeaderDemo
             head = new SourceGrid2.Cells.Real.ColumnHeader("硬件通道采集方式");
             head.EnableSort = false;
             grid1[0, 6] = head;
-
-
-           
-        
+            //判断如果没有控制通道，则设置一个控制通道，防止系统出错
+            bool mb = false;
             for (int i = 1; i <= ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
+            {
+
+                if (GlobeVal.mysys.ChannelControl[i - 1]==true)
+                {
+                    mb = true;
+                }
+            }
+
+            if (mb ==false )
+            {
+                GlobeVal.mysys.ChannelControl[0] = true;
+
+            }
+
+
+
+
+
+                for (int i = 1; i <= ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
             {
                 grid1.Rows.Insert(i);
                 grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(

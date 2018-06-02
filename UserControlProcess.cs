@@ -72,7 +72,7 @@ namespace TabHeaderDemo
                 {
                     if (CComLibrary.GlobeVal.filesave.mseglist[i].mseq.loop == true)
                     {
-                        v.SubItems[i+1].Text = CComLibrary.GlobeVal.filesave.mseglist[i].currentcount.ToString()+  "|" + CComLibrary.GlobeVal.filesave.mseglist[i].mseq.loopcount.ToString();
+                        v.SubItems[i+1].Text = CComLibrary.GlobeVal.filesave.mseglist[i].mseq.finishedloopcount.ToString()+  "|" + CComLibrary.GlobeVal.filesave.mseglist[i].mseq.loopcount.ToString();
                     }
                 }
             }
@@ -128,8 +128,8 @@ namespace TabHeaderDemo
 
                     if (CComLibrary.GlobeVal.filesave.mseglist[i].returncount > 0)
                     {
-                        CComLibrary.GlobeVal.filesave.mseglist[i].currentcount = GlobeVal.myarm.current_returncount;
-                        listViewPro1.Items[3].SubItems[i + 1].Text = CComLibrary.GlobeVal.filesave.mseglist[i].currentcount.ToString() + "|" + CComLibrary.GlobeVal.filesave.mseglist[i].returncount.ToString();
+                       // CComLibrary.GlobeVal.filesave.mseglist[i].currentcount = GlobeVal.myarm.current_returncount;
+                        listViewPro1.Items[3].SubItems[i + 1].Text = CComLibrary.GlobeVal.filesave.mseglist[i].mseq.finishedloopcount.ToString() + "|" + CComLibrary.GlobeVal.filesave.mseglist[i].returncount.ToString();
                     }
 
                 listViewPro1.RedrawItems(2, 3, true );

@@ -1141,8 +1141,8 @@ namespace TabHeaderDemo
         {
             if (radioButton3.Checked == true)
             {
-                // tlpkind1.Visible = false;
-                // tlpkind2.Visible = true;
+                 tlpkind1.Visible = true;
+                 tlpkind2.Visible = false;
 
                 myplotsettings.curvekind = 2;
             }
@@ -1574,6 +1574,28 @@ namespace TabHeaderDemo
         private void numy1min_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
             myplotsettings.y1min = numy1min.Value;
+        }
+
+        private void tlpkind2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void rdby1autozoom_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (rdby1autozoom.Checked == true)
+            {
+                myplotsettings.y1channelzoom  = true;
+            }
+        }
+
+        private void rdby1handzoom_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdby1handzoom.Checked == true)
+            {
+                myplotsettings.y1channelzoom = false;
+            }
         }
     }
 }

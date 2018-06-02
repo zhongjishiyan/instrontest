@@ -11,6 +11,8 @@ namespace TabHeaderDemo.Frm
 {
     public partial class FormLink : Form
     {
+
+        private bool mb = false;
         public FormLink()
         {
             InitializeComponent();
@@ -18,14 +20,32 @@ namespace TabHeaderDemo.Frm
 
         private void FormLink_Load(object sender, EventArgs e)
         {
-            progress_CPI.IndicatorType = CircularIndeterminateProgress.CircularIndeterminateProgress.INDICATORTYPES.ANIMATED;
-            progress_CPI.Animate = true
-             ;
+            mb = false;
+            timer1.Enabled = true;
         }
 
         private void FormLink_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Close();
+        }
+
+        private void label2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (mb == true)
+            {
+                mb = false;
+                pictureBox1.Image = imageList1.Images[0];
+            }
+            else
+            {
+                mb = true;
+                pictureBox1.Image = imageList1.Images[1];
+            }
         }
     }
 }
