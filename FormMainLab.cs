@@ -586,6 +586,8 @@ namespace TabHeaderDemo
 
             GlobeVal.FormmainLab = this;
 
+            GlobeVal.dopanel = panel2;
+
             this.Left = 0;
             this.Top = 0;
 
@@ -618,8 +620,8 @@ namespace TabHeaderDemo
             this.Width = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Width);
             this.Height = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height);
 
-          //   this.Width = 1600;
-            // this.Height = 900;
+           // this.Width = 1024;
+           // this.Height = 768;
             tabControl1.ItemSize = new Size(1, 1);
 
 
@@ -1221,8 +1223,7 @@ namespace TabHeaderDemo
         private void btnhand_Click(object sender, EventArgs e)
         {
 
-            Frm.FormPanelSet f = new Frm.FormPanelSet();
-            f.ShowDialog();
+          
         }
 
 

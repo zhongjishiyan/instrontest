@@ -75,9 +75,12 @@ namespace TabHeaderDemo
                                 label4.Visible = true;
                                 lblcurlargecount.Visible = true;
                                 lbllargecount.Visible = true;
+                               
+                                label7.Visible = true;
 
-                                lblcurlargecount.Text = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.mfinishedcount.ToString();
+                                lblcurlargecount.Text = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.mcurrentcount.ToString();
                                 lbllargecount.Text = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.mcount.ToString();
+                             
                             }
                            
                             else
@@ -86,6 +89,9 @@ namespace TabHeaderDemo
                                 label4.Visible = false ;
                                 lblcurlargecount.Visible = false ;
                                 lbllargecount.Visible = false ;
+                             
+                                label7.Visible = false;
+                            
                             } 
 
 

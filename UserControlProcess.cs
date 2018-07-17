@@ -105,7 +105,7 @@ namespace TabHeaderDemo
             {
                 return;
             }
-            if ((GlobeVal.myarm.mcurseg >= 0) && (GlobeVal.myarm.mcurseg <= CComLibrary.GlobeVal.filesave.mseglist.Count - 1))
+            if ((GlobeVal.myarm.mcurseg >= 0) && (GlobeVal.myarm.mcurseg < CComLibrary.GlobeVal.filesave.mseglist.Count ))
             {
                 if (listViewPro1.curstep != GlobeVal.myarm.mcurseg + 1)
                 {
@@ -129,7 +129,7 @@ namespace TabHeaderDemo
                     if (CComLibrary.GlobeVal.filesave.mseglist[i].returncount > 0)
                     {
                        // CComLibrary.GlobeVal.filesave.mseglist[i].currentcount = GlobeVal.myarm.current_returncount;
-                        listViewPro1.Items[3].SubItems[i + 1].Text = CComLibrary.GlobeVal.filesave.mseglist[i].mseq.finishedloopcount.ToString() + "|" + CComLibrary.GlobeVal.filesave.mseglist[i].returncount.ToString();
+                        listViewPro1.Items[3].SubItems[i + 1].Text = (CComLibrary.GlobeVal.filesave.mseglist[i].mseq.finishedloopcount+1).ToString() + "|" + CComLibrary.GlobeVal.filesave.mseglist[i].returncount.ToString();
                     }
 
                 listViewPro1.RedrawItems(2, 3, true );

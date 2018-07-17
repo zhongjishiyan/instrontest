@@ -10,9 +10,14 @@ namespace ClsStaticStation
    public  class ClsBaseControl
     {
 
+
+
+        public int tcount = 0;
+
+
         public int oldcount = 0;
 
-      
+        public double DataTransmissionRate = 0.001;
 
         public UInt32  debug;
         public Boolean connected = false;//判断是否联机
@@ -70,7 +75,10 @@ namespace ClsStaticStation
         {
 
         }
+        public virtual void findzero(double speed)
+        {
 
+        }
         public virtual  void btnzeroall()
         {
 
@@ -126,6 +134,11 @@ namespace ClsStaticStation
 
         }
 
+
+        public virtual void cleartime()
+        {
+
+        }
         public virtual  void startcontrol()
         {
 

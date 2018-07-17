@@ -765,7 +765,7 @@ namespace AppleLabApplication
             {
                 b = new CComLibrary.SystemPara();
                 b.Name = CComLibrary.GlobeVal.filesave.moutput[i].formulaname;
-                b.replaceName = b.Name;
+                b.replaceName = "@result" + (i + 1).ToString().Trim(); ;
                 s = s+"double " + b.replaceName + "="+"m_Global.mresult[" + (i + 1).ToString().Trim()+"];" + "\r\n";
                 CComLibrary.GlobeVal.msyspara.Add(b);
 
@@ -1439,11 +1439,16 @@ namespace AppleLabApplication
         private void lvTips_VScroll(object sender, EventArgs e)
         {
             lvTips.Refresh();
+
+          
         }
 
         private void lvTips_HScroll(object sender, EventArgs e)
         {
             lvTips.Refresh();
+
+          
+
         }
     }
 }

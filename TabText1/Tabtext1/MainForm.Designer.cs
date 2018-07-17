@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -179,12 +178,12 @@
             this.toolStripPropertyEditor3 = new NationalInstruments.UI.WindowsForms.ToolStripPropertyEditor();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripPropertyEditor4 = new NationalInstruments.UI.WindowsForms.ToolStripPropertyEditor();
-            this.timertxt = new System.Windows.Forms.Timer(this.components);
+            this.timertxt = new System.Windows.Forms.Timer();
             this.graphPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.ctmnu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctmnu = new System.Windows.Forms.ContextMenuStrip();
             this.ctmnu编辑 = new System.Windows.Forms.ToolStripMenuItem();
             this.ctmnu删除 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctmnuplot = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctmnuplot = new System.Windows.Forms.ContextMenuStrip();
             this.曲线设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -772,7 +771,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabel2.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(991, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(1022, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // toolStrip2

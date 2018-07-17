@@ -839,6 +839,8 @@ namespace TabHeaderDemo
                 cboextchannel.SelectedIndex = 0;
             }
 
+            
+
             numext.Value = CComLibrary.GlobeVal.filesave.Extensometer_DataValue;
             cboextunit.Items.Clear();
             for (int i = 0; i < m_Global.mycls.hardsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].cUnitCount; i++)
@@ -1651,7 +1653,16 @@ namespace TabHeaderDemo
                 dgridsavepeaktrend.Rows[i].Cells[2].Value = getselect().msequence.msavepeaktrendrow3[i];
             }
 
-         
+
+            cbopeakmode.Items.Clear();
+            cbopeakmode.Items.Add("覆盖");
+            cbopeakmode.Items.Add("追加");
+            cbopeakmode.SelectedIndex = getselect().msequence.msavemode_forflow ;
+
+            cboflowmode.Items.Clear();
+            cboflowmode.Items.Add("覆盖");
+            cboflowmode.Items.Add("追加");
+            cboflowmode.SelectedIndex = getselect().msequence.msavemode_forappend;
         }
 
 
@@ -2634,7 +2645,7 @@ namespace TabHeaderDemo
             tabControl2.TabPages.Clear();
             tabControl2.TabPages.Add(tabPage10);
             tabControl2.TabPages.Add(tabPage11);
-            tabControl2.TabPages.Add(tabPage12);
+            //tabControl2.TabPages.Add(tabPage12);
             tabControl2.TabPages.Add(tabPage21);
             tabControl2.TabPages.Add(tabPage22);
         }
@@ -3073,7 +3084,7 @@ namespace TabHeaderDemo
             tabControl2.TabPages.Clear();
             tabControl2.TabPages.Add(tabPage10);
             tabControl2.TabPages.Add(tabPage11);
-            tabControl2.TabPages.Add(tabPage12);
+           // tabControl2.TabPages.Add(tabPage12);
             tabControl2.TabPages.Add(tabPage21);
             tabControl2.TabPages.Add(tabPage22); 
         }
@@ -3501,6 +3512,17 @@ namespace TabHeaderDemo
         private void cboextchannel_SelectionChangeCommitted(object sender, EventArgs e)
         {
             CComLibrary.GlobeVal.filesave.Extensometer_DataChannel = cboextchannel.SelectedIndex;
+
+            cboextunit.Items.Clear();
+            for (int i = 0; i < m_Global.mycls.hardsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].cUnitCount; i++)
+            {
+                cboextunit.Items.Add(m_Global.mycls.hardsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].cUnits[i]);
+
+            }
+
+            cboextunit.SelectedIndex = 0;
+
+            
         }
 
         private void cboextruler_SelectionChangeCommitted(object sender, EventArgs e)
@@ -3770,9 +3792,25 @@ namespace TabHeaderDemo
             {
                 sqf.mSequencelist[i].finishedloopcount = 0;
                 sqf.mSequencelist[i].mfinishedcount = 0;
+                sqf.mSequencelist[i].runfinished = false;
             }
+            //listViewEx1.reset();
+            if (listViewEx1.mlist.Count > 0)
+            {
+                UserControlStep1_btnselectevent(listViewEx1.mlist[0], 0);
+            }
+            GlobeVal.myarm.mcurseg = 0;//复位后重新设置初始段位置
 
+        }
 
+        private void cboflowmode_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.msavemode_forflow = cboflowmode.SelectedIndex;
+        }
+
+        private void cbopeakmode_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.msavemode_forappend= cbopeakmode.SelectedIndex;
         }
     }
 }

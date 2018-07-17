@@ -14,6 +14,189 @@ namespace TabHeaderDemo
 
         private bool mgrid1moved = false;
 
+        public void Statistics(bool tested, CComLibrary.TablePara mtablepara,  List<CComLibrary.outputitem> tabcol,List<CComLibrary.outputitem> mstatic) //统计计算
+        {
+            for (int i = 1; i <= mstatic.Count; i++)
+            {
+                if (mstatic[i - 1].selected == true)
+
+                {
+                    grid2.Rows.Insert(i);
+
+
+                    grid2[i, 0] = new SourceGrid2.Cells.Real.Button(
+                        typeof(string));
+                    (grid2[i, 0] as SourceGrid2.Cells.Real.Button).Value = mstatic[i - 1].formulaname;
+
+
+
+                    for (int j = 0; j < tabcol.Count; j++)
+                    {
+
+
+                        float t = 0;
+
+                        string s = "";
+
+                        if (tested == false)
+                        {
+                            s = "---";
+                        }
+                        else
+                        {
+
+
+                            if (tested == true)
+                            {
+
+
+                                if (CComLibrary.GlobeVal.filesave.dt.Columns[tabcol[j].formulaname].DataType == Type.GetType("System.String"))
+                                {
+                                    s = "---";
+                                }
+                                else
+                                {
+
+                                    if (mstatic[i - 1].formulaname == "最小值")
+                                    {
+                                        // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + tabcol[j].formulaname + ")", ""));
+
+                                        int a = 0;
+                                        for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                        {
+                                            if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == tabcol[j].formulaname)
+                                            {
+                                                a = k;
+                                                break;
+                                            }
+                                        }
+
+
+
+                                        string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + "@temp" + ")", ""));
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
+                                    }
+                                    if (mstatic[i - 1].formulaname == "最大值")
+                                    {
+                                        int a = 0;
+                                        for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                        {
+                                            if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == tabcol[j].formulaname)
+                                            {
+                                                a = k;
+                                                break;
+                                            }
+                                        }
+
+
+
+                                        string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("max(" + "@temp" + ")", ""));
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
+                                    }
+                                    if (mstatic[i - 1].formulaname == "平均值")
+                                    {
+                                        //  t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("avg(" + tabcol[j].formulaname + ")", ""));
+                                        int a = 0;
+                                        for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                        {
+                                            if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == tabcol[j].formulaname)
+                                            {
+                                                a = k;
+                                                break;
+                                            }
+                                        }
+
+
+
+                                        string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("avg(" + "@temp" + ")", ""));
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
+
+
+                                    }
+                                    if (mstatic[i - 1].formulaname == "标准偏差")
+                                    {
+                                        // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("StDev(" + tabcol[j].formulaname + ")", ""));
+
+                                        int a = 0;
+                                        for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                        {
+                                            if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == tabcol[j].formulaname)
+                                            {
+                                                a = k;
+                                                break;
+                                            }
+                                        }
+
+
+
+                                        string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("StDev(" + "@temp" + ")", ""));
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
+
+
+                                    }
+                                    if (mstatic[i - 1].formulaname == "方差")
+                                    {
+                                        //  t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("Var(" + tabcol[j].formulaname + ")", ""));
+                                        int a = 0;
+                                        for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                        {
+                                            if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == tabcol[j].formulaname)
+                                            {
+                                                a = k;
+                                                break;
+                                            }
+                                        }
+
+
+
+                                        string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("Var(" + "@temp" + ")", ""));
+                                        CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
+
+
+                                    }
+
+
+                                    s = t.ToString("F" + tabcol[j].myitemsignal.precise.ToString().Trim());
+
+
+                                }
+
+                            }
+
+                            if (tabcol[j].myitemsignal.cUnitKind == 19)
+                            {
+                                s = "";
+                            }
+                        }
+
+                        grid2[i, 1 + j] = new SourceGrid2.Cells.Real.Cell(
+                           s, typeof(string));
+                        (grid2[i, 1 + j] as SourceGrid2.Cells.Real.Cell).TextAlignment = mtablepara.mTableGridPara.GridAlignment;
+                        (grid2[i, 1 + j] as SourceGrid2.Cells.Real.Cell).BackColor = mtablepara.mTableGridPara.GridBackColor;
+                        (grid2[i, 1 + j] as SourceGrid2.Cells.Real.Cell).ForeColor = mtablepara.mTableGridPara.GridForeColor;
+
+                        (grid2[i, 1 + j] as SourceGrid2.Cells.Real.Cell).Font = new Font(mtablepara.mTableGridPara.GridFont.FontFamily,
+                   mtablepara.mTableGridPara.GridFont.Size);
+                    }
+
+                    grid2[i, grid1.ColumnsCount - 1] = new SourceGrid2.Cells.Real.Cell(
+                       "", typeof(string));
+
+                }
+            }
+
+        }
+
         public void ReCalcGrid(int index, bool tested, bool read, List<CComLibrary.outputitem> tabcol, CComLibrary.TablePara mtablepara, List<CComLibrary.outputitem> mstatic,int inum)
         {
             double result = 0;
@@ -434,8 +617,9 @@ namespace TabHeaderDemo
             grid2.AutoStretchColumnsToFitWidth = true;
 
 
+            Statistics(tested, mtablepara, tabcol, mstatic);
 
-
+            /*
             for (int i = 1; i <= mstatic.Count; i++)
             {
                 if (mstatic[i - 1].selected == true)
@@ -533,7 +717,7 @@ namespace TabHeaderDemo
 
                 }
             }
-
+            */
             for (int i = 0; i < grid2.ColumnsCount - 1; i++)
             {
                 grid2.Columns[i].AutoSizeMode = SourceGrid2.AutoSizeMode.None;
@@ -1020,106 +1204,9 @@ namespace TabHeaderDemo
             grid2.AutoStretchColumnsToFitWidth = true;
 
 
+            Statistics(tested, mtablepara, tabcol, mstatic);
 
-
-            for (int i = 1; i <= mstatic.Count; i++)
-            {
-                if (mstatic[i - 1].selected == true)
-
-                {
-                    grid2.Rows.Insert(i);
-
-
-                    grid2[i, 0] = new SourceGrid2.Cells.Real.Button(
-                        typeof(string));
-                    (grid2[i, 0] as SourceGrid2.Cells.Real.Button).Value = mstatic[i - 1].formulaname;
-
-
-
-                    for (int j = 0; j < tabcol.Count; j++)
-                    {
-
-
-                        float t = 0;
-
-                        string s = "";
-
-                        if (tested == false)
-                        {
-                            s = "---";
-                        }
-                        else
-                        {
-
-
-                            if (tested == true)
-                            {
-
-
-                                if (CComLibrary.GlobeVal.filesave.dt.Columns[tabcol[j].formulaname].DataType == Type.GetType("System.String"))
-                                {
-                                    s = "---";
-                                }
-                                else
-                                {
-
-                                    if (mstatic[i - 1].formulaname == "最小值")
-                                    {
-                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + tabcol[j].formulaname + ")", ""));
-                                    }
-                                    if (mstatic[i - 1].formulaname == "最大值")
-                                    {
-                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("max(" + tabcol[j].formulaname + ")", ""));
-                                    }
-                                    if (mstatic[i - 1].formulaname == "平均值")
-                                    {
-                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("avg(" + tabcol[j].formulaname + ")", ""));
-
-
-                                    }
-                                    if (mstatic[i - 1].formulaname == "标准偏差")
-                                    {
-                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("StDev(" + tabcol[j].formulaname + ")", ""));
-
-
-                                    }
-                                    if (mstatic[i - 1].formulaname == "方差")
-                                    {
-                                        t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("Var(" + tabcol[j].formulaname + ")", ""));
-
-
-                                    }
-
-
-                                    s = t.ToString("F" + tabcol[j].myitemsignal.precise.ToString().Trim());
-
-
-                                }
-
-                            }
-
-                            if (tabcol[j].myitemsignal.cUnitKind == 19)
-                            {
-                                s = "";
-                            }
-                        }
-
-                        grid2[i, 1 + j] = new SourceGrid2.Cells.Real.Cell(
-                           s, typeof(string));
-                        (grid2[i, 1 + j] as SourceGrid2.Cells.Real.Cell).TextAlignment = mtablepara.mTableGridPara.GridAlignment;
-                        (grid2[i, 1 + j] as SourceGrid2.Cells.Real.Cell).BackColor = mtablepara.mTableGridPara.GridBackColor;
-                        (grid2[i, 1 + j] as SourceGrid2.Cells.Real.Cell).ForeColor = mtablepara.mTableGridPara.GridForeColor;
-
-                        (grid2[i, 1 + j] as SourceGrid2.Cells.Real.Cell).Font = new Font(mtablepara.mTableGridPara.GridFont.FontFamily,
-                   mtablepara.mTableGridPara.GridFont.Size);
-                    }
-
-                    grid2[i, grid1.ColumnsCount - 1] = new SourceGrid2.Cells.Real.Cell(
-                       "", typeof(string));
-
-                }
-            }
-
+          
             for (int i = 0; i < grid2.ColumnsCount - 1; i++)
             {
                 grid2.Columns[i].AutoSizeMode = SourceGrid2.AutoSizeMode.None;

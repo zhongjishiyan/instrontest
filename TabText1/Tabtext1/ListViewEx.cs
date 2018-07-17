@@ -76,12 +76,18 @@ namespace ListViewEx
 			base.FullRowSelect = true;
 			base.View = View.Details;
 			base.AllowColumnReorder = true;
-		}
 
-		///	<summary>
-		///	Clean up any resources being used.
-		///	</summary>
-		protected override void	Dispose( bool disposing	)
+          
+
+            SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+            UpdateStyles();
+
+        }
+
+        ///	<summary>
+        ///	Clean up any resources being used.
+        ///	</summary>
+        protected override void	Dispose( bool disposing	)
 		{
 			if(	disposing )
 			{

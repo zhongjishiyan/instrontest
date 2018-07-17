@@ -1831,6 +1831,9 @@ namespace CComLibrary
         public int[] msavepeaktrendrow3;
 
 
+        public int msavemode_forflow = 0;//跟踪数据保存模式
+        public int msavemode_forappend = 0;//追加数据保存模式
+
 
         public int chkchannelcount = 0;
         public Sequence()
@@ -2286,7 +2289,8 @@ namespace CComLibrary
     {
         Untested = 0,
         tested = 1,
-        novalid = 2
+        novalid = 2,
+        RemoveExt=3
 
     };
 
@@ -2942,6 +2946,8 @@ namespace CComLibrary
         public string layfilename;//布局文件名称
 
         public DataTable dt;
+
+
 
         public DataTable dtstatic;
 
@@ -3609,7 +3615,7 @@ namespace CComLibrary
                     {
                         b = new CComLibrary.SystemPara();
                         b.Name = CComLibrary.GlobeVal.filesave.moutput[i].formulaname;
-                        b.replaceName = b.Name;
+                        b.replaceName = "@result" + (i + 1).ToString().Trim();
                         //  s = s + "double " + b.replaceName + "=" + "CalcedChannelResult["+(i + 1).ToString().Trim() + "];" + "\r\n";
                         s = s + "double " + b.replaceName + "=" + "m_Global.mresult[" + (i + 1).ToString().Trim() + "];\r\n";
                         CComLibrary.GlobeVal.msyspara.Add(b);
@@ -3706,51 +3712,51 @@ namespace CComLibrary
             */
 
             for (int i = 0; i <
-        CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
+        this.mshapelist[this.shapeselect].sizeitem.Length; i++)
             {
-                if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                if (this.mshapelist[this.shapeselect].sizeitem[i].cName != "无")
                 {
                    
-                    s = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName;
+                    s = this.mshapelist[this.shapeselect].sizeitem[i].cName;
                     dc = dt.Columns.Add(s, typeof(double));
                 }
             }
 
 
             for (int i = 0; i <
-              CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
+              this.minputtext.Count; i++)
             {
                
-                s = CComLibrary.GlobeVal.filesave.minputtext[i].name;
+                s = this.minputtext[i].name;
                 dc = dt.Columns.Add(s, typeof(double));
                
             }
 
             for (int i = 0; i <
-             CComLibrary.GlobeVal.filesave.minput.Count; i++)
+             this.minput.Count; i++)
             {
                 
-                s = CComLibrary.GlobeVal.filesave.minput[i].name;
+                s = this.minput[i].name;
                 dc = dt.Columns.Add(s, typeof(double));
             }
 
 
 
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mcbo.Count; i++)
+            for (int i = 0; i < this.mcbo.Count; i++)
             {
              
 
               
-                s= CComLibrary.GlobeVal.filesave.mcbo[i].Name;
+                s= this.mcbo[i].Name;
                 dc = dt.Columns.Add(s, typeof(double));
 
             }
 
 
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
+            for (int i = 0; i < this.moutput.Count; i++)
             {
 
-                dc = dt.Columns.Add(CComLibrary.GlobeVal.filesave.moutput[i].formulaname, typeof(double));
+                dc = dt.Columns.Add(this.moutput[i].formulaname, typeof(double));
 
             }
 
@@ -3778,18 +3784,18 @@ namespace CComLibrary
 
             dc = dtstatic.Columns.Add("试样状态", typeof(CComLibrary.TestStatus));
 
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
+            for (int i = 0; i <this.mpromptslist.Count; i++)
             {
 
-                dc = dtstatic.Columns.Add(CComLibrary.GlobeVal.filesave.mpromptslist[i].itemname, System.Type.GetType("System.String"));
+                dc = dtstatic.Columns.Add(this.mpromptslist[i].itemname, System.Type.GetType("System.String"));
 
             }
 
 
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
+            for (int i = 0; i < this.moutput.Count; i++)
             {
 
-                dc = dtstatic.Columns.Add(CComLibrary.GlobeVal.filesave.moutput[i].formulaname, typeof(double));
+                dc = dtstatic.Columns.Add(this.moutput[i].formulaname, typeof(double));
 
             }
 
@@ -6159,7 +6165,7 @@ namespace CComLibrary
             {
                 b = new CComLibrary.SystemPara();
                 b.Name = CComLibrary.GlobeVal.filesave.moutput[i].formulaname;
-                b.replaceName = b.Name;
+                b.replaceName = "@result" + (i + 1).ToString().Trim();
                 s = s + "public  double " + b.replaceName + "= 0" + ";" + "\r\n";
                 CComLibrary.GlobeVal.msyspara.Add(b);
             }

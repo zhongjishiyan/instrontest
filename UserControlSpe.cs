@@ -148,15 +148,26 @@ namespace TabHeaderDemo
             if (state == CComLibrary.TestStatus.Untested)
             {
                 listBox1.Items[0].Text = num.ToString()+"-未测试";
+                this.statusStrip1.Visible = false ;
             }
             else if (state == CComLibrary.TestStatus.tested)
             {
                 listBox1.Items[0].Text = num.ToString() + "-已完成";
+
+                this.statusStrip1.Visible = false;
             }
             else if (state == CComLibrary.TestStatus.novalid)
             {
                 listBox1.Items[0].Text = num.ToString() + "-无效";
+                this.statusStrip1.Visible = false ;
             }
+            else if(state == CComLibrary.TestStatus.RemoveExt)
+            {
+                this.statusStrip1.Visible = true;
+
+
+            }
+
             listBox1.Items[0].Image = imageList1.Images[ Convert.ToInt16( state)];
             listBox1.Refresh();
 

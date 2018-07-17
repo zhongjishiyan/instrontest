@@ -33,10 +33,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.ledalarm = new LBSoft.IndustrialCtrls.Leds.LBLed();
             this.lblalarm = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.ledslimit = new LBSoft.IndustrialCtrls.Leds.LBLed();
             this.lblslimit = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ledhlimit = new LBSoft.IndustrialCtrls.Leds.LBLed();
             this.lblhlimit = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,7 +57,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.btnstart = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnfindzero = new System.Windows.Forms.Button();
             this.btnend = new System.Windows.Forms.Button();
             this.btnup = new System.Windows.Forms.Button();
             this.btndown = new System.Windows.Forms.Button();
@@ -91,11 +94,9 @@
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.cbowave = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ledalarm = new LBSoft.IndustrialCtrls.Leds.LBLed();
-            this.ledslimit = new LBSoft.IndustrialCtrls.Leds.LBLed();
-            this.ledhlimit = new LBSoft.IndustrialCtrls.Leds.LBLed();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -144,6 +145,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -154,8 +156,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 159F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(512, 630);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
@@ -186,6 +188,22 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(462, 34);
             this.tableLayoutPanel5.TabIndex = 5;
             // 
+            // ledalarm
+            // 
+            this.ledalarm.BackColor = System.Drawing.Color.Transparent;
+            this.ledalarm.BlinkInterval = 500;
+            this.ledalarm.Label = "";
+            this.ledalarm.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
+            this.ledalarm.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ledalarm.LedSize = new System.Drawing.SizeF(20F, 20F);
+            this.ledalarm.Location = new System.Drawing.Point(3, 3);
+            this.ledalarm.Name = "ledalarm";
+            this.ledalarm.Renderer = null;
+            this.ledalarm.Size = new System.Drawing.Size(32, 28);
+            this.ledalarm.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
+            this.ledalarm.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
+            this.ledalarm.TabIndex = 4;
+            // 
             // lblalarm
             // 
             this.lblalarm.AutoSize = true;
@@ -214,6 +232,22 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(462, 34);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
+            // ledslimit
+            // 
+            this.ledslimit.BackColor = System.Drawing.Color.Transparent;
+            this.ledslimit.BlinkInterval = 500;
+            this.ledslimit.Label = "";
+            this.ledslimit.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
+            this.ledslimit.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ledslimit.LedSize = new System.Drawing.SizeF(20F, 20F);
+            this.ledslimit.Location = new System.Drawing.Point(3, 3);
+            this.ledslimit.Name = "ledslimit";
+            this.ledslimit.Renderer = null;
+            this.ledslimit.Size = new System.Drawing.Size(32, 28);
+            this.ledslimit.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
+            this.ledslimit.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
+            this.ledslimit.TabIndex = 4;
+            // 
             // lblslimit
             // 
             this.lblslimit.AutoSize = true;
@@ -241,6 +275,22 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(462, 34);
             this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // ledhlimit
+            // 
+            this.ledhlimit.BackColor = System.Drawing.Color.Transparent;
+            this.ledhlimit.BlinkInterval = 500;
+            this.ledhlimit.Label = "";
+            this.ledhlimit.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
+            this.ledhlimit.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ledhlimit.LedSize = new System.Drawing.SizeF(20F, 20F);
+            this.ledhlimit.Location = new System.Drawing.Point(3, 3);
+            this.ledhlimit.Name = "ledhlimit";
+            this.ledhlimit.Renderer = null;
+            this.ledhlimit.Size = new System.Drawing.Size(32, 28);
+            this.ledhlimit.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
+            this.ledhlimit.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
+            this.ledhlimit.TabIndex = 3;
             // 
             // lblhlimit
             // 
@@ -436,7 +486,7 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel11.Controls.Add(this.btnstart, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.button2, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.btnfindzero, 0, 1);
             this.tableLayoutPanel11.Controls.Add(this.btnend, 0, 1);
             this.tableLayoutPanel11.Controls.Add(this.btnup, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.btndown, 2, 0);
@@ -467,18 +517,20 @@
             this.btnstart.UseVisualStyleBackColor = false;
             this.btnstart.Click += new System.EventHandler(this.btnstart_Click);
             // 
-            // button2
+            // btnfindzero
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(156, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 31);
-            this.button2.TabIndex = 46;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnfindzero.BackColor = System.Drawing.Color.Transparent;
+            this.btnfindzero.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnfindzero.FlatAppearance.BorderSize = 0;
+            this.btnfindzero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnfindzero.Location = new System.Drawing.Point(156, 45);
+            this.btnfindzero.Name = "btnfindzero";
+            this.btnfindzero.Size = new System.Drawing.Size(147, 31);
+            this.btnfindzero.TabIndex = 46;
+            this.btnfindzero.Text = "归零";
+            this.btnfindzero.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnfindzero.UseVisualStyleBackColor = false;
+            this.btnfindzero.Click += new System.EventHandler(this.btnfindzero_Click);
             // 
             // btnend
             // 
@@ -597,6 +649,7 @@
             this.button3.TabIndex = 49;
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnteststart
             // 
@@ -976,59 +1029,22 @@
             this.cbowave.Size = new System.Drawing.Size(350, 20);
             this.cbowave.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(27, 579);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(462, 29);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "选项";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // imageList3
             // 
             this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
             this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList3.Images.SetKeyName(0, "3.ico");
-            // 
-            // ledalarm
-            // 
-            this.ledalarm.BackColor = System.Drawing.Color.Transparent;
-            this.ledalarm.BlinkInterval = 500;
-            this.ledalarm.Label = "";
-            this.ledalarm.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
-            this.ledalarm.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ledalarm.LedSize = new System.Drawing.SizeF(20F, 20F);
-            this.ledalarm.Location = new System.Drawing.Point(3, 3);
-            this.ledalarm.Name = "ledalarm";
-            this.ledalarm.Renderer = null;
-            this.ledalarm.Size = new System.Drawing.Size(32, 28);
-            this.ledalarm.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
-            this.ledalarm.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
-            this.ledalarm.TabIndex = 4;
-            // 
-            // ledslimit
-            // 
-            this.ledslimit.BackColor = System.Drawing.Color.Transparent;
-            this.ledslimit.BlinkInterval = 500;
-            this.ledslimit.Label = "";
-            this.ledslimit.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
-            this.ledslimit.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ledslimit.LedSize = new System.Drawing.SizeF(20F, 20F);
-            this.ledslimit.Location = new System.Drawing.Point(3, 3);
-            this.ledslimit.Name = "ledslimit";
-            this.ledslimit.Renderer = null;
-            this.ledslimit.Size = new System.Drawing.Size(32, 28);
-            this.ledslimit.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
-            this.ledslimit.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
-            this.ledslimit.TabIndex = 4;
-            // 
-            // ledhlimit
-            // 
-            this.ledhlimit.BackColor = System.Drawing.Color.Transparent;
-            this.ledhlimit.BlinkInterval = 500;
-            this.ledhlimit.Label = "";
-            this.ledhlimit.LabelPosition = LBSoft.IndustrialCtrls.Leds.LBLed.LedLabelPosition.Top;
-            this.ledhlimit.LedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ledhlimit.LedSize = new System.Drawing.SizeF(20F, 20F);
-            this.ledhlimit.Location = new System.Drawing.Point(3, 3);
-            this.ledhlimit.Name = "ledhlimit";
-            this.ledhlimit.Renderer = null;
-            this.ledhlimit.Size = new System.Drawing.Size(32, 28);
-            this.ledhlimit.State = LBSoft.IndustrialCtrls.Leds.LBLed.LedState.On;
-            this.ledhlimit.Style = LBSoft.IndustrialCtrls.Leds.LBLed.LedStyle.Circular;
-            this.ledhlimit.TabIndex = 3;
             // 
             // UserControl轴向
             // 
@@ -1112,7 +1128,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Button btnstart;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnfindzero;
         private System.Windows.Forms.Button btnend;
         private System.Windows.Forms.Button btnup;
         private System.Windows.Forms.Button btndown;
@@ -1159,5 +1175,6 @@
         private System.Windows.Forms.Button btntestend;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnteststart;
+        private System.Windows.Forms.Button button1;
     }
 }

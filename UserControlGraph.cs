@@ -12,6 +12,9 @@ namespace TabHeaderDemo
 {
     public partial class UserControlGraph : UserControl
     {
+        long mstartoldcount = -1;
+        long mstartoldcount1 = -1;
+
         double msavestartime = 0;
         bool msavebool = false;
 
@@ -19,25 +22,25 @@ namespace TabHeaderDemo
 
         double mdogstarttime = 0;
 
-        string  s_sensor5state0 ="";
-        string  s_sensor5state1 ="";
-        string  s_sensor5state2 ="";
-        string  s_sensor6state0 ="";
-        string  s_sensor6state1 ="";
-        string  s_sensor6state2 ="";
-        string  s_sensor7state0 ="";
-        string  s_sensor7state1 ="";
-        string  s_sensor7state2 ="";
+        string s_sensor5state0 = "";
+        string s_sensor5state1 = "";
+        string s_sensor5state2 = "";
+        string s_sensor6state0 = "";
+        string s_sensor6state1 = "";
+        string s_sensor6state2 = "";
+        string s_sensor7state0 = "";
+        string s_sensor7state1 = "";
+        string s_sensor7state2 = "";
 
-        string  s_sensor5state3 ="";
-        string  s_sensor6state3 ="";
-        string  s_sensor7state3 ="";
-        string  s_sensor5state4 ="";
-        string  s_sensor6state4 ="";
-        string  s_sensor7state4 ="";
-        string  s_sensor5state5 ="";
-        string  s_sensor6state5 ="";
-        string  s_sensor7state5 ="";
+        string s_sensor5state3 = "";
+        string s_sensor6state3 = "";
+        string s_sensor7state3 = "";
+        string s_sensor5state4 = "";
+        string s_sensor6state4 = "";
+        string s_sensor7state4 = "";
+        string s_sensor5state5 = "";
+        string s_sensor6state5 = "";
+        string s_sensor7state5 = "";
 
         bool m_sensor5state0 = false;
         bool m_sensor5state1 = false;
@@ -84,7 +87,7 @@ namespace TabHeaderDemo
 
         List<rawdata> mrawdatalist;
         rawdata mrawdata;
-
+        public long tcount = 0;
         public long count = 0;
         public CComLibrary.PlotSettings myplotsettings;
         private int mplot1;
@@ -126,6 +129,9 @@ namespace TabHeaderDemo
         public void startrun()
         {
             RawDataDataGroup d;
+            mstartoldcount = -1;
+            mstartoldcount1 = -1;
+
             string s;
             count = 0;
             int mk;
@@ -133,9 +139,9 @@ namespace TabHeaderDemo
             maxload = 0;
             mstarttime = 0;
 
-             mdogtimelast = 0;
+            mdogtimelast = 0;
 
-             mdogstarttime = 0;
+            mdogstarttime = 0;
 
             mrawdatalist = new List<TabHeaderDemo.UserControlGraph.rawdata>();
 
@@ -168,7 +174,7 @@ namespace TabHeaderDemo
             m_sensor7state0 = false;
             m_sensor7state1 = false;
             m_sensor7state2 = false;
-            
+
             m_sensor5state3 = false;
             m_sensor5state4 = false;
             m_sensor5state5 = false;
@@ -207,50 +213,176 @@ namespace TabHeaderDemo
             }
 
 
-            xAxis1.Range = new NationalInstruments.UI.Range(myplotsettings.xmin , myplotsettings.xmax);
+            xAxis1.Range = new NationalInstruments.UI.Range(myplotsettings.xmin, myplotsettings.xmax);
 
 
+            //长时记录文件保存
 
-
-            if (mplot1 == 1)
+            if ((mplot1 == 1))
             {
+
+
                 mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
                     (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
 
 
+
                 if (File.Exists(mspefiledat) == true)
                 {
-                    File.Delete(mspefiledat);
+                    DialogResult a;
 
+                    if (CComLibrary.GlobeVal.filesave.Samplingmode == 1)
+                    {
+
+                        a = MessageBox.Show("长时记录文件已经存在，是否覆盖当前文件", "请选择", MessageBoxButtons.YesNo);
+                    }
+                    else
+                    {
+                        a = MessageBox.Show("原始数据文件已经存在，是否覆盖当前文件", "请选择", MessageBoxButtons.YesNo);
+
+                    }
+
+                    if (a == DialogResult.Yes)
+                    {
+                        if (GlobeVal.UserControlLongRecord1 == null)
+                        {
+
+                        }
+                        else
+                        {
+                            GlobeVal.UserControlLongRecord1.dataGridView1.Rows.Clear();
+                        }
+
+                        File.Delete(mspefiledat);
+
+
+
+
+                        FileStream fs = new FileStream(mspefiledat, FileMode.CreateNew);
+
+                        using (StreamWriter w = new StreamWriter(fs, System.Text.Encoding.Default))
+                        {
+
+                            s = "";
+
+                            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                            {
+                                s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cName + " ";
+                            }
+
+                            w.WriteLine(s);
+
+                            s = "";
+                            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                            {
+                                s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cUnits[CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel] + " ";
+                            }
+                            w.WriteLine(s);
+
+
+                        }
+                        fs.Close();
+                    }
+                    else //
+                    {
+
+                       
+
+                        //GlobeVal.UserControlLongRecord1.
+                        object[] mt = new object[CComLibrary.GlobeVal.filesave.mlongdata.Count];
+
+                        string[] st = new string[CComLibrary.GlobeVal.filesave.mlongdata.Count];
+                        char[] sp = new char[2];
+                        sp[0] = Convert.ToChar(" ");
+                        string line = "";
+
+                        if (GlobeVal.UserControlLongRecord1 == null)
+                        {
+
+                        }
+                        else
+                        {
+                            GlobeVal.UserControlLongRecord1.dataGridView1.Rows.Clear();
+                        }
+
+
+                        using (StreamReader sr = new StreamReader(mspefiledat, Encoding.Default))
+                        {
+
+                            while ((line = sr.ReadLine()) != null)
+
+                            {
+                                if (line.Trim() == "")
+                                {
+
+                                }
+                                else
+                                {
+                                    sp[0] = Convert.ToChar(" ");
+
+                                    st = line.Split(sp);
+
+
+                                    for (int i = 0; i < st.Length - 1; i++)
+                                    {
+                                        mt[i] = st[i];
+                                    }
+
+                                    if (GlobeVal.UserControlLongRecord1 == null)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        GlobeVal.UserControlLongRecord1.dataGridView1.Rows.Add(mt);
+                                    }
+                                }
+
+                            }
+
+                        }
+
+
+
+
+
+                    }
                 }
 
-                FileStream fs = new FileStream(mspefiledat, FileMode.CreateNew);
-
-                using (StreamWriter w = new StreamWriter(fs, System.Text.Encoding.Default))
+                else
                 {
+                    FileStream fs = new FileStream(mspefiledat, FileMode.CreateNew);
 
-                    s = "";
-
-                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                    using (StreamWriter w = new StreamWriter(fs, System.Text.Encoding.Default))
                     {
-                        s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cName + " ";
+
+                        s = "";
+
+                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                        {
+                            s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cName + " ";
+                        }
+
+                        w.WriteLine(s);
+
+                        s = "";
+                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                        {
+                            s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cUnits[CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel] + " ";
+                        }
+                        w.WriteLine(s);
+
+
                     }
-
-                    w.WriteLine(s);
-
-                    s = "";
-                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
-                    {
-                        s = s + CComLibrary.GlobeVal.filesave.mrawdata[i].cUnits[CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel] + " ";
-                    }
-                    w.WriteLine(s);
-
-
+                    fs.Close();
                 }
-                fs.Close();
+
+
             }
 
+
             myarraydata.Clear();
+
 
             timer1.Enabled = true;
         }
@@ -545,7 +677,7 @@ namespace TabHeaderDemo
 
             if (myplotsettings.ychannelzoom == true)
             {
-                scatterGraph.YAxes[0].Mode = NationalInstruments.UI.AxisMode.Fixed ;
+                scatterGraph.YAxes[0].Mode = NationalInstruments.UI.AxisMode.Fixed;
             }
             else
             {
@@ -659,6 +791,9 @@ namespace TabHeaderDemo
 
 
             this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
+            this.tableLayoutPanel15.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel15, true, null);
+            this.tableLayoutPanelCurve.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanelCurve, true, null);
+
             tabControl1.ItemSize = new Size(1, 1);
 
         }
@@ -698,6 +833,9 @@ namespace TabHeaderDemo
             string s;
 
             timer1.Enabled = false;
+
+
+
             int ll = 0;
 
             ll = ClsStatic.arraydata[mplot1 - 1].Read<RawDataDataGroup>(r, 0, 10);
@@ -710,11 +848,8 @@ namespace TabHeaderDemo
                 ClsStatic.arraydatacount[mplot1 - 1] = ClsStatic.arraydatacount[mplot1 - 1] - 1;
             }
 
-           // if ((System.Environment.TickCount - mdogstarttime)>10)
-             {
-                //mdogstarttime = System.Environment.TickCount;
 
-            }
+
 
             while (ll != 0)
             {
@@ -740,14 +875,25 @@ namespace TabHeaderDemo
                 }
             }
 
-            while (myarraydata.Count > 0)
+
+
+            while (myarraydata.Count > 1)
             {
 
+
+                
                 b = myarraydata.Dequeue();
 
 
 
                 count = count + 1;
+
+                tcount = tcount + 1;
+                if (tcount ==100)
+                {
+                    tcount = 0;
+                  //  Application.DoEvents();
+                }
 
                 for (int i = 0; i < m_Global.mycls.datalist.Count; i++)
                 {
@@ -793,10 +939,40 @@ namespace TabHeaderDemo
                     {
                         mcount = Convert.ToInt32(b.data[m_Global.mycls.datalist[i].EdcId]);
                     }
+
+
+                    //摘除引伸计
+
+                    if (CComLibrary.GlobeVal.filesave == null)
+
+                    {
+
+                    }
+                    else
+
+                    {
+
+                        if (CComLibrary.GlobeVal.filesave.chkextremove == true)
+                        {
+                            if (m_Global.mycls.datalist[i].SignName == m_Global.mycls.hardsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].SignName)
+                            {
+                                double mpext = Convert.ToDouble(m_Global.mycls.hardsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].GetValueFromUnit(b.data[m_Global.mycls.datalist[i].EdcId],
+                                CComLibrary.GlobeVal.filesave.Extensometer_DataValueUnit));
+
+                                if (mpext >= CComLibrary.GlobeVal.filesave.Extensometer_DataValue)
+                                {
+                                    GlobeVal.UserControlSpe1.setspe(CComLibrary.GlobeVal.filesave.currentspenumber + 1, CComLibrary.TestStatus.RemoveExt);
+                                }
+
+                            }
+
+                        }
+                    }
+
                 }
 
 
-                // if ( Math.Abs(mtime - mstarttime) >= 0.01)
+                // if ( Math.Abs(mtime - mstarttime) >= 0.002)
                 {
 
 
@@ -849,7 +1025,7 @@ namespace TabHeaderDemo
 
                             if (xi > scatterGraph.Plots[mk - 1].XAxis.Range.Maximum)
                             {
-                                scatterGraph.Plots[mk - 1].XAxis.Range = new NationalInstruments.UI.Range(xi, xi + (myplotsettings.xmax-myplotsettings.xmin)  );
+                                scatterGraph.Plots[mk - 1].XAxis.Range = new NationalInstruments.UI.Range(xi, xi + (myplotsettings.xmax - myplotsettings.xmin));
 
                             }
 
@@ -858,14 +1034,16 @@ namespace TabHeaderDemo
 
                                 if (yi > scatterGraph.Plots[mk - 1].YAxis.Range.Maximum)
                                 {
-                                    scatterGraph.Plots[mk - 1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[mk - 1].YAxis.Range.Minimum, yi);
+                                    scatterGraph.Plots[mk - 1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[mk - 1].YAxis.Range.Minimum, scatterGraph.Plots[mk - 1].YAxis.Range.Maximum
+                                        + (scatterGraph.Plots[mk - 1].YAxis.Range.Maximum - scatterGraph.Plots[mk - 1].YAxis.Range.Minimum) * 0.1);
 
 
                                 }
 
                                 if (yi < scatterGraph.Plots[mk - 1].YAxis.Range.Minimum)
                                 {
-                                    scatterGraph.Plots[mk - 1].YAxis.Range = new NationalInstruments.UI.Range(yi, scatterGraph.Plots[mk - 1].YAxis.Range.Maximum);
+                                    scatterGraph.Plots[mk - 1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[mk - 1].YAxis.Range.Minimum - (scatterGraph.Plots[mk - 1].YAxis.Range.Maximum -
+                                        scatterGraph.Plots[mk - 1].YAxis.Range.Minimum) * 0.1, scatterGraph.Plots[mk - 1].YAxis.Range.Maximum);
                                 }
                             }
 
@@ -873,7 +1051,7 @@ namespace TabHeaderDemo
                         }
                         else
                         {
-                            if (Math.Abs(mtime - mstarttime) >= 1 / 10)
+                            if (Math.Abs(mtime - mstarttime) >= 1 / 10.0)
                             {
                                 mstarttime = mtime;
 
@@ -918,7 +1096,7 @@ namespace TabHeaderDemo
 
                                 if (xi > scatterGraph.Plots[mk - 1].XAxis.Range.Maximum)
                                 {
-                                    scatterGraph.Plots[mk - 1].XAxis.Range = new NationalInstruments.UI.Range(xi, xi + (myplotsettings.xmax - myplotsettings.xmin));
+                                    scatterGraph.Plots[mk - 1].XAxis.Range = new NationalInstruments.UI.Range(myplotsettings.xmin, xi + (myplotsettings.xmax - myplotsettings.xmin));
 
                                 }
 
@@ -927,14 +1105,16 @@ namespace TabHeaderDemo
 
                                     if (yi > scatterGraph.Plots[mk - 1].YAxis.Range.Maximum)
                                     {
-                                        scatterGraph.Plots[mk - 1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[mk - 1].YAxis.Range.Minimum, yi);
+                                        scatterGraph.Plots[mk - 1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[mk - 1].YAxis.Range.Minimum, scatterGraph.Plots[mk - 1].YAxis.Range.Maximum + (
+                                             scatterGraph.Plots[mk - 1].YAxis.Range.Maximum - scatterGraph.Plots[mk - 1].YAxis.Range.Minimum) * 0.1);
 
 
                                     }
 
                                     if (yi < scatterGraph.Plots[mk - 1].YAxis.Range.Minimum)
                                     {
-                                        scatterGraph.Plots[mk - 1].YAxis.Range = new NationalInstruments.UI.Range(yi, scatterGraph.Plots[mk - 1].YAxis.Range.Maximum);
+                                        scatterGraph.Plots[mk - 1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[mk - 1].YAxis.Range.Minimum -
+                                            (scatterGraph.Plots[mk - 1].YAxis.Range.Maximum - scatterGraph.Plots[mk - 1].YAxis.Range.Minimum) * 0.1, scatterGraph.Plots[mk - 1].YAxis.Range.Maximum);
                                     }
                                 }
 
@@ -958,7 +1138,7 @@ namespace TabHeaderDemo
                                     scatterGraph.Plots[1].ClearData();
                                 }
 
-                               
+
                             }
 
                             if (xi > scatterGraph.Plots[0].XAxis.Range.Maximum)
@@ -970,13 +1150,15 @@ namespace TabHeaderDemo
                             {
                                 if (yi > scatterGraph.Plots[0].YAxis.Range.Maximum)
                                 {
-                                    scatterGraph.Plots[0].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[0].YAxis.Range.Minimum, yi);
+                                    scatterGraph.Plots[0].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[0].YAxis.Range.Minimum, scatterGraph.Plots[0].YAxis.Range.Maximum +
+                                         (scatterGraph.Plots[0].YAxis.Range.Maximum - scatterGraph.Plots[0].YAxis.Range.Minimum) * 0.1);
 
                                 }
 
-                                if (yi < scatterGraph.Plots[0].YAxis.Range.Minimum )
+                                if (yi < scatterGraph.Plots[0].YAxis.Range.Minimum)
                                 {
-                                    scatterGraph.Plots[0].YAxis.Range = new NationalInstruments.UI.Range(yi,scatterGraph.Plots[0].YAxis.Range.Maximum);
+                                    scatterGraph.Plots[0].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[0].YAxis.Range.Minimum -
+                                        (scatterGraph.Plots[0].YAxis.Range.Maximum - scatterGraph.Plots[0].YAxis.Range.Minimum) * 0.1, scatterGraph.Plots[0].YAxis.Range.Maximum);
 
                                 }
 
@@ -987,13 +1169,15 @@ namespace TabHeaderDemo
                             {
                                 if (y1i > scatterGraph.Plots[1].YAxis.Range.Maximum)
                                 {
-                                    scatterGraph.Plots[1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[1].YAxis.Range.Minimum, yi);
+                                    scatterGraph.Plots[1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[1].YAxis.Range.Minimum, scatterGraph.Plots[1].YAxis.Range.Maximum +
+                                        (scatterGraph.Plots[1].YAxis.Range.Maximum - scatterGraph.Plots[1].YAxis.Range.Minimum) * 0.1);
 
                                 }
 
-                                if (yi < scatterGraph.Plots[1].YAxis.Range.Minimum)
+                                if (y1i < scatterGraph.Plots[1].YAxis.Range.Minimum)
                                 {
-                                    scatterGraph.Plots[1].YAxis.Range = new NationalInstruments.UI.Range(yi, scatterGraph.Plots[1].YAxis.Range.Maximum);
+                                    scatterGraph.Plots[1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[1].YAxis.Range.Minimum -
+                                        (scatterGraph.Plots[1].YAxis.Range.Maximum - scatterGraph.Plots[1].YAxis.Range.Minimum) * 0.1, scatterGraph.Plots[1].YAxis.Range.Maximum);
 
                                 }
 
@@ -1020,7 +1204,7 @@ namespace TabHeaderDemo
                                         scatterGraph.Plots[1].ClearData();
                                     }
 
-                                    
+
                                 }
 
                                 if (xi > scatterGraph.Plots[0].XAxis.Range.Maximum)
@@ -1033,13 +1217,15 @@ namespace TabHeaderDemo
                                 {
                                     if (yi > scatterGraph.Plots[0].YAxis.Range.Maximum)
                                     {
-                                        scatterGraph.Plots[0].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[0].YAxis.Range.Minimum, yi);
+                                        scatterGraph.Plots[0].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[0].YAxis.Range.Minimum, scatterGraph.Plots[0].YAxis.Range.Maximum
+                                            + (scatterGraph.Plots[0].YAxis.Range.Maximum - scatterGraph.Plots[0].YAxis.Range.Minimum) * 0.1);
 
                                     }
 
                                     if (yi < scatterGraph.Plots[0].YAxis.Range.Minimum)
                                     {
-                                        scatterGraph.Plots[0].YAxis.Range = new NationalInstruments.UI.Range(yi, scatterGraph.Plots[0].YAxis.Range.Maximum);
+                                        scatterGraph.Plots[0].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[0].YAxis.Range.Minimum - (scatterGraph.Plots[0].YAxis.Range.Maximum -
+                                            scatterGraph.Plots[0].YAxis.Range.Minimum) * 0.1, scatterGraph.Plots[0].YAxis.Range.Maximum);
 
                                     }
 
@@ -1050,13 +1236,15 @@ namespace TabHeaderDemo
                                 {
                                     if (y1i > scatterGraph.Plots[1].YAxis.Range.Maximum)
                                     {
-                                        scatterGraph.Plots[1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[1].YAxis.Range.Minimum, yi);
+                                        scatterGraph.Plots[1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[1].YAxis.Range.Minimum, scatterGraph.Plots[1].YAxis.Range.Maximum +
+                                            (scatterGraph.Plots[1].YAxis.Range.Maximum - scatterGraph.Plots[1].YAxis.Range.Minimum) * 0.1);
 
                                     }
 
-                                    if (yi < scatterGraph.Plots[1].YAxis.Range.Minimum)
+                                    if (y1i < scatterGraph.Plots[1].YAxis.Range.Minimum)
                                     {
-                                        scatterGraph.Plots[1].YAxis.Range = new NationalInstruments.UI.Range(yi, scatterGraph.Plots[1].YAxis.Range.Maximum);
+                                        scatterGraph.Plots[1].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[1].YAxis.Range.Minimum -
+                                            (scatterGraph.Plots[1].YAxis.Range.Maximum - scatterGraph.Plots[1].YAxis.Range.Minimum) * 0.1, scatterGraph.Plots[1].YAxis.Range.Maximum);
 
                                     }
 
@@ -1109,16 +1297,18 @@ namespace TabHeaderDemo
                                 {
                                     if (yi > scatterGraph.Plots[k].YAxis.Range.Maximum)
                                     {
-                                        scatterGraph.Plots[k].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[k].YAxis.Range.Minimum, yi);
+                                        scatterGraph.Plots[k].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[k].YAxis.Range.Minimum, scatterGraph.Plots[k].YAxis.Range.Maximum +
+                                            (scatterGraph.Plots[k].YAxis.Range.Maximum - scatterGraph.Plots[k].YAxis.Range.Minimum) * 0.1);
                                     }
 
-                                    if (yi< scatterGraph.Plots[k].YAxis.Range.Minimum)
+                                    if (yi < scatterGraph.Plots[k].YAxis.Range.Minimum)
                                     {
-                                        scatterGraph.Plots[k].YAxis.Range = new NationalInstruments.UI.Range(yi, scatterGraph.Plots[k].YAxis.Range.Maximum);
+                                        scatterGraph.Plots[k].YAxis.Range = new NationalInstruments.UI.Range(scatterGraph.Plots[k].YAxis.Range.Minimum -
+                                            (scatterGraph.Plots[k].YAxis.Range.Maximum - scatterGraph.Plots[k].YAxis.Range.Minimum) * 0.1, scatterGraph.Plots[k].YAxis.Range.Maximum);
                                     }
-                                 }
+                                }
 
-                              
+
 
                             }
 
@@ -1225,11 +1415,7 @@ namespace TabHeaderDemo
                             mrawdatalist.RemoveAt(0);
                             mrawdatalist.Add(mrawdata);
                         }
-                        if (Math.Abs(mtime - msavestartime) >= 10)
-                        {
-                            msavestartime = mtime;
-                            msavebool = false;
-                        }
+
 
 
                         if ((GlobeVal.myarm.mcurseg >= 0) && (GlobeVal.myarm.mcurseg < CComLibrary.GlobeVal.filesave.mseglist.Count))
@@ -1240,19 +1426,56 @@ namespace TabHeaderDemo
                                 bool msb = false;
 
                                 int mw = 0;
+                                int mw1 = 0;//保存间隔次数
+                                int mw2 = 0;//连续保存次数
 
                                 for (int w = 0; w < 10; w++)
                                 {
-                                    if (GlobeVal.myarm.count < CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavepeaktrendrow1[w])
+                                    if (GlobeVal.myarm.count <= CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavepeaktrendrow1[w])
                                     {
                                         mw = w;
+                                        if (w == 0)
+                                        {
+                                            mw1 = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavepeaktrendrow2[0];
+                                            mw2 = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavepeaktrendrow3[0];
+                                        }
+                                        else
+                                        {
+
+                                            mw1 = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavepeaktrendrow2[mw - 1];
+                                            mw2 = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavepeaktrendrow3[mw - 1];
+                                        }
+
+
                                         break;
                                     }
                                 }
 
 
+                                bool mst = false;
 
-                                if ((mtime - tstart) >= 1 / (0.1 * 60.0))
+                                if (mstartoldcount != GlobeVal.myarm.count)
+                                {
+                                    mstartoldcount = GlobeVal.myarm.count;
+
+                                    if (GlobeVal.myarm.count % mw1 == 0)
+                                    {
+
+                                        mst = true;
+                                    }
+                                }
+
+                                if ((mtime - tstart) >= 0.1)
+                                {
+                                    tstart = mtime;
+
+                                    //mstartsave = false;
+                                }
+
+
+                                //  if ((mtime - tstart) >= 1)
+
+                                if (mst == true)
                                 {
                                     tstart = mtime;
                                     using (StreamWriter w = File.AppendText(mspefiledat))
@@ -1306,13 +1529,56 @@ namespace TabHeaderDemo
                             //曲线保存
                             if (CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavetracking == true)
                             {
-                                if (((Convert.ToInt64(mtime) % (2 * 60)) == (0.1 * 60 - 1))
-                                    && (msavebool == false))
+
+                                int mw = 0;
+                                int mw1 = 0;//保存间隔次数
+                                int mw2 = 0;//连续保存次数
+
+                                for (int w = 0; w < 10; w++)
                                 {
-                                    msavebool = true;
+                                    if (GlobeVal.myarm.count <= CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavetrackingrow1[w])
+                                    {
+                                        mw = w;
+                                        if (w == 0)
+                                        {
+                                            mw1 = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavetrackingrow2[0];
+                                            mw2 = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavetrackingrow3[0];
+                                        }
+                                        else
+                                        {
+
+                                            mw1 = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavetrackingrow2[mw - 1];
+                                            mw2 = CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.msavetrackingrow3[mw - 1];
+                                        }
+
+
+                                        break;
+                                    }
+                                }
+
+
+                                bool mst = false;
+
+                                if (mstartoldcount1 != GlobeVal.myarm.count)
+                                {
+                                    mstartoldcount1 = GlobeVal.myarm.count;
+
+                                    if (GlobeVal.myarm.count % mw1 == 0)
+                                    {
+
+                                        mst = true;
+                                    }
+                                }
+
+
+                                if (mst == true)
+
+
+                                {
+
 
                                     fname = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
-                                       (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + "_" + mcount.ToString() + ".txt";
+                                       (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + "_" + GlobeVal.myarm.count.ToString() + ".txt";
 
 
                                     if (File.Exists(fname) == true)
@@ -1387,9 +1653,9 @@ namespace TabHeaderDemo
 
                         //静态断裂检测判断开始
 
-                        if (CComLibrary.GlobeVal.filesave.endoftest1 ==true)
+                        if (CComLibrary.GlobeVal.filesave.endoftest1 == true)
                         {
-                            if (CComLibrary.GlobeVal.filesave.endoftest1criteria==0)//准则1判断
+                            if (CComLibrary.GlobeVal.filesave.endoftest1criteria == 0)//准则1判断
                             {
                                 if (ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].cvalue >=
                                    CComLibrary.GlobeVal.filesave.endoftest1tempmax)
@@ -1397,23 +1663,23 @@ namespace TabHeaderDemo
                                     CComLibrary.GlobeVal.filesave.endoftest1tempmax = ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].cvalue;
                                 }
 
-                                if (ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].cvalue>=
-                                    ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].fullmaxbase*1/100.0)
+                                if (ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].cvalue >=
+                                    ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].fullmaxbase * 1 / 100.0)
                                 {
                                     CComLibrary.GlobeVal.filesave.endoftest1tempbool = true;
                                 }
 
-                                if (CComLibrary.GlobeVal.filesave.endoftest1tempbool==true)
+                                if (CComLibrary.GlobeVal.filesave.endoftest1tempbool == true)
                                 {
-                                    if (ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].cvalue <= 
-                                        CComLibrary.GlobeVal.filesave.endoftest1tempmax*CComLibrary.GlobeVal.filesave.endoftest1value/100.0)
+                                    if (ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].cvalue <=
+                                        CComLibrary.GlobeVal.filesave.endoftest1tempmax * CComLibrary.GlobeVal.filesave.endoftest1value / 100.0)
                                     {
                                         timer2.Enabled = true;
                                     }
                                 }
 
                             }
-                            if (CComLibrary.GlobeVal.filesave.endoftest1criteria ==1) //准则2判断
+                            if (CComLibrary.GlobeVal.filesave.endoftest1criteria == 1) //准则2判断
                             {
                                 if (ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].cvalue >=
                                    CComLibrary.GlobeVal.filesave.endoftest1tempmax)
@@ -1442,9 +1708,9 @@ namespace TabHeaderDemo
                                 if (ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.endoftest1usechannel].cvalue >= CComLibrary.GlobeVal.filesave.endoftest1value)
                                 {
                                     timer2.Enabled = true;
-                                  
-                                   
-                                    
+
+
+
 
                                 }
                             }
@@ -1517,89 +1783,97 @@ namespace TabHeaderDemo
 
                         if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)//高级试验
                         {
-
-                            if (CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.samplingmode == 0)
+                            if ((GlobeVal.myarm.mcurseg >= 0) && (GlobeVal.myarm.mcurseg < CComLibrary.GlobeVal.filesave.mseglist.Count))
                             {
-                                madvancedsave = false;
-                            }
-                            else if (CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.samplingmode == 1)
-                            {
-                                bool mysegsave = false;
 
-                                for (int i = 0; i < 20; i++)
+
+
+
+
+
+                                if (CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.samplingmode == 0)
                                 {
-                                   if ( CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.chkchannel[i]==true)
+                                    madvancedsave = false;
+
+                                }
+                                else if (CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.samplingmode == 1)
+                                {
+                                    bool mysegsave = false;
+
+                                    for (int i = 0; i < 20; i++)
                                     {
-                                        if (Math.Abs(ClsStaticStation.m_Global.mycls.allsignals[i].cvalue - CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.sampleintervaltemp[i])
-                                            >= CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.sampleinterval[i])
+                                        if (CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.chkchannel[i] == true)
                                         {
-                                            CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.sampleintervaltemp[i] = ClsStaticStation.m_Global.mycls.allsignals[i].cvalue;
-                                            mysegsave = true;
+                                            if (Math.Abs(ClsStaticStation.m_Global.mycls.allsignals[i].cvalue - CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.sampleintervaltemp[i])
+                                                >= CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.sampleinterval[i])
+                                            {
+                                                CComLibrary.GlobeVal.filesave.mseglist[GlobeVal.myarm.mcurseg].mseq.sampleintervaltemp[i] = ClsStaticStation.m_Global.mycls.allsignals[i].cvalue;
+                                                mysegsave = true;
+                                            }
                                         }
                                     }
-                                }
 
-                                if (mysegsave == true)
-                                {
-                                    tstart = mtime;
-                                    using (StreamWriter w = File.AppendText(mspefiledat))
+                                    if (mysegsave == true)
                                     {
-
-                                        s = "";
-                                        object[] mt = new object[CComLibrary.GlobeVal.filesave.mrawdata.Count];
-
-                                        for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
+                                        tstart = mtime;
+                                        using (StreamWriter w = File.AppendText(mspefiledat))
                                         {
-                                            DataGridViewRow m = new DataGridViewRow();
 
+                                            s = "";
+                                            object[] mt = new object[CComLibrary.GlobeVal.filesave.mrawdata.Count];
 
-                                            for (j = 0; j < ClsStaticStation.m_Global.mycls.datalist.Count; j++)
+                                            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
                                             {
-                                                if (ClsStaticStation.m_Global.mycls.datalist[j].SignName == CComLibrary.GlobeVal.filesave.mrawdata[i].SignName)
+                                                DataGridViewRow m = new DataGridViewRow();
+
+
+                                                for (j = 0; j < ClsStaticStation.m_Global.mycls.datalist.Count; j++)
                                                 {
-                                                    k = ClsStaticStation.m_Global.mycls.datalist[j].EdcId;
+                                                    if (ClsStaticStation.m_Global.mycls.datalist[j].SignName == CComLibrary.GlobeVal.filesave.mrawdata[i].SignName)
+                                                    {
+                                                        k = ClsStaticStation.m_Global.mycls.datalist[j].EdcId;
 
 
-                                                    double.TryParse(CComLibrary.GlobeVal.filesave.mrawdata[i].GetValueFromUnit(b.data[k],
-                                                        CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel), out v);
-                                                    s = s + v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString()) + " ";
-                                                    mt[i] = v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString());
+                                                        double.TryParse(CComLibrary.GlobeVal.filesave.mrawdata[i].GetValueFromUnit(b.data[k],
+                                                            CComLibrary.GlobeVal.filesave.mrawdata[i].cUnitsel), out v);
+                                                        s = s + v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString()) + " ";
+                                                        mt[i] = v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString());
 
 
+                                                    }
                                                 }
+
+
                                             }
 
+                                            if (GlobeVal.UserControlRawdata1 == null)
+                                            {
+                                            }
+                                            else
+                                            {
+
+
+                                                GlobeVal.UserControlRawdata1.dataGridView1.Rows.Add(mt);
+                                            }
+
+                                            w.WriteLine(s);
+
+
+
 
                                         }
-
-                                        if (GlobeVal.UserControlRawdata1 == null)
-                                        {
-                                        }
-                                        else
-                                        {
-
-
-                                            GlobeVal.UserControlRawdata1.dataGridView1.Rows.Add(mt);
-                                        }
-
-                                        w.WriteLine(s);
-
-
-
-
                                     }
+
+                                    madvancedsave = true;
+
+
+
                                 }
-
-                                madvancedsave = true;
-
-
-
+                                else if (CComLibrary.GlobeVal.filesave.mseglist[0].mseq.samplingmode == 2)
+                                {
+                                    madvancedsave = true;
+                                }
                             }
-                            else if(CComLibrary.GlobeVal.filesave.mseglist[0].mseq.samplingmode == 2)
-                            {
-                                madvancedsave = true;
-                            }
-
                         }
                         else
                         {
@@ -1689,7 +1963,7 @@ namespace TabHeaderDemo
 
 
             }
-            /*
+            
             if(count >5000)
             {
                 scatterGraph.ClearData();
@@ -1697,7 +1971,7 @@ namespace TabHeaderDemo
             }
 
             lblcaption.Text = count.ToString();
-            */
+            
             timer1.Enabled = true;
 
         }
@@ -1763,6 +2037,11 @@ namespace TabHeaderDemo
             GlobeVal.myarm.duanliebaohu = true;
 
             GlobeVal.userControltest1.btnend_Click(null, null);
+        }
+
+        private void UserControlGraph_Load(object sender, EventArgs e)
+        {
+          //  GlobeVal.SetThreadAffinityMask(GlobeVal.GetCurrentThread(), new UIntPtr(GlobeVal.SetCpuID(1)));
         }
     }
 }

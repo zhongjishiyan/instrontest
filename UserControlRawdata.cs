@@ -21,7 +21,7 @@ namespace TabHeaderDemo
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
             {
                 column1 = new DataGridViewTextBoxColumn();
-                column1.HeaderText = CComLibrary.GlobeVal.filesave.mrawdata[i].cName;
+                column1.HeaderText = CComLibrary.GlobeVal.filesave.mrawdata[i].cName+ "[" + CComLibrary.GlobeVal.filesave.mrawdata[i].cUnits[0] + "]";
                 column1.DataPropertyName = "column"+i.ToString().Trim();
                 this.dataGridView1.Columns.Add(column1);
             }

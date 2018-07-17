@@ -110,6 +110,9 @@ namespace TabHeaderDemo
 
             this.tableLayoutPanel9.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel9, true, null);
 
+            this.tableLayoutPanel3.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel3, true, null);
+
+
             cbowave.Items.Clear();
             cbowave.Items.Add("正弦波");
             cbowave.Items.Add("三角波");
@@ -358,6 +361,22 @@ namespace TabHeaderDemo
         private void switchLink_StateChanged(object sender, NationalInstruments.UI.ActionEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Frm.FormPanelSet f = new Frm.FormPanelSet();
+            f.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnfindzero_Click(object sender, EventArgs e)
+        {
+            GlobeVal.myarm.findzero(1);
         }
     }
 }

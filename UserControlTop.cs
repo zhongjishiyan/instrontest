@@ -370,6 +370,17 @@ namespace TabHeaderDemo
         {
             lbltip.Text = "";
         }
+
+        private void UserControlTop_Load(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        private void UserControlTop_SizeChanged(object sender, EventArgs e)
+        {
+            wordArt1.Width = btnhelp.Left - 50 - wordArt1.Left;
+        }
     }
     public class AssemblyHelper
     {

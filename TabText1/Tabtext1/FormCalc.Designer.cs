@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCalc));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("系统变量", System.Windows.Forms.HorizontalAlignment.Center);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("数学运算", System.Windows.Forms.HorizontalAlignment.Center);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("用户变量", System.Windows.Forms.HorizontalAlignment.Center);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("函数", System.Windows.Forms.HorizontalAlignment.Center);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("系统常量", System.Windows.Forms.HorizontalAlignment.Center);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("系统变量", System.Windows.Forms.HorizontalAlignment.Center);
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("数学运算", System.Windows.Forms.HorizontalAlignment.Center);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("用户变量", System.Windows.Forms.HorizontalAlignment.Center);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("函数", System.Windows.Forms.HorizontalAlignment.Center);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("系统常量", System.Windows.Forms.HorizontalAlignment.Center);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbTest = new System.Windows.Forms.ToolStripButton();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
@@ -253,7 +253,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 17);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(681, 474);
+            this.panel4.Size = new System.Drawing.Size(681, 427);
             this.panel4.TabIndex = 2;
             this.panel4.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panel4_Scroll);
             // 
@@ -268,9 +268,9 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.dgvParameters);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 491);
+            this.panel3.Location = new System.Drawing.Point(3, 444);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(681, 171);
+            this.panel3.Size = new System.Drawing.Size(681, 218);
             this.panel3.TabIndex = 1;
             // 
             // label8
@@ -314,7 +314,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(231, 90);
+            this.txtDescription.Size = new System.Drawing.Size(231, 142);
             this.txtDescription.TabIndex = 15;
             // 
             // label5
@@ -348,7 +348,7 @@
             this.dgvParameters.Name = "dgvParameters";
             this.dgvParameters.RowHeadersVisible = false;
             this.dgvParameters.RowTemplate.Height = 23;
-            this.dgvParameters.Size = new System.Drawing.Size(254, 139);
+            this.dgvParameters.Size = new System.Drawing.Size(254, 197);
             this.dgvParameters.TabIndex = 8;
             // 
             // colParamName
@@ -382,35 +382,34 @@
             // 
             // lvTips
             // 
-            this.lvTips.AutoArrange = false;
             this.lvTips.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup1.Header = "系统变量";
-            listViewGroup1.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup1.Name = "lvgKeyword";
-            listViewGroup2.Header = "数学运算";
-            listViewGroup2.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup2.Name = "lvgCompare";
-            listViewGroup3.Header = "用户变量";
-            listViewGroup3.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup3.Name = "lvgMethod";
-            listViewGroup4.Header = "函数";
-            listViewGroup4.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup4.Name = "listFunction";
-            listViewGroup5.Header = "系统常量";
-            listViewGroup5.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            listViewGroup5.Name = "listConst";
+            listViewGroup6.Header = "系统变量";
+            listViewGroup6.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup6.Name = "lvgKeyword";
+            listViewGroup7.Header = "数学运算";
+            listViewGroup7.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup7.Name = "lvgCompare";
+            listViewGroup8.Header = "用户变量";
+            listViewGroup8.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup8.Name = "lvgMethod";
+            listViewGroup9.Header = "函数";
+            listViewGroup9.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup9.Name = "listFunction";
+            listViewGroup10.Header = "系统常量";
+            listViewGroup10.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup10.Name = "listConst";
             this.lvTips.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5});
+            listViewGroup6,
+            listViewGroup7,
+            listViewGroup8,
+            listViewGroup9,
+            listViewGroup10});
             this.lvTips.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvTips.HideSelection = false;
             this.lvTips.Location = new System.Drawing.Point(0, 0);
             this.lvTips.MultiSelect = false;
             this.lvTips.Name = "lvTips";
-            this.lvTips.Size = new System.Drawing.Size(681, 474);
+            this.lvTips.Size = new System.Drawing.Size(681, 427);
             this.lvTips.TabIndex = 1;
             this.lvTips.UseCompatibleStateImageBehavior = false;
             this.lvTips.View = System.Windows.Forms.View.SmallIcon;

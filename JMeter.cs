@@ -29,6 +29,13 @@ namespace TabHeaderDemo
                // lblvalue.Font = new Font("宋体", 22, FontStyle.Bold);
                // lblunit.Font = new Font("宋体", 22, FontStyle.Bold);
             }
+
+            SetStyle(ControlStyles.UserPaint, true);
+           // SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+
+            this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

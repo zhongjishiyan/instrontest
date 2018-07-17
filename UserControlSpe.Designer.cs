@@ -38,7 +38,11 @@
             this.btnright = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tlp1 = new System.Windows.Forms.TableLayoutPanel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.tableLayoutPanel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -115,9 +119,9 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Selector_Status_PreTest.ico");
-            this.imageList1.Images.SetKeyName(1, "Selector_Status_PostTest.ico");
+            this.imageList1.Images.SetKeyName(1, "Selector_Status_Tested.ico");
             this.imageList1.Images.SetKeyName(2, "Selector_Status_Tested_Rejected.ico");
-            this.imageList1.Images.SetKeyName(3, "Selector_Status_Tested.ico");
+            this.imageList1.Images.SetKeyName(3, "Selector_Status_PostTest.ico");
             this.imageList1.Images.SetKeyName(4, "Selector_Status_Ready_For_Test.ico");
             // 
             // tlp1
@@ -133,10 +137,41 @@
             this.tlp1.Size = new System.Drawing.Size(292, 76);
             this.tlp1.TabIndex = 33;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripDropDownButton1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 331);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(292, 29);
+            this.statusStrip1.TabIndex = 34;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(205, 24);
+            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Text = "请摘除引伸计";
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(41, 27);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
             // UserControlSpe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tlp1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
@@ -144,7 +179,10 @@
             this.Size = new System.Drawing.Size(292, 360);
             this.Load += new System.EventHandler(this.UserControlSpe_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -157,5 +195,8 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.TableLayoutPanel tlp1;
         public System.Windows.Forms.Button btnright;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripSplitButton toolStripDropDownButton1;
     }
 }

@@ -51,7 +51,6 @@
             this.legend = new NationalInstruments.UI.WindowsForms.Legend();
             this.legendItem1 = new NationalInstruments.UI.LegendItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.userGraph1 = new AppleLabApplication.UserGraph();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStripLeft = new System.Windows.Forms.ToolStrip();
             this.tsbdefault = new System.Windows.Forms.ToolStripButton();
@@ -70,6 +69,7 @@
             this.yAxis3 = new NationalInstruments.UI.YAxis();
             this.scatterPlot1 = new NationalInstruments.UI.ScatterPlot();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.userGraph1 = new AppleLabApplication.UserGraph();
             this.panelback.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -311,17 +311,9 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // userGraph1
-            // 
-            this.userGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userGraph1.Location = new System.Drawing.Point(3, 3);
-            this.userGraph1.Name = "userGraph1";
-            this.userGraph1.Size = new System.Drawing.Size(437, 274);
-            this.userGraph1.TabIndex = 0;
-            // 
             // timer1
             // 
-            this.timer1.Interval = 50;
+            this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // toolStripLeft
@@ -528,6 +520,14 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // userGraph1
+            // 
+            this.userGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userGraph1.Location = new System.Drawing.Point(3, 3);
+            this.userGraph1.Name = "userGraph1";
+            this.userGraph1.Size = new System.Drawing.Size(437, 274);
+            this.userGraph1.TabIndex = 0;
+            // 
             // UserControlGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -537,6 +537,7 @@
             this.Controls.Add(this.lblcaption);
             this.Name = "UserControlGraph";
             this.Size = new System.Drawing.Size(451, 331);
+            this.Load += new System.EventHandler(this.UserControlGraph_Load);
             this.panelback.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

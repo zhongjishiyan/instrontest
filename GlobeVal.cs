@@ -17,6 +17,27 @@ namespace TabHeaderDemo
     public sealed  class   GlobeVal
     {
 
+        [DllImport("kernel32.dll")]
+        public  static extern UIntPtr SetThreadAffinityMask(IntPtr hThread,
+        UIntPtr dwThreadAffinityMask);
+
+        //得到当前线程的handler  
+        [DllImport("kernel32.dll")]
+        public  static extern IntPtr GetCurrentThread();
+
+        //获取cpu的id号  
+        public  static ulong SetCpuID(int id)
+        {
+            ulong cpuid = 0;
+            if (id < 0 || id >= System.Environment.ProcessorCount)
+            {
+                id = 0;
+            }
+            cpuid |= 1UL << id;
+
+            return cpuid;
+        }
+
         private readonly int MOUSEEVENTF_LEFTDOWN = 0x2;
         private readonly int MOUSEEVENTF_LEFTUP = 0x4;
         [DllImport("user32")]
@@ -30,6 +51,8 @@ namespace TabHeaderDemo
         public static CComLibrary.FileStruct filesavecmp;
 
         public static int lastindex = -1;
+
+        public static Panel dopanel;
 
         public static  Panel backpanel;
         public static  UserControlTest  userControltest1;
@@ -151,6 +174,31 @@ namespace TabHeaderDemo
 
 
             listBox1.Items.Add("数据采集方式：" + ms);
+
+            if (CComLibrary.GlobeVal.filesave.Samplingmode == 0)
+            {
+                ms = "";
+                if ( CComLibrary.GlobeVal.filesave.chkcriteria[0] == true)
+                {
+                    ms = ms + "准则1";
+                }
+                if (CComLibrary.GlobeVal.filesave.chkcriteria[1] == true)
+                {
+                    ms = ms + "准则2";
+                }
+
+                if (CComLibrary.GlobeVal.filesave.chkcriteria[2] == true)
+                {
+                    ms = ms + "准则3";
+                }
+
+                if (ms=="")
+                {
+                    ms = "无";
+                }
+
+                listBox1.Items.Add("数据采集准则：" + ms);
+            }
 
             if (CComLibrary.GlobeVal.filesave.mplotpara1.dynamicdraw == true)
             {

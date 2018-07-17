@@ -100,7 +100,7 @@
             this.wordArt1.Location = new System.Drawing.Point(65, 410);
             this.wordArt1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.wordArt1.Name = "wordArt1";
-            this.wordArt1.Size = new System.Drawing.Size(392, 100);
+            this.wordArt1.Size = new System.Drawing.Size(244, 100);
             this.wordArt1.TabIndex = 23;
             this.wordArt1.WordArtBackColor = System.Drawing.Color.Gray;
             this.wordArt1.WordArtEffect = TabHeaderDemo.WordArtEffectStyle.projection;
@@ -121,7 +121,7 @@
             this.btnuser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnuser.Location = new System.Drawing.Point(488, 326);
             this.btnuser.Name = "btnuser";
-            this.btnuser.Size = new System.Drawing.Size(122, 68);
+            this.btnuser.Size = new System.Drawing.Size(122, 57);
             this.btnuser.TabIndex = 7;
             this.btnuser.Text = "用户";
             this.btnuser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -139,9 +139,9 @@
             this.btnexit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnexit.Image = ((System.Drawing.Image)(resources.GetObject("btnexit.Image")));
             this.btnexit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexit.Location = new System.Drawing.Point(454, 493);
+            this.btnexit.Location = new System.Drawing.Point(454, 496);
             this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(136, 68);
+            this.btnexit.Size = new System.Drawing.Size(136, 57);
             this.btnexit.TabIndex = 6;
             this.btnexit.Text = "退出";
             this.btnexit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -161,7 +161,7 @@
             this.btnhelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhelp.Location = new System.Drawing.Point(468, 410);
             this.btnhelp.Name = "btnhelp";
-            this.btnhelp.Size = new System.Drawing.Size(122, 68);
+            this.btnhelp.Size = new System.Drawing.Size(122, 54);
             this.btnhelp.TabIndex = 5;
             this.btnhelp.Text = "帮助";
             this.btnhelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -181,7 +181,7 @@
             this.btnmanage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnmanage.Location = new System.Drawing.Point(534, 241);
             this.btnmanage.Name = "btnmanage";
-            this.btnmanage.Size = new System.Drawing.Size(130, 68);
+            this.btnmanage.Size = new System.Drawing.Size(130, 61);
             this.btnmanage.TabIndex = 4;
             this.btnmanage.Text = "管理器";
             this.btnmanage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -201,7 +201,7 @@
             this.btnreport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnreport.Location = new System.Drawing.Point(590, 164);
             this.btnreport.Name = "btnreport";
-            this.btnreport.Size = new System.Drawing.Size(125, 68);
+            this.btnreport.Size = new System.Drawing.Size(125, 56);
             this.btnreport.TabIndex = 3;
             this.btnreport.Text = "报告";
             this.btnreport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -221,7 +221,7 @@
             this.btnmethod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnmethod.Location = new System.Drawing.Point(671, 90);
             this.btnmethod.Name = "btnmethod";
-            this.btnmethod.Size = new System.Drawing.Size(122, 68);
+            this.btnmethod.Size = new System.Drawing.Size(122, 56);
             this.btnmethod.TabIndex = 2;
             this.btnmethod.Text = "方法";
             this.btnmethod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -242,7 +242,7 @@
             this.btntest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btntest.Location = new System.Drawing.Point(775, 25);
             this.btntest.Name = "btntest";
-            this.btntest.Size = new System.Drawing.Size(123, 68);
+            this.btntest.Size = new System.Drawing.Size(123, 59);
             this.btntest.TabIndex = 1;
             this.btntest.Text = "测试";
             this.btntest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -281,6 +281,8 @@
             this.Controls.Add(this.pnlback);
             this.Name = "UserControlTop";
             this.Size = new System.Drawing.Size(1026, 553);
+            this.Load += new System.EventHandler(this.UserControlTop_Load);
+            this.SizeChanged += new System.EventHandler(this.UserControlTop_SizeChanged);
             this.pnlback.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

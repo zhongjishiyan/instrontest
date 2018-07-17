@@ -167,6 +167,9 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="AuthorAttribute.cs" />
     <Compile Include="CFileCom.cs" />
+    <Compile Include="CLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ClsArmCan.cs" />
     <Compile Include="ClsArm.cs" />
     <Compile Include="ClsBaseControl.cs" />

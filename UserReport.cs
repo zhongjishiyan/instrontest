@@ -482,28 +482,107 @@ namespace TabHeaderDemo
 
                             if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "最小值")
                             {
-                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                               // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                int a = 0;
+                                for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                {
+                                    if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname)
+                                    {
+                                        a = k;
+                                        break;
+                                    }
+                                }
+
+
+
+                                string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + "@temp" + ")", ""));
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
+
                             }
                             if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "最大值")
                             {
-                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("max(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("max(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                int a = 0;
+                                for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                {
+                                    if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname)
+                                    {
+                                        a = k;
+                                        break;
+                                    }
+                                }
+
+
+
+                                string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("max(" + "@temp" + ")", ""));
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
                             }
                             if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "平均值")
                             {
-                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("avg(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("avg(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
 
+                                int a = 0;
+                                for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                {
+                                    if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname)
+                                    {
+                                        a = k;
+                                        break;
+                                    }
+                                }
+
+
+
+                                string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("avg(" + "@temp" + ")", ""));
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
 
                             }
                             if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "标准偏差")
                             {
-                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("StDev(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                //  t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("StDev(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                int a = 0;
+                                for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                {
+                                    if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname)
+                                    {
+                                        a = k;
+                                        break;
+                                    }
+                                }
 
+
+
+                                string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("StDev(" + "@temp" + ")", ""));
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
 
                             }
                             if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "方差")
                             {
-                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("Var(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                //  t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("Var(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                int a = 0;
+                                for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
+                                {
+                                    if (CComLibrary.GlobeVal.filesave.dt.Columns[k].ColumnName == CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname)
+                                    {
+                                        a = k;
+                                        break;
+                                    }
+                                }
 
+
+
+                                string mo = CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName;
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = "@temp";
+                                t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("Var(" + "@temp" + ")", ""));
+                                CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
 
                             }
 

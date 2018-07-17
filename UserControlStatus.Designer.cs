@@ -66,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 74);
+            this.label3.Location = new System.Drawing.Point(30, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 8;
@@ -85,7 +85,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 109);
+            this.label5.Location = new System.Drawing.Point(30, 107);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 10;
@@ -95,7 +95,7 @@
             // 
             this.lblstep.AutoSize = true;
             this.lblstep.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblstep.Location = new System.Drawing.Point(137, 107);
+            this.lblstep.Location = new System.Drawing.Point(137, 105);
             this.lblstep.Name = "lblstep";
             this.lblstep.Size = new System.Drawing.Size(47, 14);
             this.lblstep.TabIndex = 11;
@@ -104,7 +104,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(30, 144);
+            this.label7.Location = new System.Drawing.Point(30, 141);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 12;
@@ -113,7 +113,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 179);
+            this.label8.Location = new System.Drawing.Point(30, 175);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 13;
@@ -123,7 +123,7 @@
             // 
             this.lblcurlargecount.AutoSize = true;
             this.lblcurlargecount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblcurlargecount.Location = new System.Drawing.Point(137, 177);
+            this.lblcurlargecount.Location = new System.Drawing.Point(137, 173);
             this.lblcurlargecount.Name = "lblcurlargecount";
             this.lblcurlargecount.Size = new System.Drawing.Size(15, 14);
             this.lblcurlargecount.TabIndex = 14;
@@ -136,7 +136,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 216);
+            this.label4.Location = new System.Drawing.Point(30, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 15;
@@ -146,7 +146,7 @@
             // 
             this.lbllargecount.AutoSize = true;
             this.lbllargecount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbllargecount.Location = new System.Drawing.Point(137, 216);
+            this.lbllargecount.Location = new System.Drawing.Point(137, 211);
             this.lbllargecount.Name = "lbllargecount";
             this.lbllargecount.Size = new System.Drawing.Size(15, 14);
             this.lbllargecount.TabIndex = 16;
@@ -169,7 +169,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UserControlStatus";
-            this.Size = new System.Drawing.Size(372, 275);
+            this.Size = new System.Drawing.Size(372, 307);
             this.ResumeLayout(false);
             this.PerformLayout();
 

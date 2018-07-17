@@ -94,7 +94,14 @@ namespace TabHeaderDemo
             waitThread = new Thread(new ThreadStart(delegate ()
             {
                 waitForm = new WaitForm();
-                Application.Run(waitForm);
+                try
+                {
+                    Application.Run(waitForm);
+                }
+                catch
+                {
+
+                }
             }));
             waitThread.Start();
         }

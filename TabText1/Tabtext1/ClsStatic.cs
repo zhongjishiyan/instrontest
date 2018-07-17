@@ -94,7 +94,7 @@ namespace ClsStaticStation
 
              for (i = 0; i < 4; i++)
              {
-                 ClsStatic.arraydata[i] = new CircularBuffer("MCTarraydata" + i.ToString(), 200, Marshal.SizeOf(typeof(RawDataDataGroup)));
+                 ClsStatic.arraydata[i] = new CircularBuffer("MCTarraydata" + i.ToString(), 500, Marshal.SizeOf(typeof(RawDataDataGroup)));
                  ClsStatic.arraydatacount[i] = 0;
 
 
@@ -5292,15 +5292,12 @@ namespace ClsStaticStation
 
         public static double[] lasttime = new double[16];
 
+        public static  Queue<RawDataDataGroup>[] myarraydata = new Queue<RawDataDataGroup>[4];
 
-
-        public static CircularBuffer savedata = new CircularBuffer("MCTsavedata", 100, Marshal.SizeOf(typeof(RawDataDataGroup)));
-
-        public static CircularBuffer btwdata = new CircularBuffer("MCTbtwdata", 100, Marshal.SizeOf(typeof(RawDataDataGroup)));
-
+        public static CircularBuffer savedata = new CircularBuffer("MCTsavedata", 500, Marshal.SizeOf(typeof(RawDataDataGroup)));
 
         public static int savedatacount = 0;
-        public static int btwdatacount = 0;
+      
 
         public void structcopy_RawDataStruct(RawDataData a, ref  RawDataStruct b)
         {

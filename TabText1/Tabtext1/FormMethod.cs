@@ -96,11 +96,15 @@ namespace AppleLabApplication
                 filesave.checkchange();
             }
 
-            
+
+
+            filesave.InitTable();
 
             filesave.SerializeNow(s);
 
             CComLibrary.GlobeVal.filesave = filesave;
+
+
             Close();
 
            
