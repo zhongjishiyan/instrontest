@@ -19,8 +19,21 @@ namespace TabHeaderDemo
         
         public void Init格式()
         {
+            toolStripCboElement.Items.Clear();
+            if (GlobeVal.mysys.language == 0)
+            {
+                toolStripCboElement.Items.Add("标题栏");
+                toolStripCboElement.Items.Add("固定列");
+                toolStripCboElement.Items.Add("内容");
+            }
+            else
+            {
+                toolStripCboElement.Items.Add("Title bar");
+                toolStripCboElement.Items.Add("Fixed column");
+                toolStripCboElement.Items.Add("Content");
+            }
+            toolStripCboElement.SelectedIndex = 0;
 
-            
             if (resulttab == 0)
             {
 
@@ -473,15 +486,33 @@ namespace TabHeaderDemo
 
             if (resulttab == 0)
             {
-                lbltitle.Text = "设置结果表1-列 ";
-                lbltitlestatic.Text = "设置结果表1-统计 ";
-                lbltitleformat.Text = "设置结果表1-格式 ";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltitle.Text = "设置结果表1-列 ";
+                    lbltitlestatic.Text = "设置结果表1-统计 ";
+                    lbltitleformat.Text = "设置结果表1-格式 ";
+                }
+                else
+                {
+                    lbltitle.Text = "Configure Results table 1 -Column  ";
+                    lbltitlestatic.Text = "Selected the statistics to include in results table 1";
+                    lbltitleformat.Text = "Edit the format for result table 1 ";
+                }
             }
             if (resulttab == 1)
             {
-                lbltitle.Text = "设置结果表2-列 ";
-                lbltitlestatic.Text = "设置结果表2-统计 ";
-                lbltitleformat.Text = "设置结果表2-格式 ";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltitle.Text = "设置结果表2-列 ";
+                    lbltitlestatic.Text = "设置结果表2-统计 ";
+                    lbltitleformat.Text = "设置结果表2-格式 ";
+                }
+                else
+                {
+                    lbltitle.Text = "Configure Results table 2 -Column  ";
+                    lbltitlestatic.Text = "Selected the statistics to include in results table 2";
+                    lbltitleformat.Text = "Edit the format for result table 1 ";
+                }
             }
             
 
@@ -506,10 +537,7 @@ namespace TabHeaderDemo
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
             toolStripCboElement.Items.Clear();
-            toolStripCboElement.Items.Add("标题栏");
-            toolStripCboElement.Items.Add("固定列");
-            toolStripCboElement.Items.Add("内容");
-            toolStripCboElement.SelectedIndex = 0;
+           
         }
 
         private void list_setvalue()
@@ -588,9 +616,16 @@ namespace TabHeaderDemo
                 this.editcolup.Value = lstinclude.mlist[lstinclude.SelectedIndex].limitup;
                 this.editcoldown.Value = lstinclude.mlist[lstinclude.SelectedIndex].limitdown;
                 this.cbomode.Items.Clear();
-                cbomode.Items.Add("公式名称");
-                cbomode.Items.Add("公式说明");
-               
+                if (GlobeVal.mysys.language == 0)
+                {
+                    cbomode.Items.Add("公式名称");
+                    cbomode.Items.Add("公式说明");
+                }
+                else
+                {
+                    cbomode.Items.Add("Formula name");
+                    cbomode.Items.Add("Formula description");
+                }
                 if (lstinclude.mlist[lstinclude.SelectedIndex].apply ==false )
                 {
                     cbomode.SelectedIndex = 0;

@@ -117,38 +117,534 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>127, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tsbok.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAAOCAYAAAAi2ky3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACcSURBVDhPYxhQ0Nzc9N/NzeU/iIYKkQ56e3v+y8pKwzFZ
-        hi1cuPC/uroqikEgDJUmDuAyxMbGCtOg6dOn/1+zZjWGBD5Dtm3bhqo+KioSLAnSANIIFSbNkLy8XBRF
-        MMNIMgQEAgL8MRSDDMBmCEgMm/fBAGQ6yBZ0TegY5lKoNuyAkGFEGQIDuAwjyRAYQDeMLENgAGYY8YYw
-        MAAAjeDEp35zaSYAAAAASUVORK5CYII=
-</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="toolStrip2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="tsbcancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADBSURBVDhPzZIxDsIwDEVzD9QR9Q6od6ArXVFHegi60jlz
-        ZzrnekYf5dM2sRXExJe+osT2k/UV97+a51mW5Snxmsl7LyEEs+7G8S5VdZC6Pgpg8fmjrru8601z0kEE
-        0CmIABqgWFrVtuddE0xQCqCzbdCMIa1ZMzaPo3t9CzIBVAlUBFBaPnAatikrRLoIKgFoE9T3V3VgGG5q
-        RniLo6u0LRiiFjbu2T/BA35hCqC2IJxmLgBh/Wl6qA0YRN0E/C7nXl8Z954w7EisAAAAAElFTkSuQmCC
-</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="chkhlimit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkhlimit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 20</value>
+  </data>
+  <data name="&gt;&gt;txtup.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="tsbcancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="&gt;&gt;tsbhelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;txtdest.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;chkhlimit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtdown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 21</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtkeep.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;chkslimit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chkalarm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 16</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 164</value>
+  </data>
+  <data name="chkalarm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 95</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>372, 456</value>
+  </data>
+  <data name="&gt;&gt;txtkeep.Name" xml:space="preserve">
+    <value>txtkeep</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tsbok.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkcyclc.Name" xml:space="preserve">
+    <value>chkcyclc</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>操作面板设置</value>
+  </data>
+  <data name="txtkeep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 57</value>
+  </data>
+  <data name="&gt;&gt;txtkeep.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>下降：</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>目标结束：</value>
+  </data>
+  <data name="&gt;&gt;txtdest.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 25</value>
+  </data>
+  <data name="txtdest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 136</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;chkalarm.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="txtup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 20</value>
+  </data>
+  <data name="&gt;&gt;tsbhelp.Name" xml:space="preserve">
+    <value>tsbhelp</value>
+  </data>
+  <data name="&gt;&gt;txtstop.Name" xml:space="preserve">
+    <value>txtstop</value>
   </data>
   <data name="tsbhelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAARCAYAAADQWvz5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE9SURBVDhPtZO7bgIxEEX9H4gS0YY2ooxoQxtaRBnqraGF
-        euutQ73ftX9gOLNzkR+sqHKlEXg8Pr4zhvDv6rouNk0Tj8dfi+v1Evu+j779XhxYrT7ifD6zSL8Th8P+
-        PXC3+7HizebLHAzD8Izb7c8g7K/XnxHHfiyXimiDNW0BVAgMYLlcGKxyxqZseyqwLgNXgrFO6020xC3p
-        DefzyQ6Q43YO4latqoPMFZCK7sKFBk67ApEnR8teOraRJVy6lZBjgQjymqmJRNu2FYghswewhBA4rUDM
-        xJdPUQSMWZUQgnO06+UhQGbgvsw0BWEUgNj30vHmKvmQXisdsgKnGPDSUfT/6kdGDhBuUwhg8q8eyFoQ
-        TM745JAGzadecmoUJsEo3G6/7QF4TW4GoL2p31wmbmVm5b8eCC7KOY4K4Q4Bqra8s3aYwgAAAABJRU5E
-        rkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAARCAYAAADQWvz5AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAT1JREFUOE+1k7tuAjEQRf0fiBLRhjaijGhDG1pEGeqtoYV6661Dvd+1f2A4s3OR
+        H6yocqUReDw+vjOG8O/qui42TROPx1+L6/US+76Pvv1eHFitPuJ8PrNIvxOHw/49cLf7seLN5sscDMPw
+        jNvtzyDsr9efEcd+LJeKaIM1bQFUCAxguVwYrHLGpmx7KrAuA1eCsU7rTbTELekN5/PJDpDjdg7iVq2q
+        g8wVkIruwoUGTrsCkSdHy146tpElXLqVkGOBCPKaqYlE27YViCGzB7CEEDitQMzEl09RBIxZlRCCc7Tr
+        5SFAZuC+zDQFYRSA2PfS8eYq+ZBeKx2yAqcY8NJR9P/qR0YOEG5TCGDyrx7IWhBMzvjkkAbNp15yahQm
+        wSjcbr/tAXhNbgagvanfXCZuZWblvx4ILso5jgrhDgGqtryzdpjCAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="txtstop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 21</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="tsbhelp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="&gt;&gt;tsbcancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbok.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAAOCAYAAAAi2ky3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAJxJREFUOE9jGFDQ3Nz0383N5T+IhgqRDnp7e/7LykrDMVmGLVy48L+6uiqKQSAM
+        lSYO4DLExsYK06Dp06f/X7NmNYYEPkO2bduGqj4qKhIsCdIA0ggVJs2QvLxcFEUww0gyBAQCAvwxFIMM
+        wGYISAyb98EAZDrIFnRN6BjmUqg27ICQYUQZAgO4DCPJEBhAN4wsQ2AAZhjxhjAwAACN4MSnfnNpJgAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 139</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 23</value>
+  </data>
+  <data name="txtdown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 95</value>
+  </data>
+  <data name="chkcyclc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>85, 395</value>
+  </data>
+  <data name="tsbok.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 22</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormPanelSet</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkslimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 16</value>
+  </data>
+  <data name="&gt;&gt;chkalarm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtdown.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="tsbhelp.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="txtup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 21</value>
+  </data>
+  <data name="chkslimit.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtup.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="tsbcancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 22</value>
+  </data>
+  <data name="&gt;&gt;chkslimit.Name" xml:space="preserve">
+    <value>chkslimit</value>
+  </data>
+  <data name="&gt;&gt;chkhlimit.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="chkcyclc.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tsbok.Text" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 175</value>
+  </data>
+  <data name="&gt;&gt;txtdown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chkcyclc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 16</value>
+  </data>
+  <data name="txtdest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 21</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;chkslimit.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;chkcyclc.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtstop.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="txtstop.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="tsbhelp.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="txtdown.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="chkslimit.Text" xml:space="preserve">
+    <value>软限位保护</value>
+  </data>
+  <data name="&gt;&gt;txtup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="txtdest.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="toolStrip2.Text" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 98</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;txtdest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtstop.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;chkcyclc.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="chkalarm.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="chkcyclc.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;chkhlimit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chkslimit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 57</value>
+  </data>
+  <data name="&gt;&gt;chkalarm.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="tsbhelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 22</value>
+  </data>
+  <data name="&gt;&gt;txtdown.Name" xml:space="preserve">
+    <value>txtdown</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>保持：</value>
+  </data>
+  <data name="&gt;&gt;chkslimit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbcancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAMFJREFUOE/NkjEOwjAMRXMP1BH1Dqh3oCtdUUd6CLrSOXNnOud6Rh/l0zaxFcTE
+        l76ixPaT9RX3v5rnWZblKfGayXsvIQSz7sbxLlV1kLo+CmDx+aOuu7zrTXPSQQTQKYgAGqBYWtW2510T
+        TFAKoLNt0IwhrVkzNo+je30LMgFUCVQEUFo+cBq2KStEuggqAWgT1PdXdWAYbmpGeIujq7QtGKIWNu7Z
+        P8EDfmEKoLYgnGYuAGH9aXqoDRhE3QT8LudeXxn3njDsSKwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="chkhlimit.Text" xml:space="preserve">
+    <value>硬限位保护</value>
+  </data>
+  <data name="chkalarm.Text" xml:space="preserve">
+    <value>报警</value>
+  </data>
+  <data name="&gt;&gt;chkcyclc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtstop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="&gt;&gt;txtup.Name" xml:space="preserve">
+    <value>txtup</value>
+  </data>
+  <data name="txtkeep.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="chkhlimit.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>上升：</value>
+  </data>
+  <data name="&gt;&gt;tsbok.Name" xml:space="preserve">
+    <value>tsbok</value>
+  </data>
+  <data name="toolStrip2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;tsbcancel.Name" xml:space="preserve">
+    <value>tsbcancel</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbcancel.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="chkhlimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 16</value>
+  </data>
+  <data name="&gt;&gt;tsbok.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkalarm.Name" xml:space="preserve">
+    <value>chkalarm</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 60</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tsbok.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="txtkeep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 21</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 130</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtstop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 172</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="&gt;&gt;txtdown.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>文字修改</value>
+  </data>
+  <data name="&gt;&gt;txtup.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="chkcyclc.Text" xml:space="preserve">
+    <value>周期波操作</value>
+  </data>
+  <data name="&gt;&gt;chkhlimit.Name" xml:space="preserve">
+    <value>chkhlimit</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Name" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 211</value>
+  </data>
+  <data name="chkslimit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 28</value>
+  </data>
+  <data name="chkalarm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>目标开始：</value>
+  </data>
+  <data name="&gt;&gt;txtdest.Name" xml:space="preserve">
+    <value>txtdest</value>
+  </data>
+  <data name="&gt;&gt;txtkeep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>127, 17</value>
+  </metadata>
 </root>

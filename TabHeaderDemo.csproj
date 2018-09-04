@@ -152,6 +152,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\NationalInstruments.Common.dll</HintPath>
     </Reference>
+    <Reference Include="NationalInstruments.Common.Native, Version=12.0.35.253, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\instron非标2017给陈\instrontest\bin\Debug\NationalInstruments.Common.Native.dll</HintPath>
+    </Reference>
     <Reference Include="NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=MSIL" />
     <Reference Include="NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=MSIL">
       <HintPath>..\..\..\Program Files (x86)\National Instruments\MeasurementStudioVS2008\DotNET\Assemblies\12.0.35.318\NationalInstruments.UI.WindowsForms.dll</HintPath>
@@ -216,6 +220,7 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassHelp.cs" />
     <Compile Include="Controls\CircularIndeterminateProgress.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -237,6 +242,12 @@
     </Compile>
     <Compile Include="Frm\FormPanelSet.Designer.cs">
       <DependentUpon>FormPanelSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FormRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FormRange.Designer.cs">
+      <DependentUpon>FormRange.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\FormTest.cs">
       <SubType>Form</SubType>
@@ -417,6 +428,12 @@
     <Compile Include="UserControl摄像.Designer.cs">
       <DependentUpon>UserControl摄像.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl刚度双轴.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl刚度双轴.Designer.cs">
+      <DependentUpon>UserControl刚度双轴.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,12 +469,6 @@
     <Compile Include="Frm\Form循环执行.Designer.cs">
       <DependentUpon>Form循环执行.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm\Form控制参数.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm\Form控制参数.Designer.cs">
-      <DependentUpon>Form控制参数.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm\Form新建程序文件.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,17 +499,11 @@
     <Compile Include="Frm\FrmExtTransducer.Designer.cs">
       <DependentUpon>FrmExtTransducer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm\Frm围压控制参数.cs">
+    <Compile Include="Frm\formTowGoto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm\Frm围压控制参数.Designer.cs">
-      <DependentUpon>Frm围压控制参数.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm\form围压跳转条件.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm\form围压跳转条件.Designer.cs">
-      <DependentUpon>form围压跳转条件.cs</DependentUpon>
+    <Compile Include="Frm\formTowGoto.Designer.cs">
+      <DependentUpon>formTowGoto.cs</DependentUpon>
     </Compile>
     <Compile Include="ListExt.cs">
       <SubType>Component</SubType>
@@ -511,12 +516,6 @@
     </Compile>
     <Compile Include="ListReport.Designer.cs">
       <DependentUpon>ListReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Report\UserControl缺省表格.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Report\UserControl缺省表格.Designer.cs">
-      <DependentUpon>UserControl缺省表格.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\UserControl文件设置.cs">
       <SubType>UserControl</SubType>
@@ -851,12 +850,6 @@
     <Compile Include="Controls\MethodOpenFileDialog.designer.cs">
       <DependentUpon>MethodOpenFileDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="User围压.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User围压.Designer.cs">
-      <DependentUpon>User围压.cs</DependentUpon>
-    </Compile>
     <None Include="LBIndustrialCtrls\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="LBIndustrialCtrls\obj\Debug\LBIndustrialCtrls.csproj.GenerateResource.Cache" />
     <None Include="Resources\sun.cur" />
@@ -882,13 +875,22 @@
       <DependentUpon>OpenFileDialogEx.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMainLab.en.resx">
+      <DependentUpon>FormMainLab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMainLab.resx">
       <DependentUpon>FormMainLab.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPlotSet.en.resx">
+      <DependentUpon>FormPlotSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPlotSet.resx">
       <DependentUpon>FormPlotSet.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUser.en.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>
@@ -896,6 +898,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form仿真.resx">
       <DependentUpon>Form仿真.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMima.en.resx">
+      <DependentUpon>FrmMima.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMima.resx">
       <DependentUpon>FrmMima.cs</DependentUpon>
@@ -907,8 +912,14 @@
     <EmbeddedResource Include="Frm\FormLoadTransducer.resx">
       <DependentUpon>FormLoadTransducer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FormPanelSet.en.resx">
+      <DependentUpon>FormPanelSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\FormPanelSet.resx">
       <DependentUpon>FormPanelSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FormRange.resx">
+      <DependentUpon>FormRange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FormTest.resx">
       <DependentUpon>FormTest.cs</DependentUpon>
@@ -918,9 +929,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\Form循环执行.resx">
       <DependentUpon>Form循环执行.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm\Form控制参数.resx">
-      <DependentUpon>Form控制参数.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\Form新建程序文件.resx">
       <DependentUpon>Form新建程序文件.cs</DependentUpon>
@@ -945,11 +953,8 @@
       <DependentUpon>FrmExtTransducer.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm\Frm围压控制参数.resx">
-      <DependentUpon>Frm围压控制参数.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm\form围压跳转条件.resx">
-      <DependentUpon>form围压跳转条件.cs</DependentUpon>
+    <EmbeddedResource Include="Frm\formTowGoto.resx">
+      <DependentUpon>formTowGoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="helper.resources" />
     <EmbeddedResource Include="helper.resx">
@@ -963,6 +968,9 @@
     <EmbeddedResource Include="ImageButton.resx">
       <DependentUpon>ImageButton.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JMeter.en.resx">
+      <DependentUpon>JMeter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JMeter.resx">
       <DependentUpon>JMeter.cs</DependentUpon>
@@ -988,6 +996,18 @@
     <EmbeddedResource Include="LBIndustrialCtrls\obj\Debug\LBSoft.IndustrialCtrls.Leds.LB7SegmentDisplay.resources" />
     <EmbeddedResource Include="LBIndustrialCtrls\obj\Debug\LBSoft.IndustrialCtrls.Leds.LBLed.resources" />
     <EmbeddedResource Include="LBIndustrialCtrls\obj\Debug\LBSoft.IndustrialCtrls.Meters.LBDigitalMeter.resources" />
+    <EmbeddedResource Include="Manage\UserControl系统信息.en.resx">
+      <DependentUpon>UserControl系统信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\UserControl系统安全.en.resx">
+      <DependentUpon>UserControl系统安全.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\UserControl系统设置.en.resx">
+      <DependentUpon>UserControl系统设置.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\UserControl系统选项.en.resx">
+      <DependentUpon>UserControl系统选项.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MouseKey\FormRecFileSelect.resx">
       <DependentUpon>FormRecFileSelect.cs</DependentUpon>
     </EmbeddedResource>
@@ -997,16 +1017,27 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl原始数据.en.resx">
+      <DependentUpon>UserControl原始数据.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl报告常规.en.resx">
+      <DependentUpon>UserControl报告常规.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl数据库.en.resx">
+      <DependentUpon>UserControl数据库.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl文件设置.en.resx">
+      <DependentUpon>UserControl文件设置.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\UserControl长时数据.en.resx">
+      <DependentUpon>UserControl长时数据.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\UserControl长时数据.resx">
       <DependentUpon>UserControl长时数据.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\UserControl数据库.resx">
       <DependentUpon>UserControl数据库.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\UserControl缺省表格.resx">
-      <DependentUpon>UserControl缺省表格.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\UserControl文件设置.resx">
       <DependentUpon>UserControl文件设置.cs</DependentUpon>
@@ -1035,11 +1066,17 @@
     <EmbeddedResource Include="UserControlCamera.resx">
       <DependentUpon>UserControlCamera.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCamera1.en.resx">
+      <DependentUpon>UserControlCamera1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlCamera1.resx">
       <DependentUpon>UserControlCamera1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlFont.resx">
       <DependentUpon>UserControlFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlGraph.en.resx">
+      <DependentUpon>UserControlGraph.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlGraph.resx">
       <DependentUpon>UserControlGraph.cs</DependentUpon>
@@ -1053,9 +1090,24 @@
       <DependentUpon>UserControlInputText.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain.en.resx">
+      <DependentUpon>UserControlMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlMeter.resx">
       <DependentUpon>UserControlMeter.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMethod.en.resx">
+      <DependentUpon>UserControlMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlOpenMethod.en.resx">
+      <DependentUpon>UserControlOpenMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlPretest.en.resx">
+      <DependentUpon>UserControlPretest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProcess.en.resx">
+      <DependentUpon>UserControlProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlProcess.resx">
       <DependentUpon>UserControlProcess.cs</DependentUpon>
@@ -1064,13 +1116,25 @@
       <DependentUpon>UserControlLongRecord.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlRawdata.en.resx">
+      <DependentUpon>UserControlRawdata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlResult.en.resx">
+      <DependentUpon>UserControlResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlResult.resx">
       <DependentUpon>UserControlResult.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSpe.en.resx">
+      <DependentUpon>UserControlSpe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlSpe.resx">
       <DependentUpon>UserControlSpe.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlStatus.en.resx">
+      <DependentUpon>UserControlStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlStatus.resx">
       <DependentUpon>UserControlStatus.cs</DependentUpon>
@@ -1080,6 +1144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlStep.resx">
       <DependentUpon>UserControlStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlTest.en.resx">
+      <DependentUpon>UserControlTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlTop.en.resx">
+      <DependentUpon>UserControlTop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlTop.resx">
       <DependentUpon>UserControlTop.cs</DependentUpon>
@@ -1109,9 +1179,27 @@
       <DependentUpon>UserControlWizard.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControl常规.en.resx">
+      <DependentUpon>UserControl常规.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl常规.resx">
       <DependentUpon>UserControl常规.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl控制.en.resx">
+      <DependentUpon>UserControl控制.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl控制台.en.resx">
+      <DependentUpon>UserControl控制台.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl摄像.en.resx">
+      <DependentUpon>UserControl摄像.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl曲线.en.resx">
+      <DependentUpon>UserControl曲线.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl测试提示.en.resx">
+      <DependentUpon>UserControl测试提示.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl测试提示.resx">
       <DependentUpon>UserControl测试提示.cs</DependentUpon>
@@ -1121,6 +1209,15 @@
       <DependentUpon>UserControl摄像.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControl结果.en.resx">
+      <DependentUpon>UserControl结果.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl计算.en.resx">
+      <DependentUpon>UserControl计算.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl试样.en.resx">
+      <DependentUpon>UserControl试样.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl试样.resx">
       <DependentUpon>UserControl试样.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1128,6 +1225,16 @@
     <EmbeddedResource Include="UserControl东光.resx">
       <DependentUpon>UserControl东光.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl刚度双轴.resx">
+      <DependentUpon>UserControl刚度双轴.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl轴向.byn.resx">
+      <DependentUpon>UserControl轴向.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl轴向.en.resx">
+      <DependentUpon>UserControl轴向.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl轴向恒应变.resx">
       <DependentUpon>UserControl轴向恒应变.cs</DependentUpon>
@@ -1139,6 +1246,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl操作面板.resx">
       <DependentUpon>UserControl操作面板.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl额外显示.en.resx">
+      <DependentUpon>UserControl额外显示.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManage.en.resx">
+      <DependentUpon>UserManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserReport.en.resx">
+      <DependentUpon>UserReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserReport.resx">
       <DependentUpon>UserReport.cs</DependentUpon>
@@ -1218,10 +1334,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MethodOpenFileDialog.resx">
       <DependentUpon>MethodOpenFileDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User围压.resx">
-      <DependentUpon>User围压.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl扭转.resx">

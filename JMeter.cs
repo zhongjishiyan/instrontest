@@ -7,28 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using ClsStaticStation;
+using AppleLabApplication;
 namespace TabHeaderDemo
 {
-    public partial class JMeter : UserControl
+    public partial class JMeter : UserBase
     {
         public System.Drawing.Bitmap backimage = new Bitmap(50, 50);
 
-        
-        public JMeter()
+        public void init()
         {
-            InitializeComponent();
-            if (Screen.PrimaryScreen.Bounds.Width ==1366)
+            if (Screen.PrimaryScreen.Bounds.Width == 1366)
             {
-                this.lblcaption.Font = new Font("宋体", 8,FontStyle.Bold);
+                this.lblcaption.Font = new Font("宋体", 8, FontStyle.Bold);
                 lblvalue.Font = new Font("宋体", 14, FontStyle.Bold);
                 lblunit.Font = new Font("宋体", 14, FontStyle.Bold);
             }
             else
             {
-               // this.lblcaption.Font = new Font("宋体", 10,FontStyle.Bold );
-               // lblvalue.Font = new Font("宋体", 22, FontStyle.Bold);
-               // lblunit.Font = new Font("宋体", 22, FontStyle.Bold);
+                // this.lblcaption.Font = new Font("宋体", 10,FontStyle.Bold );
+                // lblvalue.Font = new Font("宋体", 22, FontStyle.Bold);
+                // lblunit.Font = new Font("宋体", 22, FontStyle.Bold);
+
+
+                if (GlobeVal.mysys.language == 0)
+                {
+                    this.lblcaption.Font = new Font("宋体", 10, FontStyle.Bold);
+                    lblvalue.Font = new Font("宋体", 22, FontStyle.Bold);
+                    lblunit.Font = new Font("宋体", 22, FontStyle.Bold);
+                }
+                else
+                {
+                    this.lblcaption.Font = new Font("宋体", 12, FontStyle.Bold);
+                    lblvalue.Font = new Font("宋体", 22, FontStyle.Bold);
+                    lblunit.Font = new Font("宋体", 22, FontStyle.Bold);
+                }
             }
+        }
+        public JMeter()
+        {
+            InitializeComponent();
+         
+
+          
 
             SetStyle(ControlStyles.UserPaint, true);
            // SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.

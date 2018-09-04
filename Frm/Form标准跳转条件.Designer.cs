@@ -32,6 +32,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbomode = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,8 +46,6 @@
             this.numericEdit3 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.lblunit = new System.Windows.Forms.Label();
             this.numericEdit2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbomode = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit4)).BeginInit();
@@ -98,8 +98,27 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
+            // cbomode
+            // 
+            this.cbomode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbomode.FormattingEnabled = true;
+            this.cbomode.Location = new System.Drawing.Point(119, 236);
+            this.cbomode.Name = "cbomode";
+            this.cbomode.Size = new System.Drawing.Size(192, 20);
+            this.cbomode.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 239);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "目标模式：";
+            // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(114, 26);
             this.comboBox1.Name = "comboBox1";
@@ -159,6 +178,7 @@
             // numericEdit4
             // 
             this.numericEdit4.BackColor = System.Drawing.Color.White;
+            this.numericEdit4.Enabled = false;
             this.numericEdit4.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numericEdit4.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numericEdit4.Location = new System.Drawing.Point(75, 3);
@@ -211,23 +231,6 @@
             this.numericEdit2.Size = new System.Drawing.Size(152, 21);
             this.numericEdit2.TabIndex = 5;
             this.numericEdit2.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numericEdit2_AfterChangeValue);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 239);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "目标模式：";
-            // 
-            // cbomode
-            // 
-            this.cbomode.FormattingEnabled = true;
-            this.cbomode.Location = new System.Drawing.Point(119, 236);
-            this.cbomode.Name = "cbomode";
-            this.cbomode.Size = new System.Drawing.Size(192, 20);
-            this.cbomode.TabIndex = 16;
             // 
             // Form标准跳转条件
             // 

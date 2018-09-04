@@ -46,10 +46,21 @@ namespace TabHeaderDemo
             numcount.Value = myplotsettings.curvecount;
 
             cbooffset.Items.Clear();
-            cbooffset.Items.Add("无");
-            cbooffset.Items.Add("X轴");
-            cbooffset.Items.Add("Y轴");
-            cbooffset.Items.Add("XY轴");
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbooffset.Items.Add("无");
+                cbooffset.Items.Add("X轴");
+                cbooffset.Items.Add("Y轴");
+                cbooffset.Items.Add("XY轴");
+            }
+            else
+            {
+                cbooffset.Items.Add("None");
+                cbooffset.Items.Add("X Axis");
+                cbooffset.Items.Add("Y Axis");
+                cbooffset.Items.Add("X And Y Axis");
+            }
             cbooffset.SelectedIndex = myplotsettings.curveoffset;
 
             chkshowinvalidspe.Checked = myplotsettings.showinvalidspe;
@@ -125,8 +136,18 @@ namespace TabHeaderDemo
 
 
                 cbocurve.SelectedIndex = 0;
-                grpydefine.Text = "Y轴定义";
-                this.grpyscale.Text = "Y轴缩放比例";
+
+                if (GlobeVal.mysys.language == 0)
+                {
+                    grpydefine.Text = "Y轴定义";
+                    this.grpyscale.Text = "Y轴缩放比例";
+                }
+                else
+
+                {
+                    grpydefine.Text = "Y-axis definition";
+                    this.grpyscale.Text = "Y-axis scaling";
+                }
 
                 grpy1define.Visible = false;
                 grpy1scale.Visible = false;
@@ -144,12 +165,21 @@ namespace TabHeaderDemo
 
 
                 cbocurve.SelectedIndex = 0;
-
-
-                grpydefine.Text = "左侧Y轴定义";
-                this.grpyscale.Text = "左侧Y轴缩放比例";
-                grpy1define.Text = "右侧Y轴定义";
-                grpy1scale.Text = "右侧Y轴缩放比例";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    grpydefine.Text = "左侧Y轴定义";
+                    this.grpyscale.Text = "左侧Y轴缩放比例";
+                    grpy1define.Text = "右侧Y轴定义";
+                    grpy1scale.Text = "右侧Y轴缩放比例";
+                   
+                }
+                else
+                {
+                    grpydefine.Text = "Left Y-axis definition";
+                    this.grpyscale.Text = "Left Y-axis scaling";
+                    grpy1define.Text = "Right Y-axis definition";
+                    grpy1scale.Text = "Right Y-axis scaling";
+                }
 
                 grpy1define.Visible = true;
                 grpy1scale.Visible = true;
@@ -199,10 +229,18 @@ namespace TabHeaderDemo
                 }
             }
             else
-            {
-                grpydefine.Text = "Y轴定义";
-                this.grpyscale.Text = "Y轴缩放比例";
 
+            {
+                if (GlobeVal.mysys.language == 0)
+                {
+                    grpydefine.Text = "Y轴定义";
+                    this.grpyscale.Text = "Y轴缩放比例";
+                }
+                else
+                {
+                    grpydefine.Text = "Y-axis definition";
+                    this.grpyscale.Text = "Y-axis scaling";
+                }
 
                 grpy1define.Visible = false;
                 grpy1scale.Visible = false;
@@ -317,14 +355,30 @@ namespace TabHeaderDemo
         public void Init高级()
         {
             listBox1.Items.Clear();
-            listBox1.Items.Add("曲线图外观");
-            listBox1.Items.Add("网格线");
-            listBox1.Items.Add("X 轴");
-            listBox1.Items.Add("Y 轴");
-            listBox1.Items.Add("图例设置");
-            listBox1.Items.Add("图例外观");
-            listBox1.Items.Add("标记类型");
-            listBox1.Items.Add("构造线类型");
+            if (GlobeVal.mysys.language == 0)
+            {
+                listBox1.Items.Add("曲线图外观");
+                listBox1.Items.Add("网格线");
+                listBox1.Items.Add("X 轴");
+                listBox1.Items.Add("Y 轴");
+                listBox1.Items.Add("图例设置");
+                listBox1.Items.Add("图例外观");
+                listBox1.Items.Add("标记类型");
+                listBox1.Items.Add("构造线类型");
+            }
+            else
+            {
+                listBox1.Items.Add("Graph appearance");
+                listBox1.Items.Add("Grid lines");
+                listBox1.Items.Add("X-axis");
+                listBox1.Items.Add("Y-axis");
+                listBox1.Items.Add("Legend settings");
+                listBox1.Items.Add("Legend appearance");
+                listBox1.Items.Add("Marker styles");
+                listBox1.Items.Add("Construction line styles");
+            }
+
+
             //listBox1.Items.Add("PIP 线");
 
             scatterGraph1.Plots.Clear();
@@ -337,8 +391,14 @@ namespace TabHeaderDemo
                 scatterGraph1.YAxes[1].Visible = false;
 
                 for (int i = 0; i < myplotsettings.curvecount; i++)
-                {
-                    listBox1.Items.Add("曲线 " + (i + 1).ToString().Trim());
+                {  if (GlobeVal.mysys.language == 0)
+                    {
+                        listBox1.Items.Add("曲线 " + (i + 1).ToString().Trim());
+                    }
+                    else
+                    {
+                        listBox1.Items.Add("Plot " + (i + 1).ToString().Trim());
+                    }
                     mplot = new NationalInstruments.UI.ScatterPlot();
                     mplot.LineColor = myplotsettings.PlotLineColor[i];
                     mplot.LineStyle = myplotsettings.PlotLineStyle[i];
@@ -376,7 +436,14 @@ namespace TabHeaderDemo
                 scatterGraph1.YAxes[1].Visible = true;
 
                 i = 0;
-                listBox1.Items.Add("左轴曲线 ");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    listBox1.Items.Add("左轴曲线 ");
+                }
+                else
+                {
+                    listBox1.Items.Add("Y-leftaxis Plot");
+                }
                 mplot = new NationalInstruments.UI.ScatterPlot();
                 mplot.LineColor = myplotsettings.PlotLineColor[i];
                 mplot.LineStyle = myplotsettings.PlotLineStyle[i];
@@ -396,7 +463,14 @@ namespace TabHeaderDemo
                 legend3.Items.Add(mlegitem);
 
                 i = 1;
-                listBox1.Items.Add("右轴曲线 ");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    listBox1.Items.Add("右轴曲线 ");
+                }
+                else
+                {
+                    listBox1.Items.Add("Y-rightaxis Plot ");
+                }
                 mplot = new NationalInstruments.UI.ScatterPlot();
                 mplot.LineColor = myplotsettings.PlotLineColor[i];
                 mplot.LineStyle = myplotsettings.PlotLineStyle[i];
@@ -427,7 +501,14 @@ namespace TabHeaderDemo
 
                 for (int i = 0; i < myplotsettings.curvecount; i++)
                 {
-                    listBox1.Items.Add("曲线 " + (i + 1).ToString().Trim());
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        listBox1.Items.Add("曲线 " + (i + 1).ToString().Trim());
+                    }
+                    else
+                    {
+                        listBox1.Items.Add("Plot " + (i + 1).ToString().Trim());
+                    }
                     mplot = new NationalInstruments.UI.ScatterPlot();
                     mplot.LineColor = myplotsettings.PlotLineColor[i];
                     mplot.LineStyle = myplotsettings.PlotLineStyle[i];
@@ -496,20 +577,40 @@ namespace TabHeaderDemo
 
             if (curvetab == 0)
             {
-                lbltitle0.Text = "设置曲线1类型";
-                lbltitle1.Text = "设置曲线1-X轴数据";
-                lbltitle2.Text = "设置曲线1-Y轴数据";
-                lbltitle3.Text = "设置曲线1-高级项目";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltitle0.Text = "设置曲线1类型";
+                    lbltitle1.Text = "设置曲线1-X轴数据";
+                    lbltitle2.Text = "设置曲线1-Y轴数据";
+                    lbltitle3.Text = "设置曲线1-高级项目";
+                }
+                else
+                {
+                    lbltitle0.Text = "Select the type of graph and basic format for graph 1";
+                    lbltitle1.Text = "Set the basic parameters for the x-axis of graph 1";
+                    lbltitle2.Text = "Set the basic parameters for the y-axis of graph 1";
+                    lbltitle3.Text = "Edit the advanced parameter settings for graph 1";
+                }
 
             }
 
 
             if (curvetab == 1)
             {
-                lbltitle0.Text = "设置曲线2类型";
-                lbltitle1.Text = "设置曲线2-X轴数据";
-                lbltitle2.Text = "设置曲线2-Y轴数据";
-                lbltitle3.Text = "设置曲线2-高级项目";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltitle0.Text = "设置曲线2类型";
+                    lbltitle1.Text = "设置曲线2-X轴数据";
+                    lbltitle2.Text = "设置曲线2-Y轴数据";
+                    lbltitle3.Text = "设置曲线2-高级项目";
+                }
+                else
+                {
+                    lbltitle0.Text = "Select the type of graph and basic format for graph 2";
+                    lbltitle1.Text = "Set the basic parameters for the x-axis of graph 2";
+                    lbltitle2.Text = "Set the basic parameters for the y-axis of graph 2";
+                    lbltitle3.Text = "Edit the advanced parameter settings for graph 2";
+                }
 
             }
 

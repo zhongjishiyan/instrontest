@@ -44,11 +44,27 @@ namespace TabHeaderDemo
         {
             if (GlobeVal.myarm.getrunstate() == 1)
             {
-                lblstate.Text = "运行";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lblstate.Text = "运行";
+                }
+                else
+                {
+                    lblstate.Text = "Run";
+                }
             }
             else
             {
-                lblstate.Text = "停止";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lblstate.Text = "停止";
+                }
+                else
+                {
+                    lblstate.Text = "Stop";
+                }
+
+                    
             }
 
             if (CComLibrary.GlobeVal.filesave != null)
@@ -61,8 +77,14 @@ namespace TabHeaderDemo
                     {
                         if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
                         {
-                          
-                            lblstep.Text = "步骤" + (GlobeVal.myarm.mcurseg).ToString();
+                            if (GlobeVal.mysys.language == 0)
+                            {
+                                lblstep.Text = "步骤" + (GlobeVal.myarm.mcurseg).ToString();
+                            }
+                            else
+                            {
+                                lblstep.Text = "Step " + (GlobeVal.myarm.mcurseg).ToString();
+                            }
                         }
                         else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
                         {

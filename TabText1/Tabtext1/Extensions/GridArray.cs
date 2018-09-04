@@ -77,6 +77,7 @@ namespace SampleProject.Extensions
 			//Col Header Cell Template
 			m_ColHeaderCell = p_CellColumnHeader;
 			m_ColHeaderCell.BindToGrid(this);
+          
              
 			//Row Header Cell Template
 			m_RowHeaderCell = p_CellRowHeader;
@@ -106,10 +107,17 @@ namespace SampleProject.Extensions
 			{
 				if (m_Array!=null)
 				{
-					if (p_iRow<FixedRows && p_iCol<FixedColumns)
-						return m_HeaderCell;
-					else if (p_iRow < FixedRows)
-						return m_ColHeaderCell;
+                    if (p_iRow < FixedRows && p_iCol < FixedColumns)
+
+                    {
+
+                        return m_HeaderCell;
+                    }
+                    else if (p_iRow < FixedRows)
+                    {
+                     
+                        return m_ColHeaderCell;
+                    }
                     else if (p_iCol < FixedColumns)
                         return m_RowHeaderCell;
                     else
@@ -126,7 +134,7 @@ namespace SampleProject.Extensions
                             }
                         }
 
-                         
+
                         return m_DataCell;
                     }
 				}
@@ -226,7 +234,7 @@ namespace SampleProject.Extensions
 			{
                 if (p_Position.Row == 0)
                 {
-                   
+                  
                     return ConvertColumnIndexToCaption(p_Position.Column);
                 }
                 else if (p_Position.Row == 3)
@@ -271,17 +279,39 @@ namespace SampleProject.Extensions
 
                 if (p_Position.Row == 1)
                 {
-                    return "名称";
+                    
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        return "名称";
+                    }
+                    else
+                    {
+                        return "Long Name";
+                    }
                 }
                 else if (p_Position.Row == 2)
                 {
-                    return "单位";
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        return "单位";
+                    }
+                    else
+                    {
+                        return "Units";
+                    }
 
                 }
 
                 else if (p_Position.Row == 3)
                 {
-                    return "注释";
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        return "注释";
+                    }
+                    else
+                    {
+                        return "Comments";
+                    }
                 }
                 else
                 {
@@ -302,17 +332,38 @@ namespace SampleProject.Extensions
 			{
                 if (p_Position.Row == 1)
                 {
-                    return "名称";
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        return "名称";
+                    }
+                    else
+                    {
+                        return "Long Name";
+                    }
                 }
                 else if (p_Position.Row == 2)
                 {
-                    return "单位";
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        return "单位";
+                    }
+                    else
+                    {
+                        return "Units";
+                    }
 
                 }
 
                 else if (p_Position.Row == 3)
                 {
-                    return "注释";
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        return "注释";
+                    }
+                    else
+                    {
+                        return "Comments";
+                    }
                 }
                 else
                 {

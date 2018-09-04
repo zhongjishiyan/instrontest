@@ -51,6 +51,9 @@ namespace TabHeaderDemo
 
         public bool demo = false;//演示试验 
 
+
+        public int language = 0;//语言选择
+
         public int controllerkind = 0;//
 
         public string[] RecentFilename;
@@ -78,11 +81,16 @@ namespace TabHeaderDemo
 
         public int MachineCount;
 
-        public string apptitle = "";
+       
+
+        public string[] Lapptile;
+
 
         public bool showapptitle = false;
 
-        public string shorttitle = "";
+      
+        public string[] Lshorttitle;
+
 
         public bool showshorttitle = false;
 
@@ -98,6 +106,8 @@ namespace TabHeaderDemo
         public bool[] ChannelControl;//通道控制
         public bool[] ChannelStrainControl;//通道变形控制
         public int[] ChannelSamplemode;//通道硬件采集方式
+
+        public int[] ChannelControlChannel;//对于有两个控制器通道的设备使用，判断使用哪个通道
 
         public int ChannelCount = 8;//通道数量
 
@@ -128,17 +138,19 @@ namespace TabHeaderDemo
             MachineName = new string[20];
             MachineName[0] = "电子(液压)万能试验机";
             MachineName[1] = "扭转试验机";
-            MachineName[2] = "岩石三轴试验机";
+            MachineName[2] = "岩石三轴试验台";
             MachineName[3] = "换挡意图传感器试验机";
             MachineName[4] = "金属恒应变控制试验机";
             MachineName[5] = "车身刚度试验台";
-
-            MachineCount = 6;
+            MachineName[6] = "单台双通道控制器试验台";
+            
+            MachineCount = 7;
           
             ChannelRange = new double [20];
             ChannelControl = new bool[20];
             ChannelDimension = new int[20];
             ChannelSamplemode = new int[20];
+            ChannelControlChannel = new int[20];
 
             UserName = new string[100];
             UserPassword = new string[100];
@@ -159,6 +171,10 @@ namespace TabHeaderDemo
             RecentSampleFilename = new string[20];
             RecentSampleFilenameKind = new string[20];
             RecentSampleFilePath = new string[20];
+
+            Lshorttitle = new string[10];
+            Lapptile = new string[10];
+
 
             for (int i = 0; i < 20; i++)
             {
@@ -205,7 +221,15 @@ namespace TabHeaderDemo
                     BinaryFormatter b = new BinaryFormatter();
 
                     c = b.Deserialize(fileStream) as ClassSys;
-
+                    if (c.Lapptile == null)
+                    {
+                        c.Lapptile = new string[10];
+                    }
+                    if (c.Lshorttitle == null)
+                    {
+                        c.Lshorttitle = new string[10];
+                    }
+            
                     if (c.RecentFilename == null)
                     {
                         c.RecentFilename = new string[20];
@@ -265,17 +289,23 @@ namespace TabHeaderDemo
 
                     c.MachineName[0] = "电子(液压)万能试验机";
                     c.MachineName[1] = "扭转试验机";
-                    c.MachineName[2] = "岩石三轴试验机";
+                    c.MachineName[2] = "岩石三轴试验台";
                     c.MachineName[3] = "换挡意图传感器试验机";
                     c.MachineName[4] = "金属恒应变控制试验机";
                     c.MachineName[5] = "车身刚度试验台";
+                    c.MachineName[6] = "单台双通道控制器试验台";
 
 
-                    c.MachineCount = 6;
+                    c.MachineCount = 7;
 
                     if (c.ChannelSamplemode==null)
                     {
                         c.ChannelSamplemode = new int[20];
+                    }
+
+                    if (c.ChannelControlChannel==null)
+                    {
+                        c.ChannelControlChannel = new int[20];
                     }
 
                     if (c.ChannelRange == null)

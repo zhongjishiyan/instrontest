@@ -101,11 +101,11 @@ namespace SampleProject.Extensions
 				double l_Min = double.MaxValue;
 				for (int i = 0; i < m_Bars.Count; i++)
 				{
-					if (m_Bars[i].值 > l_Max)
-						l_Max = m_Bars[i].值;
+					if (m_Bars[i].value > l_Max)
+						l_Max = m_Bars[i].value ;
 
-					if (m_Bars[i].值 < l_Min)
-						l_Min = m_Bars[i].值;
+					if (m_Bars[i].value  < l_Min)
+						l_Min = m_Bars[i].value ;
 				}
 
 				//l_Min -= ((l_Max-l_Min)/((double)m_StepNumber))*2;//per fare in modo che ance il pi?piccolo sia visibile
@@ -145,9 +145,10 @@ namespace SampleProject.Extensions
 				int l_Col = 2;
 				foreach (ChartBar bar in Bars)
 				{
-					grid[grid.RowsCount-1, l_Col] = new Cells.Cell(bar.名称 + "\n" + bar.值.ToString(), null, l_TopBorderModel);
+                    grid[grid.RowsCount-1, l_Col] = new Cells.Cell(bar.Caption + "\n" + bar.value.ToString(), null, l_TopBorderModel);
+                   
 
-					l_Col += 2;
+                    l_Col += 2;
 				}
 
 				grid.AutoStretchColumnsToFitWidth = true;
@@ -158,7 +159,7 @@ namespace SampleProject.Extensions
 				l_Col = 2;
 				foreach (ChartBar bar in Bars)
 				{
-					int l_ScaledValue = (int)((bar.值-l_Min) * l_ScalingFactor);
+					int l_ScaledValue = (int)((bar.value-l_Min) * l_ScalingFactor);
 
 					if (l_ScaledValue>0)
 					{
@@ -166,7 +167,7 @@ namespace SampleProject.Extensions
 						grid[(StepNumber - l_ScaledValue) + 1, l_Col].RowSpan = l_ScaledValue;
 					}
 
-					grid[grid.RowsCount-1, l_Col] = new Cells.Cell(bar.名称 + "\n" + bar.值.ToString(), null, l_TopBorderModel);
+					grid[grid.RowsCount-1, l_Col] = new Cells.Cell(bar.Caption + "\n" + bar.value.ToString(), null, l_TopBorderModel);
 
 					l_Col += 2;
 				}
@@ -178,6 +179,7 @@ namespace SampleProject.Extensions
     {
         private string m_docname = "";
         private string m_docvalue = "";
+        private string m_docintervalname = "";
         private int m_dimsel = 0;
         public ChartBarTextDefine()
         {
@@ -185,44 +187,55 @@ namespace SampleProject.Extensions
              
         }
 
-        public string 文档名称
+        public string docname
         {
             get { return m_docname; }
             set { m_docname = value; }
         }
 
-        public string 文档内容
+        public string docvalue
         {
             get { return m_docvalue; }
             set { m_docvalue = value; }
         }
 
-        private int 量纲
+
+        private string Caption
+        {
+            get;
+            set;
+        }
+
+        private int Dimension
         {
             get { return m_dimsel; }
             set { m_dimsel = value; }
         }
 
 
-        private string 名称
+        public string intervalname
         {
-            get { return ""; }
+            get { return m_docintervalname; }
+            set { m_docintervalname = value; }
         }
 
-        private double 值
+        private double value
         {
             get { return 0; }
         }
 
-        private string 单位
+        private string Unit
         {
             get { return ""; }
         }
 
-        public ChartBarTextDefine(string p_docname, string p_docvalue)
+        public ChartBarTextDefine(string p_docname, string p_docvalue,string  p_docintername)
         {
-            文档名称 = p_docname;
-            文档内容 = p_docvalue; 
+            docname  = p_docname;
+            docvalue  = p_docvalue;
+            intervalname  = p_docintername;
+
+
         }
 
     }
@@ -239,53 +252,53 @@ namespace SampleProject.Extensions
 
         }
 
-        public string 组合框名称
+        public string cboname
         {
             get { return m_docname; }
             set { m_docname = value; }
         }
 
-        public string 组合框内容
+        public string cbovalue
         {
             get { return m_docvalue; }
             set { m_docvalue = value; }
         }
 
-        public int 选择
+        public int cbosel
         {
             get { return m_sel; }
             set { m_sel = value; }
 
         }
 
-        private int 量纲
+        private int Dimension
         {
             get { return m_dimsel; }
             set { m_dimsel = value; }
         }
 
 
-        private string 名称
+        private string Caption
         {
             get { return ""; }
         }
 
-        private double 值
+        private double value
         {
             get { return 0; }
         }
 
-        private string 单位
+        private string Unit
         {
             get { return ""; }
         }
 
         public ChartBarComboDefine(string p_docname, string p_docvalue,int p_sel)
         {
-            组合框名称 = p_docname;
+            m_docname  = p_docname;
            
-            组合框内容 = p_docvalue;
-            选择 = p_sel; 
+            m_docvalue  = p_docvalue;
+            m_sel  = p_sel; 
         }
 
     }
@@ -305,7 +318,7 @@ namespace SampleProject.Extensions
              
         }
 
-        public string value;
+      
 
         public string 通道名称
         {
@@ -335,12 +348,12 @@ namespace SampleProject.Extensions
                  }
         }
 
-        private string 名称
+        private string Caption
         {
             get { return ""; }
         }
 
-        private double 值
+        private double value
         {
             get { return 0; }
         }
@@ -366,7 +379,7 @@ namespace SampleProject.Extensions
     public class ChartBarDefine : ChartBar
     {
         
-        private string m_Caption = "计算项目";
+        private string m_Caption = "Calc Item";
         private string  m_Value = "";
         private string m_unit = "mm";
         private string m_explain = "";
@@ -378,28 +391,28 @@ namespace SampleProject.Extensions
 
         }
 
-        public string value;
+        public string formulavalue;
 
-        public string 公式名称
+        public string FormulaName
         {
             get { return m_Caption; }
             set { m_Caption = value; }
         }
 
-        public string  公式内容
+        public string FormulaContent
         {
             get { return m_Value; }
             set { m_Value = value; }
         }
 
-        public string 公式单位
+        public string FormulaUnit
         {
             get { return m_unit; }
             set { m_unit = value; }
         }
 
 
-        public bool 是否计算
+        public bool Calculation
         {
             get { return m_check; }
             set { m_check = value; }
@@ -407,48 +420,48 @@ namespace SampleProject.Extensions
 
         }
 
-        public string 公式说明
+        public string FormulaDescription
         {
             get { return m_explain; }
             set { m_explain = value; }
         }
 
-        public bool 曲线显示
+        public bool Show
         {
             get { return m_show; }
             set { m_show = value; }
         }
-        public int 量纲
+        public int Dimension
         {
             get { return m_dimsel; }
             set { m_dimsel = value; }
         }
 
 
-        private string 名称
+        private string Caption
         {
             get { return ""; }
         }
 
-        private double 值
+        private double value
         {
             get { return 0; }
         }
 
-        private string 单位
+        private string Unit
         {
             get { return ""; }
         }
 
         public ChartBarDefine(string p_Caption, string p_Value, string p_Unit, bool p_check, int p_dimsel, string p_explain,bool p_show,  Color p_Color, Color p_ForeColor)
 		{
-			公式名称 = p_Caption;
-			公式内容 = p_Value;
-            公式单位 = p_Unit;
-            是否计算 = p_check;
-            量纲 = p_dimsel;
-            公式说明 =p_explain;
-            曲线显示 = p_show;
+			m_Caption  = p_Caption;
+			m_Value  = p_Value;
+            m_unit = p_Unit;
+             m_check= p_check;
+            m_dimsel= p_dimsel;
+            m_explain =p_explain;
+            m_show = p_show;
 		}
 
 
@@ -467,13 +480,13 @@ namespace SampleProject.Extensions
 		{
 		}
 
-		public string 名称
+		public string Caption
 		{
 			get{return m_Caption;}
 			set{m_Caption = value;}
 		}
 
-		public double 值
+		public double value
 		{
 			get{return m_Value;}
 			set{m_Value = value;}
@@ -481,14 +494,14 @@ namespace SampleProject.Extensions
 
         
 
-        public string  单位
+        public string  Unit
         {
             
             get { return m_unit; }
             set { m_unit = value; }
         }
 
-        public int 量纲
+        public int Dimension
         {
             get { return m_dimsel; }
             set { m_dimsel = value; }
@@ -510,10 +523,10 @@ namespace SampleProject.Extensions
 
 		public ChartBar(string p_Caption, double p_Value,  string  p_Unit, int p_dimsel, Color p_Color, Color p_ForeColor)
 		{
-			名称 = p_Caption;
-			值 = p_Value;
-            单位 = p_Unit;
-            量纲 = p_dimsel;
+			m_Caption = p_Caption;
+			m_Value = p_Value;
+            m_unit  = p_Unit;
+            m_dimsel  = p_dimsel;
 			Color = p_Color;
 			ForeColor = p_ForeColor;
 		}
@@ -531,8 +544,8 @@ namespace SampleProject.Extensions
 			l_VisualModel.TextAlignment = ContentAlignment.MiddleCenter;
 			l_VisualModel.ForeColor = ForeColor;
 
-			Cells.Cell l_Cell = new SourceGrid2.Cells.Real.Cell(名称, null, l_VisualModel);
-			l_Cell.ToolTipText = 名称 + " - " + 值.ToString();
+			Cells.Cell l_Cell = new SourceGrid2.Cells.Real.Cell(Caption , null, l_VisualModel);
+			l_Cell.ToolTipText = Caption+ " - " + m_Value.ToString();
 			return l_Cell;
 		}
 	}

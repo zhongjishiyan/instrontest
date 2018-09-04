@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlCamera1));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.videoSourcePlayer1 = new AForge.Controls.VideoSourcePlayer();
@@ -52,76 +53,50 @@
             // 
             // label1
             // 
+            resources.ApplyResources(this.label1, "label1");
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 18);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "摄像";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.videoSourcePlayer1);
             this.groupBox1.Controls.Add(this.camera1FpsLabel);
             this.groupBox1.Controls.Add(this.comboBox_camera);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 462);
-            this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "摄像头选择";
             // 
             // videoSourcePlayer1
             // 
+            resources.ApplyResources(this.videoSourcePlayer1, "videoSourcePlayer1");
             this.videoSourcePlayer1.BackColor = System.Drawing.Color.White;
-            this.videoSourcePlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoSourcePlayer1.ForeColor = System.Drawing.Color.White;
-            this.videoSourcePlayer1.Location = new System.Drawing.Point(3, 37);
             this.videoSourcePlayer1.Name = "videoSourcePlayer1";
-            this.videoSourcePlayer1.Size = new System.Drawing.Size(413, 422);
-            this.videoSourcePlayer1.TabIndex = 7;
             this.videoSourcePlayer1.VideoSource = null;
             // 
             // camera1FpsLabel
             // 
-            this.camera1FpsLabel.Location = new System.Drawing.Point(282, 293);
+            resources.ApplyResources(this.camera1FpsLabel, "camera1FpsLabel");
             this.camera1FpsLabel.Name = "camera1FpsLabel";
-            this.camera1FpsLabel.Size = new System.Drawing.Size(50, 16);
-            this.camera1FpsLabel.TabIndex = 4;
-            this.camera1FpsLabel.Text = "30 p";
-            this.camera1FpsLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // comboBox_camera
             // 
-            this.comboBox_camera.Dock = System.Windows.Forms.DockStyle.Top;
+            resources.ApplyResources(this.comboBox_camera, "comboBox_camera");
             this.comboBox_camera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_camera.FormattingEnabled = true;
-            this.comboBox_camera.Location = new System.Drawing.Point(3, 17);
             this.comboBox_camera.Name = "comboBox_camera";
-            this.comboBox_camera.Size = new System.Drawing.Size(413, 20);
-            this.comboBox_camera.TabIndex = 3;
             // 
             // stopButton
             // 
-            this.stopButton.Enabled = false;
-            this.stopButton.Location = new System.Drawing.Point(123, 19);
+            resources.ApplyResources(this.stopButton, "stopButton");
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(77, 22);
-            this.stopButton.TabIndex = 10;
-            this.stopButton.Text = "关闭";
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(26, 19);
+            resources.ApplyResources(this.startButton, "startButton");
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(77, 22);
-            this.startButton.TabIndex = 9;
-            this.startButton.Text = "打开";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
@@ -132,56 +107,35 @@
             // 
             // btnStartVideo
             // 
-            this.btnStartVideo.Enabled = false;
-            this.btnStartVideo.Location = new System.Drawing.Point(26, 50);
+            resources.ApplyResources(this.btnStartVideo, "btnStartVideo");
             this.btnStartVideo.Name = "btnStartVideo";
-            this.btnStartVideo.Size = new System.Drawing.Size(77, 22);
-            this.btnStartVideo.TabIndex = 11;
-            this.btnStartVideo.Text = "开始录像";
             this.btnStartVideo.UseVisualStyleBackColor = true;
             this.btnStartVideo.Click += new System.EventHandler(this.btnStartVideo_Click);
             // 
             // labelTime
             // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(146, 55);
+            resources.ApplyResources(this.labelTime, "labelTime");
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(101, 12);
-            this.labelTime.TabIndex = 12;
-            this.labelTime.Text = "计时：00：00：00";
-            this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnStopVideo
             // 
-            this.btnStopVideo.Enabled = false;
-            this.btnStopVideo.Location = new System.Drawing.Point(318, 47);
+            resources.ApplyResources(this.btnStopVideo, "btnStopVideo");
             this.btnStopVideo.Name = "btnStopVideo";
-            this.btnStopVideo.Size = new System.Drawing.Size(77, 22);
-            this.btnStopVideo.TabIndex = 13;
-            this.btnStopVideo.Text = "停止录像";
             this.btnStopVideo.UseVisualStyleBackColor = true;
             this.btnStopVideo.Click += new System.EventHandler(this.btnStopVideo_Click);
             // 
             // btnTakePic
             // 
-            this.btnTakePic.Enabled = false;
-            this.btnTakePic.Location = new System.Drawing.Point(317, 19);
+            resources.ApplyResources(this.btnTakePic, "btnTakePic");
             this.btnTakePic.Name = "btnTakePic";
-            this.btnTakePic.Size = new System.Drawing.Size(77, 22);
-            this.btnTakePic.TabIndex = 16;
-            this.btnTakePic.Text = "拍摄照片";
             this.btnTakePic.UseVisualStyleBackColor = true;
             this.btnTakePic.Click += new System.EventHandler(this.btnTakePic_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(323, 87);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 29);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer1
@@ -191,6 +145,7 @@
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.btnplay);
             this.groupBox2.Controls.Add(this.btnTakePic);
             this.groupBox2.Controls.Add(this.stopButton);
@@ -199,37 +154,28 @@
             this.groupBox2.Controls.Add(this.btnStopVideo);
             this.groupBox2.Controls.Add(this.labelTime);
             this.groupBox2.Controls.Add(this.btnStartVideo);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 401);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(419, 79);
-            this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             // 
             // btnplay
             // 
-            this.btnplay.Location = new System.Drawing.Point(220, 20);
+            resources.ApplyResources(this.btnplay, "btnplay");
             this.btnplay.Name = "btnplay";
-            this.btnplay.Size = new System.Drawing.Size(77, 22);
-            this.btnplay.TabIndex = 18;
-            this.btnplay.Text = "播放";
             this.btnplay.UseVisualStyleBackColor = true;
             this.btnplay.Click += new System.EventHandler(this.btnplay_Click);
             // 
             // openFileDialog
             // 
-            this.openFileDialog.Filter = "AVI files (*.avi)|*.avi|All files (*.*)|*.*";
-            this.openFileDialog.Title = "Opem movie";
+            resources.ApplyResources(this.openFileDialog, "openFileDialog");
             // 
             // UserControlCamera1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "UserControlCamera1";
-            this.Size = new System.Drawing.Size(419, 480);
             this.Load += new System.EventHandler(this.UserControlCamera_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

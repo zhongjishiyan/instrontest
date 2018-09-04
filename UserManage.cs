@@ -98,7 +98,56 @@ namespace TabHeaderDemo
             this.tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel2, true, null);
             this.tableLayoutPanel3.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel3, true, null);
 
-           
+            treeView1.Nodes.Clear();
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                treeView1.Nodes.Add("系统信息", "系统信息");
+                treeView1.Nodes["系统信息"].StateImageIndex = 0;
+
+                treeView1.Nodes["系统信息"].Nodes.Add("查看");
+
+
+
+                treeView1.Nodes.Add("安全事项", "安全事项");
+                treeView1.Nodes["安全事项"].StateImageIndex = 1;
+
+                treeView1.Nodes["安全事项"].Nodes.Add("启动");
+
+
+                treeView1.Nodes.Add("首选项", "首选项");
+                treeView1.Nodes["首选项"].StateImageIndex = 2;
+
+                treeView1.Nodes["首选项"].Nodes.Add("系统");
+
+                treeView1.Nodes.Add("配置", "配置");
+                treeView1.Nodes["配置"].StateImageIndex = 3;
+
+                treeView1.Nodes["配置"].Nodes.Add("选项");
+            }
+            else
+            {
+                treeView1.Nodes.Add("System Information", "System Information");
+                treeView1.Nodes["System Information"].StateImageIndex = 0;
+
+                treeView1.Nodes["System Information"].Nodes.Add("View");
+
+                treeView1.Nodes.Add("Security", "Security");
+                treeView1.Nodes["Security"].StateImageIndex = 1;
+
+                treeView1.Nodes["Security"].Nodes.Add("Setup");
+
+                treeView1.Nodes.Add("Preferences", "Preferences");
+                treeView1.Nodes["Preferences"].StateImageIndex = 2;
+
+                treeView1.Nodes["Preferences"].Nodes.Add("System");
+
+                treeView1.Nodes.Add("Configuration", "Configuration");
+                treeView1.Nodes["Configuration"].StateImageIndex = 3;
+
+                treeView1.Nodes["Configuration"].Nodes.Add("Options");
+            }
+
         }
 
       
@@ -119,7 +168,18 @@ namespace TabHeaderDemo
 
         public void methodon(String t, String parent)
         {
-            if (t == "查看")
+            string _temp = "";
+
+            if(GlobeVal.mysys.language ==0)
+            {
+                _temp = "查看";
+            }
+            else
+            {
+                _temp = "View";
+            }
+
+            if (t == _temp )
             {
 
                 UserControl系统信息1.Init(0);
@@ -130,7 +190,16 @@ namespace TabHeaderDemo
                 panelback.Visible = true;
             }
 
-            if (t == "启动")
+            if (GlobeVal.mysys.language == 0)
+            {
+                _temp = "启动";
+            }
+            else
+            {
+                _temp = "Setup";
+            }
+
+            if (t == _temp )
             {
 
                 UserControl安全1.Init(0);
@@ -141,7 +210,17 @@ namespace TabHeaderDemo
                 panelback.Visible = true;
             }
 
-            if (t == "系统")
+            if (GlobeVal.mysys.language == 0)
+            {
+                _temp = "系统";
+            }
+            else
+            {
+                _temp = "System";
+            }
+
+
+            if (t == _temp)
             {
 
                 UserControl系统选项1.Init(0);
@@ -152,7 +231,17 @@ namespace TabHeaderDemo
                 panelback.Visible = true;
             }
 
-            if (t == "选项")
+            if (GlobeVal.mysys.language == 0)
+            {
+                _temp = "选项";
+            }
+            else
+            {
+                _temp = "Options";
+            }
+
+
+            if (t ==_temp )
             {
                 UserControl系统设置1.Init(0);
                 panelback.Visible = false;

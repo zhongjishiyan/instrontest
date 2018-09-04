@@ -56,92 +56,64 @@
             // 
             // toolStrip2
             // 
+            resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbok,
             this.tsbcancel,
             this.tsbhelp});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(372, 25);
-            this.toolStrip2.TabIndex = 5;
-            this.toolStrip2.Text = "toolStrip2";
             // 
             // tsbok
             // 
-            this.tsbok.Image = ((System.Drawing.Image)(resources.GetObject("tsbok.Image")));
-            this.tsbok.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbok.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.tsbok, "tsbok");
             this.tsbok.Name = "tsbok";
-            this.tsbok.Size = new System.Drawing.Size(54, 22);
-            this.tsbok.Text = "确认";
             this.tsbok.Click += new System.EventHandler(this.tsbok_Click);
             // 
             // tsbcancel
             // 
-            this.tsbcancel.Image = ((System.Drawing.Image)(resources.GetObject("tsbcancel.Image")));
-            this.tsbcancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.tsbcancel, "tsbcancel");
             this.tsbcancel.Name = "tsbcancel";
-            this.tsbcancel.Size = new System.Drawing.Size(52, 22);
-            this.tsbcancel.Text = "取消";
             this.tsbcancel.Click += new System.EventHandler(this.tsbcancel_Click);
             // 
             // tsbhelp
             // 
-            this.tsbhelp.Image = ((System.Drawing.Image)(resources.GetObject("tsbhelp.Image")));
-            this.tsbhelp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbhelp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.tsbhelp, "tsbhelp");
             this.tsbhelp.Name = "tsbhelp";
-            this.tsbhelp.Size = new System.Drawing.Size(54, 22);
-            this.tsbhelp.Text = "帮助";
             this.tsbhelp.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // chkalarm
             // 
-            this.chkalarm.AutoSize = true;
-            this.chkalarm.Location = new System.Drawing.Point(24, 95);
+            resources.ApplyResources(this.chkalarm, "chkalarm");
             this.chkalarm.Name = "chkalarm";
-            this.chkalarm.Size = new System.Drawing.Size(48, 16);
-            this.chkalarm.TabIndex = 8;
-            this.chkalarm.Text = "报警";
             this.chkalarm.UseVisualStyleBackColor = true;
             this.chkalarm.CheckedChanged += new System.EventHandler(this.chkalarm_CheckedChanged);
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.chkslimit);
             this.groupBox1.Controls.Add(this.chkhlimit);
             this.groupBox1.Controls.Add(this.chkalarm);
-            this.groupBox1.Location = new System.Drawing.Point(54, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(244, 130);
-            this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "提示";
             // 
             // chkslimit
             // 
-            this.chkslimit.AutoSize = true;
-            this.chkslimit.Location = new System.Drawing.Point(24, 57);
+            resources.ApplyResources(this.chkslimit, "chkslimit");
             this.chkslimit.Name = "chkslimit";
-            this.chkslimit.Size = new System.Drawing.Size(84, 16);
-            this.chkslimit.TabIndex = 10;
-            this.chkslimit.Text = "软限位保护";
             this.chkslimit.UseVisualStyleBackColor = true;
             this.chkslimit.CheckedChanged += new System.EventHandler(this.chkslimit_CheckedChanged);
             // 
             // chkhlimit
             // 
-            this.chkhlimit.AutoSize = true;
-            this.chkhlimit.Location = new System.Drawing.Point(24, 20);
+            resources.ApplyResources(this.chkhlimit, "chkhlimit");
             this.chkhlimit.Name = "chkhlimit";
-            this.chkhlimit.Size = new System.Drawing.Size(84, 16);
-            this.chkhlimit.TabIndex = 9;
-            this.chkhlimit.Text = "硬限位保护";
             this.chkhlimit.UseVisualStyleBackColor = true;
             this.chkhlimit.CheckedChanged += new System.EventHandler(this.chkhlimit_CheckedChanged);
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtstop);
             this.groupBox2.Controls.Add(this.label4);
@@ -152,114 +124,75 @@
             this.groupBox2.Controls.Add(this.txtkeep);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtup);
-            this.groupBox2.Location = new System.Drawing.Point(44, 164);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(273, 211);
-            this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "文字修改";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 175);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "目标结束：";
             // 
             // txtstop
             // 
-            this.txtstop.Location = new System.Drawing.Point(123, 172);
+            resources.ApplyResources(this.txtstop, "txtstop");
             this.txtstop.Name = "txtstop";
-            this.txtstop.Size = new System.Drawing.Size(134, 21);
-            this.txtstop.TabIndex = 22;
             this.txtstop.TextChanged += new System.EventHandler(this.txtstop_TextChanged);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 139);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "目标开始：";
             // 
             // txtdest
             // 
-            this.txtdest.Location = new System.Drawing.Point(123, 136);
+            resources.ApplyResources(this.txtdest, "txtdest");
             this.txtdest.Name = "txtdest";
-            this.txtdest.Size = new System.Drawing.Size(134, 21);
-            this.txtdest.TabIndex = 20;
             this.txtdest.TextChanged += new System.EventHandler(this.txtdest_TextChanged);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 98);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "下降：";
             // 
             // txtdown
             // 
-            this.txtdown.Location = new System.Drawing.Point(123, 95);
+            resources.ApplyResources(this.txtdown, "txtdown");
             this.txtdown.Name = "txtdown";
-            this.txtdown.Size = new System.Drawing.Size(134, 21);
-            this.txtdown.TabIndex = 18;
             this.txtdown.TextChanged += new System.EventHandler(this.txtdown_TextChanged);
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 60);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "保持：";
             // 
             // txtkeep
             // 
-            this.txtkeep.Location = new System.Drawing.Point(123, 57);
+            resources.ApplyResources(this.txtkeep, "txtkeep");
             this.txtkeep.Name = "txtkeep";
-            this.txtkeep.Size = new System.Drawing.Size(134, 21);
-            this.txtkeep.TabIndex = 16;
             this.txtkeep.TextChanged += new System.EventHandler(this.txtkeep_TextChanged);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 23);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "上升：";
             // 
             // txtup
             // 
-            this.txtup.Location = new System.Drawing.Point(123, 20);
+            resources.ApplyResources(this.txtup, "txtup");
             this.txtup.Name = "txtup";
-            this.txtup.Size = new System.Drawing.Size(134, 21);
-            this.txtup.TabIndex = 14;
             this.txtup.TextChanged += new System.EventHandler(this.txtup_TextChanged);
             // 
             // chkcyclc
             // 
-            this.chkcyclc.AutoSize = true;
-            this.chkcyclc.Location = new System.Drawing.Point(85, 395);
+            resources.ApplyResources(this.chkcyclc, "chkcyclc");
             this.chkcyclc.Name = "chkcyclc";
-            this.chkcyclc.Size = new System.Drawing.Size(84, 16);
-            this.chkcyclc.TabIndex = 15;
-            this.chkcyclc.Text = "周期波操作";
             this.chkcyclc.UseVisualStyleBackColor = true;
             this.chkcyclc.CheckedChanged += new System.EventHandler(this.chkcyclc_CheckedChanged);
             // 
             // FormPanelSet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 456);
             this.Controls.Add(this.chkcyclc);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -268,8 +201,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormPanelSet";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "操作面板设置";
             this.Load += new System.EventHandler(this.FormPanelSet_Load);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();

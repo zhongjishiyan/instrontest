@@ -47,8 +47,18 @@ namespace TabHeaderDemo
             grid1.Columns[1].AutoSizeMode = SourceGrid2.AutoSizeMode.EnableStretch;
             grid1.FixedRows = 1;
             grid1.Rows.Insert(0);
-            grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
-            grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("单位");
+
+            if (GlobeVal.mysys.language == 0)
+
+            {
+                grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
+                grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("单位");
+            }
+            else
+            {
+                grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("Name");
+                grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Units");
+            }
             for (int i = 1; i <= ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
             {
                 grid1.Rows.Insert(i);
@@ -111,7 +121,14 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    MessageBox.Show("方法不存在");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("方法不存在");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The test method does not exist.");
+                    }
                     return;
                 }
 
@@ -203,7 +220,15 @@ namespace TabHeaderDemo
 
             else
             {
-                MessageBox.Show("请选择最近使用的试验方法");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("请选择最近使用的试验方法");
+
+                }
+                else
+                {
+                    MessageBox.Show("Please choose the most recently used methods.");
+                }
             }
         }
 
@@ -212,12 +237,27 @@ namespace TabHeaderDemo
             tabControl1.SelectedIndex = sel;
             if (method == false)
             {
-                lblunit.Text = "单位系统：";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lblunit.Text = "单位系统：";
+                }
+                else
+                {
+                    lblunit.Text = "the International System of Units:";
+                }
                 tabControl2.SelectedIndex = 1;
             }
             else
             {
-                lblunit.Text = "最近使用的方法：";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lblunit.Text = "最近使用的方法：";
+                }
+                else
+                {
+                    lblunit.Text = "Most recently used methods:";
+                }
+
                 tabControl2.SelectedIndex = 0;
 
                 listView1.Items.Clear();
@@ -393,7 +433,9 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "结果1";
+
+            label1.Text = 结果1ToolStripMenuItem.Text;
+
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -435,60 +477,60 @@ namespace TabHeaderDemo
 
                 tlbe.Controls.Remove(tlbe.GetControlFromPosition(e1.x, e1.y));
 
-                if (e1.caption == "结果1")
+                if (e1.caption == 结果1ToolStripMenuItem.Text)
                 {
                     结果1ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "结果2")
+                if (e1.caption == 结果2ToolStripMenuItem.Text )
                 {
                     结果2ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "曲线图1")
+                if (e1.caption == 曲线图1ToolStripMenuItem.Text )
                 {
                     曲线图1ToolStripMenuItem.Enabled = true;
                 }
-                if (e1.caption == "曲线图2")
+                if (e1.caption == 曲线图2ToolStripMenuItem.Text )
                 {
                     曲线图2ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "仪表1")
+                if (e1.caption == 仪表1ToolStripMenuItem.Text )
                 {
                     仪表1ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "仪表2")
+                if (e1.caption == 仪表2ToolStripMenuItem.Text )
                 {
                     仪表2ToolStripMenuItem.Enabled = true;
                 }
-                if (e1.caption == "试样输入")
+                if (e1.caption == 试样输入ToolStripMenuItem.Text )
                 {
                     试样输入ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "原始数据")
+                if (e1.caption == 原始数据ToolStripMenuItem.Text )
                 {
                     this.原始数据ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "摄像")
+                if (e1.caption == 摄像ToolStripMenuItem.Text )
                 {
                     this.摄像ToolStripMenuItem.Enabled = true;
 
                 }
-                if (e1.caption == "过程提示")
+                if (e1.caption == 过程提示ToolStripMenuItem.Text )
                 {
                     this.过程提示ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "状态提示")
+                if (e1.caption == 状态提示ToolStripMenuItem.Text )
                 {
                     this.状态提示ToolStripMenuItem.Enabled = true;
                 }
 
-                if (e1.caption == "峰值趋势数据")
+                if (e1.caption == 长时数据ToolStripMenuItem.Text )
                 {
                     this.长时数据ToolStripMenuItem.Enabled = true;
                 }
@@ -506,7 +548,14 @@ namespace TabHeaderDemo
 
                 if (e1.x + e1.xx > tlbe.ColumnCount)
                 {
-                    MessageBox.Show("扩展到头");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("扩展到头");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Already at an end");
+                    }
                 }
                 else
                 {
@@ -519,7 +568,14 @@ namespace TabHeaderDemo
             }
             else
             {
-                MessageBox.Show("扩展到头");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("扩展到头");
+                }
+                else
+                {
+                    MessageBox.Show("Already at an end");
+                }
             }
 
 
@@ -536,7 +592,14 @@ namespace TabHeaderDemo
 
                 if (e1.y + e1.yy > tlbe.RowCount)
                 {
-                    MessageBox.Show("扩展到头");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("扩展到头");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Already at an end");
+                    }
                 }
                 else
                 {
@@ -548,7 +611,15 @@ namespace TabHeaderDemo
             }
             else
             {
-                MessageBox.Show("扩展到头");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("扩展到头");
+
+                }
+                else
+                {
+                    MessageBox.Show("Already at an end");
+                }
             }
 
         }
@@ -583,7 +654,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "结果2";
+            label1.Text = 结果2ToolStripMenuItem.Text;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -612,7 +683,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "曲线图1";
+            label1.Text = 曲线图1ToolStripMenuItem.Text;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -641,7 +712,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "曲线图2";
+            label1.Text = 曲线图2ToolStripMenuItem.Text;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -682,7 +753,7 @@ namespace TabHeaderDemo
         {
             Button label1;
             label1 = new Button();
-            label1.Text = "仪表1";
+            label1.Text = 仪表1ToolStripMenuItem.Text;
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
 
@@ -715,7 +786,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "仪表2";
+            label1.Text = 仪表2ToolStripMenuItem.Text ;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -745,7 +816,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "试样输入";
+            label1.Text = 试样输入ToolStripMenuItem.Text;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -849,81 +920,81 @@ namespace TabHeaderDemo
                         btnadvancedec.Enabled = false;
                         tlbe.Controls.Add(label1);
 
-                        if (label1.Text == "试样输入")
+                        if (label1.Text == 试样输入ToolStripMenuItem.Text )
                         {
                             试样输入ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[2];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "曲线图1")
+                        if (label1.Text == 曲线图1ToolStripMenuItem.Text )
                         {
                             曲线图1ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[0];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "曲线图2")
+                        if (label1.Text == 曲线图2ToolStripMenuItem.Text )
                         {
                             曲线图2ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[0];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "结果1")
+                        if (label1.Text == 结果1ToolStripMenuItem.Text )
                         {
                             结果1ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[1];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
-                        if (label1.Text == "结果2")
+                        if (label1.Text == 结果2ToolStripMenuItem.Text )
                         {
                             结果2ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[1];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
-                        if (label1.Text == "仪表1")
+                        if (label1.Text == 仪表1ToolStripMenuItem.Text )
                         {
                             仪表1ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[3];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "仪表2")
+                        if (label1.Text == 仪表2ToolStripMenuItem.Text )
                         {
                             仪表2ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[3];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "原始数据")
+                        if (label1.Text == 原始数据ToolStripMenuItem.Text )
                         {
                             原始数据ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[4];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "摄像")
+                        if (label1.Text == this.摄像ToolStripMenuItem.Text )
                         {
                             this.摄像ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[5];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "过程提示")
+                        if (label1.Text == 过程提示ToolStripMenuItem.Text )
                         {
                             this.过程提示ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[6];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "状态提示")
+                        if (label1.Text == 状态提示ToolStripMenuItem.Text )
                         {
                             this.状态提示ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[7];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
-                        if (label1.Text == "峰值趋势数据")
+                        if (label1.Text == 长时数据ToolStripMenuItem.Text )
                         {
                             this.长时数据ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[4];
@@ -969,18 +1040,18 @@ namespace TabHeaderDemo
                     f.Show[i] = false;
                 }
 
-                f.ItemName[0] = "结果1";
-                f.ItemName[1] = "结果2";
-                f.ItemName[2] = "曲线图1";
-                f.ItemName[3] = "曲线图2";
-                f.ItemName[4] = "仪表1";
-                f.ItemName[5] = "仪表2";
-                f.ItemName[6] = "试样输入";
-                f.ItemName[7] = "原始数据";
-                f.ItemName[8] = "摄像";
-                f.ItemName[9] = "过程提示";
-                f.ItemName[10] = "状态提示";
-                f.ItemName[11] = "峰值趋势数据";
+                f.ItemName[0] = 结果1ToolStripMenuItem.Text;
+                f.ItemName[1] = 结果2ToolStripMenuItem.Text ;
+                f.ItemName[2] = 曲线图1ToolStripMenuItem.Text ;
+                f.ItemName[3] = 曲线图2ToolStripMenuItem.Text;
+                f.ItemName[4] = 仪表1ToolStripMenuItem.Text ;
+                f.ItemName[5] = 仪表2ToolStripMenuItem.Text ;
+                f.ItemName[6] = 试样输入ToolStripMenuItem.Text ;
+                f.ItemName[7] = 原始数据ToolStripMenuItem.Text ;
+                f.ItemName[8] = 摄像ToolStripMenuItem.Text;
+                f.ItemName[9] = 过程提示ToolStripMenuItem.Text;
+                f.ItemName[10] = 状态提示ToolStripMenuItem.Text;
+                f.ItemName[11] = 长时数据ToolStripMenuItem.Text;
 
 
                 for (int i = 0; i < f.colcount; i++)
@@ -1089,7 +1160,7 @@ namespace TabHeaderDemo
                         btnadvancedec.Enabled = false;
                         tlbebase.Controls.Add(label1);
 
-                        if (label1.Text == "试样输入")
+                        if (label1.Text == 试样输入ToolStripMenuItem.Text )
                         {
                             试样输入ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[2];
@@ -1097,70 +1168,77 @@ namespace TabHeaderDemo
 
                         }
 
-                        if (label1.Text == "曲线图1")
+                        if (label1.Text == 曲线图1ToolStripMenuItem.Text )
                         {
                             曲线图1ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[0];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "曲线图2")
+                        if (label1.Text == 曲线图2ToolStripMenuItem.Text )
                         {
                             曲线图2ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[0];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "结果1")
+                        if (label1.Text == 结果1ToolStripMenuItem.Text )
                         {
                             结果1ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[1];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
-                        if (label1.Text == "结果2")
+                        if (label1.Text == 结果2ToolStripMenuItem.Text )
                         {
                             结果2ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[1];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
-                        if (label1.Text == "仪表1")
+                        if (label1.Text == 仪表1ToolStripMenuItem.Text )
                         {
                             仪表1ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[3];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "仪表2")
+                        if (label1.Text == 仪表2ToolStripMenuItem.Text )
                         {
                             仪表2ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[3];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
-                        if (label1.Text == "原始数据")
+                        if (label1.Text == 原始数据ToolStripMenuItem.Text )
                         {
                             原始数据ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[4];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "摄像")
+                        if (label1.Text == 摄像ToolStripMenuItem.Text )
                         {
                             this.摄像ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[5];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "过程提示")
+                        if (label1.Text == 过程提示ToolStripMenuItem.Text )
                         {
                             this.过程提示ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[6];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
 
-                        if (label1.Text == "状态提示")
+                        if (label1.Text == 状态提示ToolStripMenuItem.Text )
                         {
                             this.状态提示ToolStripMenuItem.Enabled = false;
                             label1.Image = imageList1.Images[7];
+                            label1.ImageAlign = ContentAlignment.MiddleCenter;
+                        }
+
+                        if (label1.Text == 长时数据ToolStripMenuItem.Text )
+                        {
+                            this.长时数据ToolStripMenuItem.Enabled = false;
+                            label1.Image = imageList1.Images[4];
                             label1.ImageAlign = ContentAlignment.MiddleCenter;
                         }
                     }
@@ -1175,7 +1253,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "原始数据";
+            label1.Text = 原始数据ToolStripMenuItem.Text;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -1340,7 +1418,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "摄像";
+            label1.Text = 摄像ToolStripMenuItem.Text;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -1369,7 +1447,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "过程提示";
+            label1.Text = 过程提示ToolStripMenuItem.Text;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -1398,7 +1476,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "状态提示";
+            label1.Text = 状态提示ToolStripMenuItem.Text;
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -1427,7 +1505,7 @@ namespace TabHeaderDemo
             label1 = new Button();
             label1.TextImageRelation = TextImageRelation.ImageAboveText;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Text = "峰值趋势数据";
+            label1.Text = 长时数据ToolStripMenuItem.Text; 
             label1.AutoSize = false;
             label1.Dock = DockStyle.Fill;
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -1435,7 +1513,7 @@ namespace TabHeaderDemo
             //label1.ContextMenuStrip  = this.contextMenuStrip2;
             label1.BackColor = Color.White;
             label1.ForeColor = Color.Blue;
-            label1.Image = imageList1.Images[7];
+            label1.Image = imageList1.Images[4];
             label1.ImageAlign = ContentAlignment.MiddleCenter;
 
             PPP mp = new PPP(tlbe.SelectColumn, tlbe.SelectRow);

@@ -11,14 +11,17 @@ using Microsoft.VisualBasic.Compatibility;
 using System.Windows.Forms;
 using DoPE_HANDLE = System.Int32;
 using XLNet;
+using PipesServerTest;
 
 namespace ClsStaticStation
 {
+    
 
     public class CDsp : ClsBaseControl
     {
+        drivertest1.ClassCW341 w341;
 
-        [DllImport("kernel32.dll")]
+         [DllImport("kernel32.dll")]
         public static extern UIntPtr SetThreadAffinityMask(IntPtr hThread,
        UIntPtr dwThreadAffinityMask);
 
@@ -51,6 +54,8 @@ namespace ClsStaticStation
         public short DeviceNum = 1;
 
         private int m_runstate;
+
+        private PipeServer _pipeServer;
 
 
         private XLDOPE.MDataIno ma;
@@ -107,9 +112,19 @@ namespace ClsStaticStation
             short tan = 0;
             myedc.Move.OrgMove(XLDOPE.MOVE.UP, XLDOPE.CTRL.POS, speed, ref tan);
         }
-        
-           
-        
+
+        public override void Exit()
+        {
+            base.Exit();
+            w341.Stop();
+            mtimer.Stop();
+          
+            _pipeServer.PipeMessage -= new DelegateMessage(PipesMessageHandler);
+            _pipeServer = null;
+            
+
+        }
+
         public override void DriveOn()
         {
 
@@ -176,7 +191,16 @@ namespace ClsStaticStation
                 r = new Random(System.Environment.TickCount);
                 load = r.NextDouble();
                 pos = r.NextDouble();
-                ext = r.NextDouble();
+
+                if (m_Global.mycls.ChannelSampling[2] == 0)
+                {
+                    ext = r.NextDouble();
+                }
+
+                if (m_Global.mycls.ChannelSampling[2]==1 )
+                {
+                    ext = _pipeServer._TransferData.Channel1;
+                }
                 time = (System.Environment.TickCount - mstarttickcount) / 1000.0;
 
                 count = 0;
@@ -189,7 +213,14 @@ namespace ClsStaticStation
                 r = new Random(System.Environment.TickCount);
                 load = r.NextDouble();
                 pos = r.NextDouble();
-                ext = r.NextDouble();
+                if (m_Global.mycls.ChannelSampling[2] == 0)
+                {
+                    ext = r.NextDouble();
+                }
+                if (m_Global.mycls.ChannelSampling[2] == 1)
+                {
+                    ext = _pipeServer._TransferData.Channel1;
+                }
                 time = (System.Environment.TickCount - mstarttickcount) / 1000.0;
 
                 count = 0;
@@ -210,6 +241,15 @@ namespace ClsStaticStation
                     mdemotesting = false;
                 }
 
+            }
+
+
+            if  (mtestrun == true)
+            {
+                if (CComLibrary.GlobeVal.filesave.Extensometer_DataFrozenFlag==true)
+                {
+                    ext = 0;
+                }
             }
 
 
@@ -621,7 +661,10 @@ namespace ClsStaticStation
             c.ID = 0;
             m_Global.mycls.structcopy_RawDataData(ref c.rdata, b);
 
-            /*
+
+           
+
+
             for (j = 0; j < 4; j++)
             {
 
@@ -635,33 +678,13 @@ namespace ClsStaticStation
                 ClsStatic.arraydatacount[j] = ClsStatic.arraydatacount[j] + 1;
                 ClsStatic.arraydata[j].Write<RawDataDataGroup>(ref c, 10);
             }
-            */
+
+      
 
 
 
-            for (j = 0; j < 2; j++)
-            {
-
-                if (ClsStatic.myarraydata[j].Count > 200)
-                {
-                    ClsStatic.myarraydata[j].Dequeue();
-
-                }
-
-                ClsStatic.myarraydata[j].Enqueue(c);
-
-            }
-
-            /*
-            if (ClsStatic.savedatacount >= ClsStatic.savedata.NodeCount - 1)
-            {
-                ClsStatic.savedata.Read<RawDataDataGroup>(out d, 10);
-                ClsStatic.savedatacount = ClsStatic.savedatacount - 1;
-            }
-            ClsStatic.savedatacount = ClsStatic.savedatacount + 1;
-            ClsStatic.savedata.Write<RawDataDataGroup>(ref c, 10);
-
-            */
+            
+         
 
             for (j = 0; j < m_Global.mycls.allsignals.Count; j++)
             {
@@ -801,11 +824,7 @@ namespace ClsStaticStation
 
                 mt.ReleaseMutex();
 
-                for (int j = 0; j < 2; j++)
-                {
-
-                    ClsStatic.myarraydata[j].Clear();
-                }
+                
             }
         }
 
@@ -816,6 +835,8 @@ namespace ClsStaticStation
 
             oldcount = 0;
             mspenum = spenum;
+
+            CComLibrary.GlobeVal.filesave.Extensometer_DataFrozenFlag = false;
 
 
             duanliebaohu = false;
@@ -866,7 +887,7 @@ namespace ClsStaticStation
                 else
                 {
 
-                    MessageBox.Show("错误，您没有设置一般测试过程");
+                    MessageBox.Show("错误，您没有设置一般测控过程");
                     mtestrun = false;
                     return;
                 }
@@ -1051,7 +1072,7 @@ namespace ClsStaticStation
                 else
                 {
 
-                    MessageBox.Show("错误，您没有设置高级测试过程");
+                    MessageBox.Show("错误，您没有设置高级测控过程");
                     mtestrun = false;
                     return;
                 }
@@ -1269,6 +1290,9 @@ namespace ClsStaticStation
 
 
             mrunstarttime = System.Environment.TickCount / 1000;
+
+           
+
         }
         public override void DestStart(int ctrlmode, double dest, double speed)
         {
@@ -1360,7 +1384,7 @@ namespace ClsStaticStation
 
 
 
-
+            CComLibrary.GlobeVal.filesave.Extensometer_DataFrozenFlag = false;
 
 
             if (mdemo == true)
@@ -1731,12 +1755,14 @@ namespace ClsStaticStation
                         else
                         {
                             m_runstate = 1;
-                            double m_speed = Convert.ToDouble(m_Global.mycls.hardsignals[mrunlist[mcurseg].controlmode].speedSignal.GetOriValue(mrunlist[mcurseg].mseq.mtrirate, mrunlist[mcurseg].mseq.mtrirateunit));
+                            double m_speed1 = Convert.ToDouble(m_Global.mycls.hardsignals[mrunlist[mcurseg].controlmode].speedSignal.GetOriValue(mrunlist[mcurseg].mseq.mtrirate, mrunlist[mcurseg].mseq.mtrirateunit));
+
+                            double m_speed2= Convert.ToDouble(m_Global.mycls.hardsignals[mrunlist[mcurseg].controlmode].speedSignal.GetOriValue(mrunlist[mcurseg].mseq.mtriratedown, mrunlist[mcurseg].mseq.mtriratedownunit));
                             double m_dest1 = mrunlist[mcurseg].mseq.mtrimax;
                             double m_dest2 = mrunlist[mcurseg].mseq.mtrimin;
 
 
-                            myedc.Move.Cycle((XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed, m_dest1, 0, m_speed, m_dest2, 0, (DoPE_HANDLE)(mrunlist[mcurseg].mseq.mcount - mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_dest2, ref tan);
+                            myedc.Move.Cycle((XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed1, m_dest1, 0, m_speed2, m_dest2, 0, (DoPE_HANDLE)(mrunlist[mcurseg].mseq.mcount - mrunlist[mcurseg].mseq.mfinishedcount), m_speed1, m_dest2, ref tan);
                         }
 
                     }
@@ -1812,28 +1838,101 @@ namespace ClsStaticStation
         }
 
 
-
-
+       
         public CDsp()
         {
+
+
+             w341 = new drivertest1.ClassCW341();
+           
+            
             rr = new float[10];
             GGMsg = new XLDOPE.Data();
             mdatalist = new Queue<XLDOPE.MDataIno>();
 
-            ClsStatic.myarraydata[0] = new Queue<RawDataDataGroup>();
-            ClsStatic.myarraydata[1] = new Queue<RawDataDataGroup>();
-
+            
             mtimer = new System.Windows.Forms.Timer();
             mtimer.Tick += new EventHandler(mtimer_Tick);
             mtimer.Interval = 40;
 
             mstarttickcount = Environment.TickCount;
 
+            _pipeServer = new PipeServer();
+            _pipeServer.PipeMessage += new DelegateMessage(PipesMessageHandler);
+
+            try
+            {
+                _pipeServer.Listen("TestPipe");
+
+            }
+            catch (Exception)
+            {
+
+            }
+
+
             //SetThreadAffinityMask(GetCurrentThread(), new UIntPtr(SetCpuID(0)));
 
 
 
         }
+
+        private void PipesMessageHandler(byte[] message)
+        {
+            _pipeServer._TransferData = ByteToTransferData<TransferData>(message);
+
+            return;
+
+        }
+
+        public byte[] StructTOBytes(object obj)
+        {
+            int size = Marshal.SizeOf(obj);
+            //创建byte数组
+            byte[] bytes = new byte[size];
+            IntPtr structPtr = Marshal.AllocHGlobal(size);
+            //将结构体拷贝到分配好的内存空间
+            Marshal.StructureToPtr(obj, structPtr, false);
+            //从内存空间拷贝到byte数组
+            Marshal.Copy(structPtr, bytes, 0, size);
+
+
+            //释放内存空间
+            Marshal.FreeHGlobal(structPtr);
+
+
+            return bytes;
+        }
+        public TransferData ByteToTransferData<TransferData>(byte[] dataBuffer)
+        {
+            object structure = null;
+            int size = Marshal.SizeOf(typeof(TransferData));
+            IntPtr allocIntPtr = Marshal.AllocHGlobal(size);
+            try
+            {
+                Marshal.Copy(dataBuffer, 0, allocIntPtr, size);
+                structure = Marshal.PtrToStructure(allocIntPtr, typeof(TransferData));
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(allocIntPtr);
+            }
+            return (TransferData)structure;
+
+        }
+
+
+
+        ~CDsp()
+        {
+            w341.Stop();
+            mtimer.Stop();
+           
+
+
+        }
+
+
 
         private int Eh_OnPosMsgHdlr(ref XLDOPE.OnPosMsg OnPosMsg, object Parameter)
         {
@@ -2195,7 +2294,14 @@ namespace ClsStaticStation
 
                     pos = GGMsg.Sensor[0];
                     load = GGMsg.Sensor[1];
-                    ext = GGMsg.Sensor[2];
+
+                    if (m_Global.mycls.ChannelSampling[2] == 0)
+                    {
+
+
+                        ext = GGMsg.Sensor[2];
+                    }
+
 
                     //time = AccurateTimer.GetTimeTick();
 
@@ -2206,6 +2312,15 @@ namespace ClsStaticStation
                     count = 0;
 
                     base.count = 0;
+
+                    if (mtestrun == true)
+                    {
+                        if (CComLibrary.GlobeVal.filesave.Extensometer_DataFrozenFlag  == true)
+                        {
+                            ext = 0;
+                        }
+                    }
+
 
                     if (CComLibrary.GlobeVal.filesave != null)
                     {

@@ -117,8 +117,926 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>285, 22</value>
+  <data name="tsbtext.ToolTipText" xml:space="preserve">
+    <value>文本工具</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tsbscreenreader.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;scatterGraph.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tsbtext.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tsbrect.Name" xml:space="preserve">
+    <value>tsbrect</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tsbarrow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAYpJREFUOE99k1lOw0AQRCcQjID7XwdBQrzMPl6TkLsUXR0c8UM+Sl7k11VdGpsl
+        1xjDHsntcJo8xtQhuwOm7DGXgBI79Mli6gOOU0YOtdw7edfCELxMDlNpEe2nAA7fc0ZovxTOocVpLki+
+        QbAyVMBg9xiLhekjXT/U9Tg6DLEVcKfg1hg8PRg8ypV6qTbYbowOoMx5dihhh2WwCN2HxLW/7r0OIPR3
+        AMXodDeMqrvmRp370Kh7srXcd9KB0wSrK+GbMwGWRZh7E6TouvTxFn91rR6N7jsPHmZINc5zgGveNcFf
+        mM5PArxVD5qoEme6J3+QtmsWJg3SUR7ozn25d3aNghSb57vjcO2gxAbnJQos0EmcWQLjFF+r1EU+5M5X
+        cX+RGKwyUfZNfo9lDBhyp84EqeLb+/BxigpG9yUJ0q0YlrW2/S/MY8baGZvQ67OUI8eRhfGI3oXXXV8q
+        g+etuYJDhO+YpNyBDzCMvLpyCM8wfwYO4Fm+CxNk9Mup1+uQ+cdYdeWQ/+A5HfADgUqoh7yGuY4AAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;xAxis2.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.XAxis, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tsbpoint.Name" xml:space="preserve">
+    <value>tsbpoint</value>
+  </data>
+  <data name="&gt;&gt;scatterGraph.Parent" xml:space="preserve">
+    <value>tableLayoutPanelCurve</value>
+  </data>
+  <data name="tsbpoint.ToolTipText" xml:space="preserve">
+    <value>标记点</value>
+  </data>
+  <data name="&gt;&gt;tsbreader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tsbdefault.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tsbtext.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;timer1.Name" xml:space="preserve">
+    <value>timer1</value>
+  </data>
+  <data name="toolStripLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 25</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="tsbline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="tsbdefault.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="userGraph1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tsbdefault.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbpoint.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="lblcaption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="tsbrect.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tsbarrow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="&gt;&gt;panelback.Name" xml:space="preserve">
+    <value>panelback</value>
+  </data>
+  <data name="tsbpoint.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;scatterPlot1.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.ScatterPlot, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="tableLayoutPanelCurve.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tableLayoutPanel15.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;x轴坐标ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel15.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="legend" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,44,Percent,100,Absolute,44" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>443, 280</value>
+  </data>
+  <data name="tsbrect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="tsbrect.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;xyCursor1.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.XYCursor, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="tsbarrow.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="tsbzoomout.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="tsbreader.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAYtJREFUOE9NUu1ygjAQPEVF7Ezf/206FpXvJAQSRKd9levtIW1/7ISE29vdSyj4
+        hl13E5T8mDybZvmO3rI3DQ+u4eA7jv2CrvzkZ3RM3pacEPF+S7pmh42uwO61rt/HhPgRLLfFmWnsaz7u
+        ice+5ba6sG0LVUEjKPWmUiexb5Q82oqDq5lse+XdhtTiPThtAOAMK8j457uCs53UVbk2oXswWjTHXosA
+        ZDyILW9rnka75BQVKM5BGruCCYNBBlhabUIJZDRpylydQPE9S7jvLgqKw2IL5FSsYAUBDdAMZ8gLNWAa
+        alXVjKcUioUo1UoCAYAy7EJ9HiXSi+jNlWlwleYBEXeKPXBKt0rCdcHVYCQ3Bib51Coyws4cLXd1roUg
+        wjKI6wPBNUBxsDL9UafaatGqtBZmB5KhmN8IUMrkvl2bKyRjrg/g/3Dejn+vZ31RqcSB4tfsFquTyAa/
+        KJnmot1h+fs5qu31DEOJUueNxBHIW71J4VkuGtNcbGHSsI09BqO5pQ7TNPWHqBr+AbNtIb6tKeOnAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="tsbselector.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tsbreader.ToolTipText" xml:space="preserve">
+    <value>数据读数</value>
+  </data>
+  <data name="tsbzoomout.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panelback.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
+  </data>
+  <data name="tsbscreenreader.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>443, 280</value>
+  </data>
+  <data name="tabControl1.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="tsbreader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="&gt;&gt;xAxis1.Name" xml:space="preserve">
+    <value>xAxis1</value>
+  </data>
+  <data name="tsbzoomin.Text" xml:space="preserve">
+    <value>放大</value>
+  </data>
+  <data name="tsbpoint.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="&gt;&gt;tsbzoomin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;yAxis2.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.YAxis, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="tsbrect.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="lblcaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 298</value>
+  </data>
+  <data name="tableLayoutPanelCurve.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tsbpoint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbzoomin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAi9JREFUOE+FlNmS00AMRcNAAgxV/P+v8MAymcRre3dsD5l/EToSbeIKBQ8qt9vq
+        o6vFvRuak0x9KvNQyDKW0lUnGdtUXsZahjqTuQ/SlmdbX9rCvv+cKmnDs1y6zHyj7cb2rKBMqvyHbURg
+        nT/L1Ok6JLIMlYxNbkC+N+XRQHewqVenJlF1uUWLhwFx+Dq1UmVH+46RgcMSsw0sZN/l5aKpKOh1aQz0
+        brcze//gT1Ktiyfp67MZ/pSmDU9b2OvcmZqohMNeq1qaIrFv7FEnV5cqUDOojrpXbmE4U2BqcnjjKgB/
+        OjwotLA1hQfIARrm6Z01Xa/zCsMRdThPXSV9pdH16enVFoRgqDLVCkMZwGXM72F9lcpeHS9tMHUc4sme
+        Q4Olu9c9DsVxuqsZIFLhECpQ1QWvXVzT0aY4yeMBZYk1IY7UBkb3YuFZkya1Qlmda/f0vS19iGNAmgGU
+        Dm9g1ILxIDqAKjtZrWLtSD3WkKAYc0dG11lregtDsk2yRsTBo5cGBQKYPYwOA8eXppH6BkYx6Qq/E78K
+        6aCQgY3NGJsgnz8eVugyNDaDNG8DY/iuc7CpTo5fLCqdQx0HAGF1nqx/hAcoTTn+K4wWh+yrtTsqA0Z6
+        nmZjoKnj3VP+8NaVA9zAgKAMhfEWoBY+f6hkNPp1fVtDV3gDi4u/mjpaXX6nzppuMpePe+/urf+/YWrc
+        bVw78frhyQSwHy/SaP+FMZw8y/SbrbnL/Apy+B/fVH4BpNtel6NAIEYAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="tsbrect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAYRJREFUKFNVUldWw0AM3IQULgzB8XbbiQ9GCbi3wG0GSYHH42PeasuMRtKqvvtA
+        175jGlvMU4ehb1FX75jnET3FC61tU2EcGkKNvrlgGSuoz+uAzZ3CSt2wXinsdxsoihm/5wx+d79V6OoX
+        qJYU+NDZI86niKenR2RZgHMOIQR4b2UfvMYxecAdvb1OLRSnZ2Ke0UO6dM4gRk+IMMYIkWH0EeU5E+LU
+        k9Whr8naGqk+wNgEeR5hrUXIIrIil6wsxIIhGimlrl6h6uoN241CzG7K3nsi5/Ax4KhTFEWBJElITMMH
+        LUmmsYGalx6KVIxJSd3BegfjrKzF+SQxi5QlxeSIy5q5xqqmjLuVkNgO23OBrBFSo8UyryxcnIIQuS8y
+        R26z8+lP1iA1chYmsXVulCOr3PnddiVz/+tq4XEuMxwOD2SrlPq05Q4zmZol0H9WuVDe/GK9voGHv99v
+        /90xeBxt9czjqERhmXtq8xuGoUNDX4y/3OXyiq/PRb4cj03eUaLrVOMbl7SURmQoVfMAAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tsbdefault.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbzoomin.Name" xml:space="preserve">
+    <value>tsbzoomin</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="x轴坐标ToolStripMenuItem.Text" xml:space="preserve">
+    <value>X轴通道</value>
+  </data>
+  <data name="&gt;&gt;panelback.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="scatterGraph.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tableLayoutPanel15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 268</value>
+  </data>
+  <data name="&gt;&gt;tsbtext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelback.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbreader.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;y轴坐标ToolStripMenuItem.Name" xml:space="preserve">
+    <value>y轴坐标ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;scatterGraph.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.WindowsForms.ScatterGraph, NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tsbcontrol.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="&gt;&gt;xAxis1.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.XAxis, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="tsbselector.ToolTipText" xml:space="preserve">
+    <value>数据选择</value>
+  </data>
+  <data name="tableLayoutPanelCurve.Size" type="System.Drawing.Size, System.Drawing">
+    <value>437, 274</value>
+  </data>
+  <data name="tsbzoomout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="&gt;&gt;x轴坐标ToolStripMenuItem.Name" xml:space="preserve">
+    <value>x轴坐标ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="toolStripLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="lblcaption.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;tsbarrow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbreader.Name" xml:space="preserve">
+    <value>tsbreader</value>
+  </data>
+  <data name="&gt;&gt;scatterGraph.Name" xml:space="preserve">
+    <value>scatterGraph</value>
+  </data>
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tsbzoomin.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>UserControlGraph</value>
+  </data>
+  <data name="&gt;&gt;scatterPlot1.Name" xml:space="preserve">
+    <value>scatterPlot1</value>
+  </data>
+  <data name="&gt;&gt;tsbtext.Name" xml:space="preserve">
+    <value>tsbtext</value>
+  </data>
+  <data name="tsbcontrol.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAgNJREFUOE+lkutLk2EYxvePhJaHShFBUTEPiCieQOmDiEZgrEbpYGiCQxkqA80I
+        RUkUEZ0YRMS+DDI70MkTmzJnDc8iU8QT2mAEItnle90wHwTDyBduXnie5/rd133Q4ZKfAJqHFs9E08A8
+        zD1emDpmYXjqRlnTFIrMk8iuGkNaxWekGEaQrHecBfw+/vPXODw6hj9whN2fh/Bt/8LSRgA3cxr/DeBZ
+        9kvmTNMoHGNbIrYN+3Aj23IxgJkpds0doP3VstgmsNexhutZ9QrAms8T0zYzU5xXM46kcjsmvfvoeL2i
+        AeoUgA07T8yaaZuZKab1rzN74jgys1YB2O2gmBZzH49LODXrrJlnzEzxe9cOLH1ziMioVgCOiuIFX0CE
+        Q+/WYf+yieiCFrRp9tkwxnP7Kt5MbKGm6wfC000KwDlTXNLgEvHMkh+Db32o7fYivtQm1l9+3IBOp5P7
+        yjYPwlKNCsAluWudxgvtknb5t9oWcL/VLU2Mvd2JFq3uqs7vAtE/ceNayiMF4KiYMSjmY2O7B4Ua+NaD
+        YQGEJumRbvyG1IcfBHI12aAAXM8R57aIWTNrLLY4tfNPiCvpR1SeVeu6WWzHFD6THSDwFMDdpmUG62NJ
+        PKM4Or9ZxBxb8H8l7g5CEu8pAOfM3WanSeeS8CFHxW4zM2umbWamOCShXAH+/wNOANABIDUxWnDPAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="tsbarrow.ToolTipText" xml:space="preserve">
+    <value>箭头工具</value>
+  </data>
+  <data name="scatterGraph.Size" type="System.Drawing.Size, System.Drawing">
+    <value>355, 268</value>
+  </data>
+  <data name="&gt;&gt;xAxis3.Name" xml:space="preserve">
+    <value>xAxis3</value>
+  </data>
+  <data name="&gt;&gt;tsbline.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbarrow.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;scatterPlot3.Name" xml:space="preserve">
+    <value>scatterPlot3</value>
+  </data>
+  <data name="tsbscreenreader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="&gt;&gt;yAxis1.Name" xml:space="preserve">
+    <value>yAxis1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel15.Name" xml:space="preserve">
+    <value>tableLayoutPanel15</value>
+  </data>
+  <data name="tsbscreenreader.Text" xml:space="preserve">
+    <value>屏幕读数</value>
+  </data>
+  <data name="tableLayoutPanel15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>364, 3</value>
+  </data>
+  <data name="toolStripLeft.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>panelback</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="toolStripLeft.Text" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;userGraph1.Name" xml:space="preserve">
+    <value>userGraph1</value>
+  </data>
+  <data name="tsbzoomout.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tsbscreenreader.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;legend.Name" xml:space="preserve">
+    <value>legend</value>
+  </data>
+  <data name="legend.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tsbscreenreader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbtext.Text" xml:space="preserve">
+    <value>toolStripButton15</value>
+  </data>
+  <data name="&gt;&gt;tsbrect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanelCurve.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tsbselector.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;toolStripLeft.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>panelback</value>
+  </data>
+  <data name="tsbrect.Text" xml:space="preserve">
+    <value>矩形工具</value>
+  </data>
+  <data name="tsbselector.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tableLayoutPanelCurve.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 8</value>
+  </data>
+  <data name="toolStripLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="tsbtext.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,100,Absolute,20" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tsbselector.Text" xml:space="preserve">
+    <value>toolStripButton14</value>
+  </data>
+  <data name="&gt;&gt;tsbarrow.Name" xml:space="preserve">
+    <value>tsbarrow</value>
+  </data>
+  <data name="x轴坐标ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="tsbline.ToolTipText" xml:space="preserve">
+    <value>直线工具</value>
+  </data>
+  <data name="&gt;&gt;lblcaption.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tsbzoomin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel15.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;scatterPlot3.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.ScatterPlot, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="&gt;&gt;tsbselector.Name" xml:space="preserve">
+    <value>tsbselector</value>
+  </data>
+  <data name="tsbcontrol.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tsbline.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tsbdefault.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tsbreader.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tsbzoomin.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;toolStripLeft.Name" xml:space="preserve">
+    <value>toolStripLeft</value>
+  </data>
+  <data name="&gt;&gt;timer2.Name" xml:space="preserve">
+    <value>timer2</value>
+  </data>
+  <data name="userGraph1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="legend.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;lblcaption.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="panelback.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tsbzoomout.Text" xml:space="preserve">
+    <value>缩小</value>
+  </data>
+  <data name="tsbselector.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAf9JREFUOE+FlFly20AMROlVie9/nFQlkixRXIb7Jlk+C4zXrGE5P8kHxBly0Ohu
+        YJRMXWZ9fbYupHYdKiuzg41dYU24WFtlVpep3ebO92ffpza1hc624d3ITbrqpM1QZ9aWZ1vGyrr6oqSu
+        zm0eaoGE/Khv4XKw+9za3OcqnCyDIzrI0gebu9KKy976JvOEkz8Le0oSZxTEgPckp4dfNjTOBgZNeVzR
+        KqfsDD4WRx+CkpHw/LACDG0uBk1xklTJ9sIbg7HJFVCtSz80tZIAAH7AAG8oBACFYZGAFD3AIKpD+/Up
+        0fPlcX3+eFmfZbqX1E0Ci7Fd6cMAqmiNIBGAuF87JWPkdSytLg4rg+8ekEygOybunhO1kIApZymqLsCA
+        RfQArbSR9mEiAFNfWVW82+etF0CdrzMgD0DSMIHqANeJxFTG0QmCtWbADWaIVMzz1IWQ/TF1wj8IuXdt
+        3oVlbLZkOgIDyXCZsCBHEj7mSlTkrH+gShxlAH6+PmgSSYZF7BYGCoAFJqo6c+76ie8mEkr2DlXZUedI
+        lge0o8r3kgALqiODJFpI0AX2AHCGWbhNQT7oNuID08V9yM6//6pMvO0et/VtrHVum0R+YhfibaQSTJAC
+        g3iR1AkfIrqAhG0S/xU7B0Aih/GKsYc6a+K/AFC9L/6f4GZ/XpvtPfumPNoXvj5/hHscEaoAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="legend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 174</value>
+  </data>
+  <data name="&gt;&gt;legendItem1.Name" xml:space="preserve">
+    <value>legendItem1</value>
+  </data>
+  <data name="tsbtext.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;xAxis2.Name" xml:space="preserve">
+    <value>xAxis2</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 331</value>
+  </data>
+  <data name="lblcaption.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tsbcontrol.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userGraph1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;legend.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="legend.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;timer2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbzoomin.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;userGraph1.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tsbzoomout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbarrow.Text" xml:space="preserve">
+    <value>toolStripButton16</value>
+  </data>
+  <data name="&gt;&gt;y轴坐标ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbreader.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;legend.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.WindowsForms.Legend, NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="tsbline.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAeRJREFUOE9dU8tu20AM3LTpI6ee+wX9/3sR1LHklbS72rcsOwkQ9EcYDtd21RwI
+        ARJnhjOkVHGFypy4ZireUAk9V7cpTWsxlOeJarAU7YGOeZLy5g+pBg4MtlzjB4JeGt3wRKcSKBhNS3T8
+        7CnNPb2sDgRQBhjqugHj040guo5BRgjQg0m+3im6V4rciAkAFGWAL+obgmOyouwnqM/0hYEAgxTWVANt
+        xgZ4Q5DnQbzn2QgQldwo7yHMBB+AGzCmSo5DzP4GrsFJDggT3/8R/FcNLNbYIoDfPikhsnpHSxrbZny3
+        tXAtZHEFjwL+/lnJyEgfW6nxQMHumGBPCimDLdi9NEEl2kEKaT/cKwE2Yqxvz/0DT3GgHHakapgaM6eN
+        Fa05SNpXZXjN/kCn2pShCpt4ygQIBCm7Afue2WN38zx2j6J8zINcHZTh242PkgOIFVaCel3rbVUAY/fn
+        6gWMsaPbyRQ4Hrx/XpLchlqzk7DgGWAUViV7ZnWEdV7YWhkv4EjJ8j9heJ2hkLoeBIAIDDn4CZ6tqNfY
+        S2Fs5HXKmZw2VN1K2axsgX8KNOOJ8wQhGrEZo38LuAWnJavqIx39mYp5odX/bXewJE3z1A4E0yCcFp6+
+        gDvZf3ITZRdFeXFv9PPHL3oHOBYvGXWHd1sAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="lblcaption.Text" xml:space="preserve">
+    <value>曲线图1</value>
+  </data>
+  <data name="&gt;&gt;tsbscreenreader.Name" xml:space="preserve">
+    <value>tsbscreenreader</value>
+  </data>
+  <data name="panelback.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelCurve.Name" xml:space="preserve">
+    <value>tableLayoutPanelCurve</value>
+  </data>
+  <data name="tsbtext.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAYBJREFUOE9lkllSwzAQRAXZ4If7XwYo4tiJF9mSvJvkLM30KKZS8DHlskpvuqdH
+        xlUJlsHClSmuo0dTpVpDW8v3jD5Y1GWGqa/RuhxjqNA1OczUlRhCDl9lqM5fGDuLeWiQJR+4LT06XwlQ
+        yrdQkHd413h7wmFjsDWxds8Gm4fv33p73UTFUKfYyyVCS9+IRSrk2EszXpwHD2cvuM5Bm/FeW1+iVaqy
+        Cy3Qki0SvOwiSIhz8szXMrMrMPgSGs7Yin/pMnf3AGTO1SqD+Z5aDYxNb1NAnScwDIZ2gz1rsSvhdaYY
+        jCQpkKYtarz3C/KAdjkjixDtEgxNTJRFiCvRcBS+H/Sh/DcjrTqbqeLU2riOuRcbLkI8oNVldAodtkb+
+        qSS7vjuhK8KmyN7BZBkOVQmxM8Htk7nPV0lIJ23aFKdolYnSqr0cNeoqP4o1rxDhFeR8fFFU5NPUPTbl
+        UZdPC2swj7W+VarSGVU1HBb3U6SfGgLhdQ1xPj74VBW5667J8QOvI0NdaIuThgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="&gt;&gt;userGraph1.Type" xml:space="preserve">
+    <value>AppleLabApplication.UserGraph, AppleLabApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4ab1cf5e6d31b4</value>
+  </data>
+  <data name="scatterGraph.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel15.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tsbline.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="panelback.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 306</value>
+  </data>
+  <data name="tsbarrow.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tsbline.Text" xml:space="preserve">
+    <value>toolStripButton17</value>
+  </data>
+  <data name="&gt;&gt;toolStripLeft.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelCurve.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tsbcontrol.Name" xml:space="preserve">
+    <value>tsbcontrol</value>
+  </data>
+  <data name="&gt;&gt;tsbline.Name" xml:space="preserve">
+    <value>tsbline</value>
+  </data>
+  <data name="&gt;&gt;lblcaption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbreader.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="scatterGraph.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="userGraph1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>437, 274</value>
+  </data>
+  <data name="tableLayoutPanelCurve.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel15" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="scatterGraph" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,76" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;tsbdefault.Name" xml:space="preserve">
+    <value>tsbdefault</value>
+  </data>
+  <data name="tsbselector.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="tsbline.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="tsbdefault.Text" xml:space="preserve">
+    <value>指针</value>
+  </data>
+  <data name="userGraph1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tsbscreenreader.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAhdJREFUOE+dU1eWE0EQawfg/vdhwWuPJ3aeaK+BcwCPFaWaN+afj3o9oYKkUps5
+        lmDccoveFkiuwH1yyK7CEBr0vtbnuZf/Yc0bfYkpXHHvG5jRF/oyhUp/jEkK/BVzthhj+zyjvWgsqVnz
+        pM5XLxAEtSCodTKLWRC7K1x7wZg7HIzBfY76nWiGKIMkj2i/TR4mtWeB0mEZOoVIuI9bRg6SnFocdwbJ
+        V/DNRSndBq8I2WBwV5jbaOGakxYuvYPvSgRboY8drDzvBME4BH2fB6foNFcGspHhg29fMSVBEBttcJ+z
+        FjHYICfRITvYptAGb1NUKkRsCI2Tl9EjulLOiLo6ayHj08e9noe9QfBCYQqoihd8v/XazHAyVQ5WeAmC
+        GGRdMm0v3IHfWrydSWhQF0aypWpiWMyYequKHw/rZAabbNO3kzkMFVO0MFxPV54UGikMwneekha8//m5
+        Inn/JVR2KiqpEgFriN5QDLqMfPiTQnELH47/kOh0iSz0NE80eyxBhTShO4OrZDe1rCgfXa2qU30Wk/vU
+        ryLfx6B5zfUzpiwa/FgiQn16WpjCEOImKo1ER9KFpMsGXDvNRwcbV35RS9IPREMkbELTbFbWFQt0Ks8c
+        DtvuhFlShdy9Koq3wT4NwoksOpKCFG5W521k8AL29szLtF5NdqS3VVC5dVwTmzC4ZqXHiyRTffUVj1H8
+        IzdSt/D/UeEvkFxPfdNzJOsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="y轴坐标ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Y轴通道</value>
+  </data>
+  <data name="tableLayoutPanel15.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tsbpoint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 19</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="tsbline.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tsbpoint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAF1JREFUOE+djAEKwDAIxPzTXuuf9qeNQQNiuaoLCNaS2InL/FnrDMRxAMH9ngWi
+        +O3tQBaZMqBERgY4KJHZAiyVyPwObCJwUAEpAh85UIqQA20RYiC+2yCMRTiLZi+IArd87E5f/gAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="&gt;&gt;legendItem1.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.LegendItem, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="&gt;&gt;yAxis3.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.YAxis, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="&gt;&gt;lblcaption.Name" xml:space="preserve">
+    <value>lblcaption</value>
+  </data>
+  <data name="tsbcontrol.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 20</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="&gt;&gt;yAxis2.Name" xml:space="preserve">
+    <value>yAxis2</value>
+  </data>
+  <data name="toolStripLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="tsbselector.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="tsbzoomout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAidJREFUOE+FlO1S4zAMRdNdaBeY2fd/mi1QSpo0iRPnsy0Mj2J05FG2YWeHHxq7
+        iXR8faU06ZtDaMqXMLZ5qPInXafuGOpip3tf7TVa96px6ovQ1am+I4e9RWLFAC9jpQkUAeYgKwQC1B2f
+        9dngsxk8wzqXhXy/DUNzDL6MD4G8n2otBE7RMf2jh7IvDlvNKbPHf2GnrgpTWyqM4vWPJNwkSdj8THSP
+        UlShHkVA+f02uSVM1QiwPDyruod1EuqjeFSJl8WrXhHwx8XPUNaxPYgV2yUMgMtfwse50yL2KD33ToEo
+        AcA7IPxmrYsn8fiLZ31diJJUk6tsH/o6V6VVttM9IACmkCvi2amn+1+U+RLP6pjYurBeRb/ubuKKCgA0
+        w2BxLBij2O0Z1hTSuSlecWjKMPpKFIl8UUfg22WInb0XP803ioEuYBTbNTvHeGQKBWLjQkMYCc2RovNQ
+        KpRZXMAoIPl98ppMAzDfnuMbe97REILOcwiKFzCMppgE1l8yW0CAAhl9VEQwNtagt7HVnAXMNtwfXwBg
+        /kaGFbBeTa7/++52htIol8uXYt4aDDMB8XmouSKf0zkVhYAIxoYDDNi5Qg4ulzCbZBsBg5pvNAjQ0FQa
+        gFC8Wa0UuIANPpVW73QwAdEhnStRhsI4Gl67zBgBN3VR4RXMNv8LDqAAKHD9xETx/W3s7nXutzD747RP
+        yr5VnhPXud/C8I+V/zP2dJwBNvjf3DR8AmGNaqKGVruFAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lblcaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 25</value>
+  </data>
+  <data name="legend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 47</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelCurve.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanelCurve.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;panelback.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="y轴坐标ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 48</value>
+  </data>
+  <data name="&gt;&gt;tsbselector.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tsbtext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="tsbdefault.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAATCAYAAAB2pebxAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAp9JREFUOE+FlNly2kAQRVkMjlP5/4/Jg2OzaZ9FoxVc/oqkyhiJm9stHL/FFA2j
+        Wc70cluz3hpUaYLOFQj5AZVNUPsDSrNF5XZw+ROa8gBfbNBVCXy6wTFkOJUFymyPxkaYCUBAdZGqdaHg
+        wa0eaMoIfc15QsVObc6DhBd79C4jIOFFhLQ2R2M4QTsFh7vZTK0ueavZwxJY+RhF8qTW+QQvNS9KnnWs
+        EAmj9wYh48Z4hx/3S4zvf7AkqK2KTyt5GcHihYQgYbUuniC1S+EY26lxzEemXuB6UZtznKUHJPEWx7ZE
+        cNPNwU6hufz55kmVMYl7lAUXGad4MJ7fMA7vBA0Kejm1yKIdSptq4k0qh5kX5kshzmy4yKp4TvgcD6sF
+        gBGXs0A4pAmo9BahNBpaV+fI00d4KxUkRAZ1iDSRJjvogfEyTICR3wsHN5B3rA69kWR3TYrg9xOkrWMl
+        Bj70jdfNcmjGz4XODEyPjDFeda2trFaronbkcoWY/JdOiItptMH9esGDZ1zFk5tdLnSJ/9fxjNWCHpmI
+        ex8/IR/ELP6lFViv5prU6zAdHN5HerDAYjZXT76tZpr8vilUR/8gbZ0wVuok3eJuSc+HN03IR2j3q7Um
+        1hrKoYh1b9/YT0iw0h/PuiAVkluoNgWE0um/hLdezFnaCE1gi5QZbLpTASpEekKU6Ao2GWNd0xMBmYJz
+        FJ9AxLPv6yX1lBHARqWegonVFCJCE/G89kGFJIAPzcjmrnY6N5x/T2sEH2sPk+whaleI9gMHqlghK4Aa
+        oMQlRNGFjO/mDBNv2haer4wuUHwfnsjP/6zxU1usePiBlRGIPIsXteiFe76EyLvl9egRbX/q85GlFe+l
+        CcVk7kuIL3Z8QTGRtwMCsBn77VbeykX4C540+xVbGyjvAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;yAxis3.Name" xml:space="preserve">
+    <value>yAxis3</value>
+  </data>
+  <data name="&gt;&gt;legend.Parent" xml:space="preserve">
+    <value>tableLayoutPanel15</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 306</value>
+  </data>
+  <data name="tableLayoutPanel15.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tsbrect.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel15.Parent" xml:space="preserve">
+    <value>tableLayoutPanelCurve</value>
+  </data>
+  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLeft.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;xyCursor1.Name" xml:space="preserve">
+    <value>xyCursor1</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tsbzoomout.Name" xml:space="preserve">
+    <value>tsbzoomout</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;xAxis3.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.XAxis, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;yAxis1.Type" xml:space="preserve">
+    <value>NationalInstruments.UI.YAxis, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelCurve.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="tsbdefault.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <metadata name="timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>450, 22</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
   </metadata>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -126,175 +1044,7 @@
   <metadata name="toolStripLeft.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>175, 22</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tsbdefault.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAATCAYAAAB2pebxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKfSURBVDhPhZTZctpAEEVZDI5T+f+PyYNjs2mfRaMVXP6K
-        pMoYiZvbLRy/xRQNo1nO9HJbs94aVGmCzhUI+QGVTVD7A0qzReV2cPkTmvIAX2zQVQl8usExZDiVBcps
-        j8ZGmAlAQHWRqnWh4MGtHmjKCH3NeULFTm3Og4QXe/QuIyDhRYS0NkdjOEE7BYe72UytLnmr2cMSWPkY
-        RfKk1vkELzUvSp51rBAJo/cGIePGeIcf90uM73+wJKitik8reRnB4oWEIGG1Lp4gtUvhGNupccxHpl7g
-        elGbc5ylByTxFse2RHDTzcFOobn8+eZJlTGJe5QFFxmneDCe3zAO7wQNCno5tciiHUqbauJNKoeZF+ZL
-        Ic5suMiqeE74HA+rBYARl7NAOKQJqPQWoTQaWlfnyNNHeCsVJEQGdYg0kSY76IHxMkyAkd8LBzeQd6wO
-        vZFkd02K4PcTpK1jJQY+9I3XzXJoxs+FzgxMj4wxXnWtraxWq6J25HKFmPyXToiLabTB/XrBg2dcxZOb
-        XS50if/X8YzVgh6ZiHsfPyEfxCz+pRVYr+aa1OswHRzeR3qwwGI2V0++rWaa/L4pVEf/IG2dMFbqJN3i
-        bknPhzdNyEdo96u1JtYayqGIdW/f2E9IsNIfz7ogFZJbqDYFhNLpv4S3XsxZ2ghNYIuUGWy6UwEqRHpC
-        lOgKNhljXdMTAZmCcxSfQMSz7+sl9ZQRwEalnoKJ1RQiQhPxvPZBhSSAD83I5q52Ojecf09rBB9rD5Ps
-        IWpXiPYDB6pYISuAGqDEJUTRhYzv5gwTb9oWnq+MLlB8H57Iz/+s8VNbrHj4gZURiDyLF7XohXu+hMi7
-        5fXoEW1/6vORpRXvpQnFZO5LiC92fEExkbcDArAZ++1W3spF+AueNPsVWxso7wAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="tsbzoomin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIvSURBVDhPhZTZktNADEXDQAIMVfz/r/DAMpnEa3t3bA+Z
-        fxE6Em3iCgUPKrfb6qOrxb0bmpNMfSrzUMgyltJVJxnbVF7GWoY6k7kP0pZnW1/awr7/nCppw7Ncusx8
-        o+3G9qygTKr8h21EYJ0/y9TpOiSyDJWMTW5Avjfl0UB3sKlXpyZRdblFi4cBcfg6tVJlR/uOkYHDErMN
-        LGTf5eWiqSjodWkM9G63M3v/4E9SrYsn6euzGf6Upg1PW9jr3JmaqITDXqtamiKxb+xRJ1eXKlAzqI66
-        V25hOFNganJ44yoAfzo8KLSwNYUHyAEa5umdNV2v8wrDEXU4T10lfaXR9enp1RaEYKgy1QpDGcBlzO9h
-        fZXKXh0vbTB1HOLJnkODpbvXPQ7FcbqrGSBS4RAqUNUFr11c09GmOMnjAWWJNSGO1AZG92LhWZMmtUJZ
-        nWv39L0tfYhjQJoBlA5vYNSC8SA6gCo7Wa1i7Ug91pCgGHNHRtdZa3oLQ7JNskbEwaOXBgUCmD2MDgPH
-        l6aR+gZGMekKvxO/CumgkIGNzRibIJ8/HlboMjQ2gzRvA2P4rnOwqU6OXywqnUMdBwBhdZ6sf4QHKE05
-        /iuMFofsq7U7KgNGep5mY6Cp491T/vDWlQPcwICgDIXxFqAWPn+oZDT6dX1bQ1d4A4uLv5o6Wl1+p86a
-        bjKXj3vv7q3/v2Fq3G1cO/H64ckEsB8v0mj/hTGcPMv0m625y/wKcvgf31R+AaTbXpejQCBGAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="tsbzoomout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAInSURBVDhPhZTtUuMwDEXTXWgXmNn3f5otUEqaNIkT57Mt
-        DI9idORRtmFnhx8au4l0fH2lNOmbQ2jKlzC2eajyJ12n7hjqYqd7X+01WveqceqL0NWpviOHvUVixQAv
-        Y6UJFAHmICsEAtQdn/XZ4LMZPMM6l4V8vw1Dcwy+jA+BvJ9qLQRO0TH9o4eyLw5bzSmzx39hp64KU1sq
-        jOL1jyTcJEnY/Ex0j1JUoR5FQPn9NrklTNUIsDw8q7qHdRLqo3hUiZfFq14R8MfFz1DWsT2IFdslDIDL
-        X8LHudMi9ig9906BKAHAOyD8Zq2LJ/H4i2d9XYiSVJOrbB/6OlelVbbTPSAAppAr4tmpp/tflPkSz+qY
-        2LqwXkW/7m7iigoANMNgcSwYo9jtGdYU0rkpXnFoyjD6ShSJfFFH4NtliJ29Fz/NN4qBLmAU2zU7x3hk
-        CgVi40JDGAnNkaLzUCqUWVzAKCD5ffKaTAMw357jG3ve0RCCznMIihcwjKaYBNZfMltAgAIZfVREMDbW
-        oLex1ZwFzDbcH18AYP5GhhWwXk2u//vudobSKJfLl2LeGgwzAfF5qLkin9M5FYWACMaGAwzYuUIOLpcw
-        m2QbAYOabzQI0NBUGoBQvFmtFLiADT6VVu90MAHRIZ0rUYbCOBpeu8wYATd1UeEVzDb/Cw6gAChw/cRE
-        8f1t7O517rcw++O0T8q+VZ4T17nfwvCPlf8z9nScATb439w0fAJhjWqihla7hQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="tsbscreenreader.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIXSURBVDhPnVNXlhNBEGsH4P73YcFrjyd2nmivgXMAjxWl
-        mjfmn496PaGCpFKbOZZg3HKL3hZIrsB9csiuwhAa9L7W57mX/2HNG32JKVxx7xuY0Rf6MoVKf4xJCvwV
-        c7YYY/s8o71oLKlZ86TOVy8QBLUgqHUyi1kQuytce8GYOxyMwX2O+p1ohiiDJI9ov00eJrVngdJhGTqF
-        SLiPW0YOkpxaHHcGyVfwzUUp3QavCNlgcFeY22jhmpMWLr2D70oEW6GPHaw87wTBOAR9nwen6DRXBrKR
-        4YNvXzElQRAbbXCfsxYx2CAn0SE72KbQBm9TVCpEbAiNk5fRI7pSzoi6Omsh49PHvZ6HvUHwQmEKqIoX
-        fL/12sxwMlUOVngJghhkXTJtL9yB31q8nUloUBdGsqVqYljMmHqrih8P62QGm2zTt5M5DBVTtDBcT1ee
-        FBopDMJ3npIWvP/5uSJ5/yVUdioqqRIBa4jeUAy6jHz4k0JxCx+O/5DodIks9DRPNHssQYU0oTuDq2Q3
-        tawoH12tqlN9FpP71K8i38egec31M6YsGvxYIkJ9elqYwhDiJiqNREfShaTLBlw7zUcHG1d+UUvSD0RD
-        JGxC02xW1hULdCrPHA7b7oRZUoXcvSqKt8E+DcKJLDqSghRuVudtZPAC9vbMy7ReTXakt1VQuXVcE5sw
-        uGalx4skU331FY9R/CM3Urfw/1HhL5BcT33TcyTrAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="tsbreader.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGLSURBVDhPTVLtcoIwEDxFRexM3/9tOhaV7yQEEkSnfZXr
-        7SFtf+yEhNvb3Uso+IZddxOU/Jg8m2b5jt6yNw0PruHgO479gq785Gd0TN6WnBDxfku6ZoeNrsDuta7f
-        x4T4ESy3xZlp7Gs+7onHvuW2urBtC1VBIyj1plInsW+UPNqKg6uZbHvl3YbU4j04bQDgDCvI+Oe7grOd
-        1FW5NqF7MFo0x16LAGQ8iC1va55Gu+QUFSjOQRq7ggmDQQZYWm1CCWQ0acpcnUDxPUu47y4KisNiC+RU
-        rGAFAQ3QDGfICzVgGmpV1YynFIqFKNVKAgGAMuxCfR4l0ovozZVpcJXmARF3ij1wSrdKwnXB1WAkNwYm
-        +dQqMsLOHC13da6FIMIyiOsDwTVAcbAy/VGn2mrRqrQWZgeSoZjfCFDK5L5dmyskY64P4P9w3o5/r2d9
-        UanEgeLX7Bark8gGvyiZ5qLdYfn7Oart9QxDiVLnjcQRyFu9SeFZLhrTXGxh0rCNPQajuaUO0zT1h6ga
-        /gGzbSG+rSnjpwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="tsbselector.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH/SURBVDhPhZRZcttADETpVYnvf5xUJZIsUVyG+yZZPguM
-        16xhOT/JB8QZctDobmCUTF1mfX22LqR2HSors4ONXWFNuFhbZVaXqd3mzvdn36c2tYXOtuHdyE266qTN
-        UGfWlmdbxsq6+qKkrs5tHmqBhPyob+FysPvc2tznKpwsgyM6yNIHm7vSisve+ibzhJM/C3tKEmcUxID3
-        JKeHXzY0zgYGTXlc0Sqn7Aw+FkcfgpKR8PywAgxtLgZNcZJUyfbCG4OxyRVQrUs/NLWSAAB+wABvKAQA
-        hWGRgBQ9wCCqQ/v1KdHz5XF9/nhZn2W6l9RNAouxXenDAKpojSARgLhfOyVj5HUsrS4OK4PvHpBMoDsm
-        7p4TtZCAKWcpqi7AgEX0AK20kfZhIgBTX1lVvNvnrRdAna8zIA9A0jCB6gDXicRUxtEJgrVmwA1miFTM
-        89SFkP0xdcI/CLl3bd6FZWy2ZDoCA8lwmbAgRxI+5kpU5Kx/oEocZQB+vj5oEkmGRewWBgqABSaqOnPu
-        +onvJhJK9g5V2VHnSJYHtKPK95IAC6ojgyRaSNAF9gBwhlm4TUE+6DbiA9PFfcjOv/+qTLztHrf1bax1
-        bptEfmIX4m2kEkyQAoN4kdQJHyK6gIRtEv8VOwdAIofxirGHOmvivwBQvS/+n+Bmf16b7T37pjzaF74+
-        f4R7HBGqAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="tsbtext.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGASURBVDhPZZJZUsMwEEQF2eCH+18GKOLYiRfZkryb5CzN
-        9CimUvAx5bJKb7qnR8ZVCZbBwpUprqNHU6VaQ1vL94w+WNRlhqmv0bocY6jQNTnM1JUYQg5fZajOXxg7
-        i3lokCUfuC09Ol8JUMq3UJB3eNd4e8JhY7A1sXbPBpuH7996e91ExVCn2MslQkvfiEUq5NhLM16cBw9n
-        L7jOQZvxXltfolWqsgst0JItErzsIkiIc/LM1zKzKzD4EhrO2Ip/6TJ39wBkztUqg/meWg2MTW9TQJ0n
-        MAyGdoM9a7Er4XWmGIwkKZCmLWq89wvygHY5I4sQ7RIMTUyURYgr0XAUvh/0ofw3I606m6ni1Nq4jrkX
-        Gy5CPKDVZXQKHbZG/qkku747oSvCpsjewWQZDlUJsTPB7ZO5z1dJSCdt2hSnaJWJ0qq9HDXqKj+KNa8Q
-        4RXkfHxRVOTT1D025VGXTwtrMI+1vlWq0hlVNRwW91OknxoC4XUNcT4++FQVueuuyfEDryNDXWiLk4YA
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="tsbarrow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGKSURBVDhPfZNZTsNAEEQnEIyA+18HQUK8zD5ek5C7FF0d
-        HPFDPkpe5NdVXRqbJdcYwx7J7XCaPMbUIbsDpuwxl4ASO/TJYuoDjlNGDrXcO3nXwhC8TA5TaRHtpwAO
-        33NGaL8UzqHFaS5IvkGwMlTAYPcYi4XpI10/1PU4OgyxFXCn4NYYPD0YPMqVeqk22G6MDqDMeXYoYYdl
-        sAjdh8S1v+69DiD0dwDF6HQ3jKq75kad+9Coe7K13HfSgdMEqyvhmzMBlkWYexOk6Lr08RZ/da0eje47
-        Dx5mSDXOc4Br3jXBX5jOTwK8VQ+aqBJnuid/kLZrFiYN0lEe6M59uXd2jYIUm+e743DtoMQG5yUKLNBJ
-        nFkC4xRfq9RFPuTOV3F/kRisMlH2TX6PZQwYcqfOBKni2/vwcYoKRvclCdKtGJa1tv0vzGPG2hmb0Ouz
-        lCPHkYXxiN6F111fKoPnrbmCQ4TvmKTcgQ8wjLy6cgjPMH8GDuBZvgsTZPTLqdfrkPnHWHXlkP/gOR3w
-        A4FKqIe8hrmOAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="tsbline.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHkSURBVDhPXVPLbttADNy06SOnnvsF/f97EdSx5JW0u9q3
-        LDsJEPRHGA7XdtUcCAESZ4YzpFRxhcqcuGYq3lAJPVe3KU1rMZTniWqwFO2BjnmS8uYPqQYODLZc4weC
-        Xhrd8ESnEigYTUt0/OwpzT29rA4EUAYY6roB49ONILqOQUYI0INJvt4puleK3IgJABRlgC/qG4JjsqLs
-        J6jP9IWBAIMU1lQDbcYGeEOQ50G859kIEJXcKO8hzAQfgBswpkqOQ8z+Bq7BSQ4IE9//EfxXDSzW2CKA
-        3z4pIbJ6R0sa22Z8t7VwLWRxBY8C/v5ZychIH1up8UDB7phgTwopgy3YvTRBJdpBCmk/3CsBNmKsb8/9
-        A09xoBx2pGqYGjOnjRWtOUjaV2V4zf5Ap9qUoQqbeMoECAQpuwH7ntljd/M8do+ifMyDXB2U4duNj5ID
-        iBVWgnpd621VAGP35+oFjLGj28kUOB68f16S3IZas5Ow4BlgFFYle2Z1hHVe2FoZL+BIyfI/YXidoZC6
-        HgSACAw5+AmerajX2EthbOR1ypmcNlTdStmsbIF/CjTjifMEIRqxGaN/C7gFpyWr6iMd/ZmKeaHV/213
-        sCRN89QOBNMgnBaevoA72X9yE2UXRXlxb/Tzxy96BzgWLxl1h3dbAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="tsbrect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVChTVVJXVsNADNyEFC4MwfF224kPRgm4t8BtBkmB
-        x+Nj3mrLjEbSqr77QNe+YxpbzFOHoW9RV++Y5xE9xQutbVNhHBpCjb65YBkrqM/rgM2dwkrdsF4p7Hcb
-        KIoZv+cMfne/VejqF6iWFPjQ2SPOp4inp0dkWYBzDiEEeG9lH7zGMXnAHb29Ti0Up2dintFDunTOIEZP
-        iDDGCJFh9BHlORPi1JPVoa/J2hqpPsDYBHkeYa1FyCKyIpesLMSCIRoppa5eoerqDduNQsxuyt57Iufw
-        MeCoUxRFgSRJSEzDBy1JprGBmpceilSMSUndwXoH46ysxfkkMYuUJcXkiMuaucaqpoy7lZDYDttzgawR
-        UqPFMq8sXJyCELkvMkdus/PpT9YgNXIWJrF1bpQjq9z53XYlc//rauFxLjMcDg9kq5T6tOUOM5maJdB/
-        VrlQ3vxivb6Bh7/fb//dMXgcbfXM46hEYZl7avMbhqFDQ1+Mv9zl8oqvz0W+HI9N3lGi61TjG5e0lEZk
-        KFXzAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="tsbpoint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABdSURBVDhPnYwBCsAwCMT8017rn/anjUEDYrmqCwjWktiJ
-        y/xZ6wzEcQDB/Z4Fovjt7UAWmTKgREYGOCiR2QIslcj8DmwicFABKQIfOVCKkANtEWIgvtsgjEU4i2Yv
-        iAK3fOxOX/4AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="tsbcontrol.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>450, 22</value>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>285, 22</value>
   </metadata>
 </root>

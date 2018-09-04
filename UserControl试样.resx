@@ -117,101 +117,339 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel6" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,177,Percent,100" /&gt;&lt;Rows Styles="Absolute,23,Absolute,32" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>设置缺省选项输入</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel7.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panel3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAhCAYAAAC4JqlRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVFhH3ZfdS9NRGMe9yT8gDENKDaELL4OEuugiKezF
-        oCgyyZSgsIglRtFFF90UYgajnC/5Ost0sc0pU5vOqaFmTp06p5ZvS52u/CO+/Z6DG/6238s2jzcNHsb2
-        +51zPuc5z/N8nxMX9z99nhQ/hLCfiGzBM0Lv8f0UFxXCPdihag8KbmHom5U/QJHmvuriBEgA3Z2t/AEe
-        RwFgMTfxB/jUVIF67StVL+Rcz4at28AfwLsyiYL8HEUACtKqijeYcNr5A2xtuDH23cayQCoY6ezLSl+i
-        3azH8q8xMYDJ2ACjoU7WvMsT2PbPK1LTc5rY0WtmgRYKkXn2DBrr3zNIgg3NQcX8/dplwJ9NT3DQ3605
-        +H2zov9oQpp4xjUgCXAhKxPWjmYsLoyGbyQl+Qiqq8pgaKlBQsJBpKWloq5Gi+fPNAyMyDfXZ4IDtzZm
-        oXl0D6tL46LJAl6S8kD25fMYdFiw7p0KB8i7fYPRUXAkJh5CaspRfGmtxehINy5dPIeS1y9EAzd+s0ng
-        HO0JP0/hgRTAlews+QJkEQKDXEg7SEo6jGOpybDbjCBXE3WXtUVETTt/WnSXme5dSRhE1AC7A2I3gFyx
-        dk8NssW3vcPsu99uFkFwB5ASmgAAQdBx7I5u7gAkNLSQkuXfuRk8Ju4AJDRqAOSRaVc/ln6OSaahYhCq
-        xQAJjRoALeD80cPyfF88ENpshMZATdXb/fMAeYiaCGt7M0hKqUYEAPJyr6JSV4q+XhPWVl1YWXTu3QO0
-        W5tQftXSkN6jxQNpqFQJI4qBSaESxscfYGlVX6uVBdgpwaiuLGPqNuceEglMTDHQ+vkDMjJOID39OCvF
-        p0+dBGm8lBdIHXNzrgnHoWf571ubFr0XEwCpm2vCgfa2JnzU69BmalSUX9d4X1ALqGQHQOXSUFGM+PbH
-        8g1JQI7VeouYeKhf0BQWKLZkdDTlgnhRtnCHIL2I9F5Ask89RUw7lRsUzcXEIajnTk/BjyGai0mn0PxQ
-        JvFbXZgp2otJaDu3ZxjyQKheyP2mqxl3D5AKmo2NrJlVMn1DOesNuceAb20G87PDgiIOKBq1c+R+v8+D
-        fzaCsVPJRX+fAAAAAElFTkSuQmCC
-</value>
+  <data name="tableLayoutPanelCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 38</value>
   </data>
-  <data name="panel6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACEAAAAjCAYAAAAaLGNkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJySURBVFhH7VfbLkNBFPVL3sQXiLgFIXihEVRcqkL8gBde
-        mrg1cReRRqRp3AUNRYO0mrYkFeLy7CPGWUdGpmdmzozRPnGSnTaz5+xZs/b1lJT8P/8MyBkglspVMqkz
-        6FWP0g49J/cQz7c34vOQj7erPMFa9nzbFrwY3lrRAkHfcfuFvehx+OcgFucDBQURCa9x9pQ0bqwHCwri
-        YC+Ub+8ytktwCG4rktXlaYKXnnLXrkAQN972lm83ilwCPc44OdrSuZQqBsX6uZkJshQYFwLB+tjoANnb
-        2SgeAAqrrbVRCKKmuoJshhakAJQx8RNevN3tUhBwvdCWTopygWRZ6u/rJO8vd5xRrIviAUykklFzEAhO
-        5w3Ky0pJcHaSPD/e5OkGB7qkINIuRU/pDlGKgkEIKGaBGIHQTVEnE9SNqICJ2+NvNoxAqIIufrlPUANg
-        nO0xbCx5OlrJQ+bCBlIUEBTksL+X6zG057BuMQLhH/ISn3VLvCwTABny9UhBREJTBNGPfW7ZIQ1M3RRF
-        /svcAQAIXhxSNBA0O1AvkK6o/2xgYo0WIiN36DDBtnIEKg6kKQod2w+MQCCyG+qrbJ+KpK62khtqXp8T
-        BMWKNqT7dOx3KcqNWo6cxc1FaYxGdWpNSDQ16R4jJnArVa0Q6VOJUwJx6ox6Bxvxsv+ag66NRzbYYL3g
-        XVTEjt+qJW5DLlzodJ9tRyc7RF3UCQIAZFMVBQa9XeKzXyWefYy6qIAJVxbYTwhuxjTtor8BwQ1JSNGb
-        +KEdNCKhXVQjg7SZEH13aNhXb0FvaW6qkxY9WghRGLkvMLV5/R3J2xMpo5RlsK5v8a/s/AT6l+ZlH2P9
-        wQAAAABJRU5ErkJggg==
-</value>
+  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="panel4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABcAAAAbCAYAAACX6BTbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAASTSURBVEhLzVbrUlpnFPUp+qMzfYJmmjZNM32Nmtgqjnhr
-        jKU6NkYFr6jlIojREDV4TWolYASUu4gHBUQBUeBw8d44k3bSNp2+wuo+SNQUL/3VCTN7zjnw7bXXt769
-        1yHvz9c7eX/9sZf35vfdTPz95uDknns++1vee/fRa0dRzLuDEl5+JvjFBeAV5kPYIEDAZ8Vbws8m+lHJ
-        L0QZrwD8ojvgF96myEcp5fKLbqOEnjkcw4vJk5w8/4oVjx/JoFK0QyFrxcPeLqiUYoxpehGNMCcL25oF
-        6JO3YUDCRSvUcjEe93RiQNaOfgq1ogs19/hQSkVIxf3Hea9/TeHVURzbyQCKC78CsziL3fQajg43M9+/
-        Za6Ui7C15kR6bRGpVSdYv4PuXUgGXIj5F5AIujGulkIuvo917+mO8/b3ghjRyOB0aNGnakFw3X66tSy6
-        ekAMp+kpIm4jdgIOxD1mJAkk6XMg5rODpYKD8haouhsRo0KZtMP9EPS6IVjNz/DyMAKX8zl6e1pgMkzg
-        t1fsSZFYlIGi+wF0o31IE1By2YI0SZrwWhCigpNqCUR15TBMP8EeGzjOW3LpMTIsg256iHTvgHZqEC1N
-        tags+wYvDyLv7CC85oBETAVGBpD2kUQEzq6YYdNrUPddIWZnRsBueU9zftkPw0BfKmRCfPThB2j44S6U
-        shYYX4zjYDecI09XRxOqSr5GmtOZpEn5bDBNqVFfU4xQyJWzPrODZNyHz69/DLv5ORJRP44OouculMva
-        IKgows66G3FmHumAE/PTg2huqESCzXbJeQN368Z1eBbnzq+eTVAqO3GXmKcCCxnWSb8d89r/CL7snr8U
-        XErMq8t52A0ziC+bwdKgWfVP6Jy+RTK5enHuF599ciVzubwDVWU8JKnHE9SKCWJunHp0DJ64BPzLm1fL
-        woFXkEWkg4vU4zYaqKwsjVcw58AZl/FSWWQ06lWldKA0KClizlKfW3TD1GWlSFzF3MuYLwVXEPN73IFS
-        K6aoz7lDtc1o0FRfDpb1XZx789NrcFp1ONzdvHCRQtoOAb8IB0EGKY8FLB2qiTRvJVlS/2YejbihGZJC
-        SqN968Y1CB9Uo725Fk/H+s8toKJuEQkqkfY6sL1spasNDh0xr+ODjZ2ZTq51VxgD9NohREKL2EuHEd/0
-        ok/RCUEVPweccc1ghOx5w23Gvt+FbcaCbZKGIUNTdN+Hw6bNJTRL3tCvaif/XkaPRJhh73Lo3lno8xgx
-        9FCMhbmfkeB8hSFHpIHj2HMd4zBNoKOtlmQ9p4CORnhyrJfkqceSazaHQY+0ASGfBVGyWNZrJ1+xULfQ
-        hFLHbJF5xcjURgclGOwXIx1dyd3BnGGcXm2Wc7VWyJoQJKAYvSRY6hAu4uTjnJdHaZA48HEC75U0IOzP
-        YqwsWSDrFpGHt9NViB87GyGXNGNYLcfWximDcU0fOoQ1ENVUoPn7CrpWQlh7Gk21FaguKyBwETaDS8cE
-        99IbWF2x0/CYwPkKF0sLRvg8Z15VtG6f1nmcBtiNU3Bkw26aAhc2Low/Za7rfuelc/Le/UP5fwn9A/ow
-        zp1Lu/m8AAAAAElFTkSuQmCC
-</value>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 41</value>
   </data>
-  <data name="panel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAkCAYAAACaJFpUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPKSURBVFhH1VfXT1NxGOWFhER4EIiivJrgwsQHH9BoBAKK
-        IktAxDBUSsUoIsZEjTEaNSoqqXGFsDGIKLKCFJBVKWXUsjrYFAQKqP/D8X4X23Rc8JbbaGzye+kd5xvn
-        nO+7Tk7/2+/H4jDmvw1BP/F11fNN34eFOQ0E57dk0NFL/njSxMlsQIIBF+c1SEs+CbWsdtVzKj4aQ/3t
-        wgENs0O8AI9HhaJH0SAckPrHJ8OwY4ch/1InHJBvhpERR9DdKRUOSD0Upyat2j+qQEH+M/SrWoUDfl/Q
-        QavuQEpSHCdogeQ+0i+K0NpcCf2kA1hKNF+YU6O3q5GVhjVbAwMOoKqiCJNjvaDg7JYFCZ3KuGTQmh6m
-        /8ZHujkBQw4HoqO9lhG92n4wio6Enn5BBHIO84hnpwc4AY+FBqNP2QIKyu7s6AHKjko3oGpjLG3Q9CKS
-        B1dJSQ6D1oLXDnXg7Ol4bPXZgtKSV/hU+xabN3uhpanCphQkg6sZZ5CUeAI6tdx03S7Ar72fERiwn41Q
-        kn0PHh7r4ezsjJjoMIwOd1mUgl5MgHTaGOYRGYwGzjtDIkBiQixcXFwQHhaCG9cuYZPXRkSEh0DZ3WQx
-        DUZ1Chbsx3QnGyCxkwhhV4YUYXDQQezcuQ0H9vuhtqqEzfBK5nmj/1lMAyMggVJpKcu5mUH+PSQyeG3c
-        AFfXdbh75xrycyXw9HTH65dZ0AzKTBkRgPWpfvccr148wtS4kj+gStnM3nyasaC6mlJcZ0q6128PKisK
-        2ejNM7IGpGsfPxRibLnXNsLnZGlZaQ7c3Fzx9PEdRjPNbO+iIo9C1lbD6K3fZriaB3Ao2B/SujJMjPby
-        B8x6eAs7tvugqOA5W5rdu33hf3AfHj64iZmpPnasFBe+YEudm5NtQRoqOxFnZkrFH1AsSkTo0SA01JeD
-        dObtvQm7fLejUVrORj6iVUAhr2eB21uqTbJ4knUbNZXF9pMmI12MS+mpoF6SXXl6uEOUkoCmhveYnlRx
-        yoJY/ab45dpkMT7aA+knUx+cZK3VKC/LhXpAZmHSxGaj3gryJGsXvmFWzZSux7TG6SeU0GnkMDCCtjZd
-        Knl8XBQboNHafi6N2Cd8axcnkJXcfXFei2FNJ8hxyGGM975/l8e525yKDUe3QmpTKd6Tg2seEvBqi1RS
-        wrIbrWkAc1Uj8/K5P+40JB0aZ7wzW+lGGsh81sRkZucZW94KhP34bt6xMeGO2dr++l76TzZvPl9PDvu2
-        oB6amzsZPNepZHZTh3w9kbbou49skLazlQ6Zxe9VUhhL7X36FzJ1QtBXFYKOAAAAAElFTkSuQmCC
-</value>
+  <data name="label1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="tableLayoutPanelSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 262</value>
+  </data>
+  <data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 30</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tableLayoutPanelCombo.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,72" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>229, 3</value>
+  </data>
+  <data name="tableLayoutPanel2.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+    <value>Single</value>
+  </data>
+  <data name="panel1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,194" /&gt;&lt;Rows Styles="Percent,100,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanel7.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+    <value>Single</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 190</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelNumber.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 23</value>
+  </data>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="label4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tabPage4.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="button2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 1</value>
+  </data>
+  <data name="cboshape.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>tableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelCombo.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel4.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel8.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="tableLayoutPanel9.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label7" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel6" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,68" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>586, 4</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel7.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel6.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cboshape.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>660, 38</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel4.Name" xml:space="preserve">
+    <value>tableLayoutPanel4</value>
+  </data>
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="cboshape.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 20</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 23</value>
+  </data>
+  <data name="&gt;&gt;cboshape.Parent" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelCombo.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="&gt;&gt;tabPage4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanelNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 27</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 32</value>
+  </data>
+  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;panel6.Name" xml:space="preserve">
+    <value>panel6</value>
+  </data>
+  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>668, 507</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="tableLayoutPanelCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>575, 36</value>
+  </data>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 20</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelText.Name" xml:space="preserve">
+    <value>tableLayoutPanelText</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanelText.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel7.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="tableLayoutPanel6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="tableLayoutPanelNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 262</value>
+  </data>
+  <data name="tableLayoutPanel5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 26</value>
+  </data>
   <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACQ
-        agAAAk1TRnQBSQFMAgEBBQEAASgBAAEoAQAByAEAAcgBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        agAAAk1TRnQBSQFMAgEBBQEAATABAAFEAQAByAEAAcgBAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABIAEDAgABkAEBAgABAQEAAQgGAAHiAQQXAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEA
         AcAB3AHAAQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEA
         A0IBAAM5AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIA
@@ -665,7 +903,799 @@
         /wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A
         /wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A
         /wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A
-        /wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A3QAL
+        /wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A8wAL
 </value>
   </data>
+  <data name="&gt;&gt;tableLayoutPanel9.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel8.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelNumber.Name" xml:space="preserve">
+    <value>tableLayoutPanelNumber</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>设置缺省数字输入</value>
+  </data>
+  <data name="&gt;&gt;cboshape.Name" xml:space="preserve">
+    <value>cboshape</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="tableLayoutPanel5.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel6.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel6.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="cboshape" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,42" /&gt;&lt;Rows Styles="Percent,100,Absolute,26" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,72" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanel9.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>575, 36</value>
+  </data>
+  <data name="panel3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPage4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>660, 481</value>
+  </data>
+  <data name="tableLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanelCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>660, 262</value>
+  </data>
+  <data name="tableLayoutPanel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 41</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="tableLayoutPanelCombo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel9.Name" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
+  </data>
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="tableLayoutPanelSize.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>592, 4</value>
+  </data>
+  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>设置缺省试样尺寸</value>
+  </data>
+  <data name="tableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 36</value>
+  </data>
+  <data name="tableLayoutPanelNumber.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>595, 4</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>tableLayoutPanel7</value>
+  </data>
+  <data name="tableLayoutPanel4.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="tableLayoutPanel1.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+    <value>Single</value>
+  </data>
+  <data name="tableLayoutPanel8.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label5" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,177,Percent,100" /&gt;&lt;Rows Styles="Absolute,23,Absolute,32" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>660, 481</value>
+  </data>
+  <data name="panel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAkCAYAAACaJFpUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAA81JREFUWEfVl9lL1FEUx30RhOyhlDR9DWwz8KGHCqMSTXNLSzPDpdLMKC0jqIhI
+        KjJbMNoIy6Uwl8xUrDFzm9RxmcZtFvddR83+h2/33PE3OOOkv1kQOnCY4Xd/937OPfecc8/P7r+Thbk+
+        zEz2Ymz414o6OdaJ2WkVFqdZLvNaDS2yqiYnxXMw+2+dzM2okBx/Ekpp5Yp6Kvo4ersarQdqp3pFAY+F
+        B6FdVm09kM5PDDAk2B/NP6vWbodhR4+grUVimzNMOhdnEiIoGZTz7hm6FPXWA3/PaqBWNiEhLsokLCfr
+        PlIuJaK+tgxjIzaIUpLZaSU6Wr/TYsuAPof240tpHkYGO0DG6WaYIZTo5MZ5rVo/mZ4N9beZBAb4+6Cp
+        sZIlvdKy3VGip1xM5JVjqcVT490mgcFBfuiU14GM0r1pptDu2A+6FQ2spPXoF6L0oOfGQEqHHuOEV/c2
+        4ezpaGz12IKC96/wtfIj3NxcUVdTuswVlAbXLp9BXOwJaJTN+nGzgL86frDD9eYTsp7eg5PTBtjb2yPi
+        eAgG+loNXqaFCUjawCKPgkEo4GxYHJACIDYmEg4ODggNCcDN66nY7OqCo6EBkLfVGNwGAxoZhy2Mt3AA
+        RSft0iwgWejnewA7d27Dfu89qPzynu/watoFof4ZqAAkJdfSLqcneviYKCCJq8smODquw93063iXnQVn
+        5414/TITqh6pAcBYy4ue49WLhxgdkosHKuS1/OXTrARVVRTgBnPp3j27UVaay61fCUhjnz/lYlB31uKA
+        hQVvsH69I548Smc5U8vPLjwsENKGCpZvXXyhpbrUgMN+ByGpKsTwQAcfEwXMzLiNHds9kJfznLvGy8sT
+        Bw/sQ8aDW5gY7eTXSn7uC+7q7DdP9UA2lbudAmdiVCEemJQYi6BAX1R/Kwblmbv7Zuzy3I7vkmJueb9a
+        BlnzNw5urCvnQNLHmXdQUZZvftBcTklCaso50FlSuXJ22ojEhBjUVJdgfERhMi0oqj/kv7QsLYYG2iH5
+        qj8HO2l9OYoLs6HslhoUaRJh4Zy3WZYnvnZKyWDtzFJdGzc2LIdG1Qwts9y46JLLo6PCuYFCafsz328e
+        0FgIYgwSZG5GjT5VC3ctwYR3S4remmw1TkWGok0mWeYp0UKLG9+HBF6pr4mL0VUjiy5gYyED0q6cNwkS
+        lIyh4KLrbHGa5UIXspiuLZ71PIO6rsA6Edt5R0aE2qZrW/O+lNJBDJDSw2adN/tZVW32bUFnuLS4/0vL
+        WG9qk68nyi2qsVQGqaL8S6lYLLaSayl2dn8BMnVC0HWBLcwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelText.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel8.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelText.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="label2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>缺省尺寸</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="tabPage4.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanelNumber.RowCount" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="tableLayoutPanelSize.RowCount" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel7</value>
+  </data>
+  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelCombo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel3.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+    <value>Single</value>
+  </data>
+  <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pictureBox1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,194" /&gt;&lt;Rows Styles="Percent,100,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="panel4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABcAAAAbCAYAAACX6BTbAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAABIxJREFUSEvtVWlTWmcU5lf0Q2f6C5pp2jTN9G/UxFZxxK0xlurYGBVcUcMiiNEQ
+        NbgmtRI0Asou4lUBUcAFuMB1b5xJO2mbTv/C03ORcSku/dgPPTNn7oV7znOee95zniv4492O4M/f9wTv
+        f9tN+1/vD07ueT/77L9nk4YhFAjvoVCYk3ZRQS6EeTmQ1IoR9NuRCRO8HO1BmSgPxcJciPLvQZR3lzwH
+        RZQryr+LQvrN45hej53kCALLdjx7qoRW3QK1sglPutqh1cgwrO9CdIM5CWxuEKNb1YxeOe9N0KlkeNbZ
+        hl5lC3rIdep2VD4QQaOQIhUPHOe9+yWFt0dxbCeDKMj7Csz8NHa5VRwdbqb/TweRaVRSbK26wa3OI7Xi
+        Bhtw0b0HyaAHscAcEiEvRnQKqGQPseY7fWPB/l4Ig3ol3C4DurWNCK05Tx9mTNcrg9vyAhteM3aCLsQX
+        rUgSSNLvQszvBEsF+1SN0HbUIUaF0kmH+2FMGvtht77Em8MNeNyv0NXZCItpFL++ZU+KxKIM1B2PYBzq
+        BkdAySUbOGppwmdDmAqO6eSQVpfANPEce2zwOG/BM4nBASWME/3U91YYxvvQWF+FsuJv8OZg49wbRFZd
+        kMuowGAvOD+1iMDZZSsck3pUf5eH6alBsFu+05yf9yMw0Z9qpQQfffgBan+4D42yEebXIzjYjZwD5629
+        tR7lhV+D4/tMrUn5HbCM61BTWYBw2JMVn7Zk3I/Pb34Mp/UVEtEAjg6iFwaqlM0Ql+ZjZ82LODMLLujG
+        7EQfGmrLkGAzU3KR3bl1E4vzM5cHkGk0bbhPzFPBuTTrZMCJWcO/BF/yzl4JriDmFSVC7EYYxJesYGnR
+        7JPP6Zy+RTK5cnnuF599ci1zlaoV5cVCJGnGEzSKCWJuHn96DJ64AvzL29e3hQcvJYngQvM04w5aqExb
+        6q5hzoMzHvOV4Epa9fIiOlBalBQxZ2nObcYBmrIiJK5j7mOsV4KrifkD/kBpFFM05/yhOqb0qK8pAcv6
+        L8+9/ekNuO1GHO5uXhqkVrRALMrHQYhBatEGlg7VQj1vorak/sk8uuGFvl8BBa32nVs3IHlUgZaGKrwY
+        7rmwgJamRSouA+dzYXvJTlcHXEZiXi0CGzuznbwtMyZMGvqxEZ7HHhdBfNOHbnUbxOWiLHDGM4VBkud1
+        rxX7AQ+2GRu2qTUMCZq64yFcDkM2oWnShh5tC+n3EjrlkjR7j8t4LtC/aEb/ExnmZn5CgtcVhhSRJotn
+        z0+MyzKK1uYqausFBYy0wmPDXdSeGix4prMCOhW1CPttiJLEsj4n6YqNpoU2lCZmi8QrRqI21CdHX48M
+        XHQ5u8CMaYQ+bbbsB2RqZT1CBBSjjwRLE8J7nHSc1/IoLRIPPkLgXfJaRAIZjOUFG5QdUtLwFrpK8Lit
+        Dip5AwZ0KmytnzIY0XejVVIJaWUpGr4vpWsZJFWnXl9VioriXAKXYjO0cJy3x61jZdlJy2NJ6wrvC3Nm
+        +BfPfKrI9ilu0W2C0zwOV8adlmN38G7+MX1dC7gvfPP/jUwg+Bv6MM6d4W6+xwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="tableLayoutPanel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 27</value>
+  </data>
+  <data name="panel6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACEAAAAjCAYAAAAaLGNkAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAodJREFUWEftV11PE0EU7V/izfALiJGPqNEAL0CMUoJYaiT+AV7khcQvEkGUENIY
+        0hAUhdAS5KMRUmgASTASlWd+xDhnuneZnbk7u2zbt57kZLcz9849O3Nn7jTVRBMOiCgeVzbxjILlF8az
+        0xKeV3iWGRCX/3YDRNvJ92VFaSLyix+CTjx8Hxdht7Gev76ImXeTdRWxlJ+zxlMdLi7MT+EZBTaoSdh9
+        W8kFx9vZ+qKC4Gs5fpx9pZx+n/1wCkHepPu62cBE9GPMwtpinI9KhrevX4j3k+OsALQ/HxsRK58XGieA
+        0NtzlxXR0d4mPuWmQwWgI4qxkX7UFyoCS++ZBRFnd1iJJPF4+IG4+HPItuvBiRBROdhILgLJWbW+QuuN
+        FjH1ZkKc/9oL9D0ZeRgIToSII8ehpwK5yG1RCAUxxbqQRCLiblHP3AfNoHwV5f312kREobTzVdUODC5/
+        +tSXcaC/R5web6sADRFBeJod8oOa1JclkYjsaFpkpCOcwwi70cwgKwBcyr1UQWDn2h2hIvRpJaKNnKWJ
+        ygnsf7wTdT8EQF4hSMNE0O6AGCQqEpb80I82Oogwc3pwYs0iELRqXU1UBIQNiD69HiQSgcy+c/uWMuLY
+        1XnTutT8PS8LHFZUkH4ebdUmwrpqGcCXe68BoFAV5Q2JtiYhkQh8lfd6LVTKRQF6P30kqh0S6HAy5kVX
+        Iexig3ZKXgtxEpM7tjlk5VmiBzaJJTSXTyGOCK6KmoCAsFsVEf3qiD+xhahALnJVlAEb2CTsrDtm0irK
+        gA1qEnbWeNiie6VVlTQcqYp65i6wQU3CjvvfURegtty/1+UfcmHEwWj9A6snDvYL7GzqxKx75k14SKX+
+        A/qX5mUgkwNUAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
+    <value>tableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;button2.Name" xml:space="preserve">
+    <value>button2</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="tableLayoutPanel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>660, 38</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 23</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="cboshape.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>660, 481</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 30</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelNumber.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="tableLayoutPanelSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 53</value>
+  </data>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 1</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 26</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel7.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelText.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanelSize.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>缺省数字输入</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelCombo.Name" xml:space="preserve">
+    <value>tableLayoutPanelCombo</value>
+  </data>
+  <data name="&gt;&gt;tabPage4.Name" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>UserControl试样</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="tableLayoutPanel9.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 30</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cboshape.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel6.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="tableLayoutPanel8.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 36</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>660, 481</value>
+  </data>
+  <data name="panel4.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 30</value>
+  </data>
+  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>654, 38</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel7.Name" xml:space="preserve">
+    <value>tableLayoutPanel7</value>
+  </data>
+  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.Name" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel5.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="tableLayoutPanelNumber.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel5.Name" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPage4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>设置缺省文本输入</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>654, 437</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="panel6.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel8.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>451, 53</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>  几何形状：</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="tableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="tableLayoutPanel7.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>654, 437</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel4.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+    <value>Single</value>
+  </data>
+  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>453, 408</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>668, 507</value>
+  </data>
+  <data name="pictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;cboshape.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanelText.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30,Absolute,30" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>660, 262</value>
+  </data>
+  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="panel6.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel9.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+    <value>Single</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel8.Name" xml:space="preserve">
+    <value>tableLayoutPanel8</value>
+  </data>
+  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 4</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelCombo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel6.Parent" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
+  </data>
+  <data name="tableLayoutPanel9.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="tableLayoutPanelSize.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanelSize.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanelText.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanelText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 38</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelSize.Name" xml:space="preserve">
+    <value>tableLayoutPanelSize</value>
+  </data>
+  <data name="label5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanelCombo.RowCount" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>586, 4</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>654, 38</value>
+  </data>
+  <data name="tableLayoutPanelNumber.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="tableLayoutPanelText.RowCount" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel9.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="panel3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAhCAYAAAC4JqlRAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAy5JREFUWEfdl8tPU0EUxtnIH2AwGKKAIXHB0kQSXbiQaPCBiUYjEhFiokFjKsFo
+        XLhwoyGICVGe8iyKUFPKIwUsjwIGEClQoLyUV0UKKH/E55zx3qa3nVsoDBu/5GRub2fu+XU6Z765Yf+V
+        HmXfB2u2FXPTg9TKVXZWJlx9LVvGvYwb6P9ilQ+QZbgrTOgfBNDeWi8f4GEIAE2WGvkAH2qKUJn/QpjU
+        N1KuJsPWbpIP4F4aQ0Z6ijCpGqwbSopeYdTRJR9gfdWF4a82nkSUnKY+L/c5mi1GLP4Y1gI0mKtgNlXo
+        hntxFJsbs0Gp6Xt6sL3TwpP5AySePoXqyrcckmCVYV5xcr343GbC77Vpuub6sz6DDc+U5h6JHjzp7BUC
+        nEtKhLWlFvNzQ5oxXDHRh1BakgdTXRkiIvYjLi4WFWX5ePrEwAGIfO3XpHfg+uoUDA/uYHlhRPMwdZZE
+        AMkXz6LP3oRf7vFAgLSb1zgdLY7IyAOIjTmMT/XlGBpsx4XzZ5Dz8plm4OpPfg3HUEfg/8kkAriUnKS/
+        ATWxhUEt/YKoqIM4EhuNLpsZNNVE3Wat0wykX/446zaPwjc5ARAhA/jKF0C5FSDXeB9Pvuke4G1Pl0UD
+        IR1AZDQqAAV99l3d0gHIaNRkepF+67q3v3QAMhpRUt+gGZlw9mDh+7CwDHcFQEYjSuoblMDxrYPX+Z7M
+        AGs04b8Gykpe790MkGiwtbmWWyntESpAWuplFBfmoruzASvLTizNO3YPwBrY2Pb7706g1DJklzy5WobB
+        dsJtAYyxnTA8fB9/cGV5vm5nZQtGaXEed7cZV7/GYHYEUP/xHRISjiE+/ijfik+eOA7yeOVrjcgdU1Ou
+        sL/DyOvfszKh6bcjAHI356gdzY01eG8sRGNDtX5nJudIt9cLaMtWbofpLcKgZiRZAckpCEq1463OFjsS
+        nQ0MmRnC5GoQRAEzL6oW6RDkF6Kk/kEQZPt0plCGylEoLyZ2VrbKmUKeQnkxaWVrgSpJGSpHob6Y+B/n
+        di2RX+gFvZpJnwEqL4u5mh9mg4WxqoBvSNLXgGdlErNTA8wRe4MG+QhN/4ZnGn8BNoKxU2F/nZ0AAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.Name" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelSize.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel9.Parent" xml:space="preserve">
+    <value>tabPage4</value>
+  </data>
+  <data name="tableLayoutPanel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label6" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,72" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanelNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>453, 408</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelSize.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
 </root>

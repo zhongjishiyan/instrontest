@@ -275,9 +275,38 @@ namespace SampleProject.Extensions
 			//HeaderCell
 			//grid[0,0] = new Cells.Header();
 			for (int i = 0; i < m_Properties.Length; i++)
-			{
-				Cells.ColumnHeader l_Header = new Cells.ColumnHeader(m_Properties[i].Name);
-                
+            {
+                Cells.ColumnHeader l_Header;
+                if (ItemType.Name == "ChartBarTextDefine")
+                {
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        string[] na = { "文档名称", "文档内容", "内部名称" };
+                        l_Header = new Cells.ColumnHeader(na[i]);
+                    }
+                    else
+                    {
+                        string[] na = { "Document name", "Document Value", "Internal name" };
+                        l_Header = new Cells.ColumnHeader(na[i]);
+                    }
+                }
+                else if (ItemType.Name == "ChartBarComboDefine")
+                {
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        string[] na = { "组合框名称", "组合框内容", "选择" };
+                        l_Header = new Cells.ColumnHeader(na[i]);
+                    }
+                    else
+                    {
+                        string[] na = { "Combo name", "Combo value", "Selection" };
+                        l_Header = new Cells.ColumnHeader(na[i]);
+                    }
+                }
+                else
+                {
+                     l_Header = new Cells.ColumnHeader(m_Properties[i].Name);
+                }
 				grid[0, i+grid.FixedColumns] = l_Header;
 
 				l_Header.EnableSort = false;

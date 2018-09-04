@@ -15,6 +15,8 @@ using Spire.Doc.Documents;
 using Spire.Doc.Fields;
 using NationalInstruments.UI;
 using NationalInstruments.UI.WindowsForms;
+
+using System.Reflection;
 namespace TabHeaderDemo
 {
     public partial class UserReport : UserControl
@@ -107,7 +109,29 @@ namespace TabHeaderDemo
             this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
             this.tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel2, true, null);
             this.tableLayoutPanel3.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel3, true, null);
+            treeView1.Nodes.Clear();
 
+            if (GlobeVal.mysys.language == 0)
+            {
+                treeView1.Nodes.Add("报告", "报告");
+                treeView1.Nodes["报告"].StateImageIndex = 0;
+
+                treeView1.Nodes["报告"].Nodes.Add("常规");
+                treeView1.Nodes["报告"].Nodes.Add("页眉");
+                treeView1.Nodes["报告"].Nodes.Add("正文");
+                treeView1.Nodes["报告"].Nodes.Add("页脚");
+            }
+            else
+            {
+                treeView1.Nodes.Add("Report", "Report");
+                treeView1.Nodes["Report"].StateImageIndex = 0;
+
+                treeView1.Nodes["Report"].Nodes.Add("General");
+                treeView1.Nodes["Report"].Nodes.Add("Header");
+                treeView1.Nodes["Report"].Nodes.Add("Body");
+                treeView1.Nodes["Report"].Nodes.Add("Footer");
+
+            }
 
         }
 
@@ -127,19 +151,37 @@ namespace TabHeaderDemo
 
         public void methodon(String t, String parent)
         {
-            if (t == "常规")
+            string _temp = "";
+            if (GlobeVal.mysys.language == 0)
+            {
+                _temp = "常规";
+            }
+            else
+            {
+                _temp = "General";
+            }
+            if (t == _temp )
             {
                 if (CComLibrary.GlobeVal.filesave != null)
                 {
 
-                   
+
                 }
                 UserControl报告常规1.Init(0);
 
 
             }
+            if (GlobeVal.mysys.language == 0)
+            {
+                _temp = "页眉";
+            }
+            else
+            {
+                _temp = "Header";
+            }
 
-            if (t == "页眉")
+
+            if (t == _temp )
             {
                 UserControl报告常规1.Init(1);
 
@@ -154,7 +196,16 @@ namespace TabHeaderDemo
                 */
             }
 
-            if (t == "正文")
+            if (GlobeVal.mysys.language == 0)
+            {
+                _temp = "正文";
+            }
+            else
+            {
+                _temp = "Body";
+            }
+
+            if (t == _temp )
             {
                 UserControl报告常规1.Init(2);
 
@@ -169,7 +220,16 @@ namespace TabHeaderDemo
                  */
             }
 
-            if (t == "页脚")
+            if (GlobeVal.mysys.language == 0)
+            {
+                _temp = "页脚";
+            }
+            else
+            {
+                _temp = "Footer";
+            }
+
+            if (t == _temp)
             {
                 UserControl报告常规1.Init(3);
 
@@ -224,7 +284,7 @@ namespace TabHeaderDemo
         {
             GlobeVal.muserreport = this;
             UserControl报告常规1 = new UserControl报告常规();
-           
+
 
 
             SetStyle(ControlStyles.UserPaint, true);
@@ -238,14 +298,14 @@ namespace TabHeaderDemo
             UserControl报告常规1.Dock = DockStyle.Fill;
             panelback.Controls.Add(UserControl报告常规1);
             panelback.Visible = true;
-           
-                if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate) == true)
-                {
-                    mcurfilename = CComLibrary.GlobeVal.filesave.ReportTemplate;
-                    mReportApp = mReportApp.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate);
 
-                }
-            
+            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate) == true)
+            {
+                mcurfilename = CComLibrary.GlobeVal.filesave.ReportTemplate;
+                mReportApp = mReportApp.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + CComLibrary.GlobeVal.filesave.ReportTemplate);
+
+            }
+
             treeView1.SelectedNode = treeView1.Nodes[0];
 
 
@@ -385,7 +445,8 @@ namespace TabHeaderDemo
 
             String[] header = new String[CComLibrary.GlobeVal.filesave.mtablecol1.Count + 1];
 
-            header[0] = "序号";
+            header[0] = CComLibrary.GlobeVal.filesave.dt.Columns[0].ColumnName; //_序号
+
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
             {
                 header[i + 1] = CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname + "(" +
@@ -479,10 +540,19 @@ namespace TabHeaderDemo
                         }
                         else
                         {
-
-                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "最小值")
+                            string _temp = "";
+                            if (GlobeVal.mysys.language ==0)
                             {
-                               // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
+                                _temp = "最小值";
+                            }
+                            else
+                            {
+                                _temp = "Min";
+                            }
+
+                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == _temp )
+                            {
+                                // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
                                 int a = 0;
                                 for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
                                 {
@@ -501,7 +571,16 @@ namespace TabHeaderDemo
                                 CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
 
                             }
-                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "最大值")
+                            if (GlobeVal.mysys.language == 0)
+                            {
+                                _temp = "最大值";
+                            }
+                            else
+                            {
+                                _temp = "Max";
+                            }
+
+                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == _temp )
                             {
                                 // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("max(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
                                 int a = 0;
@@ -521,7 +600,17 @@ namespace TabHeaderDemo
                                 t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("max(" + "@temp" + ")", ""));
                                 CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
                             }
-                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "平均值")
+
+                            if (GlobeVal.mysys.language == 0)
+                            {
+                                _temp = "平均值";
+                            }
+                            else
+                            {
+                                _temp = "Average";
+                            }
+
+                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname ==_temp)
                             {
                                 // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("avg(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
 
@@ -543,7 +632,18 @@ namespace TabHeaderDemo
                                 CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
 
                             }
-                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "标准偏差")
+
+                            if (GlobeVal.mysys.language == 0)
+                            {
+                                _temp = "标准偏差";
+                            }
+                            else
+                            {
+                                _temp = "Standard deviation";
+                            }
+
+
+                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname ==_temp)
                             {
                                 //  t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("StDev(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
                                 int a = 0;
@@ -564,7 +664,17 @@ namespace TabHeaderDemo
                                 CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
 
                             }
-                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname == "方差")
+                            if (GlobeVal.mysys.language == 0)
+                            {
+                                _temp = "方差";
+                            }
+                            else
+                            {
+                                _temp = "Variance";
+                            }
+
+
+                            if (CComLibrary.GlobeVal.filesave.mtable1statistics[i - 1].formulaname ==_temp)
                             {
                                 //  t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("Var(" + CComLibrary.GlobeVal.filesave.mtablecol1[j].formulaname + ")", ""));
                                 int a = 0;
@@ -850,13 +960,35 @@ namespace TabHeaderDemo
                     text.CharacterFormat.FontSize = mReportApp.mreportbody[i].font.Size;
                     text.CharacterFormat.Italic = mReportApp.mreportbody[i].font.Italic;
                     text.CharacterFormat.Bold = mReportApp.mreportbody[i].font.Bold;
+                    string _temp = "";
 
-                    if (mReportApp.mreportbody[i].Name == "曲线图1")
+                    
+
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        _temp = "曲线图1";
+                    }
+                    else
+                    {
+                        _temp = "Graph 1";
+
+                    }
+
+                    if (mReportApp.mreportbody[i].Name == _temp)
                     {
                         InsertImage(section, 1);
                     }
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        _temp = "曲线图2";
+                    }
+                    else
+                    {
+                        _temp = "Graph 2";
 
-                    if (mReportApp.mreportbody[i].Name == "曲线图2")
+                    }
+
+                    if (mReportApp.mreportbody[i].Name == _temp)
                     {
                         InsertImage(section, 2);
                     }
@@ -880,12 +1012,36 @@ namespace TabHeaderDemo
                     text.CharacterFormat.Italic = mReportApp.mreportbody[i].font.Italic;
                     text.CharacterFormat.Bold = mReportApp.mreportbody[i].font.Bold;
 
-                    if (mReportApp.mreportbody[i].Name == "结果表格1")
+                    string _temp = "";
+
+
+
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        _temp = "结果表格1";
+                    }
+                    else
+                    {
+                        _temp = "Results 1";
+
+                    }
+
+                    if (mReportApp.mreportbody[i].Name ==_temp )
                     {
                         addTable(section, 1);
                     }
 
-                    if (mReportApp.mreportbody[i].Name == "结果表格2")
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        _temp = "结果表格2";
+                    }
+                    else
+                    {
+                        _temp = "Results 2";
+
+                    }
+
+                    if (mReportApp.mreportbody[i].Name == _temp)
                     {
                         addTable(section, 2);
                     }
@@ -1034,6 +1190,7 @@ namespace TabHeaderDemo
 
                 UserControl报告常规1.printPreviewControl1.Document = document.PrintDocument;
 
+                UserControl报告常规1.printPreviewControl1.Zoom = 1;
 
                 UserControl报告常规1.printPreviewControl1.InvalidatePreview();
             }
@@ -1067,7 +1224,16 @@ namespace TabHeaderDemo
             }
             else
             {
-                MessageBox.Show("请先打印预览");
+
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("请先打印预览");
+                }
+                else
+                {
+
+                    MessageBox.Show("Please choose preview first.");
+                }
             }
 
 
@@ -1093,8 +1259,16 @@ namespace TabHeaderDemo
             }
             else
             {
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("请先打印预览");
+                }
+                else
+                {
 
-                MessageBox.Show("请先打印预览");
+                    MessageBox.Show("Please choose preview first.");
+                }
+                
             }
 
         }
@@ -1161,7 +1335,7 @@ namespace TabHeaderDemo
                 btnsaveas.Visible = false;
             }
 
-            else if (GlobeVal.UserControlMain1.btnmmethod.Visible ==true)
+            else if (GlobeVal.UserControlMain1.btnmmethod.Visible == true)
             {
                 btnopen.Visible = false;
                 btnsave.Visible = true;
@@ -1180,6 +1354,7 @@ namespace TabHeaderDemo
         {
             this.openFileDialog1.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\";
             this.openFileDialog1.AddExtension = true;
+
             this.openFileDialog1.Filter = "试验报告模板文件(*.it)|*.it";
             this.openFileDialog1.FileName = "";
             this.openFileDialog1.ShowDialog(this);
@@ -1199,15 +1374,15 @@ namespace TabHeaderDemo
                 else
                 {
 
-                    mcurfilename = System.IO.Path.GetFileName( fileName);
+                    mcurfilename = System.IO.Path.GetFileName(fileName);
                     mReportApp = mReportApp.DeSerializeNow(fileName);
 
-                  
+
 
                     UserControl报告常规1.Init(0);
-                  
-                    
-                   
+
+
+
 
                     panelback.Visible = false;
                     panelback.Controls.Clear();
@@ -1215,7 +1390,7 @@ namespace TabHeaderDemo
                     panelback.Controls.Add(UserControl报告常规1);
                     panelback.Visible = true;
 
-                 
+
 
                     treeView1.SelectedNode = treeView1.Nodes[0];
 
@@ -1244,7 +1419,7 @@ namespace TabHeaderDemo
             else
             {
                 mcurfilename = System.IO.Path.GetFileName(saveFileDialog1.FileName);
-                mReportApp.SerializeNow(saveFileDialog1.FileName );
+                mReportApp.SerializeNow(saveFileDialog1.FileName);
 
                 UserControl报告常规1.rtxttemplatename.Text = mcurfilename;
             }
@@ -1253,6 +1428,489 @@ namespace TabHeaderDemo
         private void btnsave_Click(object sender, EventArgs e)
         {
             mReportApp.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\" + mcurfilename);
+        }
+    
+        private static BindingFlags s_flag = BindingFlags.Instance | BindingFlags.Public;
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            bool printed = false;
+
+
+            
+            //生成一个类t。
+            Type t = ClassHelper.BuildType("MyClass");
+          
+
+         
+            //先定义两个属性。
+            List<ClassHelper.CustPropertyInfo> lcpi = new List<ClassHelper.CustPropertyInfo>();
+            ClassHelper.CustPropertyInfo cpi;
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
+            {
+                cpi = new ClassHelper.CustPropertyInfo("System.String",CComLibrary.GlobeVal.filesave.minputtext[i].intername);
+                lcpi.Add(cpi);
+            }
+
+            cpi = new ClassHelper.CustPropertyInfo("System.String", "_Curve");
+            lcpi.Add(cpi);
+
+            //再加入上面定义的两个属性到我们生成的类t。
+            t = ClassHelper.AddProperty(t, lcpi);
+
+
+            object o = ClassHelper.CreateInstance(t);
+
+             
+
+
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
+            {
+                Type type =t;
+                PropertyInfo[] properties = type.GetProperties(s_flag);
+                foreach (PropertyInfo prop in properties)
+                {
+                    if (prop.Name == CComLibrary.GlobeVal.filesave.minputtext[i].intername)
+                    {
+                       
+
+                        prop.SetValue(o,CComLibrary.GlobeVal.filesave.minputtext[i].value,null);
+                    }
+                }
+            }
+
+
+
+
+           
+
+            document.Sections.Clear();
+            document = new Document(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\report\\学生试验报告模板.docx");
+
+            //清除表单域阴影
+            document.Properties.FormFieldShading = false;
+            
+            try
+            {
+                Type type = t;
+                PropertyInfo[] properties = type.GetProperties(s_flag);
+                int length = properties.Length;
+                Dictionary<string, PropertyInfo> dict = new Dictionary<string, PropertyInfo>(length, StringComparer.OrdinalIgnoreCase);
+                foreach (PropertyInfo prop in properties)
+                {
+                    dict[prop.Name] = prop;
+                }
+                object value = null;
+
+                for (int i = 0; i < document.Sections.Count; i++)
+                {
+                    foreach (FormField field in document.Sections[i].Body.FormFields)
+                    {
+                        //field.name对应设置模版文本域名称
+                        
+                      
+                        
+
+                        PropertyInfo prop = dict[field.Name];
+
+                        if (prop != null)
+                        {
+                            value = prop.GetValue(o, null);
+                            if (value != null && value != DBNull.Value)
+                            {
+                              
+                                switch (field.Type)
+                                {
+                                    case FieldType.FieldFormTextInput:
+                                        field.Text = value.ToString();
+
+                                        
+
+
+                                        break;
+                                        
+                                       
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (field.Name == "_Curve")
+                        {
+                         
+
+                            field.Text = " ";
+                          
+
+                            GlobeVal.UserControlGraph1.scatterGraph.ToFile(@"d:\a.bmp", NationalInstruments.UI.ImageType.Bmp);
+                          
+                            DocPicture p = field.OwnerParagraph.AppendPicture(Image.FromFile(@"d:\a.bmp"));
+                            
+                            p.VerticalAlignment = ShapeVerticalAlignment.None;
+                            p.HorizontalAlignment = ShapeHorizontalAlignment.None;
+                            p.VerticalPosition = 0;
+                            p.HorizontalPosition = 0;
+
+                            for (int mm = 0; mm < document.Sections.Count; mm++)
+                            {
+                                for (int nn = 0; nn < document.Sections[mm].Tables.Count; nn++)
+                                {
+                                    for (i = 0; i < document.Sections[mm].Tables[nn].Rows.Count; i++)
+                                    {
+                                        for (int j = 0; j < document.Sections[mm].Tables[nn].Rows[i].Cells.Count; j++)
+
+                                            for (int k = 0; k < document.Sections[mm].Tables[nn].Rows[i].Cells[j].FormFields.Count; k++)
+                                            {
+                                                if (document.Sections[mm].Tables[nn].Rows[i].Cells[j].FormFields[k].Name == field.Name)
+                                                {
+
+                                                    p.Width = document.Sections[mm].Tables[nn].Rows[i].Cells[j].Width -
+                                                        TextRenderer.MeasureText(field.Text, this.Font).Width;
+
+                                                    p.Height = document.Sections[mm].Tables[nn].Rows[i].Height;
+
+
+                                                }
+                                            }
+
+                                    }
+                                }
+                            }
+                           
+                        }
+
+
+                    }
+
+
+                    
+                }
+
+                /*
+                DocPicture picture = document.Sections[0].Tables[0].Rows[1].Cells[1].Paragraphs[0].AppendPicture(Image.FromFile(@"d\a.bmp"));
+                //设置图片的宽度和高度
+                picture.Width = 100;
+                picture.Height = 100;
+                */
+
+                
+
+
+                for (int mm = 0; mm < document.Sections.Count; mm++)
+                {
+                    for (int nn = 0; nn < document.Sections[mm].Tables.Count; nn++)
+                    {
+                        for (int k = 0; k < document.Sections[mm].Tables[nn].Rows.Count; k++)
+                        {
+                            for (int j = 0; j < document.Sections[mm].Tables[nn].Rows[k].Cells.Count; j++)
+
+                            {
+                                if (Convert.ToString(document.Sections[mm].Tables[nn].Rows[k].Cells[j].Paragraphs[0].Text) == "试验前需测量数据")
+                                {
+
+                                    float tw = document.Sections[mm].Tables[nn].Rows[k].Cells[j + 1].Width;
+                                    float l = document.Sections[mm].Tables[nn].Rows[k].Cells[j + 1].CellFormat.Borders.Right.LineWidth;
+                                    document.Sections[mm].Tables[nn].Rows[k].Cells.RemoveAt(j+1);
+
+
+                                    TableCell tc=new TableCell(document);
+
+
+                                    for (int pp = 0; pp <3; pp++)
+                                    {
+                                         tc = new TableCell(document);
+                                        document.Sections[mm].Tables[nn].Rows[k].Cells.Insert(j+1+pp,tc);
+                                        tc.Width = tw / 3;
+                                        tc.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+
+                                        tc.AddParagraph().Text = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[pp].cName +
+                                            "[" +
+                                            CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[pp].cUnits[0] +"]";
+
+                                           
+
+                                    }
+                                   tc.CellFormat.Borders.Right.LineWidth = l;
+
+                                    break;
+                                   
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                for (int mm = 0; mm < document.Sections.Count; mm++)
+                {
+                    for (int nn = 0; nn < document.Sections[mm].Tables.Count; nn++)
+                    {
+                        for (int k = 0; k < document.Sections[mm].Tables[nn].Rows.Count; k++)
+                        {
+                            for (int j = 0; j < document.Sections[mm].Tables[nn].Rows[k].Cells.Count; j++)
+
+                            {
+                                if (Convert.ToString(document.Sections[mm].Tables[nn].Rows[k].Cells[j].Paragraphs[0].Text) == "试验前需测量数据")
+                                {
+
+                                    float tw = document.Sections[mm].Tables[nn].Rows[k+1].Cells[j + 1].Width;
+                                    float l = document.Sections[mm].Tables[nn].Rows[k+1].Cells[j + 1].CellFormat.Borders.Right.LineWidth;
+                                    document.Sections[mm].Tables[nn].Rows[k+1].Cells.RemoveAt(j + 1);
+
+
+                                    TableCell tc = new TableCell(document);
+
+
+                                    for (int pp = 0; pp < 3; pp++)
+                                    {
+                                        tc = new TableCell(document);
+                                        document.Sections[mm].Tables[nn].Rows[k+1].Cells.Insert(j + 1 + pp, tc);
+                                        tc.Width = tw / 3;
+                                        tc.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+
+                                        tc.AddParagraph().Text = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[pp].cvalue.ToString()
+                                           ;
+
+
+
+                                    }
+                                    tc.CellFormat.Borders.Right.LineWidth = l;
+
+                                    break;
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                for (int mm = 0; mm < document.Sections.Count; mm++)
+                {
+                    for (int nn = 0; nn < document.Sections[mm].Tables.Count; nn++)
+                    {
+                        for (int k = 0; k < document.Sections[mm].Tables[nn].Rows.Count; k++)
+                        {
+                            for (int j = 0; j < document.Sections[mm].Tables[nn].Rows[k].Cells.Count; j++)
+
+                            {
+                                if (Convert.ToString(document.Sections[mm].Tables[nn].Rows[k].Cells[j].Paragraphs[0].Text) == "试验后需测量数据")
+                                {
+
+                                    float tw = document.Sections[mm].Tables[nn].Rows[k].Cells[j + 1].Width;
+
+                                    float  l = document.Sections[mm].Tables[nn].Rows[k].Cells[j + 1].CellFormat.Borders.Right.LineWidth;
+                                    document.Sections[mm].Tables[nn].Rows[k].Cells.RemoveAt(j + 1);
+
+
+                                    TableCell tc = new TableCell(document);
+
+
+                                    for (int pp = 3; pp < 6; pp++)
+                                    {
+                                        tc = new TableCell(document);
+                                        document.Sections[mm].Tables[nn].Rows[k].Cells.Insert(j + 1 + pp-3, tc);
+                                        tc.Width = tw / 3;
+                                        tc.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+
+                                        tc.AddParagraph().Text = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[pp].cName+
+                                            "["+
+                                            CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[pp].cUnits[0]+"]";
+
+
+                                    }
+                                    tc.CellFormat.Borders.Right.LineWidth = l;
+
+                                    break;
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                for (int mm = 0; mm < document.Sections.Count; mm++)
+                {
+                    for (int nn = 0; nn < document.Sections[mm].Tables.Count; nn++)
+                    {
+                        for (int k = 0; k < document.Sections[mm].Tables[nn].Rows.Count; k++)
+                        {
+                            for (int j = 0; j < document.Sections[mm].Tables[nn].Rows[k].Cells.Count; j++)
+
+                            {
+                                if (Convert.ToString(document.Sections[mm].Tables[nn].Rows[k].Cells[j].Paragraphs[0].Text) == "试验后需测量数据")
+                                {
+
+                                    float tw = document.Sections[mm].Tables[nn].Rows[k+1].Cells[j + 1].Width;
+
+                                    float l = document.Sections[mm].Tables[nn].Rows[k+1].Cells[j + 1].CellFormat.Borders.Right.LineWidth;
+                                    document.Sections[mm].Tables[nn].Rows[k+1].Cells.RemoveAt(j + 1);
+
+
+                                    TableCell tc = new TableCell(document);
+
+
+                                    for (int pp = 3; pp < 6; pp++)
+                                    {
+                                        tc = new TableCell(document);
+                                        document.Sections[mm].Tables[nn].Rows[k+1].Cells.Insert(j + 1 + pp - 3, tc);
+                                        tc.Width = tw / 3;
+                                        tc.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+
+                                        tc.AddParagraph().Text = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[pp].cvalue.ToString() ;
+
+
+                                    }
+                                    tc.CellFormat.Borders.Right.LineWidth = l;
+
+                                    break;
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                if (CComLibrary.GlobeVal.filesave.mtablecol1.Count > 0)
+                {
+
+                    for (int mm = 0; mm < document.Sections.Count; mm++)
+                    {
+                        for (int nn = 0; nn < document.Sections[mm].Tables.Count; nn++)
+                        {
+                            for (int k = 0; k < document.Sections[mm].Tables[nn].Rows.Count; k++)
+                            {
+                                for (int j = 0; j < document.Sections[mm].Tables[nn].Rows[k].Cells.Count; j++)
+
+                                {
+                                    if (Convert.ToString(document.Sections[mm].Tables[nn].Rows[k].Cells[j].Paragraphs[0].Text) == CComLibrary.GlobeVal.filesave.dt.Columns[0].ColumnName)  //_序号
+                                    {
+
+                                        float tw = document.Sections[mm].Tables[nn].Rows[k].Cells[j + 1].Width;
+                                        document.Sections[mm].Tables[nn].Rows[k].Cells.RemoveAt(1);
+
+                                        TableCell tc = new TableCell(document);
+                                        for (int pp = 0; pp < CComLibrary.GlobeVal.filesave.mtablecol1.Count; pp++)
+                                        {
+                                            tc = document.Sections[mm].Tables[nn].Rows[k].AddCell();
+                                            tc.Width = tw / CComLibrary.GlobeVal.filesave.mtablecol1.Count;
+                                            tc.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+
+                                            tc.AddParagraph().Text =  CComLibrary.GlobeVal.filesave.mtablecol1[pp].formulaname + "(" +
+                                                CComLibrary.GlobeVal.filesave.mtablecol1[pp].formulaunit + ")";
+
+                                            
+
+                                        }
+                                        tc.CellFormat.Borders.Right.LineWidth = 3;
+
+                                        break;
+                                        /*
+                                        Spire.Doc.Table tb;
+
+                                        tb = document.Sections[mm].Tables[nn].Rows[k].Cells[j + 1].AddTable(true);
+                                        tb.ResetCells(1, 6);*/
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    for (int mm = 0; mm < document.Sections.Count; mm++)
+                    {
+                        for (int nn = 0; nn < document.Sections[mm].Tables.Count; nn++)
+                        {
+                            for (int k = 0; k < document.Sections[mm].Tables[nn].Rows.Count; k++)
+                            {
+                                for (int j = 0; j < document.Sections[mm].Tables[nn].Rows[k].Cells.Count; j++)
+
+                                {
+                                    if (Convert.ToString(document.Sections[mm].Tables[nn].Rows[k].Cells[j].Paragraphs[0].Text) == CComLibrary.GlobeVal.filesave.dt.Columns[0].ColumnName)  //_序号
+                                    {
+
+                                        float tw = document.Sections[mm].Tables[nn].Rows[k+1].Cells[j + 1].Width;
+                                        document.Sections[mm].Tables[nn].Rows[k+1].Cells.RemoveAt(1);
+
+                                        TableCell tc = new TableCell(document);
+                                        for (int pp = 0; pp < CComLibrary.GlobeVal.filesave.mtablecol1.Count; pp++)
+                                        {
+                                            tc = document.Sections[mm].Tables[nn].Rows[k+1].AddCell();
+                                            tc.Width = tw / CComLibrary.GlobeVal.filesave.mtablecol1.Count;
+                                            tc.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+
+                                            tc.AddParagraph().Text = CComLibrary.GlobeVal.filesave.dt.Rows[0][CComLibrary.GlobeVal.filesave.mtablecol1[pp].formulaname].ToString();
+
+
+
+                                        }
+                                        tc.CellFormat.Borders.Right.LineWidth = 3;
+
+                                        break;
+                                        /*
+                                        Spire.Doc.Table tb;
+
+                                        tb = document.Sections[mm].Tables[nn].Rows[k].Cells[j + 1].AddTable(true);
+                                        tb.ResetCells(1, 6);*/
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+
+
+
+                document.SaveToFile(@"d:\DocXResume.docx", FileFormat.Docx);
+
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dialog.AllowCurrentPage = true;
+            dialog.AllowSomePages = true;
+            dialog.UseEXDialog = true;
+
+
+
+            dialog.PrinterSettings.DefaultPageSettings.Landscape = mReportApp.Landscape;
+
+
+
+            document.PrintDialog = dialog;
+
+
+
+            if (printed == false)
+            {
+
+                UserControl报告常规1.printPreviewControl1.Document = document.PrintDocument;
+
+                UserControl报告常规1.printPreviewControl1.Zoom = 1;
+
+                UserControl报告常规1.printPreviewControl1.InvalidatePreview();
+            }
+            else
+            {
+                document.PrintDialog = dialog;
+
+
+                document.PrintDocument.Print();
+
+            }
         }
     }
 }

@@ -92,6 +92,9 @@ namespace TabHeaderDemo
         {
             InitializeComponent();
             treeView1.mimagelist = imageList2;
+            treeView1.StateImageList = imageList1;
+            treeView1.Nodes[0].StateImageIndex = 0;
+            treeView1.Nodes[1].StateImageIndex = 1;
             tabControl1.ItemSize = new Size(1, 1);
 
             SetStyle(ControlStyles.UserPaint, true);
@@ -184,22 +187,52 @@ namespace TabHeaderDemo
 
         public void methodon(String t, String parent)
         {
-            if (t == "选择方法")
+            string sname = "";
+
+            if (GlobeVal.mysys.language ==0)
             {
-                btnenext.Visible = true;
-                btneopen.Visible = true;
-                btneback.Visible = false;
-                tabControl1.SelectedIndex = 0;
+
+                if (t == "选择方法")
+                {
+                    btnenext.Visible = true;
+                    btneopen.Visible = true;
+                    btneback.Visible = false;
+                    tabControl1.SelectedIndex = 0;
+
+                }
+
+                if (t == "选择样品")
+                {
+                    btnenext.Visible = true;
+                    btneopen.Visible = true;
+                    btneback.Visible = false;
+                    tabControl1.SelectedIndex = 2;
+                }
 
             }
 
-            if (t == "选择样品")
+            else
             {
-                btnenext.Visible = true;
-                btneopen.Visible = true;
-                btneback.Visible = false;
-                tabControl1.SelectedIndex = 2;
+
+                if (t == "Select Method")
+                {
+                    btnenext.Visible = true;
+                    btneopen.Visible = true;
+                    btneback.Visible = false;
+                    tabControl1.SelectedIndex = 0;
+
+                }
+
+                if (t == "Select Sample")
+                {
+                    btnenext.Visible = true;
+                    btneopen.Visible = true;
+                    btneback.Visible = false;
+                    tabControl1.SelectedIndex = 2;
+                }
             }
+
+            
         }
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -222,7 +255,7 @@ namespace TabHeaderDemo
             string s;
 
 
-            if (newfile ==true)
+            if (newfile == true)
             {
                 CComLibrary.GlobeVal.continuetest = false;
             }
@@ -257,7 +290,7 @@ namespace TabHeaderDemo
                 }
             }
 
-          
+
 
             if (CComLibrary.GlobeVal.filesave.mwizard == true)
             {
@@ -309,8 +342,8 @@ namespace TabHeaderDemo
 
                 GlobeVal.userControltest1.tableLayoutPanelTop.Visible = false;
 
-                
-              
+
+
 
                 GlobeVal.userControltest1.splitContainer1.SplitterDistance = 100;
 
@@ -343,7 +376,7 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    GlobeVal.userControltest1.OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
+                    GlobeVal.userControltest1.OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\default.lay");
                 }
 
                 GlobeVal.dynset.Dock = DockStyle.Fill;
@@ -377,7 +410,7 @@ namespace TabHeaderDemo
                 }
 
 
-                GlobeVal.userControltest1.Visible = true ;
+                GlobeVal.userControltest1.Visible = true;
                 GlobeVal.userControltest1.Visible = false;
                 GlobeVal.dynset.tlbetest.ResetSizeAndSizeTypes();
                 /*
@@ -402,24 +435,36 @@ namespace TabHeaderDemo
             else
             {
                 GlobeVal.userControlmethod1.OpenTheMethodSilently(GlobeVal.userControlpretest1.gfilename);
-             
+
             }
 
             if (newfile == true)
             {
                 if (CComLibrary.GlobeVal.filesave.mwizard == true)
                 {
-                  
+
                 }
                 CComLibrary.GlobeVal.filesave.InitTable();
             }
 
+            if (GlobeVal.mysys.language == 0)
+            {
+                GlobeVal.MainStatusStrip.Items["tslblkind"].Text = "试验类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
 
-            GlobeVal.MainStatusStrip.Items["tslblkind"].Text = "试验类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
+                GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "样品：" + Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
 
-            GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "样品：" + Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
+                GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "方法:" + CComLibrary.GlobeVal.filesave.methodname;
+            }
+            else
+            {
+                GlobeVal.MainStatusStrip.Items["tslblkind"].Text = "Test type" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind];
 
-            GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "方法:" + CComLibrary.GlobeVal.filesave.methodname;
+                GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "Sample:" + Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
+
+                GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "Method:" + CComLibrary.GlobeVal.filesave.methodname;
+
+            }
+        
 
             GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
 
@@ -440,7 +485,7 @@ namespace TabHeaderDemo
                     }
                     else
                     {
-                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\拉伸2演示.txt");
+                        GlobeVal.myarm.readdemo(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\tensile2demo.txt");
                     }
                 }
 
@@ -459,18 +504,38 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    MessageBox.Show("数据保存路径不存在,请点击浏览选择试验路径");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("样品保存路径不存在,请点击浏览选择路径");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The save path of the sample file does not exist. Please click Browse to select the path.");
+                    }
                     return;
                 }
                 if (GlobeVal.mysys.SamplePath == "")
                 {
-                    MessageBox.Show("请设置数据保存路径");
-
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("请设置样品保存路径");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please set up the save path for the sample.");
+                    }
                     return;
                 }
                 if (txtsample.Text.Trim() == "")
                 {
-                    MessageBox.Show("请先读取样品文件");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("请先读取样品文件");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please read the sample file first.");
+                    }
                     return;
                 }
               
@@ -490,7 +555,14 @@ namespace TabHeaderDemo
             {
                 if (txtmethod.Text.Trim() == "")
                 {
-                    MessageBox.Show("请先读取试验方法");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("请先读取试验方法");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please read the test method first.");
+                    }
                     return;
                 }
                 tabControl1.SelectedIndex = 1;
@@ -505,8 +577,14 @@ namespace TabHeaderDemo
 
                 if (txtsamplename.Text.Trim() == "")
                 {
-
-                    MessageBox.Show("样品文件名不能为空");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("样品文件名不能为空");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please input sample file name.");
+                    }
                     return;
                 }
                 if (System.IO.Directory.Exists(GlobeVal.mysys.SamplePath))
@@ -514,13 +592,26 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    MessageBox.Show("数据保存路径不存在,请点击浏览选择试验路径");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("样品文件保存路径不存在,请点击浏览选择保存路径");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The save path of the sample file does not exist. Please click Browse to choose the save path.");
+                    }
                     return;
                 }
                 if (GlobeVal.mysys.SamplePath == "")
                 {
-                    MessageBox.Show("请设置数据保存路径");
-
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("请设置样品文件保存路径");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please set up the save path for sample files.");
+                    }
                     return;
                 }
                
@@ -531,8 +622,16 @@ namespace TabHeaderDemo
 
                 if (File.Exists(GlobeVal.spefilename)==true)
                 {
-                    DialogResult r = MessageBox.Show("相同文件名数据已经存在，是否覆盖？", "提示", MessageBoxButtons.YesNo);
-                    
+                    DialogResult r;
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        r = MessageBox.Show("相同样品文件已经存在，是否覆盖？", "提示", MessageBoxButtons.YesNo);
+                    }
+                    else
+                    {
+                        r = MessageBox.Show("The same sample file already exists. Is it covered ?", "Tips", MessageBoxButtons.YesNo);
+                        
+                    }
                     if (r == DialogResult.Yes)
                     {
 
@@ -573,7 +672,14 @@ namespace TabHeaderDemo
                     }
                     else
                     {
-                        MessageBox.Show("方法不存在");
+                        if (GlobeVal.mysys.language == 0)
+                        {
+                            MessageBox.Show("方法文件不存在");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Method files do not exist.");
+                        }
                         return;
                     }
 
@@ -655,7 +761,14 @@ namespace TabHeaderDemo
 
                 else
                 {
-                    MessageBox.Show("请选择最近使用的试验方法");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("请选择最近使用的试验方法");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select the method file recently used.");
+                    }
                 }
 
             }
@@ -675,7 +788,14 @@ namespace TabHeaderDemo
                     }
                     else
                     {
-                        MessageBox.Show("样品文件不存在");
+                        if (GlobeVal.mysys.language == 0)
+                        {
+                            MessageBox.Show("样品文件不存在");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sample files do not exist.");
+                        }
                         return;
                     }
 
@@ -751,7 +871,14 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    MessageBox.Show("请选择最近使用的样本");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("请选择最近使用的样品文件");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select the sample file recently used.");
+                    }
                 }
 
             }
@@ -767,7 +894,15 @@ namespace TabHeaderDemo
                 controlex.DefaultViewMode = FolderViewMode.Details;
                 controlex.OpenDialog.InitialDirectory = lblpath.Text;
                 controlex.OpenDialog.AddExtension = true;
-                controlex.OpenDialog.Filter = "样品文件(*.spe)|*.spe";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    controlex.OpenDialog.Filter = "样品文件(*.spe)|*.spe";
+                }
+                else
+                {
+                    controlex.OpenDialog.Filter = "Sample Files(*.spe)|*.spe";
+
+                }
                 controlex.ShowDialog(this);
 
                 if (controlex.OpenDialog.FileName == null)
@@ -874,12 +1009,15 @@ namespace TabHeaderDemo
                 controlex.DefaultViewMode = FolderViewMode.Details;
                 controlex.OpenDialog.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method";
                 controlex.OpenDialog.AddExtension = true;
-                controlex.OpenDialog.Filter = "试验方法文件(*.dat)|*.dat";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    controlex.OpenDialog.Filter = "试验方法文件(*.dat)|*.dat";
+                }
+                else
+                {
+                    controlex.OpenDialog.Filter = "Method Files(*.dat)|*.dat";
+                }
                 controlex.ShowDialog(this);
-
-
-
-
 
                 if (controlex.OpenDialog.FileName == null)
                 {

@@ -198,24 +198,7 @@ namespace TabHeaderDemo
             btnebefore.Enabled = false;
             btneafter.Enabled = true;
         }
-        private void button4_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button4_MouseUp(object sender, MouseEventArgs e)
-        {
-            DialogResult a;
-            a = MessageBox.Show("是否要使用相同的试样参数开始另外一个新样品？", "开始另外一个新样品？", MessageBoxButtons.YesNo);
-            if (a == DialogResult.Yes)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
+     
 
         private void drawFigure(PaintEventArgs e, PointF[] points)
         {
@@ -407,17 +390,17 @@ namespace TabHeaderDemo
                 m.Text = (i + 1).ToString();
                 lstspe.Items.Add(m);
 
-                if (CComLibrary.GlobeVal.filesave.dt.Rows[i]["试样状态"] == null)
+                if (CComLibrary.GlobeVal.filesave.dt.Rows[i]["SpeStatus"] == null)
                 {
-                    CComLibrary.GlobeVal.filesave.dt.Rows[i]["试样状态"] = CComLibrary.TestStatus.Untested;
+                    CComLibrary.GlobeVal.filesave.dt.Rows[i]["SpeStatus"] = CComLibrary.TestStatus.Untested;
                 }
 
-                if (CComLibrary.GlobeVal.filesave.dt.Rows[i]["试样状态"] is System.DBNull)
+                if (CComLibrary.GlobeVal.filesave.dt.Rows[i]["SpeStatus"] is System.DBNull)
                 {
-                    CComLibrary.GlobeVal.filesave.dt.Rows[i]["试样状态"] = CComLibrary.TestStatus.Untested;
+                    CComLibrary.GlobeVal.filesave.dt.Rows[i]["SpeStatus"] = CComLibrary.TestStatus.Untested;
                 }
 
-                m.Image = imageList2.Images[Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[i]["试样状态"])];
+                m.Image = imageList2.Images[Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[i]["SpeStatus"])];
             }
             if (GlobeVal.UserControlResult1 != null)
             {
@@ -496,7 +479,7 @@ namespace TabHeaderDemo
 
         public void OpenDefaultlayout(string filename)
         {
-
+            string _temp = "";
 
 
             CComLibrary.FileLayoutStruct f = new CComLibrary.FileLayoutStruct();
@@ -517,7 +500,16 @@ namespace TabHeaderDemo
             {
                 if (f.Show[k] == true)
                 {
-                    if (f.ItemName[k] == "曲线图1")
+                    _temp = "";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        _temp = "曲线图1";
+                    }
+                    else
+                    {
+                        _temp = "Graph 1";
+                    }
+                    if (f.ItemName[k] ==_temp )
                     {
                         UserControlGraph ug = new UserControlGraph();
                         ug.Visible = true;
@@ -532,8 +524,16 @@ namespace TabHeaderDemo
 
 
                     }
-
-                    if (f.ItemName[k] == "曲线图2")
+                    _temp = "";
+                    if(GlobeVal.mysys.language ==0)
+                    {
+                        _temp = "曲线图2";
+                    }
+                    else
+                    {
+                        _temp = "Graph 2";
+                    }
+                    if (f.ItemName[k] ==_temp)
                     {
                         UserControlGraph ug = new UserControlGraph();
                         ug.Visible = true;
@@ -547,7 +547,17 @@ namespace TabHeaderDemo
                         GlobeVal.UserControlGraph2 = ug;
 
                     }
-                    if (f.ItemName[k] == "结果1")
+
+                    _temp = "";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        _temp = "结果1";
+                    }
+                    else
+                    {
+                        _temp = "Result 1";
+                    }
+                    if (f.ItemName[k] ==_temp )
                     {
                         UserControlResult ug = new UserControlResult();
 
@@ -566,7 +576,16 @@ namespace TabHeaderDemo
 
                     }
 
-                    if (f.ItemName[k] == "结果2")
+                    _temp = "";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        _temp = "结果2";
+                    }
+                    else
+                    {
+                        _temp = "Result 2";
+                    }
+                    if (f.ItemName[k] == _temp )
                     {
                         UserControlResult ug = new UserControlResult();
 
@@ -582,7 +601,16 @@ namespace TabHeaderDemo
 
 
                     }
-                    if (f.ItemName[k] == "原始数据")
+                    _temp = "";
+                    if (GlobeVal.mysys.language ==0)
+                    {
+                        _temp = "原始数据";
+                    }
+                    else
+                    {
+                        _temp = "Raw data";
+                    }
+                    if (f.ItemName[k] ==_temp )
                     {
                         UserControlRawdata ug = new UserControlRawdata();
                         ug.Visible = true;
@@ -599,8 +627,16 @@ namespace TabHeaderDemo
 
                     }
 
-
-                    if (f.ItemName[k] == "试样输入")
+                    _temp = "";
+                    if (GlobeVal.mysys.language ==0)
+                    {
+                        _temp = "试样输入";
+                    }
+                    else
+                    {
+                        _temp = "Specimen Input";
+                    }
+                    if (f.ItemName[k] ==_temp)
                     {
                         UserControlSpe ug = new UserControlSpe();
 
@@ -618,8 +654,16 @@ namespace TabHeaderDemo
 
                     }
 
-
-                    if (f.ItemName[k] == "仪表1")
+                    _temp = "";
+                    if (GlobeVal.mysys.language ==0)
+                    {
+                        _temp = "仪表1";
+                    }
+                    else
+                    {
+                        _temp = "Meter 1";
+                    }
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlMeter ug = new UserControlMeter();
                         ug.Init();
@@ -635,7 +679,19 @@ namespace TabHeaderDemo
                         ug.Visible = true;
 
                     }
-                    if (f.ItemName[k] == "仪表2")
+
+
+                    _temp = "";
+                     
+                    if (GlobeVal.mysys.language ==0)
+                    {
+                        _temp = "仪表2";
+                    }
+                    else
+                    {
+                        _temp = "Meter 2";
+                    }
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlMeter ug = new UserControlMeter();
                         ug.Init();
@@ -655,8 +711,16 @@ namespace TabHeaderDemo
                     }
 
 
-
-                    if (f.ItemName[k] == "摄像")
+                    _temp = "";
+                    if (GlobeVal.mysys.language ==0)
+                    {
+                        _temp = "摄像";
+                    }
+                    else
+                    {
+                        _temp = "Camera";
+                    }
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlCamera1 ug = new UserControlCamera1();
                         ug.Init();
@@ -679,7 +743,16 @@ namespace TabHeaderDemo
 
                     }
 
-                    if (f.ItemName[k] == "过程提示")
+                    _temp = "";
+                    if (GlobeVal.mysys.language ==0)
+                    {
+                        _temp = "过程提示";
+                    }
+                    else
+                    {
+                        _temp = "Process Tips";
+                    }
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlProcess ug = new UserControlProcess();
                         ug.Init();
@@ -698,7 +771,18 @@ namespace TabHeaderDemo
 
                     }
 
-                    if (f.ItemName[k] == "状态提示")
+                    _temp = "";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        _temp = "状态提示";
+                    }
+                    else
+                    {
+                        _temp = "State prompting";
+                    }
+
+                    
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlStatus ug = new UserControlStatus();
                         ug.Init();
@@ -717,7 +801,17 @@ namespace TabHeaderDemo
 
                     }
 
-                    if (f.ItemName[k] == "峰值趋势数据")
+                    _temp = "";
+                    if (GlobeVal.mysys.language ==0)
+                    {
+                        _temp = "峰值趋势数据";
+                    }
+                    else
+                    {
+                        _temp = "Trend data";
+                    }
+
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlLongRecord ug = new UserControlLongRecord();
                         ug.Visible = true;
@@ -755,18 +849,19 @@ namespace TabHeaderDemo
 
 
 
-                if (CComLibrary.GlobeVal.filesave.dt.Rows[i]["试样状态"] is System.DBNull)
+                if (CComLibrary.GlobeVal.filesave.dt.Rows[i]["SpeStatus"] is System.DBNull)
                 {
-                    CComLibrary.GlobeVal.filesave.dt.Rows[i]["试样状态"] = CComLibrary.TestStatus.Untested;
+                    CComLibrary.GlobeVal.filesave.dt.Rows[i]["SpeStatus"] = CComLibrary.TestStatus.Untested;
                 }
 
-                m.Image = imageList2.Images[Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[i]["试样状态"])];
+                m.Image = imageList2.Images[Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[i]["SpeStatus"])];
             }
         }
 
 
         private void steprefresh()
         {
+            string _temp = "";
             this.SuspendLayout();
 
 
@@ -794,13 +889,20 @@ namespace TabHeaderDemo
 
             if (mstepi == 1)
             {
-
-                GlobeVal.wizard.lblspe1.Text = "试样" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", 共" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
-                GlobeVal.wizard.lblspe2.Text = "试样" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", 共" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
-                GlobeVal.wizard.lblspe3.Text = "试样" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", 共" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
-                GlobeVal.wizard.lblspe4.Text = "试样" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", 共" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
-                GlobeVal.wizard.lblspe5.Text = "试样" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", 共" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
-                GlobeVal.wizard.lblspe6.Text = "试样" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", 共" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
+                if (GlobeVal.mysys.language ==0)
+                {
+                    _temp = "试样" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", 共" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
+                }
+                else
+                {
+                    _temp = "Specimen" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", Total" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
+                }
+                GlobeVal.wizard.lblspe1.Text = _temp;
+                GlobeVal.wizard.lblspe2.Text = _temp;
+                GlobeVal.wizard.lblspe3.Text = _temp;
+                GlobeVal.wizard.lblspe4.Text = _temp;
+                GlobeVal.wizard.lblspe5.Text = _temp;
+                GlobeVal.wizard.lblspe6.Text = _temp;
 
 
 
@@ -882,7 +984,14 @@ namespace TabHeaderDemo
                     }
                     else
                     {
-                        OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
+                        if (GlobeVal.mysys.language == 0)
+                        {
+                            OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\模板1.lay");
+                        }
+                        else
+                        {
+                            OpenDefaultlayout(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\layout\\Default.lay");
+                        }
                     }
                 }
 
@@ -1131,7 +1240,14 @@ namespace TabHeaderDemo
 
             if (GlobeVal.myarm.connected == false)
             {
-                MessageBox.Show("您还没有联机");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("请先联机");
+                }
+                else
+                {
+                    MessageBox.Show("Please go online first.");
+                }
                 return;
             }
 
@@ -1143,23 +1259,16 @@ namespace TabHeaderDemo
                     {
                         CComLibrary.GlobeVal.filesave.mseglist[j].mseq.sampleintervaltemp[i] = 0;
                     }
-
-
-
                 }
-
-
             }
 
-
-
-            if (CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["试样状态"] is DBNull)
+            if (CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["SpeStatus"] is DBNull)
             {
 
             }
             else
             {
-
+                /*
                 if (CComLibrary.GlobeVal.filesave.Samplingmode == 0)
                 {
                     if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["试样状态"]) == Convert.ToInt16(CComLibrary.TestStatus.tested))
@@ -1175,6 +1284,7 @@ namespace TabHeaderDemo
                         }
                     }
                 }
+                */
             }
 
 
@@ -1201,7 +1311,14 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    MessageBox.Show("请点击下一步继续");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("请点击下一步继续");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please click next to continue.");
+                    }
                     return;
                 }
 
@@ -1248,7 +1365,7 @@ namespace TabHeaderDemo
 
             if (GlobeVal.UserControlSpe1 != null)
             {
-                GlobeVal.UserControlSpe1.Enabled = false;
+                GlobeVal.UserControlSpe1.SetEnabled(false);
 
             }
 
@@ -1274,12 +1391,64 @@ namespace TabHeaderDemo
 
             if (GlobeVal.UserControlGraph1 != null)
             {
-                GlobeVal.UserControlGraph1.startrun();
+              if  (GlobeVal.UserControlGraph1.startrun()==false)
+                {
+                    btnStart.Enabled = true;
+                    btnStart.BackgroundImage = imageList4.Images[0];
+                    btnStart.Refresh();
+                    btnend.Enabled = false;
+                    btnend.BackgroundImage = imageList4.Images[3];
+                    btnend.Refresh();
+
+
+                    if (GlobeVal.myarm.mdemo == true)
+                    {
+
+                        GlobeVal.myarm.demotest(false);
+
+                        if ((GlobeVal.ShowCameraForm == true) && (CComLibrary.GlobeVal.filesave.mplay == true) && (CComLibrary.GlobeVal.filesave.mplayfile == true))
+                        {
+
+
+
+                            if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\demo\\" + CComLibrary.GlobeVal.filesave.play_avi_datafile) == true)
+                            {
+                                if (GlobeVal.UserControlCamera != null)
+                                {
+                                    GlobeVal.UserControlCamera.stop();
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                    if (GlobeVal.UserControlSpe1 != null)
+                    {
+                        GlobeVal.UserControlSpe1.SetEnabled(true);
+                        GlobeVal.UserControlSpe1.btnright.Enabled = true;
+
+                    }
+
+                    return;
+                }
             }
 
             if (GlobeVal.UserControlGraph2 != null)
             {
-                GlobeVal.UserControlGraph2.startrun();
+              
+              if (  GlobeVal.UserControlGraph2.startrun()==false)
+                {
+                    btnStart.Enabled = true;
+                    btnStart.BackgroundImage = imageList4.Images[0];
+                    btnStart.Refresh();
+                    btnend.Enabled = false;
+                    btnend.BackgroundImage = imageList4.Images[3];
+                    btnend.Refresh();
+
+                    return;
+                }
             }
 
 
@@ -1293,6 +1462,16 @@ namespace TabHeaderDemo
                 btnend.Enabled = false;
                 btnend.BackgroundImage = imageList4.Images[3];
                 btnend.Refresh();
+
+                if (GlobeVal.UserControlGraph1 != null)
+                {
+                    GlobeVal.UserControlGraph1.endrun();
+                }
+
+                if (GlobeVal.UserControlGraph2 != null)
+                {
+                    GlobeVal.UserControlGraph2.endrun();
+                }
                 return;
             }
 
@@ -1308,8 +1487,16 @@ namespace TabHeaderDemo
             GlobeVal.UserControlMain1.btnmmanage.Visible = false;
             GlobeVal.UserControlMain1.btnmain.Visible = false;
 
-            GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：运行";
 
+            if (GlobeVal.mysys.language ==0)
+            {
+                GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：运行";
+            }
+           
+            else
+            {
+                GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "Status: run";
+            }
             GlobeVal.MainStatusStrip.Items["tslblstate"].Image = GlobeVal.FormmainLab.imageListState.Images[1];
 
             lstspe.Items[CComLibrary.GlobeVal.filesave.currentspenumber].Image = imageList2.Images[4];
@@ -1327,13 +1514,13 @@ namespace TabHeaderDemo
 
             string mspefiledat;
 
-            CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["试样状态"] = CComLibrary.TestStatus.tested;
+            CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["SpeStatus"] = CComLibrary.TestStatus.tested;
 
             CComLibrary.GlobeVal.filesave.lasttestdatatime = System.DateTime.Now.ToString();
 
             if (GlobeVal.UserControlSpe1 != null)
             {
-                GlobeVal.UserControlSpe1.Enabled = true;
+                GlobeVal.UserControlSpe1.SetEnabled(true);
                 GlobeVal.UserControlSpe1.btnright.Enabled = true;
 
             }
@@ -1417,7 +1604,7 @@ namespace TabHeaderDemo
 
                     CComLibrary.GlobeVal.m_listline.Clear();
                     CComLibrary.GlobeVal.mscattergraph.Annotations.Clear();
-
+                  
                     CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
                     if (CComLibrary.GlobeVal.filesave.UseDatabase == true)
                     {
@@ -1447,13 +1634,27 @@ namespace TabHeaderDemo
 
                 if (GlobeVal.myarm.duanliebaohu == true)
                 {
-                    GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：断裂保护,停止";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：断裂保护,停止";
+                    }
+                    else
+                    {
+                        GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "Status: fracture protection, stop";
+                    }
                     GlobeVal.MainStatusStrip.Items["tslblstate"].Image = GlobeVal.FormmainLab.imageListState.Images[0];
 
                 }
                 else
                 {
-                    GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：停止";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：停止";
+                    }
+                    else
+                    {
+                        GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "Status: stop";
+                    }
 
                     GlobeVal.MainStatusStrip.Items["tslblstate"].Image = GlobeVal.FormmainLab.imageListState.Images[0];
                 }
@@ -1528,10 +1729,20 @@ namespace TabHeaderDemo
         {
             ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]).SelectedIndex = 0;
 
-            GlobeVal.MainStatusStrip.Items["tslblkind"].Text = "试验类型：空";
-            GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "样品：关闭";
+            if (GlobeVal.mysys.language == 0)
+            {
+                GlobeVal.MainStatusStrip.Items["tslblkind"].Text = "试验类型：空";
+                GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "样品：关闭";
 
-            GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "方法:关闭";
+                GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "方法:关闭";
+            }
+            else
+            {
+                GlobeVal.MainStatusStrip.Items["tslblkind"].Text = "Test Type：None";
+                GlobeVal.MainStatusStrip.Items["tslblsample"].Text = "Sample ：Closed";
+
+                GlobeVal.MainStatusStrip.Items["tslblmethod"].Text = "Method:Closed";
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -1543,8 +1754,14 @@ namespace TabHeaderDemo
 
             if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
             {
-                GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "一般测试";
-
+                if (GlobeVal.mysys.language == 0)
+                {
+                    GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "一般测控";
+                }
+                else
+                {
+                    GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "General test";
+                }
 
             }
 
@@ -1557,14 +1774,21 @@ namespace TabHeaderDemo
                 if (GlobeVal.myarm.keepingstate == true)
                 {
 
+                    if (GlobeVal.mysys.language == 0)
+                    {
 
-
-                    GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "高级测试：步骤" + (GlobeVal.myarm.mcurseg + 1).ToString()
-                        + "当前保持时间:" + GlobeVal.myarm.keepingtime.ToString("F1") + "秒";
+                        GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "高级测控：步骤" + (GlobeVal.myarm.mcurseg + 1).ToString()
+                            + "当前保持时间:" + GlobeVal.myarm.keepingtime.ToString("F1") + "秒";
+                    }
+                    else
+                    {
+                        GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "Advanced test：Step" + (GlobeVal.myarm.mcurseg + 1).ToString()
+                           + "Current hold time:" + GlobeVal.myarm.keepingtime.ToString("F1") + "S";
+                    }
                 }
                 else
                 {
-                    GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "高级测试：步骤" + (GlobeVal.myarm.mcurseg + 1).ToString();
+                    GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "Advanced test：Step" + (GlobeVal.myarm.mcurseg + 1).ToString();
 
                 }
 
@@ -1573,10 +1797,20 @@ namespace TabHeaderDemo
 
                 if (GlobeVal.myarm.total_returncount > 0)
                 {
-                    GlobeVal.MainStatusStrip.Items["toolstatustest"].Text =
-                        GlobeVal.MainStatusStrip.Items["toolstatustest"].Text + " "
-                        + "当前次数：" + GlobeVal.myarm.current_returncount.ToString() +
-                        "总循环次数：" + GlobeVal.myarm.total_returncount.ToString();
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        GlobeVal.MainStatusStrip.Items["toolstatustest"].Text =
+                            GlobeVal.MainStatusStrip.Items["toolstatustest"].Text + " "
+                            + "当前次数：" + GlobeVal.myarm.current_returncount.ToString() +
+                            "总循环次数：" + GlobeVal.myarm.total_returncount.ToString();
+                    }
+                    else
+                    {
+                        GlobeVal.MainStatusStrip.Items["toolstatustest"].Text =
+                          GlobeVal.MainStatusStrip.Items["toolstatustest"].Text + " "
+                          + "Current times：" + GlobeVal.myarm.current_returncount.ToString() +
+                          "Total times：" + GlobeVal.myarm.total_returncount.ToString();
+                    }
 
                 }
 
@@ -1642,7 +1876,14 @@ namespace TabHeaderDemo
 
             else
             {
-                MessageBox.Show("方法中没设置报告打印");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("方法中没设置报告打印");
+                }
+                else
+                {
+                    MessageBox.Show("Report print setup does not exist in the method.");
+                }
                 return;
             }
             if (CComLibrary.GlobeVal.filesave.ReportSave == true)
@@ -1701,16 +1942,32 @@ namespace TabHeaderDemo
 
             num = Convert.ToInt16(lstspe.SelectedItem.Text);
 
-            if (CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["试样状态"] is DBNull)
+            if (CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["SpeStatus"] is DBNull)
             {
-                MessageBox.Show("试验后才能计算");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    
+                    MessageBox.Show("试验完成后才能计算");
+                }
+
+                else
+                {
+                    MessageBox.Show("Only after the test is completed can it be calculated.");
+                }
                 return;
             }
             else
             {
-                if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["试样状态"]) == Convert.ToInt16(CComLibrary.TestStatus.Untested))
+                if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["SpeStatus"]) == Convert.ToInt16(CComLibrary.TestStatus.Untested))
                 {
-                    MessageBox.Show("试验后才能计算");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("试验完成后才能计算");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Only after the test is completed can it be calculated.");
+                    }
                     return;
                 }
             }
@@ -1825,16 +2082,30 @@ namespace TabHeaderDemo
 
             num = Convert.ToInt16(lstspe.SelectedItem.Text);
 
-            if (CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["试样状态"] is DBNull)
+            if (CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["SpeStatus"] is DBNull)
             {
-                MessageBox.Show("试验后数据才能导出Excel");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("试验完成后数据才能导出到Excel");
+                }
+                else
+                {
+                    MessageBox.Show("Data can only be exported to Excel after completion of test.");
+                }
                 return;
             }
             else
             {
-                if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["试样状态"]) == Convert.ToInt16(CComLibrary.TestStatus.Untested))
+                if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[num - 1]["SpeStatus"]) == Convert.ToInt16(CComLibrary.TestStatus.Untested))
                 {
-                    MessageBox.Show("试验后数据才能导出Excel");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("试验完成后数据才能导出到Excel");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data can only be exported to Excel after completion of test.");
+                    }
                     return;
                 }
             }
@@ -1907,17 +2178,28 @@ namespace TabHeaderDemo
             {
                 MessageBox.Show(ex.Message);
             }
-
-            xls.FileName = Application.StartupPath + "\\ExcelData\\" + "导出数据.xls";
+            if (GlobeVal.mysys.language == 0)
+            {
+                xls.FileName = Application.StartupPath + "\\ExcelData\\" + "导出数据.xls";
+            }
+            else
+            {
+                xls.FileName = Application.StartupPath + "\\ExcelData\\" + " ExportData.xls";
+            }
             if (File.Exists(xls.FileName))
             {
                 File.Delete(xls.FileName);
             }
             xls.Save();
 
-
-            MessageBox.Show("数据已经导出到" + xls.FileName);
-
+            if (GlobeVal.mysys.language == 0)
+            {
+                MessageBox.Show("数据已经导出到" + xls.FileName);
+            }
+            else
+            {
+                MessageBox.Show("Data has been exported to" + xls.FileName);
+            }
 
         }
     }

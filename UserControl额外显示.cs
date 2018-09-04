@@ -40,7 +40,16 @@ namespace TabHeaderDemo
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
-                if (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring != "样品")
+                string _temp = "";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    _temp = "样品";
+                }
+                else
+                {
+                    _temp = "Sample";
+                }
+                if (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring != _temp )
                 {
                     if (s != CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring)
                     {

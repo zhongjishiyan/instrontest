@@ -352,7 +352,14 @@ namespace TabHeaderDemo
                 {
                     if (CComLibrary.GlobeVal.filesave.mcontrolprocess !=2)
                     {
-                        GlobeVal.userControlmethod1.methodon("测试", "控制");
+                        if (GlobeVal.mysys.language == 0)
+                        {
+                            GlobeVal.userControlmethod1.methodon("测试", "控制");
+                        }
+                        else
+                        {
+                            GlobeVal.userControlmethod1.methodon("Test", "Test Control");
+                        }
                     }
                  
                 }
@@ -438,7 +445,17 @@ namespace TabHeaderDemo
                     }
                     else
                     {
-                        DialogResult a = MessageBox.Show("试验方法已经更改，是否保存？", "提示", MessageBoxButtons.YesNo);
+                        DialogResult a;
+
+                        if (GlobeVal.mysys.language == 0)
+                        {
+                            a = MessageBox.Show("试验方法已经更改，是否保存？", "提示", MessageBoxButtons.YesNo);
+                        }
+                        else
+                        {
+                            a = MessageBox.Show("The test method has been changed. Do you want to save it?", "Tips", MessageBoxButtons.YesNo);
+                            
+                        }
 
                         if (a == DialogResult.Yes)
                         {

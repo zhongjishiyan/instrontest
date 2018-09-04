@@ -12,13 +12,7 @@ using NationalInstruments.UI;
 using System.Drawing.Printing;
 using System.Data.OleDb; 
 using System.Collections;
-using NationalInstruments.Analysis;
-using NationalInstruments.Analysis.Conversion;
-using NationalInstruments.Analysis.Dsp;
-using NationalInstruments.Analysis.Dsp.Filters;
-using NationalInstruments.Analysis.Math;
-using NationalInstruments.Analysis.Monitoring;
-using NationalInstruments.Analysis.SignalGeneration;
+
 using NationalInstruments;
 using System.Drawing.Imaging;
 //using Word = Microsoft.Office.Interop.Word;
@@ -29,7 +23,7 @@ using System.Threading;
 namespace AppleLabApplication
 {
    
-    public partial class MainForm : Form
+    public partial class MainForm : FormBase
     {
         public Boolean formloaded = false;
         //一个试验过程对应多个计算过程
@@ -136,7 +130,10 @@ namespace AppleLabApplication
             g_signnamelist = new List<string>();
             Application.DoEvents();
 
-            
+          
+
+           
+
         }
 
      
@@ -277,7 +274,7 @@ namespace AppleLabApplication
             FormMethod f = new FormMethod();
             f.loadfile(filename);
             f.mmptpath = this.gmptpath;
-
+            f.Language();
 
             f.filesave.m_namelist = this.g_namelist;
             f.filesave.m_signnamelist = this.g_signnamelist;
@@ -321,7 +318,7 @@ namespace AppleLabApplication
             
 
             FormMethod f = new FormMethod();
-            
+            f.Language();
 
             f.mmptpath = this.gmptpath;
 
@@ -329,7 +326,7 @@ namespace AppleLabApplication
             f.filesave.m_namelist = this.g_namelist;
             f.filesave.m_signnamelist = this.g_signnamelist;
             f.filesave.datapath = this.g_datafilepath;
- 
+            
 
             f.ShowDialog();
 
@@ -365,6 +362,7 @@ namespace AppleLabApplication
 
         private void tsbnewproject_Click(object sender, EventArgs e)
         {
+            
             openprojectfile(); 
  
         }
@@ -424,6 +422,9 @@ namespace AppleLabApplication
         }
         public void Form2_Load(object sender, EventArgs e)
         {
+
+            
+
             CComLibrary.GlobeVal.mscattergraph = scatterGraph1;
 
            scatterGraph1.Annotations.Clear();
@@ -528,7 +529,14 @@ namespace AppleLabApplication
             _SheetView.Height = 18;
             _SheetView.Font = new Font("verdana", 8, GraphicsUnit.Point);
             _SheetView.Sheets.Clear();
-            _SheetView.Sheets.Add(new Sheet("数据 1"));
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                _SheetView.Sheets.Add(new Sheet("数据 1"));
+            }
+            else
+            {
+                _SheetView.Sheets.Add(new Sheet("Sheet 1"));
+            }
             _SheetView.SelectionChanged += new EventHandler(_SheetView_SelectionChanged);
             _SheetView.SelectedIndex = 0;
             panel5.Controls.Clear();
@@ -556,6 +564,11 @@ namespace AppleLabApplication
                 SourceLibrary.Windows.Forms.ErrorDialog.Show(this, err, "Error");
             }
 
+            for (int j = 0; j < CComLibrary.GlobeVal.outgrid[0].ColumnsCount; j++)
+            {
+
+                CComLibrary.GlobeVal.outgrid[0].Columns[j].Width = 80;
+            }
             outputwindow1 = new Panel();
             outputwindow1.BackColor = Color.DarkGray;
             outputwindow1.Dock = DockStyle.Fill;
@@ -574,8 +587,16 @@ namespace AppleLabApplication
             _SheetView1.Height = 18;
             _SheetView1.Font = new Font("verdana", 8, GraphicsUnit.Point);
             _SheetView1.Sheets.Clear();
-            _SheetView1.Sheets.Add(new Sheet("面板"));
-            _SheetView1.Sheets.Add(new Sheet("输出"));
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                _SheetView1.Sheets.Add(new Sheet("面板"));
+                _SheetView1.Sheets.Add(new Sheet("输出"));
+            }
+            else
+            {
+                _SheetView1.Sheets.Add(new Sheet("Panel"));
+                _SheetView1.Sheets.Add(new Sheet("Output"));
+            }
             _SheetView1.SelectionChanged += new EventHandler(_SheetView1_SelectionChanged);
             _SheetView1.SelectedIndex = 0;
             panel3.Controls.Clear();
@@ -715,387 +736,26 @@ namespace AppleLabApplication
                 else
                 {
 
-
-                    toolStripStatusLabel_filename.Text = "试验数据文件名称;" + fileName;
-
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        toolStripStatusLabel_filename.Text = "试验数据文件名称;" + fileName;
+                    }
+                    else
+                    {
+                        toolStripStatusLabel_filename.Text = "Name of test data file;" + fileName;
+                        
+                    }
                     exstring = Path.GetExtension(fileName);
 
 
 
                     CComLibrary.GlobeVal.outgrid[0].Tag = Path.GetFileNameWithoutExtension(fileName);
 
-                    if (exstring == ".lab")
-                    {
-                        try
-                        {
-                            // Create an instance of StreamReader to read from a file.
-                            // The using statement also closes the StreamReader.
-                            using (StreamReader sr = new StreamReader(fileName, Encoding.Default))
-                            {
-
-
-                                while ((line = sr.ReadLine()) != null)
-                                {
-                                    i = i + 1;
-                                   
-                                    if (line.Contains("负荷") == true)
-                                    {
-
-                                        w = i;
-                                        line = line.Replace("，", ",");
-
-                                        sp[0] = Convert.ToChar(",");
-
-                                        ww = line.Split(sp);
-
-                                        L = ww.Length;
-                                        mlistx.Clear();
-
-                                        k = 0;
-                                        for (j = 0; j < ww.Length; j++)
-                                        {
-                                            if (ww[j] == "")
-                                            {
-                                                L = ww.Length - 1;
-                                            }
-                                            else
-                                            {
-                                                mlistx.Add(ww[j]);
-                                                
-                                                CComLibrary.GlobeVal.g_datatitle[k] = ww[j];
-                                                CComLibrary.GlobeVal.g_dataunit[k] = "";
-                                                k = k + 1;
-                                            }
-
-
-                                        }
-
-                                       
-
-                                        break;
-                                    }
-
-
-                                }
-                            }
-                        }
-                        catch (Exception e1)
-                        {
-                            MessageBox.Show(e1.Message);
-                        }
-
-                        i = -1;
-                        try
-                        {
-                            // Create an instance of StreamReader to read from a file.
-                            // The using statement also closes the StreamReader.
-
-
-                            using (StreamReader sr = new StreamReader(fileName, Encoding.Default))
-                            {
-                                while ((line = sr.ReadLine()) != null)
-                                {
-                                    i = i + 1;
-
-
-                                    if (i >= w)
-                                    {
-
-                                        sp[0] = Convert.ToChar(",");
-
-                                        www = line.Split(sp);
-
-
-
-                                        for (j = 0; j < www.Length; j++)
-                                        {
-
-                                            if (www[j].Contains(":") == true)
-                                            {
-                                                g_data.SetValue(www[j], j, i - w);
-
-                                            }
-                                            else
-                                            {
-                                                g_data.SetValue(www[j], j, i - w);
-                                            }
-
-                                        }
-                                    }
-
-                                }
-
-                                i = i - w;
-
-                                
-                            }
-                        }
-                        catch (Exception e1)
-                        {
-                            MessageBox.Show(e1.Message);
-                        }
-
-                    }
-                    if (exstring == ".dat")
-                    {
-
-                        try
-                        {
-                            // Create an instance of StreamReader to read from a file.
-                            // The using statement also closes the StreamReader.
-                            
-
-                            using (StreamReader sr = new StreamReader(fileName, Encoding.UTF8))
-                            {
-
-
-                                while ((line = sr.ReadLine()) != null)
-                                {
-                                    i = i + 1;
-                                    if (line.Contains("\"")==false)
-                                    {
-
-                                        w = i-1;
-                                        sp[0] = Convert.ToChar(",");
-                                        sp1[0] = Convert.ToChar("\"");
-                                        ww = last2line.Split(sp);
-
-                                        L = ww.Length;
-                                        mlistx.Clear();
-
-                                        for (j = 0; j < ww.Length; j++)
-                                        {
-                                            if (ww[j] == "")
-                                            {
-                                                L = ww.Length - 1;
-                                            }
-                                            else
-                                            {
-                                                ww[j] = ww[j].Trim(sp1);
-                                                mlistx.Add(ww[j]);
-                                                CComLibrary.GlobeVal.g_datatitle[j] = ww[j];
-                                                
-                                            }
-
-
-                                        }
-
-                                        ww = lastline.Split(sp);
-
-
-
-                                        for (j = 0; j < ww.Length; j++)
-                                        {
-                                            if (ww[j] == "")
-                                            {
-
-                                            }
-                                            else
-                                            {
-                                                CComLibrary.GlobeVal.g_dataunit[j] = ww[j];
-
-                                            }
-
-
-                                        }
-
-
-                                        
-
-                                        break;
-                                    }
-                                    last2line = lastline;
-                                    lastline = line;
-                                    
-                                }
-
-                                if (i == -1)
-                                {
-                                    MessageBox.Show("错误,文件为空"); 
-                                    return;
-                                }
-                               
-                            }
-                        }
-                        catch (Exception e1)
-                        {
-                            MessageBox.Show(e1.Message);
-                        }
-
-                        i = -1;
-                        try
-                        {
-                            // Create an instance of StreamReader to read from a file.
-                            // The using statement also closes the StreamReader.
-                            using (StreamReader sr = new StreamReader(fileName, Encoding.UTF8))
-                            {
-
-
-                                
-                                line = sr.ReadLine();
-
-                                 
-                                sp[0] = Convert.ToChar(",");
-
-                               
-
-                                ww = line.Split(sp);
-                                sp1[0] = Convert.ToChar("\"");
-
-                                CComLibrary.GlobeVal._试验方法 = ww[1].Trim(sp1);
-                                CComLibrary.GlobeVal._文件类型 = ww[0].Trim(sp1);
-
-                                if (ww.Length > 30)
-                                {
-                                    MessageBox.Show("文件列数不能超过30");
-                                    return;
-                                }
-
-
-                            }
-                        }
-                        catch (Exception e1)
-                        {
-                            MessageBox.Show(e1.Message);
-                        }
-
-                        try
-                        {
-                            // Create an instance of StreamReader to read from a file.
-                            // The using statement also closes the StreamReader.
-
-
-                            using (StreamReader sr = new StreamReader(fileName, Encoding.UTF8))
-                            {
-                                while ((line = sr.ReadLine()) != null)
-                                {
-                                    if (line.Contains("\"") == false)
-                                    {
-                                        i = i + 1;
-
-
-                                        if (i >= w)
-                                        {
-
-                                            www = line.Split(sp);
-
-
-
-                                            for (j = 0; j < www.Length; j++)
-                                            {
-
-                                                if (www[j].Contains(":") == true)
-                                                {
-                                                    g_data.SetValue(www[j], j, i - w);
-
-                                                }
-                                                else
-                                                {
-                                                    g_data.SetValue(www[j], j, i - w);
-                                                }
-
-                                            }
-                                        }
-                                    }
-                                    
-                                }
-
-                                i = i - w;
-                            }
-                        }
-                        catch (Exception e1)
-                        {
-                            MessageBox.Show(e1.Message);
-                        }
-                    }
-
-                    if (exstring == ".xls")
-                    {
-                        DataSet ds;
-                        ds = ExcelToDS(fileName);
-
-                        mlistx.Clear();
-
-                        for (j = 0; j < ds.Tables[0].Columns.Count; j++)
-                        {
-                            line = ds.Tables[0].Columns[j].ToString();
-                            if (line.Contains("(") == true)
-                            {
-                                mpos = line.IndexOf("(");
-                                CComLibrary.GlobeVal.g_dataunit[j] = line.Substring(mpos, line.Length - mpos);
-
-                                line = line.Substring(0, mpos);
-                            }
-                            else
-                            {
-                                CComLibrary.GlobeVal.g_dataunit[j] = " ";
-
-                            }
-
-                            mlistx.Add(line);
-                            CComLibrary.GlobeVal.g_datatitle[j] = line;
-
-
-                        }
-                    }
-
-                    if (exstring ==".mdb")
-                    {
-                        
-                        OleDbConnection conn = null;
-                        OleDbDataReader reader = null;
-                        
-                        conn = new OleDbConnection(
-                        "Provider=Microsoft.Jet.OLEDB.4.0; " +
-                        "Data Source=" + (fileName));
-                        conn.Open();
-                        OleDbCommand cmd =
-                         new OleDbCommand("Select * FROM 实验数据", conn);
-                        reader = cmd.ExecuteReader();
-
-
-
-                        L = reader.FieldCount;
-
-                         for (j = 0; j < reader.FieldCount; j++)
-                         {
-
-                              CComLibrary.GlobeVal.g_datatitle[j] =reader.GetName(j);
-                              CComLibrary.GlobeVal.g_dataunit[j] = "";
-
-                         }
-
-                         i=0;
-
-                         ii = 0;
-                         while (reader.Read())
-                         {
-                             
-                             ii = ii + 1;
-
-                             if (ii >= CComLibrary.GlobeVal.filesave.minterval)
-                             {
-                                 for (j = 0; j < reader.FieldCount; j++)
-                                 {
-                                     g_data.SetValue(reader[reader.GetName(j)].ToString(), j, i);
-                                 }
-
-                                 ii = 0;
-                                 i = i + 1;
-
-                             }
-                             
-
-                             if (i > 1000000 - 1)
-                             {
-                                 break;
-                             }
-
-                         }
-
-                         i = i - 1;
-                        
-                    }
+                   
+                    
+
+                   
+                   
 
                     if ((exstring == ".log") || (exstring ==".txt"))
                     {
@@ -1116,7 +776,14 @@ namespace AppleLabApplication
 
                                 if (ww.Length > 30)
                                 {
-                                    MessageBox.Show("文件列数不能超过30");
+                                    if (CComLibrary.GlobeVal.languageselect == 0)
+                                    {
+                                        MessageBox.Show("文件列数不能超过30");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("The number of columns contained in the document should not exceed 30.");
+                                    }
                                     return;
                                 }
 
@@ -1381,11 +1048,14 @@ namespace AppleLabApplication
             {
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem.Length; i++)
                 {
-                    if (CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName != "无")
+                    if (CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName != "None")
                     {
                         b = new CComLibrary.SystemPara();
-                        b.Name = CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" +
+                        string r = CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" +
                             CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName;
+                        r = r.Replace(" ", "_");
+
+                        b.Name = r;
                         b.replaceName = b.Name;
                         s = s + "public double " + b.replaceName + "="+
                             CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cvalue.ToString() + ";" + "\r\n";
@@ -1453,9 +1123,9 @@ namespace AppleLabApplication
                 {
                     CComLibrary.inputitem minput = new CComLibrary.inputitem();
 
-                    minput.name = (_UResultControl.listEditor1.List[i] as SampleProject.Extensions.ChartBar).名称;
-                    minput.value = (_UResultControl.listEditor1.List[i] as SampleProject.Extensions.ChartBar).值;
-                    minput.unit = (_UResultControl.listEditor1.List[i] as SampleProject.Extensions.ChartBar).单位;
+                    minput.name = (_UResultControl.listEditor1.List[i] as SampleProject.Extensions.ChartBar).Caption;
+                    minput.value = (_UResultControl.listEditor1.List[i] as SampleProject.Extensions.ChartBar).value;
+                    minput.unit = (_UResultControl.listEditor1.List[i] as SampleProject.Extensions.ChartBar).Unit;
 
                     CComLibrary.GlobeVal.filesave.minput.Add(minput);
 
@@ -1465,7 +1135,9 @@ namespace AppleLabApplication
 
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.m_namelist.Count; i++)
                 {
-                    s = s + CComLibrary.GlobeVal.filesave.m_namelist[i] + " ";
+                    string r = CComLibrary.GlobeVal.filesave.m_namelist[i];
+                    r = r.Replace(" ", "_");
+                    s = s + r+ " ";
 
                 }
 
@@ -1511,7 +1183,14 @@ namespace AppleLabApplication
 
                 if (mhavecalcitem ==false )
                 {
-                    MessageBox.Show("没有设置计算项目");
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        MessageBox.Show("没有设置计算项目");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Calculation item not set");
+                    }
                 }
                 if (mhavecalcitem == true)
                 {
@@ -1564,9 +1243,16 @@ namespace AppleLabApplication
 
                     }
                     _UResultControl.listView1.Clear();
-                    _UResultControl.listView1.Columns.Add("计算项目", 220, HorizontalAlignment.Left);
-                    _UResultControl.listView1.Columns.Add("结果", 220, HorizontalAlignment.Left);
-
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        _UResultControl.listView1.Columns.Add("计算项目", 220, HorizontalAlignment.Left);
+                        _UResultControl.listView1.Columns.Add("结果", 220, HorizontalAlignment.Left);
+                    }
+                    else
+                    {
+                        _UResultControl.listView1.Columns.Add("Calculated items", 220, HorizontalAlignment.Left);
+                        _UResultControl.listView1.Columns.Add("Result", 220, HorizontalAlignment.Left);
+                    }
 
                     for (i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
                     {
@@ -3455,12 +3141,26 @@ namespace AppleLabApplication
 
         private void xyCursorstart_AfterMove(object sender, AfterMoveXYCursorEventArgs e)
         {
-            toollabelshow.Text = "起始光标:" +"X:"+ e.XPosition.ToString("G4")+ "Y:" + e.YPosition.ToString("G4") ; 
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                toollabelshow.Text = "起始光标:" + "X:" + e.XPosition.ToString("G4") + "Y:" + e.YPosition.ToString("G4");
+            }
+            else
+            {
+                toollabelshow.Text = "Initial cursor:" + "X:" + e.XPosition.ToString("G4") + "Y:" + e.YPosition.ToString("G4");
+            }
         }
 
         private void xyCursorend_AfterMove(object sender, AfterMoveXYCursorEventArgs e)
         {
-            toollabelshow.Text = "结束光标:" + "X:" + e.XPosition.ToString("G4") + "Y:" + e.YPosition.ToString("G4"); 
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                toollabelshow.Text = "结束光标:" + "X:" + e.XPosition.ToString("G4") + "Y:" + e.YPosition.ToString("G4");
+            }
+            else
+            {
+                toollabelshow.Text = "End cursor:" + "X:" + e.XPosition.ToString("G4") + "Y:" + e.YPosition.ToString("G4");
+            }
         }
 
         private void 最大峰值ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3489,7 +3189,18 @@ namespace AppleLabApplication
             {
                 t[i-starti]=CComLibrary.GlobeVal.g_datadraw[1][i];
             }
-            NationalInstruments.Analysis.Math.ArrayOperation.MaxMin1D(t, out mmax, out mmaxindex,  out mmin, out mminindex);
+
+
+            // NationalInstruments.Analysis.Math.ArrayOperation.MaxMin1D(t, out mmax, out mmaxindex,  out mmin, out mminindex);
+
+
+            mmaxindex  = Array.FindIndex(t, val => val == t.Max());
+            mminindex = Array.FindIndex(t, val => val == t.Min());
+            mmax = t.Max();
+            mmin = t.Min();
+
+
+
             CComLibrary.LineStruct l=new CComLibrary.LineStruct();
             l.kind = 0;
             l.indexstart = starti + mmaxindex; 
@@ -3499,16 +3210,25 @@ namespace AppleLabApplication
 
             drawsign(l.xstart, l.ystart,l);
 
-            this.outputwindow2.Text =
-                 this.outputwindow2.Text + "最大峰值=" + l.ystart.ToString()+"\r\n";
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                this.outputwindow2.Text =
 
+                     this.outputwindow2.Text + "最大峰值=" + l.ystart.ToString() + "\r\n";
+            }
+            else
+            {
+                this.outputwindow2.Text =
+
+                    this.outputwindow2.Text + "Max peak=" + l.ystart.ToString() + "\r\n";
+            }
 
             scatterGraph1.Refresh(); 
 
         }
 
         private void 全部峰值ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {/*
             double[] amplitudesPeak;
             double[] locationsPeak;
             double[] secondDerivativesPeak;
@@ -3562,6 +3282,7 @@ namespace AppleLabApplication
                 CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + "峰值：" + amplitudesPeak[i].ToString() + "\r\n";
             }
             scatterGraph1.Refresh(); 
+            */
 
         }
 
@@ -3612,7 +3333,12 @@ namespace AppleLabApplication
             {
                 t[i - starti] = CComLibrary.GlobeVal.g_datadraw[1][i];
             }
-            NationalInstruments.Analysis.Math.ArrayOperation.MaxMin1D(t, out mmax, out mmaxindex, out mmin, out mminindex);
+            //NationalInstruments.Analysis.Math.ArrayOperation.MaxMin1D(t, out mmax, out mmaxindex, out mmin, out mminindex);
+
+            mmaxindex = Array.FindIndex(t, val => val == t.Max());
+            mminindex = Array.FindIndex(t, val => val == t.Min());
+            mmax = t.Max();
+            mmin = t.Min();
 
             CComLibrary.LineStruct l = new CComLibrary.LineStruct();
             l.kind = 0;
@@ -3621,10 +3347,17 @@ namespace AppleLabApplication
             l.ystart = CComLibrary.GlobeVal.g_datadraw[1][starti + mminindex];
             drawsign(l.xstart, l.ystart,l);
             CComLibrary.GlobeVal.m_listline.Add(l);
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                this.outputwindow2.Text =
+                     this.outputwindow2.Text + "最小谷值=" + l.ystart.ToString() + "\r\n";
+            }
+            else
+            {
+                this.outputwindow2.Text =
+                        this.outputwindow2.Text + "Min valle=" + l.ystart.ToString() + "\r\n";
 
-            this.outputwindow2.Text =
-                 this.outputwindow2.Text + "最小谷值=" + l.ystart.ToString()+"\r\n";
-
+            }
             scatterGraph1.Refresh(); 
         }
 
@@ -3635,6 +3368,7 @@ namespace AppleLabApplication
 
         private void 全部谷值ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             double[] amplitudesPeak;
             double[] locationsPeak;
             double[] secondDerivativesPeak;
@@ -3691,7 +3425,7 @@ namespace AppleLabApplication
                 CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text + "谷值：" + amplitudesPeak[i].ToString() + "\r\n";
             }
             scatterGraph1.Refresh(); 
-
+            */
         }
 
         private void tsbtnlineslope_Click(object sender, EventArgs e)
@@ -3740,10 +3474,16 @@ namespace AppleLabApplication
 
             drawline(l1.xstart, l1.ystart,
                         l1.xend, l1.yend,l1);
-            
-            this.outputwindow2.Text =
-                  this.outputwindow2.Text + "直线斜率="+l1.value.ToString()+"\r\n";
-
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                this.outputwindow2.Text =
+                      this.outputwindow2.Text + "直线斜率=" + l1.value.ToString() + "\r\n";
+            }
+            else
+            {
+                this.outputwindow2.Text =
+                    this.outputwindow2.Text + "Slope=" + l1.value.ToString() + "\r\n";
+            }
             scatterGraph1.Refresh();
 
 
@@ -4102,7 +3842,9 @@ namespace AppleLabApplication
             {
                 t[i - starti] = CComLibrary.GlobeVal.g_datadraw[1][i];
             }
-            NationalInstruments.Analysis.Math.ArrayOperation.Normalize1D(t, out mean, out stddev);
+            // NationalInstruments.Analysis.Math.ArrayOperation.Normalize1D(t, out mean, out stddev);
+
+            mean = t.Average();
 
             CComLibrary.LineStruct l1 = new CComLibrary.LineStruct();
             l1.kind = 1;
@@ -4114,9 +3856,16 @@ namespace AppleLabApplication
             l1.yend = mean;
             l1.value = mean;
 
-            this.outputwindow2.Text =
-            this.outputwindow2.Text + "平均值=" + l1.value.ToString()+"\r\n";
-
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                this.outputwindow2.Text =
+                this.outputwindow2.Text + "平均值=" + l1.value.ToString() + "\r\n";
+            }
+            else
+            {
+                this.outputwindow2.Text =
+              this.outputwindow2.Text + "Average=" + l1.value.ToString() + "\r\n";
+            }
 
             CComLibrary.GlobeVal.m_listline.Add(l1);
 
@@ -4311,7 +4060,14 @@ namespace AppleLabApplication
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
             //scatterGraph1  
-            scatterGraph1.ToFile("c:\\曲线.bmp",ImageType.Bmp);  
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                scatterGraph1.ToFile("c:\\曲线.bmp", ImageType.Bmp);
+            }
+            else
+            {
+                scatterGraph1.ToFile("c:\\curve.bmp", ImageType.Bmp);
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -4377,11 +4133,20 @@ namespace AppleLabApplication
             l1.xend = CComLibrary.GlobeVal.g_datadraw[0][l1.indexend];
             l1.yend = CComLibrary.GlobeVal.g_datadraw[1][l1.indexend];
 
-            l1.value = Math.Abs(l1.xstart - l1.xend); 
-            this.outputwindow2.Text =
-                  this.outputwindow2.Text + "水平差值计算=" + l1.value.ToString() + "\r\n";
+            l1.value = Math.Abs(l1.xstart - l1.xend);
 
-          
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                this.outputwindow2.Text =
+                      this.outputwindow2.Text + "水平差值计算=" + l1.value.ToString() + "\r\n";
+
+            }
+            else
+            {
+                this.outputwindow2.Text =
+                      this.outputwindow2.Text + "X axis difference calculation=" + l1.value.ToString() + "\r\n";
+            }
+
 
 
         }
@@ -4421,9 +4186,18 @@ namespace AppleLabApplication
             l1.yend = CComLibrary.GlobeVal.g_datadraw[1][l1.indexend];
 
             l1.value = Math.Abs(l1.ystart- l1.yend);
-            this.outputwindow2.Text =
-                  this.outputwindow2.Text + "垂直差值计算=" + l1.value.ToString() + "\r\n";
 
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                this.outputwindow2.Text =
+                      this.outputwindow2.Text + "垂直差值计算=" + l1.value.ToString() + "\r\n";
+            }
+            else
+            {
+                this.outputwindow2.Text =
+                      this.outputwindow2.Text + "Y axis difference calculation=" + l1.value.ToString() + "\r\n";
+                
+            }
         }
 
         private void toolStripButton16_Click(object sender, EventArgs e)
@@ -4660,6 +4434,16 @@ namespace AppleLabApplication
         }
 
         private void tsbreader_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 打开OToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
         {
 
         }

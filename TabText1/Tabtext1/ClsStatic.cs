@@ -11,6 +11,7 @@ using MCTBuffer;
 
 namespace ClsStaticStation
 {
+    
 
     public class ListViewEx : ListView
     {
@@ -50,7 +51,25 @@ namespace ClsStaticStation
     [Serializable]
     public class shapeitem
     {
-        
+        public int Rect_Shape = 0;
+
+        public int Round_Shape = 1;
+
+        public int Double_shear_ring_Shape = 2;
+
+        public int Tube_Shape = 3;
+
+        public int Irregular_Shape = 4;
+
+        public int Fiber_Shape = 5;
+
+        public int _90_degree_stripping_Shape = 6;
+        public int _180_degree_stripping_Shape = 7;
+
+        public int T_stripping_Shape = 8;
+
+        public int Tear_Shape = 9;
+
         public string shapename;
 
         
@@ -61,8 +80,8 @@ namespace ClsStaticStation
        
         public  shapeitem()
         {
-            sizeitem =new ItemSignal[3];
-            for (int i = 0; i < 3; i++)
+            sizeitem =new ItemSignal[6];
+            for (int i = 0; i < 6; i++)
             {
                 sizeitem[i] = new ItemSignal(); 
 
@@ -75,14 +94,18 @@ namespace ClsStaticStation
      public class ItemSignalStation : IDisposable
      {
        
+
         public double[] ChannelRange;//通道量程
         public int[] ChannelDimension;//通道量纲
         public bool[] ChannelControl;//通道控制
-     
+
+        public int[] ChannelSampling;//通道采集方式
+
+        public int[] ChannelControlChannel;//带双通道控制器参数选择
 
         public int ChannelCount = 8;//通道数量
 
-        private int machinekind = 0;
+        public int machinekind = 0;
          public List<ItemSignal> datalist=new List<ItemSignal>();
 
          public void initdatalist()
@@ -228,7 +251,25 @@ namespace ClsStaticStation
                 initchannel刚度台();
             }
 
-         }
+            if (machinekind ==6)
+            {
+                this.initchannel标准XL双通道();
+            }
+
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                freqsignal.cName = freqsignal.LName[0];
+                undefinesignal.cName = undefinesignal.LName[0];
+
+            }
+            else
+            {
+                freqsignal.cName = freqsignal.LName[1];
+                undefinesignal.cName = undefinesignal.LName[1];
+            }
+
+        }
 
          public void initchannel扭转()
          {
@@ -249,11 +290,12 @@ namespace ClsStaticStation
              isi.cUnitKind = 10;
              isi.cUnitsel = 0;
              isi.InitUnit();
-             isi.fullmaxbase = 75;
-             isi.fullminbase = -75;
+             isi.fullmaxbase = ChannelRange[0];
+             isi.fullminbase = -ChannelRange[0];
              isi.speedSignal = (ItemSignal) anglespeedsignal.Clone();
              isi.speedSignal.fullmaxbase = isi.fullmaxbase;
              isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[0];
              chsignals.Add(isi);
              allsignals.Add(isi);
              hardsignals.Add(isi);
@@ -342,8 +384,7 @@ namespace ClsStaticStation
              for (i = 0; i < datalist.Count; i++)
              {
                  datalist[i].EdcId = i;
-                 datalist[i].EdcChannleSel = 0;
-
+              
              }
 
 
@@ -373,7 +414,9 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
-            isi.ClosedControl = true;
+            isi.ClosedControl = ChannelControl[0];
+            isi.SamplingMode = ChannelSampling[0];
+
             chsignals.Add(isi);
             allsignals.Add(isi);
 
@@ -430,7 +473,8 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)forcespeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
-            isi.ClosedControl = true;
+            isi.ClosedControl = ChannelControl[1];
+            isi.SamplingMode = ChannelSampling[1];
             chsignals.Add(isi);
             allsignals.Add(isi);
             if (ChannelControl[1] == true)
@@ -486,7 +530,8 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
-            isi.ClosedControl = true;
+            isi.ClosedControl = ChannelControl[2];
+            isi.SamplingMode = ChannelSampling[2];
             chsignals.Add(isi);
             allsignals.Add(isi);
 
@@ -540,6 +585,9 @@ namespace ClsStaticStation
             isi.InitUnit();
             isi.fullmaxbase = ChannelRange[3];
             isi.fullminbase = -ChannelRange[3];
+            isi.ClosedControl = ChannelControl[3];
+            isi.SamplingMode = ChannelSampling[3];
+
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
@@ -564,6 +612,9 @@ namespace ClsStaticStation
             isi.InitUnit();
             isi.fullmaxbase = ChannelRange[4];
             isi.fullminbase = -ChannelRange[4];
+            isi.ClosedControl = ChannelControl[4];
+            isi.SamplingMode = ChannelSampling[4];
+
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
@@ -588,6 +639,8 @@ namespace ClsStaticStation
             isi.InitUnit();
             isi.fullmaxbase = ChannelRange[5];
             isi.fullminbase = -ChannelRange[5];
+            isi.ClosedControl = ChannelControl[5];
+            isi.SamplingMode = ChannelSampling[5];
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
@@ -612,6 +665,9 @@ namespace ClsStaticStation
             isi.InitUnit();
             isi.fullmaxbase = ChannelRange[6];
             isi.fullminbase = -ChannelRange[6];
+            isi.ClosedControl = ChannelControl[6];
+            isi.SamplingMode = ChannelSampling[6];
+
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
@@ -638,6 +694,9 @@ namespace ClsStaticStation
             isi.InitUnit();
             isi.fullmaxbase = ChannelRange[7];
             isi.fullminbase = -ChannelRange[7];
+            isi.ClosedControl = ChannelControl[7];
+            isi.SamplingMode = ChannelSampling[7];
+
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
@@ -729,41 +788,44 @@ namespace ClsStaticStation
             for (i = 0; i < datalist.Count; i++)
             {
                 datalist[i].EdcId = i;
-                datalist[i].EdcChannleSel = 0;
+             
 
             }
 
 
         }
 
-
         public void initchannel标准()
-         {
-             int i = 0;
-             chsignals.Clear();
-             allsignals.Clear();
-             hardsignals.Clear();
-             zerosignals.Clear();
-             originsignals.Clear();
+        {
+            int i = 0;
+            chsignals.Clear();
+            allsignals.Clear();
+            hardsignals.Clear();
+            zerosignals.Clear();
+            originsignals.Clear();
 
-             ItemSignal isi = new ItemSignal();
-             isi.cName = "位移";
-             isi.LName[0] = "位移";
-             isi.LName[1] = "Displacement";
+            ItemSignal isi = new ItemSignal();
+            isi.cName = "位移";
+            isi.LName[0] = "位移";
+            isi.LName[1] = "Displacement";
 
-             isi.originprecise = 3;
-             isi.SignName = "Ch Disp";
-             isi.cUnitKind = 0;
-             isi.cUnitsel = 0;
-             isi.InitUnit();
-             isi.fullmaxbase = ChannelRange[0];
-             isi.fullminbase = -ChannelRange[0];
-             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
-             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-             isi.speedSignal.fullminbase = 0;
-             isi.ClosedControl = true;
-             chsignals.Add(isi);
-             allsignals.Add(isi);
+            isi.originprecise = 3;
+            isi.SignName = "Ch Disp";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[0];
+            isi.fullminbase = -ChannelRange[0];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[0];
+            isi.SamplingMode = ChannelSampling[0];
+            isi.EdcChannleSel = ChannelControlChannel[0];
+
+
+            chsignals.Add(isi);
+            allsignals.Add(isi);
 
 
 
@@ -771,8 +833,8 @@ namespace ClsStaticStation
             {
                 hardsignals.Add(isi);
             }
-             zerosignals.Add(isi);
-             originsignals.Add(isi);
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
 
 
             isi = new ItemSignal();
@@ -805,28 +867,31 @@ namespace ClsStaticStation
 
 
             isi = new ItemSignal();
-             isi.cName = "力";
-             isi.LName[0] = "力";
-             isi.LName[1] = "Force";
-             isi.originprecise = 3;
-             isi.SignName = "Ch Load";
-             isi.cUnitKind = 1;
-             isi.cUnitsel = 0;
-             isi.InitUnit();
-             isi.fullmaxbase = ChannelRange[1];
-             isi.fullminbase = -ChannelRange[1];
-             isi.speedSignal = (ItemSignal)forcespeedsignal.Clone();
-             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-             isi.speedSignal.fullminbase = 0;
-             isi.ClosedControl = true;
-             chsignals.Add(isi);
-             allsignals.Add(isi);
+            isi.cName = "力";
+            isi.LName[0] = "力";
+            isi.LName[1] = "Force";
+            isi.originprecise = 3;
+            isi.SignName = "Ch Load";
+            isi.cUnitKind = 1;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[1];
+            isi.fullminbase = -ChannelRange[1];
+            isi.speedSignal = (ItemSignal)forcespeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[1];
+            isi.SamplingMode = ChannelSampling[1];
+            isi.EdcChannleSel = ChannelControlChannel[1];
+
+            chsignals.Add(isi);
+            allsignals.Add(isi);
             if (ChannelControl[1] == true)
             {
                 hardsignals.Add(isi);
             }
-             zerosignals.Add(isi);
-             originsignals.Add(isi);
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
 
 
             isi = new ItemSignal();
@@ -860,30 +925,33 @@ namespace ClsStaticStation
 
 
             isi = new ItemSignal();
-             isi.cName = "变形";
-             isi.LName[0] = "变形";
-             isi.LName[1] = "Deformation";
+            isi.cName = "变形";
+            isi.LName[0] = "变形";
+            isi.LName[1] = "Deformation";
 
-             isi.originprecise = 3;
-             isi.SignName = "Ch Ext";
-             isi.cUnitKind = 0;
-             isi.cUnitsel = 0;
-             isi.InitUnit();
-             isi.fullmaxbase = ChannelRange[2];
-             isi.fullminbase = -ChannelRange[2];
-             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
-             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-             isi.speedSignal.fullminbase = 0;
-            isi.ClosedControl = true;
-             chsignals.Add(isi);
-             allsignals.Add(isi);
+            isi.originprecise = 3;
+            isi.SignName = "Ch Ext";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[2];
+            isi.fullminbase = -ChannelRange[2];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[2];
+            isi.SamplingMode = ChannelSampling[2];
+            isi.EdcChannleSel = ChannelControlChannel[2];
+
+            chsignals.Add(isi);
+            allsignals.Add(isi);
 
             if (ChannelControl[2] == true)
             {
                 hardsignals.Add(isi);
             }
-             zerosignals.Add(isi);
-             originsignals.Add(isi);
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
 
 
             isi = new ItemSignal();
@@ -931,6 +999,10 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[3];
+            isi.SamplingMode = ChannelSampling[3];
+            isi.EdcChannleSel = ChannelControlChannel[3];
+
             chsignals.Add(isi);
             allsignals.Add(isi);
             if (ChannelControl[3] == true)
@@ -943,7 +1015,7 @@ namespace ClsStaticStation
             isi = new ItemSignal();
             isi.cName = "测量1";
             isi.LName[0] = "测量1";
-            isi.LName[1] = "Measure Channel 1";
+            isi.LName[1] = "Measurement 1";
 
             isi.originprecise = 3;
             isi.SignName = "Ch Sensor5";
@@ -955,6 +1027,475 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[4];
+            isi.SamplingMode = ChannelSampling[4];
+            isi.EdcChannleSel = ChannelControlChannel[4];
+
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[4] == true)
+            {
+                hardsignals.Add(isi);
+            }
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+            isi = new ItemSignal();
+            isi.cName = "测量2";
+            isi.LName[0] = "测量2";
+            isi.LName[1] = "Measurement 2";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor6";
+            isi.cUnitKind = 5;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[5];
+            isi.fullminbase = -ChannelRange[5];
+
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[5];
+            isi.SamplingMode = ChannelSampling[5];
+            isi.EdcChannleSel = ChannelControlChannel[5];
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[5] == true)
+            {
+                hardsignals.Add(isi);
+            }
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+            isi = new ItemSignal();
+            isi.cName = "测量3";
+            isi.LName[0] = "测量3";
+            isi.LName[1] = "Measurement 3";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor7";
+            isi.cUnitKind = 5;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[6];
+            isi.fullminbase = -ChannelRange[6];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[6];
+            isi.SamplingMode = ChannelSampling[6];
+            isi.EdcChannleSel = ChannelControlChannel[6];
+
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[6] == true)
+            {
+                hardsignals.Add(isi);
+            }
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+
+
+            isi = new ItemSignal();
+            isi.cName = "测量4";
+            isi.LName[0] = "测量4";
+            isi.LName[1] = "Measurement 4";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor8";
+            isi.cUnitKind = 5;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[7];
+            isi.fullminbase = -ChannelRange[7];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[7];
+            isi.SamplingMode = ChannelSampling[7];
+            isi.EdcChannleSel = ChannelControlChannel[7];
+
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[7] == true)
+            {
+                hardsignals.Add(isi);
+            }
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+
+
+            isi = new ItemSignal();
+
+            isi.cName = "时间";
+            isi.LName[0] = "时间";
+            isi.LName[1] = "Time";
+            isi.originprecise = 3;
+            isi.SignName = "Ch Time";
+            isi.cUnitKind = 4;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = 316000000;
+            isi.fullminbase = 0;
+            allsignals.Add(isi);
+            originsignals.Add(isi);
+
+            isi = new ItemSignal();
+
+            isi.cName = "次数";
+            isi.LName[0] = "次数";
+            isi.LName[1] = "Count";
+            isi.originprecise = 0;
+            isi.SignName = "Ch Count";
+            isi.cUnitKind = 20;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = 1000000000000;
+            isi.fullminbase = 0;
+            allsignals.Add(isi);
+            originsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+
+            isi.cName = "命令";
+            isi.LName[0] = "命令";
+            isi.LName[1] = "Command";
+            isi.originprecise = 4;
+            isi.SignName = "Ch Command";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = 1000000000000;
+            isi.fullminbase = -100000000000;
+            allsignals.Add(isi);
+            originsignals.Add(isi);
+
+
+
+
+            if (CComLibrary.GlobeVal.filesave == null)
+            {
+
+            }
+
+            else
+            {
+
+                for (i = 0; i < CComLibrary.GlobeVal.filesave.muserchannel.Count; i++)
+                {
+
+                    isi = (ItemSignal)CComLibrary.GlobeVal.filesave.muserchannel[i].myitemsignal.Clone();
+                    isi.cName = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
+                    isi.LName[0] = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
+                    isi.LName[1] = "";
+                    isi.originprecise = 3;
+                    isi.SignName = "Ch User" + i.ToString().Trim();
+                    allsignals.Add(isi);
+
+
+                }
+            }
+
+
+
+
+            datalist.Clear();
+
+
+
+
+            for (i = 0; i < allsignals.Count; i++)
+            {
+                datalist.Add(allsignals[i]);
+
+            }
+
+
+            for (i = 0; i < datalist.Count; i++)
+            {
+                datalist[i].EdcId = i;
+
+
+            }
+
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                for (i = 0; i < hardsignals.Count; i++)
+                {
+                    hardsignals[i].cName = hardsignals[i].LName[0];
+                }
+
+                for (i = 0; i < chsignals.Count; i++)
+                {
+                    chsignals[i].cName = chsignals[i].LName[0];
+                }
+                for ( i=0;i<chsignals.Count;i++)
+                {
+                    allsignals[i].cName = allsignals[i].LName[0];
+                }
+            }
+            else
+            {
+                for (i = 0; i < hardsignals.Count; i++)
+                {
+                    hardsignals[i].cName = hardsignals[i].LName[1];
+                }
+                for (i = 0; i < chsignals.Count; i++)
+                {
+                    chsignals[i].cName = chsignals[i].LName[1];
+                }
+                for (i = 0; i < allsignals.Count; i++)
+                {
+                    allsignals[i].cName = allsignals[i].LName[1];
+                }
+            }
+            
+
+        }
+
+        public void initchannel标准XL双通道()
+         {
+             int i = 0;
+             chsignals.Clear();
+             allsignals.Clear();
+             hardsignals.Clear();
+             zerosignals.Clear();
+             originsignals.Clear();
+
+             ItemSignal isi = new ItemSignal();
+             isi.cName = "位移1";
+             isi.LName[0] = "位移1";
+             isi.LName[1] = "Displacement1";
+
+             isi.originprecise = 3;
+             isi.SignName = "Ch Disp";
+             isi.cUnitKind = 0;
+             isi.cUnitsel = 0;
+             isi.InitUnit();
+             isi.fullmaxbase = ChannelRange[0];
+             isi.fullminbase = -ChannelRange[0];
+             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+             isi.speedSignal.fullminbase = 0;
+             isi.ClosedControl = ChannelControl[0];
+             isi.SamplingMode = ChannelSampling[0];
+            isi.EdcChannleSel = ChannelControlChannel[0];
+
+           
+             
+
+             chsignals.Add(isi);
+             allsignals.Add(isi);
+
+
+
+            if (ChannelControl[0] == true)
+            {
+                hardsignals.Add(isi);
+            }
+             zerosignals.Add(isi);
+             originsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+            isi.cName = "位移1峰值";
+            isi.LName[0] = "位移1峰值";
+            isi.LName[1] = "Max Displacement";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Disp Max";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[0];
+            isi.fullminbase = -ChannelRange[0];
+            allsignals.Add(isi);
+
+            isi = new ItemSignal();
+            isi.cName = "位移1谷值";
+            isi.LName[0] = "位移1谷值";
+            isi.LName[1] = "Min Displacement";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Disp Min";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[0];
+            isi.fullminbase = -ChannelRange[0];
+            allsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+             isi.cName = "力1";
+             isi.LName[0] = "力1";
+             isi.LName[1] = "Force1";
+             isi.originprecise = 3;
+             isi.SignName = "Ch Load";
+             isi.cUnitKind = 1;
+             isi.cUnitsel = 0;
+             isi.InitUnit();
+             isi.fullmaxbase = ChannelRange[1];
+             isi.fullminbase = -ChannelRange[1];
+             isi.speedSignal = (ItemSignal)forcespeedsignal.Clone();
+             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+             isi.speedSignal.fullminbase = 0;
+             isi.ClosedControl = ChannelControl[1];
+            isi.SamplingMode = ChannelSampling[1];
+            isi.EdcChannleSel = ChannelControlChannel[1];
+
+            chsignals.Add(isi);
+             allsignals.Add(isi);
+            if (ChannelControl[1] == true)
+            {
+                hardsignals.Add(isi);
+            }
+             zerosignals.Add(isi);
+             originsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+            isi.cName = "力1峰值";
+            isi.LName[0] = "力1峰值";
+            isi.LName[1] = "Max Force";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Load Max";
+            isi.cUnitKind = 1;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[1];
+            isi.fullminbase = -ChannelRange[1];
+            allsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+            isi.cName = "力1谷值";
+            isi.LName[0] = "力1谷值";
+            isi.LName[1] = "Min Force";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Load Min";
+            isi.cUnitKind = 1;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[1];
+            isi.fullminbase = -ChannelRange[1];
+            allsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+             isi.cName = "位移2";
+             isi.LName[0] = "位移2";
+             isi.LName[1] = "pos 2";
+
+             isi.originprecise = 3;
+             isi.SignName = "Ch Ext";
+             isi.cUnitKind = 0;
+             isi.cUnitsel = 0;
+             isi.InitUnit();
+             isi.fullmaxbase = ChannelRange[2];
+             isi.fullminbase = -ChannelRange[2];
+             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+             isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[2];
+            isi.SamplingMode = ChannelSampling[2];
+            isi.EdcChannleSel = ChannelControlChannel[2];
+
+            chsignals.Add(isi);
+             allsignals.Add(isi);
+
+            if (ChannelControl[2] == true)
+            {
+                hardsignals.Add(isi);
+            }
+             zerosignals.Add(isi);
+             originsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+            isi.cName = "位移2峰值";
+            isi.LName[0] = "位移2峰值";
+            isi.LName[1] = "Max Deformation";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Ext Max";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[2];
+            isi.fullminbase = -ChannelRange[2];
+            allsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+            isi.cName = "位移2谷值";
+            isi.LName[0] = "位移2谷值";
+            isi.LName[1] = "Min Deformation";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Ext Min";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[2];
+            isi.fullminbase = -ChannelRange[2];
+            allsignals.Add(isi);
+
+
+            isi = new ItemSignal();
+            isi.cName = "力2";
+            isi.LName[0] = "力2";
+            isi.LName[1] = "Force 2";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor4";
+            isi.cUnitKind = 1;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[3];
+            isi.fullminbase = -ChannelRange[3];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[3];
+            isi.SamplingMode = ChannelSampling[3];
+            isi.EdcChannleSel = ChannelControlChannel[3];
+
+            chsignals.Add(isi);
+            allsignals.Add(isi);
+            if (ChannelControl[3] == true)
+            {
+                hardsignals.Add(isi);
+            }
+            zerosignals.Add(isi);
+            originsignals.Add(isi);
+
+            isi = new ItemSignal();
+            isi.cName = "变形";
+            isi.LName[0] = "变形";
+            isi.LName[1] = "Measure Channel 1";
+
+            isi.originprecise = 3;
+            isi.SignName = "Ch Sensor5";
+            isi.cUnitKind = 0;
+            isi.cUnitsel = 0;
+            isi.InitUnit();
+            isi.fullmaxbase = ChannelRange[4];
+            isi.fullminbase = -ChannelRange[4];
+            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
+            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
+            isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[4];
+            isi.SamplingMode = ChannelSampling[4];
+            isi.EdcChannleSel = ChannelControlChannel[4];
+
             chsignals.Add(isi);
             allsignals.Add(isi);
             if (ChannelControl[4] == true)
@@ -979,6 +1520,10 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[5];
+            isi.SamplingMode = ChannelSampling[5];
+            isi.EdcChannleSel = ChannelControlChannel[5];
+
             chsignals.Add(isi);
             allsignals.Add(isi);
             if (ChannelControl[5] == true)
@@ -1003,6 +1548,10 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[6];
+            isi.SamplingMode = ChannelSampling[6];
+            isi.EdcChannleSel = ChannelControlChannel[6];
+
             chsignals.Add(isi);
             allsignals.Add(isi);
             if (ChannelControl[6] == true)
@@ -1029,6 +1578,10 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
+            isi.ClosedControl = ChannelControl[7];
+            isi.SamplingMode = ChannelSampling[7];
+            isi.EdcChannleSel = ChannelControlChannel[7];
+
             chsignals.Add(isi);
             allsignals.Add(isi);
             if (ChannelControl[7] == true)
@@ -1130,7 +1683,7 @@ namespace ClsStaticStation
              for (i = 0; i < datalist.Count; i++)
              {
                  datalist[i].EdcId = i;
-                 datalist[i].EdcChannleSel = 0;
+            
 
              }
 
@@ -1161,7 +1714,7 @@ namespace ClsStaticStation
             isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
             isi.speedSignal.fullmaxbase = isi.fullmaxbase;
             isi.speedSignal.fullminbase = 0;
-            isi.ClosedControl = true;
+            isi.ClosedControl = ChannelControl[0];
             chsignals.Add(isi);
             allsignals.Add(isi);
 
@@ -1420,7 +1973,7 @@ namespace ClsStaticStation
             for (i = 0; i < datalist.Count; i++)
             {
                 datalist[i].EdcId = i;
-                datalist[i].EdcChannleSel = 0;
+            
 
             }
 
@@ -1645,306 +2198,522 @@ namespace ClsStaticStation
              for (i = 0; i < datalist.Count; i++)
              {
                  datalist[i].EdcId = i;
-                 datalist[i].EdcChannleSel = 0;
+               
 
              }
 
          }
 
-        public void initchannel标准8采集通道1控制通道()
-        {
-            int i = 0;
-            chsignals.Clear();
-            allsignals.Clear();
-            hardsignals.Clear();
-            zerosignals.Clear();
-            originsignals.Clear();
 
-            ItemSignal isi = new ItemSignal();
-            isi.cName = "位移";
-            isi.LName[0] = "位移";
-            isi.LName[1] = "Disp.";
-            isi.SensorId = 0;
-
-            isi.originprecise = 3;
-            isi.SignName = "Ch Disp";
-            isi.cUnitKind = 0;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 75;
-            isi.fullminbase = -75;
-            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
-            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-            isi.speedSignal.fullminbase = 0;
-            chsignals.Add(isi);
-            allsignals.Add(isi);
-            hardsignals.Add(isi);
-            zerosignals.Add(isi);
-            originsignals.Add(isi);
-
-          
-
-
-            isi = new ItemSignal();
-            isi.cName = "力";
-            isi.LName[0] = "力";
-            isi.LName[1] = "Force";
-            isi.SensorId = 1;
-
-
-            isi.originprecise = 3;
-            isi.SignName = "Ch Load";
-            isi.cUnitKind = 1;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 30;
-            isi.fullminbase = -30;
-            isi.speedSignal = (ItemSignal)forcespeedsignal.Clone();
-            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-            isi.speedSignal.fullminbase = 0;
-            chsignals.Add(isi);
-            allsignals.Add(isi);
-            hardsignals.Add(isi);
-            zerosignals.Add(isi);
-            originsignals.Add(isi);
-
-
-            isi = new ItemSignal();
-            isi.cName = "力2";
-            isi.LName[0] = "力2";
-            isi.LName[1] = "Force2";
-            isi.SensorId = 2;
-
-
-            isi.originprecise = 3;
-            isi.SignName = "Ch Ext";
-            isi.cUnitKind = 1;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 30;
-            isi.fullminbase = -30;
-            isi.speedSignal = (ItemSignal)forcespeedsignal.Clone();
-            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-            isi.speedSignal.fullminbase = 0;
-            chsignals.Add(isi);
-            allsignals.Add(isi);
-            hardsignals.Add(isi);
-            zerosignals.Add(isi);
-            originsignals.Add(isi);
-
-
-
-
-            isi = new ItemSignal();
-            isi.cName = "变形";
-            isi.LName[0] = "变形";
-            isi.LName[1] = "Ext";
-            isi.SensorId = 3;
-
-            isi.originprecise = 3;
-            isi.SignName = "Ch Sensor4";
-            isi.cUnitKind = 0;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 5;
-            isi.fullminbase = -5;
-            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
-            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-            isi.speedSignal.fullminbase = 0;
-            chsignals.Add(isi);
-            allsignals.Add(isi);
-            hardsignals.Add(isi);
-            zerosignals.Add(isi);
-            originsignals.Add(isi);
-
-            isi = new ItemSignal();
-            isi.cName = "变形2";
-            isi.LName[0] = "变形2";
-            isi.LName[1] = "Ext 2";
-            isi.SensorId = 4;
-
-            isi.originprecise = 3;
-            isi.SignName = "Ch Sensor5";
-            isi.cUnitKind = 0;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 5;
-            isi.fullminbase = -5;
-            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
-            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-            isi.speedSignal.fullminbase = 0;
-
-            chsignals.Add(isi);
-            allsignals.Add(isi);
-            hardsignals.Add(isi);
-            zerosignals.Add(isi);
-            originsignals.Add(isi);
-
-            isi = new ItemSignal();
-            isi.cName = "变形3";
-            isi.LName[0] = "变形3";
-            isi.LName[1] = "Ext 3";
-            isi.SensorId = 5;
-                
-            isi.originprecise = 3;
-            isi.SignName = "Ch Sensor6";
-            isi.cUnitKind = 0;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 5;
-            isi.fullminbase = -5;
-            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
-            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-            isi.speedSignal.fullminbase = 0;
-            chsignals.Add(isi);
-            allsignals.Add(isi);
-            hardsignals.Add(isi);
-            zerosignals.Add(isi);
-            originsignals.Add(isi);
-
-            isi = new ItemSignal();
-            isi.cName = "变形4";
-            isi.LName[0] = "变形4";
-            isi.LName[1] = "Ext 4";
-            isi.SensorId = 6;
-
-            isi.originprecise = 3;
-            isi.SignName = "Ch Sensor7";
-            isi.cUnitKind = 0;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 5;
-            isi.fullminbase = -5;
-            isi.speedSignal = (ItemSignal)lengthspeedsignal.Clone();
-            isi.speedSignal.fullmaxbase = isi.fullmaxbase;
-            isi.speedSignal.fullminbase = 0;
-            chsignals.Add(isi);
-            allsignals.Add(isi);
-            hardsignals.Add(isi);
-            zerosignals.Add(isi);
-            originsignals.Add(isi);
-
-            //chsignals.Add(isi);
-            //allsignals.Add(isi);
-            //hardsignals.Add(isi);
-            //zerosignals.Add(isi);
-            //originsignals.Add(isi);
-
-            isi = new ItemSignal();
-
-            isi.cName = "时间";
-            isi.LName[0] = "时间";
-            isi.LName[1] = "Time";
-            isi.originprecise = 4;
-            isi.SignName = "Ch Time";
-            isi.cUnitKind = 4;
-            isi.cUnitsel = 0;
-            isi.InitUnit();
-            isi.fullmaxbase = 316000000;
-            isi.fullminbase = 0;
-            allsignals.Add(isi);
-            originsignals.Add(isi);
-
-            //hardsignals.Add(isi);
-
-          
-
-
-            if (CComLibrary.GlobeVal.filesave == null)
-            {
-
-            }
-
-            else
-            {
-
-                for (i = 0; i < CComLibrary.GlobeVal.filesave.muserchannel.Count; i++)
-                {
-                  
-                    isi = (ItemSignal)CComLibrary.GlobeVal.filesave.muserchannel[i].myitemsignal.Clone();
-                    isi.cName = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
-                    isi.LName[0] = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname;
-                    isi.LName[1] = "";
-                    isi.originprecise = 3;
-                    isi.SignName = "Ch User" + i.ToString().Trim();
-                    allsignals.Add(isi);
-
-
-                }
-            }
-
-
-
-
-            datalist.Clear();
-
-
-
-
-            for (i = 0; i < allsignals.Count; i++)
-            {
-                datalist.Add(allsignals[i]);
-
-            }
-
-
-            for (i = 0; i < datalist.Count; i++)
-            {
-                datalist[i].EdcId = i;
-                datalist[i].EdcChannleSel = 0;
-
-            }
-
-        }
 
 
         public void InitShape()
-         {
-             shapeitem c = new shapeitem();
-             c.shapename = "矩形";
+        {
+            
 
-             c.sizeitem[0].cUnitKind = 0;
-             c.sizeitem[0].cName = "宽度";
-             c.sizeitem[0].LName[0] = "宽度";
-             c.sizeitem[0].LName[1] = "Width";
-             c.sizeitem[0].cUnitsel = 0;
-             c.sizeitem[0].InitUnit();
-             c.sizeitem[0].fullmaxbase = 10000;
-             c.sizeitem[0].fullminbase = 0;
-             c.sizeitem[0].originprecise = 3;
+            shapeitem c = new shapeitem();
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "矩形";
+            }
+            else
+            {
+                c.shapename = "Rectangle";
+            }
 
-             c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "厚度";
-             c.sizeitem[1].LName[0] = "厚度";
-             c.sizeitem[1].LName[1] = "Thickness";
-             c.sizeitem[1].cUnitsel = 0;
-             c.sizeitem[1].InitUnit();
-             c.sizeitem[1].fullmaxbase = 10000;
-             c.sizeitem[1].fullminbase = 0;
-             c.sizeitem[1].originprecise = 3;
+            c.sizeitem[0].cUnitKind = 0;
+            c.sizeitem[0].cName = "宽度";
+            c.sizeitem[0].LName[0] = "宽度";
+            c.sizeitem[0].LName[1] = "Width";
+            c.sizeitem[0].cUnitsel = 0;
+            c.sizeitem[0].InitUnit();
+            c.sizeitem[0].fullmaxbase = 10000;
+            c.sizeitem[0].fullminbase = 0;
 
-             c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "长度";
-             c.sizeitem[2].LName[0] = "长度";
-             c.sizeitem[2].LName[1] = "Length";
-             c.sizeitem[2].cUnitsel = 0;
-             c.sizeitem[2].InitUnit();
-             c.sizeitem[2].fullmaxbase = 10000;
-             c.sizeitem[2].fullminbase = 0;
-             c.sizeitem[2].originprecise = 3;
+            c.sizeitem[0].originprecise = 3;
 
+            c.sizeitem[1].cUnitKind = 0;
+            c.sizeitem[1].cName = "厚度";
+            c.sizeitem[1].LName[0] = "厚度";
+            c.sizeitem[1].LName[1] = "Thickness";
+            c.sizeitem[1].cUnitsel = 0;
+            c.sizeitem[1].InitUnit();
+            c.sizeitem[1].fullmaxbase = 10000;
+            c.sizeitem[1].fullminbase = 0;
+            c.sizeitem[1].originprecise = 3;
+
+            c.sizeitem[2].cUnitKind = 0;
+            c.sizeitem[2].cName = "长度";
+            c.sizeitem[2].LName[0] = "长度";
+            c.sizeitem[2].LName[1] = "Length";
+            c.sizeitem[2].cUnitsel = 0;
+            c.sizeitem[2].InitUnit();
+            c.sizeitem[2].fullmaxbase = 10000;
+            c.sizeitem[2].fullminbase = 0;
+            c.sizeitem[2].originprecise = 3;
+
+
+            c.sizeitem[3].cUnitKind = 0;
+            c.sizeitem[3].cName = "断后宽度";
+            c.sizeitem[3].LName[0] = "断后宽度";
+            c.sizeitem[3].LName[1] = "Break Width";
+            c.sizeitem[3].cUnitsel = 0;
+            c.sizeitem[3].InitUnit();
+            c.sizeitem[3].fullmaxbase = 10000;
+            c.sizeitem[3].fullminbase = 0;
+
+            c.sizeitem[3].originprecise = 3;
+
+            c.sizeitem[4].cUnitKind = 0;
+            c.sizeitem[4].cName = "断后厚度";
+            c.sizeitem[4].LName[0] = "断后厚度";
+            c.sizeitem[4].LName[1] = "Break Thickness";
+            c.sizeitem[4].cUnitsel = 0;
+            c.sizeitem[4].InitUnit();
+            c.sizeitem[4].fullmaxbase = 10000;
+            c.sizeitem[4].fullminbase = 0;
+            c.sizeitem[4].originprecise = 3;
+
+            c.sizeitem[5].cUnitKind = 0;
+            c.sizeitem[5].cName = "断后长度";
+            c.sizeitem[5].LName[0] = "断后长度";
+            c.sizeitem[5].LName[1] = "Break Length";
+            c.sizeitem[5].cUnitsel = 0;
+            c.sizeitem[5].InitUnit();
+            c.sizeitem[5].fullmaxbase = 10000;
+            c.sizeitem[5].fullminbase = 0;
+            c.sizeitem[5].originprecise = 3;
+
+            shapelist.Add(c);
+
+            c = new shapeitem();
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "圆形";
+
+            }
+            else
+            {
+                c.shapename = "Round";
+            }
+
+           
+
+            c.sizeitem[0].cUnitKind = 0;
+            c.sizeitem[0].cName = "直径";
+            c.sizeitem[0].LName[0] = "直径";
+            c.sizeitem[0].LName[1] = "Diameter";
+            c.sizeitem[0].cUnitsel = 0;
+            c.sizeitem[0].InitUnit();
+            c.sizeitem[0].fullmaxbase = 10000;
+            c.sizeitem[0].fullminbase = 0;
+            c.sizeitem[0].originprecise = 3;
+
+            c.sizeitem[1].cUnitKind = 0;
+            c.sizeitem[1].cName = "None";
+            c.sizeitem[1].LName[0] = "None";
+            c.sizeitem[1].LName[1] = "None";
+            c.sizeitem[1].cUnitsel = 0;
+            c.sizeitem[1].InitUnit();
+            c.sizeitem[1].fullmaxbase = 10000;
+            c.sizeitem[1].fullminbase = 0;
+            c.sizeitem[1].originprecise = 3;
+
+            c.sizeitem[2].cUnitKind = 0;
+            c.sizeitem[2].cName = "长度";
+            c.sizeitem[2].LName[0] = "长度";
+            c.sizeitem[2].LName[1] = "Length";
+            c.sizeitem[2].cUnitsel = 0;
+            c.sizeitem[2].InitUnit();
+            c.sizeitem[2].fullmaxbase = 10000;
+            c.sizeitem[2].fullminbase = 0;
+            c.sizeitem[2].originprecise = 3;
+
+
+            c.sizeitem[3].cUnitKind = 0;
+            c.sizeitem[3].cName = "断后直径";
+            c.sizeitem[3].LName[0] = "断后直径";
+            c.sizeitem[3].LName[1] = "Break Diameter";
+            c.sizeitem[3].cUnitsel = 0;
+            c.sizeitem[3].InitUnit();
+            c.sizeitem[3].fullmaxbase = 10000;
+            c.sizeitem[3].fullminbase = 0;
+            c.sizeitem[3].originprecise = 3;
+
+            c.sizeitem[4].cUnitKind = 0;
+            c.sizeitem[4].cName = "None";
+            c.sizeitem[4].LName[0] = "None";
+            c.sizeitem[4].LName[1] = "None";
+            c.sizeitem[4].cUnitsel = 0;
+            c.sizeitem[4].InitUnit();
+            c.sizeitem[4].fullmaxbase = 10000;
+            c.sizeitem[4].fullminbase = 0;
+            c.sizeitem[4].originprecise = 3;
+
+            c.sizeitem[5].cUnitKind = 0;
+            c.sizeitem[5].cName = "断后长度";
+            c.sizeitem[5].LName[0] = "断后长度";
+            c.sizeitem[5].LName[1] = "Break Length";
+            c.sizeitem[5].cUnitsel = 0;
+            c.sizeitem[5].InitUnit();
+            c.sizeitem[5].fullmaxbase = 10000;
+            c.sizeitem[5].fullminbase = 0;
+            c.sizeitem[5].originprecise = 3;
+
+            shapelist.Add(c);
+
+
+
+
+            c = new shapeitem();
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "双剪切环";
+            }
+            else
+            {
+                c.shapename = "Double shear ring";
+            }
+            c.sizeitem[0].cUnitKind = 0;
+            c.sizeitem[0].cName = "直径";
+            c.sizeitem[0].LName[0] = "直径";
+            c.sizeitem[0].LName[1] = "Diameter";
+            c.sizeitem[0].cUnitsel = 0;
+            c.sizeitem[0].InitUnit();
+            c.sizeitem[0].fullmaxbase = 10000;
+            c.sizeitem[0].fullminbase = 0;
+            c.sizeitem[0].originprecise = 3;
+
+            c.sizeitem[1].cUnitKind = 0;
+            c.sizeitem[1].cName = "None";
+            c.sizeitem[1].LName[0] = "None";
+            c.sizeitem[1].LName[1] = "None";
+            c.sizeitem[1].cUnitsel = 0;
+            c.sizeitem[1].InitUnit();
+            c.sizeitem[1].fullmaxbase = 10000;
+            c.sizeitem[1].fullminbase = 0;
+            c.sizeitem[1].originprecise = 3;
+
+            c.sizeitem[2].cUnitKind = 0;
+            c.sizeitem[2].cName = "长度";
+            c.sizeitem[2].LName[0] = "长度";
+            c.sizeitem[2].LName[1] = "Length";
+            c.sizeitem[2].cUnitsel = 0;
+            c.sizeitem[2].InitUnit();
+            c.sizeitem[2].fullmaxbase = 10000;
+            c.sizeitem[2].fullminbase = 0;
+            c.sizeitem[2].originprecise = 3;
+
+            c.sizeitem[3].cUnitKind = 0;
+            c.sizeitem[3].cName = "断后直径";
+            c.sizeitem[3].LName[0] = "断后直径";
+            c.sizeitem[3].LName[1] = "Break Diameter";
+            c.sizeitem[3].cUnitsel = 0;
+            c.sizeitem[3].InitUnit();
+            c.sizeitem[3].fullmaxbase = 10000;
+            c.sizeitem[3].fullminbase = 0;
+            c.sizeitem[3].originprecise = 3;
+
+            c.sizeitem[4].cUnitKind = 0;
+            c.sizeitem[4].cName = "None";
+            c.sizeitem[4].LName[0] = "None";
+            c.sizeitem[4].LName[1] = "None";
+            c.sizeitem[4].cUnitsel = 0;
+            c.sizeitem[4].InitUnit();
+            c.sizeitem[4].fullmaxbase = 10000;
+            c.sizeitem[4].fullminbase = 0;
+            c.sizeitem[4].originprecise = 3;
+
+            c.sizeitem[5].cUnitKind = 0;
+            c.sizeitem[5].cName = "断后长度";
+            c.sizeitem[5].LName[0] = "断后长度";
+            c.sizeitem[5].LName[1] = "Break Length";
+            c.sizeitem[5].cUnitsel = 0;
+            c.sizeitem[5].InitUnit();
+            c.sizeitem[5].fullmaxbase = 10000;
+            c.sizeitem[5].fullminbase = 0;
+            c.sizeitem[5].originprecise = 3;
+
+
+            shapelist.Add(c);
+
+            c = new shapeitem();
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "管状";
+            }
+            else
+            {
+                c.shapename = "Tube";
+            }
+            c.sizeitem[0].cUnitKind = 0;
+            c.sizeitem[0].cName = "外径";
+            c.sizeitem[0].LName[0] = "外径";
+            c.sizeitem[0].LName[1] = "Outer Diameter";
+            c.sizeitem[0].cUnitsel = 0;
+            c.sizeitem[0].InitUnit();
+            c.sizeitem[0].fullmaxbase = 10000;
+            c.sizeitem[0].fullminbase = 0;
+            c.sizeitem[0].originprecise = 3;
+
+            c.sizeitem[1].cUnitKind = 0;
+            c.sizeitem[1].cName = "壁厚";
+            c.sizeitem[1].LName[0] = "壁厚";
+            c.sizeitem[1].LName[1] = "Wall Thickness";
+            c.sizeitem[1].cUnitsel = 0;
+            c.sizeitem[1].InitUnit();
+            c.sizeitem[1].fullmaxbase = 10000;
+            c.sizeitem[1].fullminbase = 0;
+            c.sizeitem[1].originprecise = 3;
+
+            c.sizeitem[2].cUnitKind = 0;
+            c.sizeitem[2].cName = "长度";
+            c.sizeitem[2].LName[0] = "长度";
+            c.sizeitem[2].LName[1] = "Length";
+            c.sizeitem[2].cUnitsel = 0;
+            c.sizeitem[2].InitUnit();
+            c.sizeitem[2].fullmaxbase = 10000;
+            c.sizeitem[2].fullminbase = 0;
+            c.sizeitem[2].originprecise = 3;
+
+            c.sizeitem[3].cUnitKind = 0;
+            c.sizeitem[3].cName = "断后外径";
+            c.sizeitem[3].LName[0] = "断后外径";
+            c.sizeitem[3].LName[1] = "Break Outer Diameter";
+            c.sizeitem[3].cUnitsel = 0;
+            c.sizeitem[3].InitUnit();
+            c.sizeitem[3].fullmaxbase = 10000;
+            c.sizeitem[3].fullminbase = 0;
+            c.sizeitem[3].originprecise = 3;
+
+            c.sizeitem[4].cUnitKind = 0;
+            c.sizeitem[4].cName = "断后壁厚";
+            c.sizeitem[4].LName[0] = "断后壁厚";
+            c.sizeitem[4].LName[1] = "Break Wall Thickness";
+            c.sizeitem[4].cUnitsel = 0;
+            c.sizeitem[4].InitUnit();
+            c.sizeitem[4].fullmaxbase = 10000;
+            c.sizeitem[4].fullminbase = 0;
+            c.sizeitem[4].originprecise = 3;
+
+            c.sizeitem[5].cUnitKind = 0;
+            c.sizeitem[5].cName = "断后长度";
+            c.sizeitem[5].LName[0] = "断后长度";
+            c.sizeitem[5].LName[1] = "Break Length";
+            c.sizeitem[5].cUnitsel = 0;
+            c.sizeitem[5].InitUnit();
+            c.sizeitem[5].fullmaxbase = 10000;
+            c.sizeitem[5].fullminbase = 0;
+            c.sizeitem[5].originprecise = 3;
+
+            shapelist.Add(c);
+
+            c = new shapeitem();
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "不规则形状";
+            }
+            else
+            {
+                c.shapename = "Irregular";
+            }
+            c.sizeitem[0].cUnitKind = 0;
+            c.sizeitem[0].cName = "横截面积";
+            c.sizeitem[0].LName[0] = "横截面积";
+            c.sizeitem[0].LName[1] = "Cross sectiional area";
+            c.sizeitem[0].cUnitsel = 0;
+            c.sizeitem[0].InitUnit();
+            c.sizeitem[0].fullmaxbase = 10000;
+            c.sizeitem[0].fullminbase = 0;
+            c.sizeitem[0].originprecise = 3;
+
+            c.sizeitem[1].cUnitKind = 0;
+            c.sizeitem[1].cName = "None";
+            c.sizeitem[1].LName[0] = "None";
+            c.sizeitem[1].LName[1] = "None";
+            c.sizeitem[1].cUnitsel = 0;
+            c.sizeitem[1].InitUnit();
+            c.sizeitem[1].fullmaxbase = 10000;
+            c.sizeitem[1].fullminbase = 0;
+            c.sizeitem[1].originprecise = 3;
+
+            c.sizeitem[2].cUnitKind = 0;
+            c.sizeitem[2].cName = "长度";
+            c.sizeitem[2].LName[0] = "长度";
+            c.sizeitem[2].LName[1] = "Length";
+            c.sizeitem[2].cUnitsel = 0;
+            c.sizeitem[2].InitUnit();
+            c.sizeitem[2].fullmaxbase = 10000;
+            c.sizeitem[2].fullminbase = 0;
+            c.sizeitem[2].originprecise = 3;
+
+            c.sizeitem[3].cUnitKind = 0;
+            c.sizeitem[3].cName = "断后横截面积";
+            c.sizeitem[3].LName[0] = "断后横截面积";
+            c.sizeitem[3].LName[1] = "Break Cross sectiional area";
+            c.sizeitem[3].cUnitsel = 0;
+            c.sizeitem[3].InitUnit();
+            c.sizeitem[3].fullmaxbase = 10000;
+            c.sizeitem[3].fullminbase = 0;
+            c.sizeitem[3].originprecise = 3;
+
+            c.sizeitem[4].cUnitKind = 0;
+            c.sizeitem[4].cName = "None";
+            c.sizeitem[4].LName[0] = "None";
+            c.sizeitem[4].LName[1] = "None";
+            c.sizeitem[4].cUnitsel = 0;
+            c.sizeitem[4].InitUnit();
+            c.sizeitem[4].fullmaxbase = 10000;
+            c.sizeitem[4].fullminbase = 0;
+            c.sizeitem[4].originprecise = 3;
+
+            c.sizeitem[5].cUnitKind = 0;
+            c.sizeitem[5].cName = "断后长度";
+            c.sizeitem[5].LName[0] = "断后长度";
+            c.sizeitem[5].LName[1] = "Break Length";
+            c.sizeitem[5].cUnitsel = 0;
+            c.sizeitem[5].InitUnit();
+            c.sizeitem[5].fullmaxbase = 10000;
+            c.sizeitem[5].fullminbase = 0;
+            c.sizeitem[5].originprecise = 3;
 
 
 
             shapelist.Add(c);
 
-             c = new shapeitem();
-             c.shapename = "圆形";
 
+            c = new shapeitem();
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "纤维";
+            }
+            else
+            {
+                c.shapename = "Fiber";
+            }
+            c.sizeitem[0].cUnitKind = 0;
+            c.sizeitem[0].cName = "线密度";
+            c.sizeitem[0].LName[0] = "线密度";
+            c.sizeitem[0].LName[1] = "Linear density";
+            c.sizeitem[0].cUnitsel = 0;
+            c.sizeitem[0].InitUnit();
+            c.sizeitem[0].fullmaxbase = 10000;
+            c.sizeitem[0].fullminbase = 0;
+            c.sizeitem[0].originprecise = 3;
+
+            c.sizeitem[1].cUnitKind = 0;
+            c.sizeitem[1].cName = "None";
+            c.sizeitem[1].LName[0] = "None";
+            c.sizeitem[1].LName[1] = "None";
+            c.sizeitem[1].cUnitsel = 0;
+            c.sizeitem[1].InitUnit();
+            c.sizeitem[1].fullmaxbase = 10000;
+            c.sizeitem[1].fullminbase = 0;
+            c.sizeitem[1].originprecise = 3;
+
+            c.sizeitem[2].cUnitKind = 0;
+            c.sizeitem[2].cName = "长度";
+            c.sizeitem[2].LName[0] = "长度";
+            c.sizeitem[2].LName[1] = "Length";
+            c.sizeitem[2].cUnitsel = 0;
+            c.sizeitem[2].InitUnit();
+            c.sizeitem[2].fullmaxbase = 10000;
+            c.sizeitem[2].fullminbase = 0;
+            c.sizeitem[2].originprecise = 3;
+
+
+
+            c.sizeitem[3].cUnitKind = 0;
+            c.sizeitem[3].cName = "断后线密度";
+            c.sizeitem[3].LName[0] = "断后线密度";
+            c.sizeitem[3].LName[1] = "Break Linear density";
+            c.sizeitem[3].cUnitsel = 0;
+            c.sizeitem[3].InitUnit();
+            c.sizeitem[3].fullmaxbase = 10000;
+            c.sizeitem[3].fullminbase = 0;
+            c.sizeitem[3].originprecise = 3;
+
+            c.sizeitem[4].cUnitKind = 0;
+            c.sizeitem[4].cName = "None";
+            c.sizeitem[4].LName[0] = "None";
+            c.sizeitem[4].LName[1] = "None";
+            c.sizeitem[4].cUnitsel = 0;
+            c.sizeitem[4].InitUnit();
+            c.sizeitem[4].fullmaxbase = 10000;
+            c.sizeitem[4].fullminbase = 0;
+            c.sizeitem[4].originprecise = 3;
+
+            c.sizeitem[5].cUnitKind = 0;
+            c.sizeitem[5].cName = "断后长度";
+            c.sizeitem[5].LName[0] = "断后长度";
+            c.sizeitem[5].LName[1] = "Break Length";
+            c.sizeitem[5].cUnitsel = 0;
+            c.sizeitem[5].InitUnit();
+            c.sizeitem[5].fullmaxbase = 10000;
+            c.sizeitem[5].fullminbase = 0;
+            c.sizeitem[5].originprecise = 3;
+
+            shapelist.Add(c);
+
+
+            c = new shapeitem();
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "剥离90度";
+            }
+            else
+            {
+                c.shapename = "90 degree stripping";
+            }
+            c.sizeitem[0].cUnitKind = 0;
+            c.sizeitem[0].cName = "宽度";
+            c.sizeitem[0].LName[0] = "宽度";
+            c.sizeitem[0].LName[1] = "Width";
+            c.sizeitem[0].cUnitsel = 0;
+            c.sizeitem[0].InitUnit();
+            c.sizeitem[0].fullmaxbase = 10000;
+            c.sizeitem[0].fullminbase = 0;
+            c.sizeitem[0].originprecise = 3;
+
+            c.sizeitem[1].cUnitKind = 0;
+            c.sizeitem[1].cName = "None";
+            c.sizeitem[1].LName[0] = "None";
+            c.sizeitem[1].LName[1] = "None";
+            c.sizeitem[1].cUnitsel = 0;
+            c.sizeitem[1].InitUnit();
+            c.sizeitem[1].fullmaxbase = 10000;
+            c.sizeitem[1].fullminbase = 0;
+            c.sizeitem[1].originprecise = 3;
+
+            c.sizeitem[2].cUnitKind = 0;
+            c.sizeitem[2].cName = "None";
+            c.sizeitem[2].LName[0] = "None";
+            c.sizeitem[2].LName[1] = "None";
+            c.sizeitem[2].cUnitsel = 0;
+            c.sizeitem[2].InitUnit();
+            c.sizeitem[2].fullmaxbase = 10000;
+            c.sizeitem[2].fullminbase = 0;
+            c.sizeitem[2].originprecise = 3;
+
+            shapelist.Add(c);
+
+            c = new shapeitem();
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "剥离180度";
+            }
+            else
+            {
+                c.shapename = "180 degree stripping";
+            }
              c.sizeitem[0].cUnitKind = 0;
-             c.sizeitem[0].cName = "直径";
-             c.sizeitem[0].LName[0] = "直径";
-             c.sizeitem[0].LName[1] = "Diameter";
+             c.sizeitem[0].cName = "宽度";
+             c.sizeitem[0].LName[0] = "宽度";
+             c.sizeitem[0].LName[1] = "Width";
              c.sizeitem[0].cUnitsel = 0;
              c.sizeitem[0].InitUnit();
              c.sizeitem[0].fullmaxbase = 10000;
@@ -1952,8 +2721,8 @@ namespace ClsStaticStation
              c.sizeitem[0].originprecise = 3;
 
              c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "无";
-             c.sizeitem[1].LName[0] = "无";
+             c.sizeitem[1].cName = "None";
+             c.sizeitem[1].LName[0] = "None";
              c.sizeitem[1].LName[1] = "None";
              c.sizeitem[1].cUnitsel = 0;
              c.sizeitem[1].InitUnit();
@@ -1962,48 +2731,9 @@ namespace ClsStaticStation
              c.sizeitem[1].originprecise = 3;
 
              c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "长度";
-             c.sizeitem[2].LName[0] = "长度";
-             c.sizeitem[2].LName[1] = "Length";
-             c.sizeitem[2].cUnitsel = 0;
-             c.sizeitem[2].InitUnit();
-             c.sizeitem[2].fullmaxbase = 10000;
-             c.sizeitem[2].fullminbase = 0;
-             c.sizeitem[2].originprecise = 3;
-
-             shapelist.Add(c);
-
-
-
-
-             c = new shapeitem();
-
-             c.shapename = "双剪切环";
-
-             c.sizeitem[0].cUnitKind = 0;
-             c.sizeitem[0].cName = "直径";
-             c.sizeitem[0].LName[0] = "直径";
-             c.sizeitem[0].LName[1] = "Diameter";
-             c.sizeitem[0].cUnitsel = 0;
-             c.sizeitem[0].InitUnit();
-             c.sizeitem[0].fullmaxbase = 10000;
-             c.sizeitem[0].fullminbase = 0;
-             c.sizeitem[0].originprecise = 3;
-
-             c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "无";
-             c.sizeitem[1].LName[0] = "无";
-             c.sizeitem[1].LName[1] = "None";
-             c.sizeitem[1].cUnitsel = 0;
-             c.sizeitem[1].InitUnit();
-             c.sizeitem[1].fullmaxbase = 10000;
-             c.sizeitem[1].fullminbase = 0;
-             c.sizeitem[1].originprecise = 3;
-
-             c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "长度";
-             c.sizeitem[2].LName[0] = "长度";
-             c.sizeitem[2].LName[1] = "Length";
+             c.sizeitem[2].cName = "None";
+             c.sizeitem[2].LName[0] = "None";
+             c.sizeitem[2].LName[1] = "None";
              c.sizeitem[2].cUnitsel = 0;
              c.sizeitem[2].InitUnit();
              c.sizeitem[2].fullmaxbase = 10000;
@@ -2013,118 +2743,15 @@ namespace ClsStaticStation
              shapelist.Add(c);
 
              c = new shapeitem();
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
 
-             c.shapename = "管状";
-
-             c.sizeitem[0].cUnitKind = 0;
-             c.sizeitem[0].cName = "外径";
-             c.sizeitem[0].LName[0] = "外径";
-             c.sizeitem[0].LName[1] = "Outer Diameter";
-             c.sizeitem[0].cUnitsel = 0;
-             c.sizeitem[0].InitUnit();
-             c.sizeitem[0].fullmaxbase = 10000;
-             c.sizeitem[0].fullminbase = 0;
-             c.sizeitem[0].originprecise = 3;
-
-             c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "壁厚";
-             c.sizeitem[1].LName[0] = "壁厚";
-             c.sizeitem[1].LName[1] = "Wall Thickness";
-             c.sizeitem[1].cUnitsel = 0;
-             c.sizeitem[1].InitUnit();
-             c.sizeitem[1].fullmaxbase = 10000;
-             c.sizeitem[1].fullminbase = 0;
-             c.sizeitem[1].originprecise = 3;
-
-             c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "长度";
-             c.sizeitem[2].LName[0] = "长度";
-             c.sizeitem[2].LName[1] = "Length";
-             c.sizeitem[2].cUnitsel = 0;
-             c.sizeitem[2].InitUnit();
-             c.sizeitem[2].fullmaxbase = 10000;
-             c.sizeitem[2].fullminbase = 0;
-             c.sizeitem[2].originprecise = 3;
-
-             shapelist.Add(c);
-
-             c = new shapeitem();
-
-             c.shapename = "不规则形状";
-
-             c.sizeitem[0].cUnitKind = 0;
-             c.sizeitem[0].cName = "横截面积";
-             c.sizeitem[0].LName[0] = "横截面积";
-             c.sizeitem[0].LName[1] = "Cross-sectiional area";
-             c.sizeitem[0].cUnitsel = 0;
-             c.sizeitem[0].InitUnit();
-             c.sizeitem[0].fullmaxbase = 10000;
-             c.sizeitem[0].fullminbase = 0;
-             c.sizeitem[0].originprecise = 3;
-
-             c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "无";
-             c.sizeitem[1].LName[0] = "无";
-             c.sizeitem[1].LName[1] = "None";
-             c.sizeitem[1].cUnitsel = 0;
-             c.sizeitem[1].InitUnit();
-             c.sizeitem[1].fullmaxbase = 10000;
-             c.sizeitem[1].fullminbase = 0;
-             c.sizeitem[1].originprecise = 3;
-
-             c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "长度";
-             c.sizeitem[2].LName[0] = "长度";
-             c.sizeitem[2].LName[1] = "Length";
-             c.sizeitem[2].cUnitsel = 0;
-             c.sizeitem[2].InitUnit();
-             c.sizeitem[2].fullmaxbase = 10000;
-             c.sizeitem[2].fullminbase = 0;
-             c.sizeitem[2].originprecise = 3;
-
-             shapelist.Add(c);
-
-
-             c = new shapeitem();
-
-             c.shapename = "纤维";
-
-             c.sizeitem[0].cUnitKind = 0;
-             c.sizeitem[0].cName = "线密度";
-             c.sizeitem[0].LName[0] = "线密度";
-             c.sizeitem[0].LName[1] = "Linear density";
-             c.sizeitem[0].cUnitsel = 0;
-             c.sizeitem[0].InitUnit();
-             c.sizeitem[0].fullmaxbase = 10000;
-             c.sizeitem[0].fullminbase = 0;
-             c.sizeitem[0].originprecise = 3;
-
-             c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "无";
-             c.sizeitem[1].LName[0] = "无";
-             c.sizeitem[1].LName[1] = "None";
-             c.sizeitem[1].cUnitsel = 0;
-             c.sizeitem[1].InitUnit();
-             c.sizeitem[1].fullmaxbase = 10000;
-             c.sizeitem[1].fullminbase = 0;
-             c.sizeitem[1].originprecise = 3;
-
-             c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "长度";
-             c.sizeitem[2].LName[0] = "长度";
-             c.sizeitem[2].LName[1] = "Length";
-             c.sizeitem[2].cUnitsel = 0;
-             c.sizeitem[2].InitUnit();
-             c.sizeitem[2].fullmaxbase = 10000;
-             c.sizeitem[2].fullminbase = 0;
-             c.sizeitem[2].originprecise = 3;
-
-             shapelist.Add(c);
-
-
-             c = new shapeitem();
-
-             c.shapename = "剥离90度";
+                c.shapename = "T剥离";
+            }
+            else
+            {
+                c.shapename = "T stripping";
+            }
 
              c.sizeitem[0].cUnitKind = 0;
              c.sizeitem[0].cName = "宽度";
@@ -2137,8 +2764,8 @@ namespace ClsStaticStation
              c.sizeitem[0].originprecise = 3;
 
              c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "无";
-             c.sizeitem[1].LName[0] = "无";
+             c.sizeitem[1].cName = "None";
+             c.sizeitem[1].LName[0] = "None";
              c.sizeitem[1].LName[1] = "None";
              c.sizeitem[1].cUnitsel = 0;
              c.sizeitem[1].InitUnit();
@@ -2147,8 +2774,8 @@ namespace ClsStaticStation
              c.sizeitem[1].originprecise = 3;
 
              c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "无";
-             c.sizeitem[2].LName[0] = "无";
+             c.sizeitem[2].cName = "None";
+             c.sizeitem[2].LName[0] = "None";
              c.sizeitem[2].LName[1] = "None";
              c.sizeitem[2].cUnitsel = 0;
              c.sizeitem[2].InitUnit();
@@ -2159,81 +2786,14 @@ namespace ClsStaticStation
              shapelist.Add(c);
 
              c = new shapeitem();
-
-             c.shapename = "剥离180度";
-
-             c.sizeitem[0].cUnitKind = 0;
-             c.sizeitem[0].cName = "宽度";
-             c.sizeitem[0].LName[0] = "宽度";
-             c.sizeitem[0].LName[1] = "Width";
-             c.sizeitem[0].cUnitsel = 0;
-             c.sizeitem[0].InitUnit();
-             c.sizeitem[0].fullmaxbase = 10000;
-             c.sizeitem[0].fullminbase = 0;
-             c.sizeitem[0].originprecise = 3;
-
-             c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "无";
-             c.sizeitem[1].LName[0] = "无";
-             c.sizeitem[1].LName[1] = "None";
-             c.sizeitem[1].cUnitsel = 0;
-             c.sizeitem[1].InitUnit();
-             c.sizeitem[1].fullmaxbase = 10000;
-             c.sizeitem[1].fullminbase = 0;
-             c.sizeitem[1].originprecise = 3;
-
-             c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "无";
-             c.sizeitem[2].LName[0] = "无";
-             c.sizeitem[2].LName[1] = "None";
-             c.sizeitem[2].cUnitsel = 0;
-             c.sizeitem[2].InitUnit();
-             c.sizeitem[2].fullmaxbase = 10000;
-             c.sizeitem[2].fullminbase = 0;
-             c.sizeitem[2].originprecise = 3;
-
-             shapelist.Add(c);
-
-             c = new shapeitem();
-
-             c.shapename = "T剥离";
-
-             c.sizeitem[0].cUnitKind = 0;
-             c.sizeitem[0].cName = "宽度";
-             c.sizeitem[0].LName[0] = "宽度";
-             c.sizeitem[0].LName[1] = "Width";
-             c.sizeitem[0].cUnitsel = 0;
-             c.sizeitem[0].InitUnit();
-             c.sizeitem[0].fullmaxbase = 10000;
-             c.sizeitem[0].fullminbase = 0;
-             c.sizeitem[0].originprecise = 3;
-
-             c.sizeitem[1].cUnitKind = 0;
-             c.sizeitem[1].cName = "无";
-             c.sizeitem[1].LName[0] = "无";
-             c.sizeitem[1].LName[1] = "None";
-             c.sizeitem[1].cUnitsel = 0;
-             c.sizeitem[1].InitUnit();
-             c.sizeitem[1].fullmaxbase = 10000;
-             c.sizeitem[1].fullminbase = 0;
-             c.sizeitem[1].originprecise = 3;
-
-             c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "无";
-             c.sizeitem[2].LName[0] = "无";
-             c.sizeitem[2].LName[1] = "None";
-             c.sizeitem[2].cUnitsel = 0;
-             c.sizeitem[2].InitUnit();
-             c.sizeitem[2].fullmaxbase = 10000;
-             c.sizeitem[2].fullminbase = 0;
-             c.sizeitem[2].originprecise = 3;
-
-             shapelist.Add(c);
-
-             c = new shapeitem();
-
-             c.shapename = "撕裂";
-
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                c.shapename = "撕裂";
+            }
+            else
+            {
+                c.shapename = "Tear";
+            }
              c.sizeitem[0].cUnitKind = 0;
              c.sizeitem[0].cName = "宽度";
              c.sizeitem[0].LName[0] = "宽度";
@@ -2255,8 +2815,8 @@ namespace ClsStaticStation
              c.sizeitem[1].originprecise = 3;
 
              c.sizeitem[2].cUnitKind = 0;
-             c.sizeitem[2].cName = "无";
-             c.sizeitem[2].LName[0] = "无";
+             c.sizeitem[2].cName = "None";
+             c.sizeitem[2].LName[0] = "None";
              c.sizeitem[2].LName[1] = "None";
              c.sizeitem[2].cUnitsel = 0;
              c.sizeitem[2].InitUnit();
@@ -2265,8 +2825,26 @@ namespace ClsStaticStation
              c.sizeitem[2].originprecise = 3;
 
              shapelist.Add(c);
-
-
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                for (int j = 0; j < shapelist.Count; j++)
+                {
+                    for (int k = 0; k < shapelist[j].sizeitem.Length; k++)
+                    {
+                        shapelist[j].sizeitem[k].cName = shapelist[j].sizeitem[k].LName[0];
+                    }
+                }
+            }
+            else
+            {
+                for (int j = 0; j < shapelist.Count; j++)
+                {
+                    for (int k = 0; k < shapelist[j].sizeitem.Length; k++)
+                    {
+                        shapelist[j].sizeitem[k].cName = shapelist[j].sizeitem[k].LName[1];
+                    }
+                }
+            }
          }
 
          public void structcopy_RawDataData(ref RawDataData a, RawDataStruct b)
@@ -2399,7 +2977,9 @@ namespace ClsStaticStation
 
             ChannelControl = new bool[20];
             ChannelDimension = new int[20];
-            ChannelRange = new double[20];          
+            ChannelRange = new double[20];
+            ChannelSampling = new int[20];
+            ChannelControlChannel = new int[20];
 
             for (int i = 0; i <= 18; i++)
              {
@@ -2412,46 +2992,88 @@ namespace ClsStaticStation
              }
 
              SignalsNames = new String[signalskindlist.Count];
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                SignalsNames[0] = "长度";
+                SignalsNames[1] = "力";
+                SignalsNames[2] = "长度速度";
+                SignalsNames[3] = "力速度";
+                SignalsNames[4] = "时间";
+                SignalsNames[5] = "电压";
+                SignalsNames[6] = "频率";
+                SignalsNames[7] = "段数";
+                SignalsNames[8] = "pid";
+                SignalsNames[9] = "命令";
+                SignalsNames[10] = "角度";
+                SignalsNames[11] = "扭矩";
+                SignalsNames[12] = "角度速度";
+                SignalsNames[13] = "扭矩速度";
+                SignalsNames[14] = "温度";
+                SignalsNames[15] = "应力";
+                SignalsNames[16] = "流量";
+                SignalsNames[17] = "刚度";
+                SignalsNames[18] = "应变";
 
-             SignalsNames[0] = "长度";
-             SignalsNames[1] = "力";
-             SignalsNames[2] = "长度速度";
-             SignalsNames[3] = "力速度";
-             SignalsNames[4] = "时间";
-             SignalsNames[5] = "电压";
-             SignalsNames[6] = "频率";
-             SignalsNames[7] = "段数";
-             SignalsNames[8] = "pid";
-             SignalsNames[9] = "命令";
-             SignalsNames[10] = "角度";
-             SignalsNames[11] = "扭矩";
-             SignalsNames[12] = "角度速度";
-             SignalsNames[13] = "扭矩速度";
-             SignalsNames[14] = "温度";
-             SignalsNames[15] = "应力";
-             SignalsNames[16] = "流量";
-             SignalsNames[17] = "刚度";
-             SignalsNames[18] = "应变";
+
+                TestkindList.Add("拉伸");
+                TestkindList.Add("拉伸蠕变松弛");
+                TestkindList.Add("拉伸程序块循环");
+                TestkindList.Add("金属");
+                TestkindList.Add("沥青");
+
+                TestkindList.Add("压缩");
+                TestkindList.Add("压缩蠕变松弛");
+                TestkindList.Add("压缩程序块");
+
+                TestkindList.Add("弯曲");
+                TestkindList.Add("弯曲蠕变松弛");
+                TestkindList.Add("剥离");
+                TestkindList.Add("撕裂");
+                TestkindList.Add("摩擦");
+                TestkindList.Add("扭转");
+                TestkindList.Add("岩石压缩");
+            }
+            else
+            {
+                SignalsNames[0] = "Length";
+                SignalsNames[1] = "Force";
+                SignalsNames[2] = "Speed of length";
+                SignalsNames[3] = "Force velocity";
+                SignalsNames[4] = "Time";
+                SignalsNames[5] = "Voltage";
+                SignalsNames[6] = "Freq";
+                SignalsNames[7] = "Sections";
+                SignalsNames[8] = "pid";
+                SignalsNames[9] = "Command";
+                SignalsNames[10] = "Angle";
+                SignalsNames[11] = "Torque";
+                SignalsNames[12] = "Angular velocity";
+                SignalsNames[13] = "Torque speed";
+                SignalsNames[14] = "Temperature";
+                SignalsNames[15] = "Stress";
+                SignalsNames[16] = "Flow";
+                SignalsNames[17] = "Stiffness";
+                SignalsNames[18] = "Strain";
 
 
-             TestkindList.Add("拉伸");
-             TestkindList.Add("拉伸蠕变松弛");
-             TestkindList.Add("拉伸程序块循环");
-             TestkindList.Add("金属");
-             TestkindList.Add("沥青");
+                TestkindList.Add("Tensile");
+                TestkindList.Add("Tensile creep relaxation");
+                TestkindList.Add("Tensile fatigue");
+                TestkindList.Add("Metal");
+                TestkindList.Add("Pitch");
 
-             TestkindList.Add("压缩");
-             TestkindList.Add("压缩蠕变松弛");
-             TestkindList.Add("压缩程序块");
+                TestkindList.Add("Compress");
+                TestkindList.Add("Compressive creep relaxation");
+                TestkindList.Add("Compression fatigue");
 
-             TestkindList.Add("弯曲");
-             TestkindList.Add("弯曲蠕变松弛");
-             TestkindList.Add("剥离");
-             TestkindList.Add("撕裂");
-             TestkindList.Add("摩擦");
-             TestkindList.Add("扭转");
-             TestkindList.Add("岩石压缩");
-
+                TestkindList.Add("Bend");
+                TestkindList.Add("Flexural creep relaxation");
+                TestkindList.Add("Peel");
+                TestkindList.Add("Tearing");
+                TestkindList.Add("Friction");
+                TestkindList.Add("Torsion");
+                TestkindList.Add("Rock compression");
+            }
 
              LName = new string[10];
 
@@ -2596,6 +3218,8 @@ namespace ClsStaticStation
              pidfsignal.fullmaxbase = 32767;
              pidfsignal.fullminbase = 0;
 
+           
+             
 
              initchannel();
              initdatalist();
@@ -2608,7 +3232,7 @@ namespace ClsStaticStation
     {
 
         public static  List<ECanTest.xyz> madlist = new List<ECanTest.xyz>();
-        public static int languageselect = 0;
+    
         public static Boolean savefile = false;
 
         public static ClsStaticStation.ItemSignalStation  mycls;
@@ -2698,7 +3322,9 @@ namespace ClsStaticStation
     public class ItemSignal : ItemBaseSignal, IDisposable  //模拟信号类
     {
 
-        public int SensorId;// 对应的硬件通道号
+        public int SensorId;// 备用
+
+
         public int originprecise;//小数点位数
         public int Resolution;//精度位数
         public int precise=3;//小数点位数
@@ -2744,13 +3370,14 @@ namespace ClsStaticStation
 
 
         public int EdcId = 0;           //Edc Id
-        public int EdcChannleSel = 0;  //Edc通道
+        public int EdcChannleSel = 0;  //Edc通道   xl双通道指示
 
         public string cmdname = "";
 
         //private System.Windows.Forms.Timer mtimer;
 
 
+        public bool checkzero = false;
         private int mcUnitsel;
 
         public int cUnitsel//信号单位选择
@@ -2822,6 +3449,8 @@ namespace ClsStaticStation
         public double[] gamendvalue;
 
         public bool ClosedControl = false;
+
+        public int  SamplingMode = 0 ;//采集方式  0内部采集 1 外部采集
         private void Dispose(bool disposing)
         {
             // Check to see if Dispose has already been called.
@@ -2912,7 +3541,7 @@ namespace ClsStaticStation
         {
 
          
-                cName = LName[m_Global.languageselect];
+                cName = LName[CComLibrary.GlobeVal.languageselect];
           
             return;
         }
@@ -5292,7 +5921,7 @@ namespace ClsStaticStation
 
         public static double[] lasttime = new double[16];
 
-        public static  Queue<RawDataDataGroup>[] myarraydata = new Queue<RawDataDataGroup>[4];
+       // public static  Queue<RawDataDataGroup>[] myarraydata = new Queue<RawDataDataGroup>[4];
 
         public static CircularBuffer savedata = new CircularBuffer("MCTsavedata", 500, Marshal.SizeOf(typeof(RawDataDataGroup)));
 

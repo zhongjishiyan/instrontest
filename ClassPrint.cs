@@ -24,6 +24,9 @@ namespace TabHeaderDemo
     {
         public string Name;
 
+        public string[] LName;
+
+
 
         public bool once=false;//使用一次
  
@@ -57,6 +60,12 @@ namespace TabHeaderDemo
          public string txtresult = "";//自定义文本内容
 
          private bool disposed = false;
+
+        public ReportItem()
+        {
+            LName = new string[10];
+
+        }
 
          private void Dispose(bool disposing)
          {
@@ -241,112 +250,179 @@ namespace TabHeaderDemo
            mreportfooter = new List<ReportItem>();
 
            r = new ReportItem();
-           r.Name = "方法名称";
+            r.Name = "";
 
+                r.LName[0] = "方法名称";
+           
+                r.LName[1] = "Method name";
+
+           
            r.kind = 0;
            mreportitemlist.Add(r);
 
 
            r = new ReportItem();
-           r.Name = "方法说明";
+            r.Name = "";
+                r.LName[0] = "方法说明";
+           
+                r.LName[1] = "Method description";
+            
+           r.kind = 0;
+           mreportitemlist.Add(r);
+
+           r = new ReportItem();
+            r.Name = "";
+                r.LName[0] = "方法作者";
+           
+                r.LName[1] = "Method author";
+
+
+            
+           r.kind = 0;
+           mreportitemlist.Add(r);
+
+           r = new ReportItem();
+            r.Name = "";
+           r.LName[0] = "样品文件名";
+            r.LName[1] = "Sample name";
+           r.kind = 0;
+           mreportitemlist.Add(r);
+
+
+           r = new ReportItem();
+            r.Name = "";
+           r.LName[0] = "样品说明";
+            r.LName[1] = "Sample description";
+
+           r.kind = 0;
+           mreportitemlist.Add(r);
           
-           r.kind = 0;
-           mreportitemlist.Add(r);
-
-           r = new ReportItem();
-           r.Name = "方法作者";
-           r.kind = 0;
-           mreportitemlist.Add(r);
-
-           r = new ReportItem();
-           r.Name = "样品文件名";
-           r.kind = 0;
-           mreportitemlist.Add(r);
 
 
            r = new ReportItem();
-           r.Name = "样品说明";
-         
-           r.kind = 0;
-           mreportitemlist.Add(r);
-          
-
-
-           r = new ReportItem();
-           r.Name = "样品注释1";
+            r.Name = "";
+           r.LName[0] = "样品注释1";
+            
+            r.LName[1] = "Sample note 1";
            r.kind = 0;
            mreportitemlist.Add(r);
           
 
            r = new ReportItem();
-           r.Name = "样品注释2";
+            r.Name = "";
+           r.LName[0] = "样品注释2";
+            r.LName[1] = "Sample note 2";
+
+
            r.kind = 0;
            mreportitemlist.Add(r);
           
            r = new ReportItem();
-           r.Name = "样品注释3";
+            r.Name = "";
+           r.LName[0] = "样品注释3";
+            r.LName[1] = "Sample note 3";
+
            r.kind = 0;
            mreportitemlist.Add(r);
         
 
            r = new ReportItem();
-           r.Name = "曲线图1";
+            r.Name = "";
+           r.LName[0] = "曲线图1";
+            r.LName[1] = "Graph 1";
+
            r.kind = 3;
            mreportitemlist.Add(r);
 
            r = new ReportItem();
-           r.Name = "曲线图2";
+            r.Name = "";
+           r.LName[0] = "曲线图2";
+            r.LName[1] = "Graph 2";
            r.kind = 3;
            mreportitemlist.Add(r);
 
            r = new ReportItem();
-           r.Name = "结果表格1";
+            r.Name = "";
+           r.LName[0] = "结果表格1";
+            r.LName[1] = "Results 1";
+           r.kind = 4;
+           mreportitemlist.Add(r);
+
+           r = new ReportItem();
+            r.Name = "";
+           r.LName[0] = "结果表格2";
+            r.LName[1] = "Results 2";
 
            r.kind = 4;
            mreportitemlist.Add(r);
 
            r = new ReportItem();
-           r.Name = "结果表格2";
-           r.kind = 4;
-           mreportitemlist.Add(r);
-
-           r = new ReportItem();
-           r.Name = "已试验试样";
+            r.Name = "";
+           r.LName[0] = "已试验试样";
+            r.LName[1] = "Tested specimen";
            r.kind = 0;
            mreportitemlist.Add(r);
 
            r = new ReportItem();
-           r.Name = "最后试验日期";
+            r.Name = "";
+           r.LName[0] = "最后试验日期";
+            r.LName[1] = "Final test date";
+
            r.kind = 0;
            mreportitemlist.Add(r);
           
 
            r = new ReportItem();
-           r.Name = "控制过程";
+            r.Name = "";
+           r.LName[0] = "控制过程";
+            r.LName[1] = "Control flow";
            r.kind = 0;
            mreportitemlist.Add(r);
 
 
            r = new ReportItem();
-           r.Name = "文本";
+            r.Name = "";
+           r.LName[0] = "文本";
+            r.LName[1] = "Text";
            r.kind = 1;
            mreportitemlist.Add(r);
         
 
            r = new ReportItem();
-           r.Name = "图片";
+            r.Name = "";
+           r.LName[0] = "图片";
+            r.LName[1] = "Picture";
            r.kind = 2;
            mreportitemlist.Add(r);
 
            r = new ReportItem();
            r.kind = 0;
-           r.Name = "分页符";
+            r.Name = "";
+           r.LName[0] = "分页符";
+            r.LName[1] = "Page break";
+
+
            mreportitemlist.Add(r);
 
            r = new ReportItem();
            r.kind = 0;
-           r.Name = "用户名";
+            r.Name = "";
+           r.LName[0] = "用户名";
+
+            r.LName[1] = "User name";
            mreportitemlist.Add(r);
+
+            for (int i=0;i<mreportitemlist.Count;i++)
+            {
+                if (GlobeVal.mysys.language == 0)
+                {
+                    mreportitemlist[i].Name = mreportitemlist[i].LName[0];
+                }
+                else
+                {
+                    mreportitemlist[i].Name = mreportitemlist[i].LName[1];
+                }
+            }
 
        }
 
@@ -354,95 +430,134 @@ namespace TabHeaderDemo
        {
            ReportItem mc;
            mc = v;
-           if (mc.Name == "方法名称")
-           {
-               
-               mc.txtresult = CComLibrary.GlobeVal.filesave.methodname;
-           }
+           
+                if (mc.Name == mreportitemlist[0].Name )
+                {
 
-           if (mc.Name == "方法说明")
-           {
-               mc.txtresult = CComLibrary.GlobeVal.filesave.methodmemo;
-           }
+                    mc.txtresult = CComLibrary.GlobeVal.filesave.methodname;
+                }
+           
+          
+                if (mc.Name == mreportitemlist[1].Name)
+                {
+                    mc.txtresult = CComLibrary.GlobeVal.filesave.methodmemo;
+                }
+          
+            
+                if (mc.Name == mreportitemlist[2].Name )
+                {
+                    mc.txtresult = CComLibrary.GlobeVal.filesave.methodauthor;
+                }
+         
 
-           if (mc.Name == "方法作者")
-           {
-               mc.txtresult = CComLibrary.GlobeVal.filesave.methodauthor;
-           }
-
-           if (mc.Name == "样品文件名")
+           if (mc.Name == mreportitemlist[3].Name )
            {
                mc.txtresult = GlobeVal.mysys.SampleFile;
            }
 
-           if (mc.Name == "样品说明")
+           if (mc.Name == mreportitemlist[4].Name )
            {
                mc.txtresult = CComLibrary.GlobeVal.filesave.samplememo;
            }
-           if (mc.Name == "样品注释1")
+           if (mc.Name == mreportitemlist[5].Name )
            {
                mc.txtresult = CComLibrary.GlobeVal.filesave.samplememo1;
            }
 
-           if (mc.Name == "样品注释2")
+           if (mc.Name == mreportitemlist[6].Name)
            {
                mc.txtresult = CComLibrary.GlobeVal.filesave.samplememo2;
            }
 
-           if (mc.Name == "样品注释3")
+           if (mc.Name == mreportitemlist[7].Name )
            {
                mc.txtresult = CComLibrary.GlobeVal.filesave.samplememo3;
            }
 
-           if (mc.Name == "已试验试样")
+           if (mc.Name == mreportitemlist[12].Name)
            {
                mc.txtresult = CComLibrary.GlobeVal.filesave.mspecount.ToString();
            }
 
-           if (mc.Name == "最后试验日期")
+           if (mc.Name == mreportitemlist[13].Name)
            {
                mc.txtresult = CComLibrary.GlobeVal.filesave.lasttestdatatime;
            }
 
-           if (mc.Name == "用户名")
-           {
-               mc.txtresult = GlobeVal.mysys.UserName[GlobeVal.mysys.CurentUserIndex];
-           }
+           
 
-           if (mc.Name == "控制过程")
+           if (mc.Name == mreportitemlist[14].Name)
            {
-               string s="";
-               if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
-               {
-                   s=s+"控制过程:" + "一般测控"+"\r\n";
-               }
-               else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
-               {
-                   s=s+"控制过程:" + "中级测控"+"\r\n";
-               }
-               else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
-               {
-                   s=s+"控制过程:" + "简单控制"+"\r\n";
-               }
-               else if (CComLibrary.GlobeVal.filesave.mcontrolprocess ==3)
+                string s = "";
+                if (GlobeVal.mysys.language == 0)
                 {
-                    s = s + "控制过程:" + "高级测控" + "\r\n";
+                   
+                    if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
+                    {
+                        s = s + "控制过程:" + "一般测控" + "\r\n";
+                    }
+                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
+                    {
+                        s = s + "控制过程:" + "中级测控" + "\r\n";
+                    }
+                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
+                    {
+                        s = s + "控制过程:" + "简单控制" + "\r\n";
+                    }
+                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+                    {
+                        s = s + "控制过程:" + "高级测控" + "\r\n";
+                    }
+
+
+                    CComLibrary.GlobeVal.filesave.InitExplainList();
+
+                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
+                    {
+
+                        s = s + "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(Convert.ToInt32(GlobeVal.mysys.machinekind)) + "\r\n";
+
+                    }
                 }
-              
+                else
+                {
+                    if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
+                    {
+                        s = s + "Control flow:" + "General test" + "\r\n";
+                    }
+                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
+                    {
+                        s = s + "Control flow:" + "Intermediate test" + "\r\n";
+                    }
+                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
+                    {
+                        s = s + "Control flow:" + "Simple test" + "\r\n";
+                    }
+                    else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
+                    {
+                        s = s + "Control flow:" + "Advanced test" + "\r\n";
+                    }
 
-               CComLibrary.GlobeVal.filesave.InitExplainList();
 
-               for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
-               {
+                    CComLibrary.GlobeVal.filesave.InitExplainList();
 
-                    s = s+"   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(Convert.ToInt32(GlobeVal.mysys.machinekind)) +"\r\n";
-                 
-               }
+                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
+                    {
+
+                        s = s + "   " + "Step " + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(Convert.ToInt32(GlobeVal.mysys.machinekind)) + "\r\n";
+
+                    }
+                }
 
                mc.txtresult = s;
 
            }
-       }
+
+            if (mc.Name == mreportitemlist[18].Name)
+            {
+                mc.txtresult = GlobeVal.mysys.UserName[GlobeVal.mysys.CurentUserIndex];
+            }
+        }
        public void ChangeReportValue()
        {
          
@@ -500,9 +615,33 @@ namespace TabHeaderDemo
                           c.mreportfooter = new List<ReportItem>();
 
                       }
+                     
 
-                      
-                      if (c.mPagelist == null)
+                 
+
+                    for (int i = 0; i < c.mreportitemlist.Count; i++)
+                    {
+                        if(c.mreportitemlist[i].LName ==null)
+                        {
+                            c.mreportitemlist[i].LName = new string[10];
+                            
+                        }
+                        c.mreportitemlist[i].LName[0] = mreportitemlist[i].LName[0];
+                        c.mreportitemlist[i].LName[1] = mreportitemlist[i].LName[1];
+                        if (GlobeVal.mysys.language == 0)
+                        {
+                            c.mreportitemlist[i].Name = mreportitemlist[i].LName[0];
+                        }
+                        else
+                        {
+                            c.mreportitemlist[i].Name = mreportitemlist[i].LName[1];
+                        }
+                    }
+                    
+
+                    
+
+                    if (c.mPagelist == null)
                       {
                           c.mPagelist = new List<PageSizeF>();
                           PageSizeF f = new PageSizeF();

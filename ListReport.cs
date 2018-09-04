@@ -35,6 +35,7 @@ namespace TabHeaderDemo
         public void AddItem(ReportItem v)
         {
             ReportItem m = v.Clone() as ReportItem ;
+            
             this.Items.Add(v.Name);
             this.mlist.Add(m);
         }

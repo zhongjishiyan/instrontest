@@ -56,8 +56,16 @@ namespace TabHeaderDemo
                                 }
                                 else
                                 {
-
-                                    if (mstatic[i - 1].formulaname == "最小值")
+                                    string _temp = "";
+                                    if (GlobeVal.mysys.language ==0)
+                                    {
+                                        _temp = "最小值";
+                                    }
+                                    else
+                                    {
+                                        _temp = "Min";
+                                    }
+                                    if (mstatic[i - 1].formulaname ==_temp)
                                     {
                                         // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + tabcol[j].formulaname + ")", ""));
 
@@ -78,7 +86,16 @@ namespace TabHeaderDemo
                                         t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("min(" + "@temp" + ")", ""));
                                         CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
                                     }
-                                    if (mstatic[i - 1].formulaname == "最大值")
+                                    if (GlobeVal.mysys.language == 0)
+                                    {
+                                        _temp = "最大值";
+                                    }
+                                    else
+                                    {
+                                        _temp = "Max";
+                                    }
+
+                                    if (mstatic[i - 1].formulaname == _temp)
                                     {
                                         int a = 0;
                                         for (int k = 0; k < CComLibrary.GlobeVal.filesave.dt.Columns.Count; k++)
@@ -97,7 +114,16 @@ namespace TabHeaderDemo
                                         t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("max(" + "@temp" + ")", ""));
                                         CComLibrary.GlobeVal.filesave.dt.Columns[a].ColumnName = mo;
                                     }
-                                    if (mstatic[i - 1].formulaname == "平均值")
+                                    if (GlobeVal.mysys.language == 0)
+                                    {
+                                        _temp = "平均值";
+                                    }
+                                    else
+                                    {
+                                        _temp = "Average";
+                                    }
+
+                                    if (mstatic[i - 1].formulaname ==_temp)
                                     {
                                         //  t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("avg(" + tabcol[j].formulaname + ")", ""));
                                         int a = 0;
@@ -119,7 +145,17 @@ namespace TabHeaderDemo
 
 
                                     }
-                                    if (mstatic[i - 1].formulaname == "标准偏差")
+                                    if (GlobeVal.mysys.language == 0)
+                                    {
+                                        _temp = "标准偏差";
+                                    }
+                                    else
+                                    {
+                                        _temp = "Standard deviation";
+                                    }
+
+
+                                    if (mstatic[i - 1].formulaname == _temp)
                                     {
                                         // t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("StDev(" + tabcol[j].formulaname + ")", ""));
 
@@ -142,7 +178,17 @@ namespace TabHeaderDemo
 
 
                                     }
-                                    if (mstatic[i - 1].formulaname == "方差")
+                                    if (GlobeVal.mysys.language == 0)
+                                    {
+                                        _temp = "方差";
+                                    }
+                                    else
+                                    {
+                                        _temp = "Variance";
+                                    }
+
+
+                                    if (mstatic[i - 1].formulaname == _temp )
                                     {
                                         //  t = Convert.ToSingle(CComLibrary.GlobeVal.filesave.dt.Compute("Var(" + tabcol[j].formulaname + ")", ""));
                                         int a = 0;
@@ -204,11 +250,25 @@ namespace TabHeaderDemo
             double m = 0;
             if (index == 1)
             {
-                label1.Text = "结果1";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    label1.Text = "结果1";
+                }
+                else
+                {
+                    label1.Text = "Result 1";
+                }
             }
             else
             {
-                label1.Text = "结果2";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    label1.Text = "结果2";
+                }
+                else
+                {
+                    label1.Text = "Result 2";
+                }
             }
 
 
@@ -220,7 +280,7 @@ namespace TabHeaderDemo
                     {
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
                         {
-                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "None")
                             {
                                 if (tabcol[j].formulaname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
                                 {
@@ -297,7 +357,7 @@ namespace TabHeaderDemo
 
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
                         {
-                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "None")
                             {
                                 if (tabcol[j].formulaname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
                                 {
@@ -442,12 +502,12 @@ namespace TabHeaderDemo
 
                 if (mtablepara.showvalidspe == true)
                 {
-                    if (CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["试样状态"] is DBNull)
+                    if (CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["SpeStatus"] is DBNull)
                     {
-                        CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["试样状态"] = CComLibrary.TestStatus.Untested;
+                        CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["SpeStatus"] = CComLibrary.TestStatus.Untested;
                     }
 
-                    if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["试样状态"]) == Convert.ToInt16(CComLibrary.TestStatus.novalid))
+                    if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["SpeStatus"]) == Convert.ToInt16(CComLibrary.TestStatus.novalid))
                     {
 
                         view.Image = imageList1.Images[1];
@@ -770,11 +830,25 @@ namespace TabHeaderDemo
             double m = 0;
             if (index == 1)
             {
-                label1.Text = "结果1";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    label1.Text = "结果1";
+                }
+                else
+                {
+                    label1.Text = "Results 1";
+                }
             }
             else
             {
-                label1.Text = "结果2";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    label1.Text = "结果2";
+                }
+                else
+                {
+                    label1.Text = "Results 2";
+                }
             }
 
 
@@ -786,7 +860,7 @@ namespace TabHeaderDemo
                     {
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
                         {
-                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "None")
                             {
                                 if (tabcol[j].formulaname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
                                 {
@@ -864,7 +938,7 @@ namespace TabHeaderDemo
 
                         for (int i = 0; i < CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
                         {
-                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "无")
+                            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName != "None")
                             {
                                 if (tabcol[j].formulaname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
                                 {
@@ -1028,12 +1102,12 @@ namespace TabHeaderDemo
 
                 if (mtablepara.showvalidspe == true)
                 {
-                    if (CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["试样状态"] is DBNull)
+                    if (CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["SpeStatus"] is DBNull)
                     {
-                        CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["试样状态"] = CComLibrary.TestStatus.Untested;
+                        CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["SpeStatus"] = CComLibrary.TestStatus.Untested;
                     }
 
-                    if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["试样状态"]) == Convert.ToInt16(CComLibrary.TestStatus.novalid))
+                    if (Convert.ToInt16(CComLibrary.GlobeVal.filesave.dt.Rows[i - 1]["SpeStatus"]) == Convert.ToInt16(CComLibrary.TestStatus.novalid))
                     {
 
                         view.Image = imageList1.Images[1];
@@ -1075,6 +1149,7 @@ namespace TabHeaderDemo
                         }
                         else
                         {
+
                             if (CComLibrary.GlobeVal.filesave.dt.Rows[i - 1][tabcol[j].formulaname] is DBNull)
                             {
                                 CComLibrary.GlobeVal.filesave.dt.Rows[i - 1][tabcol[j].formulaname] = 0;
@@ -1222,7 +1297,7 @@ namespace TabHeaderDemo
             }
 
 
-
+            timer1.Enabled = true;
 
         }
 
@@ -1253,8 +1328,21 @@ namespace TabHeaderDemo
         private void grid1_HScrollPositionChanged(object sender, SourceGrid2.ScrollPositionChangedEventArgs e)
         {
             mgrid1moved = true;
-            grid2.HScrollBar.Value = grid1.HScrollBar.Value;
+            //出过错误
+
+            if ((grid2.HScrollBar != null) && (grid1.HScrollBar != null))
+            {
+                grid2.HScrollBar.Value = grid1.HScrollBar.Value;
+            }
             mgrid1moved = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if ((grid2.HScrollBar != null) && (grid1.HScrollBar != null))
+            {
+                grid2.HScrollBar.Maximum = grid1.HScrollBar.Maximum;
+            }
         }
     }
 }

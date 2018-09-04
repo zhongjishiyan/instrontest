@@ -101,54 +101,176 @@ namespace TabHeaderDemo
 
         public static FormMainLab FormmainLab;
 
+
+        public static string str_General_test;
+        public static string str_Intermediate_Test;
+        public static string str_Simple_test;
+        public static string str_Advanced_test;
+
+
+        public static void Init_Global_String_resource()
+        {
+            if (GlobeVal.mysys.language ==0)
+            {
+                str_General_test = "一般测控";
+                str_Intermediate_Test = "中级测控";
+                str_Simple_test = "简单控制";
+                str_Advanced_test = "高级测控";
+            }
+            else
+            {
+                str_General_test = "General test";
+                str_Intermediate_Test = "Intermediate test";
+                str_Simple_test = "Simple test";
+                str_Advanced_test = "Advanced test";
+            }
+        }
+
         public static void putlistboxitem(ListBox listBox1)
         {
             listBox1.Items.Clear();
-            listBox1.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
-            listBox1.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
-            listBox1.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
+            if (GlobeVal.mysys.language == 0)
+            {
+                listBox1.Items.Add("试验方法类型：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
+                listBox1.Items.Add("试验方法描述：" + CComLibrary.GlobeVal.filesave.methodmemo);
+                listBox1.Items.Add("试验方法作者：" + CComLibrary.GlobeVal.filesave.methodauthor);
+            }
+            else
+            {
+                listBox1.Items.Add("Type of test method：" + ClsStaticStation.m_Global.mycls.TestkindList[CComLibrary.GlobeVal.filesave.methodkind]);
+                listBox1.Items.Add("Description of test method：" + CComLibrary.GlobeVal.filesave.methodmemo);
+                listBox1.Items.Add("Author of test method：" + CComLibrary.GlobeVal.filesave.methodauthor);
+                
+
+            }
 
             string ms = "";
 
             if (CComLibrary.GlobeVal.filesave.UseDatabase == true)
             {
-                ms = "是";
+                if (GlobeVal.mysys.language == 0)
+                {
+
+                    ms = "是";
+                }
+                else
+                {
+                    ms = "Yes";
+                }
             }
             else
             {
-                ms = "否";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    ms = "否";
+                }
+                else
+                {
+                    ms = "No";
+                }
             }
 
-            listBox1.Items.Add("试验结果是否保存到数据库：" + ms);
-
+            if (GlobeVal.mysys.language == 0)
+            {
+                listBox1.Items.Add("试验结果是否保存到数据库：" + ms);
+            }
+            else
+            {
+                listBox1.Items.Add("The test results are saved to the database：" + ms);
+            }
             if (CComLibrary.GlobeVal.filesave.mwizard == true)
             {
-                ms = "是";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    ms = "是";
+                }
+                else
+                {
+                    ms = "Yes";
+                }
             }
             else
             {
-                ms = "否";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    ms = "否";
+                }
+                else
+                {
+                    ms = "No";
+                }
             }
 
-            listBox1.Items.Add("试验过程带提示：" + ms);
-
+            if (GlobeVal.mysys.language == 0)
+            {
+                listBox1.Items.Add("试验过程带提示：" + ms);
+            }
+            else
+            {
+                listBox1.Items.Add("Test process with hints：" + ms);
+                
+            }
 
 
             if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0)
             {
-                listBox1.Items.Add("控制过程:" + "一般测控");
+                string _temp = "";
+
+                if (GlobeVal.mysys.language ==0)
+                {
+                    _temp = "控制过程:" + "一般测控";
+                }
+                else
+                {
+                    _temp = "Control flow:" + "General test";
+                }
+
+                listBox1.Items.Add(_temp);
+              
             }
             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1)
             {
-                listBox1.Items.Add("控制过程:" + "中级测控");
+                string _temp = "";
+
+                if (GlobeVal.mysys.language == 0)
+                {
+                    _temp = "控制过程: " + "中级测控";
+                }
+                else
+                {
+                    _temp = "Control flow:" + "Intermediate test";
+                }
+                listBox1.Items.Add(_temp);
             }
             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)
             {
-                listBox1.Items.Add("控制过程:" + "简单控制");
+                string _temp = "";
+
+                if (GlobeVal.mysys.language ==0)
+                {
+                    _temp = "控制过程:" + "简单控制";
+                }
+                else
+                {
+                    _temp = "Control flow:" + "Simple test";
+                }
+                listBox1.Items.Add(_temp);
             }
             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3)
             {
-                listBox1.Items.Add("控制过程:" + "高级测控");
+
+                string _temp = "";
+                if (GlobeVal.mysys.language ==0)
+
+                {
+                    _temp = "控制过程:" + "高级测控";
+                }
+                else
+                {
+                    _temp = "Control flow:" + "Advanced test";
+                }
+
+                listBox1.Items.Add(_temp);
             }
 
 
@@ -156,79 +278,200 @@ namespace TabHeaderDemo
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mexplainlist.Count; i++)
             {
-                string s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
+                string s;
+                if (GlobeVal.mysys.language == 0)
+                {
+                    s = "   " + "步骤" + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
+                }
+                else
+                {
+                    s = "   " + "Step " + (i + 1).ToString() + " " + CComLibrary.GlobeVal.filesave.mexplainlist[i].explain(GlobeVal.mysys.machinekind);
+                }
                 listBox1.Items.Add(s);
             }
 
             if (CComLibrary.GlobeVal.filesave.Samplingmode == 0)
             {
-                ms = "静态采集";
-
+                if (GlobeVal.mysys.language == 0)
+                {
+                    ms = "静态采集";
+                }
+                else
+                {
+                    ms = "Static acquisition";
+                }
 
             }
             else
             {
-                ms = "动态采集";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    ms = "动态采集";
+                }
+                else
+                {
+                    ms = "Dynamic acquisition";
+                }
             }
 
 
-
-            listBox1.Items.Add("数据采集方式：" + ms);
+            if (GlobeVal.mysys.language == 0)
+            {
+                listBox1.Items.Add("数据采集方式：" + ms);
+            }
+            else
+            {
+                listBox1.Items.Add("Data Capture mode：" + ms);
+            }
 
             if (CComLibrary.GlobeVal.filesave.Samplingmode == 0)
             {
                 ms = "";
                 if ( CComLibrary.GlobeVal.filesave.chkcriteria[0] == true)
                 {
-                    ms = ms + "准则1";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        ms = ms + "准则1";
+                    }
+                    else
+                    {
+                        ms = ms + "Criteria 1";
+                    }
                 }
                 if (CComLibrary.GlobeVal.filesave.chkcriteria[1] == true)
                 {
-                    ms = ms + "准则2";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        ms = ms + "准则2";
+                    }
+                    else
+                    {
+                        ms = ms + "Criteria 2";
+                    }
                 }
 
                 if (CComLibrary.GlobeVal.filesave.chkcriteria[2] == true)
                 {
-                    ms = ms + "准则3";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        ms = ms + "准则3";
+                    }
+                    else
+                    {
+                        ms = ms + "Criteria 3";
+                    }
                 }
 
                 if (ms=="")
                 {
-                    ms = "无";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        ms = "无";
+                    }
+                    else
+                    {
+                        ms = "None";
+                    }
                 }
 
-                listBox1.Items.Add("数据采集准则：" + ms);
+                if (GlobeVal.mysys.language == 0)
+                {
+                    listBox1.Items.Add("数据采集准则：" + ms);
+                }
+                else
+                {
+                    listBox1.Items.Add("Data acquisition criteria：" + ms);
+                }
             }
 
             if (CComLibrary.GlobeVal.filesave.mplotpara1.dynamicdraw == true)
             {
-                ms = "动态绘制方式";
-                listBox1.Items.Add("曲线1：" + ms);
+                if (mysys.language == 0)
+                {
+                    ms = "动态绘制方式";
+                }
+                else
+                {
+                    ms = "Dynamic drawing data curve";
+                }
+                if (mysys.language == 0)
+                {
+                    listBox1.Items.Add("曲线1：" + ms);
+                }
+                else
+                {
+                    listBox1.Items.Add("Graph 1：" + ms);
+                }
             }
 
-
-            listBox1.Items.Add("结果表格1：");
+            if (mysys.language == 0)
+            {
+                listBox1.Items.Add("结果表格1：");
+            }
+            else
+            {
+                listBox1.Items.Add("Result 1：");
+            }
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mtablecol1.Count; i++)
             {
-                string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
+                string s;
+                if (mysys.language == 0)
+                {
+                    s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
+                }
+                else
+                {
+                    s = "   Column" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mtablecol1[i].formulaname;
+                }
                 listBox1.Items.Add(s);
             }
 
             if (CComLibrary.GlobeVal.filesave.mrawdata.Count > 0)
             {
-                listBox1.Items.Add("原始数据输出：");
+                if (mysys.language == 0)
+                {
+                    listBox1.Items.Add("原始数据输出：");
+                }
+                else
+                {
+                    listBox1.Items.Add("Raw data output:");
+                }
                 for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
                 {
-                    string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mrawdata[i].cName;
+                    string s = "";
+                    if (mysys.language == 0)
+                    {
+                        s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mrawdata[i].cName;
+                    }
+                    else
+                    {
+                        s = "   Column" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mrawdata[i].cName;
+                    }
                     listBox1.Items.Add(s);
                 }
             }
             if (CComLibrary.GlobeVal.filesave.mlongdata.Count > 0)
             {
-                listBox1.Items.Add("峰值趋势数据输出：");
+                if (mysys.language == 0)
+                {
+                    listBox1.Items.Add("峰值趋势数据输出：");
+                }
+                else
+                {
+                    listBox1.Items.Add("Trend of peak and valley value：");
+                }
                 for (int i = 0; i < CComLibrary.GlobeVal.filesave.mlongdata.Count; i++)
                 {
-                    string s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mlongdata[i].cName;
+                    string s = "";
+
+                    if (mysys.language == 0)
+                    {
+                        s = "   列" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mlongdata[i].cName;
+                    }
+                    else
+                    {
+                        s = "   Column" + (i + 1).ToString() + "：" + CComLibrary.GlobeVal.filesave.mlongdata[i].cName;
+                    }
                     listBox1.Items.Add(s);
                 }
             }

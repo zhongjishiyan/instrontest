@@ -53,7 +53,7 @@ namespace AppleLabApplication.Extensions
             {
                 if (e.RowIndex >= 0)
                 {
-                    int a = (dataGridView1[e.ColumnIndex, e.RowIndex] as DataGridViewComboBoxCell).Items.IndexOf(dataGridView1[e.ColumnIndex, e.RowIndex].Value);
+                    int a = (dataGridViewU1[e.ColumnIndex, e.RowIndex] as DataGridViewComboBoxCell).Items.IndexOf(dataGridViewU1[e.ColumnIndex, e.RowIndex].Value);
                     if (cboevent != null)
                     {
                         cboevent(sender, a);
@@ -62,6 +62,11 @@ namespace AppleLabApplication.Extensions
 
 
             }
+        }
+
+        private void UListEditor_Resize(object sender, EventArgs e)
+        {
+           
         }
     }
 }

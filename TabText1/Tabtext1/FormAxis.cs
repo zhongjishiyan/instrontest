@@ -59,8 +59,14 @@ namespace AppleLabApplication
         private void FormAxis_Load(object sender, EventArgs e)
         {
              xx = this.Tag as NationalInstruments.UI.Axis;
-            
-            this.Text = xx.Caption+"坐标设置";
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                this.Text = xx.Caption + "坐标设置";
+            }
+            else
+            {
+                this.Text = xx.Caption + " coordinate setting";
+            }
             propertyEditor1.Source = new NationalInstruments.UI.PropertyEditorSource(xx, "BaseLineColor");
             propertyEditor8.Source = new NationalInstruments.UI.PropertyEditorSource(xx, "Caption");  
             propertyEditor2.Source = new NationalInstruments.UI.PropertyEditorSource(xx.Range, "Minimum");    

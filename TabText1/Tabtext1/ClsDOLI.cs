@@ -2254,7 +2254,7 @@ namespace ClsStaticStation
                 else
                 {
 
-                    MessageBox.Show("错误，您没有设置一般测试过程");
+                    MessageBox.Show("错误，您没有设置一般测控过程");
                     mtestrun = false;
                     return;
                 }
@@ -2431,7 +2431,7 @@ namespace ClsStaticStation
                 else
                 {
 
-                    MessageBox.Show("错误，您没有设置高级测试过程");
+                    MessageBox.Show("错误，您没有设置高级测控过程");
                     mtestrun = false;
                     return;
                 }

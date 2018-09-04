@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using CustomControls.OS;
+using System.Threading;
 
 namespace TabHeaderDemo
 {
@@ -68,28 +69,14 @@ namespace TabHeaderDemo
         public UserControl轴向()
         {
             InitializeComponent();
-            cboctrl.Items.Clear();
-
-            mlistbox1.Clear();
-        
-          
+           
 
 
-            for (int i = 0; i < ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
-            {
-                if ((ClsStaticStation.m_Global.mycls.chsignals[i].SensorId == 0) && (ClsStaticStation.m_Global.mycls.chsignals[i].ClosedControl == true))
-                {
-                    cboctrl.Items.Add(ClsStaticStation.m_Global.mycls.chsignals[i].cName);
-                    mlistbox1.Add(i);
-                }
-            }
 
-            if (cboctrl.Items.Count > 0)
-            {
-                cboctrl.SelectedIndex = 0;
-            }
 
-            
+
+
+
             //Application.StartupPath
 
             SetStyle(ControlStyles.UserPaint, true);
@@ -114,9 +101,18 @@ namespace TabHeaderDemo
 
 
             cbowave.Items.Clear();
-            cbowave.Items.Add("正弦波");
-            cbowave.Items.Add("三角波");
-            cbowave.Items.Add("方波");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbowave.Items.Add("正弦波");
+                cbowave.Items.Add("三角波");
+                cbowave.Items.Add("方波");
+            }
+            else
+            {
+                cbowave.Items.Add("Sin");
+                cbowave.Items.Add("Triangle");
+                cbowave.Items.Add("Square");
+            }
             cbowave.SelectedIndex = 0;
 
         }
@@ -278,7 +274,14 @@ namespace TabHeaderDemo
                    
                     WaitFormService.CloseWaitForm();
 
-                    MessageBox.Show("联机失败");
+                    GlobeVal.FormmainLab.BringToFront();
+
+                    ThreadStart ts = delegate { MessageBox.Show("联机失败"); };
+                    this.BeginInvoke(ts);
+                    
+                  //  MessageBox.Show("联机失败");
+
+                    GlobeVal.FormmainLab.BringToFront();
                 }
 
 
@@ -338,9 +341,47 @@ namespace TabHeaderDemo
             btndown.Text = GlobeVal.mysys.lbl_down;
             btnstart.Text = GlobeVal.mysys.lbl_start;
             btnend.Text = GlobeVal.mysys.lbl_end;
+            cboctrl.Items.Clear();
+
+            mlistbox1.Clear();
+
+
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
+            {
+                if ((ClsStaticStation.m_Global.mycls.chsignals[i].ClosedControl == true))
+                {
+                    cboctrl.Items.Add(ClsStaticStation.m_Global.mycls.chsignals[i].cName);
+                    mlistbox1.Add(i);
+                }
+            }
+
+            if (cboctrl.Items.Count > 0)
+            {
+                cboctrl.SelectedIndex = 0;
+            }
 
         }
+        public void init()
+        {
+            cboctrl.Items.Clear();
 
+            mlistbox1.Clear();
+
+
+            for (int i = 0; i < ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
+            {
+                if ((ClsStaticStation.m_Global.mycls.chsignals[i].ClosedControl == true))
+                {
+                    cboctrl.Items.Add(ClsStaticStation.m_Global.mycls.chsignals[i].cName);
+                    mlistbox1.Add(i);
+                }
+            }
+
+            if (cboctrl.Items.Count > 0)
+            {
+                cboctrl.SelectedIndex = 0;
+            }
+        }
         private void cboctrl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboctrl.SelectedIndex >= 0)

@@ -82,139 +82,86 @@
             // 
             // tlpbottom
             // 
-            this.tlpbottom.ColumnCount = 4;
-            this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpbottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            resources.ApplyResources(this.tlpbottom, "tlpbottom");
             this.tlpbottom.Controls.Add(this.btnrightadd, 3, 0);
             this.tlpbottom.Controls.Add(this.btncut, 2, 0);
             this.tlpbottom.Controls.Add(this.btncopy, 1, 0);
             this.tlpbottom.Controls.Add(this.btnleftadd, 0, 0);
-            this.tlpbottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpbottom.Location = new System.Drawing.Point(3, 194);
             this.tlpbottom.Name = "tlpbottom";
-            this.tlpbottom.RowCount = 1;
-            this.tlpbottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpbottom.Size = new System.Drawing.Size(247, 28);
-            this.tlpbottom.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.tlpbottom, "右添加");
+            this.toolTip1.SetToolTip(this.tlpbottom, resources.GetString("tlpbottom.ToolTip"));
             // 
             // btnrightadd
             // 
-            this.btnrightadd.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.btnrightadd, "btnrightadd");
             this.btnrightadd.FlatAppearance.BorderSize = 0;
             this.btnrightadd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnrightadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnrightadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnrightadd.Image = ((System.Drawing.Image)(resources.GetObject("btnrightadd.Image")));
-            this.btnrightadd.Location = new System.Drawing.Point(212, 3);
             this.btnrightadd.Name = "btnrightadd";
-            this.btnrightadd.Size = new System.Drawing.Size(32, 22);
-            this.btnrightadd.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnrightadd, "右添加");
+            this.toolTip1.SetToolTip(this.btnrightadd, resources.GetString("btnrightadd.ToolTip"));
             this.btnrightadd.UseVisualStyleBackColor = true;
             this.btnrightadd.Click += new System.EventHandler(this.btnrightadd_Click);
             // 
             // btncut
             // 
-            this.btncut.Dock = System.Windows.Forms.DockStyle.Left;
+            resources.ApplyResources(this.btncut, "btncut");
             this.btncut.FlatAppearance.BorderSize = 0;
             this.btncut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btncut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btncut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncut.Image = ((System.Drawing.Image)(resources.GetObject("btncut.Image")));
-            this.btncut.Location = new System.Drawing.Point(128, 3);
             this.btncut.Name = "btncut";
-            this.btncut.Size = new System.Drawing.Size(35, 22);
-            this.btncut.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btncut, "删除");
+            this.toolTip1.SetToolTip(this.btncut, resources.GetString("btncut.ToolTip"));
             this.btncut.UseVisualStyleBackColor = true;
             this.btncut.Click += new System.EventHandler(this.btncut_Click);
             // 
             // btncopy
             // 
-            this.btncopy.Dock = System.Windows.Forms.DockStyle.Right;
+            resources.ApplyResources(this.btncopy, "btncopy");
             this.btncopy.FlatAppearance.BorderSize = 0;
             this.btncopy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btncopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btncopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncopy.Image = ((System.Drawing.Image)(resources.GetObject("btncopy.Image")));
-            this.btncopy.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btncopy.Location = new System.Drawing.Point(87, 3);
             this.btncopy.Name = "btncopy";
-            this.btncopy.Size = new System.Drawing.Size(35, 22);
-            this.btncopy.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btncopy, "复制");
+            this.toolTip1.SetToolTip(this.btncopy, resources.GetString("btncopy.ToolTip"));
             this.btncopy.UseVisualStyleBackColor = true;
             this.btncopy.Click += new System.EventHandler(this.btncopy_Click);
             // 
             // btnleftadd
             // 
-            this.btnleftadd.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.btnleftadd, "btnleftadd");
             this.btnleftadd.FlatAppearance.BorderSize = 0;
             this.btnleftadd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnleftadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnleftadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnleftadd.Image = ((System.Drawing.Image)(resources.GetObject("btnleftadd.Image")));
-            this.btnleftadd.Location = new System.Drawing.Point(3, 3);
             this.btnleftadd.Name = "btnleftadd";
-            this.btnleftadd.Size = new System.Drawing.Size(35, 22);
-            this.btnleftadd.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.btnleftadd, "左添加");
+            this.toolTip1.SetToolTip(this.btnleftadd, resources.GetString("btnleftadd.ToolTip"));
             this.btnleftadd.UseVisualStyleBackColor = true;
             this.btnleftadd.Click += new System.EventHandler(this.btnleftadd_Click);
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
             this.tableLayoutPanel3.Controls.Add(this.lblcaption, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tlpbottom, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(253, 225);
-            this.tableLayoutPanel3.TabIndex = 1;
             // 
             // lblcaption
             // 
-            this.lblcaption.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.lblcaption, "lblcaption");
             this.lblcaption.ForeColor = System.Drawing.Color.White;
-            this.lblcaption.Location = new System.Drawing.Point(3, 0);
             this.lblcaption.Name = "lblcaption";
-            this.lblcaption.Size = new System.Drawing.Size(247, 13);
-            this.lblcaption.TabIndex = 0;
-            this.lblcaption.Text = "1.循环波";
-            this.lblcaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.scatterGraph1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 13);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 178);
-            this.panel1.TabIndex = 3;
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // scatterGraph1
             // 
-            this.scatterGraph1.Location = new System.Drawing.Point(3, 4);
+            resources.ApplyResources(this.scatterGraph1, "scatterGraph1");
             this.scatterGraph1.Name = "scatterGraph1";
             this.scatterGraph1.PlotAreaBorder = NationalInstruments.UI.Border.None;
             this.scatterGraph1.Plots.AddRange(new NationalInstruments.UI.ScatterPlot[] {
             this.scatterPlot1});
-            this.scatterGraph1.Size = new System.Drawing.Size(225, 165);
-            this.scatterGraph1.TabIndex = 4;
             this.scatterGraph1.UseColorGenerator = true;
             this.scatterGraph1.XAxes.AddRange(new NationalInstruments.UI.XAxis[] {
             this.xAxis1});
@@ -251,12 +198,11 @@
             // 
             // UserControlBlock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.Controls.Add(this.tableLayoutPanel3);
             this.Name = "UserControlBlock";
-            this.Size = new System.Drawing.Size(253, 225);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UserControlStep_Paint);
             this.DoubleClick += new System.EventHandler(this.UserControlStep_DoubleClick);
             this.Enter += new System.EventHandler(this.UserControlStep_Enter);

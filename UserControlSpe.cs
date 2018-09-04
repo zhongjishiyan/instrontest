@@ -62,8 +62,10 @@ namespace TabHeaderDemo
                     u.lbltitle.Text = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemname;
                     u.txtvalue.Text = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemvalue.ToString();
                     u.Dock = DockStyle.Fill;
+                    u.button1.Visible = false; 
                     u.txtvalue.Tag = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i];
                     u.txtvalue.TextChanged += new EventHandler(txtvalue_TextChanged);
+
 
                     tlp1.Controls.Add(u);
                 }
@@ -71,6 +73,7 @@ namespace TabHeaderDemo
                 if (CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemkind == 1)
                 {
                     UserSizeInput m = new UserSizeInput();
+                   
                     m.lbltitle.Text = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemname;
                     double t = 0;
                     double.TryParse(CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemvalue.ToString(), out  t);
@@ -78,6 +81,7 @@ namespace TabHeaderDemo
                     m.txtvalue.Tag = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i];
                     m.txtvalue.AfterChangeValue += Txtvalue_AfterChangeValue;
                     m.cbounit.Items.Clear();
+                    m.btnproperty.Visible = false;
                     m.cbounit.Items.Add(CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemunit);
                     m.cbounit.SelectedIndex = 0;
                     m.Dock = DockStyle.Fill;
@@ -147,18 +151,39 @@ namespace TabHeaderDemo
         {
             if (state == CComLibrary.TestStatus.Untested)
             {
-                listBox1.Items[0].Text = num.ToString()+"-未测试";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    listBox1.Items[0].Text = num.ToString() + "-未测试";
+                }
+                else
+                {
+                    listBox1.Items[0].Text = num.ToString() + "-Untested";
+                }
                 this.statusStrip1.Visible = false ;
             }
             else if (state == CComLibrary.TestStatus.tested)
             {
-                listBox1.Items[0].Text = num.ToString() + "-已完成";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    listBox1.Items[0].Text = num.ToString() + "-已完成";
+                }
+                else
+                {
+                    listBox1.Items[0].Text = num.ToString() + "-Completed";
+                }
 
                 this.statusStrip1.Visible = false;
             }
             else if (state == CComLibrary.TestStatus.novalid)
             {
-                listBox1.Items[0].Text = num.ToString() + "-无效";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    listBox1.Items[0].Text = num.ToString() + "-无效";
+                }
+                else
+                {
+                    listBox1.Items[0].Text = num.ToString() + "-Invalid";
+                }
                 this.statusStrip1.Visible = false ;
             }
             else if(state == CComLibrary.TestStatus.RemoveExt)
@@ -185,7 +210,16 @@ namespace TabHeaderDemo
 
         private void btnright_Click(object sender, EventArgs e)
         {
-            if (listBox1.Items[0].Text.Contains("未测试")==true)
+            string _temp;
+            if (GlobeVal.mysys.language ==0)
+            {
+                _temp = "未测试";
+            }
+            else
+            {
+                _temp = "Untested";
+            }
+            if (listBox1.Items[0].Text.Contains(_temp)==true)
             {
 
             }
@@ -259,6 +293,15 @@ namespace TabHeaderDemo
                 btnleft.Visible  = true;
                 btnright.Visible = true;
             }
+        }
+
+        public void SetEnabled(bool b)
+        {
+          
+                this.tlp1.Enabled = b;
+                this.tableLayoutPanel1.Enabled = b;
+
+         
         }
 
         private void btnleft_Click(object sender, EventArgs e)

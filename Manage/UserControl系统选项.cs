@@ -27,10 +27,34 @@ namespace TabHeaderDemo
             }
 
             cbostartup.Items.Clear();
-            cbostartup.Items.Add("在主屏幕");
-            cbostartup.Items.Add("按照上次使用过的试验方法准备试验");
-            cbostartup.Items.Add("按照指定的试验方法准备试验");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbostartup.Items.Add("在主屏幕");
+                cbostartup.Items.Add("按照上次使用过的试验方法准备试验");
+                cbostartup.Items.Add("按照指定的试验方法准备试验");
+            }
+            else
+            {
+                cbostartup.Items.Add("Home Screen");
+                cbostartup.Items.Add("Continue testing the last-used sample");
+                cbostartup.Items.Add("Create a new sample with a specific test method");
+            }
             cbostartup.SelectedIndex = GlobeVal.mysys.startupscreen;
+
+
+            cbolanguage.Items.Clear();
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbolanguage.Items.Add("中文版");
+                cbolanguage.Items.Add("英文版");
+            }
+            else
+            {
+                cbolanguage.Items.Add("Chinese version");
+                cbolanguage.Items.Add("English version");
+            }
+            cbolanguage.SelectedIndex = GlobeVal.mysys.language;
 
 #if Demo
             chkdemo.Enabled = false;
@@ -40,8 +64,8 @@ namespace TabHeaderDemo
             chkdemo.Checked = GlobeVal.mysys.demo;
 #endif 
             chktitle.Checked=GlobeVal.mysys.showapptitle;
-            txtAppTitle.Text = GlobeVal.mysys.apptitle;
-            txtshort.Text= GlobeVal.mysys.shorttitle;
+            txtAppTitle.Text = GlobeVal.mysys.Lapptile[GlobeVal.mysys.language];
+            txtshort.Text= GlobeVal.mysys.Lshorttitle[GlobeVal.mysys.language];
             chkshort.Checked = GlobeVal.mysys.showshorttitle;
 
             txtlogo.Text = GlobeVal.mysys.bmplogo;
@@ -79,7 +103,14 @@ namespace TabHeaderDemo
 
            if (GlobeVal.mysys.demo == true)
            {
-               GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = "演示";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = "演示";
+                }
+                else
+                {
+                    GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = "Demo";
+                }
            }
            else
            {
@@ -91,7 +122,8 @@ namespace TabHeaderDemo
 
         private void txtAppTitle_TextChanged(object sender, EventArgs e)
         {
-            GlobeVal.mysys.apptitle = txtAppTitle.Text;
+            GlobeVal.mysys.Lapptile[GlobeVal.mysys.language] = txtAppTitle.Text;
+          
         }
 
         private void chktitle_CheckedChanged(object sender, EventArgs e)
@@ -101,7 +133,10 @@ namespace TabHeaderDemo
 
         private void txtshort_TextChanged(object sender, EventArgs e)
         {
-            GlobeVal.mysys.shorttitle = txtshort.Text;
+           
+                GlobeVal.mysys.Lshorttitle[GlobeVal.mysys.language] = txtshort.Text;
+            
+             
         }
 
         private void chkshort_CheckedChanged(object sender, EventArgs e)
@@ -169,6 +204,23 @@ namespace TabHeaderDemo
                 GlobeVal.mysys.demotxt = txtdemo.Text;
 
             }
+        }
+
+        private void cbolanguage_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.language = cbolanguage.SelectedIndex;
+            txtAppTitle.Text = GlobeVal.mysys.Lapptile[GlobeVal.mysys.language];
+            txtshort.Text = GlobeVal.mysys.Lshorttitle[GlobeVal.mysys.language];
+        }
+
+        private void cbostartup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

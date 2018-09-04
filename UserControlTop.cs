@@ -14,7 +14,7 @@ using System.Reflection;
 
 namespace TabHeaderDemo
 {
-    public partial class UserControlTop : UserControl
+    public partial class UserControlTop : UserBase
     {
         
        
@@ -118,7 +118,8 @@ namespace TabHeaderDemo
 
         public void btntest_Click(object sender, EventArgs e)
         {
-           
+            ClsStaticStation.m_Global.mycls.initchannel();
+
 
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
             ((SplitContainer)b.TabPages[1].Controls[0]).Panel2Collapsed = false;
@@ -139,6 +140,17 @@ namespace TabHeaderDemo
             {
                 GlobeVal.FormmainLab.UserControl东光1.Init();
             }
+
+            if(GlobeVal.FormmainLab.UserControl轴向1 !=null)
+            {
+                
+                GlobeVal.FormmainLab.UserControl轴向1.init();
+            }
+
+            if(GlobeVal.FormmainLab.UserControl刚度双轴1 !=null)
+            {
+                GlobeVal.FormmainLab.UserControl刚度双轴1.init();
+            }
             c.OpenTest();
             
             b.SelectedIndex = 1;
@@ -150,7 +162,9 @@ namespace TabHeaderDemo
             String  s = Application.StartupPath;
             if (s.Contains("#") == true)
             {
+                
                 MessageBox.Show("软件目录中包含#字符，不能显示帮助");
+
             }
             else
             {
@@ -161,7 +175,14 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    MessageBox.Show("帮助文件不存在");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("帮助文件不存在");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The help files no longer exists");
+                    }
                 }
             }
         }
@@ -172,14 +193,28 @@ namespace TabHeaderDemo
 
             if (CComLibrary.GlobeVal.filesave == null)
             {
-                MessageBox.Show("请先读取试验方法");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("请先读取试验方法");
+                }
+                else
+                {
+                    MessageBox.Show("Please read the test method first.");
+                }
                 return;
             }
             if (GlobeVal.mysys.safe == true)
             {
                 if (GlobeVal.mysys.AppUserLevel < 1)
                 {
-                    MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficient permissio to login system.");
+                    }
                     return;
                 }
             }
@@ -216,7 +251,14 @@ namespace TabHeaderDemo
             {
                 if (GlobeVal.mysys.AppUserLevel < 2)
                 {
-                    MessageBox.Show("您的当前权限不够，请使用管理员权限登录");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("您的当前权限不够，请使用管理员权限登录");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficient permissio to login system.");
+                    }
                     return;
                 }
             }
@@ -238,7 +280,15 @@ namespace TabHeaderDemo
 
                 if (GlobeVal.mysys.AppUserLevel < 1)
                 {
-                    MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficient permissio to login system.");
+
+                     }
                     return;
                 }
             }
@@ -272,7 +322,14 @@ namespace TabHeaderDemo
             }
             else
             {
-                MessageBox.Show("安全策略没有启用");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("安全策略没有启用");
+                }
+                else
+                {
+                    MessageBox.Show("security password policy rules are not enforced");
+                }
             }
         }
 
@@ -292,28 +349,60 @@ namespace TabHeaderDemo
 
         private void btntest_MouseEnter(object sender, EventArgs e)
         {
-            lbltip.Text = "读取试验方法并开始试验";
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                lbltip.Text = "开始试验";
+            }
+            else
+
+            {
+                lbltip.Text = "Run tests on specimens";
+            }
             paneltip.BackgroundImage = TabHeaderDemo.Properties.Resources.试验提示1;
             paneltip.Visible = true;
         }
 
         private void btnmethod_MouseEnter(object sender, EventArgs e)
         {
-            lbltip.Text = "编辑并修改试验方法";
+            if (GlobeVal.mysys.language == 0)
+            {
+                lbltip.Text = "创建或编辑现有试验方法";
+            }
+            else
+            {
+                lbltip.Text = " Create a new or edit an existing test method";
+            }
             paneltip.BackgroundImage = TabHeaderDemo.Properties.Resources.方法提示1;
             paneltip.Visible = true;
         }
 
         private void btnreport_MouseEnter(object sender, EventArgs e)
         {
-            lbltip.Text = "编辑并修改试验报告";
+            if (GlobeVal.mysys.language == 0)
+            {
+                lbltip.Text = "创建或编辑现有试验报告模板";
+            }
+            else
+            {
+                lbltip.Text = "Create a new or edit an existing test Report template";
+            }
             paneltip.BackgroundImage = TabHeaderDemo.Properties.Resources.报告提示1;
             paneltip.Visible = true; 
         }
 
         private void btnmanage_MouseEnter(object sender, EventArgs e)
         {
-            lbltip.Text = "编辑并修改试验设置";
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                lbltip.Text = "配置系统";
+            }
+            else
+            {
+                lbltip.Text = "Change the configuration of the testing system";
+            }
+
             paneltip.BackgroundImage = TabHeaderDemo.Properties.Resources.管理器提示1;
             paneltip.Visible = true;
         }
@@ -343,17 +432,38 @@ namespace TabHeaderDemo
 
         private void btnuser_MouseEnter(object sender, EventArgs e)
         {
-            lbltip.Text = "设置用户权限";
+            if (GlobeVal.mysys.language == 0)
+            {
+                lbltip.Text = "设置用户权限";
+            }
+            else
+            {
+                lbltip.Text = "set the permission for users";
+            }
         }
 
         private void btnhelp_MouseEnter(object sender, EventArgs e)
         {
-            lbltip.Text = "显示系统帮助文件";
+            if (GlobeVal.mysys.language == 0)
+            {
+                lbltip.Text = "显示系统帮助文件";
+            }
+            else
+            {
+                lbltip.Text = "Open the Help system";
+            }
         }
 
         private void btnexit_MouseEnter(object sender, EventArgs e)
         {
-            lbltip.Text = "退出试验软件";
+            if (GlobeVal.mysys.language == 0)
+            {
+                lbltip.Text = "退出试验软件";
+            }
+            else
+            {
+                lbltip.Text = "Exit the software";
+            }
         }
 
         private void btnuser_MouseLeave(object sender, EventArgs e)

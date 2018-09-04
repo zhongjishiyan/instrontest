@@ -34,38 +34,96 @@ namespace TabHeaderDemo
             grid1.Columns[1].AutoSizeMode = SourceGrid2.AutoSizeMode.EnableStretch;
             grid1.FixedRows = 1;
             grid1.Rows.Insert(0);
-            grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("系统属性");
-            grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("值");
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("系统属性");
+                grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("值");
+            }
+            else
+            {
+                grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("System property");
+                grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Value");
+            }
 
 
             i = 1;
             grid1.Rows.Insert(i);
-            grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
-                    "软件设置", typeof(string));
 
-  
+            if (GlobeVal.mysys.language == 0)
+            {
+                grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
+                        "软件设置", typeof(string));
+            }
+            else
+            {
+                grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
+                        "Software configuration", typeof(string));
+            }
+
+
 #if Demo
+              if (GlobeVal.mysys.language == 0)
+            {
             grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(
                     "演示版", typeof(string));
             labelVersion1.Text = "版本 演示版";
+            }
+            else
+
+            {
+
+               grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(
+                    "Demo", typeof(string));
+            labelVersion1.Text = "Version: demo ";
+            }
 #else
-            grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(
-                   "完整版", typeof(string));
-             labelVersion1.Text = "版本 完整版";
+            if (GlobeVal.mysys.language == 0)
+            {
+                grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(
+                       "完整版", typeof(string));
+                labelVersion1.Text = "版本 完整版";
+            }
+            else
+            {
+                grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(
+                      "Full", typeof(string));
+                labelVersion1.Text = "Version full";
+            }
 #endif
             i = 2;
             grid1.Rows.Insert(i);
-            grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
-                    "软件到期日期", typeof(string));
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
+                        "软件到期日期", typeof(string));
+            }
+            else
+            {
+                grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
+                       "Software expiration date", typeof(string));
+
+            }
+            
 
             grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(
                     "3000.1.1", typeof(string));
 
             i = 3;
             grid1.Rows.Insert(i);
-            grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
-                    "软件编译日期", typeof(string));
 
+            if (GlobeVal.mysys.language == 0)
+            {
+
+                grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
+                    "软件编译日期", typeof(string));
+            }
+            else
+            {
+                grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
+                   "Date of software compilation", typeof(string));
+            }
             string ss = "";
 
             DateTime dt;
@@ -85,9 +143,17 @@ namespace TabHeaderDemo
 
             i = 4;
             grid1.Rows.Insert(i);
-            grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
-                    "软件版本", typeof(string));
 
+            if (GlobeVal.mysys.language == 0)
+            {
+                grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
+                    "软件版本", typeof(string));
+            }
+            else
+            {
+                grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
+                  "Software version", typeof(string));
+            }
             
 
               grid1[i, 1] = new SourceGrid2.Cells.Real.Cell(

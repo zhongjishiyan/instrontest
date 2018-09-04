@@ -117,52 +117,156 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btrRefreshListU.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btrRefreshList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btrRefreshListU.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAGhJREFUOE+tk1EK
-        wDAIQ3P03LyrsA6RWaKtIPTHFzUVAEc/YXEIIDk6MZVn56a/AYBI2TIgg2wBVhQztpICvOKC/M0hA7Il
-        SABfHHchL3FByoA4fwlw5IJv+cpHKrug3sXnwvuww+gkHlvqxQhkGGrQAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAYklEQVQ4T6WOAQqAQAgE9+n+/DrjDLFW
+        xQYW6q4ZAiBrvpuvi+5UF1kTtloHIDhPb9oBFkkDJvpFaMB/zGSlHWC0Ap54TgOe7G/KgArjgMl+kTSg
+        MNEoA8rvQMYT2NjLYMAFW+rFCBVKsf4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btrRefreshListU.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
+  </data>
+  <data name="btrRefreshListU.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 3</value>
+  </data>
+  <data name="btrRefreshListU.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 28</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btrRefreshListU.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;btrRefreshListU.Name" xml:space="preserve">
+    <value>btrRefreshListU</value>
+  </data>
+  <data name="&gt;&gt;btrRefreshListU.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btrRefreshListU.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btrRefreshListU.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btAddU.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btAddU.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAL9JREFUOE9jYBi0
-        gK2A+T8yJtmhIM2tr4P+Nzz1BRtElgEgzRX3XMk3oOqB+//imw7EGSBUwfOfvYwZjkHOBmnOvmiBEhaw
-        cMHwEkhzx9tQsJ+rH3qANeddsf6fctrof+xxvf+++9X+2+6Q/2+8WQpsCVYD0DXDDIjcr/vfaa3if6uV
-        sv+1F4nhNgDZCyB28E5NsO3o4lhdgO4kkCLndYpgpxOlAZsBICc77FQg3wCDJRK4A41QykL3NyH1AycP
-        AGfwlqyGzgUBAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAv0lEQVQ4T2MYvICtgPk/MoYKEw9Amlpf
+        B/1veOpLvgEgzRX3XMk3oOqB+//imw7EGSBUwfOfvYwZjkGaQJqzL1qA2egYqg0BQJo63oaCnV390AOs
+        Oe+K9f+U00b/Y4/r/ffdr/bfdof8f+PNUmALoNoQACSIrhlmQOR+3f9OaxX/W62U/a+9SAy3Aeg4eKcm
+        2HZsclBtuAFIkfM6RbDTidKADkCaQE522KlAvgEGSyRwBxohANKEjKHCgw4wMAAAZ/CWrJtsox8AAAAA
+        SUVORK5CYII=
 </value>
   </data>
-  <data name="btRemove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btAddU.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
+  </data>
+  <data name="btAddU.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btAddU.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="btAddU.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;btAddU.Name" xml:space="preserve">
+    <value>btAddU</value>
+  </data>
+  <data name="&gt;&gt;btAddU.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btAddU.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btAddU.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btRemoveU.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btRemoveU.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAOpJREFUOE9jYKAG
-        eChg9v+hju9/ss16IOv4/z6D5v/Dmm7kG3JG3BJsyDa3KJyGPHeIB6vB6VJ8hoA185n+70nKwu/KsxJW
-        GC55JO/8/66GF2HNMKeBDLnBrgf2zgN+s//XbCOJ1wwz5CaHPtglR7TdSdf8Kr4SrPk6m87/a6zapBnw
-        OqEKEqXmgf/jAoL/HxcyBhuEL3bgsQLXbBH0PyUlBR7ayGGCMwphzr4kY/s/Pj4eI6rwGgLTfJvL4H+W
-        X/D/1NRUrHENSqlYExvMgGUa9jg1w5y+KSAJHMUYXsnLy/sPwmRnKHI1AgDXhKRwKeRyrAAAAABJRU5E
-        rkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA60lEQVQ4T2OgCngoYPb/oY7vfyiXdPBA
+        1vH/fQbN/4c13cg35Iy4JdiQbW5ROA157hAPVgPlYgJ8hoA185n+70nKwu/KsxJWGIY8knf+f1fDi7Bm
+        GAAZcoNdD2zIA36z/9dsI4nXDAM3OfTBLjmi7U665lfxlWDN19l0/l9j1SbNgNcJVWDNh80D/8cFBP8/
+        LmQMNghf7MABXLNF0P+UlBS4BuQwgQphApizL8nY/o+Pj8dQiNcQmObbXAb/s/yC/6empmK1CZRSQeow
+        DIEZsEzDHqdmGNgUkAR2CZSLAHl5ef9BGMqlF2BgAADXhKRwxIKumAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btUp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAHBJREFUOE/NkksO
-        wCAIRD26R+Nm6oTYRj5CWZXEuJl5kIHWwuojlPiCPohoAUoQNqMKkNP8EWKbk5C7OYAgqPPpDKTmiV+b
-        Adsd8Uu42JzuDIM/wfUyuLM9Qeqk3uMp3sGfJgiS9wKxV5qKj0UWwLdP9nofkwIUTVIAAAAASUVORK5C
-        YII=
-</value>
+  <data name="btRemoveU.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
   </data>
-  <data name="btDown.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAGZJREFUOE/tk1kK
-        ACAIRD16R/Nmhoi0mEt9J4Qf+gZhJgC3GgHsz9/eJgIiInFxF7FSCciAwtyfBP4F1y5Y360Lbi7GYIZm
-        FxJLV+VIJMhDLlIIky9SgDXnVuQCPouUvpBd0ktivANZQClGXaPO4wAAAABJRU5ErkJggg==
-</value>
+  <data name="btRemoveU.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 3</value>
+  </data>
+  <data name="btRemoveU.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 28</value>
+  </data>
+  <data name="btRemoveU.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btRemoveU.Name" xml:space="preserve">
+    <value>btRemoveU</value>
+  </data>
+  <data name="&gt;&gt;btRemoveU.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btRemoveU.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btRemoveU.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>panelU1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btAddU" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btDownU" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="btRemoveU" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btrRefreshListU" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btUpU" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,33,Absolute,32,Absolute,32,Absolute,33,Absolute,18" /&gt;&lt;Rows Styles="Percent,100,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="panelU1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelU1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelU1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>748, 34</value>
+  </data>
+  <data name="panelU1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;panelU1.Name" xml:space="preserve">
+    <value>panelU1</value>
+  </data>
+  <data name="&gt;&gt;panelU1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelU1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelU1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -176,4 +280,233 @@
   <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="dataGridViewU1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dataGridViewU1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="dataGridViewU1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>748, 226</value>
+  </data>
+  <data name="dataGridViewU1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewU1.Name" xml:space="preserve">
+    <value>dataGridViewU1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewU1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewU1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewU1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Column1.HeaderText" xml:space="preserve">
+    <value>通道名称</value>
+  </data>
+  <data name="Column1.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Column2.HeaderText" xml:space="preserve">
+    <value>通道内容</value>
+  </data>
+  <data name="Column2.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Column3.HeaderText" xml:space="preserve">
+    <value>基本单位</value>
+  </data>
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Column4.HeaderText" xml:space="preserve">
+    <value>通道量纲</value>
+  </data>
+  <data name="btUpU.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btUpU.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btUpU.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAZUlEQVQ4T82OUQrAMAhDPbpH82bdpLPg
+        tDbzaw+CpZIYOsPjeXTgISJ3QCtkmpVGiDfbBENys81DSG22uQnRT69oemuRLXmZlbh3+KVd3DcomZdt
+        +gYQVQOIPzWIgsiMKpgvZqIL9nofkwRo0BYAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btUpU.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
+  </data>
+  <data name="btUpU.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 3</value>
+  </data>
+  <data name="btUpU.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="btUpU.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;btUpU.Name" xml:space="preserve">
+    <value>btUpU</value>
+  </data>
+  <data name="&gt;&gt;btUpU.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btUpU.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btUpU.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btDownU.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btDownU.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btDownU.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAYElEQVQ4T+2OUQ4AEQwFe/Q9Wm9m88IL
+        VkvreyeRJphBfJ6yrjBVUNUCMBOBKmJSBleB/wfpH+DCvCgD67yJoG+C8WVrfmTQA6eIIZNzZCMTPxKQ
+        yRpJyGSOtM0sEVnkBVlAKUY1Hci0AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btDownU.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
+  </data>
+  <data name="btDownU.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 3</value>
+  </data>
+  <data name="btDownU.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 28</value>
+  </data>
+  <data name="btDownU.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;btDownU.Name" xml:space="preserve">
+    <value>btDownU</value>
+  </data>
+  <data name="&gt;&gt;btDownU.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btDownU.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btDownU.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btDownU.Name" xml:space="preserve">
+    <value>btDownU</value>
+  </data>
+  <data name="&gt;&gt;btDownU.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btDownU.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btDownU.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btUpU.Name" xml:space="preserve">
+    <value>btUpU</value>
+  </data>
+  <data name="&gt;&gt;btUpU.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btUpU.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btUpU.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>585, 0</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 34</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>panelU1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btAddU" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btDownU" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="btRemoveU" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btrRefreshListU" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btUpU" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,33,Absolute,32,Absolute,32,Absolute,33,Absolute,18" /&gt;&lt;Rows Styles="Percent,100,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>748, 260</value>
+  </data>
+  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
+    <value>Column1</value>
+  </data>
+  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Column2.Name" xml:space="preserve">
+    <value>Column2</value>
+  </data>
+  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Column3.Name" xml:space="preserve">
+    <value>Column3</value>
+  </data>
+  <data name="&gt;&gt;Column3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Column4.Name" xml:space="preserve">
+    <value>Column4</value>
+  </data>
+  <data name="&gt;&gt;Column4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>UListEditor</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -9,8 +9,7 @@ using System.IO;
 using System.Windows.Forms;
 using NationalInstruments.UI.WindowsForms;
 using NationalInstruments.UI;
-using NationalInstruments.Analysis.Math;
-using NationalInstruments.Analysis.Monitoring;
+
 using System.Drawing.Printing;
 namespace AppleLabApplication
 {
@@ -1417,8 +1416,8 @@ namespace AppleLabApplication
             int i;
             double mmax;
             double mmin;
-            int mmaxindex;
-            int mminindex;
+            int mmaxindex=0;
+            int mminindex=0;
             if (xyCursorstart.GetCurrentIndex() <= xyCursorend.GetCurrentIndex())
             {
                 starti = xyCursorstart.GetCurrentIndex();
@@ -1435,7 +1434,16 @@ namespace AppleLabApplication
             {
                 t[i - starti] = CComLibrary.GlobeVal.g_datadraw[1][i];
             }
-            NationalInstruments.Analysis.Math.ArrayOperation.MaxMin1D(t, out mmax, out mmaxindex, out mmin, out mminindex);
+            //NationalInstruments.Analysis.Math.ArrayOperation.MaxMin1D(t, out mmax, out mmaxindex, out mmin, out mminindex);
+
+            mmaxindex = Array.FindIndex(t, val => val == t.Max());
+            mminindex = Array.FindIndex(t, val => val == t.Min());
+
+            mmax = t.Max();
+
+    
+            mmin = t.Min();
+
             CComLibrary.LineStruct l = new CComLibrary.LineStruct();
             l.kind = 0;
             l.indexstart = starti + mmaxindex;
@@ -1453,6 +1461,7 @@ namespace AppleLabApplication
 
         private void 全部峰值ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             double[] amplitudesPeak;
             double[] locationsPeak;
             double[] secondDerivativesPeak;
@@ -1506,6 +1515,7 @@ namespace AppleLabApplication
                 richTextBox1.Text  = richTextBox1.Text  + "峰值：" + amplitudesPeak[i].ToString() + "\r\n";
             }
             scatterGraph1.Refresh();
+            */
         }
 
         private void 最小谷值ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1516,8 +1526,8 @@ namespace AppleLabApplication
             int i;
             double mmax;
             double mmin;
-            int mmaxindex;
-            int mminindex;
+            int mmaxindex=0;
+            int mminindex=0;
 
             if (xyCursorstart.GetCurrentIndex() <= xyCursorend.GetCurrentIndex())
             {
@@ -1537,7 +1547,15 @@ namespace AppleLabApplication
             {
                 t[i - starti] = CComLibrary.GlobeVal.g_datadraw[1][i];
             }
-            NationalInstruments.Analysis.Math.ArrayOperation.MaxMin1D(t, out mmax, out mmaxindex, out mmin, out mminindex);
+            //NationalInstruments.Analysis.Math.ArrayOperation.MaxMin1D(t, out mmax, out mmaxindex, out mmin, out mminindex);
+
+
+            mmaxindex = Array.FindIndex(t, val => val == t.Max());
+            mminindex = Array.FindIndex(t, val => val == t.Min());
+
+            mmax = t.Max();
+
+            mmin = t.Min();
 
             CComLibrary.LineStruct l = new CComLibrary.LineStruct();
             l.kind = 0;
@@ -1560,6 +1578,7 @@ namespace AppleLabApplication
 
         private void 全部谷值ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             double[] amplitudesPeak;
             double[] locationsPeak;
             double[] secondDerivativesPeak;
@@ -1616,7 +1635,7 @@ namespace AppleLabApplication
                 richTextBox1.Text = richTextBox1.Text + "谷值：" + amplitudesPeak[i].ToString() + "\r\n";
             }
             scatterGraph1.Refresh();
-
+            */
         }
 
         private void 平均值所有峰值ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1646,7 +1665,11 @@ namespace AppleLabApplication
             {
                 t[i - starti] = CComLibrary.GlobeVal.g_datadraw[1][i];
             }
-            NationalInstruments.Analysis.Math.ArrayOperation.Normalize1D(t, out mean, out stddev);
+            //  NationalInstruments.Analysis.Math.ArrayOperation.Normalize1D(t, out mean, out stddev);
+
+           
+        
+            mean = t.Average();
 
             CComLibrary.LineStruct l1 = new CComLibrary.LineStruct();
             l1.kind = 1;

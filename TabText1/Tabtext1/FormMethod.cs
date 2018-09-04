@@ -14,7 +14,7 @@ using ClsStaticStation;
 
 namespace AppleLabApplication
 {
-    public partial class FormMethod : Form
+    public partial class FormMethod : FormBase
     {
         private SampleProject.Extensions.GridBarChart gridBarChart1;
         private SampleProject.Extensions.GridBarChart gridBarChart2;
@@ -55,65 +55,11 @@ namespace AppleLabApplication
 
         private void wizardControl1_FinishButtonClick(object sender, EventArgs e)
         {
-            int i;
-
-
-            filesave._flow测试前 = checklist.GetItemCheckState(0);
-
-            filesave._flow测试结束=checklist.GetItemCheckState(1);
-
-            filesave._flow数据采集=checklist.GetItemCheckState(2);
-
-            filesave._flow应变= checklist.GetItemCheckState(3);
-
-
-            filesave._flow试验选项= checklist.GetItemCheckState(4);
-
-
-
-            filesave._flow测试= checklist.GetItemCheckState(5);
-
-
-            filesave.fileextname = ".txt";
-
-            string s;
-            
-            if (Directory.Exists(this.mmptpath +"\\"+ClsStaticStation.m_Global.mycls.TestkindList[filesave.methodkind])==true)
-            {
-            }
-            else
-            {
-                Directory.CreateDirectory(this.mmptpath +"\\"+ClsStaticStation.m_Global.mycls.TestkindList[filesave.methodkind]);
-            }
-
-            s= this.mmptpath +"\\"+ClsStaticStation.m_Global.mycls.TestkindList[filesave.methodkind]+"\\"+filesave.methodname+@".dat";
-
-
-            DialogResult a=  MessageBox.Show("是否重置试验方法？", "提示", MessageBoxButtons.YesNo);
-
-            if (a == System.Windows.Forms.DialogResult.Yes)
-            {
-                filesave.checkchange();
-            }
-
-
-
-            filesave.InitTable();
-
-            filesave.SerializeNow(s);
-
-            CComLibrary.GlobeVal.filesave = filesave;
-
-
-            Close();
-
+           
            
         }
 
-        private void wizardControl1_CancelButtonClick(object sender, EventArgs e)
-        {
-            Close();
-        }
+       
         private void comboinit(DataGridViewComboBoxCell c)
         {
             c.Items.Clear();
@@ -127,9 +73,9 @@ namespace AppleLabApplication
         {
             int i;
 
-         
+           Wizardtab.ItemSize = new Size(1, 1);
 
-
+            Wizardtab.SelectedIndex = 0;
 
             cbokind.Items.Clear();
 
@@ -240,12 +186,27 @@ namespace AppleLabApplication
                
                 if (bb == null)
                 {
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        gridBarChart2.Bars.Add(new SampleProject.Extensions.ChartBarDefine(bb.formulaname, "无", bb.formulaunit, bb.check, bb.dimsel, bb.formulaexplain, bb.show, Color.Red, Color.White));
+                    }
+                    else
+                    {
+                        gridBarChart2.Bars.Add(new SampleProject.Extensions.ChartBarDefine(bb.formulaname, "None", bb.formulaunit, bb.check, bb.dimsel, bb.formulaexplain, bb.show, Color.Red, Color.White));
 
-                    gridBarChart2.Bars.Add(new SampleProject.Extensions.ChartBarDefine(bb.formulaname, "无", bb.formulaunit, bb.check,bb.dimsel, bb.formulaexplain,bb.show ,   Color.Red, Color.White));
+                    }
                 }
                 else
                 {
-                    gridBarChart2.Bars.Add(new SampleProject.Extensions.ChartBarDefine(bb.formulaname, "有", bb.formulaunit, bb.check, bb.dimsel, bb.formulaexplain,bb.show, Color.Red, Color.White));
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        gridBarChart2.Bars.Add(new SampleProject.Extensions.ChartBarDefine(bb.formulaname, "有", bb.formulaunit, bb.check, bb.dimsel, bb.formulaexplain, bb.show, Color.Red, Color.White));
+                    }
+                    else
+                    {
+                        gridBarChart2.Bars.Add(new SampleProject.Extensions.ChartBarDefine(bb.formulaname, "Yes", bb.formulaunit, bb.check, bb.dimsel, bb.formulaexplain, bb.show, Color.Red, Color.White));
+
+                    }
                 }
 
                 
@@ -261,7 +222,7 @@ namespace AppleLabApplication
             for (i = 0; i < filesave.moutput.Count; i++)
             {
 
-                (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).value = filesave.moutput[i].formulavalue;
+                (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).formulavalue  = filesave.moutput[i].formulavalue;
             }
 
 
@@ -276,13 +237,20 @@ namespace AppleLabApplication
                 bb1 = filesave.minputtext[i];
                 if (bb1 == null)
                 {
-
-                    gridBarChartText.Bars.Add(new SampleProject.Extensions.ChartBarTextDefine("文档名称",""));
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        gridBarChartText.Bars.Add(new SampleProject.Extensions.ChartBarTextDefine("文档名称", "", ""));
+                    }
+                    else
+                    {
+                        gridBarChartText.Bars.Add(new SampleProject.Extensions.ChartBarTextDefine("Document name", "", ""));
+                        
+                    }
                 }
                 else
                 {
 
-                    gridBarChartText.Bars.Add(new SampleProject.Extensions.ChartBarTextDefine(bb1.name , bb1.value));
+                    gridBarChartText.Bars.Add(new SampleProject.Extensions.ChartBarTextDefine(bb1.name , bb1.value,bb1.intername));
            
                 }
 
@@ -305,8 +273,14 @@ namespace AppleLabApplication
                 bb2 = filesave.mcbo[i];
                 if (bb2 == null)
                 {
-
-                    gridBarChartCombo.Bars.Add(new SampleProject.Extensions.ChartBarComboDefine("名称", null ,0));
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        gridBarChartCombo.Bars.Add(new SampleProject.Extensions.ChartBarComboDefine("名称", null, 0));
+                    }
+                    else
+                    {
+                        gridBarChartCombo.Bars.Add(new SampleProject.Extensions.ChartBarComboDefine("Name", null, 0));
+                    }
                 }
                 else
                 {
@@ -352,7 +326,14 @@ namespace AppleLabApplication
                     b.Cells[0].Value = cc.channelname;
                     c = new DataGridViewTextBoxCell();
                     b.Cells.Add(c);
-                    b.Cells[1].Value = "无";
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        b.Cells[1].Value = "无";
+                    }
+                    else
+                    {
+                        b.Cells[1].Value = "None";
+                    }
                     c = new DataGridViewTextBoxCell();
                     b.Cells.Add(c);
                     b.Cells[2].Value = cc.channelunit;
@@ -361,7 +342,7 @@ namespace AppleLabApplication
                     comboinit(c as DataGridViewComboBoxCell);
                     (b.Cells[3] as DataGridViewComboBoxCell).Value =(b.Cells[3] as DataGridViewComboBoxCell).Items[cc.channel_dimensionkind];
                     b.Tag = cc.channelvalue;
-                    uListEditor1.dataGridView1.Rows.Add(b); 
+                    uListEditor1.dataGridViewU1.Rows.Add(b); 
                 }
                 else
                 {
@@ -371,7 +352,14 @@ namespace AppleLabApplication
                     b.Cells[0].Value = cc.channelname;
                     c = new DataGridViewTextBoxCell();
                     b.Cells.Add(c);
-                    b.Cells[1].Value = "有";
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        b.Cells[1].Value = "有";
+                    }
+                    else
+                    {
+                        b.Cells[1].Value = "Yes";
+                    }
                     c = new DataGridViewTextBoxCell();
                     b.Cells.Add(c);
                     b.Cells[2].Value = cc.channelunit;
@@ -380,7 +368,7 @@ namespace AppleLabApplication
                     comboinit(c as DataGridViewComboBoxCell);
                     (b.Cells[3] as DataGridViewComboBoxCell).Value = (c as DataGridViewComboBoxCell).Items[cc.channel_dimensionkind];
                     b.Tag = cc.channelvalue;
-                    uListEditor1.dataGridView1.Rows.Add(b); 
+                    uListEditor1.dataGridViewU1.Rows.Add(b); 
 
                    
                 }
@@ -450,12 +438,12 @@ namespace AppleLabApplication
             for (i = 0; i < listEditor2.List.Count; i++)
             {
                 CComLibrary.outputitem moutput = new CComLibrary.outputitem();
-                moutput.formulaname = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式名称;
-                moutput.formulavalue = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).value;
-                moutput.formulaunit = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式单位;
-                moutput.show = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).曲线显示;
-                moutput.check = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).是否计算;
-                moutput.formulaexplain = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式说明;
+                moutput.formulaname = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).FormulaName;
+                moutput.formulavalue = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).formulavalue;
+                moutput.formulaunit = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).FormulaUnit ;
+                moutput.show = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).Show ;
+                moutput.check = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).Calculation;
+                moutput.formulaexplain = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).FormulaDescription;
 
 
 
@@ -513,8 +501,15 @@ namespace AppleLabApplication
                     }
                     else
                     {
-                        MessageBox.Show("自定义公式定义重复，请重新定义");
-                      
+                        if (CComLibrary.GlobeVal.languageselect == 0)
+                        {
+                            MessageBox.Show("自定义公式定义重复，请重新定义");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Custom formula definition is repeated, please redefine");
+
+                        }
                         return;
                     }
                 }
@@ -575,7 +570,14 @@ namespace AppleLabApplication
               }
               else
               {
-                  MessageBox.Show("请选择要编辑的公式");
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    MessageBox.Show("请选择要编辑的公式");
+                }
+                else
+                {
+                    MessageBox.Show("Please choose the formula you want to edit.");
+                }
                   return; 
               }
 
@@ -595,7 +597,10 @@ namespace AppleLabApplication
             s="";
             for (i=0;i<cboitem.Items.Count;i++)
             {
-              s=s+cboitem.Items[i]+" ";
+                string r = cboitem.Items[i].ToString();
+                r = r.Replace(" ", "_");
+
+                s =s+r+" ";
 
             }
             
@@ -609,25 +614,39 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.gcalc.initarray(s, 100);
             CComLibrary.GlobeVal.filesave = filesave;
 
-                CComLibrary.GlobeVal._programname = (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).公式名称;
-                CComLibrary.GlobeVal._programstring = (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).value;
+                CComLibrary.GlobeVal._programname = (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).FormulaName;
+                CComLibrary.GlobeVal._programstring = (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).formulavalue;
                 
             
             FormCalc f = new FormCalc();
+            f.Language();
             f.kind = 1;
             f.ShowDialog();
 
             if (CComLibrary.GlobeVal._programstring == null)
             {
-
-                (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).公式内容 = "无";
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).FormulaContent = "无";
+                }
+                else
+                {
+                    (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).FormulaContent = "None";
+                }
             }
             else
             {
-                (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).公式内容 ="有";
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).FormulaContent = "有";
+                }
+                else
+                {
+                    (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).FormulaContent = "Yes";
+                }
             }
 
-            (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).value = CComLibrary.GlobeVal._programstring;
+            (listEditor2.List[k] as SampleProject.Extensions.ChartBarDefine).formulavalue= CComLibrary.GlobeVal._programstring;
             
            // listEditor2.LoadList(); 
 
@@ -639,462 +658,7 @@ namespace AppleLabApplication
           
         }
 
-        private void listEditor2_Enter(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void wizardControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listEditor3_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void wizardControl1_NextButtonClick(WizardBase.WizardControl sender, WizardBase.WizardNextButtonClickEventArgs args)
-        {
-            int i=0, j = 0;
-            ColumnHeader c;
-            ListViewItem b;
-
-            if (wizardControl1.CurrentStepIndex == 1)
-            {
-                filesave.methodname = txtName.Text;
-                filesave.datapath = txtpath.Text;
-                filesave.lprocedurename.Clear();
-                filesave.methodauthor = txtauthor.Text;
-                filesave.methodmemo = txtexplain.Text;
-
-                filesave.filekind = 0;
-                filesave.m_namelist.Clear();
-                filesave.minput.Clear();
-                filesave.moutput.Clear();
-                for (i = 0; i < cboitem.Items.Count; i++)
-                {
-                    filesave.m_namelist.Add(Convert.ToString(cboitem.Items[i]));
-                   
-                }
-
-                filesave.mshapelist.Clear();
-                for (i = 0; i < listBox2.Items.Count; i++)
-                {
-                    filesave.mshapelist.Add(listBox2.mlist[i]);
-
-                }
-
-                cboshape.Items.Clear();
-                for (i = 0; i < filesave.mshapelist.Count; i++)
-                {
-                    cboshape.Items.Add(filesave.mshapelist[i].shapename);
-                }
-                if ((filesave.shapeselect>=0) &&(filesave.shapeselect<filesave.mshapelist.Count))
-                {
-                    cboshape.SelectedIndex = filesave.shapeselect;
-                }
-                else
-                {
-                    filesave.shapeselect = 0;
-                    cboshape.SelectedIndex = filesave.shapeselect;
-                }
-
-                
-                dataGridView1.Rows.Clear();
-
-                for (i = 0; i < filesave.mshapelist[cboshape.SelectedIndex].sizeitem.Length; i++)
-                {
-                    if (filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName != "无")
-                    {
-                        DataGridViewRow dd = new DataGridViewRow();
-
-
-                        DataGridViewCell mc = new DataGridViewTextBoxCell();
-                        mc.Value = filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName;
-                        dd.Cells.Add(mc);
-
-
-                        mc = new DataGridViewTextBoxCell();
-                        mc.Value = filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cvalue;
-                        dd.Cells.Add(mc);
-
-                        mc = new DataGridViewComboBoxCell();
-                        (mc as DataGridViewComboBoxCell).Items.Clear();
-
-                        for ( j = 0; j < filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnitCount; j++)
-                        {
-                            (mc as DataGridViewComboBoxCell).Items.Add(
-                                filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnits[j]
-                                );
-                        }
-
-                        mc.Value = (mc as DataGridViewComboBoxCell).Items[filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnitsel];
-                        dd.Cells.Add(mc);
-
-                        dataGridView1.Rows.Add(dd);
-                        dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i];
-                        
-
-                    }
-                }
-
-
-            }
-
-            if (wizardControl1.CurrentStepIndex == 2)
-            {
-                
-
-
-
-              
-                filesave.minput.Clear();
-                for (i = 0; i < listEditor1.List.Count; i++)
-                {
-                    CComLibrary.inputitem minput1 = new CComLibrary.inputitem();
-
-                    minput1.name = (listEditor1.List[i] as SampleProject.Extensions.ChartBar).名称;
-                    minput1.value = (listEditor1.List[i] as SampleProject.Extensions.ChartBar).值;
-                    minput1.unit = (listEditor1.List[i] as SampleProject.Extensions.ChartBar).单位;
-
-                    for ( j = 0; j < ClsStaticStation.m_Global.mycls.SignalsNames.Length; j++)
-                    {
-                        if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == listEditor1.grid[i+1,3].Value.ToString())
-                        {
-                            minput1.dimsel = j;
-                            
-                            break;
-                        }
-                    }
-
-                    if (minput1.myitemsignal == null)
-                    {
-
-                        minput1.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[minput1.dimsel].Clone() as ItemSignal;
-                        minput1.myitemsignal.cUnitsel = 0;
-                    }
-                    else if (minput1.myitemsignal.cName != ClsStaticStation.m_Global.mycls.signalskindlist[minput1.dimsel].cName)
-                    {
-                        minput1.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[minput1.dimsel].Clone() as ItemSignal;
-                        minput1.myitemsignal.cUnitsel = 0;
-                    }
-                  
-                    if (filesave.minput.Count ==0)
-                    {
-                        filesave.minput.Add(minput1);
-                    }
-                    else
-                    {
-                        Boolean mb = false;
-                        for (j = 0; j < filesave.minput.Count; j++)
-                        {
-
-                            if (filesave.minput[j].name  == minput1.name )
-                            {
-                                mb = true;
-
-                            }
-
-                        }
-
-                        if (mb == false)
-                        {
-                            filesave.minput.Add(minput1);
-                        }
-                        else
-                        {
-                            MessageBox.Show("自定义变量定义重复，请重新定义");
-                            args.Cancel = true;
-                            return;
-                        }
-
-                    }
-
-
-                }
-
-               int.TryParse(txtinterval.Text,out filesave.minterval);
-
-
-               for (i = 0; i < dataGridView1.Rows.Count; i++)
-               {
-                   
-
-                       (dataGridView1.Rows[i].Tag as ClsStaticStation.ItemSignal).cvalue =
-                           Convert.ToDouble(
-                       dataGridView1.Rows[i].Cells[1].Value);
-
-                   
-                          
-               }
-            }
-
-            if (wizardControl1.CurrentStepIndex == 3)
-            {
-
-                filesave.minputtext.Clear();
-                for (i = 0; i < listEditor4.List.Count; i++)
-                {
-                    CComLibrary.inputtextitem minput1 = new CComLibrary.inputtextitem();
-
-                    minput1.name = (listEditor4.List[i] as SampleProject.Extensions.ChartBarTextDefine).文档名称;
-                    minput1.value = (listEditor4.List[i] as SampleProject.Extensions.ChartBarTextDefine).文档内容 ;
-                    filesave.minputtext.Add(minput1); 
-
-                }
-                filesave.mcbo.Clear();
-
-
-                for (i = 0; i < listEditor5.List.Count; i++)
-                {
-                    CComLibrary.cboitem mcbo1 = new cboitem();
-                    mcbo1.Name = (listEditor5.List[i] as SampleProject.Extensions.ChartBarComboDefine).组合框名称;
-                    char[] sp=new char[2]; 
-                    sp[0] = Convert.ToChar(",");
-                    string[] s= (listEditor5.List[i] as SampleProject.Extensions.ChartBarComboDefine).组合框内容.Split(sp);
-                    mcbo1.mlist.Clear(); 
-                    for (int jj=0;jj<s.Length;jj++)
-                    {
-                        mcbo1.mlist.Add(s[jj]);
-                    }
-                    mcbo1.value =(listEditor5.List[i] as SampleProject.Extensions.ChartBarComboDefine).选择; 
-                    filesave.mcbo.Add(mcbo1);
-   
-                }
-                filesave.muserchannel.Clear();
-                for (i = 0; i <this.uListEditor1.dataGridView1.Rows.Count; i++)
-                {
-                    
-                    CComLibrary.userchannelitem muserchannelitem = new CComLibrary.userchannelitem();
-                    muserchannelitem.channelname = uListEditor1.dataGridView1.Rows[i].Cells[0].Value.ToString();
-                    muserchannelitem.channelvalue = uListEditor1.dataGridView1.Rows[i].Tag as string; 
-                    muserchannelitem.channelunit = uListEditor1.dataGridView1.Rows[i].Cells[2].Value.ToString();
-
-                    DataGridViewComboBoxCell dcc =
-                            (DataGridViewComboBoxCell)uListEditor1.dataGridView1[3, i];
-
-                    muserchannelitem.channel_dimensionkind = dcc.Items.IndexOf(dcc.Value);
-
-                    if (muserchannelitem.myitemsignal == null)
-                    {
-
-                        muserchannelitem.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[muserchannelitem.channel_dimensionkind].Clone() as ItemSignal;
-                        muserchannelitem.myitemsignal.cUnitsel = 0;
-                    }
-                    else if (muserchannelitem.myitemsignal.cName != ClsStaticStation.m_Global.mycls.signalskindlist[muserchannelitem.channel_dimensionkind].cName)
-                    {
-                        muserchannelitem.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[muserchannelitem.channel_dimensionkind].Clone() as ItemSignal;
-                        muserchannelitem.myitemsignal.cUnitsel = 0;
-                    }
-                  
-                  
-                    if (filesave.muserchannel.Count == 0)
-                    {
-                        filesave.muserchannel.Add(muserchannelitem);
-
-                    }
-
-                    else
-                    {
-
-                       Boolean   mb = false;
-                        for (j = 0; j < filesave.muserchannel.Count; j++)
-                        {
-
-                            if (muserchannelitem.channelname == filesave.muserchannel[j].channelname)
-                            {
-                                mb = true;
-                                
-                            }
-                           
-                        }
-
-                        if (mb == false)
-                        {
-                            filesave.muserchannel.Add(muserchannelitem);
-                        }
-                        else
-                        {
-                            MessageBox.Show("自定义通道定义重复，请重新定义");
-                            args.Cancel = true;
-                            return;
-                        }
-                    }
-                    
-
-                }
-
-              
-            }
-            if (wizardControl1.CurrentStepIndex == 4)
-            {
-                filesave.moutput.Clear();
-
-                for (i = 0; i < listEditor2.List.Count; i++)
-                {
-                    CComLibrary.outputitem moutput = new CComLibrary.outputitem();
-                    moutput.formulaname = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式名称;
-                    moutput.formulavalue = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).value;
-                    moutput.formulaunit = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式单位;
-                    moutput.show = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).曲线显示;
-                    moutput.check = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).是否计算;
-                    moutput.formulaexplain = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).公式说明;
-
-                    
-                    
-                    for (j = 0; j < ClsStaticStation.m_Global.mycls.SignalsNames.Length; j++)
-                    {
-                        if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == listEditor2.grid[i + 1, listEditor2.grid.ColumnsCount-1].Value.ToString())
-                       // if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == ClsStaticStation.m_Global.mycls.SignalsNames[(listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).量纲])
-                        {
-                            moutput.dimsel = j;
-
-                            break;
-                        }
-                    }
-
-
-                    if (moutput.myitemsignal == null)
-                    {
-
-                        moutput.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].Clone() as ItemSignal;
-                        moutput.myitemsignal.cUnitsel = 0;
-                        
-                    }
-                    else if (moutput.myitemsignal.cName != ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].cName)
-                    {
-                        moutput.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].Clone() as ItemSignal;
-                        moutput.myitemsignal.cUnitsel = 0;
-                        
-                    }
-
-                    if (filesave.moutput.Count == 0)
-                    {
-                        filesave.moutput.Add(moutput);
-
-                    }
-
-                    else
-                    {
-
-                        Boolean mb = false;
-                        for (j = 0; j < filesave.moutput.Count; j++)
-                        {
-
-                            if (moutput.formulaname == filesave.moutput[j].formulaname)
-                            {
-                                mb = true;
-
-                            }
-
-                        }
-
-                        if (mb == false)
-                        {
-                            filesave.moutput.Add(moutput);
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("自定义公式定义重复，请重新定义");
-                            args.Cancel = true;
-                            return;
-                        }
-                    }
-                }
-
-                listEditor3.listViewEx1.Clear();
-
-                for (i = 0; i < filesave.mcalcpanel.colcount; i++)
-                {
-                    c = new ColumnHeader();
-                    c.Text = "";
-                    c.Width = 120;
-                    c.TextAlign = HorizontalAlignment.Center;
-                    listEditor3.listViewEx1.Columns.Add(c);
-                }
-
-
-                for (i = 0; i < filesave.mcalcpanel.rowcount; i++)
-                {
-                    b = new ListViewItem();
-
-                    b.Text = "";
-
-                    b.BackColor = Color.White;
-
-                    for (j = 0; j < filesave.mcalcpanel.colcount; j++)
-                    {
-                        b.SubItems.Add("");
-                    }
-                    
-                    for (j = 0; j < filesave.mcalcpanel.colcount; j++)
-                    {
-                        b.SubItems[j].Text  = filesave.mcalcpanel.textgrid[i][j]; 
-                    }
-                    listEditor3.listViewEx1.Items.Add(b); 
-                }
-
-
-                listEditor3.cboitem.Items.Clear();
-
-                for (i = 0; i < filesave.moutput.Count; i++)
-                {
-                    
-                    listEditor3.cboitem.Items.Add("["+filesave.moutput[i].formulaname+"]");
-                    listEditor3.cboitem.Items.Add("{" + filesave.moutput[i].formulaname + "结果}");
-                }
-
-                if (listEditor3.cboitem.Items.Count > 0)
-                {
-                    listEditor3.cboitem.SelectedIndex = 0;
-                }
-            }
-          
-            if (wizardControl1.CurrentStepIndex == 5)
-            {
-
-                
-
-                filesave.mcalcpanel.colcount = listEditor3.listViewEx1.Columns.Count;
-                filesave.mcalcpanel.rowcount = listEditor3.listViewEx1.Items.Count;
-
-                filesave.mcalcpanel.init_textgrid(); 
-
-                for (i = 0; i < filesave.mcalcpanel.colcount; i++)
-                {
-                    for (j = 0; j < filesave.mcalcpanel.rowcount; j++)
-                    {
-                        
-                        
-                      filesave.mcalcpanel.textgrid[j][i] = listEditor3.listViewEx1.Items[j].SubItems[i].Text ; 
-                        
-                    }
-                }
-
-               
-                checklist.SetItemCheckState(0, filesave._flow测试前);
-
-                checklist.SetItemCheckState(1, filesave._flow测试结束);
-
-                checklist.SetItemCheckState(2, filesave._flow数据采集);
-
-                checklist.SetItemCheckState(3, filesave._flow应变);
-               
-               
-                checklist.SetItemCheckState(4, filesave._flow试验选项);
-
-
-
-                checklist.SetItemCheckState(5, filesave._flow测试);
-               
-
-            }
-
-           
-          }
-
+      
 
 
         private void button2_Click(object sender, EventArgs e)
@@ -1104,15 +668,15 @@ namespace AppleLabApplication
             int k = 0;
 
             filesave.muserchannel.Clear();
-            for (i = 0; i < this.uListEditor1.dataGridView1.Rows.Count; i++)
+            for (i = 0; i < this.uListEditor1.dataGridViewU1.Rows.Count; i++)
             {
                 CComLibrary.userchannelitem muserchannelitem = new CComLibrary.userchannelitem();
-                muserchannelitem.channelname = uListEditor1.dataGridView1.Rows[i].Cells[0].Value.ToString() ;
-                muserchannelitem.channelvalue = uListEditor1.dataGridView1.Rows[i].Tag as string; 
-                muserchannelitem.channelunit = uListEditor1.dataGridView1.Rows[i].Cells[2].Value.ToString();
+                muserchannelitem.channelname = uListEditor1.dataGridViewU1.Rows[i].Cells[0].Value.ToString() ;
+                muserchannelitem.channelvalue = uListEditor1.dataGridViewU1.Rows[i].Tag as string; 
+                muserchannelitem.channelunit = uListEditor1.dataGridViewU1.Rows[i].Cells[2].Value.ToString();
 
                 DataGridViewComboBoxCell dcc =
-                        (DataGridViewComboBoxCell)uListEditor1.dataGridView1[3, i];
+                        (DataGridViewComboBoxCell)uListEditor1.dataGridViewU1[3, i];
 
                 muserchannelitem.channel_dimensionkind = dcc.Items.IndexOf(dcc.Value);  
 
@@ -1145,7 +709,14 @@ namespace AppleLabApplication
                     }
                     else
                     {
-                        MessageBox.Show("自定义通道定义重复，请重新定义");
+                        if (CComLibrary.GlobeVal.languageselect == 0)
+                        {
+                            MessageBox.Show("自定义通道定义重复，请重新定义");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Custom channel definition is repeated, please redefine");
+                        }
                         
                         return;
                     }
@@ -1156,7 +727,7 @@ namespace AppleLabApplication
 
             CComLibrary.GlobeVal.formulakind = 0;
 
-            k = this.uListEditor1.dataGridView1.SelectedCells[0].RowIndex; 
+            k = this.uListEditor1.dataGridViewU1.SelectedCells[0].RowIndex; 
 
             
             if (k >= 0)
@@ -1164,7 +735,14 @@ namespace AppleLabApplication
             }
             else
             {
-                MessageBox.Show("请选择要编辑的公式");
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    MessageBox.Show("请选择要编辑的公式");
+                }
+                else
+                {
+                    MessageBox.Show("Please choose the formula you want to edit.");
+                }
                 return;
             }
 
@@ -1184,7 +762,9 @@ namespace AppleLabApplication
             s = "";
             for (i = 0; i < cboitem.Items.Count; i++)
             {
-                s = s + cboitem.Items[i] + " ";
+                string r = cboitem.Items[i].ToString();
+                r = r.Replace(" ", "_");
+                s = s + r + " ";
 
             }
 
@@ -1198,16 +778,17 @@ namespace AppleLabApplication
             CComLibrary.GlobeVal.gcalc.initarray(s, 100);
             CComLibrary.GlobeVal.filesave = filesave;
 
-            CComLibrary.GlobeVal._programname = this.uListEditor1.dataGridView1.Rows[k].Cells[0].Value.ToString();
+            CComLibrary.GlobeVal._programname = this.uListEditor1.dataGridViewU1.Rows[k].Cells[0].Value.ToString();
             CComLibrary.GlobeVal._programstring = filesave.muserchannel[k].channelvalue ;
 
 
             FormCalc f = new FormCalc();
+            f.Language();
             f.kind = 0;
             f.num = k;
             f.ShowDialog();
 
-            uListEditor1.dataGridView1.Rows[k].Tag = CComLibrary.GlobeVal._programstring;
+            uListEditor1.dataGridViewU1.Rows[k].Tag = CComLibrary.GlobeVal._programstring;
             
 
            
@@ -1233,7 +814,7 @@ namespace AppleLabApplication
 
             for (i = 0; i < filesave.mshapelist[cboshape.SelectedIndex].sizeitem.Length; i++)
             {
-                if (filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName != "无")
+                if (filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName != "None")
                 {
                     DataGridViewRow dd = new DataGridViewRow();
 
@@ -1320,7 +901,7 @@ namespace AppleLabApplication
             comboinit(c as DataGridViewComboBoxCell);
             (b.Cells[3] as DataGridViewComboBoxCell).Value = (b.Cells[3] as DataGridViewComboBoxCell).Items[0];
             b.Tag = "";
-            uListEditor1.dataGridView1.Rows.Add(b);
+            uListEditor1.dataGridViewU1.Rows.Add(b);
 
             CComLibrary.userchannelitem muserchannelitem = new CComLibrary.userchannelitem();
             muserchannelitem.channelname = b.Cells[0].Value.ToString();
@@ -1333,18 +914,18 @@ namespace AppleLabApplication
 
         private void uListEditor1_removeevent(object sender, int index)
         {
-            filesave.muserchannel.RemoveAt(uListEditor1.dataGridView1.SelectedCells[0].RowIndex);    
+            filesave.muserchannel.RemoveAt(uListEditor1.dataGridViewU1.SelectedCells[0].RowIndex);    
         
-            uListEditor1.dataGridView1.Rows.RemoveAt(uListEditor1.dataGridView1.SelectedCells[0].RowIndex);
+            uListEditor1.dataGridViewU1.Rows.RemoveAt(uListEditor1.dataGridViewU1.SelectedCells[0].RowIndex);
             
         }
 
         private void uListEditor1_cboevent(object sender, int index)
         {
-            if (uListEditor1.dataGridView1.SelectedCells[0].RowIndex>=0)
+            if (uListEditor1.dataGridViewU1.SelectedCells[0].RowIndex>=0)
             {
-                filesave.muserchannel[uListEditor1.dataGridView1.SelectedCells[0].RowIndex].channel_dimensionkind = index;
-                uListEditor1.dataGridView1.Rows[uListEditor1.dataGridView1.SelectedCells[0].RowIndex].Cells[2].Value = ClsStaticStation.m_Global.mycls.signalskindlist[index].cUnits[0];
+                filesave.muserchannel[uListEditor1.dataGridViewU1.SelectedCells[0].RowIndex].channel_dimensionkind = index;
+                uListEditor1.dataGridViewU1.Rows[uListEditor1.dataGridViewU1.SelectedCells[0].RowIndex].Cells[2].Value = ClsStaticStation.m_Global.mycls.signalskindlist[index].cUnits[0];
                 
                 
             }
@@ -1438,6 +1019,586 @@ namespace AppleLabApplication
                 filesave._flow测试 = e.NewValue;
             }
                  
+        }
+
+        private void intermediateStep1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startStep1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Nextbutton_Click(object sender, EventArgs e)
+        {
+            bool argsCancel = false; 
+
+            int i = 0, j = 0;
+            ColumnHeader c;
+            ListViewItem b;
+
+            if (Wizardtab.SelectedIndex  == 1)
+            {
+                filesave.methodname = txtName.Text;
+                filesave.datapath = txtpath.Text;
+                filesave.lprocedurename.Clear();
+                filesave.methodauthor = txtauthor.Text;
+                filesave.methodmemo = txtexplain.Text;
+
+                filesave.filekind = 0;
+                filesave.m_namelist.Clear();
+                filesave.minput.Clear();
+                filesave.moutput.Clear();
+                for (i = 0; i < cboitem.Items.Count; i++)
+                {
+                    filesave.m_namelist.Add(Convert.ToString(cboitem.Items[i]));
+
+                }
+
+                filesave.mshapelist.Clear();
+                for (i = 0; i < listBox2.Items.Count; i++)
+                {
+                    filesave.mshapelist.Add(listBox2.mlist[i]);
+
+                }
+
+                cboshape.Items.Clear();
+                for (i = 0; i < filesave.mshapelist.Count; i++)
+                {
+                    cboshape.Items.Add(filesave.mshapelist[i].shapename);
+                }
+                if ((filesave.shapeselect >= 0) && (filesave.shapeselect < filesave.mshapelist.Count))
+                {
+                    cboshape.SelectedIndex = filesave.shapeselect;
+                }
+                else
+                {
+                    filesave.shapeselect = 0;
+                    cboshape.SelectedIndex = filesave.shapeselect;
+                }
+
+
+                dataGridView1.Rows.Clear();
+
+                for (i = 0; i < filesave.mshapelist[cboshape.SelectedIndex].sizeitem.Length; i++)
+                {
+                    if (filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName != "None")
+                    {
+                        DataGridViewRow dd = new DataGridViewRow();
+
+
+                        DataGridViewCell mc = new DataGridViewTextBoxCell();
+                        mc.Value = filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName;
+                        dd.Cells.Add(mc);
+
+
+                        mc = new DataGridViewTextBoxCell();
+                        mc.Value = filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cvalue;
+                        dd.Cells.Add(mc);
+
+                        mc = new DataGridViewComboBoxCell();
+                        (mc as DataGridViewComboBoxCell).Items.Clear();
+
+                        for (j = 0; j < filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnitCount; j++)
+                        {
+                            (mc as DataGridViewComboBoxCell).Items.Add(
+                                filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnits[j]
+                                );
+                        }
+
+                        mc.Value = (mc as DataGridViewComboBoxCell).Items[filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cUnitsel];
+                        dd.Cells.Add(mc);
+
+                        dataGridView1.Rows.Add(dd);
+                        dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i];
+
+
+                    }
+                }
+
+
+            }
+
+            if (Wizardtab.SelectedIndex  == 2)
+            {
+
+
+
+
+
+                filesave.minput.Clear();
+                for (i = 0; i < listEditor1.List.Count; i++)
+                {
+                    CComLibrary.inputitem minput1 = new CComLibrary.inputitem();
+
+                    minput1.name = (listEditor1.List[i] as SampleProject.Extensions.ChartBar).Caption;
+                    minput1.value = (listEditor1.List[i] as SampleProject.Extensions.ChartBar).value;
+                    minput1.unit = (listEditor1.List[i] as SampleProject.Extensions.ChartBar).Unit ;
+
+                    for (j = 0; j < ClsStaticStation.m_Global.mycls.SignalsNames.Length; j++)
+                    {
+                        if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == listEditor1.grid[i + 1, 3].Value.ToString())
+                        {
+                            minput1.dimsel = j;
+
+                            break;
+                        }
+                    }
+
+                    if (minput1.myitemsignal == null)
+                    {
+
+                        minput1.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[minput1.dimsel].Clone() as ItemSignal;
+                        minput1.myitemsignal.cUnitsel = 0;
+                    }
+                    else if (minput1.myitemsignal.cName != ClsStaticStation.m_Global.mycls.signalskindlist[minput1.dimsel].cName)
+                    {
+                        minput1.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[minput1.dimsel].Clone() as ItemSignal;
+                        minput1.myitemsignal.cUnitsel = 0;
+                    }
+
+                    if (filesave.minput.Count == 0)
+                    {
+                        filesave.minput.Add(minput1);
+                    }
+                    else
+                    {
+                        Boolean mb = false;
+                        for (j = 0; j < filesave.minput.Count; j++)
+                        {
+
+                            if (filesave.minput[j].name == minput1.name)
+                            {
+                                mb = true;
+
+                            }
+
+                        }
+
+                        if (mb == false)
+                        {
+                            filesave.minput.Add(minput1);
+                        }
+                        else
+                        {
+                            MessageBox.Show("自定义变量定义重复，请重新定义");
+                            argsCancel = true;
+                            return;
+                        }
+
+                    }
+
+
+                }
+
+                int.TryParse(txtinterval.Text, out filesave.minterval);
+
+
+                for (i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+
+
+                    (dataGridView1.Rows[i].Tag as ClsStaticStation.ItemSignal).cvalue =
+                        Convert.ToDouble(
+                    dataGridView1.Rows[i].Cells[1].Value);
+
+
+
+                }
+            }
+
+            if (Wizardtab.SelectedIndex  == 3)
+            {
+
+                filesave.minputtext.Clear();
+                for (i = 0; i < listEditor4.List.Count; i++)
+                {
+                    CComLibrary.inputtextitem minput1 = new CComLibrary.inputtextitem();
+
+                    minput1.name = (listEditor4.List[i] as SampleProject.Extensions.ChartBarTextDefine).docname ;
+                    minput1.value = (listEditor4.List[i] as SampleProject.Extensions.ChartBarTextDefine).docvalue;
+                    minput1.intername = (listEditor4.List[i] as SampleProject.Extensions.ChartBarTextDefine).intervalname;
+                    filesave.minputtext.Add(minput1);
+
+                }
+                filesave.mcbo.Clear();
+
+
+                for (i = 0; i < listEditor5.List.Count; i++)
+                {
+                    CComLibrary.cboitem mcbo1 = new cboitem();
+                    mcbo1.Name = (listEditor5.List[i] as SampleProject.Extensions.ChartBarComboDefine).cboname;
+                    char[] sp = new char[2];
+                    sp[0] = Convert.ToChar(",");
+                    string[] s = (listEditor5.List[i] as SampleProject.Extensions.ChartBarComboDefine).cbovalue.Split(sp);
+                    mcbo1.mlist.Clear();
+                    for (int jj = 0; jj < s.Length; jj++)
+                    {
+                        mcbo1.mlist.Add(s[jj]);
+                    }
+                    mcbo1.value = (listEditor5.List[i] as SampleProject.Extensions.ChartBarComboDefine).cbosel;
+                    filesave.mcbo.Add(mcbo1);
+
+                }
+                filesave.muserchannel.Clear();
+                for (i = 0; i < this.uListEditor1.dataGridViewU1.Rows.Count; i++)
+                {
+
+                    CComLibrary.userchannelitem muserchannelitem = new CComLibrary.userchannelitem();
+                    muserchannelitem.channelname = uListEditor1.dataGridViewU1.Rows[i].Cells[0].Value.ToString();
+                    muserchannelitem.channelvalue = uListEditor1.dataGridViewU1.Rows[i].Tag as string;
+                    muserchannelitem.channelunit = uListEditor1.dataGridViewU1.Rows[i].Cells[2].Value.ToString();
+
+                    DataGridViewComboBoxCell dcc =
+                            (DataGridViewComboBoxCell)uListEditor1.dataGridViewU1[3, i];
+
+                    muserchannelitem.channel_dimensionkind = dcc.Items.IndexOf(dcc.Value);
+
+                    if (muserchannelitem.myitemsignal == null)
+                    {
+
+                        muserchannelitem.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[muserchannelitem.channel_dimensionkind].Clone() as ItemSignal;
+                        muserchannelitem.myitemsignal.cUnitsel = 0;
+                    }
+                    else if (muserchannelitem.myitemsignal.cName != ClsStaticStation.m_Global.mycls.signalskindlist[muserchannelitem.channel_dimensionkind].cName)
+                    {
+                        muserchannelitem.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[muserchannelitem.channel_dimensionkind].Clone() as ItemSignal;
+                        muserchannelitem.myitemsignal.cUnitsel = 0;
+                    }
+
+
+                    if (filesave.muserchannel.Count == 0)
+                    {
+                        filesave.muserchannel.Add(muserchannelitem);
+
+                    }
+
+                    else
+                    {
+
+                        Boolean mb = false;
+                        for (j = 0; j < filesave.muserchannel.Count; j++)
+                        {
+
+                            if (muserchannelitem.channelname == filesave.muserchannel[j].channelname)
+                            {
+                                mb = true;
+
+                            }
+
+                        }
+
+                        if (mb == false)
+                        {
+                            filesave.muserchannel.Add(muserchannelitem);
+                        }
+                        else
+                        {
+                            if (CComLibrary.GlobeVal.languageselect   == 0)
+                            {
+                                MessageBox.Show("自定义通道定义重复，请重新定义");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Custom channel definition is repeated.Please redefine.");
+                            }
+                            argsCancel = true;
+                            return;
+                        }
+                    }
+
+
+                }
+
+
+            }
+            if (Wizardtab.SelectedIndex == 4)
+            {
+                filesave.moutput.Clear();
+
+                for (i = 0; i < listEditor2.List.Count; i++)
+                {
+                    CComLibrary.outputitem moutput = new CComLibrary.outputitem();
+                    moutput.formulaname = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).FormulaName ;
+                    moutput.formulavalue = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).formulavalue;
+                    moutput.formulaunit = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).FormulaUnit ;
+                    moutput.show = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).Show ;
+                    moutput.check = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).Calculation ;
+                    moutput.formulaexplain = (listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).FormulaDescription;
+
+
+
+                    for (j = 0; j < ClsStaticStation.m_Global.mycls.SignalsNames.Length; j++)
+                    {
+                        if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == listEditor2.grid[i + 1, listEditor2.grid.ColumnsCount - 1].Value.ToString())
+                        // if (ClsStaticStation.m_Global.mycls.SignalsNames[j] == ClsStaticStation.m_Global.mycls.SignalsNames[(listEditor2.List[i] as SampleProject.Extensions.ChartBarDefine).量纲])
+                        {
+                            moutput.dimsel = j;
+
+                            break;
+                        }
+                    }
+
+
+                    if (moutput.myitemsignal == null)
+                    {
+
+                        moutput.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].Clone() as ItemSignal;
+                        moutput.myitemsignal.cUnitsel = 0;
+
+                    }
+                    else if (moutput.myitemsignal.cName != ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].cName)
+                    {
+                        moutput.myitemsignal = ClsStaticStation.m_Global.mycls.signalskindlist[moutput.dimsel].Clone() as ItemSignal;
+                        moutput.myitemsignal.cUnitsel = 0;
+
+                    }
+
+                    if (filesave.moutput.Count == 0)
+                    {
+                        filesave.moutput.Add(moutput);
+
+                    }
+
+                    else
+                    {
+
+                        Boolean mb = false;
+                        for (j = 0; j < filesave.moutput.Count; j++)
+                        {
+
+                            if (moutput.formulaname == filesave.moutput[j].formulaname)
+                            {
+                                mb = true;
+
+                            }
+
+                        }
+
+                        if (mb == false)
+                        {
+                            filesave.moutput.Add(moutput);
+
+                        }
+                        else
+                        {
+                            if (CComLibrary.GlobeVal.languageselect == 0)
+                            {
+                                MessageBox.Show("自定义公式定义重复，请重新定义");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Custom formula definition is repeated.Please redefine.");
+                            }
+                            argsCancel = true;
+                            return;
+                        }
+                    }
+                }
+
+                listEditor3.listViewEx1.Clear();
+
+                for (i = 0; i < filesave.mcalcpanel.colcount; i++)
+                {
+                    c = new ColumnHeader();
+                    c.Text = "";
+                    c.Width = 120;
+                    c.TextAlign = HorizontalAlignment.Center;
+                    listEditor3.listViewEx1.Columns.Add(c);
+                }
+
+
+                for (i = 0; i < filesave.mcalcpanel.rowcount; i++)
+                {
+                    b = new ListViewItem();
+
+                    b.Text = "";
+
+                    b.BackColor = Color.White;
+
+                    for (j = 0; j < filesave.mcalcpanel.colcount; j++)
+                    {
+                        b.SubItems.Add("");
+                    }
+
+                    for (j = 0; j < filesave.mcalcpanel.colcount; j++)
+                    {
+                        b.SubItems[j].Text = filesave.mcalcpanel.textgrid[i][j];
+                    }
+                    listEditor3.listViewEx1.Items.Add(b);
+                }
+
+
+                listEditor3.cboitem.Items.Clear();
+
+                for (i = 0; i < filesave.moutput.Count; i++)
+                {
+
+                    listEditor3.cboitem.Items.Add("[" + filesave.moutput[i].formulaname + "]");
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        listEditor3.cboitem.Items.Add("{" + filesave.moutput[i].formulaname + "结果}");
+                    }
+                    else
+                    {
+                        listEditor3.cboitem.Items.Add("{" + filesave.moutput[i].formulaname + " Result}");
+                    }
+                }
+
+                if (listEditor3.cboitem.Items.Count > 0)
+                {
+                    listEditor3.cboitem.SelectedIndex = 0;
+                }
+            }
+
+            if (Wizardtab.SelectedIndex == 5)
+            {
+
+
+
+                filesave.mcalcpanel.colcount = listEditor3.listViewEx1.Columns.Count;
+                filesave.mcalcpanel.rowcount = listEditor3.listViewEx1.Items.Count;
+
+                filesave.mcalcpanel.init_textgrid();
+
+                for (i = 0; i < filesave.mcalcpanel.colcount; i++)
+                {
+                    for (j = 0; j < filesave.mcalcpanel.rowcount; j++)
+                    {
+
+
+                        filesave.mcalcpanel.textgrid[j][i] = listEditor3.listViewEx1.Items[j].SubItems[i].Text;
+
+                    }
+                }
+
+
+                // checklist.SetItemCheckState(0, filesave._flow测试前);
+
+                checklist.SetItemCheckState(0, filesave._flow测试结束);
+
+                checklist.SetItemCheckState(1, filesave._flow数据采集);
+
+                checklist.SetItemCheckState(2, filesave._flow应变);
+
+
+                checklist.SetItemCheckState(3, filesave._flow试验选项);
+
+
+
+                checklist.SetItemCheckState(4, filesave._flow测试);
+
+
+            }
+
+            if (Wizardtab.SelectedIndex < 7)
+            {
+                Wizardtab.SelectedIndex = Wizardtab.SelectedIndex + 1;
+                FinishButton.Enabled = false; 
+            }
+
+            if (Wizardtab.SelectedIndex !=0)
+            {
+                BackButton.Enabled = true;
+            }
+            if(Wizardtab.SelectedIndex ==7)
+            {
+                FinishButton.Enabled = true;
+                Nextbutton.Enabled = false;
+
+            }
+
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void FinishButton_Click(object sender, EventArgs e)
+        {
+            int i;
+
+
+            filesave._flow测试前 = CheckState.Unchecked;
+
+            filesave._flow测试结束 = checklist.GetItemCheckState(0);
+
+            filesave._flow数据采集 = checklist.GetItemCheckState(1);
+
+            filesave._flow应变 = checklist.GetItemCheckState(2);
+
+
+            filesave._flow试验选项 = checklist.GetItemCheckState(3);
+
+
+
+            filesave._flow测试 = checklist.GetItemCheckState(4);
+
+
+            filesave.fileextname = ".txt";
+
+            string s;
+
+            if (Directory.Exists(this.mmptpath + "\\" + ClsStaticStation.m_Global.mycls.TestkindList[filesave.methodkind]) == true)
+            {
+            }
+            else
+            {
+                Directory.CreateDirectory(this.mmptpath + "\\" + ClsStaticStation.m_Global.mycls.TestkindList[filesave.methodkind]);
+            }
+
+            s = this.mmptpath + "\\" + ClsStaticStation.m_Global.mycls.TestkindList[filesave.methodkind] + "\\" + filesave.methodname + @".dat";
+
+
+            DialogResult a;
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                a = MessageBox.Show("是否重置试验方法？", "提示", MessageBoxButtons.YesNo);
+            }
+            else
+            {
+                a = MessageBox.Show("Is it necessary to reset the test method? ", "hint", MessageBoxButtons.YesNo);
+            }
+            if (a == System.Windows.Forms.DialogResult.Yes)
+            {
+                filesave.checkchange();
+            }
+
+
+
+            filesave.InitTable();
+
+            filesave.SerializeNow(s);
+
+            CComLibrary.GlobeVal.filesave = filesave;
+
+
+            Close();
+
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            if (Wizardtab.SelectedIndex >0)
+            {
+                Wizardtab.SelectedIndex = Wizardtab.SelectedIndex - 1;
+                FinishButton.Enabled = false;
+                Nextbutton.Enabled = true;
+            }
+            else
+            {
+                BackButton.Enabled = false;
+                FinishButton.Enabled = false;
+            }
+        }
+
+        private void chkcalcandresult_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

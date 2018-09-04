@@ -126,7 +126,14 @@ namespace TabHeaderDemo
 
 
         }
-        public void startrun()
+
+        public void stoprun()
+        {
+
+            timer1.Enabled = false;
+
+        }
+        public bool startrun()
         {
             RawDataDataGroup d;
             mstartoldcount = -1;
@@ -194,6 +201,44 @@ namespace TabHeaderDemo
             m_sensor7state4count = 0;
             m_sensor7state5count = 0;
 
+
+            int ll = 0;
+
+            ll = ClsStatic.arraydata[mplot1 - 1].Read<RawDataDataGroup>(r, 0, 10);
+
+            if (ll == 0)
+            {
+            }
+            else
+            {
+                ClsStatic.arraydatacount[mplot1 - 1] = ClsStatic.arraydatacount[mplot1 - 1] - 1;
+            }
+
+
+            while (ll != 0)
+            {
+                b = new RawDataStruct();
+                b.data = new double[24];
+
+
+                m_Global.mycls.structcopy_RawDataStruct(r[0].rdata, ref b);
+
+
+               
+
+
+                ll = ClsStatic.arraydata[mplot1 - 1].Read<RawDataDataGroup>(r, 0, 10);
+
+                if (ll == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    ClsStatic.arraydatacount[mplot1 - 1] = ClsStatic.arraydatacount[mplot1 - 1] - 1;
+                }
+            }
+
             if (myplotsettings.curvekind == 1)
             {
                 scatterGraph.ClearData();
@@ -233,12 +278,26 @@ namespace TabHeaderDemo
 
                     if (CComLibrary.GlobeVal.filesave.Samplingmode == 1)
                     {
+                        if (GlobeVal.mysys.language == 0)
+                        {
+                            a = MessageBox.Show("长时记录文件已经存在，是否覆盖当前文件", "请选择", MessageBoxButtons.YesNo);
+                        }
+                        else
+                        {
+                            a = MessageBox.Show("The long time record file already exists and whether to overwrite the current file." ,"please select", MessageBoxButtons.YesNo);
+                        }
 
-                        a = MessageBox.Show("长时记录文件已经存在，是否覆盖当前文件", "请选择", MessageBoxButtons.YesNo);
                     }
                     else
                     {
-                        a = MessageBox.Show("原始数据文件已经存在，是否覆盖当前文件", "请选择", MessageBoxButtons.YesNo);
+                        if (GlobeVal.mysys.language == 0)
+                        {
+                            a = MessageBox.Show("原始数据文件已经存在，是否覆盖当前文件", "请选择", MessageBoxButtons.YesNo);
+                        }
+                        else
+                        {
+                            a = MessageBox.Show("The original data file already exists, whether to overwrite the current file", "please select", MessageBoxButtons.YesNo);
+                        }
 
                     }
 
@@ -286,7 +345,8 @@ namespace TabHeaderDemo
                     else //
                     {
 
-                       
+
+                        return false;
 
                         //GlobeVal.UserControlLongRecord1.
                         object[] mt = new object[CComLibrary.GlobeVal.filesave.mlongdata.Count];
@@ -322,19 +382,21 @@ namespace TabHeaderDemo
 
                                     st = line.Split(sp);
 
-
-                                    for (int i = 0; i < st.Length - 1; i++)
+                                    if (CComLibrary.GlobeVal.filesave.mlongdata.Count == st.Length)
                                     {
-                                        mt[i] = st[i];
-                                    }
+                                        for (int i = 0; i < st.Length - 1; i++)
+                                        {
+                                            mt[i] = st[i];
+                                        }
 
-                                    if (GlobeVal.UserControlLongRecord1 == null)
-                                    {
+                                        if (GlobeVal.UserControlLongRecord1 == null)
+                                        {
 
-                                    }
-                                    else
-                                    {
-                                        GlobeVal.UserControlLongRecord1.dataGridView1.Rows.Add(mt);
+                                        }
+                                        else
+                                        {
+                                            GlobeVal.UserControlLongRecord1.dataGridView1.Rows.Add(mt);
+                                        }
                                     }
                                 }
 
@@ -385,6 +447,7 @@ namespace TabHeaderDemo
 
 
             timer1.Enabled = true;
+            return true;
         }
 
         public void endrun()
@@ -401,7 +464,18 @@ namespace TabHeaderDemo
             if (plot == 1)
             {
                 myplotsettings = CComLibrary.GlobeVal.filesave.mplotpara1;
-                lblcaption.Text = "曲线图1";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lblcaption.Text = "曲线图1";
+
+                    scatterGraph.Caption = "试样1";
+
+                }
+                else
+                {
+                    lblcaption.Text = "Graph 1";
+                    scatterGraph.Caption = "Specimen 1";
+                }
                 lblcaption.Tag = true;
 
 
@@ -410,7 +484,17 @@ namespace TabHeaderDemo
             if (plot == 2)
             {
                 myplotsettings = CComLibrary.GlobeVal.filesave.mplotpara2;
-                lblcaption.Text = "曲线图2";
+                if (GlobeVal.mysys.language ==0)
+                {
+                    lblcaption.Text = "曲线图2";
+                    scatterGraph.Caption = "试样1";
+                }
+                else
+                {
+                    lblcaption.Text = "Graph 2";
+                    scatterGraph.Caption = "Specimen 1";
+                }
+               
                 lblcaption.Tag = "";
             }
 
@@ -474,6 +558,7 @@ namespace TabHeaderDemo
                 }
 
             }
+
             x轴坐标ToolStripMenuItem.DropDownItems.Clear();
             y轴坐标ToolStripMenuItem.DropDownItems.Clear();
             for (int i = 0; i < ClsStaticStation.m_Global.mycls.allsignals.Count; i++)
@@ -881,7 +966,7 @@ namespace TabHeaderDemo
             {
 
 
-                
+
                 b = myarraydata.Dequeue();
 
 
@@ -889,10 +974,10 @@ namespace TabHeaderDemo
                 count = count + 1;
 
                 tcount = tcount + 1;
-                if (tcount ==100)
+                if (tcount == 100)
                 {
                     tcount = 0;
-                  //  Application.DoEvents();
+                    //  Application.DoEvents();
                 }
 
                 for (int i = 0; i < m_Global.mycls.datalist.Count; i++)
@@ -954,14 +1039,19 @@ namespace TabHeaderDemo
 
                         if (CComLibrary.GlobeVal.filesave.chkextremove == true)
                         {
-                            if (m_Global.mycls.datalist[i].SignName == m_Global.mycls.hardsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].SignName)
+                            if (m_Global.mycls.datalist[i].SignName == m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].SignName)
                             {
-                                double mpext = Convert.ToDouble(m_Global.mycls.hardsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].GetValueFromUnit(b.data[m_Global.mycls.datalist[i].EdcId],
+                                double mpext = Convert.ToDouble(m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.Extensometer_DataChannel].GetValueFromUnit(b.data[m_Global.mycls.datalist[i].EdcId],
                                 CComLibrary.GlobeVal.filesave.Extensometer_DataValueUnit));
 
                                 if (mpext >= CComLibrary.GlobeVal.filesave.Extensometer_DataValue)
                                 {
                                     GlobeVal.UserControlSpe1.setspe(CComLibrary.GlobeVal.filesave.currentspenumber + 1, CComLibrary.TestStatus.RemoveExt);
+
+                                    if (CComLibrary.GlobeVal.filesave.Extensometer_DataFrozen==true)
+                                    {
+                                        CComLibrary.GlobeVal.filesave.Extensometer_DataFrozenFlag = true;
+                                    }
                                 }
 
                             }
@@ -1051,7 +1141,29 @@ namespace TabHeaderDemo
                         }
                         else
                         {
-                            if (Math.Abs(mtime - mstarttime) >= 1 / 10.0)
+
+                            /*
+                            bool my1save = false;
+
+                            for (int m = 0; m < CComLibrary.GlobeVal.filesave.chkcriteria.Length; m++)
+                            {
+                                if (CComLibrary.GlobeVal.filesave.chkcriteria[m] == true)
+                                {
+
+
+                                    if (Math.Abs(ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.cbomeasurement[m]].cvalue - CComLibrary.GlobeVal.filesave.numintervallast1[m]) >= CComLibrary.GlobeVal.filesave.numinterval[m])
+                                    {
+                                        CComLibrary.GlobeVal.filesave.numintervallast1[m] = ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.cbomeasurement[m]].cvalue;
+                                        my1save = true;
+                                    }
+
+
+                                }
+                            }
+                            */
+
+                            if (Math.Abs(mtime - mstarttime) >= 1/20.0)
+                            //if (my1save ==true)
                             {
                                 mstarttime = mtime;
 
@@ -1189,7 +1301,9 @@ namespace TabHeaderDemo
                         }
                         else
                         {
-                            if (Math.Abs(mtime - mstarttime) >= 1 / 10)
+                           
+                           if (Math.Abs(mtime - mstarttime) >= 1 / 20.0)
+
                             {
                                 mstarttime = mtime;
                                 scatterGraph.Plots[0].PlotXYAppend(xi, yi);
@@ -1327,7 +1441,28 @@ namespace TabHeaderDemo
 
                         else
                         {
-                            if (Math.Abs(mtime - mstarttime) >= 1 / 10)
+                            /*
+                            bool mysave = false;
+
+                            for (int m = 0; m < CComLibrary.GlobeVal.filesave.chkcriteria.Length; m++)
+                            {
+                                if (CComLibrary.GlobeVal.filesave.chkcriteria[m] == true)
+                                {
+
+
+                                    if (Math.Abs(ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.cbomeasurement[m]].cvalue - CComLibrary.GlobeVal.filesave.numintervallast[m]) >= CComLibrary.GlobeVal.filesave.numinterval[m])
+                                    {
+                                        CComLibrary.GlobeVal.filesave.numintervallast[m] = ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.cbomeasurement[m]].cvalue;
+                                        mysave = true;
+                                    }
+
+
+                                }
+                            }
+                            */
+                           if (Math.Abs(mtime - mstarttime) >= 1 / 10)
+
+                           // if (mysave ==true)
                             {
                                 mstarttime = mtime;
                                 for (k = 0; k < myplotsettings.curvecount; k++)
@@ -1641,7 +1776,7 @@ namespace TabHeaderDemo
                     {
 
 
-                        if (mrawdatalist.Count < 100)
+                        if (mrawdatalist.Count < 200)
                         {
                             mrawdatalist.Add(mrawdata);
                         }
@@ -1892,10 +2027,22 @@ namespace TabHeaderDemo
                                 if (CComLibrary.GlobeVal.filesave.chkcriteria[m] == true)
                                 {
 
-
-                                    if (Math.Abs(ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.cbomeasurement[m]].cvalue - CComLibrary.GlobeVal.filesave.numintervallast[m]) >= CComLibrary.GlobeVal.filesave.numinterval[m])
+                                    for (int i = 0; i < CComLibrary.GlobeVal.filesave.mrawdata.Count; i++)
                                     {
-                                        CComLibrary.GlobeVal.filesave.numintervallast[m] = ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.cbomeasurement[m]].cvalue;
+                                       
+                                            if (ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.cbomeasurement[m]].SignName == CComLibrary.GlobeVal.filesave.mrawdata[i].SignName)
+                                            {
+                                                k = ClsStaticStation.m_Global.mycls.allsignals[CComLibrary.GlobeVal.filesave.cbomeasurement[m]].EdcId;
+
+                                              v = b.data[k];
+                                            //v = mrawdata.data[k];
+                                              //  double.TryParse(CComLibrary.GlobeVal.filesave.mrawdata[i].GetValueFromUnit(b.data[k], 0 ), out v);
+                                            }
+                                        
+                                    }
+                                        if (Math.Abs( v - CComLibrary.GlobeVal.filesave.numintervallast[m]) >= CComLibrary.GlobeVal.filesave.numinterval[m])
+                                    {
+                                        CComLibrary.GlobeVal.filesave.numintervallast[m] = v;
                                         mysave = true;
                                     }
 
@@ -1929,7 +2076,7 @@ namespace TabHeaderDemo
                                                 s = s + v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString()) + " ";
                                                 mt[i] = v.ToString("F" + CComLibrary.GlobeVal.filesave.mrawdata[i].precise.ToString());
 
-
+                                                break;
                                             }
                                         }
 
@@ -1963,15 +2110,15 @@ namespace TabHeaderDemo
 
 
             }
-            
-            if(count >5000)
-            {
-                scatterGraph.ClearData();
-                count = 0;
-            }
+            /* 
+             if(count >5000)
+             {
+                 scatterGraph.ClearData();
+                 count = 0;
+             }
 
-            lblcaption.Text = count.ToString();
-            
+             lblcaption.Text = count.ToString();
+             */
             timer1.Enabled = true;
 
         }
@@ -2017,13 +2164,27 @@ namespace TabHeaderDemo
                 if (Convert.ToBoolean(lblcaption.Tag) == false)
                 {
                     lblcaption.Tag = true;
-                    lblcaption.Text = "分析图1";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        lblcaption.Text = "分析图1";
+                    }
+                    else
+                    {
+                        lblcaption.Text = "Figure 1";
+                    }
                     tabControl1.SelectedIndex = 1;
                     toolStripLeft.Visible = false;
                 }
                 else
                 {
-                    lblcaption.Text = "曲线图1";
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        lblcaption.Text = "曲线图1";
+                    }
+                    else
+                    {
+                        lblcaption.Text = "Graph 1";
+                    }
                     lblcaption.Tag = false;
                     tabControl1.SelectedIndex = 0;
                     toolStripLeft.Visible = true;
@@ -2041,7 +2202,12 @@ namespace TabHeaderDemo
 
         private void UserControlGraph_Load(object sender, EventArgs e)
         {
-          //  GlobeVal.SetThreadAffinityMask(GlobeVal.GetCurrentThread(), new UIntPtr(GlobeVal.SetCpuID(1)));
+            //  GlobeVal.SetThreadAffinityMask(GlobeVal.GetCurrentThread(), new UIntPtr(GlobeVal.SetCpuID(1)));
+        }
+
+        private void y轴坐标ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

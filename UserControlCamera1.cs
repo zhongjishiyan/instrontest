@@ -291,7 +291,15 @@ namespace TabHeaderDemo
             }
             else
             {
-                MessageBox.Show("没有视频源输入，无法录制视频。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("没有视频源输入，无法录制视频。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Video can not be recorded without video source input.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
             }
 
             tick_num = 0;

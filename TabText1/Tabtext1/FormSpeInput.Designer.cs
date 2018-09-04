@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSpeInput));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblcaption = new System.Windows.Forms.Label();
             this.txtvalue = new NationalInstruments.UI.WindowsForms.NumericEdit();
@@ -38,54 +39,37 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.lblcaption);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 34);
-            this.panel1.TabIndex = 0;
             // 
             // lblcaption
             // 
-            this.lblcaption.AutoSize = true;
-            this.lblcaption.Location = new System.Drawing.Point(30, 9);
+            resources.ApplyResources(this.lblcaption, "lblcaption");
             this.lblcaption.Name = "lblcaption";
-            this.lblcaption.Size = new System.Drawing.Size(101, 12);
-            this.lblcaption.TabIndex = 0;
-            this.lblcaption.Text = "请输入断后尺寸：";
             // 
             // txtvalue
             // 
-            this.txtvalue.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.txtvalue, "txtvalue");
             this.txtvalue.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
-            this.txtvalue.Location = new System.Drawing.Point(0, 34);
             this.txtvalue.Name = "txtvalue";
-            this.txtvalue.Size = new System.Drawing.Size(284, 21);
-            this.txtvalue.TabIndex = 5;
-            this.txtvalue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(81, 67);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 30);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "确认";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormSpeInput
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 104);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtvalue);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormSpeInput";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "输入";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtvalue)).EndInit();

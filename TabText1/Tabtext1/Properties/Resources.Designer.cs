@@ -61,6 +61,16 @@ namespace AppleLabApplication.Properties {
         }
         
         /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _1 {
+            get {
+                object obj = ResourceManager.GetObject("1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
         internal static byte[] _default {
@@ -82,20 +92,20 @@ namespace AppleLabApplication.Properties {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
-        internal static byte[] AppleLabApplication {
+        internal static byte[] HelpFile {
             get {
-                object obj = ResourceManager.GetObject("AppleLabApplication", resourceCulture);
+                object obj = ResourceManager.GetObject("HelpFile", resourceCulture);
                 return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static byte[] HelpFile {
+        internal static System.Drawing.Bitmap 完成试验图标 {
             get {
-                object obj = ResourceManager.GetObject("HelpFile", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("完成试验图标", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

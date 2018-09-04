@@ -124,6 +124,18 @@ namespace TabHeaderDemo
             
             
         }
-       
+
+        private void UserControlMeter_Load(object sender, EventArgs e)
+        {
+            this.jMeter1.init();
+            this.jMeter2.init();
+            this.jMeter3.init();
+            this.jMeter4.init();
+            this.jMeter5.init();
+            this.jMeter6.init();
+            this.jMeter7.init();
+            this.jMeter8.init();
+
+        }
     }
 }

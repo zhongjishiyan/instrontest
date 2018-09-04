@@ -49,8 +49,8 @@
             this.chkplay = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -64,249 +64,164 @@
             // 
             // tabControl1
             // 
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(668, 507);
-            this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabPage1.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(660, 481);
-            this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 41);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(654, 437);
-            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.groupBox5);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 404);
-            this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // groupBox5
             // 
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Controls.Add(this.btnfile);
             this.groupBox5.Controls.Add(this.txtplayfile);
             this.groupBox5.Controls.Add(this.chkplayfile);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.Location = new System.Drawing.Point(0, 155);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(646, 53);
-            this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Visible = false;
             // 
             // btnfile
             // 
-            this.btnfile.Location = new System.Drawing.Point(561, 18);
+            resources.ApplyResources(this.btnfile, "btnfile");
             this.btnfile.Name = "btnfile";
-            this.btnfile.Size = new System.Drawing.Size(71, 20);
-            this.btnfile.TabIndex = 2;
-            this.btnfile.Text = "浏览";
             this.btnfile.UseVisualStyleBackColor = true;
             this.btnfile.Click += new System.EventHandler(this.btnfile_Click);
             // 
             // txtplayfile
             // 
-            this.txtplayfile.Location = new System.Drawing.Point(196, 18);
+            resources.ApplyResources(this.txtplayfile, "txtplayfile");
             this.txtplayfile.Name = "txtplayfile";
             this.txtplayfile.ReadOnly = true;
-            this.txtplayfile.Size = new System.Drawing.Size(353, 21);
-            this.txtplayfile.TabIndex = 1;
             // 
             // chkplayfile
             // 
-            this.chkplayfile.AutoSize = true;
-            this.chkplayfile.Location = new System.Drawing.Point(52, 20);
+            resources.ApplyResources(this.chkplayfile, "chkplayfile");
             this.chkplayfile.Name = "chkplayfile";
-            this.chkplayfile.Size = new System.Drawing.Size(120, 16);
-            this.chkplayfile.TabIndex = 0;
-            this.chkplayfile.Text = "播放曲线数据文件";
             this.chkplayfile.UseVisualStyleBackColor = true;
             this.chkplayfile.CheckedChanged += new System.EventHandler(this.chkplayfile_CheckedChanged);
             // 
             // groupBox4
             // 
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Controls.Add(this.txtshort);
             this.groupBox4.Controls.Add(this.chkautorecord);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox4.Location = new System.Drawing.Point(0, 102);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(646, 53);
-            this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             // 
             // txtshort
             // 
-            this.txtshort.Location = new System.Drawing.Point(196, 18);
+            resources.ApplyResources(this.txtshort, "txtshort");
             this.txtshort.Name = "txtshort";
-            this.txtshort.Size = new System.Drawing.Size(353, 21);
-            this.txtshort.TabIndex = 1;
-            this.txtshort.Visible = false;
             this.txtshort.TextChanged += new System.EventHandler(this.txtshort_TextChanged);
             // 
             // chkautorecord
             // 
-            this.chkautorecord.AutoSize = true;
-            this.chkautorecord.Location = new System.Drawing.Point(52, 20);
+            resources.ApplyResources(this.chkautorecord, "chkautorecord");
             this.chkautorecord.Name = "chkautorecord";
-            this.chkautorecord.Size = new System.Drawing.Size(132, 16);
-            this.chkautorecord.TabIndex = 0;
-            this.chkautorecord.Text = "试验开始时自动录制";
             this.chkautorecord.UseVisualStyleBackColor = true;
             this.chkautorecord.CheckedChanged += new System.EventHandler(this.chkautorecord_CheckedChanged);
             // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.txtAppTitle);
             this.groupBox3.Controls.Add(this.chkautoplay);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 49);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(646, 53);
-            this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Visible = false;
             // 
             // txtAppTitle
             // 
-            this.txtAppTitle.Location = new System.Drawing.Point(196, 18);
+            resources.ApplyResources(this.txtAppTitle, "txtAppTitle");
             this.txtAppTitle.Name = "txtAppTitle";
-            this.txtAppTitle.Size = new System.Drawing.Size(353, 21);
-            this.txtAppTitle.TabIndex = 1;
-            this.txtAppTitle.Visible = false;
             this.txtAppTitle.TextChanged += new System.EventHandler(this.txtAppTitle_TextChanged);
             // 
             // chkautoplay
             // 
-            this.chkautoplay.AutoSize = true;
-            this.chkautoplay.Location = new System.Drawing.Point(52, 20);
+            resources.ApplyResources(this.chkautoplay, "chkautoplay");
             this.chkautoplay.Name = "chkautoplay";
-            this.chkautoplay.Size = new System.Drawing.Size(132, 16);
-            this.chkautoplay.TabIndex = 0;
-            this.chkautoplay.Text = "试验开始时自动播放";
             this.chkautoplay.UseVisualStyleBackColor = true;
             this.chkautoplay.CheckedChanged += new System.EventHandler(this.chkautoplay_CheckedChanged);
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.btnplay);
             this.groupBox2.Controls.Add(this.txtplay);
             this.groupBox2.Controls.Add(this.chkplay);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(646, 49);
-            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Visible = false;
             // 
             // btnplay
             // 
-            this.btnplay.Location = new System.Drawing.Point(561, 19);
+            resources.ApplyResources(this.btnplay, "btnplay");
             this.btnplay.Name = "btnplay";
-            this.btnplay.Size = new System.Drawing.Size(71, 20);
-            this.btnplay.TabIndex = 3;
-            this.btnplay.Text = "浏览";
             this.btnplay.UseVisualStyleBackColor = true;
             this.btnplay.Click += new System.EventHandler(this.btnplay_Click);
             // 
             // txtplay
             // 
-            this.txtplay.Location = new System.Drawing.Point(196, 18);
+            resources.ApplyResources(this.txtplay, "txtplay");
             this.txtplay.Name = "txtplay";
             this.txtplay.ReadOnly = true;
-            this.txtplay.Size = new System.Drawing.Size(352, 21);
-            this.txtplay.TabIndex = 1;
             // 
             // chkplay
             // 
-            this.chkplay.AutoSize = true;
-            this.chkplay.Location = new System.Drawing.Point(52, 20);
+            resources.ApplyResources(this.chkplay, "chkplay");
             this.chkplay.Name = "chkplay";
-            this.chkplay.Size = new System.Drawing.Size(120, 16);
-            this.chkplay.TabIndex = 0;
-            this.chkplay.Text = "播放视频文件名称";
             this.chkplay.UseVisualStyleBackColor = true;
             this.chkplay.CheckedChanged += new System.EventHandler(this.chkplay_CheckedChanged);
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(654, 38);
-            this.tableLayoutPanel3.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(579, 36);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "设置摄像";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(590, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(32, 30);
-            this.panel4.TabIndex = 1;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Name = "panel4";
             // 
             // UserControl摄像
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "UserControl摄像";
-            this.Size = new System.Drawing.Size(668, 507);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

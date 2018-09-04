@@ -80,8 +80,14 @@ namespace TabHeaderDemo
 
         public void setcaption()
         {
-            lblcaption.Text  = "步骤" + (Id + 1).ToString() +" "+msequence.stepname;
-
+            if (GlobeVal.mysys.language == 0)
+            {
+                lblcaption.Text = "步骤" + (Id + 1).ToString() + " " + msequence.stepname;
+            }
+            else
+            {
+                lblcaption.Text = "Step " + (Id + 1).ToString() + " " + msequence.stepname;
+            }
         }
 
         public void setkind()

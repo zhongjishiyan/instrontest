@@ -31,7 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbltitle = new System.Windows.Forms.Label();
             this.cbounit = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnproperty = new System.Windows.Forms.Button();
             this.txtvalue = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtvalue)).BeginInit();
@@ -47,7 +47,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.Controls.Add(this.lbltitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbounit, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnproperty, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtvalue, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -77,14 +77,15 @@
             this.cbounit.Size = new System.Drawing.Size(58, 20);
             this.cbounit.TabIndex = 2;
             // 
-            // button1
+            // btnproperty
             // 
-            this.button1.Location = new System.Drawing.Point(486, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnproperty.Location = new System.Drawing.Point(486, 3);
+            this.btnproperty.Name = "btnproperty";
+            this.btnproperty.Size = new System.Drawing.Size(32, 23);
+            this.btnproperty.TabIndex = 3;
+            this.btnproperty.Text = "...";
+            this.btnproperty.UseVisualStyleBackColor = true;
+            this.btnproperty.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtvalue
             // 
@@ -111,9 +112,9 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label lbltitle;
         public System.Windows.Forms.ComboBox cbounit;
         public NationalInstruments.UI.WindowsForms.NumericEdit txtvalue;
+        public System.Windows.Forms.Button btnproperty;
     }
 }

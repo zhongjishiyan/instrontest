@@ -56,6 +56,11 @@ namespace TabHeaderDemo
                 b.Dock = DockStyle.Fill;
 
                 b.lbltitle.Text = CComLibrary.GlobeVal.filesave.minputtext[i].name;
+
+                if (CComLibrary.GlobeVal.filesave.minputtext[i].value==null)
+                {
+                    CComLibrary.GlobeVal.filesave.minputtext[i].value = "";
+                }
                 b.txtvalue.Text = CComLibrary.GlobeVal.filesave.minputtext[i].value.ToString();
                 b.txtvalue.Tag = i;
                 b.txtvalue.TextChanged += Txtvalue_TextChanged1;
@@ -81,8 +86,12 @@ namespace TabHeaderDemo
             {
                 
                     UserSizeInput b = new UserSizeInput();
-                    b.Dock = DockStyle.Fill;
+                //
 
+                    b.btnproperty.Tag = i;
+                    b.btnproperty.Click += numbersize_btnproperty_Click;
+                    b.Dock = DockStyle.Fill;
+                   
                     b.lbltitle.Text = CComLibrary.GlobeVal.filesave.minput[i].name;
                     b.txtvalue.Value= CComLibrary.GlobeVal.filesave.minput[i].value;
                     b.txtvalue.Tag = i;
@@ -105,6 +114,18 @@ namespace TabHeaderDemo
             }
         }
 
+        private void numbersize_btnproperty_Click(object sender, EventArgs e)
+        {
+            int v = Convert.ToInt32((sender as Button).Tag);
+
+            Frm.FormRange f = new Frm.FormRange();
+            f.chkzero.Checked = CComLibrary.GlobeVal.filesave.minput[v].zerocheck;
+            f.ShowDialog();
+            CComLibrary.GlobeVal.filesave.minput[v].zerocheck = f.chkzero.Checked;
+            f.Close();
+            return;
+        }
+
         private void Txtvalue_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
         {
             int c = Convert.ToInt16((sender as  NationalInstruments.UI.WindowsForms.NumericEdit ).Tag);
@@ -115,28 +136,31 @@ namespace TabHeaderDemo
         
         private void Init_spesize()
         {
-            if (cboshape.Text == "矩形")
-            {
-                pictureBox1.BackgroundImage = imageList1.Images[0];
-            }
+           
+                if (cboshape.Text == ClsStaticStation.m_Global.mycls.shapelist[ClsStaticStation.m_Global.mycls.shapelist[0].Rect_Shape].shapename)
+                {
+                    pictureBox1.BackgroundImage = imageList1.Images[0];
+                }
 
-            if (cboshape.Text == "圆形")
-            {
-                pictureBox1.BackgroundImage = imageList1.Images[1];
-            }
+                if (cboshape.Text == ClsStaticStation.m_Global.mycls.shapelist[ClsStaticStation.m_Global.mycls.shapelist[0].Round_Shape].shapename)
+                {
+                    pictureBox1.BackgroundImage = imageList1.Images[1];
+                }
 
-            if (cboshape.Text == "双剪切环")
+                if (cboshape.Text == ClsStaticStation.m_Global.mycls.shapelist[ClsStaticStation.m_Global.mycls.shapelist[0].Double_shear_ring_Shape].shapename)
+                {
+                    pictureBox1.BackgroundImage = imageList1.Images[2];
+                }
+                if (cboshape.Text == ClsStaticStation.m_Global.mycls.shapelist[ClsStaticStation.m_Global.mycls.shapelist[0].Tube_Shape].shapename)
+                {
+                    pictureBox1.BackgroundImage = imageList1.Images[3];
+                }
+                if (cboshape.Text == ClsStaticStation.m_Global.mycls.shapelist[ClsStaticStation.m_Global.mycls.shapelist[0].Irregular_Shape].shapename)
             {
-                pictureBox1.BackgroundImage = imageList1.Images[2];
-            }
-            if (cboshape.Text == "管状")
-            {
-                pictureBox1.BackgroundImage = imageList1.Images[3];
-            }
-            if (cboshape.Text == "不规则形状")
-            {
-                pictureBox1.BackgroundImage = imageList1.Images[4];
-            }
+                    pictureBox1.BackgroundImage = imageList1.Images[4];
+                }
+            
+           
 
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -144,11 +168,15 @@ namespace TabHeaderDemo
             for (int i = 0; i <
                 CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem.Length; i++)
             {
-                if (CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName != "无")
+                if (CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName != "None")
                 {
                     UserSizeInput b = new UserSizeInput();
                     b.Dock = DockStyle.Fill;
 
+                    //
+                    b.btnproperty.Tag = i;
+                    b.btnproperty.Click += spesize_Btnproperty_Click;
+                  
                     b.lbltitle.Text = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cName;
                     b.txtvalue.Value = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[i].cvalue;
                     b.txtvalue.Tag = i;
@@ -171,6 +199,18 @@ namespace TabHeaderDemo
             }
 
 
+        }
+
+        private void spesize_Btnproperty_Click(object sender, EventArgs e)
+        {
+            int v = Convert.ToInt32((sender as Button).Tag);
+            Frm.FormRange f = new Frm.FormRange();
+            f.chkzero.Checked = CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[v].checkzero;
+            f.ShowDialog();
+            CComLibrary.GlobeVal.filesave.mshapelist[cboshape.SelectedIndex].sizeitem[v].checkzero = f.chkzero.Checked;
+            f.Close();
+
+            return;
         }
 
         private void Txtvalue_AfterChangeValue1(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)

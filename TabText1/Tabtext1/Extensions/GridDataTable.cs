@@ -82,6 +82,8 @@ namespace SampleProject.Extensions
 			else
 				FixedColumns = 0;
 			Redim(m_DataTable.Rows.Count+FixedRows, p_DataColumns.Length+FixedColumns);
+
+
 			Selection.SelectionMode = SourceGrid2.GridSelectionMode.Row;
 
 			//Col Header Cell Template

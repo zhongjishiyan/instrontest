@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUser));
             this.label2 = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,79 +41,54 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 106);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "密码：";
             // 
             // txtname
             // 
-            this.txtname.Location = new System.Drawing.Point(245, 42);
+            resources.ApplyResources(this.txtname, "txtname");
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(161, 21);
-            this.txtname.TabIndex = 5;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(144, 45);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "用户：";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(145, 168);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "权限：";
             // 
             // cbouser
             // 
+            resources.ApplyResources(this.cbouser, "cbouser");
             this.cbouser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbouser.FormattingEnabled = true;
-            this.cbouser.Location = new System.Drawing.Point(245, 164);
             this.cbouser.Name = "cbouser";
-            this.cbouser.Size = new System.Drawing.Size(161, 20);
-            this.cbouser.TabIndex = 9;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(298, 226);
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(189, 226);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "确认";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtpassword
             // 
-            this.txtpassword.Location = new System.Drawing.Point(245, 103);
+            resources.ApplyResources(this.txtpassword, "txtpassword");
             this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(161, 21);
-            this.txtpassword.TabIndex = 12;
             // 
             // FormUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 293);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -123,7 +99,6 @@
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormUser";
-            this.Text = "用户";
             this.Load += new System.EventHandler(this.FormUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

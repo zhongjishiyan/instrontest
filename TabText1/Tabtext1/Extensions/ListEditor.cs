@@ -7,12 +7,14 @@ using System.Windows.Forms;
 
 using Cells = SourceGrid2.Cells.Real;
 
+using AppleLabApplication;
+
 namespace SampleProject.Extensions
 {
 	/// <summary>
 	/// Summary description for ListEditor.
 	/// </summary>
-	public class ListEditor : System.Windows.Forms.UserControl
+	public class ListEditor : UserBase 
     {
 		private System.Windows.Forms.Button btDown;
 		private System.Windows.Forms.Button btUp;
@@ -23,10 +25,8 @@ namespace SampleProject.Extensions
 		/// Required designer variable.
 		/// </summary>
         private System.ComponentModel.Container components = null;
+        private Panel panel1;
         public SourceGrid2.Grid grid;
-
-        
-
         public int row = 0;
 
         public void setEditStyle(bool b)
@@ -95,7 +95,9 @@ namespace SampleProject.Extensions
             this.btRemove = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
             this.btrRefreshList = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grid = new SourceGrid2.Grid();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btDown
@@ -104,7 +106,7 @@ namespace SampleProject.Extensions
             this.btDown.Enabled = false;
             this.btDown.Image = ((System.Drawing.Image)(resources.GetObject("btDown.Image")));
             this.btDown.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btDown.Location = new System.Drawing.Point(312, 4);
+            this.btDown.Location = new System.Drawing.Point(924, 4);
             this.btDown.Name = "btDown";
             this.btDown.Size = new System.Drawing.Size(24, 23);
             this.btDown.TabIndex = 1;
@@ -116,7 +118,7 @@ namespace SampleProject.Extensions
             this.btUp.Enabled = false;
             this.btUp.Image = ((System.Drawing.Image)(resources.GetObject("btUp.Image")));
             this.btUp.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btUp.Location = new System.Drawing.Point(284, 4);
+            this.btUp.Location = new System.Drawing.Point(892, 4);
             this.btUp.Name = "btUp";
             this.btUp.Size = new System.Drawing.Size(24, 23);
             this.btUp.TabIndex = 2;
@@ -128,7 +130,7 @@ namespace SampleProject.Extensions
             this.btRemove.Enabled = false;
             this.btRemove.Image = ((System.Drawing.Image)(resources.GetObject("btRemove.Image")));
             this.btRemove.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btRemove.Location = new System.Drawing.Point(220, 4);
+            this.btRemove.Location = new System.Drawing.Point(828, 4);
             this.btRemove.Name = "btRemove";
             this.btRemove.Size = new System.Drawing.Size(24, 23);
             this.btRemove.TabIndex = 3;
@@ -139,7 +141,7 @@ namespace SampleProject.Extensions
             this.btAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btAdd.Image = ((System.Drawing.Image)(resources.GetObject("btAdd.Image")));
             this.btAdd.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btAdd.Location = new System.Drawing.Point(192, 4);
+            this.btAdd.Location = new System.Drawing.Point(796, 4);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(24, 23);
             this.btAdd.TabIndex = 4;
@@ -150,17 +152,27 @@ namespace SampleProject.Extensions
             this.btrRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btrRefreshList.Image = ((System.Drawing.Image)(resources.GetObject("btrRefreshList.Image")));
             this.btrRefreshList.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btrRefreshList.Location = new System.Drawing.Point(252, 4);
+            this.btrRefreshList.Location = new System.Drawing.Point(860, 4);
             this.btrRefreshList.Name = "btrRefreshList";
             this.btrRefreshList.Size = new System.Drawing.Size(24, 23);
             this.btrRefreshList.TabIndex = 5;
             this.btrRefreshList.Click += new System.EventHandler(this.btrRefreshList_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btAdd);
+            this.panel1.Controls.Add(this.btRemove);
+            this.panel1.Controls.Add(this.btDown);
+            this.panel1.Controls.Add(this.btUp);
+            this.panel1.Controls.Add(this.btrRefreshList);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(953, 36);
+            this.panel1.TabIndex = 12;
+            // 
             // grid
             // 
-            this.grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grid.AutoSizeMinHeight = 10;
             this.grid.AutoSizeMinWidth = 10;
             this.grid.AutoStretchColumnsToFitWidth = false;
@@ -168,33 +180,31 @@ namespace SampleProject.Extensions
             this.grid.BackColor = System.Drawing.SystemColors.Control;
             this.grid.ContextMenuStyle = SourceGrid2.ContextMenuStyle.None;
             this.grid.CustomSort = false;
+            this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid.FocusStyle = SourceGrid2.FocusStyle.None;
             this.grid.GridToolTipActive = true;
-            this.grid.Location = new System.Drawing.Point(4, 36);
+            this.grid.Location = new System.Drawing.Point(0, 36);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(332, 216);
-            this.grid.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V)
-                        | SourceGrid2.GridSpecialKeys.Ctrl_X)
-                        | SourceGrid2.GridSpecialKeys.Delete)
-                        | SourceGrid2.GridSpecialKeys.Arrows)
-                        | SourceGrid2.GridSpecialKeys.Tab)
-                        | SourceGrid2.GridSpecialKeys.PageDownUp)
-                        | SourceGrid2.GridSpecialKeys.Enter)
-                        | SourceGrid2.GridSpecialKeys.Escape)));
-            this.grid.TabIndex = 11;
-            this.grid.CellLostFocus += new SourceGrid2.PositionCancelEventHandler(this.grid_CellLostFocus);
+            this.grid.Size = new System.Drawing.Size(953, 216);
+            this.grid.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
+            | SourceGrid2.GridSpecialKeys.Ctrl_X) 
+            | SourceGrid2.GridSpecialKeys.Delete) 
+            | SourceGrid2.GridSpecialKeys.Arrows) 
+            | SourceGrid2.GridSpecialKeys.Tab) 
+            | SourceGrid2.GridSpecialKeys.PageDownUp) 
+            | SourceGrid2.GridSpecialKeys.Enter) 
+            | SourceGrid2.GridSpecialKeys.Escape)));
+            this.grid.TabIndex = 13;
             this.grid.CellGotFocus += new SourceGrid2.PositionCancelEventHandler(this.grid_CellGotFocus);
+            this.grid.CellLostFocus += new SourceGrid2.PositionCancelEventHandler(this.grid_CellLostFocus);
             // 
             // ListEditor
             // 
             this.Controls.Add(this.grid);
-            this.Controls.Add(this.btrRefreshList);
-            this.Controls.Add(this.btAdd);
-            this.Controls.Add(this.btRemove);
-            this.Controls.Add(this.btUp);
-            this.Controls.Add(this.btDown);
+            this.Controls.Add(this.panel1);
             this.Name = "ListEditor";
-            this.Size = new System.Drawing.Size(340, 252);
+            this.Size = new System.Drawing.Size(953, 252);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -286,8 +296,39 @@ namespace SampleProject.Extensions
 			//grid[0,0] = new Cells.Header();
 			for (int i = 0; i < m_Properties.Length; i++)
 			{
-				Cells.ColumnHeader l_Header = new Cells.ColumnHeader(m_Properties[i].Name);
-                
+                Cells.ColumnHeader l_Header;
+
+                if (ItemType.Name == "ChartBar")
+                {
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        string[] na = { "名称", "值", "单位", "量纲" };
+                        l_Header = new Cells.ColumnHeader(na[i]);
+                    }
+                    else
+                    {
+                        string[] na = { "Name", "Value", "Unit", "Dimension" };
+                        l_Header = new Cells.ColumnHeader(na[i]);
+                    }
+
+                }
+                else if(ItemType.Name == "ChartBarDefine")
+                {
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        string[] na = { "公式名称", "公式内容", "公式单位", "是否计算", "公式说明", "曲线显示", "量纲" };
+                        l_Header = new Cells.ColumnHeader(na[i]);
+                    }
+                    else
+                    {
+                        string[] na = { "Formula name", "Formula content", "Formula unit", "Calculation", "Formula description", "Display on curves", "Dimension" };
+                        l_Header = new Cells.ColumnHeader(na[i]);
+                    }
+                }
+                else
+                {
+                    l_Header = new Cells.ColumnHeader(m_Properties[i].Name);
+                }
 				grid[0, i+grid.FixedColumns] = l_Header;
 
 				l_Header.EnableSort = false;
@@ -324,8 +365,20 @@ namespace SampleProject.Extensions
            
                 if ((grid.ColumnsCount > 0) && (p_GridCol == grid.ColumnsCount - 1))
                 {
+               
+                  if (Convert.ToInt16(p_PropInfo.GetValue(p_Object, null))>=0 && Convert.ToInt16(p_PropInfo.GetValue(p_Object, null))< ClsStaticStation.m_Global.mycls.SignalsNames.Length)
+                {
                     grid[p_GridRow, p_GridCol] = new Cells.Cell(ClsStaticStation.m_Global.mycls.SignalsNames[Convert.ToInt16(p_PropInfo.GetValue(p_Object, null))], p_DataModel);
-                    SourceGrid2.BehaviorModels.CustomEvents l_CustomEvents = new SourceGrid2.BehaviorModels.CustomEvents();
+
+
+                }
+                else
+                {
+                    grid[p_GridRow, p_GridCol] = new Cells.Cell(ClsStaticStation.m_Global.mycls.SignalsNames[0], p_DataModel);
+
+                }
+
+                SourceGrid2.BehaviorModels.CustomEvents l_CustomEvents = new SourceGrid2.BehaviorModels.CustomEvents();
                     l_CustomEvents.ValueChanged += new SourceGrid2.PositionEventHandler(Grid_ValueChanged);
                     grid[p_GridRow, p_GridCol].Behaviors.Add(l_CustomEvents);
 

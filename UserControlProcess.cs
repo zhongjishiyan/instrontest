@@ -129,6 +129,9 @@ namespace TabHeaderDemo
                     if (CComLibrary.GlobeVal.filesave.mseglist[i].returncount > 0)
                     {
                        // CComLibrary.GlobeVal.filesave.mseglist[i].currentcount = GlobeVal.myarm.current_returncount;
+
+                        //出过错
+
                         listViewPro1.Items[3].SubItems[i + 1].Text = (CComLibrary.GlobeVal.filesave.mseglist[i].mseq.finishedloopcount+1).ToString() + "|" + CComLibrary.GlobeVal.filesave.mseglist[i].returncount.ToString();
                     }
 

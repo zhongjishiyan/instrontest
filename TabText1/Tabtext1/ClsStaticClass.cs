@@ -10,6 +10,7 @@ namespace ClsStaticStation
 {
     class ClsStaticClass
     {
+
     }
 
     [Serializable]

@@ -86,9 +86,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
     </Reference>
-    <Reference Include="NationalInstruments.Analysis.Enterprise, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NationalInstruments.Common, Version=12.0.35.253, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -170,6 +167,7 @@
     <Compile Include="CLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CLanguage.cs" />
     <Compile Include="ClsArmCan.cs" />
     <Compile Include="ClsArm.cs" />
     <Compile Include="ClsBaseControl.cs" />
@@ -383,6 +381,9 @@
       <DependentUpon>ListEditorExt.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\UListEditor.en.resx">
+      <DependentUpon>UListEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Extensions\UListEditor.resx">
       <DependentUpon>UListEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -399,20 +400,47 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAxis.en.resx">
+      <DependentUpon>FormAxis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAxis.resx">
       <DependentUpon>FormAxis.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCalc.en.resx">
+      <DependentUpon>FormCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLineSet.en.resx">
+      <DependentUpon>FormLineSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMethod.en.resx">
+      <DependentUpon>FormMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMultiAxisNoGrid.en.resx">
+      <DependentUpon>FormMultiAxisNoGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMultiAxisSet.en.resx">
+      <DependentUpon>FormMultiAxisSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOnline.resx">
       <DependentUpon>FormOnline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlot.en.resx">
+      <DependentUpon>FormPlot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlot.resx">
       <DependentUpon>FormPlot.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPopupMenu.en.resx">
+      <DependentUpon>FormPopupMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPopupMenu.resx">
       <DependentUpon>FormPopupMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSpeInput.en.resx">
+      <DependentUpon>FormSpeInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSpeInput.resx">
       <DependentUpon>FormSpeInput.cs</DependentUpon>
@@ -420,6 +448,9 @@
     <EmbeddedResource Include="FormWord.resx">
       <DependentUpon>FormWord.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.en.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -471,6 +502,9 @@
     <EmbeddedResource Include="TxtOpenFileDialog.resx">
       <DependentUpon>TxtOpenFileDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UResultControl.en.resx">
+      <DependentUpon>UResultControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UResultControl.resx">
       <DependentUpon>UResultControl.cs</DependentUpon>
@@ -565,7 +599,15 @@
     <Content Include="Extensions\ArrowUp.ICO" />
     <Content Include="Extensions\Delete.ICO" />
     <Content Include="Extensions\Refresh.ico" />
-    <Content Include="Resources\AppleLabApplication.dll" />
+    <Content Include="NationalInstruments.Analysis.Enterprise.dll" />
+    <None Include="Resources\完成试验图标.jpg" />
+    <None Include="Resources\1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\drivertest1\drivertest1.csproj">
+      <Project>{8ff2a284-18aa-4255-9d56-c7e9bb08a9df}</Project>
+      <Name>drivertest1</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

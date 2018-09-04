@@ -37,7 +37,7 @@ namespace TabHeaderDemo
             }
 
 
-            cbostopchannel1.SelectedIndex = CComLibrary.GlobeVal.filesave.endoftest1usechannel ;
+            cbostopchannel1.SelectedIndex = CComLibrary.GlobeVal.filesave.endoftest1usechannel;
 
             cbostopchannel1_SelectionChangeCommitted(null, null);
 
@@ -45,14 +45,25 @@ namespace TabHeaderDemo
 
             chktestend1.Checked = CComLibrary.GlobeVal.filesave.endoftest1;
             cbotestendCriteria1.Items.Clear();
-            cbotestendCriteria1.Items.Add("下降百分率");
-            cbotestendCriteria1.Items.Add("下降门槛值");
-            cbotestendCriteria1.Items.Add("峰值");
+            if (GlobeVal.mysys.language == 0)
+            {
+
+
+                cbotestendCriteria1.Items.Add("下降百分率");
+                cbotestendCriteria1.Items.Add("下降门槛值");
+                cbotestendCriteria1.Items.Add("峰值");
+            }
+            else
+            {
+                cbotestendCriteria1.Items.Add("% Peak Value");
+                cbotestendCriteria1.Items.Add("Threshold");
+                cbotestendCriteria1.Items.Add("Peak");
+            }
 
             cbotestendCriteria1.SelectedIndex = CComLibrary.GlobeVal.filesave.endoftest1criteria;
 
 
-         
+
 
 
             numtestendvalue1.Value = CComLibrary.GlobeVal.filesave.endoftest1value;
@@ -60,18 +71,38 @@ namespace TabHeaderDemo
 
             if (cbotestendCriteria1.SelectedIndex == 0)
             {
-                lbltestend1.Text = "灵敏度 (%)：";
-
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend1.Text = "下降到(%)：";
+                }
+                else
+                {
+                    lbltestend1.Text = "Drops by (%) threshold";
+                }
 
             }
             else if (cbotestendCriteria1.SelectedIndex == 1)
             {
-                lbltestend1.Text = "下降到：";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend1.Text = "下降到：";
+                }
+                else
+                {
+                    lbltestend1.Text = "Drops to:";
+                }
 
             }
             else if (cbotestendCriteria1.SelectedIndex == 2)
             {
-                lbltestend1.Text = "超过峰值：";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend1.Text = "超过：";
+                }
+                else
+                {
+                    lbltestend1.Text = "Exceed to:";
+                }
             }
 
 
@@ -91,37 +122,77 @@ namespace TabHeaderDemo
 
             chktestend2.Checked = CComLibrary.GlobeVal.filesave.endoftest2;
             cbotestendCriteria2.Items.Clear();
-            cbotestendCriteria2.Items.Add("下降百分率");
-            cbotestendCriteria2.Items.Add("下降门槛值");
-            cbotestendCriteria2.Items.Add("峰值");
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbotestendCriteria2.Items.Add("下降百分率");
+                cbotestendCriteria2.Items.Add("下降门槛值");
+                cbotestendCriteria2.Items.Add("峰值");
+            }
+            else
+            {
+                cbotestendCriteria2.Items.Add("% Peak Value");
+                cbotestendCriteria2.Items.Add("Threshold");
+                cbotestendCriteria2.Items.Add("Peak");
+            }
 
             cbotestendCriteria2.SelectedIndex = CComLibrary.GlobeVal.filesave.endoftest2criteria;
 
-           
+
 
             if (cbotestendCriteria2.SelectedIndex == 0)
             {
-                lbltestend2.Text = "灵敏度 (%)：";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend2.Text = "下降到(%)：";
+                }
+                else
+                {
+                    lbltestend2.Text = "Drops by (%) threshold";
+                }
+
 
 
             }
             else if (cbotestendCriteria2.SelectedIndex == 1)
             {
-                lbltestend2.Text = "载荷下降到： ";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend2.Text = "下降到：";
+                }
+                else
+                {
+                    lbltestend2.Text = "Drops to:";
+                }
 
             }
             else if (cbotestendCriteria2.SelectedIndex == 2)
             {
-                lbltestend2.Text = "超过峰值：";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend2.Text = "超过：";
+                }
+                else
+                {
+                    lbltestend2.Text = "Exceed to:";
+                }
             }
 
             numtestendvalue2.Value = CComLibrary.GlobeVal.filesave.endoftest2value;
 
             cbotestaction.Items.Clear();
-            cbotestaction.Items.Add("停止");
-            cbotestaction.Items.Add("返回");
-            cbotestaction.Items.Add("停止，然后返回");
-
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbotestaction.Items.Add("停止");
+                cbotestaction.Items.Add("返回");
+                cbotestaction.Items.Add("停止，然后返回");
+            }
+            else
+            {
+                cbotestaction.Items.Add("Halt");
+                cbotestaction.Items.Add("Return");
+                cbotestaction.Items.Add("Halt,and return");
+            }
             cbotestaction.SelectedIndex = CComLibrary.GlobeVal.filesave.testaction;
 
         }
@@ -156,7 +227,16 @@ namespace TabHeaderDemo
             grid2[i, 2] = new SourceGrid2.Cells.Real.Button(
                     typeof(string));
 
-            if (grid2[i, 1].Value.ToString() == "停止")
+            string _temp = "";
+            if (GlobeVal.mysys.language ==0)
+            {
+                _temp = "停止";
+            }
+            else
+            {
+                _temp = "Stop";
+            }
+            if (grid2[i, 1].Value.ToString() == _temp)
             {
                 grid2[i, 2].Value = "";
             }
@@ -173,7 +253,7 @@ namespace TabHeaderDemo
             grid2[i, 3] = new SourceGrid2.Cells.Real.Button(
                                      typeof(string));
 
-            if (grid2[i, 1].Value.ToString() == "停止")
+            if (grid2[i, 1].Value.ToString() == _temp)
             {
                 grid2[i, 3].Value = "";
             }
@@ -198,7 +278,7 @@ namespace TabHeaderDemo
 
             grid2[i, 5] = new SourceGrid2.Cells.Real.Button(
                     typeof(string));
-            if (grid2[i, 1].Value.ToString() == "停止")
+            if (grid2[i, 1].Value.ToString() == _temp )
             {
                 grid2[i, 5].Value = "";
             }
@@ -215,83 +295,25 @@ namespace TabHeaderDemo
 
         void textclick_DoubleClick(object sender, SourceGrid2.PositionEventArgs e)
         {
+            string _temp = "";
             if (e.Position.Column == 2)
             {
 
-                if (GlobeVal.mysys.machinekind == 2)
+
+                Frm.Form标准控制参数 f = new TabHeaderDemo.Frm.Form标准控制参数();
+
+                f.result = false;
+
+                if (GlobeVal.mysys.language == 0)
                 {
-                    if (sf.mseglist[e.Position.Row - 1].cmd == 2)
-                    {
-                        Frm.Frm围压控制参数 f = new TabHeaderDemo.Frm.Frm围压控制参数();
-                        f.result = false;
-
-                        f.lblspeed.Text = "速度(MPa/s):";
-                        f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].speed;
-                        f.Text = "控制参数步骤" + e.Position.Row.ToString().Trim();
-                        f.ShowDialog();
-                        if (f.result == true)
-                        {
-                            sf.mseglist[e.Position.Row - 1].speed = f.numericEdit1.Value;
-
-
-                            grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].speedconvert();
-
-
-
-                        }
-                    }
-
-                    else
-                    {
-
-                        Frm.Form控制参数 f = new TabHeaderDemo.Frm.Form控制参数();
-
-                        f.result = false;
-
-
-                        if (sf.mseglist[e.Position.Row - 1].controlmode == 0)
-                        {
-                            f.radioButton1.Text = "位移速度";
-                            f.lblUnit.Text = "mm/s";
-                            f.radioButton2.Visible = false;
-                            f.panel1.Visible = false;
-
-                        }
-                        else
-                        {
-                            f.radioButton1.Text = "力速度";
-                            f.lblUnit.Text = "kN/s";
-                            f.radioButton2.Visible = true;
-                            f.panel1.Visible = true;
-
-                        }
-
-
-                        f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].speed;
-                        f.Text = "控制参数步骤" + e.Position.Row.ToString().Trim();
-                        f.ShowDialog();
-                        if (f.result == true)
-                        {
-                            sf.mseglist[e.Position.Row - 1].speed = f.numericEdit1.Value;
-
-
-                            grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].speedconvert();
-
-
-                        }
-                    }
+                    _temp = "速度";
                 }
                 else
-
-
                 {
-                    Frm.Form标准控制参数 f = new TabHeaderDemo.Frm.Form标准控制参数();
-
-                    f.result = false;
-
-
-
-                    f.lblname.Text = ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].cName + "速度";
+                    _temp = "Speed";
+                }
+                    
+                    f.lblname.Text = ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].cName + _temp;
                     f.lblUnit.Text = ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[0];
 
 
@@ -307,7 +329,17 @@ namespace TabHeaderDemo
                     }
 
                     f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].speed;
-                    f.Text = "控制参数步骤" + e.Position.Row.ToString().Trim();
+                    
+                if (GlobeVal.mysys.language ==0)
+                {
+                    _temp = "控制参数步骤";
+                }
+                else
+                {
+                    _temp = "Parameter steps";
+                }
+
+                    f.Text = _temp + e.Position.Row.ToString().Trim();
                     f.ShowDialog();
                     if (f.result == true)
                     {
@@ -319,90 +351,25 @@ namespace TabHeaderDemo
 
                     }
 
-                }
+                
 
 
             }
             if (e.Position.Column == 3)
             {
-                if (GlobeVal.mysys.machinekind == 2)
-                {
-
-
-                    if (sf.mseglist[e.Position.Row - 1].cmd == 2)  //围压设置
-                    {
-                        Frm.Form围压跳转条件 f = new TabHeaderDemo.Frm.Form围压跳转条件();
-
-                        f.Text = "跳转条件步骤" + e.Position.Row.ToString().Trim();
-                        f.result = false;
-                        f.rbtnload.Checked = true;
-
-                        sf.mseglist[e.Position.Row - 1].destcontrolmode = 1;
-
-                        f.numericEdit2.Value = sf.mseglist[e.Position.Row - 1].dest;
-                        f.ShowDialog();
-
-                        if (f.result == true)
-                        {
-                            sf.mseglist[e.Position.Row - 1].destcontrolmode = 1;
-                            sf.mseglist[e.Position.Row - 1].dest = f.numericEdit2.Value;
-                            sf.mseglist[e.Position.Row - 1].keeptime = 0;
-                        }
-
-                        grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].destconvert();
-
-                    }
-                    else
-                    {
-
-                        Frm.Form跳转条件 f = new TabHeaderDemo.Frm.Form跳转条件();
-                        f.Text = "跳转条件步骤" + e.Position.Row.ToString().Trim();
-                        f.result = false;
-
-
-                        if (sf.mseglist[e.Position.Row - 1].destcontrolmode == 0)
-                        {
-                            f.rbtnpos.Checked = true;
-                        }
-                        else
-                        {
-                            f.rbtnload.Checked = true;
-                        }
-                        f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].dest;
-                        f.numericEdit2.Value = sf.mseglist[e.Position.Row - 1].dest;
-                        f.numericEdit3.Value = sf.mseglist[e.Position.Row - 1].keeptime;
-
-                        f.ShowDialog();
-
-                        if (f.result == true)
-                        {
-                            if (f.rbtnpos.Checked == true)
-                            {
-                                sf.mseglist[e.Position.Row - 1].destcontrolmode = 0;
-                                sf.mseglist[e.Position.Row - 1].dest = f.numericEdit1.Value;
-                                sf.mseglist[e.Position.Row - 1].keeptime = f.numericEdit3.Value;
-
-                            }
-                            else
-                            {
-                                sf.mseglist[e.Position.Row - 1].destcontrolmode = 1;
-                                sf.mseglist[e.Position.Row - 1].dest = f.numericEdit2.Value;
-                                sf.mseglist[e.Position.Row - 1].keeptime = f.numericEdit3.Value;
-                            }
-
-
-
-                            grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].destconvert();
-                        }
-                    }
-                }
-                else
-
-                {
+                
 
                     Frm.Form标准跳转条件 f = new TabHeaderDemo.Frm.Form标准跳转条件();
 
-                    f.Text = "跳转条件步骤" + e.Position.Row.ToString().Trim();
+                    if(GlobeVal.mysys.language ==0)
+                {
+                    _temp = "跳转条件步骤";
+                }
+                    else
+                {
+                    _temp = "Goto, steps";
+                }
+                    f.Text = _temp  + e.Position.Row.ToString().Trim();
                     f.result = false;
 
                     f.comboBox1.Items.Clear();
@@ -427,9 +394,18 @@ namespace TabHeaderDemo
 
 
                     f.cbomode.Items.Clear();
+                if (GlobeVal.mysys.language == 0)
+                {
                     f.cbomode.Items.Add("切换");
                     f.cbomode.Items.Add("不切换");
                     f.cbomode.Items.Add("跟随");
+                }
+                else
+                {
+                    f.cbomode.Items.Add("Switch");
+                    f.cbomode.Items.Add("No Switch");
+                    f.cbomode.Items.Add("Follow");
+                }
                     f.cbomode.SelectedIndex = sf.mseglist[e.Position.Row - 1].destmod; 
 
 
@@ -460,7 +436,7 @@ namespace TabHeaderDemo
 
                     grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].destconvert();
                 }
-            }
+            
 
             if (e.Position.Column == 5)
             {
@@ -470,7 +446,14 @@ namespace TabHeaderDemo
                     return;
                 }
                 Frm.Form循环执行 f = new TabHeaderDemo.Frm.Form循环执行();
-                f.Text = "循环执行步骤" + e.Position.Row.ToString().Trim();
+                if (GlobeVal.mysys.language == 0)
+                {
+                    f.Text = "循环执行步骤" + e.Position.Row.ToString().Trim();
+                }
+                else
+                {
+                    f.Text = "Loop steps" + e.Position.Row.ToString().Trim();
+                }
                 f.result = false;
 
                 f.chkcyclic.Checked = sf.mseglist[e.Position.Row - 1].cyclicrun;
@@ -558,20 +541,45 @@ namespace TabHeaderDemo
             grid3.Columns[1].AutoSizeMode = SourceGrid2.AutoSizeMode.EnableStretch;
             grid3.FixedRows = 0;
             grid3.Rows.Insert(0);
-
-            SourceGrid2.Cells.Real.ColumnHeader head = new SourceGrid2.Cells.Real.ColumnHeader("准则");
+            SourceGrid2.Cells.Real.ColumnHeader head;
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("准则");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Criterion");
+            }
             head.EnableSort = false;
             grid3[0, 0] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("通道");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("通道");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Channel");
+            }
             head.EnableSort = false;
             grid3[0, 1] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("间隔");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("间隔");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Interval");
+            }
             head.EnableSort = false;
             grid3[0, 2] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("单位");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("单位");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Unit");
+            }
             head.EnableSort = false;
             grid3[0, 3] = head;
 
@@ -611,10 +619,18 @@ namespace TabHeaderDemo
             // Put it in the first column of the fourth row
 
             cbomethod.Items.Clear();
-            cbomethod.Items.Add("试验方法默认");
-            cbomethod.Items.Add("自定义采集");
-            cbomethod.Items.Add("不采集");
-
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbomethod.Items.Add("试验方法默认");
+                cbomethod.Items.Add("自定义采集");
+                cbomethod.Items.Add("不采集");
+            }
+            else
+            {
+                cbomethod.Items.Add("Defalut");
+                cbomethod.Items.Add("Custom");
+                cbomethod.Items.Add("No gathering");
+            }
             cbomethod.SelectedIndex = 0;
 
             
@@ -695,34 +711,80 @@ namespace TabHeaderDemo
             grid2.Rows[0].Height = 25;
 
             SourceGrid2.Cells.Real.ColumnHeader head;
-            head = new SourceGrid2.Cells.Real.ColumnHeader("步骤");
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("步骤");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Step");
+            }
             head.EnableSort = false;
             grid2[0, 0] = head;
 
+            if (GlobeVal.mysys.language == 0)
+            {
 
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("控制模式");
+                head = new SourceGrid2.Cells.Real.ColumnHeader("控制模式");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Control Mode");
+            }
 
             head.EnableSort = false;
             grid2[0, 1] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("控制参数");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("控制参数");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Control parameters");
+            }
             head.EnableSort = false;
             grid2[0, 2] = head;
 
-            head = new SourceGrid2.Cells.Real.ColumnHeader("跳转条件");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("跳转条件");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Goto");
+            }
             head.EnableSort = false;
             grid2[0, 3] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("动作");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("动作");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Action");
+            }
             head.EnableSort = false;
             grid2[0, 4] = head;
 
-            head = new SourceGrid2.Cells.Real.ColumnHeader("循环");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("循环");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Loop");
+            }
             head.EnableSort = false;
             grid2[0, 5] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("说明");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("说明");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Explain");
+            }
             head.EnableSort = false;
             grid2[0, 6] = head;
 
@@ -821,8 +883,47 @@ namespace TabHeaderDemo
         {
             chkremoveext.Checked = CComLibrary.GlobeVal.filesave.chkextremove;
             CComLibrary.GlobeVal.filesave.Extensometer_removal = 0;
+            
+
+
+            cboextruler.Items.Clear();
+            if (GlobeVal.mysys.language == 0)
+            {
+                cboextruler.Items.Add("数据通道值");
+            }
+            else
+            {
+                cboextruler.Items.Add("Data channel value");
+            }
+
+
+
+
+
             cboextruler.SelectedIndex = 0;
+
+
+            cboextact.Items.Clear();
+
+
+            if (GlobeVal.mysys.language ==0)
+            {
+                cboextact.Items.Add("继续试验");
+                cboextact.Items.Add("暂停试验但继续采集数据");
+                cboextact.Items.Add("暂停试验且暂停采集数据");
+            }
+            else
+            {
+                cboextact.Items.Add("Continue test");
+                cboextact.Items.Add("Suspend test, but continue to collect data.");
+                cboextact.Items.Add("Suspend test and suspend data collection");
+            }
+
+
+
             cboextchannel.Items.Clear();
+
+        
 
             for (int i = 0; i < m_Global.mycls.hardsignals.Count; i++)
             {
@@ -872,22 +973,24 @@ namespace TabHeaderDemo
         {
 
             cbocontrolprocess.Items.Clear();
-            cbocontrolprocess.Items.Add("一般测试");
-            cbocontrolprocess.Items.Add("中级测试");
-            cbocontrolprocess.Items.Add("简单测试");
 
-            if ((GlobeVal.mysys.controllerkind == 0)||(GlobeVal.mysys.controllerkind == 1) || (GlobeVal.mysys.controllerkind == 2))
+
+            cbocontrolprocess.Items.Add(GlobeVal.str_General_test);
+            cbocontrolprocess.Items.Add(GlobeVal.str_Intermediate_Test);
+            cbocontrolprocess.Items.Add(GlobeVal.str_Simple_test);
+
+            if ((GlobeVal.mysys.controllerkind == 0) || (GlobeVal.mysys.controllerkind == 1) || (GlobeVal.mysys.controllerkind == 2))
             {
-                cbocontrolprocess.Items.Add("高级测试");
-               // cbocontrolprocess.Items.Add("块谱测试");
+                cbocontrolprocess.Items.Add(GlobeVal.str_Advanced_test);
+                // cbocontrolprocess.Items.Add("块谱测试");
             }
 
 
 
             cbocontrolprocess.SelectedIndex = CComLibrary.GlobeVal.filesave.mcontrolprocess;
 
-            
-         
+
+
 
             grid1.RowsCount = 0;
             grid1.AutoStretchColumnsToFitWidth = true;
@@ -906,28 +1009,68 @@ namespace TabHeaderDemo
             grid1.FixedRows = 1;
             grid1.Rows.Insert(0);
             grid1.Rows[0].Height = 25;
+            SourceGrid2.Cells.Real.ColumnHeader head;
+            if (GlobeVal.mysys.language == 0)
+            { 
+               head = new SourceGrid2.Cells.Real.ColumnHeader("名称");
+            }
+            else
+            {
+               head = new SourceGrid2.Cells.Real.ColumnHeader("Name");
+            }
 
-            SourceGrid2.Cells.Real.ColumnHeader head = new SourceGrid2.Cells.Real.ColumnHeader("名称");
             head.EnableSort = false;
             grid1[0, 0] = head;
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("单位");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Unit");
 
-            head = new SourceGrid2.Cells.Real.ColumnHeader("单位");
+            }
             head.EnableSort = false;
            grid1[0, 1] =head;
+            if (GlobeVal.mysys.language == 0)
+            {
 
-            head = new SourceGrid2.Cells.Real.ColumnHeader("上限");
+                head = new SourceGrid2.Cells.Real.ColumnHeader("上限");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Upper limit");
+            }
             head.EnableSort = false;
             grid1[0, 2] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("下限");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("下限");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Lower limit");
+            }
             head.EnableSort = false;
             grid1[0, 3] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("量程");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("量程");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Range");
+            }
             head.EnableSort = false;
             grid1[0, 4] = head;
-
-            head = new SourceGrid2.Cells.Real.ColumnHeader("激活");
+            if (GlobeVal.mysys.language == 0)
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("激活");
+            }
+            else
+            {
+                head = new SourceGrid2.Cells.Real.ColumnHeader("Activation");
+            }
             head.EnableSort = false;
             grid1[0, 5] = head;
 
@@ -960,8 +1103,17 @@ namespace TabHeaderDemo
            
 
             cbosamplemode.Items.Clear();
-            cbosamplemode.Items.Add("静态采集方式");
-            cbosamplemode.Items.Add("动态采集方式");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbosamplemode.Items.Add("静态采集方式");
+                cbosamplemode.Items.Add("动态采集方式");
+            }
+            else
+            {
+                cbosamplemode.Items.Add("Static acquisition");
+                cbosamplemode.Items.Add("Dynamic acquisition");
+               
+            }
             //cbosamplemode.Items.Add("高级控制采集方式");
 
             cbosamplemode.SelectedIndex = CComLibrary.GlobeVal.filesave.Samplingmode;
@@ -986,6 +1138,7 @@ namespace TabHeaderDemo
         public void Init_测试()
         {
             cbomode1.Items.Clear();
+
             cbomode1.Items.Add("轴向");
             cbomode1.SelectedIndex = 0;
 
@@ -1568,6 +1721,8 @@ namespace TabHeaderDemo
             this.tableLayoutPanel38.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel38, true, null);
 
 
+
+           
         }
 
         private void waveshape0_sel()
@@ -1594,9 +1749,18 @@ namespace TabHeaderDemo
             cbospeedunit.SelectedIndex = getselect().msequence.mrateunit;
             numspeed.Value = getselect().msequence.mrate;
             cbodestmode.Items.Clear();
-            cbodestmode.Items.Add("切换");
-            cbodestmode.Items.Add("不切换");
-            cbodestmode.Items.Add("跟随");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbodestmode.Items.Add("切换");
+                cbodestmode.Items.Add("不切换");
+                cbodestmode.Items.Add("跟随");
+            }
+            else
+            {
+                cbodestmode.Items.Add("Switch");
+                cbodestmode.Items.Add("No switch");
+                cbodestmode.Items.Add("Follow");
+            }
             cbodestmode.SelectedIndex = getselect().msequence.destmode;
 
            
@@ -1619,14 +1783,24 @@ namespace TabHeaderDemo
             cbocontrol.SelectedIndex = getselect().msequence.controlmode;
             cbocontrol_SelectionChangeCommitted(null, null);
             numtrispeed.Value = getselect().msequence.mtrirate;
+            numtrispeeddown.Value = getselect().msequence.mtriratedown;
+
 
             numtricount.Value = getselect().msequence.mcount;
             numtrifinishedcount.Value = getselect().msequence.mfinishedcount;
 
 
             cbotriinitdir.Items.Clear();
-            cbotriinitdir.Items.Add("向上");
-            cbotriinitdir.Items.Add("向下");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbotriinitdir.Items.Add("向上");
+                cbotriinitdir.Items.Add("向下");
+            }
+            else
+            {
+                cbotriinitdir.Items.Add("Upward");
+                cbotriinitdir.Items.Add("Down");
+            }
             cbotriinitdir.SelectedIndex = getselect().msequence.mtriinitdir;
 
 
@@ -1655,13 +1829,29 @@ namespace TabHeaderDemo
 
 
             cbopeakmode.Items.Clear();
-            cbopeakmode.Items.Add("覆盖");
-            cbopeakmode.Items.Add("追加");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbopeakmode.Items.Add("覆盖");
+                cbopeakmode.Items.Add("追加");
+            }
+            else
+            {
+                cbopeakmode.Items.Add("Replace");
+                cbopeakmode.Items.Add("Append");
+            }
             cbopeakmode.SelectedIndex = getselect().msequence.msavemode_forflow ;
 
             cboflowmode.Items.Clear();
-            cboflowmode.Items.Add("覆盖");
-            cboflowmode.Items.Add("追加");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cboflowmode.Items.Add("覆盖");
+                cboflowmode.Items.Add("追加");
+            }
+            else
+            {
+                cboflowmode.Items.Add("Replace");
+                cboflowmode.Items.Add("Append");
+            }
             cboflowmode.SelectedIndex = getselect().msequence.msavemode_forappend;
         }
 
@@ -1676,8 +1866,16 @@ namespace TabHeaderDemo
             numsinfinishedcount.Value = getselect().msequence.mfinishedcount;
 
             cbosininitdir.Items.Clear();
-            cbosininitdir.Items.Add("向上");
-            cbosininitdir.Items.Add("向下");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbosininitdir.Items.Add("向上");
+                cbosininitdir.Items.Add("向下");
+            }
+            else
+            {
+                cbosininitdir.Items.Add("Upward");
+                cbosininitdir.Items.Add("Down");
+            }
             cbosininitdir.SelectedIndex = getselect().msequence.msininitdir;
             numfreq.Value = getselect().msequence.msinfreq;
             numsinmax.Value = getselect().msequence.msinmax;
@@ -1714,8 +1912,16 @@ namespace TabHeaderDemo
             cborectspeedunit.SelectedIndex = getselect().msequence.mrectrateunit;
             numrectcount.Value = getselect().msequence.mrectcount;
             cborectinitdir.Items.Clear();
-            cborectinitdir.Items.Add("向上");
-            cborectinitdir.Items.Add("向下");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cborectinitdir.Items.Add("向上");
+                cborectinitdir.Items.Add("向下");
+            }
+            else
+            {
+                cborectinitdir.Items.Add("Upward");
+                cborectinitdir.Items.Add("Down");
+            }
             cborectinitdir.SelectedIndex = getselect().msequence.mrectinitdir;
 
             numrectupspeed.Value = getselect().msequence.mrectuprate;
@@ -1748,8 +1954,14 @@ namespace TabHeaderDemo
             }
             (toolStripWave.Items[(sender as UserControlStep).Kind] as ToolStripButton).Checked = true;
 
-
-            lblstep.Text = "步骤" + ((sender as UserControlStep).Id + 1).ToString() + "名称：";
+            if (GlobeVal.mysys.language == 0)
+            {
+                lblstep.Text = "步骤" + ((sender as UserControlStep).Id + 1).ToString() + "名称：";
+            }
+            else
+            {
+                lblstep.Text = "Step " + ((sender as UserControlStep).Id + 1).ToString() + " Name:";
+            }
 
             txtstep.Text = (sender as UserControlStep).msequence.stepname;
 
@@ -1878,8 +2090,15 @@ namespace TabHeaderDemo
 
         private void UserControlStep1_btncutevent(object sender, int index)
         {
-
-            DialogResult a = MessageBox.Show("是否删除当前模块？", "提示", MessageBoxButtons.YesNo);
+            DialogResult a;
+            if (GlobeVal.mysys.language == 0)
+            {
+                a = MessageBox.Show("是否删除当前模块？", "提示", MessageBoxButtons.YesNo);
+            }
+            else
+            {
+                a = MessageBox.Show("Do you want to delete the current module?", "Tips", MessageBoxButtons.YesNo);
+            }
 
             if (a == DialogResult.Yes)
             {
@@ -2006,18 +2225,39 @@ namespace TabHeaderDemo
 
             if (cbotestendCriteria1.SelectedIndex == 0)
             {
-                lbltestend1.Text = "灵敏度 (%)";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend1.Text = "下降到(%)：";
+                }
+                else
+                {
+                    lbltestend1.Text = "Drops by (%) threshold";
+                }
 
 
             }
             else if (cbotestendCriteria1.SelectedIndex == 1)
             {
-                lbltestend1.Text = "载荷下降到 ";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend1.Text = "下降到：";
+                }
+                else
+                {
+                    lbltestend1.Text = "Drops to:";
+                }
 
             }
             else if (cbotestendCriteria1.SelectedIndex == 2)
             {
-                lbltestend1.Text = "超过载荷门槛值";
+                if(GlobeVal.mysys.language == 0)
+                {
+                    lbltestend1.Text = "超过：";
+                }
+                else
+                {
+                    lbltestend1.Text = "Exceed to:";
+                }
             }
         }
 
@@ -2027,18 +2267,39 @@ namespace TabHeaderDemo
 
             if (cbotestendCriteria2.SelectedIndex == 0)
             {
-                lbltestend2.Text = "灵敏度 (%)";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend2.Text = "下降到(%)：";
+                }
+                else
+                {
+                    lbltestend2.Text = "Drops by (%) threshold";
+                }
 
 
             }
             else if (cbotestendCriteria2.SelectedIndex == 1)
             {
-                lbltestend2.Text = "载荷下降到 ";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend2.Text = "下降到：";
+                }
+                else
+                {
+                    lbltestend2.Text = "Drops to:";
+                }
 
             }
             else if (cbotestendCriteria2.SelectedIndex == 2)
             {
-                lbltestend2.Text = "超过载荷门槛值";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    lbltestend2.Text = "超过：";
+                }
+                else
+                {
+                    lbltestend2.Text = "Exceed to:";
+                }
             }
 
             numtestendvalue2.Value = 0;
@@ -2374,7 +2635,14 @@ namespace TabHeaderDemo
 
             if (fb==true)
             {
-                MessageBox.Show("错误，循环中包括子循环");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("错误，循环中包括子循环");
+                }
+                else
+                {
+                    MessageBox.Show("Error, including sub loop in the loop.");
+                }
                 return;
             }
 
@@ -2394,7 +2662,18 @@ namespace TabHeaderDemo
 
             if (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\seg\\" + tscbo.Text) == true)
             {
-                DialogResult b = MessageBox.Show("是否删除文件[" + tscbo.Text + "]?", "提示", MessageBoxButtons.YesNo);
+
+                DialogResult b;
+
+                if (GlobeVal.mysys.language == 0)
+                {
+
+                    b = MessageBox.Show("是否删除文件[" + tscbo.Text + "]?", "提示", MessageBoxButtons.YesNo);
+                }
+                else
+                {
+                    b = MessageBox.Show("Do you want to delete files?[" + tscbo.Text + "]?", "Tips", MessageBoxButtons.YesNo);
+                }
 
                 if (b == DialogResult.Yes)
                 {
@@ -2465,7 +2744,14 @@ namespace TabHeaderDemo
             string s1;
             Frm.Form新建程序文件 f = new TabHeaderDemo.Frm.Form新建程序文件();
             f.result = false;
-            f.Text = "重命名";
+            if (GlobeVal.mysys.language == 0)
+            {
+                f.Text = "重命名";
+            }
+            else
+            {
+                f.Text = "Rename";
+            }
             f.ShowDialog();
             if (f.result == true)
             {
@@ -2493,11 +2779,27 @@ namespace TabHeaderDemo
         {
             if (currow <= 1)
             {
-                MessageBox.Show("不能在第一行插入");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("不能在第一行插入");
+                }
+                else
+                {
+                    MessageBox.Show("Can not be inserted in the first line.");
+                }
                 return;
             }
+            DialogResult a;
 
-            DialogResult a = MessageBox.Show("是否在当前位置之前插入？", "提示", MessageBoxButtons.YesNo);
+            if (GlobeVal.mysys.language == 0)
+            {
+                a = MessageBox.Show("是否在当前位置之前插入？", "提示", MessageBoxButtons.YesNo);
+            }
+            else
+            {
+                a = MessageBox.Show("Whether to insert before the current position？", "Tips", MessageBoxButtons.YesNo);
+            }
+
 
 
             if (a == DialogResult.Yes)
@@ -2516,7 +2818,18 @@ namespace TabHeaderDemo
         private void tsbtndel_Click(object sender, EventArgs e)
         {
             int w = 0;
-            DialogResult a = MessageBox.Show("是否删除？", "提示", MessageBoxButtons.YesNo);
+
+            DialogResult a;
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                a = MessageBox.Show("是否删除？", "提示", MessageBoxButtons.YesNo);
+            }
+            else
+            {
+                a = MessageBox.Show("Whether or not to delete？", "Tips", MessageBoxButtons.YesNo);
+            }
+
             if (a == DialogResult.Yes)
             {
                 w = currow - 1;
@@ -2850,7 +3163,16 @@ namespace TabHeaderDemo
 
             if (fb==true)
             {
-                MessageBox.Show("错误，循环中包括子循环");
+                if( GlobeVal.mysys.language ==0)
+                {
+                    MessageBox.Show("错误，循环中包括子循环");
+                }
+                else
+                {
+
+                    MessageBox.Show("Error，The loop includes sub loops");
+                }
+               
                 return;
             }
             sqf.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + tscbos.Text);
@@ -2982,6 +3304,17 @@ namespace TabHeaderDemo
                 }
 
                 cbotrispeedunit.SelectedIndex = getselect().msequence.mtrirateunit;
+
+                getselect().msequence.triratedown = (ItemSignal)m_Global.mycls.chsignals[cbocontrol.SelectedIndex].speedSignal.Clone();
+
+                cbotrispeeddownunit.Items.Clear();
+
+                for (int i = 0; i < getselect().msequence.triratedown.cUnitCount; i++)
+                {
+                    cbotrispeeddownunit.Items.Add(getselect().msequence.triratedown.cUnits[i]);
+                }
+
+                cbotrispeeddownunit.SelectedIndex = getselect().msequence.mtriratedownunit;
 
                 txttrimaxunit.Text = m_Global.mycls.chsignals[cbocontrol.SelectedIndex].cUnits[0];
                 txttriminunit.Text = m_Global.mycls.chsignals[cbocontrol.SelectedIndex].cUnits[0];
@@ -3811,6 +4144,16 @@ namespace TabHeaderDemo
         private void cbopeakmode_SelectionChangeCommitted(object sender, EventArgs e)
         {
             getselect().msequence.msavemode_forappend= cbopeakmode.SelectedIndex;
+        }
+
+        private void numtrispeeddown_AfterChangeValue(object sender, NationalInstruments.UI.AfterChangeNumericValueEventArgs e)
+        {
+            getselect().msequence.mtriratedown = numtrispeeddown.Value;
+        }
+
+        private void cbotrispeeddownunit_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            getselect().msequence.mtriratedownunit = cbotrispeeddownunit.SelectedIndex;
         }
     }
 }

@@ -17,7 +17,7 @@ using Microsoft.Win32;
 namespace TabHeaderDemo
 {
 
-    public partial class FormMainLab : Form
+    public partial class FormMainLab : FormBase
     {
 
         public int l = 0;
@@ -35,18 +35,20 @@ namespace TabHeaderDemo
 
         private Color topbackcolor = new Color();
 
-        private  ClsStaticStation.ClsBaseControl myarm;
+        private ClsStaticStation.ClsBaseControl mybcontrol;
 
         private ClsStaticStation.CArmCan marmcan;
         private ClsStaticStation.CArm marm;
         private ClsStaticStation.CDOLI mdoli;
         private ClsStaticStation.CDsp mdsp;
-        private User围压 User围压1;
+
         private UserControl操作面板 UserControl操作面板1;
         private UserControl轴向恒应变 UserControl轴向恒应变1;
 
         private UserControl扭转 UserControl扭转1;
-        private UserControl轴向 UserControl轴向1;
+        public UserControl轴向 UserControl轴向1;
+
+        public UserControl刚度双轴 UserControl刚度双轴1;
         public UserControl东光 UserControl东光1;
         private List<JMeter> mlistmeter;
         private List<Button> mlistkey;
@@ -56,7 +58,7 @@ namespace TabHeaderDemo
         private MainForm fdata;
 
 
-       // public DriverDll.CDriver cdriverdll;
+        // public DriverDll.CDriver cdriverdll;
 
         private int msel = 0;
         [STAThread]
@@ -96,6 +98,9 @@ namespace TabHeaderDemo
             }
             else
             {
+
+
+
                 MessageBox.Show("请在windows7以上版本运行");
             }
 
@@ -175,6 +180,8 @@ namespace TabHeaderDemo
 
             GlobeVal.mysys = new ClassSys();
 
+
+
             //MessageBox.Show(System.Windows.Forms.Application.StartupPath.ToString());
 
 
@@ -190,49 +197,66 @@ namespace TabHeaderDemo
             }
 
 
+            CComLibrary.GlobeVal.languageselect = GlobeVal.mysys.language;
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                CComLibrary.GlobeVal.mylanguage.SetLanguage(LanguageEnum.LanguageCN);
+            }
+            else
+            {
+                CComLibrary.GlobeVal.mylanguage.SetLanguage(LanguageEnum.LanguageEN);
+            }
+
+
+
             m_Global.mycls = new ItemSignalStation(Convert.ToInt32(GlobeVal.mysys.machinekind));
 
 
 
             m_Global.mycls.ChannelCount = GlobeVal.mysys.ChannelCount;
 
-            for (int i = 0; i < GlobeVal.mysys.ChannelCount ; i++)
+            for (int i = 0; i < GlobeVal.mysys.ChannelCount; i++)
             {
                 m_Global.mycls.ChannelControl[i] = GlobeVal.mysys.ChannelControl[i];
                 m_Global.mycls.ChannelDimension[i] = GlobeVal.mysys.ChannelDimension[i];
-                m_Global.mycls.ChannelRange[i] = GlobeVal.mysys.ChannelRange[i]; 
+                m_Global.mycls.ChannelRange[i] = GlobeVal.mysys.ChannelRange[i];
+                m_Global.mycls.ChannelSampling[i] = GlobeVal.mysys.ChannelSamplemode[i];
+                m_Global.mycls.ChannelControlChannel[i] = GlobeVal.mysys.ChannelControlChannel[i];
             }
+
+
             if (GlobeVal.mysys.controllerkind == 0)
             {
                 if (GlobeVal.mysys.machinekind == 3)
                 {
-                    marmcan  = new CArmCan();
-                    myarm = marmcan;
+                    marmcan = new CArmCan();
+                    mybcontrol = marmcan;
                 }
                 else
                 {
                     marm = new CArm();
-                    myarm = marm;
+                    mybcontrol = marm;
                 }
-               
+
 
             }
 
             if (GlobeVal.mysys.controllerkind == 1)
             {
                 mdoli = new CDOLI();
-                myarm = mdoli;
+                mybcontrol = mdoli;
             }
 
             if (GlobeVal.mysys.controllerkind == 2)
             {
 
                 mdsp = new CDsp();
-                myarm = mdsp;
+                mybcontrol = mdsp;
             }
             if (GlobeVal.mysys.controllerkind == 3)
             {
-                myarm = new C电机();
+                mybcontrol = new C电机();
             }
 
 
@@ -259,7 +283,7 @@ namespace TabHeaderDemo
             keyboardReplayHook.KeyDown += new KeyEventHandler(KeyboardReplayHook_KeyDown);
             keyboardReplayHook.KeyUp += new KeyEventHandler(KeyboardReplayHook_KeyUp);
 
-            
+
 
         }
 
@@ -376,7 +400,7 @@ namespace TabHeaderDemo
 
             if (macroEvent.MacroEventType == MacroEventType.MouseMove)
             {
-                this.timerRecord.Interval = macroEvent.TimeSinceLastEvent+1;
+                this.timerRecord.Interval = macroEvent.TimeSinceLastEvent + 1;
             }
             else
 
@@ -582,9 +606,17 @@ namespace TabHeaderDemo
 
         private void FormMainLab_Load(object sender, EventArgs e)
         {
+
+
+
+
+            GlobeVal.Init_Global_String_resource();
+
             GlobeVal.MainStatusStrip = this.statusStrip1;
 
             GlobeVal.FormmainLab = this;
+
+            this.Language();
 
             GlobeVal.dopanel = panel2;
 
@@ -596,6 +628,14 @@ namespace TabHeaderDemo
             jMeter3.BackColor = topbackcolor;
             jMeter4.BackColor = topbackcolor;
 
+            jMeter1.init();
+            jMeter2.init();
+            jMeter3.init();
+            jMeter4.init();
+            jMeter1.Language();
+            jMeter2.Language();
+            jMeter3.Language();
+            jMeter4.Language();
 
             mlistmeter = new List<JMeter>();
             mlistmeter.Add(jMeter1);
@@ -610,6 +650,7 @@ namespace TabHeaderDemo
             mlistkey.Add(btnkey4);
             UTop = new TabHeaderDemo.UserControlTop();
             UTop.Dock = DockStyle.Fill;
+            UTop.Language();
             panel5.Controls.Add(UTop);
             umain = new UserControlMain();
             umain.Dock = DockStyle.Fill;
@@ -620,38 +661,53 @@ namespace TabHeaderDemo
             this.Width = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Width);
             this.Height = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height);
 
-           // this.Width = 1024;
-           // this.Height = 768;
+            // this.Width = 1024;
+            // this.Height = 768;
             tabControl1.ItemSize = new Size(1, 1);
 
+            if (GlobeVal.mysys.language == 0)
+            {
+                toolTip1.SetToolTip(btnmethod, "试验标准编辑器");
+                toolTip1.SetToolTip(btnon, "全部清零");
+                toolTip1.SetToolTip(recordStartButton, "开始录制");
+                toolTip1.SetToolTip(playBackMacroButton, "操作回放");
+                toolTip1.SetToolTip(recordStopButton, "停止录制");
+                toolTip1.SetToolTip(btnread, "读取演示文件");
 
 
+            }
+            else
+            {
+                toolTip1.SetToolTip(btnmethod, "Test criteria editor");
+                toolTip1.SetToolTip(btnon, "Clear all channels");
+                toolTip1.SetToolTip(recordStartButton, "Start recording");
+                toolTip1.SetToolTip(playBackMacroButton, "Playback");
+                toolTip1.SetToolTip(recordStopButton, "Stop recording");
+                toolTip1.SetToolTip(btnread, "Read demo file");
+            }
 
-
-            GlobeVal.myarm = myarm;
+            GlobeVal.myarm = mybcontrol;
 
 
             if (GlobeVal.mysys.machinekind == 2)
             {
-                User围压1 = new User围压();
-                User围压1.Dock = DockStyle.Fill;
-                UserControl操作面板1 = new UserControl操作面板();
-                UserControl轴向1 = new UserControl轴向();
-                UserControl操作面板1.Controls.Add(UserControl轴向1);
-                UserControl轴向1.Dock = DockStyle.Fill;
-                UserControl操作面板1.Dock = DockStyle.Fill;
 
-                panel2.Controls.Add(UserControl操作面板1);
-                tlpsel.Visible = true;
-                cbochannel.Items.Clear();
-                cbochannel.Items.Add("轴向");
-                cbochannel.Items.Add("围压");
-                cbochannel.SelectedIndex = 0;
 
 
             }
 
-            if ((GlobeVal.mysys.machinekind == 0) ||(GlobeVal.mysys.machinekind == 5))
+            if (GlobeVal.mysys.machinekind == 6)
+            {
+                tlpsel.Visible = false;
+                UserControl操作面板1 = new UserControl操作面板();
+                UserControl刚度双轴1 = new UserControl刚度双轴();
+                UserControl操作面板1.Controls.Add(UserControl刚度双轴1);
+                UserControl刚度双轴1.Dock = DockStyle.Fill;
+                UserControl操作面板1.Dock = DockStyle.Fill;
+                panel2.Controls.Add(UserControl操作面板1);
+            }
+
+            if ((GlobeVal.mysys.machinekind == 0) || (GlobeVal.mysys.machinekind == 5))
             {
                 tlpsel.Visible = false;
                 UserControl操作面板1 = new UserControl操作面板();
@@ -680,13 +736,13 @@ namespace TabHeaderDemo
                 UserControl操作面板1 = new UserControl操作面板();
                 UserControl东光1 = new UserControl东光();
                 UserControl操作面板1.Controls.Add(UserControl东光1);
-              
+
                 UserControl东光1.Dock = DockStyle.Fill;
                 UserControl操作面板1.Dock = DockStyle.Fill;
                 panel2.Controls.Add(UserControl操作面板1);
             }
 
-            if (GlobeVal.mysys.machinekind ==4)
+            if (GlobeVal.mysys.machinekind == 4)
             {
                 tlpsel.Visible = false;
                 UserControl操作面板1 = new UserControl操作面板();
@@ -699,7 +755,14 @@ namespace TabHeaderDemo
             }
             if (GlobeVal.mysys.demo == true)
             {
-                GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = "演示";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = "演示";
+                }
+                else
+                {
+                    GlobeVal.MainStatusStrip.Items["tslbldevice"].Text = "Demo";
+                }
             }
             else
             {
@@ -735,7 +798,7 @@ namespace TabHeaderDemo
             software.Close();
 
     */
-           
+
 
             if (GlobeVal.mysys.showshorttitle == false)
             {
@@ -744,7 +807,7 @@ namespace TabHeaderDemo
             }
             else
             {
-                UTop.wordArt1.Caption = GlobeVal.mysys.shorttitle;
+                UTop.wordArt1.Caption = GlobeVal.mysys.Lshorttitle[GlobeVal.mysys.language];
             }
 
             if (GlobeVal.mysys.showlogo == true)
@@ -775,7 +838,7 @@ namespace TabHeaderDemo
 
             if (GlobeVal.mysys.safe == true)
             {
-                
+
                 Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
 
 
@@ -793,7 +856,7 @@ namespace TabHeaderDemo
                 }
                 f.Close();
 
-    
+
 
             }
 
@@ -805,7 +868,7 @@ namespace TabHeaderDemo
                 else
                 {
                     //cdriverdll = new DriverDll.CDriver();
-                   // cdriverdll.Start();
+                    // cdriverdll.Start();
 
                 }
 
@@ -819,15 +882,15 @@ namespace TabHeaderDemo
             }
             else
             {
-               // splitContainer1.SplitterDistance = 980;
-               // tlbmeterback.Height = 84;
-               // paneltop.Height = 126;
+                // splitContainer1.SplitterDistance = 980;
+                // tlbmeterback.Height = 84;
+                // paneltop.Height = 126;
             }
 
 
-           if( GlobeVal.mysys.startupscreen==1)
+            if (GlobeVal.mysys.startupscreen == 1)
             {
-               
+
 
 
                 ((SplitContainer)tabControl1.TabPages[1].Controls[0]).Panel2Collapsed = false;
@@ -841,7 +904,7 @@ namespace TabHeaderDemo
                 {
                     Application.DoEvents();
                 }
-               
+
 
                 if (GlobeVal.mysys.machinekind == 3)
                 {
@@ -861,6 +924,8 @@ namespace TabHeaderDemo
                 CComLibrary.GlobeVal.filesave = CComLibrary.GlobeVal.filesave.DeSerializeNow(fileName);
 
                 ClsStaticStation.m_Global.mycls.initchannel();
+
+
                 ((FormMainLab)Application.OpenForms["FormMainLab"]).InitKey();
                 ((FormMainLab)Application.OpenForms["FormMainLab"]).InitMeter();
 
@@ -873,29 +938,53 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    MessageBox.Show("数据保存路径不存在,请点击浏览选择试验路径");
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("数据保存路径不存在,请点击浏览选择试验路径");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The data save directory does not exist.Please click Browse to select the directory");
+
+                    }
                     return;
                 }
                 if (GlobeVal.mysys.SamplePath == "")
                 {
-                    MessageBox.Show("请设置数据保存路径");
-
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        MessageBox.Show("请设置数据保存路径");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please set the data save directory");
+                    }
                     return;
                 }
-         
 
 
 
-                GlobeVal.spefilename = GlobeVal.mysys.SamplePath + "\\" + "未命名"+ ".spe";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    GlobeVal.spefilename = GlobeVal.mysys.SamplePath + "\\" + "未命名" + ".spe";
+                }
+                else
+                {
+                    GlobeVal.spefilename = GlobeVal.mysys.SamplePath + "\\" + "Unnamed" + ".spe";
+                }
 
 
-              
 
                 GlobeVal.userControlpretest1.SampleNextStep(true);
 
                 CComLibrary.GlobeVal.filesave.currentspenumber = 0;
 
             }
+
+
+
+
+
         }
 
         void m_toolbox_Load(object sender, EventArgs e)
@@ -994,26 +1083,47 @@ namespace TabHeaderDemo
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-          
+
 
 
             if ((GlobeVal.myarm.getlimit(0) == true) || (GlobeVal.myarm.getlimit(0) == true))
             {
-                GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "限位：保护";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "限位：保护";
+                }
+                else
+                {
+                    GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "Limit: Protection";
+                }
                 //GlobeVal.MainStatusStrip.Items["tslbllimit"].BackColor = Color.Red;
                 GlobeVal.MainStatusStrip.Items["tslbllimit"].Image = imageListState.Images[0];
 
             }
             else
             {
-                GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "限位：正常";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "限位：正常";
+                }
+                else
+                {
+                    GlobeVal.MainStatusStrip.Items["tslbllimit"].Text = "Limit: Unprotected";
+                }
                 GlobeVal.MainStatusStrip.Items["tslbllimit"].Image = imageListState.Images[1];
                 //GlobeVal.MainStatusStrip.Items["tslbllimit"].BackColor = SystemColors.Control;
             }
 
             if (GlobeVal.myarm.getEmergencyStop() == true)
             {
-                GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "急停：保护";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "急停：保护";
+                }
+                else
+                {
+                    GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "Emergency stop: Protection";
+                }
 
                 GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Image = imageListState.Images[0];
                 // GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].BackColor = Color.Red;
@@ -1021,7 +1131,14 @@ namespace TabHeaderDemo
 
             else
             {
-                GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "急停：正常";
+                if (GlobeVal.mysys.language == 0)
+                {
+                    GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "急停：正常";
+                }
+                else
+                {
+                    GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Text = "Emergency stop: Unprotected";
+                }
                 GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].Image = imageListState.Images[1];
                 //  GlobeVal.MainStatusStrip.Items["tslblEmergencyStop"].BackColor = SystemColors.Control;
             }
@@ -1118,93 +1235,23 @@ namespace TabHeaderDemo
 
         private void FormMainLab_FormClosed(object sender, FormClosedEventArgs e)
         {
-          
 
-            myarm.Exit();
-            myarm.CloseConnection();
+
+            mybcontrol.Exit();
+            mybcontrol.CloseConnection();
             GlobeVal.mysys.SerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\setup.ini");
         }
 
         private void btntool_Click(object sender, EventArgs e)
         {
-            return;
 
-            int i;
-
-           if (CComLibrary.GlobeVal.filesave==null)
-            {
-                CComLibrary.GlobeVal.filesave = new CComLibrary.FileStruct();
-            }
-
-            CComLibrary.FileStruct f = CComLibrary.GlobeVal.filesave;
-            string temp = System.Environment.GetEnvironmentVariable("TEMP");
-            DirectoryInfo info = new DirectoryInfo(temp);
-
-            if (CComLibrary.GlobeVal.filesave == null)
-            {
-
-            }
-            else
-            {
-                CComLibrary.GlobeVal.filesave.SerializeNow(info.FullName + "\\temp.tmp");
-
-            }
-            try
-            {
-
-
-                fdata.g_namelist.Clear();
-                fdata.g_signnamelist.Clear();
-
-                for (int j = 0; j < m_Global.mycls.originsignals.Count; j++)
-                {
-                    fdata.g_namelist.Add(m_Global.mycls.originsignals[j].cName);
-                    fdata.g_signnamelist.Add(m_Global.mycls.originsignals[j].SignName);
-                }
-
-
-
-
-                fdata.g_datafilepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ";
-
-                fdata.gmptpath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
-                fdata.gmptprocedurepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
-                fdata.tsbeditproject.Visible = false;
-                fdata.gtestkind = CComLibrary.GlobeVal.filesave.methodkind;
-                fdata.gmethodname = CComLibrary.GlobeVal.filesave.methodname;
-
-
-                fdata.Text = "AppleLab-试验数据分析软件";
-                fdata.Show();
-
-                fdata.InitKind();
-                fdata.WindowState = FormWindowState.Normal;
-                fdata.ShowDialog();
-                fdata.reset();
-
-                CComLibrary.GlobeVal.InitUserCalcChannel();
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            temp = System.Environment.GetEnvironmentVariable("TEMP");
-            info = new DirectoryInfo(temp);
-            if (f == null)
-            { }
-            else
-            {
-                CComLibrary.GlobeVal.filesave = f.DeSerializeNow(info.FullName + "\\temp.tmp");
-            }
 
         }
 
         private void btnon_Click(object sender, EventArgs e)
         {
 
-            if (Convert.ToInt16( btnon.Tag)==0)
+            if (Convert.ToInt16(btnon.Tag) == 0)
             {
                 btnon.Image = imageList2.Images[1];
                 btnon.Tag = 1;
@@ -1223,7 +1270,7 @@ namespace TabHeaderDemo
         private void btnhand_Click(object sender, EventArgs e)
         {
 
-          
+
         }
 
 
@@ -1266,9 +1313,14 @@ namespace TabHeaderDemo
                 GlobeVal.mysys.CurentUserIndex = 0;
             }
 
-
-            tsluser.Text = "用户名:" + GlobeVal.mysys.UserName[GlobeVal.mysys.CurentUserIndex];
-
+            if (GlobeVal.mysys.language == 0)
+            {
+                tsluser.Text = "用户名:" + GlobeVal.mysys.UserName[GlobeVal.mysys.CurentUserIndex];
+            }
+            else
+            {
+                tsluser.Text = "User name:" + GlobeVal.mysys.UserName[GlobeVal.mysys.CurentUserIndex];
+            }
             if (GlobeVal.mysys.showapptitle == false)
             {
                 tslblmachine.Text = GlobeVal.mysys.MachineName[GlobeVal.mysys.machinekind];
@@ -1276,8 +1328,8 @@ namespace TabHeaderDemo
             }
             else
             {
-                tslblmachine.Text = GlobeVal.mysys.apptitle;
-                this.Text = GlobeVal.mysys.apptitle;
+                tslblmachine.Text = GlobeVal.mysys.Lapptile[GlobeVal.mysys.language];
+                this.Text = GlobeVal.mysys.Lapptile[GlobeVal.mysys.language];
             }
 
             if (GlobeVal.mysys.showshorttitle == false)
@@ -1287,7 +1339,7 @@ namespace TabHeaderDemo
             }
             else
             {
-                UTop.wordArt1.Caption = GlobeVal.mysys.shorttitle;
+                UTop.wordArt1.Caption = GlobeVal.mysys.Lshorttitle[GlobeVal.mysys.language];
             }
 
         }
@@ -1304,16 +1356,10 @@ namespace TabHeaderDemo
 
         private void cbochannel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbochannel.SelectedIndex == 0)
-            {
-                panel2.Controls.Clear();
-                panel2.Controls.Add(UserControl操作面板1);
-            }
-            else
-            {
-                panel2.Controls.Clear();
-                panel2.Controls.Add(User围压1);
-            }
+
+            panel2.Controls.Clear();
+            panel2.Controls.Add(UserControl操作面板1);
+
         }
 
         private void btnmethod_Click(object sender, EventArgs e)
@@ -1323,7 +1369,14 @@ namespace TabHeaderDemo
             CComLibrary.FileStruct f = new CComLibrary.FileStruct();
             if (GlobeVal.mysys.AppUserLevel < 1)
             {
-                MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("您的当前权限不够，请使用试验经理或管理员权限登录");
+                }
+                else
+                {
+                    MessageBox.Show("Your current permission is not enough. Please use the  manager or administrator permission to login");
+                }
                 return;
             }
             if (tabControl1.SelectedIndex == 0)
@@ -1357,9 +1410,12 @@ namespace TabHeaderDemo
                     fdata.gmptpath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
                     fdata.gmptprocedurepath = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + @"\method\";
                     fdata.tsbeditproject.Visible = true;
-                    fdata.Text = "AppleLab-试验标准编辑器";
+
+                    //fdata.Text = "AppleLab-试验标准编辑器";
                     fdata.ShowDialog();
                     fdata.reset();
+
+                    fdata.Language();
 
                     CComLibrary.GlobeVal.InitUserCalcChannel();
 
@@ -1377,7 +1433,14 @@ namespace TabHeaderDemo
             }
             else
             {
-                MessageBox.Show("只能在主窗体中编辑");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("只能在主窗体中编辑");
+                }
+                else
+                {
+                    MessageBox.Show("Can only be used in the main interface");
+                }
             }
         }
 
@@ -1407,7 +1470,14 @@ namespace TabHeaderDemo
             }
             else
             {
-                MessageBox.Show("请重新录制或读取过程");
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("内容为空，请重新录制");
+                }
+                else
+                {
+                    MessageBox.Show("Content is empty. Please re record.");
+                }
                 return;
             }
             playBackMacroButton.Enabled = false;
@@ -1554,7 +1624,7 @@ namespace TabHeaderDemo
         {
             if (GlobeVal.myarm.mtestrun == true)
             {
-                e.Cancel= true;
+                e.Cancel = true;
             }
         }
     }

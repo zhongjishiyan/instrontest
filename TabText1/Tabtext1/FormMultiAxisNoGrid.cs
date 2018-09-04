@@ -32,17 +32,36 @@ namespace AppleLabApplication
             grid1.ColumnsCount = 5;
             //grid1.FixedRows = 1;
             grid1.Rows.Insert(0);
-            grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
-            grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("行");
-            grid1[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("列");
-            grid1[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("文件名称");
-            grid1[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("文件日期");
 
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
+                grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("行");
+                grid1[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("列");
+                grid1[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("文件名称");
+                grid1[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("文件日期");
+            }
+            else
+            {
+                grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("Name");
+                grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Row");
+                grid1[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("Column");
+                grid1[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("File name");
+                grid1[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("File date");
+
+            }
 
             for (int r = 1; r < 2; r++)
             {
                 grid1.Rows.Insert(r);
-                grid1[r, 0] = new SourceGrid2.Cells.Real.Cell("数据1", typeof(string));
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    grid1[r, 0] = new SourceGrid2.Cells.Real.Cell("数据1", typeof(string));
+                }
+                else
+                {
+                    grid1[r, 0] = new SourceGrid2.Cells.Real.Cell("First data", typeof(string));
+                }
                 grid1[r, 1] = new SourceGrid2.Cells.Real.Cell(CComLibrary.GlobeVal.outgrid[0].Rows.Count.ToString() , typeof(string));
                 grid1[r, 2] = new SourceGrid2.Cells.Real.Cell(CComLibrary.GlobeVal.outgrid[0].Columns.Count.ToString()  , typeof(string));
                 grid1[r, 3] = new SourceGrid2.Cells.Real.Cell(CComLibrary.GlobeVal.outgrid[0].Tag, typeof(string));
@@ -62,16 +81,38 @@ namespace AppleLabApplication
             grid2.ColumnsCount = 7;
             //grid1.FixedRows = 1;
             grid2.Rows.Insert(0);
-            grid2[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("X");
-            grid2[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Y");
-            grid2[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("列");
-            grid2[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
-            grid2[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("第一个数据");
-            grid2[0, 5] = new SourceGrid2.Cells.Real.ColumnHeader("位置");
-            grid2[0, 6] = new SourceGrid2.Cells.Real.ColumnHeader("坐标轴位置");
 
-            string[] l_CmbArr = new string[]{"左侧","右侧"};
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                grid2[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("X");
+                grid2[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Y");
+                grid2[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("列");
+                grid2[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
+                grid2[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("第一个数据");
+                grid2[0, 5] = new SourceGrid2.Cells.Real.ColumnHeader("位置");
+                grid2[0, 6] = new SourceGrid2.Cells.Real.ColumnHeader("坐标轴位置");
+            }
+            else
+            {
+                grid2[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("X");
+                grid2[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Y");
+                grid2[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("Column");
+                grid2[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("Name");
+                grid2[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("First data");
+                grid2[0, 5] = new SourceGrid2.Cells.Real.ColumnHeader("Postion");
+                grid2[0, 6] = new SourceGrid2.Cells.Real.ColumnHeader("Axis position");
+            }
 
+            string[] l_CmbArr;
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                l_CmbArr = new string[] { "左侧", "右侧" };
+            }
+            else
+            {
+                l_CmbArr = new string[] { "Left", "Right" };
+            }
 
 
             for (int r = 1; r < CComLibrary.GlobeVal.filesave.m_namelist.Count  ; r++)
@@ -117,9 +158,17 @@ namespace AppleLabApplication
                 {
                     CComLibrary.GlobeVal.ysels[k] = i;
 
+                    string _temp = "";
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        _temp = "Left";
+                    }
+                    else
+                    {
+                        _temp = "Right";
+                    }
                     
-                    
-                        if (grid2[i, 6].DisplayText == "左侧")
+                        if (grid2[i, 6].DisplayText == _temp )
                         {
                             CComLibrary.GlobeVal.yselpostion[k] = 0;
 

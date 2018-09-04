@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AppleLabApplication
 {
-    public partial class FormCalc : Form
+    public partial class FormCalc : FormBase
     {
         public int num;
 
@@ -18,502 +18,8 @@ namespace AppleLabApplication
         SheetView _SheetView1;
         RichTextBox outputwindow2;
 
-        public void Init_Const()
-        {
-            CComLibrary.GlobeVal.mconst.Clear();
-            CComLibrary.Rule a = new CComLibrary.Rule();
-            a.OperaWordsName = "_单坐标";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "坐标轴设置函数使用";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_双坐标";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "坐标轴设置函数使用";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线1";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "曲线序号1";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线2";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "曲线序号2";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线3";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "曲线序号3";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线4";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "曲线序号4";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线5";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "曲线序号5";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线6";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "曲线序号6";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线7";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "曲线序号7";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线8";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "曲线序号8";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_左轴";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "左侧坐标轴";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_右轴";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "右侧坐标轴";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_底轴";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "底侧坐标轴";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_不画特征点";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "是否画特征点";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_画特征点";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "是否画特征点";
-
-            CComLibrary.GlobeVal.mconst.Add(a);
-
-        }
-        public void Init_Func()
-        {
-            CComLibrary.GlobeVal.mfunc.Clear();
-
-            CComLibrary.Rule a = new CComLibrary.Rule();
-            a.OperaWordsName = "_坐标轴设置";
-            a.replaceName = a.OperaWordsName;
-            a.count = 1;
-            a.explain = "坐标轴是单坐标轴还是左右双坐标轴";
-            a.paraname[0] = "坐标轴类型";
-            a.parakind[0] = "integer";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_消息框";
-            a.replaceName = a.OperaWordsName;
-            a.count = 1;
-            a.explain = "显示消息文本框";
-            a.paraname[0] = "文本";
-            a.parakind[0] = "string";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_调试输出";
-            a.replaceName = a.OperaWordsName;
-            a.count = 1;
-            a.explain = "在调试界面中输出";
-            a.paraname[0] = "文本";
-            a.parakind[0] = "string";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_清除曲线";
-            a.replaceName = a.OperaWordsName;
-            a.count = 1;
-            a.explain = "清除指定曲线数据";
-            a.paraname[0] = "曲线号";
-            a.parakind[0] = "int";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_设置曲线Y坐标轴";
-            a.replaceName = a.OperaWordsName;
-            a.count = 2;
-            a.explain = "指定曲线号对应的坐标轴";
-            a.paraname[0] = "曲线号";
-            a.parakind[0] = "int";
-            a.paraname[1] = "坐标轴";
-            a.parakind[1] = "int";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-          
-
-
-             a = new CComLibrary.Rule();
-             a.OperaWordsName = "_清除所有曲线";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "清除所有数据";
-            a.paraname[0] = "";
-            a.parakind[0] = "";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_闭合曲线";
-            a.replaceName = a.OperaWordsName;
-            a.count = 1;
-            a.explain = "从头到尾连接曲线";
-            a.paraname[0] = "曲线号";
-            a.parakind[0] = "integer";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_画XY曲线";
-            a.replaceName = a.OperaWordsName;
-            a.count = 3;
-            a.explain = "画曲线";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-            a.paraname[2] = "曲线号";
-            a.parakind[2] = "integer";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_画XY点";
-            a.replaceName = a.OperaWordsName;
-            a.count = 3;
-            a.explain = "画曲线点";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double";
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double";
-            a.paraname[2] = "曲线号";
-            a.parakind[2] = "integer";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_拐点";
-            a.replaceName = a.OperaWordsName;
-            a.count = 4;
-            a.explain = "计算拐点";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-           
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "偏移值";
-            a.parakind[2] = "double";
-
-            a.paraname[3] = "是否画特征点";
-            a.parakind[3] = "布尔型";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-           
-            
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_斜率";
-            a.replaceName = a.OperaWordsName;
-            a.count = 3;
-            a.explain = "计算斜率";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "是否画特征点";
-            a.parakind[2] = "布尔型";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_材料屈服点索引";
-            a.replaceName = a.OperaWordsName;
-            a.count = 3;
-            a.explain = "计算材料屈服点索引";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "是否画特征点";
-            a.parakind[2] = "布尔型";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_材料上屈服点索引";
-            a.replaceName = a.OperaWordsName;
-            a.count = 3;
-            a.explain = "计算材料上屈服点索引";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "是否画特征点";
-            a.parakind[2] = "布尔型";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_材料下屈服点索引";
-            a.replaceName = a.OperaWordsName;
-            a.count = 3;
-            a.explain = "计算材料下屈服点索引";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "是否画特征点";
-            a.parakind[2] = "布尔型";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_斜率1";
-            a.replaceName = a.OperaWordsName;
-            a.count = 5;
-            a.explain = "计算斜率";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "YMin%";
-            a.parakind[2] = "double";
-
-            a.paraname[3] = "YMax%";
-            a.parakind[3] = "double";
-
-            a.paraname[4] = "是否画特征点";
-            a.parakind[4] = "布尔型";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_偏置斜率交点";
-            a.replaceName = a.OperaWordsName;
-            a.count = 6;
-            a.explain = "计算斜率平行线和曲线相交点";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "YMin%";
-            a.parakind[2] = "double";
-
-            a.paraname[3] = "YMax%";
-            a.parakind[3] = "double";
-
-            a.paraname[4] = "偏置量";
-            a.parakind[4] = "double";
-
-           
-
-            a.paraname[5] = "是否画特征点";
-            a.parakind[5] = "布尔型";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-           
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_数组Y最大值";
-            a.replaceName = a.OperaWordsName;
-            a.count = 3;
-            a.explain = "计算数组Y最大值";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "是否画特征点";
-            a.parakind[2] = "布尔型";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_引伸计标距";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "取得引伸计标距值";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_引伸计2标距";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "取得引伸计2标距值";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_断后标距";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "输入断后标距";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_面积";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "计算面积";
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_断后面积";
-            a.replaceName = a.OperaWordsName;
-            a.count = 0;
-            a.explain = "输入并计算断后试样面积";
-
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_预设点";
-            a.replaceName = a.OperaWordsName;
-            a.count = 4;
-            a.explain = "指定X求对应的Y值";
-            a.paraname[0] = "设定通道";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "计算通道";
-            a.parakind[1] = "double []";
-
-            a.paraname[2] = "指定值";
-            a.parakind[2] = "double";
-
-            a.paraname[3] = "是否画特征点";
-            a.parakind[3] = "布尔型";
-
-
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_弦向弹模";
-            a.replaceName = a.OperaWordsName;
-            a.count = 2;
-            a.explain = "计算弦向弹模";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-            //CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线拟合";
-            a.replaceName = a.OperaWordsName;
-            a.count = 2;
-            a.explain = "X 数组";
-            a.paraname[0] = "X";
-            a.parakind[0] = "double []";
-            a.explain = "Y 数组";
-            a.paraname[1] = "Y";
-            a.parakind[1] = "double []";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_坐标轴标题";
-            a.replaceName = a.OperaWordsName;
-            a.count = 2;
-            a.explain = "坐标轴";
-            a.paraname[0] = "C";
-            a.parakind[0] = "Integer";
-            a.explain = "标题";
-            a.paraname[1] = "标题内容";
-            a.parakind[1] = "String";
-            CComLibrary.GlobeVal.mfunc.Add(a);
-
-            a = new CComLibrary.Rule();
-            a.OperaWordsName = "_曲线标题";
-            a.replaceName = a.OperaWordsName;
-            a.count = 1;
-            a.explain = "标题";
-            a.paraname[0] = "标题内容";
-            a.parakind[0] = "String";
-            CComLibrary.GlobeVal.mfunc.Add(a);
- 
-        }
+   
+       
         public void Init_Rule()
         {
             CComLibrary.GlobeVal.mrule.Clear();
@@ -523,6 +29,9 @@ namespace AppleLabApplication
             a.replaceName = "=";
             a.count = 0;
             a.explain = "等于";
+            a.LExplain[0] = "等于";
+            a.LExplain[1] = "Be equal to";
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -532,6 +41,9 @@ namespace AppleLabApplication
             a.replaceName = "+";
             a.count = 0;
             a.explain = "加号";
+            a.LExplain[0] = "加号";
+            a.LExplain[1] = "Plus";
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -542,6 +54,10 @@ namespace AppleLabApplication
             a.replaceName = "-";
             a.count = 0;
             a.explain = "减号";
+            a.LExplain[0] = "减号";
+            a.LExplain[1] = "Minus sign";
+
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -552,6 +68,9 @@ namespace AppleLabApplication
             a.replaceName = "*";
             a.count = 0;
             a.explain = "乘号";
+            a.LExplain[0] = "乘号";
+            a.LExplain[1] = "Multiplication sign";
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -561,6 +80,10 @@ namespace AppleLabApplication
             a.replaceName = "/";
             a.count = 0;
             a.explain = "除号";
+            a.LExplain[0] = "除号";
+            a.LExplain[1] = "Sign of division";
+
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -570,6 +93,9 @@ namespace AppleLabApplication
             a.replaceName = "[";
             a.count = 0;
             a.explain = "数组左括号";
+            a.LExplain[0] = "数组左括号";
+            a.LExplain[1] = "Array left parenthesis";
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -580,6 +106,9 @@ namespace AppleLabApplication
             a.replaceName = "]";
             a.count = 0;
             a.explain = "数组右括号";
+            a.LExplain[0] = "数组右括号";
+            a.LExplain[1] = "Array right bracket";
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -589,6 +118,9 @@ namespace AppleLabApplication
             a.replaceName = "(";
             a.count = 0;
             a.explain = "计算左括号";
+            a.LExplain[0] = "计算左括号";
+            a.LExplain[1] = "Left parenthesis";
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -599,6 +131,10 @@ namespace AppleLabApplication
             a.replaceName = ")";
             a.count = 0;
             a.explain = "计算右括号";
+            a.LExplain[0] = "计算右括号";
+            a.LExplain[1] = "Right parenthesis";
+
+
             a.paraname[0] = "";
             a.parakind[0] = "";
             CComLibrary.GlobeVal.mrule.Add(a);
@@ -608,7 +144,10 @@ namespace AppleLabApplication
             a.replaceName = "Math.Abs";
             a.count = 1;
             a.explain = "求绝对值";
-            a.paraname[0] = "值";
+            a.LExplain[0] = "求绝对值";
+            a.LExplain[1] = "Calculate absolute value";
+
+            a.paraname[0] = "value";
             a.parakind[0] = "double";
             CComLibrary.GlobeVal.mrule.Add(a);
             a = new  CComLibrary.Rule();
@@ -616,7 +155,10 @@ namespace AppleLabApplication
             a.replaceName = "Math.Sin";
             a.count = 1;
             a.explain = "求正弦";
-            a.paraname[0] = "值";
+            a.LExplain[0] = "求正弦";
+            a.LExplain[1] = "Calculate sine value";
+
+            a.paraname[0] = "value";
             a.parakind[0] = "double";
             CComLibrary.GlobeVal.mrule.Add(a);
             a = new  CComLibrary.Rule();
@@ -624,7 +166,10 @@ namespace AppleLabApplication
             a.replaceName = "Math.Cos";
             a.count = 1;
             a.explain = "求余弦";
-            a.paraname[0] = "值";
+            a.LExplain[0] = "求余弦";
+            a.LExplain[1] = "Cosine";
+
+            a.paraname[0] = "value";
             a.parakind[0] = "double";
             CComLibrary.GlobeVal.mrule.Add(a);
 
@@ -633,7 +178,11 @@ namespace AppleLabApplication
             a.replaceName = "Math.Ceiling";
             a.count = 1;
             a.explain = "求大于或等于该指定双精度数最小整数";
-            a.paraname[0] = "值";
+            a.LExplain[0] = "求大于或等于该指定双精度数最小整数";
+            a.LExplain[1] = "Obtain the smallest integer that is greater than or equal to the specified double precision number.";
+
+
+            a.paraname[0] = "value";
             a.parakind[0] = "double";
             CComLibrary.GlobeVal.mrule.Add(a);
 
@@ -642,10 +191,13 @@ namespace AppleLabApplication
             a.OperaWordsName = "power";
             a.replaceName = "Math.Pow";
             a.count = 2;
-            a.explain = "返回指定数字的指定次幂";
-            a.paraname[0] = "x:要乘幂的浮点数";
+            a.explain = "返回指定数字的指定次幂,x:要乘幂的浮点数,y:指定幂的浮点数";
+            a.LExplain[0] = "返回指定数字的指定次幂,x:要乘幂的浮点数,y:指定幂的浮点数";
+            a.LExplain[1] = "Returns the specified power of the specified number. The floating-point number of x: must be power, and y: specifies the floating point number of the power.";
+
+            a.paraname[0] = "X";
             a.parakind[0] = "double";
-            a.paraname[1] = "y:指定幂的浮点数";
+            a.paraname[1] = "Y";
             a.parakind[1] = "double";
             CComLibrary.GlobeVal.mrule.Add(a);
 
@@ -655,30 +207,53 @@ namespace AppleLabApplication
             a.replaceName = "Math.Sqrt";
             a.count = 1;
             a.explain = "返回指定数的平方根";
-            a.paraname[0] = "要求平方根的数字";
+            a.LExplain[0] = "返回指定数的平方根";
+            a.LExplain[1] = "Returns the square root of a specified number.";
+
+
+            a.paraname[0] = "value";
             a.parakind[0] = "double";
             CComLibrary.GlobeVal.mrule.Add(a);
 
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "取整"; 
+            a.OperaWordsName = "round"; 
             a.replaceName = "Convert.ToInt32";
             a.count = 1;
             a.explain = "把浮点数转换为整数";
-            a.paraname[0] = "浮点数";
+            a.LExplain[0] = "把浮点数转换为整数";
+            a.LExplain[1] = "Converting floating-point numbers into integers";
+
+            a.paraname[0] = "float";
             a.parakind[0] = "double";
             CComLibrary.GlobeVal.mrule.Add(a);
 
             a = new CComLibrary.Rule();
-            a.OperaWordsName = "修约";
-            a.replaceName = "修约";
+            a.OperaWordsName = "revision";
+            a.replaceName = "revision";
             a.count = 2;
-            a.explain = "保留有效位数";
-            a.paraname[0] = "浮点数";
+            a.explain = "修约,保留有效位数";
+            a.LExplain[0] = "修约,保留有效位数";
+            a.LExplain[1] = "To fix a contract and keep the valid digit";
+
+            a.paraname[0] = "float";
             a.parakind[0] = "double";
-            a.paraname[1] = "有效位数";
+            a.paraname[1] = "valid ";
             a.paraname[1] = "integer";
             CComLibrary.GlobeVal.mrule.Add(a);
+
+            for (int i=0;i<CComLibrary.GlobeVal.mrule.Count;i++)
+            {
+                if (CComLibrary.GlobeVal.languageselect ==0)
+                {
+                    CComLibrary.GlobeVal.mrule[i].explain = CComLibrary.GlobeVal.mrule[i].LExplain[0];
+                }
+                else
+                {
+                    CComLibrary.GlobeVal.mrule[i].explain = CComLibrary.GlobeVal.mrule[i].LExplain[1];
+
+                }
+            }
 
         }
         public void Init_SystemPara()
@@ -696,8 +271,17 @@ namespace AppleLabApplication
             for (j = 0; j < CComLibrary.GlobeVal.filesave.m_namelist.Count; j++)
             {
                 b = new CComLibrary.SystemPara();
-                b.Name = CComLibrary.GlobeVal.filesave.m_namelist[j] + "通道";
+                string r = CComLibrary.GlobeVal.filesave.m_namelist[j];
 
+                r = r.Replace(" ", "_");
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    b.Name = r + "通道";
+                }
+                else
+                {
+                    b.Name = r + "_Channel";
+                }
                 b.replaceName = b.Name;
                 s = s + "public double " + b.replaceName + "=0;" + "\r\n";
                 CComLibrary.GlobeVal.msyspara.Add(b);
@@ -709,7 +293,14 @@ namespace AppleLabApplication
             for (j = 0; j < CComLibrary.GlobeVal.filesave.muserchannel.Count; j++)
             {
                 b = new CComLibrary.SystemPara();
-                b.Name = CComLibrary.GlobeVal.filesave.muserchannel[j].channelname + "通道";
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    b.Name = CComLibrary.GlobeVal.filesave.muserchannel[j].channelname + "通道";
+                }
+                else
+                {
+                    b.Name = CComLibrary.GlobeVal.filesave.muserchannel[j].channelname + "_Channel";
+                }
 
                 b.replaceName = b.Name;
                 s = s + "public double " + b.replaceName + "=0;" + "\r\n";
@@ -721,16 +312,24 @@ namespace AppleLabApplication
             {
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem.Length; i++)
                 {
-                    if (CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName != "无")
-                    {
-                        b = new CComLibrary.SystemPara();
-                        b.Name = CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" +
-                            CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName;
-                        b.replaceName = b.Name;
-                        s = s + "public double " + b.replaceName + "=0;" + "\r\n";
-                        CComLibrary.GlobeVal.msyspara.Add(b);
-                    }
-                
+
+                    
+                        if ((CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName != "None") )
+                        {
+                            b = new CComLibrary.SystemPara();
+
+                            
+                            string r = CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" +
+                                CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName;
+                            r = r.Replace(" ", "_");
+
+                            b.Name = r;
+                            b.replaceName = b.Name;
+                            s = s + "public double " + b.replaceName + "=0;" + "\r\n";
+                            CComLibrary.GlobeVal.msyspara.Add(b);
+                        }
+                    
+                  
 
                 }
             }
@@ -764,7 +363,10 @@ namespace AppleLabApplication
             for (i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
             {
                 b = new CComLibrary.SystemPara();
-                b.Name = CComLibrary.GlobeVal.filesave.moutput[i].formulaname;
+
+                string r = CComLibrary.GlobeVal.filesave.moutput[i].formulaname;
+                r = r.Replace(" ", "_");
+                b.Name = r;
                 b.replaceName = "@result" + (i + 1).ToString().Trim(); ;
                 s = s+"double " + b.replaceName + "="+"m_Global.mresult[" + (i + 1).ToString().Trim()+"];" + "\r\n";
                 CComLibrary.GlobeVal.msyspara.Add(b);
@@ -798,11 +400,17 @@ namespace AppleLabApplication
             ListViewItem _lvi = new ListViewItem();
 
 
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
 
-
-            _lvi.Text = "_结果";
-            _lvi.Tag = "_结果";
-
+                _lvi.Text = "_结果";
+                _lvi.Tag = "_结果";
+            }
+            else
+            {
+                _lvi.Text = "_Result";
+                _lvi.Tag = "_Result";
+            }
 
             _lvi.Group = lvTips.Groups[0];
 
@@ -812,9 +420,17 @@ namespace AppleLabApplication
 
 
             _lvi = new ListViewItem();
-            _lvi.Text = "_数组长度";
-            _lvi.Tag = "_数组长度";
 
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                _lvi.Text = "_数组长度";
+                _lvi.Tag = "_数组长度";
+            }
+            else
+            {
+                _lvi.Text = "_Length_of_array";
+                _lvi.Tag = "_Length_of_array";
+            }
 
             _lvi.Group = lvTips.Groups[0];
 
@@ -823,8 +439,17 @@ namespace AppleLabApplication
 
 
             _lvi = new ListViewItem();
-            _lvi.Text = "_索引";
-            _lvi.Tag = "_索引";
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                _lvi.Text = "_索引";
+                _lvi.Tag = "_索引";
+            }
+            else
+            {
+                _lvi.Text = "_Index";
+                _lvi.Tag = "_Index";
+            }
             _lvi.Group = lvTips.Groups[0];
             lvTips.Items.Add(_lvi);
 
@@ -834,10 +459,22 @@ namespace AppleLabApplication
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.m_namelist.Count; i++)
                 {
                     _lvi = new ListViewItem();
-                    _lvi.Text = CComLibrary.GlobeVal.filesave.m_namelist[i] + "通道";
-                    
-                    _lvi.Tag = CComLibrary.GlobeVal.filesave.m_namelist[i] + "通道";
 
+                string r = CComLibrary.GlobeVal.filesave.m_namelist[i];
+                r = r.Replace(" ", "_");
+
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    _lvi.Text = r + "通道";
+
+                    _lvi.Tag = r + "通道";
+                }
+                else
+                {
+                    _lvi.Text = r + "_Channe";
+
+                    _lvi.Tag = r + "_Channel";
+                }
                     _lvi.Group = lvTips.Groups[0];
                     lvTips.Items.Add(_lvi);
 
@@ -850,8 +487,16 @@ namespace AppleLabApplication
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.muserchannel.Count; i++)
                 {
                     _lvi = new ListViewItem();
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
                     _lvi.Text = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname + "通道";
                     _lvi.Tag = CComLibrary.GlobeVal.filesave.muserchannel[i] + "通道";
+                }
+                else
+                {
+                    _lvi.Text = CComLibrary.GlobeVal.filesave.muserchannel[i].channelname + "_Channel";
+                    _lvi.Tag = CComLibrary.GlobeVal.filesave.muserchannel[i] + "_Channel";
+                }
                     _lvi.Group = lvTips.Groups[0];
                     lvTips.Items.Add(_lvi);
                 }
@@ -876,11 +521,16 @@ namespace AppleLabApplication
             {
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem.Length; i++)
                 {
-                    if (CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName != "无")
+                    if (CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName != "None")
                     {
                         _lvi = new ListViewItem();
-                        _lvi.Text = CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" +
+
+                        string r = CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" +
                             CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName;
+                        r = r.Replace(" ", "_");
+
+
+                        _lvi.Text = r;
 
                         _lvi.Tag = CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i];
 
@@ -907,7 +557,10 @@ namespace AppleLabApplication
             for (i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
             {
                 _lvi = new ListViewItem();
-                _lvi.Text = CComLibrary.GlobeVal.filesave.moutput[i].formulaname;
+
+                string r = CComLibrary.GlobeVal.filesave.moutput[i].formulaname;
+                r = r.Replace(" ", "_");
+                _lvi.Text = r;
                 _lvi.Tag = CComLibrary.GlobeVal.filesave.moutput[i];
 
                 _lvi.Group = lvTips.Groups[2];
@@ -917,40 +570,81 @@ namespace AppleLabApplication
 
             for (i = 0; i < CComLibrary.GlobeVal.mfunc.Count; i++)
             {
-                if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_面积")
+                if (CComLibrary.GlobeVal.languageselect == 0)
                 {
-                    _lvi = new ListViewItem();
+                    if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_面积")
+                    {
+                        _lvi = new ListViewItem();
 
 
-                    _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
-                    _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+                        _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                        _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
 
-                    _lvi.Group = lvTips.Groups[3];
-                    lvTips.Items.Add(_lvi);
+                        _lvi.Group = lvTips.Groups[3];
+                        lvTips.Items.Add(_lvi);
+                    }
+
+                    if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_引伸计标距")
+                    {
+                        _lvi = new ListViewItem();
+
+
+                        _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                        _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+
+                        _lvi.Group = lvTips.Groups[3];
+                        lvTips.Items.Add(_lvi);
+                    }
+
+                    if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_引伸计2标距")
+                    {
+                        _lvi = new ListViewItem();
+
+
+                        _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                        _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+
+                        _lvi.Group = lvTips.Groups[3];
+                        lvTips.Items.Add(_lvi);
+                    }
                 }
-
-                if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_引伸计标距")
+                else
                 {
-                    _lvi = new ListViewItem();
+                    if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_Area")
+                    {
+                        _lvi = new ListViewItem();
 
 
-                    _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
-                    _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+                        _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                        _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
 
-                    _lvi.Group = lvTips.Groups[3];
-                    lvTips.Items.Add(_lvi);
-                }
+                        _lvi.Group = lvTips.Groups[3];
+                        lvTips.Items.Add(_lvi);
+                    }
 
-                if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_引伸计2标距")
-                {
-                    _lvi = new ListViewItem();
+                    if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_ExtensometerGaugeForOne")
+                    {
+                        _lvi = new ListViewItem();
 
 
-                    _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
-                    _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+                        _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                        _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
 
-                    _lvi.Group = lvTips.Groups[3];
-                    lvTips.Items.Add(_lvi);
+                        _lvi.Group = lvTips.Groups[3];
+                        lvTips.Items.Add(_lvi);
+                    }
+
+                    if (CComLibrary.GlobeVal.mfunc[i].OperaWordsName == "_ExtensometerGaugeForTow")
+                    {
+                        _lvi = new ListViewItem();
+
+
+                        _lvi.Text = CComLibrary.GlobeVal.mfunc[i].OperaWordsName;
+                        _lvi.Tag = CComLibrary.GlobeVal.mfunc[i];
+
+                        _lvi.Group = lvTips.Groups[3];
+                        lvTips.Items.Add(_lvi);
+                    }
                 }
 
             }
@@ -986,12 +680,19 @@ namespace AppleLabApplication
 
             ListViewItem _lvi = new ListViewItem();
 
-           
 
 
-            _lvi.Text = "_结果";
-           _lvi.Tag = "_结果";
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                _lvi.Text = "_结果";
+                _lvi.Tag = "_结果";
 
+            }
+            else
+            {
+                _lvi.Text = "_Result";
+                _lvi.Tag = "_Result";
+            }
 
             _lvi.Group = lvTips.Groups[0] ;
 
@@ -1001,9 +702,16 @@ namespace AppleLabApplication
            
 
              _lvi = new ListViewItem();
-            _lvi.Text = "_数组长度";
-            _lvi.Tag = "_数组长度";
-
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                _lvi.Text = "_数组长度";
+                _lvi.Tag = "_数组长度";
+            }
+            else
+            {
+                _lvi.Text = "_Length_of_array";
+                _lvi.Tag = "_Length_of_array";
+            }
 
             _lvi.Group = lvTips.Groups[0];
 
@@ -1012,8 +720,17 @@ namespace AppleLabApplication
 
            
             _lvi = new ListViewItem();
-            _lvi.Text = "_索引";
-            _lvi.Tag = "_索引";
+
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                _lvi.Text = "_索引";
+                _lvi.Tag = "_索引";
+            }
+            else
+            {
+                _lvi.Text = "_Index";
+                _lvi.Tag = "_Index";
+            }
             _lvi.Group = lvTips.Groups[0];
             lvTips.Items.Add(_lvi);
 
@@ -1021,8 +738,12 @@ namespace AppleLabApplication
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.m_namelist.Count; i++)
                 {
                     _lvi = new ListViewItem();
-                    _lvi.Text = CComLibrary.GlobeVal.filesave.m_namelist[i];
-                    _lvi.Tag = CComLibrary.GlobeVal.filesave.m_namelist[i];
+
+                string s = CComLibrary.GlobeVal.filesave.m_namelist[i];
+
+                  s=s.Replace(" ", "_");
+                _lvi.Text = s;
+                    _lvi.Tag = s;
 
                     _lvi.Group = lvTips.Groups[0];
                     lvTips.Items.Add(_lvi);
@@ -1063,17 +784,22 @@ namespace AppleLabApplication
             {
                 for (i = 0; i < CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem.Length; i++)
                 {
-                    if (CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName != "无")
-                    {
-                        _lvi = new ListViewItem();
-                        _lvi.Text = CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" +
-                            CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName;
+                   
+                        if ((CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName != "None"))
+                        {
+                            _lvi = new ListViewItem();
+                            string r = CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" +
+                                CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName;
+                            r = r.Replace(" ", "_");
 
-                        _lvi.Tag = CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i];
+                            _lvi.Text = r;
 
-                        _lvi.Group = lvTips.Groups[2];
-                        lvTips.Items.Add(_lvi);
-                    }
+                            _lvi.Tag = CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i];
+
+                            _lvi.Group = lvTips.Groups[2];
+                            lvTips.Items.Add(_lvi);
+                        }
+                   
 
                 }
             }
@@ -1098,16 +824,19 @@ namespace AppleLabApplication
                 lvTips.Items.Add(_lvi);
 
             }
+            /*
             for (i = 0; i < CComLibrary.GlobeVal.filesave.moutput.Count; i++)
             {
                 _lvi = new ListViewItem();
-                _lvi.Text = CComLibrary.GlobeVal.filesave.moutput[i].formulaname ;
+                string r = CComLibrary.GlobeVal.filesave.moutput[i].formulaname;
+                r = r.Replace(" ", "_");
+                _lvi.Text =r;
                 _lvi.Tag = CComLibrary.GlobeVal.filesave.moutput[i];
 
                 _lvi.Group = lvTips.Groups[2];
                 lvTips.Items.Add(_lvi);
             }
-            
+            */
 
 
             for (i = 0; i < CComLibrary.GlobeVal.mfunc.Count; i++)
@@ -1149,10 +878,10 @@ namespace AppleLabApplication
         {
 
 
-            Init_Func();
+          
             Init_Rule();
             Init_SystemPara();
-            Init_Const();
+           // Init_Const();
 
             
  
@@ -1205,7 +934,14 @@ namespace AppleLabApplication
             _SheetView1.Height = 18;
             _SheetView1.Font = new Font("verdana", 8, GraphicsUnit.Point);
             _SheetView1.Sheets.Clear();
-             _SheetView1.Sheets.Add(new Sheet("输出"));
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                _SheetView1.Sheets.Add(new Sheet("输出"));
+            }
+            else
+            {
+                _SheetView1.Sheets.Add(new Sheet("Output"));
+            }
            // _SheetView1.SelectionChanged += new EventHandler(_SheetView1_SelectionChanged);
             _SheetView1.SelectedIndex = 0;
 
@@ -1279,14 +1015,29 @@ namespace AppleLabApplication
 
             if (a == true)
             {
-
-                CComLibrary.GlobeVal.m_calc_outputwindow.Text =
-                    CComLibrary.GlobeVal.m_calc_outputwindow.Text + "成功";
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    CComLibrary.GlobeVal.m_calc_outputwindow.Text =
+                        CComLibrary.GlobeVal.m_calc_outputwindow.Text + "成功";
+                }
+                else
+                {
+                    CComLibrary.GlobeVal.m_calc_outputwindow.Text =
+                        CComLibrary.GlobeVal.m_calc_outputwindow.Text + "Success";
+                }
             }
             else
             {
-                 CComLibrary.GlobeVal.m_calc_outputwindow.Text =
-                    CComLibrary.GlobeVal.m_calc_outputwindow.Text +"失败";
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    CComLibrary.GlobeVal.m_calc_outputwindow.Text =
+                       CComLibrary.GlobeVal.m_calc_outputwindow.Text + "失败";
+                }
+                else
+                {
+                    CComLibrary.GlobeVal.m_calc_outputwindow.Text =
+                      CComLibrary.GlobeVal.m_calc_outputwindow.Text + "fail";
+                }
 
                if (CComLibrary.GlobeVal.errorline >= 0)
                {

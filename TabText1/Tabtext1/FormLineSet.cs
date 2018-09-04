@@ -34,17 +34,34 @@ namespace AppleLabApplication
             grid1.ColumnsCount = 5;
             //grid1.FixedRows = 1;
             grid1.Rows.Insert(0);
-            grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
-            grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("行");
-            grid1[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("列");
-            grid1[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("文件名称");
-            grid1[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("文件日期");
-
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
+                grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("行");
+                grid1[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("列");
+                grid1[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("文件名称");
+                grid1[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("文件日期");
+            }
+            else
+            {
+                grid1[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("Name");
+                grid1[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Row");
+                grid1[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("Column");
+                grid1[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("File name");
+                grid1[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("File date");
+            }
 
             for (int r = 1; r < 2; r++)
             {
                 grid1.Rows.Insert(r);
-                grid1[r, 0] = new SourceGrid2.Cells.Real.Cell("数据1", typeof(string));
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    grid1[r, 0] = new SourceGrid2.Cells.Real.Cell("数据1", typeof(string));
+                }
+                else
+                {
+                    grid1[r, 0] = new SourceGrid2.Cells.Real.Cell("First data", typeof(string));
+                }
                 grid1[r, 1] = new SourceGrid2.Cells.Real.Cell(CComLibrary.GlobeVal.outgrid[0].Rows.Count.ToString() , typeof(string));
                 grid1[r, 2] = new SourceGrid2.Cells.Real.Cell(CComLibrary.GlobeVal.outgrid[0].Columns.Count.ToString()  , typeof(string));
                 grid1[r, 3] = new SourceGrid2.Cells.Real.Cell(CComLibrary.GlobeVal.outgrid[0].Tag, typeof(string));
@@ -64,13 +81,24 @@ namespace AppleLabApplication
             grid2.ColumnsCount = 6;
             //grid1.FixedRows = 1;
             grid2.Rows.Insert(0);
-            grid2[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("X");
-            grid2[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Y");
-            grid2[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("列");
-            grid2[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
-            grid2[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("第一个数据");
-            grid2[0, 5] = new SourceGrid2.Cells.Real.ColumnHeader("位置");
-
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                grid2[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("X");
+                grid2[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Y");
+                grid2[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("列");
+                grid2[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("名称");
+                grid2[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("第一个数据");
+                grid2[0, 5] = new SourceGrid2.Cells.Real.ColumnHeader("位置");
+            }
+            else
+            {
+                grid2[0, 0] = new SourceGrid2.Cells.Real.ColumnHeader("X");
+                grid2[0, 1] = new SourceGrid2.Cells.Real.ColumnHeader("Y");
+                grid2[0, 2] = new SourceGrid2.Cells.Real.ColumnHeader("Column");
+                grid2[0, 3] = new SourceGrid2.Cells.Real.ColumnHeader("Name");
+                grid2[0, 4] = new SourceGrid2.Cells.Real.ColumnHeader("First data");
+                grid2[0, 5] = new SourceGrid2.Cells.Real.ColumnHeader("Postion");
+            }
             for (int r = 1; r < CComLibrary.GlobeVal.outgrid[0].ColumnsCount ; r++)
             {
                 grid2.Rows.Insert(r);

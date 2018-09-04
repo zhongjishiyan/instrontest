@@ -102,7 +102,16 @@ namespace TabHeaderDemo
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
-                if (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring != "样品")
+                string _temp = "";
+                if (GlobeVal.mysys.language ==0)
+                {
+                    _temp = "样品";
+                }
+                else
+                {
+                    _temp = "Sample";
+                }
+                if (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring != _temp )
                 {
                     if (s != CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring)
                     {
@@ -148,9 +157,26 @@ namespace TabHeaderDemo
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
-                if ((CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "试样数字输入")
-                    ||(CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "试样尺寸输入")|| 
-                    (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "试样选项输入"))
+
+                string _temp1 = "";
+                string _temp2 = "";
+                string _temp3 = "";
+                if (GlobeVal.mysys.language ==0)
+                {
+                    _temp1 = "试样数字输入";
+                    _temp2 = "试样尺寸输入";
+
+                    _temp3 = "试样选项输入";
+                }
+                else
+                {
+                    _temp1 = "Sample digital input";
+                    _temp2 = "Sample size input";
+                    _temp3 = "Sample option input";
+                }
+                if ((CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == _temp1)
+                    ||(CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring ==_temp2)|| 
+                    (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == _temp3))
                 {
                     if (s != CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring)
                     {
@@ -191,21 +217,33 @@ namespace TabHeaderDemo
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
-                if (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "试样文本输入")
-                   
 
+                string _temp = "";
+                 if (GlobeVal.mysys.language ==0)
                 {
-                    if (s != CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring)
-                    {
-
-                        m1 = treeViewBeforeTest.Nodes.Add(CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring);
-                        s = CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring;
-                    }
-
-
-                    m2 = m1.Nodes.Add(CComLibrary.GlobeVal.filesave.mpromptslist[i].itemname);
-                    m2.Tag = CComLibrary.GlobeVal.filesave.mpromptslist[i];
+                    _temp = "试样文本输入";
                 }
+                 else
+                {
+                    _temp = "sample text input";
+                }
+              
+                    if (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == _temp)
+
+
+                    {
+                        if (s != CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring)
+                        {
+
+                            m1 = treeViewBeforeTest.Nodes.Add(CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring);
+                            s = CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring;
+                        }
+
+
+                        m2 = m1.Nodes.Add(CComLibrary.GlobeVal.filesave.mpromptslist[i].itemname);
+                        m2.Tag = CComLibrary.GlobeVal.filesave.mpromptslist[i];
+                    }
+              
 
             }
 
@@ -232,7 +270,16 @@ namespace TabHeaderDemo
 
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
-                if (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == "样品")
+                string _temp = "";
+                if (GlobeVal.mysys.language ==0)
+                {
+                    _temp = "样品";
+                }
+                else
+                {
+                    _temp = "Sample";
+                }
+                if (CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring == _temp )
                 {
                     if (s != CComLibrary.GlobeVal.filesave.mpromptslist[i].parentstring)
                     {

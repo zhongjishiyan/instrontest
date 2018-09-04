@@ -79,6 +79,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserTextInput
             // 
@@ -97,7 +98,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.Label lbltitle;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox txtvalue;
+        public System.Windows.Forms.Button button1;
     }
 }

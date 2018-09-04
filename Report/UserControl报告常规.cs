@@ -19,9 +19,18 @@ namespace TabHeaderDemo
         {
             bool b = false;
            this.cbopostionfooter.Items.Clear();
-           this.cbopostionfooter.Items.Add("居左");
-           this.cbopostionfooter.Items.Add("居中");
-           this.cbopostionfooter.Items.Add("居右");
+            if (GlobeVal.mysys.language == 0)
+            {
+                this.cbopostionfooter.Items.Add("居左");
+                this.cbopostionfooter.Items.Add("居中");
+                this.cbopostionfooter.Items.Add("居右");
+            }
+            else
+            {
+                this.cbopostionfooter.Items.Add("Left");
+                this.cbopostionfooter.Items.Add("Middle");
+                this.cbopostionfooter.Items.Add("Right");
+            }
            cbopostionfooter.SelectedIndex = GlobeVal.muserreport.mReportApp.footerposition;
 
            listBox3.ClearItem();
@@ -62,9 +71,19 @@ namespace TabHeaderDemo
         {
             bool f = false;
             cbopostionheader.Items.Clear();
-            cbopostionheader.Items.Add("居左");
-            cbopostionheader.Items.Add("居中");
-            cbopostionheader.Items.Add("居右");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbopostionheader.Items.Add("居左");
+                cbopostionheader.Items.Add("居中");
+                cbopostionheader.Items.Add("居右");
+            }
+            else
+            {
+                cbopostionheader.Items.Add("Left");
+                cbopostionheader.Items.Add("Middle");
+                cbopostionheader.Items.Add("Right");
+
+            }
             cbopostionheader.SelectedIndex = GlobeVal.muserreport.mReportApp.headerposition;
             listBox2.ClearItem();
             for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportitemlist.Count; i++)
@@ -125,8 +144,16 @@ namespace TabHeaderDemo
 
 
             cboLandscape.Items.Clear();
-            cboLandscape.Items.Add("横向");
-            cboLandscape.Items.Add("竖向");
+            if (GlobeVal.mysys.language == 0)
+            {
+                cboLandscape.Items.Add("横向");
+                cboLandscape.Items.Add("竖向");
+            }
+            else
+            {
+                cboLandscape.Items.Add("Landscape");
+                cboLandscape.Items.Add("Vertical");
+            }
             if (GlobeVal.muserreport.mReportApp.Landscape == true)
             {
                 cboLandscape.SelectedIndex = 0;
@@ -185,10 +212,19 @@ namespace TabHeaderDemo
             }
 
             cbobodypostion.Items.Clear();
-            cbobodypostion.Items.Add("居左");
-            cbobodypostion.Items.Add("居中");
-            cbobodypostion.Items.Add("居右");
-           
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                cbobodypostion.Items.Add("居左");
+                cbobodypostion.Items.Add("居中");
+                cbobodypostion.Items.Add("居右");
+            }
+            else
+            {
+                cbobodypostion.Items.Add("Left");
+                cbobodypostion.Items.Add("Middle");
+                cbobodypostion.Items.Add("Right");
+            }
 
         }
 
@@ -342,7 +378,13 @@ namespace TabHeaderDemo
                 if ((this.listReport1.mlist[this.listReport1.SelectedIndex].kind == 0)|| (this.listReport1.mlist[this.listReport1.SelectedIndex].kind == 3)
                     ||(this.listReport1.mlist[this.listReport1.SelectedIndex].kind == 4))
                 {
-                    this.listBox1.AddItem(this.listReport1.mlist[this.listReport1.SelectedIndex]);
+                    for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportitemlist.Count; i++)
+                    {
+                        if (this.listReport1.mlist[this.listReport1.SelectedIndex].Name == GlobeVal.muserreport.mReportApp.mreportitemlist[i].Name)
+                        {
+                            this.listBox1.AddItem(this.listReport1.mlist[this.listReport1.SelectedIndex]);
+                        }
+                    }
                 }
 
                 this.listReport1.RemoveItem(this.listReport1.SelectedIndex);
@@ -396,7 +438,13 @@ namespace TabHeaderDemo
                 if ((this.listReport2.mlist[this.listReport2.SelectedIndex].kind == 0)||(this.listReport2.mlist[this.listReport2.SelectedIndex].kind == 3)
                     ||(this.listReport2.mlist[this.listReport2.SelectedIndex].kind == 4))
                 {
-                    this.listBox2.AddItem(this.listReport2.mlist[this.listReport2.SelectedIndex]);
+                    for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportitemlist.Count; i++)
+                    {
+                        if (this.listReport2.mlist[this.listReport2.SelectedIndex].Name == GlobeVal.muserreport.mReportApp.mreportitemlist[i].Name)
+                        {
+                            this.listBox2.AddItem(this.listReport2.mlist[this.listReport2.SelectedIndex]);
+                        }
+                    }
                 }
                 this.listReport2.RemoveItem(this.listReport2.SelectedIndex);
 
@@ -446,7 +494,13 @@ namespace TabHeaderDemo
                 if ((this.listReport3.mlist[this.listReport3.SelectedIndex].kind == 0) || (this.listReport3.mlist[this.listReport3.SelectedIndex].kind == 3)
                    || (this.listReport3.mlist[this.listReport3.SelectedIndex].kind == 4))
                 {
-                    this.listBox3.AddItem(this.listReport3.mlist[this.listReport3.SelectedIndex]);
+                    for (int i = 0; i < GlobeVal.muserreport.mReportApp.mreportitemlist.Count; i++)
+                    {
+                        if (this.listReport3.mlist[this.listReport3.SelectedIndex].Name==GlobeVal.muserreport.mReportApp.mreportitemlist[i].Name)
+                        {
+                            this.listBox3.AddItem(this.listReport3.mlist[this.listReport3.SelectedIndex]);
+                        }
+                    }
                 }
                 this.listReport3.RemoveItem(this.listReport3.SelectedIndex);
 

@@ -30,9 +30,7 @@ namespace ClsStaticStation
     public class CArm : ClsBaseControl
     {
         a9500.MDataIno m_MDataIno = new a9500.MDataIno();
-        public delegate void NewMessageDelegate(string NewMessage);
-
-        private PipeServer _pipeServer;
+        
        
 
         static double m_samplestarttime;//采样信号开始时间
@@ -252,9 +250,7 @@ namespace ClsStaticStation
         public CArm()
         {
            
-            _pipeServer = new PipeServer();
-            _pipeServer.PipeMessage += new DelegateMessage(PipesMessageHandler);
-            _pipeServer.Listen("TestPipe");
+           
             GGMsg = new a9500.DataInfo();
             mdatalist = new List<a9500.MDataIno>();
             mtimer = new System.Windows.Forms.Timer();
@@ -269,26 +265,12 @@ namespace ClsStaticStation
 
         }
 
-        private void PipesMessageHandler(string message)
-        {
-            try
-            {
-                sensor5 = Convert.ToDouble(message.ToString());
-                
-            }
-            catch (Exception ex)
-            {
-
-                Debug.WriteLine(ex.Message);
-            }
-
-        }
+        
 
         ~CArm()
         {
             mtimer.Stop();
-            _pipeServer.PipeMessage -= new DelegateMessage(PipesMessageHandler);
-            _pipeServer = null;
+            
            
 
         }
@@ -2076,7 +2058,7 @@ namespace ClsStaticStation
                 else
                 {
 
-                    MessageBox.Show("错误，您没有设置一般测试过程");
+                    MessageBox.Show("错误，您没有设置一般测控过程");
                     mtestrun = false;
                     return;
                 }

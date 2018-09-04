@@ -104,9 +104,29 @@ namespace TabHeaderDemo
 
             tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel1, true, null);
             tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel2, true, null);
-            tableLayoutPanel3.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel3, true, null);  
-  
-  
+            tableLayoutPanel3.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel3, true, null);
+
+            treeView1.Nodes.Clear();
+
+            if (GlobeVal.mysys.language == 0)
+            {
+                treeView1.Nodes.Add("打开方法", "打开方法");
+                treeView1.Nodes["打开方法"].StateImageIndex = 0;
+
+
+
+                treeView1.Nodes["打开方法"].Nodes.Add("选择方法");
+            }
+            else
+            {
+                treeView1.Nodes.Add("Open Method", "Open Method");
+                treeView1.Nodes["Open Method"].StateImageIndex = 0;
+
+
+
+                treeView1.Nodes["Open Method"].Nodes.Add("Select Method");
+
+            }
         }
 
         private void UserControl5_Paint(object sender, PaintEventArgs e)
@@ -170,18 +190,36 @@ namespace TabHeaderDemo
             }
         }
 
-        public void methodon(String t,String parent)
+        public void methodon(String t, String parent)
         {
-            if (t == "打开方法")
+            if (GlobeVal.mysys.language == 0)
             {
+                if (t == "打开方法")
+                {
 
-                UserControl常规1.Init(0,false );
-                panelback.Visible = false;
-                panelback.Controls.Clear();
-                UserControl常规1.Dock = DockStyle.Fill;
-                panelback.Controls.Add(UserControl常规1);
-                panelback.Visible = true;
+                    UserControl常规1.Init(0, false);
+                    panelback.Visible = false;
+                    panelback.Controls.Clear();
+                    UserControl常规1.Dock = DockStyle.Fill;
+                    panelback.Controls.Add(UserControl常规1);
+                    panelback.Visible = true;
+                }
             }
+            else
+            {
+                if (t == "Open Method")
+                {
+
+                    UserControl常规1.Init(0, false);
+                    panelback.Visible = false;
+                    panelback.Controls.Clear();
+                    UserControl常规1.Dock = DockStyle.Fill;
+                    panelback.Controls.Add(UserControl常规1);
+                    panelback.Visible = true;
+                }
+            }
+        
+
 
          
 
@@ -259,7 +297,14 @@ namespace TabHeaderDemo
         {
             if (CComLibrary.GlobeVal.filesave == null)
             {
-                MessageBox.Show("错误，试验方法不能为空"); 
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("错误，试验方法为空");
+                }
+                else
+                {
+                    MessageBox.Show("Error,The test method is empty.");
+                }
                 return;
             }
 
@@ -319,7 +364,7 @@ namespace TabHeaderDemo
             controlex.DefaultViewMode = FolderViewMode.Details;
             controlex.OpenDialog.InitialDirectory = System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\Method";
             controlex.OpenDialog.AddExtension = true;
-            controlex.OpenDialog.Filter = "试验方法文件(*.dat)|*.dat";
+            controlex.OpenDialog.Filter = "Method files(*.dat)|*.dat";
             controlex.ShowDialog(this);
 
 
