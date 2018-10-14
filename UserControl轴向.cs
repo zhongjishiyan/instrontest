@@ -47,7 +47,7 @@ namespace TabHeaderDemo
 
             c = (this.imageList3.Images[0] as Bitmap).GetPixel(this.imageList3.Images[0].Width / 2, this.imageList3.Images[0].Height / 2);
 
-            
+
 
             panel3.BackColor = c;
             drawPath(e, path, c);
@@ -69,7 +69,7 @@ namespace TabHeaderDemo
         public UserControl轴向()
         {
             InitializeComponent();
-           
+
 
 
 
@@ -148,7 +148,7 @@ namespace TabHeaderDemo
 
         }
 
-        
+
 
         private void btnup_Click(object sender, EventArgs e)
         {
@@ -163,10 +163,10 @@ namespace TabHeaderDemo
         private void btnstop_Click(object sender, EventArgs e)
         {
             GlobeVal.myarm.CrossStop(mlistbox1[cboctrl.SelectedIndex]);
-         }
+        }
 
 
-        
+
         private void btnstart_Click(object sender, EventArgs e)
         {
 
@@ -226,73 +226,74 @@ namespace TabHeaderDemo
 
         private void switch2_ValueChanged_1(object sender, EventArgs e)
         {
-            if (this.switchLink.Value==true)
+            if (this.switchLink.Value == true)
             {
-                   if (CComLibrary.GlobeVal.filesave == null)
-                  {
-                       MessageBox.Show("请先设置试验方法");
-                          return;
-                    }
-                  else
-                  {
-                
-                  }
+                if (CComLibrary.GlobeVal.filesave == null)
+                {
+                    MessageBox.Show("请先设置试验方法");
+                    return;
+                }
+                else
+                {
 
-               GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
+                }
 
-               
 
-                    try
-                    {
-                        WaitFormService.CreateWaitForm();
-                        // Assembly asmb = Assembly.GetExecutingAssembly();
+                GlobeVal.myarm.mdemo = GlobeVal.mysys.demo;
 
-                    }
-                    catch (Exception ex)
-                    {
-                        WaitFormService.CloseWaitForm();
-                    }
-              
-               
- 
-                GlobeVal.myarm.Init((int)this.Handle);
-                
-                
-      
-            GlobeVal.FormmainLab.timer1.Enabled =true;
-             
 
-            GlobeVal.FormmainLab.InitMeter();
-            GlobeVal.FormmainLab.InitKey();
 
-            if (GlobeVal.myarm.connected ==true)
+                try
+                {
+                    WaitFormService.CreateWaitForm();
+                    // Assembly asmb = Assembly.GetExecutingAssembly();
+
+                }
+                catch (Exception ex)
                 {
                     WaitFormService.CloseWaitForm();
                 }
-            else
+
+
+
+                GlobeVal.myarm.Init((int)this.Handle);
+
+
+
+                GlobeVal.FormmainLab.timer1.Enabled = true;
+
+
+                GlobeVal.FormmainLab.InitMeter();
+                GlobeVal.FormmainLab.InitKey();
+
+                if (GlobeVal.myarm.connected == true)
                 {
-                   
+                    WaitFormService.CloseWaitForm();
+                }
+                else
+                {
+
                     WaitFormService.CloseWaitForm();
 
                     GlobeVal.FormmainLab.BringToFront();
 
                     ThreadStart ts = delegate { MessageBox.Show("联机失败"); };
                     this.BeginInvoke(ts);
-                    
-                  //  MessageBox.Show("联机失败");
+
+                    //  MessageBox.Show("联机失败");
 
                     GlobeVal.FormmainLab.BringToFront();
                 }
 
 
-             GlobeVal.myarm.connected = true;
+                GlobeVal.myarm.connected = true;
             }
         }
 
-    
+
         private void UserControl轴向_Load(object sender, EventArgs e)
         {
-            if (GlobeVal.mysys.chk_hlimit==true)
+            if (GlobeVal.mysys.chk_hlimit == true)
             {
                 ledhlimit.Visible = true;
                 lblhlimit.Visible = true;
@@ -302,18 +303,18 @@ namespace TabHeaderDemo
                 ledhlimit.Visible = false;
                 ledslimit.Visible = false;
             }
-            if(GlobeVal.mysys.chk_slimit ==true)
+            if (GlobeVal.mysys.chk_slimit == true)
             {
                 ledslimit.Visible = true;
                 lblslimit.Visible = true;
             }
             else
             {
-                ledslimit.Visible = false ;
-                lblslimit.Visible = false ;
+                ledslimit.Visible = false;
+                lblslimit.Visible = false;
             }
 
-            if (GlobeVal.mysys.chk_alarm ==true)
+            if (GlobeVal.mysys.chk_alarm == true)
             {
                 ledalarm.Visible = true;
                 lblalarm.Visible = true;
@@ -324,7 +325,7 @@ namespace TabHeaderDemo
                 lblalarm.Visible = false;
             }
 
-            if (GlobeVal.mysys.chk_cyclc ==true)
+            if (GlobeVal.mysys.chk_cyclc == true)
             {
                 pnlcyclc.Visible = true;
                 tplcycle.Visible = true;
@@ -412,7 +413,7 @@ namespace TabHeaderDemo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnfindzero_Click(object sender, EventArgs e)

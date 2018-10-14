@@ -62,7 +62,7 @@ namespace TabHeaderDemo
                     u.lbltitle.Text = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemname;
                     u.txtvalue.Text = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].itemvalue.ToString();
                     u.Dock = DockStyle.Fill;
-                    u.button1.Visible = false; 
+                    u.btnproperty.Visible = false; 
                     u.txtvalue.Tag = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i];
                     u.txtvalue.TextChanged += new EventHandler(txtvalue_TextChanged);
 

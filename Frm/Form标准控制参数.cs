@@ -60,5 +60,12 @@ namespace TabHeaderDemo.Frm
                 numericEdit1.Value = CComLibrary.GlobeVal.filesave.StrainToLoad(numericEdit2.Value);
             }
         }
+
+        private void Form标准控制参数_Load(object sender, EventArgs e)
+        {
+          
+
+                   
+        }
     }
 }

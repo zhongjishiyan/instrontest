@@ -214,7 +214,7 @@
     <value>lstavail</value>
   </data>
   <data name="&gt;&gt;lstavail.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6821.17049, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6821.27974, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lstavail.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -614,7 +614,7 @@
     <value>lstinclude</value>
   </data>
   <data name="&gt;&gt;lstinclude.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6821.17049, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6821.27974, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lstinclude.Parent" xml:space="preserve">
     <value>tableLayoutPanel7</value>
@@ -728,7 +728,7 @@
     <value>4, 1</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 36</value>
+    <value>603, 36</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -892,7 +892,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>615, 4</value>
+    <value>614, 4</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 30</value>
@@ -940,7 +940,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,41" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,42" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -1054,7 +1054,7 @@
     <value>lstincludetest</value>
   </data>
   <data name="&gt;&gt;lstincludetest.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExt, AppleLabJ, Version=1.2.6821.17049, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExt, AppleLabJ, Version=1.2.6821.27974, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lstincludetest.Parent" xml:space="preserve">
     <value>tlppara</value>

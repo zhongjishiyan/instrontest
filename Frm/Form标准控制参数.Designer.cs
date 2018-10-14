@@ -33,13 +33,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.numericEdit2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.lblname = new System.Windows.Forms.Label();
             this.lblUnit = new System.Windows.Forms.Label();
             this.numericEdit1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).BeginInit();
@@ -94,6 +94,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(300, 27);
             this.panel1.TabIndex = 18;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(55, 6);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label2
             // 
@@ -153,16 +163,6 @@
             this.numericEdit1.TabIndex = 1;
             this.numericEdit1.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numericEdit1_AfterChangeValue);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(55, 6);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // Form标准控制参数
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -175,6 +175,7 @@
             this.Name = "Form标准控制参数";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "控制参数";
+            this.Load += new System.EventHandler(this.Form标准控制参数_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);

@@ -1295,8 +1295,26 @@ namespace TabHeaderDemo
 
             }
 
+            bool mb = false;
 
-            if (CComLibrary.GlobeVal.filesave.mwizard == true)
+            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; i++)
+            {
+
+               mb= CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].checkzero();
+
+                if(mb==true)
+                {
+
+
+                    return;
+
+                   
+                }
+            }
+
+           
+
+                if (CComLibrary.GlobeVal.filesave.mwizard == true)
             {
                 if (btneafter.Enabled == false)
                 {

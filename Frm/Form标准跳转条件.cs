@@ -70,7 +70,14 @@ namespace TabHeaderDemo.Frm
             lblunit.Text = ClsStaticStation.m_Global.mycls.hardsignals[comboBox1.SelectedIndex].cUnits[0];
             if (ClsStaticStation.m_Global.mycls.hardsignals[comboBox1.SelectedIndex].cUnitKind == 1)
             {
-                panel1.Visible = true;
+                if (GlobeVal.mysys.machinekind == 0)
+                {
+                    panel1.Visible = true;
+                }
+                else
+                {
+                    panel1.Visible = false;
+                }
             }
             else
             {

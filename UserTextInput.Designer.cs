@@ -31,7 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbltitle = new System.Windows.Forms.Label();
             this.txtvalue = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnproperty = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.Controls.Add(this.lbltitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtvalue, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnproperty, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -71,15 +71,15 @@
             this.txtvalue.Size = new System.Drawing.Size(302, 21);
             this.txtvalue.TabIndex = 1;
             // 
-            // button1
+            // btnproperty
             // 
-            this.button1.Location = new System.Drawing.Point(485, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 22);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnproperty.Location = new System.Drawing.Point(485, 3);
+            this.btnproperty.Name = "btnproperty";
+            this.btnproperty.Size = new System.Drawing.Size(32, 22);
+            this.btnproperty.TabIndex = 2;
+            this.btnproperty.Text = "...";
+            this.btnproperty.UseVisualStyleBackColor = true;
+            this.btnproperty.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserTextInput
             // 
@@ -99,6 +99,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.Label lbltitle;
         public System.Windows.Forms.TextBox txtvalue;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnproperty;
     }
 }

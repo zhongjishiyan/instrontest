@@ -918,6 +918,9 @@
     <EmbeddedResource Include="Frm\FormPanelSet.resx">
       <DependentUpon>FormPanelSet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FormRange.en.resx">
+      <DependentUpon>FormRange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\FormRange.resx">
       <DependentUpon>FormRange.cs</DependentUpon>
     </EmbeddedResource>

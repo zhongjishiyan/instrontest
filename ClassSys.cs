@@ -143,8 +143,11 @@ namespace TabHeaderDemo
             MachineName[4] = "金属恒应变控制试验机";
             MachineName[5] = "车身刚度试验台";
             MachineName[6] = "单台双通道控制器试验台";
-            
-            MachineCount = 7;
+            MachineName[7] = "踏板机构静态测量系统";
+
+
+
+            MachineCount = 8;
           
             ChannelRange = new double [20];
             ChannelControl = new bool[20];
@@ -294,9 +297,9 @@ namespace TabHeaderDemo
                     c.MachineName[4] = "金属恒应变控制试验机";
                     c.MachineName[5] = "车身刚度试验台";
                     c.MachineName[6] = "单台双通道控制器试验台";
+                    c.MachineName[7] = "踏板机构静态测量系统";
 
-
-                    c.MachineCount = 7;
+                    c.MachineCount = 8;
 
                     if (c.ChannelSamplemode==null)
                     {

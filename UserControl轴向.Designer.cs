@@ -49,6 +49,8 @@
             this.lblmunit = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblunit = new System.Windows.Forms.Label();
             this.numericEdit1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
@@ -99,8 +101,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblunit = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -111,6 +111,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -135,7 +136,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numfreq1)).BeginInit();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
-            this.tableLayoutPanel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -294,6 +294,19 @@
             resources.ApplyResources(this.label7, "label7");
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Name = "label7";
+            // 
+            // tableLayoutPanel19
+            // 
+            resources.ApplyResources(this.tableLayoutPanel19, "tableLayoutPanel19");
+            this.tableLayoutPanel19.Controls.Add(this.lblunit, 1, 0);
+            this.tableLayoutPanel19.Controls.Add(this.numericEdit1, 0, 0);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            // 
+            // lblunit
+            // 
+            resources.ApplyResources(this.lblunit, "lblunit");
+            this.lblunit.ForeColor = System.Drawing.Color.White;
+            this.lblunit.Name = "lblunit";
             // 
             // numericEdit1
             // 
@@ -673,19 +686,6 @@
             this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList3.Images.SetKeyName(0, "3.ico");
             // 
-            // tableLayoutPanel19
-            // 
-            resources.ApplyResources(this.tableLayoutPanel19, "tableLayoutPanel19");
-            this.tableLayoutPanel19.Controls.Add(this.lblunit, 1, 0);
-            this.tableLayoutPanel19.Controls.Add(this.numericEdit1, 0, 0);
-            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            // 
-            // lblunit
-            // 
-            resources.ApplyResources(this.lblunit, "lblunit");
-            this.lblunit.ForeColor = System.Drawing.Color.White;
-            this.lblunit.Name = "lblunit";
-            // 
             // UserControl轴向
             // 
             resources.ApplyResources(this, "$this");
@@ -710,6 +710,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit1)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
@@ -743,8 +745,6 @@
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel18.ResumeLayout(false);
-            this.tableLayoutPanel19.ResumeLayout(false);
-            this.tableLayoutPanel19.PerformLayout();
             this.ResumeLayout(false);
 
         }

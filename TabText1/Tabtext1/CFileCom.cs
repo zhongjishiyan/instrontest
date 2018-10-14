@@ -461,6 +461,7 @@ namespace CComLibrary
     }
     public class CFileCom
     {
+
     }
 
 
@@ -1263,6 +1264,7 @@ namespace CComLibrary
         public string intername = "";
         public string name = " ";
         public string value = " ";
+        public bool checkzero = false;
 
     }
 
@@ -1274,7 +1276,7 @@ namespace CComLibrary
         public string unit;
         public int dimsel = 0;//量纲选择
         public ItemSignal myitemsignal;
-        public bool zerocheck = false;
+        public bool checkzero = false;
 
     }
     [Serializable]
@@ -1512,197 +1514,298 @@ namespace CComLibrary
         public string itemunit;
 
 
-        public void checkzero()  //判断输入值是否为0
+        public bool  checkzero()  //判断输入值是否为0
 
         {
+            bool m = false;
+
             double v = 0;
             for (int i = 0; i <
-       CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
+            CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
             {
 
                 if (itemname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
                 {
 
-                    v = Convert.ToDouble( CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname]);
+                    v = Convert.ToDouble( CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename +"_"+  itemname]);
 
-                    if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].checkzero ==true)
+                    if (CComLibrary.GlobeVal.filesave.itemsize_checkzero[i] ==true)
                     {
-                        if (CComLibrary.GlobeVal.languageselect == 0)
+
+                        if (v == 0)
                         {
-                            MessageBox.Show(itemname + "不能为0,请重新输入");
+
+                            m = true; 
+                            if (CComLibrary.GlobeVal.languageselect == 0)
+                            {
+                                MessageBox.Show(itemname + "不能为0,请重新输入");
+                            }
+                            else
+                            {
+                                MessageBox.Show(itemname + " can't be 0. Please re-enter.");
+                            }
+
+
                         }
                         else
                         {
-                            MessageBox.Show(itemname + " can't be 0. Please re-enter.");
+
                         }
 
                     }
 
                 }
 
-            }
 
-        }
-        public void getvalue()
-        {
-            mitemvalue = " ";
-            string temp = "";
-            if (CComLibrary.GlobeVal.languageselect == 0)
-            {
-                temp = "样品注释1";
-            }
-            else
-            {
-                temp = "Sample note 1";
-            }
-
-
-            if (itemname == temp)
-            {
-
-
-                mitemvalue = CComLibrary.GlobeVal.filesave.samplememo1;
-
-
-                itemkind = 0;
-            }
-
-            if (CComLibrary.GlobeVal.languageselect == 0)
-            {
-                temp = "样品注释2";
-            }
-            else
-            {
-                temp = "Sample note 2";
-            }
-
-
-
-            if (itemname == temp)
-            {
-                mitemvalue = CComLibrary.GlobeVal.filesave.samplememo2;
-
-                itemkind = 0;
-
-            }
-
-            if (CComLibrary.GlobeVal.languageselect == 0)
-            {
-                temp = "样品注释3";
-            }
-            else
-            {
-                temp = "Sample note 3";
-            }
-
-
-            if (itemname == temp)
-            {
-                mitemvalue = CComLibrary.GlobeVal.filesave.samplememo3;
-
-                itemkind = 0;
-
-            }
-            if (CComLibrary.GlobeVal.languageselect == 0)
-            {
-                temp = "样品说明";
-            }
-            else
-            {
-                temp = "Sample description";
-            }
-
-
-
-            if (itemname ==temp)
-            {
-                mitemvalue = CComLibrary.GlobeVal.filesave.samplememo;
-
-                itemkind = 0;
 
             }
 
             for (int i = 0; i <
-         CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
-            {
-
-                if (itemname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
-                {
-
-                    mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
-
-                    if (mitemvalue.ToString() == "")
-                    {
-
-                        mitemvalue = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue.ToString();
-                        CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
-
-
-                    }
-
-                    itemunit = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cUnits[
-                        CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cUnitsel];
-                    itemkind = 1;
-                }
-
-            }
-
-            for (int i = 0; i <
-             CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
-            {
-                if (itemname == CComLibrary.GlobeVal.filesave.minputtext[i].name)
-                {
-                    mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
-
-                    if (mitemvalue.ToString() == "")
-                    {
-
-                        mitemvalue = CComLibrary.GlobeVal.filesave.minputtext[i].value;
-                        CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
-
-                    }
-                    itemkind = 0;
-                }
-            }
-
-            for (int i = 0; i <
-                   CComLibrary.GlobeVal.filesave.minput.Count; i++)
+                  CComLibrary.GlobeVal.filesave.minput.Count; i++)
             {
 
                 if (itemname == CComLibrary.GlobeVal.filesave.minput[i].name)
                 {
-                    mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
-                    if (mitemvalue.ToString() == "")
+                   v =Convert.ToDouble( CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname]);
+                    if (CComLibrary.GlobeVal.filesave.minput[i].checkzero== true)
                     {
-                        mitemvalue = CComLibrary.GlobeVal.filesave.minput[i].value.ToString();
-                        CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
+
+                        if (v == 0)
+                        {
+
+                            m = true;
+                            if (CComLibrary.GlobeVal.languageselect == 0)
+                            {
+                                MessageBox.Show(itemname + "不能为0,请重新输入");
+                            }
+                            else
+                            {
+                                MessageBox.Show(itemname + " can't be 0. Please re-enter.");
+                            }
+
+
+                        }
+                        else
+                        {
+
+                        }
+
                     }
-                    itemunit = CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnits[CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnitsel];
-                    itemkind = 1;
                 }
             }
 
-            for (int i = 0; i < CComLibrary.GlobeVal.filesave.mcbo.Count; i++)
+            for (int i = 0; i <
+            CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
             {
-
-                if (itemname == CComLibrary.GlobeVal.filesave.mcbo[i].Name)
+                if (itemname == CComLibrary.GlobeVal.filesave.minputtext[i].name)
                 {
-                    mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
+                 string   mitemvalue = Convert.ToString( CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname]);
 
-                    if (mitemvalue.ToString() == "")
+                    if (CComLibrary.GlobeVal.filesave.minputtext[i].checkzero == true)
                     {
-                        mitemvalue = CComLibrary.GlobeVal.filesave.mcbo[i].value.ToString();
-                        CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
-                    }
-                    mcboitem = CComLibrary.GlobeVal.filesave.mcbo[i];
 
-                    itemkind = 2;
+                        if (mitemvalue == "")
+                        {
+
+                            m = true;
+                            if (CComLibrary.GlobeVal.languageselect == 0)
+                            {
+                                MessageBox.Show(itemname + "不能为空,请重新输入");
+                            }
+                            else
+                            {
+                                MessageBox.Show(itemname + " Can not be empty. Please re-enter.");
+                            }
+
+
+                        }
+                        else
+                        {
+
+                        }
+
+                    }
                 }
             }
 
-            if (mitemvalue == null)
+
+            return m;
+           
+
+        }
+        public void getvalue()
+        {
+
+            try
             {
                 mitemvalue = " ";
+                string temp = "";
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    temp = "样品注释1";
+                }
+                else
+                {
+                    temp = "Sample note 1";
+                }
+
+
+                if (itemname == temp)
+                {
+
+
+                    mitemvalue = CComLibrary.GlobeVal.filesave.samplememo1;
+
+
+                    itemkind = 0;
+                }
+
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    temp = "样品注释2";
+                }
+                else
+                {
+                    temp = "Sample note 2";
+                }
+
+
+
+                if (itemname == temp)
+                {
+                    mitemvalue = CComLibrary.GlobeVal.filesave.samplememo2;
+
+                    itemkind = 0;
+
+                }
+
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    temp = "样品注释3";
+                }
+                else
+                {
+                    temp = "Sample note 3";
+                }
+
+
+                if (itemname == temp)
+                {
+                    mitemvalue = CComLibrary.GlobeVal.filesave.samplememo3;
+
+                    itemkind = 0;
+
+                }
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    temp = "样品说明";
+                }
+                else
+                {
+                    temp = "Sample description";
+                }
+
+
+
+                if (itemname == temp)
+                {
+                    mitemvalue = CComLibrary.GlobeVal.filesave.samplememo;
+
+                    itemkind = 0;
+
+                }
+
+                for (int j = 0; j < CComLibrary.GlobeVal.filesave.mshapelist.Count; j++)
+                {
+
+                    for (int i = 0; i <
+                 CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem.Length; i++)
+                    {
+
+                        if (itemname == CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName)
+                        {
+
+                            mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" + itemname];
+
+                            if (mitemvalue.ToString() == "")
+                            {
+
+                                mitemvalue = CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cvalue.ToString();
+                                CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" + itemname] = mitemvalue;
+
+
+                            }
+
+                            itemunit = CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cUnits[
+                                CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cUnitsel];
+                            itemkind = 1;
+                        }
+
+                    }
+                }
+
+                for (int i = 0; i <
+                 CComLibrary.GlobeVal.filesave.minputtext.Count; i++)
+                {
+                    if (itemname == CComLibrary.GlobeVal.filesave.minputtext[i].name)
+                    {
+                        mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
+
+                        if (mitemvalue.ToString() == "")
+                        {
+
+                            mitemvalue = CComLibrary.GlobeVal.filesave.minputtext[i].value;
+                            CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
+
+                        }
+                        itemkind = 0;
+                    }
+                }
+
+                for (int i = 0; i <
+                       CComLibrary.GlobeVal.filesave.minput.Count; i++)
+                {
+
+                    if (itemname == CComLibrary.GlobeVal.filesave.minput[i].name)
+                    {
+                        mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
+                        if (mitemvalue.ToString() == "")
+                        {
+                            mitemvalue = CComLibrary.GlobeVal.filesave.minput[i].value.ToString();
+                            CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
+                        }
+                        itemunit = CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnits[CComLibrary.GlobeVal.filesave.minput[i].myitemsignal.cUnitsel];
+                        itemkind = 1;
+                    }
+                }
+
+                for (int i = 0; i < CComLibrary.GlobeVal.filesave.mcbo.Count; i++)
+                {
+
+                    if (itemname == CComLibrary.GlobeVal.filesave.mcbo[i].Name)
+                    {
+                        mitemvalue = CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname];
+
+                        if (mitemvalue.ToString() == "")
+                        {
+                            mitemvalue = CComLibrary.GlobeVal.filesave.mcbo[i].value.ToString();
+                            CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = mitemvalue;
+                        }
+                        mcboitem = CComLibrary.GlobeVal.filesave.mcbo[i];
+
+                        itemkind = 2;
+                    }
+                }
+
+                if (mitemvalue == null)
+                {
+                    mitemvalue = " ";
+                }
+            }
+            catch(Exception e)
+
+            {
+                MessageBox.Show(e.StackTrace);
             }
 
         }
@@ -1762,20 +1865,22 @@ namespace CComLibrary
             {
                 CComLibrary.GlobeVal.filesave.samplememo = Convert.ToString(mitemvalue);
             }
-
-            for (int i = 0; i <
-                 CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
+            for (int j = 0; j < CComLibrary.GlobeVal.filesave.mshapelist.Count; j++)
             {
-
-                if (itemname == CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName)
+                for (int i = 0; i <
+                     CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem.Length; i++)
                 {
 
+                    if (itemname == CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cName)
+                    {
 
-                    CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][itemname] = Convert.ToDouble(mitemvalue);
-                    CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cvalue = Convert.ToDouble(mitemvalue);
+
+                        CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber][CComLibrary.GlobeVal.filesave.mshapelist[j].shapename + "_" + itemname] = Convert.ToDouble(mitemvalue);
+                        CComLibrary.GlobeVal.filesave.mshapelist[j].sizeitem[i].cvalue = Convert.ToDouble(mitemvalue);
+
+                    }
 
                 }
-
             }
 
             for (int i = 0; i <
@@ -3575,7 +3680,7 @@ namespace CComLibrary
         public int ReportMode = 0;//报告模式
         public string UserReportTemplate = "";//自定义报告模板名称
 
-
+        public bool[] itemsize_checkzero; //试样尺寸输入检查
         public double StrainToLoad(double l)
         {
             double t = 0;
@@ -4197,14 +4302,17 @@ namespace CComLibrary
             }
             */
 
-            for (int i = 0; i <
-        this.mshapelist[this.shapeselect].sizeitem.Length; i++)
+            for (int j = 0; j < this.mshapelist.Count; j++)
             {
-                if (this.mshapelist[this.shapeselect].sizeitem[i].cName != "None")
+                for (int i = 0; i <
+            this.mshapelist[j].sizeitem.Length; i++)
                 {
+                    if (this.mshapelist[j].sizeitem[i].cName != "None")
+                    {
 
-                    s = this.mshapelist[this.shapeselect].sizeitem[i].cName;
-                    dc = dt.Columns.Add(s, typeof(double));
+                        s = this.mshapelist[j].shapename +"_"+ this.mshapelist[j].sizeitem[i].cName;
+                        dc = dt.Columns.Add(s, typeof(double));
+                    }
                 }
             }
 
@@ -4325,7 +4433,7 @@ namespace CComLibrary
         CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem.Length; i++)
             {
                 p = new outputitem();
-                p.formulaname = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName;
+                p.formulaname =  CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename +"_"+ CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i].cName;
                 p.myitemsignal = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[i];
 
                 p.formulavalue = "";
@@ -4621,6 +4729,7 @@ namespace CComLibrary
             mtable2para = new TablePara();
             mplotpara1 = new PlotSettings();
             mplotpara2 = new PlotSettings();
+            itemsize_checkzero = new bool[6];
 
             mlongdata = new List<ClsStaticStation.ItemSignal>();
 
@@ -4635,6 +4744,12 @@ namespace CComLibrary
             numintervallast1 = new double[3];
 
             teststep = new List<CTestStep>();
+
+            for(int i=0;i<6;i++)
+            {
+                itemsize_checkzero[i] = false;
+
+            }
             for (int i = 0; i < 9; i++)
             {
                 CTestStep ct = new CTestStep();
@@ -4704,276 +4819,292 @@ namespace CComLibrary
 
         public void Init_databaselist(bool calced, int inum)
         {
-            mdatabaseitemlist.Clear();
-            DatabaseItem m = new CComLibrary.DatabaseItem();
-
-            m.Name = "";
-            m.LName[0] = "方法名称";
-
-            m.LName[1] = "Method name";
-
-            m.Ntype = 0;
-            m.Value = this.methodname;
-
-            mdatabaseitemlist.Add(m);
-
-            m = new DatabaseItem();
-
-            m.Name = "";
-            m.LName[0] = "方法作者";
-            m.LName[1] = "Method author";
-
-
-            m.Ntype = 0;
-            m.Value = this.methodauthor;
-            mdatabaseitemlist.Add(m);
-            m = new DatabaseItem();
-            m.Name = "";
-
-            m.LName[0] = "方法说明";
-
-            m.LName[1] = "Method description";
-
-            m.Ntype = 0;
-            m.Value = this.methodauthor;
-            mdatabaseitemlist.Add(m);
-
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "样品名称";
-            m.LName[1] = "Sample name";
-
-            m.Ntype = 0;
-            m.Value = this.samplename;
-            mdatabaseitemlist.Add(m);
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "样品注释1";
-
-            m.LName[1] = "Sample note 1";
-            m.Ntype = 0;
-            m.Value = this.samplememo1;
-            mdatabaseitemlist.Add(m);
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "样品注释2";
-            m.LName[1] = "Sample note 2";
-
-
-            m.Ntype = 0;
-            m.Value = this.samplememo2;
-            mdatabaseitemlist.Add(m);
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "样品注释3";
-            m.LName[1] = "Sample note 2";
-            m.Ntype = 0;
-            m.Value = this.samplememo3;
-            mdatabaseitemlist.Add(m);
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "样品说明";
-
-            m.LName[1] = "Sample description";
-
-            m.Ntype = 0;
-            m.Value = this.samplememo;
-            mdatabaseitemlist.Add(m);
-
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "试样数量";
-            m.LName[1] = "Number of specimens"; 
-            m.Ntype = 0;
-            m.Value = this.mspecount.ToString();
-            mdatabaseitemlist.Add(m);
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "试样号";
-            m.LName[1] = "Serial number";
-            m.Ntype = 0;
-            m.Value = (inum + 1).ToString();
-            mdatabaseitemlist.Add(m);
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "试验日期";
-            m.LName[1] = "Test date";
-            m.Ntype = 0;
-            m.Value = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
-            mdatabaseitemlist.Add(m);
-
-
-
-            m = new DatabaseItem();
-            m.Name = "";
-            m.LName[0] = "试样形状";
-            m.LName[1] = "Specimen shape";
-            m.Ntype = 0;
-
-            if (this.mshapelist.Count > 0)
+            try
             {
-                m.Value = this.mshapelist[this.shapeselect].shapename;
-            }
-            mdatabaseitemlist.Add(m);
+                mdatabaseitemlist.Clear();
+                DatabaseItem m = new CComLibrary.DatabaseItem();
+
+                m.Name = "";
+                m.LName[0] = "方法名称";
+
+                m.LName[1] = "Method name";
+
+                m.Ntype = 0;
+                m.Value = this.methodname;
+
+                mdatabaseitemlist.Add(m);
+
+                m = new DatabaseItem();
+
+                m.Name = "";
+                m.LName[0] = "方法作者";
+                m.LName[1] = "Method author";
 
 
-            for(int j=0;j<mdatabaseitemlist.Count;j++)
-            {
-                if (CComLibrary.GlobeVal.languageselect == 0)
+                m.Ntype = 0;
+                m.Value = this.methodauthor;
+                mdatabaseitemlist.Add(m);
+                m = new DatabaseItem();
+                m.Name = "";
+
+                m.LName[0] = "方法说明";
+
+                m.LName[1] = "Method description";
+
+                m.Ntype = 0;
+                m.Value = this.methodauthor;
+                mdatabaseitemlist.Add(m);
+
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "样品名称";
+                m.LName[1] = "Sample name";
+
+                m.Ntype = 0;
+                m.Value = this.samplename;
+                mdatabaseitemlist.Add(m);
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "样品注释1";
+
+                m.LName[1] = "Sample note 1";
+                m.Ntype = 0;
+                m.Value = this.samplememo1;
+                mdatabaseitemlist.Add(m);
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "样品注释2";
+                m.LName[1] = "Sample note 2";
+
+
+                m.Ntype = 0;
+                m.Value = this.samplememo2;
+                mdatabaseitemlist.Add(m);
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "样品注释3";
+                m.LName[1] = "Sample note 2";
+                m.Ntype = 0;
+                m.Value = this.samplememo3;
+                mdatabaseitemlist.Add(m);
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "样品说明";
+
+                m.LName[1] = "Sample description";
+
+                m.Ntype = 0;
+                m.Value = this.samplememo;
+                mdatabaseitemlist.Add(m);
+
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "试样数量";
+                m.LName[1] = "Number of specimens";
+                m.Ntype = 0;
+                m.Value = this.mspecount.ToString();
+                mdatabaseitemlist.Add(m);
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "试样号";
+                m.LName[1] = "Serial number";
+                m.Ntype = 0;
+                m.Value = (inum + 1).ToString();
+                mdatabaseitemlist.Add(m);
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "试验日期";
+                m.LName[1] = "Test date";
+                m.Ntype = 0;
+                m.Value = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString();
+                mdatabaseitemlist.Add(m);
+
+
+
+                m = new DatabaseItem();
+                m.Name = "";
+                m.LName[0] = "试样形状";
+                m.LName[1] = "Specimen shape";
+                m.Ntype = 0;
+
+                if (this.mshapelist.Count > 0)
                 {
-                    mdatabaseitemlist[j].Name = mdatabaseitemlist[j].LName[0];
+                    m.Value = this.mshapelist[this.shapeselect].shapename;
                 }
-                else
-                {
-                    mdatabaseitemlist[j].Name = mdatabaseitemlist[j].LName[1];
-                }
-            }
+                mdatabaseitemlist.Add(m);
 
-            for (int j = 0; j < this.mshapelist.Count; j++)
-            {
+
+                for (int j = 0; j < mdatabaseitemlist.Count; j++)
+                {
+                    if (CComLibrary.GlobeVal.languageselect == 0)
+                    {
+                        mdatabaseitemlist[j].Name = mdatabaseitemlist[j].LName[0];
+                    }
+                    else
+                    {
+                        mdatabaseitemlist[j].Name = mdatabaseitemlist[j].LName[1];
+                    }
+                }
+                this.InitTable();
+
+                for (int i = 0; i < this.mFreeFormPromptsItem.Count; i++)
+                {
+
+                    this.mFreeFormPromptsItem[i].getvalue();
+
+                }
+
+                for (int j = 0; j < this.mshapelist.Count; j++)
+                {
+
+
+                    for (int i = 0; i <
+                       this.mshapelist[this.shapeselect].sizeitem.Length; i++)
+                    {
+                        if (this.mshapelist[j].sizeitem[i].cName != "None")
+                        {
+                            m = new DatabaseItem();
+                            m.Name = this.mshapelist[j].shapename + "_" + this.mshapelist[j].sizeitem[i].cName;
+                            m.Ntype = 0;
+
+                            bool mb = false;
+                            for (int k = 0; k < this.mFreeFormPromptsItem.Count; k++)
+                            {
+                                if (this.mshapelist[j].sizeitem[i].cName == this.mFreeFormPromptsItem[k].itemname)
+                                {
+
+                                    mb = true;
+                                 
+                                    m.Value = this.mFreeFormPromptsItem[k].itemvalue.ToString();
+                                    
+                                    mdatabaseitemlist.Add(m);
+
+                                }
+                            }
+                            if (mb == false)
+                            {
+                                m.Value = this.mshapelist[j].sizeitem[i].cvalue.ToString();
+                                mdatabaseitemlist.Add(m);
+                            }
+                        }
+
+                    }
+                }
+
 
 
                 for (int i = 0; i <
-                   this.mshapelist[this.shapeselect].sizeitem.Length; i++)
+                  this.minput.Count; i++)
                 {
-                    if (this.mshapelist[j].sizeitem[i].cName != "None")
+                    m = new DatabaseItem();
+                    m.Name = this.minput[i].name;
+                    m.Ntype = 0;
+                    m.Value = this.minput[i].value.ToString();
+                    mdatabaseitemlist.Add(m);
+
+                }
+
+
+
+
+                for (int i = 0; i <
+                  this.minputtext.Count; i++)
+                {
+                    m = new DatabaseItem();
+                    m.Name = this.minputtext[i].name;
+
+                    m.Ntype = 0;
+                    m.Value = this.minputtext[i].value;
+                    mdatabaseitemlist.Add(m);
+                }
+
+
+
+
+                for (int i = 0; i < this.mcbo.Count; i++)
+                {
+                    m = new DatabaseItem();
+                    if (CComLibrary.GlobeVal.languageselect == 0)
                     {
-                        m = new DatabaseItem();
-                        m.Name = this.mshapelist[j].shapename + "_" + this.mshapelist[j].sizeitem[i].cName;
-                        m.Ntype = 0;
-
-                        bool mb = false;
-                        for (int k = 0; k < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; k++)
-                        {
-                            if (this.mshapelist[j].sizeitem[i].cName == CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[k].itemname)
-                            {
-
-                                mb = true;
-                                m.Value = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[k].itemvalue.ToString();
-                                mdatabaseitemlist.Add(m);
-
-                            }
-                        }
-                        if (mb == false)
-                        {
-                            m.Value = this.mshapelist[j].sizeitem[i].cvalue.ToString();
-                            mdatabaseitemlist.Add(m);
-                        }
-                    }
-
-                }
-            }
-
-
-
-            for (int i = 0; i <
-              this.minput.Count; i++)
-            {
-                m = new DatabaseItem();
-                m.Name = this.minput[i].name;
-                m.Ntype = 0;
-                m.Value = this.minput[i].value.ToString();
-                mdatabaseitemlist.Add(m);
-
-            }
-
-
-
-
-            for (int i = 0; i <
-              this.minputtext.Count; i++)
-            {
-                m = new DatabaseItem();
-                m.Name = this.minputtext[i].name;
-                
-                m.Ntype = 0;
-                m.Value = this.minputtext[i].value;
-                mdatabaseitemlist.Add(m);
-            }
-
-
-
-
-            for (int i = 0; i < this.mcbo.Count; i++)
-            {
-                m = new DatabaseItem();
-                if (CComLibrary.GlobeVal.languageselect == 0)
-                {
-                    m.KindName = "试样选项输入";
-                }
-                else
-                {
-                    m.KindName = "Sample option input";
-                }
-                m.Name = this.mcbo[i].Name;
-                m.Ntype = 0;
-                m.Value = this.mcbo[i].mlist[this.mcbo[i].value];
-                mdatabaseitemlist.Add(m);
-
-
-            }
-
-
-
-            for (int i = 0; i < this.moutput.Count; i++)
-            {
-
-                m = new DatabaseItem();
-                if (CComLibrary.GlobeVal.languageselect  == 0)
-                {
-                    m.KindName = "计算项目";
-                }
-                else
-                {
-                    m.KindName = "Calculated items";
-                }
-                m.Name = this.moutput[i].formulaname;
-                m.Ntype = 0;
-                m.Value = "0";
-                if (CComLibrary.GlobeVal.gcalc == null)
-                {
-                    m.Value = "0";
-                }
-                else
-                {
-
-                    if (calced == false)
-                    {
-                        // m.Value = ClsStaticStation.m_Global.mresult[i + 1].ToString();
+                        m.KindName = "试样选项输入";
                     }
                     else
-
                     {
-                        m.Value = CComLibrary.GlobeVal.gcalc.getresult(i + 1).ToString();
+                        m.KindName = "Sample option input";
                     }
+                    m.Name = this.mcbo[i].Name;
+                    m.Ntype = 0;
+                    m.Value = this.mcbo[i].mlist[this.mcbo[i].value];
+                    mdatabaseitemlist.Add(m);
+
 
                 }
 
 
-                mdatabaseitemlist.Add(m);
 
-
-            }
-
-            for (int i = 0; i < mdatabaseitemlist.Count; i++)
-            {
-                for (int j = 0; j < mdatabaseitemselect.Count; j++)
+                for (int i = 0; i < this.moutput.Count; i++)
                 {
-                    if (mdatabaseitemselect[j].Name == mdatabaseitemlist[i].Name)
+
+                    m = new DatabaseItem();
+                    if (CComLibrary.GlobeVal.languageselect == 0)
                     {
-                        mdatabaseitemselect[j] = mdatabaseitemlist[i];
+                        m.KindName = "计算项目";
+                    }
+                    else
+                    {
+                        m.KindName = "Calculated items";
+                    }
+                    m.Name = this.moutput[i].formulaname;
+                    m.Ntype = 0;
+                    m.Value = "0";
+                    if (CComLibrary.GlobeVal.gcalc == null)
+                    {
+                        m.Value = "0";
+                    }
+                    else
+                    {
+
+                        if (calced == false)
+                        {
+                            // m.Value = ClsStaticStation.m_Global.mresult[i + 1].ToString();
+                        }
+                        else
+
+                        {
+                            m.Value = CComLibrary.GlobeVal.gcalc.getresult(i + 1).ToString();
+                        }
+
+                    }
+
+
+                    mdatabaseitemlist.Add(m);
+
+
+                }
+
+                for (int i = 0; i < mdatabaseitemlist.Count; i++)
+                {
+                    for (int j = 0; j < mdatabaseitemselect.Count; j++)
+                    {
+                        if (mdatabaseitemselect[j].Name == mdatabaseitemlist[i].Name)
+                        {
+                            mdatabaseitemselect[j] = mdatabaseitemlist[i];
+                        }
                     }
                 }
             }
-
+            catch(Exception e)
+            {
+                MessageBox.Show(e.StackTrace);
+            }
         }
 
         public void SerializeNow(string filename)
@@ -4999,6 +5130,15 @@ namespace CComLibrary
                     BinaryFormatter b = new BinaryFormatter();
 
                     c = b.Deserialize(fileStream) as FileStruct;
+
+                    if (c.itemsize_checkzero ==null)
+                    {
+                        c.itemsize_checkzero = new bool[6];
+                        for (int i=0;i<6;i++)
+                        {
+                            c.itemsize_checkzero[i] = false;
+                        }
+                    }
                     if (c.minput == null)
                     {
                         c.minput = new List<CComLibrary.inputitem>();
@@ -5491,8 +5631,13 @@ namespace CComLibrary
                     {
                         c.mdatabaseitemlist = new List<DatabaseItem>();
 
+
+
                     }
-                    c.Init_databaselist(false, c.currentspenumber);
+
+
+                    
+                        c.Init_databaselist(false, c.currentspenumber);
 
                     if (c.mdatabaseitemselect == null)
                     {
@@ -7144,7 +7289,7 @@ namespace CComLibrary
                     CComLibrary.GlobeVal.m_calc_outputwindow.Clear();
                 }
             }
-
+            string errs = "";
             if (cr.Errors.Count > 0)
 
             //foreach (System.CodeDom.Compiler.CompilerError ce in cr.Errors)
@@ -7173,9 +7318,11 @@ namespace CComLibrary
                         {
                             if (CComLibrary.GlobeVal.m_outputwindow == null)
                             {
+                                errs =errs + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
                             else
                             {
+                                errs = errs + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                                 CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text +
                                  "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
@@ -7184,9 +7331,11 @@ namespace CComLibrary
                         {
                             if (CComLibrary.GlobeVal.m_calc_outputwindow == null)
                             {
+                                errs =errs + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
                             else
                             {
+                                errs = errs + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                                 CComLibrary.GlobeVal.m_calc_outputwindow.Text = CComLibrary.GlobeVal.m_calc_outputwindow.Text +
                                     "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
@@ -7198,10 +7347,11 @@ namespace CComLibrary
                         {
                             if (CComLibrary.GlobeVal.m_outputwindow == null)
                             {
+                                errs=errs + "内部函数错误:" + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
                             else
                             {
-
+                                errs = errs + "内部函数错误:" + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                                 CComLibrary.GlobeVal.m_outputwindow.Text = CComLibrary.GlobeVal.m_outputwindow.Text +
                              "内部函数错误:" + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
@@ -7212,15 +7362,18 @@ namespace CComLibrary
                         {
                             if (CComLibrary.GlobeVal.m_calc_outputwindow == null)
                             {
+                                errs=errs + "内部函数错误:" + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
                             else
                             {
+                                errs = errs + "内部函数错误:" + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                                 CComLibrary.GlobeVal.m_calc_outputwindow.Text = CComLibrary.GlobeVal.m_calc_outputwindow.Text +
                                 "内部函数错误:" + "第" + j.ToString() + "行," + "第" + ce.Column.ToString() + "列," + text.Lines[ce.Line - 1] + ce.ErrorText + "\r\n";
                             }
                         }
                     }
 
+                    MessageBox.Show(errs);
 
                     // MessageBox.Show(ce.ErrorNumber.ToString()); 
                 }
@@ -8662,7 +8815,14 @@ namespace CComLibrary
         {
             double t = 0;
             FormSpeInput f = new FormSpeInput();
-            f.lblcaption.Text = "断后标距";
+            if (CComLibrary.GlobeVal.languageselect == 0)
+            {
+                f.lblcaption.Text = "断后标距";
+            }
+            else
+            {
+                f.lblcaption.Text = "Final gauge length";
+            }
             f.ShowDialog();
 
             t = f.txtvalue.Value;
@@ -8703,11 +8863,19 @@ namespace CComLibrary
             }
 
 
-            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == CComLibrary.GlobeVal
-                .filesave.mshapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Rect_Shape].shapename)
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == 
+                m_Global.mycls.shapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Rect_Shape].shapename)
             {
                 FormSpeInput f = new FormSpeInput();
-                f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                }
+                else
+                {
+                    f.lblcaption.Text = "Break " + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                }
                 f.ShowDialog();
                 m1 = f.txtvalue.Value;
 
@@ -8715,7 +8883,15 @@ namespace CComLibrary
                 f.Dispose();
 
                 f = new FormSpeInput();
-                f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cName;
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cName;
+                }
+                else
+                {
+                    f.lblcaption.Text = "Break " + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cName;
+                }
+
                 f.ShowDialog();
 
                 m2 = f.txtvalue.Value;
@@ -8725,11 +8901,18 @@ namespace CComLibrary
 
             }
 
-            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == CComLibrary.GlobeVal
-                .filesave.mshapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Round_Shape].shapename)
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename ==
+                m_Global.mycls.shapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Round_Shape].shapename)
             {
                 FormSpeInput f = new FormSpeInput();
-                f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                }
+                else
+                {
+                    f.lblcaption.Text = "Break " + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                }
                 f.ShowDialog();
                 m1 = f.txtvalue.Value;
 
@@ -8739,11 +8922,18 @@ namespace CComLibrary
                  * m1 / 4 * 3.1415926;
             }
 
-            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == CComLibrary.GlobeVal
-                .filesave.mshapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Tube_Shape].shapename)
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == 
+                m_Global.mycls.shapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Tube_Shape].shapename)
             {
                 FormSpeInput f = new FormSpeInput();
-                f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                }
+                else
+                {
+                    f.lblcaption.Text = "Break " + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                }
                 f.ShowDialog();
                 m1 = f.txtvalue.Value;
 
@@ -8751,7 +8941,14 @@ namespace CComLibrary
 
                 f.Dispose();
                 f = new FormSpeInput();
-                f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cName;
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cName;
+                }
+                else
+                {
+                    f.lblcaption.Text = "Break " + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cName;
+                }
                 f.ShowDialog();
                 m2 = f.txtvalue.Value;
                 CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[4].cvalue = m2;
@@ -8766,11 +8963,20 @@ namespace CComLibrary
 
             }
 
-            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == CComLibrary.GlobeVal
-                .filesave.mshapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Irregular_Shape].shapename)
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == m_Global.mycls.shapelist
+               [CComLibrary.GlobeVal.filesave.mshapelist[0].Irregular_Shape].shapename)
             {
                 FormSpeInput f = new FormSpeInput();
-                f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    f.lblcaption.Text = "断后" + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                }
+                else
+                {
+                    f.lblcaption.Text = "Break " + CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cName;
+                }
+
                 f.ShowDialog();
                 m1 = f.txtvalue.Value;
 
@@ -8805,22 +9011,22 @@ namespace CComLibrary
                 value = 0;
                 return false;
             }
-            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == CComLibrary.GlobeVal
-            .filesave.mshapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Rect_Shape].shapename)
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == 
+                m_Global.mycls.shapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Rect_Shape].shapename)
             {
                 t = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue
                  * CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[1].cvalue;
             }
 
-            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == CComLibrary.GlobeVal
-                .filesave.mshapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Round_Shape].shapename)
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename ==
+                m_Global.mycls.shapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Round_Shape].shapename)
             {
                 t = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue
                  * CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue / 4 * 3.1415926;
             }
 
-            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == CComLibrary.GlobeVal
-                .filesave.mshapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Tube_Shape].shapename)
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename ==
+                m_Global.mycls.shapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Tube_Shape].shapename)
             {
 
                 m1 = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue;
@@ -8835,8 +9041,10 @@ namespace CComLibrary
 
             }
 
-            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == CComLibrary.GlobeVal
-                .filesave.mshapelist[CComLibrary.GlobeVal.filesave.mshapelist[0].Irregular_Shape].shapename)
+
+
+            if (CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].shapename == m_Global.mycls.shapelist
+                [CComLibrary.GlobeVal.filesave.mshapelist[0].Irregular_Shape].shapename)
             {
 
                 t = CComLibrary.GlobeVal.filesave.mshapelist[CComLibrary.GlobeVal.filesave.shapeselect].sizeitem[0].cvalue;

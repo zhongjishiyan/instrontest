@@ -3018,11 +3018,6 @@ namespace ClsStaticStation
         {
             short tan = 0;
 
-
-
-
-
-
             try
             {
                 myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0, 0, 0, 0, 0, 0);
