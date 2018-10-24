@@ -358,6 +358,12 @@ namespace TabHeaderDemo
             btnstart.Text = GlobeVal.mysys.lbl_start;
             btnend.Text = GlobeVal.mysys.lbl_end;
 
+            btnup1.Text = GlobeVal.mysys.lbl_up1;
+            btnstop1.Text = GlobeVal.mysys.lbl_stop;
+            btndown1.Text = GlobeVal.mysys.lbl_down1;
+            btnstart1.Text = GlobeVal.mysys.lbl_start1;
+            btnend1.Text = GlobeVal.mysys.lbl_end1;  
+
         }
 
         private void cboctrl_SelectedIndexChanged(object sender, EventArgs e)
@@ -384,6 +390,7 @@ namespace TabHeaderDemo
         private void button1_Click(object sender, EventArgs e)
         {
             Frm.FormPanelSet f = new Frm.FormPanelSet();
+            f.TowChannel = true;
             f.ShowDialog();
         }
 
@@ -420,6 +427,17 @@ namespace TabHeaderDemo
         private void btnend1_Click(object sender, EventArgs e)
         {
             GlobeVal.myarm.DestStop(mlistbox2[cboctrl1.SelectedIndex]);
+        }
+
+        private void cboctrl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboctrl1.SelectedIndex >= 0)
+            {
+
+                lblunit1.Text = ClsStaticStation.m_Global.mycls.chsignals[mlistbox2[cboctrl1.SelectedIndex]].cUnits[0] + "/min";
+                lblmunit1.Text = ClsStaticStation.m_Global.mycls.chsignals[mlistbox2[cboctrl1.SelectedIndex]].cUnits[0];
+
+            }
         }
     }
 }

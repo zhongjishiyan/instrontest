@@ -2262,6 +2262,8 @@ namespace CComLibrary
         public int dir;//方向  0 上升，1 下降
         public int controlmode;//控制方式
         public double speed;//速度
+
+        public int speedunit;//速度单位选择
         public int destcontrolmode;//目标控制方式
         public double dest;//目标值
         public int action;// 动作
@@ -2311,19 +2313,21 @@ namespace CComLibrary
         {
             string s = "";
 
+            double mspeed = 0;
 
 
             for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals.Count; i++)
             {
                 if (controlmode == i)
                 {
+                    mspeed = Convert.ToDouble( ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.GetValueFromUnit(speed, speedunit));
                     if (CComLibrary.GlobeVal.languageselect == 0)
                     {
-                        s = "速度:" + speed.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[0];
+                        s = "速度:" + mspeed.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[speedunit];
                     }
                     else
                     {
-                        s = "The rate is " + speed.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[0];
+                        s = "The rate is " + mspeed.ToString("F4") + ClsStaticStation.m_Global.mycls.hardsignals[i].speedSignal.cUnits[speedunit];
                     }
 
 
@@ -2370,27 +2374,13 @@ namespace CComLibrary
 
             }
 
-            if (keeptime == 0)
-            {
-
-            }
-            else
-            {
-                if (CComLibrary.GlobeVal.languageselect == 0)
-                {
-                    s = s + ",保持" + keeptime.ToString() + "s";
-                }
-                else
-                {
-                    s = s + ",Keep" + keeptime.ToString() + "s";
-                }
-            }
-
+         
+            /*
             if (destmod == 0)
             {
                 if (CComLibrary.GlobeVal.languageselect == 0)
                 {
-                    s = s + ",切换";
+                    s = s + ",切换到目标控制方式";
                 }
                 else
                 {
@@ -2402,7 +2392,7 @@ namespace CComLibrary
             {
                 if (CComLibrary.GlobeVal.languageselect == 0)
                 {
-                    s = s + ",不切换";
+                    s = s + ",保持现有控制方式";
                 }
                 else
                 {
@@ -2418,6 +2408,23 @@ namespace CComLibrary
                 else
                 {
                     s = s + ",Follow";
+                }
+            }
+            */
+
+            if (keeptime == 0)
+            {
+
+            }
+            else
+            {
+                if (CComLibrary.GlobeVal.languageselect == 0)
+                {
+                    s = s + ",保持" + keeptime.ToString() + "s";
+                }
+                else
+                {
+                    s = s + ",Keep" + keeptime.ToString() + "s";
                 }
             }
 
@@ -2481,11 +2488,13 @@ namespace CComLibrary
                 {
                     if (CComLibrary.GlobeVal.languageselect == 0)
                     {
-                        cmdstring[i] = "通道" + (m_Global.mycls.hardsignals[i].EdcChannleSel + 1).ToString() + "-" + m_Global.mycls.hardsignals[i].cName;
+                        cmdstring[i] =   m_Global.mycls.hardsignals[i].cName;
                     }
                     else
                     {
-                        cmdstring[i] = "Channel" + (m_Global.mycls.hardsignals[i].EdcChannleSel + 1).ToString() + "-" + m_Global.mycls.hardsignals[i].cName;
+                        // cmdstring[i] = "Channel" + (m_Global.mycls.hardsignals[i].EdcChannleSel + 1).ToString() + "-" + m_Global.mycls.hardsignals[i].cName;
+                        cmdstring[i] =  m_Global.mycls.hardsignals[i].cName;
+
                     }
                 }
                 else
@@ -2567,11 +2576,11 @@ namespace CComLibrary
                             if (CComLibrary.GlobeVal.languageselect == 0)
                             {
 
-                                c.cmdstring[i] = "通道" + (m_Global.mycls.hardsignals[i].EdcChannleSel + 1).ToString() + "-" + m_Global.mycls.hardsignals[i].cName;
+                                c.cmdstring[i] = m_Global.mycls.hardsignals[i].cName;
                             }
                             else
                             {
-                                c.cmdstring[i] = "Channel " + (m_Global.mycls.hardsignals[i].EdcChannleSel + 1).ToString() + "-" + m_Global.mycls.hardsignals[i].cName;
+                                c.cmdstring[i] = m_Global.mycls.hardsignals[i].cName;
                             }
                         }
                         else
@@ -3465,7 +3474,7 @@ namespace CComLibrary
         public CheckState _flow试验选项 = CheckState.Unchecked;
         public CheckState _flow测试 = CheckState.Unchecked;
 
-
+        public Boolean  _flow试样 = true ;
 
 
         public List<string> m_namelist;
@@ -5551,7 +5560,7 @@ namespace CComLibrary
                     }
 
 
-                    if (c.mchsignals == null)
+                   // if (c.mchsignals == null)
                     {
                         c.mchsignals = new List<ItemSignal>();
                         for (int i = 0; i < ClsStaticStation.m_Global.mycls.chsignals.Count; i++)

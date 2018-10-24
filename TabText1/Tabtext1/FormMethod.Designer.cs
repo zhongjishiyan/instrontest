@@ -89,6 +89,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.listEditor3 = new SampleProject.Extensions.ListEditorEx();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.checklist = new System.Windows.Forms.CheckedListBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -113,11 +114,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
-            // 
-            // folderBrowserDialog1
-            // 
-            resources.ApplyResources(this.folderBrowserDialog1, "folderBrowserDialog1");
             // 
             // BackButton
             // 
@@ -149,7 +145,6 @@
             // 
             // Wizardtab
             // 
-            resources.ApplyResources(this.Wizardtab, "Wizardtab");
             this.Wizardtab.Controls.Add(this.tabPage7);
             this.Wizardtab.Controls.Add(this.tabPage1);
             this.Wizardtab.Controls.Add(this.tabPage2);
@@ -158,14 +153,15 @@
             this.Wizardtab.Controls.Add(this.tabPage5);
             this.Wizardtab.Controls.Add(this.tabPage6);
             this.Wizardtab.Controls.Add(this.tabPage8);
+            resources.ApplyResources(this.Wizardtab, "Wizardtab");
             this.Wizardtab.Name = "Wizardtab";
             this.Wizardtab.SelectedIndex = 0;
             // 
             // tabPage7
             // 
-            resources.ApplyResources(this.tabPage7, "tabPage7");
             this.tabPage7.Controls.Add(this.panel3);
             this.tabPage7.Controls.Add(this.label1);
+            resources.ApplyResources(this.tabPage7, "tabPage7");
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
@@ -181,7 +177,6 @@
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
@@ -198,18 +193,19 @@
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.txtinterval);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btndel);
             this.panel2.Controls.Add(this.btnadd);
             this.panel2.Controls.Add(this.listBox2);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.listBox1);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // btndel
@@ -228,9 +224,9 @@
             // 
             // listBox2
             // 
-            resources.ApplyResources(this.listBox2, "listBox2");
             this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox2.FormattingEnabled = true;
+            resources.ApplyResources(this.listBox2, "listBox2");
             this.listBox2.Name = "listBox2";
             // 
             // label12
@@ -240,9 +236,9 @@
             // 
             // listBox1
             // 
-            resources.ApplyResources(this.listBox1, "listBox1");
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.listBox1, "listBox1");
             this.listBox1.Name = "listBox1";
             // 
             // label3
@@ -314,9 +310,9 @@
             // 
             // cboitem
             // 
-            resources.ApplyResources(this.cboitem, "cboitem");
             this.cboitem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboitem.FormattingEnabled = true;
+            resources.ApplyResources(this.cboitem, "cboitem");
             this.cboitem.Name = "cboitem";
             // 
             // label7
@@ -341,10 +337,10 @@
             // 
             // tabPage2
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.listEditor1);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -355,19 +351,19 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // dataGridView1
             // 
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column5});
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
@@ -418,24 +414,24 @@
             // 
             // listEditor1
             // 
-            resources.ApplyResources(this.listEditor1, "listEditor1");
             this.listEditor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listEditor1.Editors = null;
             this.listEditor1.ItemType = null;
             this.listEditor1.List = null;
+            resources.ApplyResources(this.listEditor1, "listEditor1");
             this.listEditor1.Name = "listEditor1";
             this.listEditor1.Properties = null;
             this.listEditor1.ListChanged += new SampleProject.Extensions.ListEditor.ListEventHandler(this.listEditor1_ListChanged);
             // 
             // tabPage3
             // 
-            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.button2);
             this.tabPage3.Controls.Add(this.listEditor4);
             this.tabPage3.Controls.Add(this.listEditor5);
             this.tabPage3.Controls.Add(this.uListEditor1);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
@@ -458,28 +454,28 @@
             // 
             // listEditor4
             // 
-            resources.ApplyResources(this.listEditor4, "listEditor4");
             this.listEditor4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listEditor4.Editors = null;
             this.listEditor4.ItemType = null;
             this.listEditor4.List = null;
+            resources.ApplyResources(this.listEditor4, "listEditor4");
             this.listEditor4.Name = "listEditor4";
             this.listEditor4.Properties = null;
             // 
             // listEditor5
             // 
-            resources.ApplyResources(this.listEditor5, "listEditor5");
             this.listEditor5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listEditor5.Editors = null;
             this.listEditor5.ItemType = null;
             this.listEditor5.List = null;
+            resources.ApplyResources(this.listEditor5, "listEditor5");
             this.listEditor5.Name = "listEditor5";
             this.listEditor5.Properties = null;
             // 
             // uListEditor1
             // 
-            resources.ApplyResources(this.uListEditor1, "uListEditor1");
             this.uListEditor1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.uListEditor1, "uListEditor1");
             this.uListEditor1.Name = "uListEditor1";
             this.uListEditor1.addevent += new AppleLabApplication.Extensions.UListEditor.AddEventHandler(this.uListEditor1_addevent);
             this.uListEditor1.removeevent += new AppleLabApplication.Extensions.UListEditor.RemoveEventHandler(this.uListEditor1_removeevent);
@@ -487,9 +483,9 @@
             // 
             // tabPage4
             // 
-            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.listEditor2);
+            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
@@ -502,11 +498,11 @@
             // 
             // listEditor2
             // 
-            resources.ApplyResources(this.listEditor2, "listEditor2");
             this.listEditor2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listEditor2.Editors = null;
             this.listEditor2.ItemType = null;
             this.listEditor2.List = null;
+            resources.ApplyResources(this.listEditor2, "listEditor2");
             this.listEditor2.Name = "listEditor2";
             this.listEditor2.Properties = null;
             this.listEditor2.ListChanged += new SampleProject.Extensions.ListEditor.ListEventHandler(this.listEditor2_ListChanged);
@@ -516,9 +512,9 @@
             // 
             // tabPage5
             // 
-            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Controls.Add(this.label17);
             this.tabPage5.Controls.Add(this.listEditor3);
+            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
@@ -529,21 +525,28 @@
             // 
             // listEditor3
             // 
-            resources.ApplyResources(this.listEditor3, "listEditor3");
             this.listEditor3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listEditor3.Editors = null;
             this.listEditor3.ItemType = null;
             this.listEditor3.List = null;
+            resources.ApplyResources(this.listEditor3, "listEditor3");
             this.listEditor3.Name = "listEditor3";
             this.listEditor3.Properties = null;
             // 
             // tabPage6
             // 
-            resources.ApplyResources(this.tabPage6, "tabPage6");
+            this.tabPage6.Controls.Add(this.checkBox1);
             this.tabPage6.Controls.Add(this.label16);
             this.tabPage6.Controls.Add(this.checklist);
+            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -552,7 +555,6 @@
             // 
             // checklist
             // 
-            resources.ApplyResources(this.checklist, "checklist");
             this.checklist.FormattingEnabled = true;
             this.checklist.Items.AddRange(new object[] {
             resources.GetString("checklist.Items"),
@@ -560,6 +562,7 @@
             resources.GetString("checklist.Items2"),
             resources.GetString("checklist.Items3"),
             resources.GetString("checklist.Items4")});
+            resources.ApplyResources(this.checklist, "checklist");
             this.checklist.Name = "checklist";
             this.checklist.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checklist_ItemCheck);
             this.checklist.SelectedValueChanged += new System.EventHandler(this.checklist_SelectedValueChanged);
@@ -614,6 +617,7 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -684,5 +688,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

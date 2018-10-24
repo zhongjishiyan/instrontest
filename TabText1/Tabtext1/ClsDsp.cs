@@ -141,8 +141,14 @@ namespace ClsStaticStation
 
             double m = speed;
 
-
-            myedc.Move.FMove(XLNet.XLDOPE.MOVE.DOWN, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
+            if (m_Global.mycls.chsignals[ctrlmode].EdcChannleSel == 0)
+            {
+                myedc.Move.FMove(XLNet.XLDOPE.MOVE.DOWN, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
+            }
+            else
+            {
+                myedc.Move.FMove(XLNet.XLDOPE.MOVE.DOWN, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(1 * 256), m / 60, ref tan);
+            }
 
         }
 
@@ -1306,7 +1312,7 @@ namespace ClsStaticStation
             mspeed = speed / 60;
 
 
-            control = (XLDOPE.CTRL)ConvertCtrlMode(ctrlmode);
+            control = (XLDOPE.CTRL)ConvertCtrlMode(ctrlmode)+ Convert.ToInt16(m_Global.mycls.chsignals[ctrlmode].EdcChannleSel*256);
 
             destination = dest;
 
@@ -1329,7 +1335,7 @@ namespace ClsStaticStation
 
             try
             {
-                myedc.Move.Halt(XLDOPE.CTRL.POS, ref tan);
+                myedc.Move.Halt((XLDOPE.CTRL)ctrlmode+ Convert.ToInt16(m_Global.mycls.chsignals[ctrlmode].EdcChannleSel * 256), ref tan);
             }
             catch (NullReferenceException)
             {
@@ -1347,8 +1353,14 @@ namespace ClsStaticStation
 
             try
             {
-
-                myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
+                if (m_Global.mycls.chsignals[ctrlmode].EdcChannleSel == 0)
+                {
+                    myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(0 * 256), m / 60, ref tan);
+                }
+                else
+                {
+                    myedc.Move.FMove(XLNet.XLDOPE.MOVE.UP, (XLNet.XLDOPE.CTRL)ctrlmode + Convert.ToInt16(1 * 256), m / 60, ref tan);
+                }
             }
             catch (NullReferenceException)
             {
@@ -1366,7 +1378,14 @@ namespace ClsStaticStation
 
             try
             {
-                myedc.Move.Halt((XLDOPE.CTRL)ctrlmode, ref tan);
+                if (m_Global.mycls.chsignals[ctrlmode].EdcChannleSel == 0)
+                {
+                    myedc.Move.Halt((XLDOPE.CTRL)ctrlmode + Convert.ToInt16(0 * 256), ref tan);
+                }
+                else
+                {
+                    myedc.Move.Halt((XLDOPE.CTRL)ctrlmode + Convert.ToInt16(1 * 256), ref tan);
+                }
             }
             catch (NullReferenceException)
             {
@@ -1734,7 +1753,7 @@ namespace ClsStaticStation
                     {
                         m_runstate = 1;
 
-                        myedc.Move.PosExt((XLDOPE.CTRL)ConvertCtrlMode(firstctl), Convert.ToSingle(speed), XLDOPE.LIMITMODE.NOT_ACTIVE, 5, (XLDOPE.CTRL)ConvertCtrlMode(destctl)
+                        myedc.Move.PosExt((XLDOPE.CTRL)ConvertCtrlMode(firstctl)+ Convert.ToInt16(m_Global.mycls.chsignals[firstctl].EdcChannleSel * 256), Convert.ToSingle(speed), XLDOPE.LIMITMODE.NOT_ACTIVE, 5, (XLDOPE.CTRL)ConvertCtrlMode(destctl)
                             , Convert.ToSingle(dest), (XLDOPE.DESTMODE)destmode, ref tan);
 
                     }
@@ -1762,7 +1781,9 @@ namespace ClsStaticStation
                             double m_dest2 = mrunlist[mcurseg].mseq.mtrimin;
 
 
-                            myedc.Move.Cycle((XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed1, m_dest1, 0, m_speed2, m_dest2, 0, (DoPE_HANDLE)(mrunlist[mcurseg].mseq.mcount - mrunlist[mcurseg].mseq.mfinishedcount), m_speed1, m_dest2, ref tan);
+                            myedc.Move.Cycle((XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode + 
+                                Convert.ToInt16(m_Global.mycls.chsignals[mrunlist[mcurseg].mseq.controlmode].EdcChannleSel * 256),
+                                m_speed1, m_dest1, 0, m_speed2, m_dest2, 0, (DoPE_HANDLE)(mrunlist[mcurseg].mseq.mcount - mrunlist[mcurseg].mseq.mfinishedcount), m_speed1, m_dest2, ref tan);
                         }
 
                     }
@@ -1797,7 +1818,8 @@ namespace ClsStaticStation
                             }
 
 
-                            myedc.Move.DynCyclesSimple(XLDOPE.DYN_WAVEFORM.COSINE, (XLDOPE.DYN_PEAKCTRL)0, (XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode, false, m_speed, m_offset, m_amp,
+                            myedc.Move.DynCyclesSimple(XLDOPE.DYN_WAVEFORM.COSINE, (XLDOPE.DYN_PEAKCTRL)0, (XLDOPE.CTRL)mrunlist[mcurseg].mseq.controlmode
+                                + Convert.ToInt16(m_Global.mycls.chsignals[mrunlist[mcurseg].mseq.controlmode].EdcChannleSel * 256), false, m_speed, m_offset, m_amp,
                                 mrunlist[mcurseg].mseq.msinfreq, (DoPE_HANDLE)(mrunlist[mcurseg].mseq.mcount - mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_offset, ref tan);
                         }
                     }
@@ -1821,7 +1843,7 @@ namespace ClsStaticStation
 
 
                         m_runstate = 1;
-                        myedc.Move.PosExt((XLDOPE.CTRL)ConvertCtrlMode(firstctl), Convert.ToSingle(speed), XLDOPE.LIMITMODE.NOT_ACTIVE, 5, (XLDOPE.CTRL)ConvertCtrlMode(destctl)
+                        myedc.Move.PosExt((XLDOPE.CTRL)ConvertCtrlMode(firstctl) + Convert.ToInt16(m_Global.mycls.chsignals[firstctl].EdcChannleSel * 256), Convert.ToSingle(speed), XLDOPE.LIMITMODE.NOT_ACTIVE, 5, (XLDOPE.CTRL)ConvertCtrlMode(destctl)
                             , Convert.ToSingle(dest), (XLDOPE.DESTMODE)destmode, ref tan);
 
                         mrun = true;
@@ -2949,9 +2971,6 @@ namespace ClsStaticStation
                                     m_Global.mycls.chsignals[m].bvaluemax = m_Global.mycls.chsignals[m].fullminbase;
                                     m_Global.mycls.chsignals[m].bvaluemin = m_Global.mycls.chsignals[m].fullmaxbase;
 
-
-
-
                                 }
 
                                 oldcount = Convert.ToInt32(count);
@@ -2960,28 +2979,7 @@ namespace ClsStaticStation
 
                         }
 
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Max")
-                        {
-                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
-                            {
-                                if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
-                                {
-                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemax;
-                                }
-                            }
-                        }
-
-                        if (m_Global.mycls.allsignals[j].SignName == "Ch Disp Min")
-                        {
-                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
-                            {
-                                if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
-                                {
-                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemin;
-                                }
-                            }
-                        }
-
+                       
 
 
                         /*
@@ -3028,7 +3026,7 @@ namespace ClsStaticStation
             }
             catch (System.BadImageFormatException)
             {
-
+                connected = false;
 
             }
 

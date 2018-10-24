@@ -19,7 +19,7 @@ namespace TabHeaderDemo
             if (CComLibrary.GlobeVal.filesave.mworkspace == 0)
             {
                 radioButton1.Checked = true;
-                radioButton2.Checked = false ;
+                radioButton2.Checked = false;
             }
             else
             {
@@ -35,7 +35,7 @@ namespace TabHeaderDemo
             for (int j = 0; j < ClsStaticStation.m_Global.mycls.zerosignals.Count; j++)
             {
 
-                if (CComLibrary.GlobeVal.filesave.mkey== null)
+                if (CComLibrary.GlobeVal.filesave.mkey == null)
                 {
                     listavail.Items.Add(ClsStaticStation.m_Global.mycls.zerosignals[j]);
                 }
@@ -65,14 +65,14 @@ namespace TabHeaderDemo
 
 
             }
-            
+
         }
         public void Init实时显示()
         {
             lstavail.ClearItem();
-            for (int j = 0; j < ClsStaticStation.m_Global.mycls.allsignals.Count ; j++)
+            for (int j = 0; j < ClsStaticStation.m_Global.mycls.allsignals.Count; j++)
             {
-                
+
                 if (CComLibrary.GlobeVal.filesave.mmeter == null)
                 {
                     lstavail.AddItem(ClsStaticStation.m_Global.mycls.allsignals[j]);
@@ -91,20 +91,20 @@ namespace TabHeaderDemo
 
 
                 }
-               
+
             }
 
             lstinclude.ClearItem();
             for (int j = 0; j < CComLibrary.GlobeVal.filesave.mmeter.Count; j++)
             {
 
-               
-                 lstinclude.AddItem(CComLibrary.GlobeVal.filesave.mmeter[j]); 
+
+                lstinclude.AddItem(CComLibrary.GlobeVal.filesave.mmeter[j]);
 
 
             }
-            
-            
+
+
         }
         public void Init(int sel)
         {
@@ -134,7 +134,7 @@ namespace TabHeaderDemo
             }
 
         }
-        public  UserControl控制台()
+        public UserControl控制台()
         {
             InitializeComponent();
             tabControl1.ItemSize = new Size(1, 1);
@@ -155,7 +155,7 @@ namespace TabHeaderDemo
             }
         }
 
-      
+
 
         private void lstavail_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -170,7 +170,7 @@ namespace TabHeaderDemo
                 CComLibrary.GlobeVal.filesave.mkey.Add(this.listinclude.list[i]);
             }
         }
-        
+
         private void list_metersetvalue()
         {
             int i;
@@ -200,7 +200,28 @@ namespace TabHeaderDemo
         {
             if (this.lstinclude.SelectedItem != null)
             {
-                this.lstavail.AddItem(this.lstinclude.list[this.lstinclude.SelectedIndex]);
+
+                bool mb = false;
+                for (int j = 0; j < ClsStaticStation.m_Global.mycls.allsignals.Count; j++)
+                {
+
+
+                    if (this.lstinclude.list[this.lstinclude.SelectedIndex].cName ==
+                        ClsStaticStation.m_Global.mycls.allsignals[j].cName)
+                    {
+                        mb = true;
+                    }
+
+
+
+
+                }
+
+                if (mb == true)
+                {
+                    this.lstavail.AddItem(this.lstinclude.list[this.lstinclude.SelectedIndex]);
+                }
+
                 this.lstinclude.RemoveItem(this.lstinclude.SelectedIndex);
 
                 list_metersetvalue();
@@ -245,7 +266,26 @@ namespace TabHeaderDemo
         {
             if (this.listinclude.SelectedItem != null)
             {
-                this.listavail.AddItem(this.listinclude.list[this.listinclude.SelectedIndex]);
+                bool mb = false;
+                for (int j = 0; j < ClsStaticStation.m_Global.mycls.allsignals.Count; j++)
+                {
+
+
+                    if (this.listinclude.list[this.listinclude.SelectedIndex].cName ==
+                        ClsStaticStation.m_Global.mycls.allsignals[j].cName)
+                    {
+                        mb = true;
+                    }
+
+
+
+
+                }
+
+                if (mb == true)
+                {
+                    this.listavail.AddItem(this.listinclude.list[this.listinclude.SelectedIndex]);
+                }
                 this.listinclude.RemoveItem(this.listinclude.SelectedIndex);
 
                 list_keysetvalue();
@@ -282,12 +322,12 @@ namespace TabHeaderDemo
                 }
                 this.cbounit.SelectedIndex = lstinclude.list[lstinclude.SelectedIndex].cUnitsel;
                 this.txtprecise.Text = lstinclude.list[lstinclude.SelectedIndex].precise.ToString();
-                this.txtExplain.Tag = lstinclude.list[lstinclude.SelectedIndex]; 
-                
+                this.txtExplain.Tag = lstinclude.list[lstinclude.SelectedIndex];
+
             }
         }
 
-       
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -297,7 +337,7 @@ namespace TabHeaderDemo
             else
             {
                 (this.txtExplain.Tag as ClsStaticStation.ItemSignal).precise = Convert.ToInt32(txtprecise.Value);
-                (this.txtExplain.Tag as ClsStaticStation.ItemSignal).cUnitsel = this.cbounit.SelectedIndex; 
+                (this.txtExplain.Tag as ClsStaticStation.ItemSignal).cUnitsel = this.cbounit.SelectedIndex;
 
             }
 

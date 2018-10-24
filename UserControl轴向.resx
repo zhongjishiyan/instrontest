@@ -138,7 +138,7 @@
     <value>ledalarm</value>
   </data>
   <data name="&gt;&gt;ledalarm.Type" xml:space="preserve">
-    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6844.16418, Culture=neutral, PublicKeyToken=null</value>
+    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6871.17423, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ledalarm.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -229,7 +229,7 @@
     <value>ledslimit</value>
   </data>
   <data name="&gt;&gt;ledslimit.Type" xml:space="preserve">
-    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6844.16418, Culture=neutral, PublicKeyToken=null</value>
+    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6871.17423, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ledslimit.Parent" xml:space="preserve">
     <value>tableLayoutPanel3</value>
@@ -319,7 +319,7 @@
     <value>ledhlimit</value>
   </data>
   <data name="&gt;&gt;ledhlimit.Type" xml:space="preserve">
-    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6844.16418, Culture=neutral, PublicKeyToken=null</value>
+    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6871.17423, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ledhlimit.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -397,10 +397,10 @@
     <value>Fill</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 114</value>
+    <value>27, 106</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>462, 95</value>
+    <value>462, 103</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -929,6 +929,9 @@
   <data name="btnfindzero.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
+  <data name="btnfindzero.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;btnfindzero.Name" xml:space="preserve">
     <value>btnfindzero</value>
   </data>
@@ -1147,7 +1150,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel11.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnstart" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnfindzero" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnend" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnup" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btndown" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnstop" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Absolute,42,Absolute,10,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnstart" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnfindzero" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnend" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnup" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btndown" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnstop" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Absolute,42,Absolute,10,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1240,6 +1243,9 @@
   <data name="button3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
+  <data name="button3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;button3.Name" xml:space="preserve">
     <value>button3</value>
   </data>
@@ -1324,7 +1330,7 @@
     <value>0</value>
   </data>
   <data name="tplcycle.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btntestend" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnteststart" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btntestend" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="button3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnteststart" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1357,7 +1363,7 @@
     <value>0, 0</value>
   </data>
   <data name="switchLink.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 79</value>
+    <value>80, 67</value>
   </data>
   <data name="switchLink.TabIndex" type="System.Int32, mscorlib">
     <value>46</value>
@@ -1378,10 +1384,10 @@
     <value>Right</value>
   </data>
   <data name="switchDriver.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 0</value>
+    <value>379, 0</value>
   </data>
   <data name="switchDriver.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 79</value>
+    <value>83, 67</value>
   </data>
   <data name="switchDriver.TabIndex" type="System.Int32, mscorlib">
     <value>45</value>
@@ -1405,7 +1411,7 @@
     <value>27, 3</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>462, 79</value>
+    <value>462, 67</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2221,7 +2227,7 @@
     <value>3, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 20</value>
+    <value>94, 24</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2254,7 +2260,7 @@
     <value>377, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 20</value>
+    <value>82, 24</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2281,13 +2287,13 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 88</value>
+    <value>27, 76</value>
   </data>
   <data name="tableLayoutPanel18.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="tableLayoutPanel18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>462, 20</value>
+    <value>462, 24</value>
   </data>
   <data name="tableLayoutPanel18.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -2335,7 +2341,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel1" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel2" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel3" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel6" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="button1" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel18" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,24,Percent,100,Absolute,20" /&gt;&lt;Rows Styles="Absolute,85,Absolute,26,Absolute,101,Absolute,97,Absolute,87,Absolute,159,Absolute,41,Absolute,35,Absolute,8" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel1" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel2" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel3" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel6" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="button1" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel18" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,24,Percent,100,Absolute,20" /&gt;&lt;Rows Styles="Absolute,73,Absolute,30,Absolute,109,Absolute,97,Absolute,87,Absolute,159,Absolute,41,Absolute,35,Absolute,8" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="imageList3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -2345,7 +2351,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABc
-        YAAAAk1TRnQBSQFMAwEBAAGgAQ0BoAENAakBAAEdAQAE/wEZAQAI/wFCAU0BNgcAATYDAAEoAwABpAEC
+        YAAAAk1TRnQBSQFMAwEBAAEwAQ4BMAEOAakBAAEdAQAE/wEZAQAI/wFCAU0BNgcAATYDAAEoAwABpAEC
         AgABHQMAAQEBAAEYBQABvAHlEgAB0gGcATAB0gGbAS4B0gGbAS4B0wGbAS4B3AGkAS8B6gGyATUB8AG4
         AUkB8AG4AUsB8AG6AU8B6gG5AVAB5QG0AUgB3gGpAToB2gGfASwBzgGVASIBywGQASABwAGJAR4BtQGD
         AR4BsQGAAR4BqgF6AR4BpQF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2

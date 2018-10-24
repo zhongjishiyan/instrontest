@@ -130,129 +130,6 @@
     <value>Next</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>498, 157</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 259</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 12</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Name of test method:</value>
-  </data>
-  <data name="cbokind.Size" type="System.Drawing.Size, System.Drawing">
-    <value>405, 20</value>
-  </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>405, 31</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>Selection method type:</value>
-  </data>
-  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>498, 85</value>
-  </data>
-  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>401, 61</value>
-  </data>
-  <data name="btnpath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>619, 528</value>
-  </data>
-  <data name="txtexplain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>190, 199</value>
-  </data>
-  <data name="txtexplain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 218</value>
-  </data>
-  <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>190, 44</value>
-  </data>
-  <data name="txtName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>711, 21</value>
-  </data>
-  <data name="txtauthor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>190, 161</value>
-  </data>
-  <data name="txtauthor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 21</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 88</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 12</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Channel name:</value>
-  </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 165</value>
-  </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 12</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>Method Author:</value>
-  </data>
-  <data name="cboitem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>190, 85</value>
-  </data>
-  <data name="cboitem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 20</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 202</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 12</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Method description:</value>
-  </data>
-  <data name="txtinterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>190, 125</value>
-  </data>
-  <data name="txtinterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 21</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 208</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 12</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>Custom input variables：</value>
-  </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>948, 159</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 25</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>Selection shape：</value>
-  </data>
-  <data name="cboshape.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 4</value>
-  </data>
-  <data name="cboshape.Size" type="System.Drawing.Size, System.Drawing">
-    <value>711, 20</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>948, 27</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>948, 186</value>
-  </data>
-  <data name="listEditor1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 201</value>
-  </data>
-  <data name="listEditor1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>951, 345</value>
-  </data>
   <data name="panel3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAAEAlgCWAAD/4QBuRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAZKG
@@ -682,6 +559,102 @@
   <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>398, 98</value>
   </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>498, 157</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 259</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 12</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Name of test method:</value>
+  </data>
+  <data name="cbokind.Size" type="System.Drawing.Size, System.Drawing">
+    <value>406, 20</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>406, 31</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Selection method type:</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>498, 85</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>401, 61</value>
+  </data>
+  <data name="btnpath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>619, 528</value>
+  </data>
+  <data name="txtexplain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 199</value>
+  </data>
+  <data name="txtexplain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 218</value>
+  </data>
+  <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 44</value>
+  </data>
+  <data name="txtName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>711, 21</value>
+  </data>
+  <data name="txtauthor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 161</value>
+  </data>
+  <data name="txtauthor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 21</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 88</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 12</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Channel name:</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 165</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 12</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Method Author:</value>
+  </data>
+  <data name="cboitem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 85</value>
+  </data>
+  <data name="cboitem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 20</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 202</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 12</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Method description:</value>
+  </data>
+  <data name="txtinterval.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 125</value>
+  </data>
+  <data name="txtinterval.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 21</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 208</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 12</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Custom input variables：</value>
+  </data>
   <data name="Column1.HeaderText" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -690,6 +663,33 @@
   </data>
   <data name="Column5.HeaderText" xml:space="preserve">
     <value>Unit</value>
+  </data>
+  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>948, 159</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 25</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Selection shape：</value>
+  </data>
+  <data name="cboshape.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 4</value>
+  </data>
+  <data name="cboshape.Size" type="System.Drawing.Size, System.Drawing">
+    <value>711, 20</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>948, 27</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>948, 186</value>
+  </data>
+  <data name="listEditor1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 201</value>
+  </data>
+  <data name="listEditor1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>951, 345</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 197</value>
@@ -753,6 +753,9 @@
   </data>
   <data name="checklist.Items4" xml:space="preserve">
     <value>Test Control-Test</value>
+  </data>
+  <data name="checklist.Size" type="System.Drawing.Size, System.Drawing">
+    <value>749, 292</value>
   </data>
   <data name="panel4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

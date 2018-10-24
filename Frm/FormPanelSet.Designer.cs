@@ -49,18 +49,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtup = new System.Windows.Forms.TextBox();
             this.chkcyclc = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtstop1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtdest1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtdown1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtkeep1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtup1 = new System.Windows.Forms.TextBox();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip2
             // 
-            resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbok,
             this.tsbcancel,
             this.tsbhelp});
+            resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.Name = "toolStrip2";
             // 
             // tsbok
@@ -90,10 +102,10 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.chkslimit);
             this.groupBox1.Controls.Add(this.chkhlimit);
             this.groupBox1.Controls.Add(this.chkalarm);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -113,7 +125,6 @@
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtstop);
             this.groupBox2.Controls.Add(this.label4);
@@ -124,6 +135,7 @@
             this.groupBox2.Controls.Add(this.txtkeep);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtup);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -189,10 +201,82 @@
             this.chkcyclc.UseVisualStyleBackColor = true;
             this.chkcyclc.CheckedChanged += new System.EventHandler(this.chkcyclc_CheckedChanged);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.txtstop1);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.txtdest1);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.txtdown1);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.txtkeep1);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.txtup1);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // txtstop1
+            // 
+            resources.ApplyResources(this.txtstop1, "txtstop1");
+            this.txtstop1.Name = "txtstop1";
+            this.txtstop1.TextChanged += new System.EventHandler(this.txtstop1_TextChanged);
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // txtdest1
+            // 
+            resources.ApplyResources(this.txtdest1, "txtdest1");
+            this.txtdest1.Name = "txtdest1";
+            this.txtdest1.TextChanged += new System.EventHandler(this.txtdest1_TextChanged);
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // txtdown1
+            // 
+            resources.ApplyResources(this.txtdown1, "txtdown1");
+            this.txtdown1.Name = "txtdown1";
+            this.txtdown1.TextChanged += new System.EventHandler(this.txtdown1_TextChanged);
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // txtkeep1
+            // 
+            resources.ApplyResources(this.txtkeep1, "txtkeep1");
+            this.txtkeep1.Name = "txtkeep1";
+            this.txtkeep1.TextChanged += new System.EventHandler(this.txtkeep1_TextChanged);
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // txtup1
+            // 
+            resources.ApplyResources(this.txtup1, "txtup1");
+            this.txtup1.Name = "txtup1";
+            this.txtup1.TextChanged += new System.EventHandler(this.txtup1_TextChanged);
+            // 
             // FormPanelSet
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.chkcyclc);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -208,6 +292,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +321,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtdest;
         private System.Windows.Forms.CheckBox chkcyclc;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtstop1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtdest1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtdown1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtkeep1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtup1;
     }
 }

@@ -36,7 +36,12 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lstavail = new TabHeaderDemo.ListExtObject(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btndown = new System.Windows.Forms.Button();
+            this.btnup = new System.Windows.Forms.Button();
+            this.btndec = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.txtExplain = new System.Windows.Forms.Label();
@@ -46,15 +51,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.numericEdit1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.button1 = new System.Windows.Forms.Button();
+            this.lstinclude = new TabHeaderDemo.ListExtObject(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btndown = new System.Windows.Forms.Button();
-            this.btnup = new System.Windows.Forms.Button();
-            this.btndec = new System.Windows.Forms.Button();
-            this.btnadd = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lstavail = new TabHeaderDemo.ListExtObject(this.components);
-            this.lstinclude = new TabHeaderDemo.ListExtObject(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -108,6 +108,13 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
+            // lstavail
+            // 
+            resources.ApplyResources(this.lstavail, "lstavail");
+            this.lstavail.FormattingEnabled = true;
+            this.lstavail.Name = "lstavail";
+            this.lstavail.SelectedIndexChanged += new System.EventHandler(this.lstavail_SelectedIndexChanged);
+            // 
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
@@ -116,6 +123,34 @@
             this.panel1.Controls.Add(this.btndec);
             this.panel1.Controls.Add(this.btnadd);
             this.panel1.Name = "panel1";
+            // 
+            // btndown
+            // 
+            resources.ApplyResources(this.btndown, "btndown");
+            this.btndown.Name = "btndown";
+            this.btndown.UseVisualStyleBackColor = true;
+            this.btndown.Click += new System.EventHandler(this.btndown_Click);
+            // 
+            // btnup
+            // 
+            resources.ApplyResources(this.btnup, "btnup");
+            this.btnup.Name = "btnup";
+            this.btnup.UseVisualStyleBackColor = true;
+            this.btnup.Click += new System.EventHandler(this.btnup_Click);
+            // 
+            // btndec
+            // 
+            resources.ApplyResources(this.btndec, "btndec");
+            this.btndec.Name = "btndec";
+            this.btndec.UseVisualStyleBackColor = true;
+            this.btndec.Click += new System.EventHandler(this.btndec_Click);
+            // 
+            // btnadd
+            // 
+            resources.ApplyResources(this.btnadd, "btnadd");
+            this.btnadd.Name = "btnadd";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // tableLayoutPanel7
             // 
@@ -180,6 +215,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // lstinclude
+            // 
+            resources.ApplyResources(this.lstinclude, "lstinclude");
+            this.lstinclude.FormattingEnabled = true;
+            this.lstinclude.Name = "lstinclude";
+            this.lstinclude.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstinclude_MouseClick);
+            this.lstinclude.SelectedIndexChanged += new System.EventHandler(this.lstinclude_SelectedIndexChanged);
+            // 
             // tableLayoutPanel3
             // 
             resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
@@ -193,53 +236,10 @@
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Name = "label1";
             // 
-            // btndown
-            // 
-            resources.ApplyResources(this.btndown, "btndown");
-            this.btndown.Name = "btndown";
-            this.btndown.UseVisualStyleBackColor = true;
-            this.btndown.Click += new System.EventHandler(this.btndown_Click);
-            // 
-            // btnup
-            // 
-            resources.ApplyResources(this.btnup, "btnup");
-            this.btnup.Name = "btnup";
-            this.btnup.UseVisualStyleBackColor = true;
-            this.btnup.Click += new System.EventHandler(this.btnup_Click);
-            // 
-            // btndec
-            // 
-            resources.ApplyResources(this.btndec, "btndec");
-            this.btndec.Name = "btndec";
-            this.btndec.UseVisualStyleBackColor = true;
-            this.btndec.Click += new System.EventHandler(this.btndec_Click);
-            // 
-            // btnadd
-            // 
-            resources.ApplyResources(this.btnadd, "btnadd");
-            this.btnadd.Name = "btnadd";
-            this.btnadd.UseVisualStyleBackColor = true;
-            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
-            // 
             // panel4
             // 
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
-            // 
-            // lstavail
-            // 
-            resources.ApplyResources(this.lstavail, "lstavail");
-            this.lstavail.FormattingEnabled = true;
-            this.lstavail.Name = "lstavail";
-            this.lstavail.SelectedIndexChanged += new System.EventHandler(this.lstavail_SelectedIndexChanged);
-            // 
-            // lstinclude
-            // 
-            resources.ApplyResources(this.lstinclude, "lstinclude");
-            this.lstinclude.FormattingEnabled = true;
-            this.lstinclude.Name = "lstinclude";
-            this.lstinclude.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstinclude_MouseClick);
-            this.lstinclude.SelectedIndexChanged += new System.EventHandler(this.lstinclude_SelectedIndexChanged);
             // 
             // UserControl长时数据
             // 

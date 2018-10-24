@@ -89,5 +89,10 @@ namespace TabHeaderDemo.Frm
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

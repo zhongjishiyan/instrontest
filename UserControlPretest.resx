@@ -345,8 +345,8 @@
   <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
     <value>columnHeader1</value>
   </data>
-  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label23.Name" xml:space="preserve">
+    <value>label23</value>
   </data>
   <data name="tableLayoutPanel11.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
@@ -426,6 +426,9 @@
   <data name="label18.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;listBox2.Name" xml:space="preserve">
+    <value>listBox2</value>
+  </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>199, 96</value>
   </data>
@@ -442,7 +445,7 @@
     <value>label29</value>
   </data>
   <data name="&gt;&gt;btnenext.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ButtonExNew, AppleLabJ, Version=1.2.6814.15825, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ButtonExNew, AppleLabJ, Version=1.2.6869.28589, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;columnHeader7.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -505,7 +508,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnelook.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ButtonExNew, AppleLabJ, Version=1.2.6814.15825, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ButtonExNew, AppleLabJ, Version=1.2.6869.28589, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listView2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -633,8 +636,8 @@
   <data name="btnenext.Text" xml:space="preserve">
     <value>下一步</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
   </data>
   <data name="&gt;&gt;panel6.Name" xml:space="preserve">
     <value>panel6</value>
@@ -687,8 +690,8 @@
   <data name="&gt;&gt;label22.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>665, 562</value>
+  <data name="&gt;&gt;treeView1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;panel12.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -775,8 +778,8 @@
   <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
     <value>toolStripMenuItem2</value>
   </data>
-  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 124</value>
+  <data name="tableLayoutPanel6.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -789,6 +792,9 @@
   </data>
   <data name="&gt;&gt;label28.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label21.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 1</value>
@@ -827,53 +833,53 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACw
-        CgAAAk1TRnQBSQFMAgEBAgEAAdwCEAERARkBAAEZAQAE/wEJARAI/wFCAU0BNgEEBgABNgEEAgABKAMA
-        AWQDAAEZAwABAQEAAQgFAAHEAQkYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
-        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
-        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
-        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
-        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
-        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
-        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
-        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
-        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
-        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
-        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
-        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
-        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
-        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
-        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
-        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
-        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
-        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
-        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
-        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
-        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
-        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
-        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
-        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
-        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
-        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
-        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
-        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/8sAE/QGABP0OAAB/xP0
-        BQAB/xH0Af8B9DcAAf8SAAH/BQAB/xAAAfQC/zcAAf8IAAP0AgAD9AIAAvQEAAH/AgAD9AIAA/QFAAH0
-        Af8D9DYAAf8B9AcAA/8CAAP/AwAB/wQAAf8CAAP/AgAD/wMAAvQB/wH0AgAB/zYAAf8C9AYAA/8CAAP/
-        AwAB/wQAAf8CAAP/AgAD/wIAAfQB/wL0AwAB/zYAAf8BAAL0BQAC9AH/AgAB/wL0AwAB/wQAAf8CAAL0
-        Af8CAAH/AvQBAAH0Af8B9AUAAf82AAH/AgAB/wcAAf8CAAH/BQAB/wQAAf8EAAH/AgAB/wMAAv8GAAH/
-        NgAB/wIAAf8HAAH/AgAB/wUAAv8DAAH/BAAB/wIAAf8DAAP/BQAC/zUAAf8CAAL/BAAD/wIAA/8EAAH/
-        AwAB/wIAA/8CAAP/AgAD/wUAAf81AAH/AgAC/wQAA/8CAAP/BAAB/wMAAf8CAAP/AgAD/wIAA/8FAAH/
-        NQAB/wMAAf8EAAP/AgAD/wQAAf8DAAH/AgAD/wIAA/8DAAL/BQAB/zUAAf8DAAL/AwAD/wIAA/8CAAP/
-        AwAB/wIAA/8CAAP/BAAD/wEAA/81AAH/BAAB/wMAA/QCAAP0AQAB9AH/AfQEAAH/AgAD9AIAA/QEAAL0
-        Af8B9AH/AfQ2AAH/BAAB9AwAAf8B9AUAAf8QAAH0Af8B9DcAAf8GAAv0Af8GAAH/BgAL9AH/OAAB/wYA
-        Af8L9AYAAf8GAAH/C/Q4AAH/BQAC9BEAAf8FAAL0QwAB/wQAAvQSAAH/BAAC9EQABvQTAAb0RgAE/xUA
-        BP//AA0AAUIBTQE+BwABPgMAASgDAAFkAwABGQMAAQEBAAEBBQABkAEBFgAD/wEABv8BwAkABv8BwAkA
-        AcABAAEHAeABAAEDAcAJAAHAAQABAwHgAQABAQHACQAB3wH/AfsB7wH/AfEBwAkAAd8B4wEZAewBYwHg
-        AcAJAAHPAeMBHQHsAWMBhgHACQABxwHjAR0B7AFjAQ4BwAkAAdMB4wEdAewBYgE+AcAJAAHbAfsBfQHv
-        AW4BfgHACQAB2wH7AXwB7wFuAT4BQAkAAdkB4wEeAewBYwEfAUAJAAHZAeMBHgHsAWMBHwFACQAB3QHj
-        AR4B7AFjAZ8BQAkAAdwB4wEYAewBYwHEAUAJAAHeAeMBEQHsAWMCwAkAAd4B/wHzAe8B/wHxAcAJAAHf
-        AYABBwHvAcABAwHACQAB3wGAAQcB7wHAAQMBwAkAAd8BPwH/Ae8BnwH/AcAJAAHeAX8B/wHvAT8B/wHA
-        CQABwAL/AeABfwH/AcAJAAHhAv8B8AL/AcAJAAb/AcAJAAb/AcAfAAs=
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACy
+        CgAAAk1TRnQBSQFMAgEBAgEAAdwBEAEYAREBGQEAARkBAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABZAMAARkDAAEBAQABCAUAAcQBCRgAAYACAAGAAwACgAEAAYADAAGAAQABgAEAAoACAAPAAQABwAHc
+        AcABAAHwAcoBpgEAATMFAAEzAQABMwEAATMBAAIzAgADFgEAAxwBAAMiAQADKQEAA1UBAANNAQADQgEA
+        AzkBAAGAAXwB/wEAAlAB/wEAAZMBAAHWAQAB/wHsAcwBAAHGAdYB7wEAAdYC5wEAAZABqQGtAgAB/wEz
+        AwABZgMAAZkDAAHMAgABMwMAAjMCAAEzAWYCAAEzAZkCAAEzAcwCAAEzAf8CAAFmAwABZgEzAgACZgIA
+        AWYBmQIAAWYBzAIAAWYB/wIAAZkDAAGZATMCAAGZAWYCAAKZAgABmQHMAgABmQH/AgABzAMAAcwBMwIA
+        AcwBZgIAAcwBmQIAAswCAAHMAf8CAAH/AWYCAAH/AZkCAAH/AcwBAAEzAf8CAAH/AQABMwEAATMBAAFm
+        AQABMwEAAZkBAAEzAQABzAEAATMBAAH/AQAB/wEzAgADMwEAAjMBZgEAAjMBmQEAAjMBzAEAAjMB/wEA
+        ATMBZgIAATMBZgEzAQABMwJmAQABMwFmAZkBAAEzAWYBzAEAATMBZgH/AQABMwGZAgABMwGZATMBAAEz
+        AZkBZgEAATMCmQEAATMBmQHMAQABMwGZAf8BAAEzAcwCAAEzAcwBMwEAATMBzAFmAQABMwHMAZkBAAEz
+        AswBAAEzAcwB/wEAATMB/wEzAQABMwH/AWYBAAEzAf8BmQEAATMB/wHMAQABMwL/AQABZgMAAWYBAAEz
+        AQABZgEAAWYBAAFmAQABmQEAAWYBAAHMAQABZgEAAf8BAAFmATMCAAFmAjMBAAFmATMBZgEAAWYBMwGZ
+        AQABZgEzAcwBAAFmATMB/wEAAmYCAAJmATMBAANmAQACZgGZAQACZgHMAQABZgGZAgABZgGZATMBAAFm
+        AZkBZgEAAWYCmQEAAWYBmQHMAQABZgGZAf8BAAFmAcwCAAFmAcwBMwEAAWYBzAGZAQABZgLMAQABZgHM
+        Af8BAAFmAf8CAAFmAf8BMwEAAWYB/wGZAQABZgH/AcwBAAHMAQAB/wEAAf8BAAHMAQACmQIAAZkBMwGZ
+        AQABmQEAAZkBAAGZAQABzAEAAZkDAAGZAjMBAAGZAQABZgEAAZkBMwHMAQABmQEAAf8BAAGZAWYCAAGZ
+        AWYBMwEAAZkBMwFmAQABmQFmAZkBAAGZAWYBzAEAAZkBMwH/AQACmQEzAQACmQFmAQADmQEAApkBzAEA
+        ApkB/wEAAZkBzAIAAZkBzAEzAQABZgHMAWYBAAGZAcwBmQEAAZkCzAEAAZkBzAH/AQABmQH/AgABmQH/
+        ATMBAAGZAcwBZgEAAZkB/wGZAQABmQH/AcwBAAGZAv8BAAHMAwABmQEAATMBAAHMAQABZgEAAcwBAAGZ
+        AQABzAEAAcwBAAGZATMCAAHMAjMBAAHMATMBZgEAAcwBMwGZAQABzAEzAcwBAAHMATMB/wEAAcwBZgIA
+        AcwBZgEzAQABmQJmAQABzAFmAZkBAAHMAWYBzAEAAZkBZgH/AQABzAGZAgABzAGZATMBAAHMAZkBZgEA
+        AcwCmQEAAcwBmQHMAQABzAGZAf8BAALMAgACzAEzAQACzAFmAQACzAGZAQADzAEAAswB/wEAAcwB/wIA
+        AcwB/wEzAQABmQH/AWYBAAHMAf8BmQEAAcwB/wHMAQABzAL/AQABzAEAATMBAAH/AQABZgEAAf8BAAGZ
+        AQABzAEzAgAB/wIzAQAB/wEzAWYBAAH/ATMBmQEAAf8BMwHMAQAB/wEzAf8BAAH/AWYCAAH/AWYBMwEA
+        AcwCZgEAAf8BZgGZAQAB/wFmAcwBAAHMAWYB/wEAAf8BmQIAAf8BmQEzAQAB/wGZAWYBAAH/ApkBAAH/
+        AZkBzAEAAf8BmQH/AQAB/wHMAgAB/wHMATMBAAH/AcwBZgEAAf8BzAGZAQAB/wLMAQAB/wHMAf8BAAL/
+        ATMBAAHMAf8BZgEAAv8BmQEAAv8BzAEAAmYB/wEAAWYB/wFmAQABZgL/AQAB/wJmAQAB/wFmAf8BAAL/
+        AWYBAAEhAQABpQEAA18BAAN3AQADhgEAA5YBAAPLAQADsgEAA9cBAAPdAQAD4wEAA+oBAAPxAQAD+AEA
+        AfAB+wH/AQABpAKgAQADgAMAAf8CAAH/AwAC/wEAAf8DAAH/AQAB/wEAAv8CAAP/ywAT9AYAE/Q4AAH/
+        E/QFAAH/EfQB/wH0NwAB/xIAAf8FAAH/EAAB9AL/NwAB/wgAA/QCAAP0AgAC9AQAAf8CAAP0AgAD9AUA
+        AfQB/wP0NgAB/wH0BwAD/wIAA/8DAAH/BAAB/wIAA/8CAAP/AwAC9AH/AfQCAAH/NgAB/wL0BgAD/wIA
+        A/8DAAH/BAAB/wIAA/8CAAP/AgAB9AH/AvQDAAH/NgAB/wEAAvQFAAL0Af8CAAH/AvQDAAH/BAAB/wIA
+        AvQB/wIAAf8C9AEAAfQB/wH0BQAB/zYAAf8CAAH/BwAB/wIAAf8FAAH/BAAB/wQAAf8CAAH/AwAC/wYA
+        Af82AAH/AgAB/wcAAf8CAAH/BQAC/wMAAf8EAAH/AgAB/wMAA/8FAAL/NQAB/wIAAv8EAAP/AgAD/wQA
+        Af8DAAH/AgAD/wIAA/8CAAP/BQAB/zUAAf8CAAL/BAAD/wIAA/8EAAH/AwAB/wIAA/8CAAP/AgAD/wUA
+        Af81AAH/AwAB/wQAA/8CAAP/BAAB/wMAAf8CAAP/AgAD/wMAAv8FAAH/NQAB/wMAAv8DAAP/AgAD/wIA
+        A/8DAAH/AgAD/wIAA/8EAAP/AQAD/zUAAf8EAAH/AwAD9AIAA/QBAAH0Af8B9AQAAf8CAAP0AgAD9AQA
+        AvQB/wH0Af8B9DYAAf8EAAH0DAAB/wH0BQAB/xAAAfQB/wH0NwAB/wYAC/QB/wYAAf8GAAv0Af84AAH/
+        BgAB/wv0BgAB/wYAAf8L9DgAAf8FAAL0EQAB/wUAAvRDAAH/BAAC9BIAAf8EAAL0RAAG9BMABvRGAAT/
+        FQAE//8ADQABQgFNAT4HAAE+AwABKAMAAWQDAAEZAwABAQEAAQEFAAGQAQEWAAP/AQAG/wHACQAG/wHA
+        CQABwAEAAQcB4AEAAQMBwAkAAcABAAEDAeABAAEBAcAJAAHfAf8B+wHvAf8B8QHACQAB3wHjARkB7AFj
+        AeABwAkAAc8B4wEdAewBYwGGAcAJAAHHAeMBHQHsAWMBDgHACQAB0wHjAR0B7AFiAT4BwAkAAdsB+wF9
+        Ae8BbgF+AcAJAAHbAfsBfAHvAW4BPgFACQAB2QHjAR4B7AFjAR8BQAkAAdkB4wEeAewBYwEfAUAJAAHd
+        AeMBHgHsAWMBnwFACQAB3AHjARgB7AFjAcQBQAkAAd4B4wERAewBYwLACQAB3gH/AfMB7wH/AfEBwAkA
+        Ad8BgAEHAe8BwAEDAcAJAAHfAYABBwHvAcABAwHACQAB3wE/Af8B7wGfAf8BwAkAAd4BfwH/Ae8BPwH/
+        AcAJAAHAAv8B4AF/Af8BwAkAAeEC/wHwAv8BwAkABv8BwAkABv8BwB8ACw==
 </value>
   </data>
   <data name="&gt;&gt;label29.Type" xml:space="preserve">
@@ -886,7 +892,7 @@
     <value>405, 21</value>
   </data>
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel6" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel5" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,43.89067,Percent,56.10933" /&gt;&lt;Rows Styles="Absolute,485,Absolute,485" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel6" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel5" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,43.89067,Percent,56.10933" /&gt;&lt;Rows Styles="Absolute,487,Absolute,487" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>657, 64</value>
@@ -896,9 +902,6 @@
   </data>
   <data name="txtsample.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 10.5pt</value>
-  </data>
-  <data name="label14.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="tableLayoutPanel10.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -1083,9 +1086,6 @@
   <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>199, 64</value>
-  </data>
   <data name="&gt;&gt;panel10.Parent" xml:space="preserve">
     <value>tableLayoutPanel9</value>
   </data>
@@ -1097,9 +1097,6 @@
   </data>
   <data name="panel6.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel4.Parent" xml:space="preserve">
-    <value>panel5</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel8.Name" xml:space="preserve">
     <value>tableLayoutPanel8</value>
@@ -1148,6 +1145,9 @@
   </data>
   <data name="tableLayoutPanel11.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 124</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
     <value>226, 46</value>
@@ -1227,6 +1227,9 @@
   <data name="&gt;&gt;listView2.Name" xml:space="preserve">
     <value>listView2</value>
   </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
   <data name="lblpath.Size" type="System.Drawing.Size, System.Drawing">
     <value>405, 20</value>
   </data>
@@ -1235,9 +1238,6 @@
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>panel4</value>
-  </data>
-  <data name="&gt;&gt;label23.Name" xml:space="preserve">
-    <value>label23</value>
   </data>
   <data name="label24.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1325,8 +1325,8 @@
         lrnms5UJBAAAAAYKAAAAB+iKgueCuTAA/////wkEAAAA/////wkEAAAAAAAAAAs=
 </value>
   </data>
-  <data name="&gt;&gt;treeView1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label13.Name" xml:space="preserve">
     <value>label13</value>
@@ -1394,6 +1394,9 @@
   <data name="tableLayoutPanel14.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label30" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtsample" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,20" /&gt;&lt;Rows Styles="Percent,44.44444,Percent,55.55556" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="tableLayoutPanel8.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel7" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel8" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,119,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
@@ -1428,7 +1431,7 @@
     <value>671, 568</value>
   </data>
   <data name="&gt;&gt;btneback.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ButtonExNew, AppleLabJ, Version=1.2.6814.15825, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ButtonExNew, AppleLabJ, Version=1.2.6869.28589, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="treeView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 3</value>
@@ -1586,6 +1589,9 @@
   </data>
   <data name="&gt;&gt;txtpath.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1745,9 +1751,6 @@
   <data name="tableLayoutPanel14.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
   </data>
-  <data name="tableLayoutPanel6.ColumnCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
     <value>tabPage2</value>
   </data>
@@ -1790,6 +1793,9 @@
   <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="listBox1" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label11" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label12" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="listView1" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Absolute,25,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
+  <data name="&gt;&gt;txtsamplename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="listView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 30</value>
   </data>
@@ -1829,8 +1835,8 @@
   <data name="label24.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;panel7.Name" xml:space="preserve">
-    <value>panel7</value>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label9.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1865,9 +1871,6 @@
   <data name="tableLayoutPanel7.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
   </data>
@@ -1877,6 +1880,9 @@
   <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>665, 562</value>
+  </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
   </data>
@@ -1884,7 +1890,7 @@
     <value>5</value>
   </data>
   <data name="&gt;&gt;treeView1.Type" xml:space="preserve">
-    <value>TabHeaderDemo.TreeListEx, AppleLabJ, Version=1.2.6814.15825, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.TreeListEx, AppleLabJ, Version=1.2.6869.28589, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtsamplepath.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1967,9 +1973,6 @@
   <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -1982,8 +1985,8 @@
   <data name="label27.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;txtsamplename.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panel7.Name" xml:space="preserve">
+    <value>panel7</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>panel4</value>
@@ -2120,7 +2123,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABc
-        YAAAAk1TRnQBSQFMAwEBAAGsAQkB4AEJAakBAAEdAQAE/wEZARAI/wFCAU0BNgcAATYDAAEoAwABpAEC
+        YAAAAk1TRnQBSQFMAwEBAAGsAQkB6AEJAakBAAEdAQAE/wEZARAI/wFCAU0BNgcAATYDAAEoAwABpAEC
         AgABHQMAAQEBAAEYBQABvAHlEgAB0gGcATAB0gGbAS4B0gGbAS4B0wGbAS4B3AGkAS8B6gGyATUB8AG4
         AUkB8AG4AUsB8AG6AU8B6gG5AVAB5QG0AUgB3gGpAToB2gGfASwBzgGVASIBywGQASABwAGJAR4BtQGD
         AR4BsQGAAR4BqgF6AR4BpQF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2
@@ -2663,14 +2666,14 @@
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;listBox2.Name" xml:space="preserve">
-    <value>listBox2</value>
+  <data name="&gt;&gt;tableLayoutPanel4.Parent" xml:space="preserve">
+    <value>panel5</value>
   </data>
-  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
-    <value>tableLayoutPanel9</value>
+  <data name="&gt;&gt;columnHeader7.Name" xml:space="preserve">
+    <value>columnHeader7</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>panel4</value>
@@ -2766,7 +2769,7 @@
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btneopen.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ButtonExNew, AppleLabJ, Version=1.2.6814.15825, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ButtonExNew, AppleLabJ, Version=1.2.6869.28589, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label16.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2774,7 +2777,7 @@
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 26</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
     <value>199, 64</value>
   </data>
   <data name="imageList2.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
@@ -2782,7 +2785,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAD0
-        DAAAAk1TRnQBSQFMAgEBAgEAAeQBEAEYAREBGQEAARkBAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        DAAAAk1TRnQBSQFMAgEBAgEAAeQBEAEgAREBGQEAARkBAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABZAMAARkDAAEBAQABCAUAAcQBCRgAAYACAAGAAwACgAEAAYADAAGAAQABgAEAAoACAAPAAQABwAHc
         AcABAAHwAcoBpgEAATMFAAEzAQABMwEAATMBAAIzAgADFgEAAxwBAAMiAQADKQEAA1UBAANNAQADQgEA
         AzkBAAGAAXwB/wEAAlAB/wEAAZMBAAHWAQAB/wHsAcwBAAHGAdYB7wEAAdYC5wEAAZABqQGtAgAB/wEz
@@ -2969,8 +2972,8 @@
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 576</value>
   </data>
-  <data name="label21.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="txtpath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -3077,14 +3080,14 @@
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 9pt</value>
   </data>
-  <data name="&gt;&gt;columnHeader7.Name" xml:space="preserve">
-    <value>columnHeader7</value>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="btneback.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 59</value>
   </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 64</value>
   </data>
   <data name="tableLayoutPanel8.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -3137,14 +3140,11 @@
   <data name="&gt;&gt;tableLayoutPanel4.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 22</value>
   </data>
   <data name="tableLayoutPanel12.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel13" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel14" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,43.89067,Percent,56.10933" /&gt;&lt;Rows Styles="Absolute,485,Absolute,485" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel13" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel14" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,43.89067,Percent,56.10933" /&gt;&lt;Rows Styles="Absolute,487,Absolute,487" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label23.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>

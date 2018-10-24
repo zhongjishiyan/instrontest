@@ -101,63 +101,10 @@ namespace TabHeaderDemo
             brush.Dispose();
             pen.Dispose();
         }
-        public UserControlMethod()
+
+        public void InitTree()
         {
-            InitializeComponent();
-            treeView1.mimagelist = imageList2;
-
-            SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
-            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
-
-            this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
-            this.tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel2, true, null);
-            this.tableLayoutPanel3.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel3, true, null);
-
-
-            UserControl试样1 = new UserControl试样();
-            UserControl常规1 = new UserControl常规();
-            UserControl控制1 = new UserControl控制();
-            UserControl计算1 = new UserControl计算();
-            UserControl结果1 = new UserControl结果();
-            UserControl测试提示1 = new UserControl测试提示();
-            UserControl控制台1 = new UserControl控制台();
-            UserControl额外显示1 = new UserControl额外显示();
-            UserControl曲线1 = new UserControl曲线();
-            UserControl曲线2 = new UserControl曲线();
-            UserControl原始数据1 = new UserControl原始数据();
-            UserControl文件设置1 = new UserControl文件设置();
-          
-            UserControl数据库1 = new UserControl数据库();
-            UserControl摄像1 = new UserControl摄像();
-            UserControl长时数据1 = new UserControl长时数据();
-
-            UserControl试样1.musercontrolmethod = this;
-            UserControl常规1.musercontrolmethod = this;
-            UserControl控制1.musercontrolmethod = this;
-            UserControl计算1.musercontrolmethod = this;
-            UserControl结果1.musercontrolmethod = this;
-            UserControl测试提示1.musercontrolmethod = this;
-            UserControl控制台1.musercontrolmethod = this;
-            UserControl额外显示1.musercontrolmethod = this;
-            UserControl曲线1.musercontrolmethod = this;
-            UserControl曲线2.musercontrolmethod = this;
-            UserControl原始数据1.musercontrolmethod = this;
-            UserControl文件设置1.musercontrolmethod = this;
-          
-            UserControl数据库1.musercontrolmethod = this;
-            UserControl摄像1.musercontrolmethod = this;
-            UserControl长时数据1.musercontrolmethod = this;
-
-            UserControl常规1.Init(0, false);
-            panelback.Visible = false;
-            panelback.Controls.Clear();
-            UserControl常规1.Dock = DockStyle.Fill;
-            panelback.Controls.Add(UserControl常规1);
-            panelback.Visible = true;
-
             treeView1.Nodes.Clear();
-
             if (GlobeVal.mysys.language == 0)
             {
                 treeView1.Nodes.Add("常规", "常规");
@@ -170,14 +117,23 @@ namespace TabHeaderDemo
                 treeView1.Nodes["常规"].Nodes.Add("基本布局");
                 treeView1.Nodes["常规"].Nodes.Add("高级布局");
 
+                if (CComLibrary.GlobeVal.filesave == null)
+                {
+                }
+                else
+                {
+                    if (CComLibrary.GlobeVal.filesave._flow试样 == true)
+                    {
 
-                treeView1.Nodes.Add("试样", "试样");
-                treeView1.Nodes["试样"].StateImageIndex = 1;
+                        treeView1.Nodes.Add("试样", "试样");
+                        treeView1.Nodes["试样"].StateImageIndex = 1;
 
-                treeView1.Nodes["试样"].Nodes.Add("尺寸");
-                treeView1.Nodes["试样"].Nodes.Add("数字输入");
-                treeView1.Nodes["试样"].Nodes.Add("文本输入");
-                treeView1.Nodes["试样"].Nodes.Add("选项输入");
+                        treeView1.Nodes["试样"].Nodes.Add("尺寸");
+                        treeView1.Nodes["试样"].Nodes.Add("数字输入");
+                        treeView1.Nodes["试样"].Nodes.Add("文本输入");
+                        treeView1.Nodes["试样"].Nodes.Add("选项输入");
+                    }
+                }
                 treeView1.Nodes.Add("控制", "控制");
                 treeView1.Nodes["控制"].StateImageIndex = 2;
 
@@ -259,13 +215,23 @@ namespace TabHeaderDemo
                 treeView1.Nodes["General"].Nodes.Add("Sample");
                 treeView1.Nodes["General"].Nodes.Add("Basic layout");
                 treeView1.Nodes["General"].Nodes.Add("Advanced layout");
-                treeView1.Nodes.Add("Sample", "Sample");
-                treeView1.Nodes["Sample"].StateImageIndex = 1;
 
-                treeView1.Nodes["Sample"].Nodes.Add("Properties");
-                treeView1.Nodes["Sample"].Nodes.Add("Number Inputs");
-                treeView1.Nodes["Sample"].Nodes.Add("Text Inputs");
-                treeView1.Nodes["Sample"].Nodes.Add("Choice Inputs");
+                if (CComLibrary.GlobeVal.filesave == null)
+                {
+                }
+                else
+                {
+                    if (CComLibrary.GlobeVal.filesave._flow试样 == true)
+                    {
+                        treeView1.Nodes.Add("Sample", "Sample");
+                        treeView1.Nodes["Sample"].StateImageIndex = 1;
+
+                        treeView1.Nodes["Sample"].Nodes.Add("Properties");
+                        treeView1.Nodes["Sample"].Nodes.Add("Number Inputs");
+                        treeView1.Nodes["Sample"].Nodes.Add("Text Inputs");
+                        treeView1.Nodes["Sample"].Nodes.Add("Choice Inputs");
+                    }
+                }
                 treeView1.Nodes.Add("Test Control", "Test Control");
                 treeView1.Nodes["Test Control"].StateImageIndex = 2;
 
@@ -347,6 +313,65 @@ namespace TabHeaderDemo
                 treeView1.Nodes["Prompted Test"].Nodes.Add("After Specimen");
                 treeView1.Nodes["Prompted Test"].Nodes.Add("At Finish");
             }
+        }
+        public UserControlMethod()
+        {
+            InitializeComponent();
+            treeView1.mimagelist = imageList2;
+
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+
+            this.tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel1, true, null);
+            this.tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel2, true, null);
+            this.tableLayoutPanel3.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(this.tableLayoutPanel3, true, null);
+
+
+            UserControl试样1 = new UserControl试样();
+            UserControl常规1 = new UserControl常规();
+            UserControl控制1 = new UserControl控制();
+            UserControl计算1 = new UserControl计算();
+            UserControl结果1 = new UserControl结果();
+            UserControl测试提示1 = new UserControl测试提示();
+            UserControl控制台1 = new UserControl控制台();
+            UserControl额外显示1 = new UserControl额外显示();
+            UserControl曲线1 = new UserControl曲线();
+            UserControl曲线2 = new UserControl曲线();
+            UserControl原始数据1 = new UserControl原始数据();
+            UserControl文件设置1 = new UserControl文件设置();
+          
+            UserControl数据库1 = new UserControl数据库();
+            UserControl摄像1 = new UserControl摄像();
+            UserControl长时数据1 = new UserControl长时数据();
+
+            UserControl试样1.musercontrolmethod = this;
+            UserControl常规1.musercontrolmethod = this;
+            UserControl控制1.musercontrolmethod = this;
+            UserControl计算1.musercontrolmethod = this;
+            UserControl结果1.musercontrolmethod = this;
+            UserControl测试提示1.musercontrolmethod = this;
+            UserControl控制台1.musercontrolmethod = this;
+            UserControl额外显示1.musercontrolmethod = this;
+            UserControl曲线1.musercontrolmethod = this;
+            UserControl曲线2.musercontrolmethod = this;
+            UserControl原始数据1.musercontrolmethod = this;
+            UserControl文件设置1.musercontrolmethod = this;
+          
+            UserControl数据库1.musercontrolmethod = this;
+            UserControl摄像1.musercontrolmethod = this;
+            UserControl长时数据1.musercontrolmethod = this;
+
+            UserControl常规1.Init(0, false);
+            panelback.Visible = false;
+            panelback.Controls.Clear();
+            UserControl常规1.Dock = DockStyle.Fill;
+            panelback.Controls.Add(UserControl常规1);
+            panelback.Visible = true;
+
+          
+
+            InitTree();
 
         }
 
@@ -1559,6 +1584,7 @@ namespace TabHeaderDemo
 
 
             CComLibrary.GlobeVal.InitUserCalcChannel();
+            InitTree();
 
             if (GlobeVal.mysys.language == 0)
             {

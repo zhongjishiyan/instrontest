@@ -408,6 +408,8 @@ namespace TabHeaderDemo
         private void button1_Click(object sender, EventArgs e)
         {
             Frm.FormPanelSet f = new Frm.FormPanelSet();
+            f.TowChannel = false;
+             
             f.ShowDialog();
         }
 

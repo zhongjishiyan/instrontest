@@ -1489,7 +1489,7 @@ namespace AppleLabApplication
 
 
                 checklist.SetItemCheckState(4, filesave._flow测试);
-
+                checkBox1.Checked = filesave._flow试样;
 
             }
 
@@ -1536,6 +1536,8 @@ namespace AppleLabApplication
 
 
             filesave._flow测试 = checklist.GetItemCheckState(4);
+
+            filesave._flow试样 = checkBox1.Checked; 
 
 
             filesave.fileextname = ".txt";

@@ -85,7 +85,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlbebase = new TabHeaderDemo.TableLayoutPanelExT();
             this.panel10 = new System.Windows.Forms.Panel();
             this.txtlay = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -97,7 +96,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlbe = new TabHeaderDemo.TableLayoutPanelExT();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加对象ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.结果1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,6 +129,10 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tlbebase = new TabHeaderDemo.TableLayoutPanelExT();
+            this.tlbe = new TabHeaderDemo.TableLayoutPanelExT();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -163,23 +165,24 @@
             this.contextMenuStrip1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Controls.Add(this.tableLayoutPanel3);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
@@ -192,10 +195,10 @@
             // 
             // panel4
             // 
-            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label1);
+            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
             // label3
@@ -217,9 +220,9 @@
             // 
             // panel5
             // 
-            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Controls.Add(this.tableLayoutPanel7);
             this.panel5.Controls.Add(this.tableLayoutPanel4);
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
             // 
             // tableLayoutPanel7
@@ -238,15 +241,15 @@
             // 
             // label12
             // 
-            resources.ApplyResources(this.label12, "label12");
             this.label12.BackColor = System.Drawing.Color.DodgerBlue;
+            resources.ApplyResources(this.label12, "label12");
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Name = "label12";
             // 
             // listBox1
             // 
-            resources.ApplyResources(this.listBox1, "listBox1");
             this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.listBox1, "listBox1");
             this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Name = "listBox1";
@@ -257,34 +260,35 @@
             // 
             // panel11
             // 
-            resources.ApplyResources(this.panel11, "panel11");
             this.panel11.Controls.Add(this.tabControl2);
+            resources.ApplyResources(this.panel11, "panel11");
             this.panel11.Name = "panel11";
             // 
             // tabControl2
             // 
-            resources.ApplyResources(this.tabControl2, "tabControl2");
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage6);
+            resources.ApplyResources(this.tabControl2, "tabControl2");
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             // 
             // tabPage5
             // 
-            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Controls.Add(this.listView1);
+            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
-            resources.ApplyResources(this.listView1, "listView1");
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.BackColor = System.Drawing.Color.White;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listView1.ContextMenuStrip = this.contextMenuStrip3;
+            resources.ApplyResources(this.listView1, "listView1");
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.HotTracking = true;
@@ -308,14 +312,13 @@
             // 
             // tabPage6
             // 
-            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Controls.Add(this.grid1);
+            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // grid1
             // 
-            resources.ApplyResources(this.grid1, "grid1");
             this.grid1.AutoSizeMinHeight = 10;
             this.grid1.AutoSizeMinWidth = 10;
             this.grid1.AutoStretchColumnsToFitWidth = true;
@@ -323,6 +326,7 @@
             this.grid1.BackColor = System.Drawing.Color.LightGray;
             this.grid1.ContextMenuStyle = SourceGrid2.ContextMenuStyle.None;
             this.grid1.CustomSort = false;
+            resources.ApplyResources(this.grid1, "grid1");
             this.grid1.FocusStyle = SourceGrid2.FocusStyle.None;
             this.grid1.GridToolTipActive = true;
             this.grid1.Name = "grid1";
@@ -337,8 +341,8 @@
             // 
             // tableLayoutPanel4
             // 
-            resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -352,9 +356,9 @@
             // 
             // txtmethodpath
             // 
-            resources.ApplyResources(this.txtmethodpath, "txtmethodpath");
             this.txtmethodpath.BackColor = System.Drawing.SystemColors.Control;
             this.txtmethodpath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtmethodpath, "txtmethodpath");
             this.txtmethodpath.Name = "txtmethodpath";
             this.txtmethodpath.ReadOnly = true;
             // 
@@ -377,17 +381,17 @@
             // 
             // txtmethodname
             // 
-            resources.ApplyResources(this.txtmethodname, "txtmethodname");
             this.txtmethodname.BackColor = System.Drawing.SystemColors.Control;
             this.txtmethodname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtmethodname, "txtmethodname");
             this.txtmethodname.Name = "txtmethodname";
             this.txtmethodname.ReadOnly = true;
             this.txtmethodname.TextChanged += new System.EventHandler(this.txtmethodname_TextChanged);
             // 
             // tabPage2
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -400,10 +404,10 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label16);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // label14
@@ -425,8 +429,8 @@
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.tableLayoutPanel2);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // tableLayoutPanel2
@@ -514,8 +518,8 @@
             // 
             // tabPage4
             // 
-            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Controls.Add(this.tableLayoutPanel10);
+            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
@@ -528,9 +532,9 @@
             // 
             // panel8
             // 
-            resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Controls.Add(this.label22);
             this.panel8.Controls.Add(this.label23);
+            resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
             // 
             // label22
@@ -547,8 +551,8 @@
             // 
             // panel9
             // 
-            resources.ApplyResources(this.panel9, "panel9");
             this.panel9.Controls.Add(this.tableLayoutPanel11);
+            resources.ApplyResources(this.panel9, "panel9");
             this.panel9.Name = "panel9";
             // 
             // tableLayoutPanel11
@@ -558,22 +562,12 @@
             this.tableLayoutPanel11.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             // 
-            // tlbebase
-            // 
-            resources.ApplyResources(this.tlbebase, "tlbebase");
-            this.tlbebase.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tlbebase.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tlbebase.Name = "tlbebase";
-            this.tlbebase.RunBool = false;
-            this.tlbebase.SelectColumn = -1;
-            this.tlbebase.SelectRow = -1;
-            // 
             // panel10
             // 
-            resources.ApplyResources(this.panel10, "panel10");
             this.panel10.Controls.Add(this.txtlay);
             this.panel10.Controls.Add(this.label24);
             this.panel10.Controls.Add(this.button10);
+            resources.ApplyResources(this.panel10, "panel10");
             this.panel10.Name = "panel10";
             // 
             // txtlay
@@ -596,8 +590,8 @@
             // 
             // tabPage3
             // 
-            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Controls.Add(this.tableLayoutPanel8);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
@@ -610,9 +604,9 @@
             // 
             // panel3
             // 
-            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label13);
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
             // label10
@@ -629,8 +623,8 @@
             // 
             // panel7
             // 
-            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Controls.Add(this.tableLayoutPanel9);
+            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Name = "panel7";
             // 
             // tableLayoutPanel9
@@ -640,33 +634,15 @@
             this.tableLayoutPanel9.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             // 
-            // tlbe
-            // 
-            resources.ApplyResources(this.tlbe, "tlbe");
-            this.tlbe.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tlbe.ContextMenuStrip = this.contextMenuStrip1;
-            this.tlbe.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tlbe.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tlbe.Name = "tlbe";
-            this.tlbe.RunBool = false;
-            this.tlbe.SelectColumn = -1;
-            this.tlbe.SelectRow = -1;
-            this.tlbe.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tlbe_CellPaint);
-            this.tlbe.Click += new System.EventHandler(this.tlbe_Click);
-            this.tlbe.Paint += new System.Windows.Forms.PaintEventHandler(this.tlbe_Paint);
-            this.tlbe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseMove);
-            this.tlbe.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseUp);
-            // 
             // contextMenuStrip1
             // 
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.添加对象ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // 添加对象ToolStripMenuItem
             // 
-            resources.ApplyResources(this.添加对象ToolStripMenuItem, "添加对象ToolStripMenuItem");
             this.添加对象ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.结果1ToolStripMenuItem,
             this.结果2ToolStripMenuItem,
@@ -681,82 +657,82 @@
             this.状态提示ToolStripMenuItem,
             this.长时数据ToolStripMenuItem});
             this.添加对象ToolStripMenuItem.Name = "添加对象ToolStripMenuItem";
+            resources.ApplyResources(this.添加对象ToolStripMenuItem, "添加对象ToolStripMenuItem");
             // 
             // 结果1ToolStripMenuItem
             // 
-            resources.ApplyResources(this.结果1ToolStripMenuItem, "结果1ToolStripMenuItem");
             this.结果1ToolStripMenuItem.Name = "结果1ToolStripMenuItem";
+            resources.ApplyResources(this.结果1ToolStripMenuItem, "结果1ToolStripMenuItem");
             this.结果1ToolStripMenuItem.Click += new System.EventHandler(this.结果1ToolStripMenuItem_Click);
             // 
             // 结果2ToolStripMenuItem
             // 
-            resources.ApplyResources(this.结果2ToolStripMenuItem, "结果2ToolStripMenuItem");
             this.结果2ToolStripMenuItem.Name = "结果2ToolStripMenuItem";
+            resources.ApplyResources(this.结果2ToolStripMenuItem, "结果2ToolStripMenuItem");
             this.结果2ToolStripMenuItem.Click += new System.EventHandler(this.结果2ToolStripMenuItem_Click);
             // 
             // 曲线图1ToolStripMenuItem
             // 
-            resources.ApplyResources(this.曲线图1ToolStripMenuItem, "曲线图1ToolStripMenuItem");
             this.曲线图1ToolStripMenuItem.Name = "曲线图1ToolStripMenuItem";
+            resources.ApplyResources(this.曲线图1ToolStripMenuItem, "曲线图1ToolStripMenuItem");
             this.曲线图1ToolStripMenuItem.Click += new System.EventHandler(this.曲线图1ToolStripMenuItem_Click);
             // 
             // 曲线图2ToolStripMenuItem
             // 
-            resources.ApplyResources(this.曲线图2ToolStripMenuItem, "曲线图2ToolStripMenuItem");
             this.曲线图2ToolStripMenuItem.Name = "曲线图2ToolStripMenuItem";
+            resources.ApplyResources(this.曲线图2ToolStripMenuItem, "曲线图2ToolStripMenuItem");
             this.曲线图2ToolStripMenuItem.Click += new System.EventHandler(this.曲线图2ToolStripMenuItem_Click);
             // 
             // 仪表1ToolStripMenuItem
             // 
-            resources.ApplyResources(this.仪表1ToolStripMenuItem, "仪表1ToolStripMenuItem");
             this.仪表1ToolStripMenuItem.Name = "仪表1ToolStripMenuItem";
+            resources.ApplyResources(this.仪表1ToolStripMenuItem, "仪表1ToolStripMenuItem");
             this.仪表1ToolStripMenuItem.Click += new System.EventHandler(this.仪表1ToolStripMenuItem_Click);
             // 
             // 仪表2ToolStripMenuItem
             // 
-            resources.ApplyResources(this.仪表2ToolStripMenuItem, "仪表2ToolStripMenuItem");
             this.仪表2ToolStripMenuItem.Name = "仪表2ToolStripMenuItem";
+            resources.ApplyResources(this.仪表2ToolStripMenuItem, "仪表2ToolStripMenuItem");
             this.仪表2ToolStripMenuItem.Click += new System.EventHandler(this.仪表2ToolStripMenuItem_Click);
             // 
             // 试样输入ToolStripMenuItem
             // 
-            resources.ApplyResources(this.试样输入ToolStripMenuItem, "试样输入ToolStripMenuItem");
             this.试样输入ToolStripMenuItem.Name = "试样输入ToolStripMenuItem";
+            resources.ApplyResources(this.试样输入ToolStripMenuItem, "试样输入ToolStripMenuItem");
             this.试样输入ToolStripMenuItem.Click += new System.EventHandler(this.试样输入ToolStripMenuItem_Click);
             // 
             // 原始数据ToolStripMenuItem
             // 
-            resources.ApplyResources(this.原始数据ToolStripMenuItem, "原始数据ToolStripMenuItem");
             this.原始数据ToolStripMenuItem.Name = "原始数据ToolStripMenuItem";
+            resources.ApplyResources(this.原始数据ToolStripMenuItem, "原始数据ToolStripMenuItem");
             this.原始数据ToolStripMenuItem.Click += new System.EventHandler(this.原始数据ToolStripMenuItem_Click);
             // 
             // 摄像ToolStripMenuItem
             // 
-            resources.ApplyResources(this.摄像ToolStripMenuItem, "摄像ToolStripMenuItem");
             this.摄像ToolStripMenuItem.Name = "摄像ToolStripMenuItem";
+            resources.ApplyResources(this.摄像ToolStripMenuItem, "摄像ToolStripMenuItem");
             this.摄像ToolStripMenuItem.Click += new System.EventHandler(this.摄像ToolStripMenuItem_Click);
             // 
             // 过程提示ToolStripMenuItem
             // 
-            resources.ApplyResources(this.过程提示ToolStripMenuItem, "过程提示ToolStripMenuItem");
             this.过程提示ToolStripMenuItem.Name = "过程提示ToolStripMenuItem";
+            resources.ApplyResources(this.过程提示ToolStripMenuItem, "过程提示ToolStripMenuItem");
             this.过程提示ToolStripMenuItem.Click += new System.EventHandler(this.过程提示ToolStripMenuItem_Click);
             // 
             // 状态提示ToolStripMenuItem
             // 
-            resources.ApplyResources(this.状态提示ToolStripMenuItem, "状态提示ToolStripMenuItem");
             this.状态提示ToolStripMenuItem.Name = "状态提示ToolStripMenuItem";
+            resources.ApplyResources(this.状态提示ToolStripMenuItem, "状态提示ToolStripMenuItem");
             this.状态提示ToolStripMenuItem.Click += new System.EventHandler(this.状态提示ToolStripMenuItem_Click);
             // 
             // 长时数据ToolStripMenuItem
             // 
-            resources.ApplyResources(this.长时数据ToolStripMenuItem, "长时数据ToolStripMenuItem");
             this.长时数据ToolStripMenuItem.Name = "长时数据ToolStripMenuItem";
+            resources.ApplyResources(this.长时数据ToolStripMenuItem, "长时数据ToolStripMenuItem");
             this.长时数据ToolStripMenuItem.Click += new System.EventHandler(this.长时数据ToolStripMenuItem_Click);
             // 
             // panel6
             // 
-            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Controls.Add(this.btnsavelayout);
             this.panel6.Controls.Add(this.btnreadlayout);
             this.panel6.Controls.Add(this.label21);
@@ -766,6 +742,7 @@
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.button1);
+            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Name = "panel6";
             // 
             // btnsavelayout
@@ -826,7 +803,6 @@
             // 
             // contextMenuStrip2
             // 
-            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.删除对象ToolStripMenuItem1,
             this.水平扩展ToolStripMenuItem,
@@ -834,45 +810,41 @@
             this.水平减少ToolStripMenuItem,
             this.垂直减少ToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
+            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
             // 
             // 删除对象ToolStripMenuItem1
             // 
-            resources.ApplyResources(this.删除对象ToolStripMenuItem1, "删除对象ToolStripMenuItem1");
             this.删除对象ToolStripMenuItem1.Name = "删除对象ToolStripMenuItem1";
+            resources.ApplyResources(this.删除对象ToolStripMenuItem1, "删除对象ToolStripMenuItem1");
             this.删除对象ToolStripMenuItem1.Click += new System.EventHandler(this.删除对象ToolStripMenuItem1_Click);
             // 
             // 水平扩展ToolStripMenuItem
             // 
-            resources.ApplyResources(this.水平扩展ToolStripMenuItem, "水平扩展ToolStripMenuItem");
             this.水平扩展ToolStripMenuItem.Name = "水平扩展ToolStripMenuItem";
+            resources.ApplyResources(this.水平扩展ToolStripMenuItem, "水平扩展ToolStripMenuItem");
             this.水平扩展ToolStripMenuItem.Click += new System.EventHandler(this.水平扩展ToolStripMenuItem_Click);
             // 
             // 垂直增加ToolStripMenuItem
             // 
-            resources.ApplyResources(this.垂直增加ToolStripMenuItem, "垂直增加ToolStripMenuItem");
             this.垂直增加ToolStripMenuItem.Name = "垂直增加ToolStripMenuItem";
+            resources.ApplyResources(this.垂直增加ToolStripMenuItem, "垂直增加ToolStripMenuItem");
             this.垂直增加ToolStripMenuItem.Click += new System.EventHandler(this.垂直增加ToolStripMenuItem_Click);
             // 
             // 水平减少ToolStripMenuItem
             // 
-            resources.ApplyResources(this.水平减少ToolStripMenuItem, "水平减少ToolStripMenuItem");
             this.水平减少ToolStripMenuItem.Name = "水平减少ToolStripMenuItem";
+            resources.ApplyResources(this.水平减少ToolStripMenuItem, "水平减少ToolStripMenuItem");
             this.水平减少ToolStripMenuItem.Click += new System.EventHandler(this.水平减少ToolStripMenuItem_Click);
             // 
             // 垂直减少ToolStripMenuItem
             // 
-            resources.ApplyResources(this.垂直减少ToolStripMenuItem, "垂直减少ToolStripMenuItem");
             this.垂直减少ToolStripMenuItem.Name = "垂直减少ToolStripMenuItem";
+            resources.ApplyResources(this.垂直减少ToolStripMenuItem, "垂直减少ToolStripMenuItem");
             this.垂直减少ToolStripMenuItem.Click += new System.EventHandler(this.垂直减少ToolStripMenuItem_Click);
-            // 
-            // saveFileDialog1
-            // 
-            resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
             // 
             // imageList1
             // 
@@ -886,6 +858,47 @@
             this.imageList1.Images.SetKeyName(5, "摄像头layout1.bmp");
             this.imageList1.Images.SetKeyName(6, "进程layout1.bmp");
             this.imageList1.Images.SetKeyName(7, "状态layout1.bmp");
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip3.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip3, "contextMenuStrip3");
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // tlbebase
+            // 
+            this.tlbebase.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.tlbebase, "tlbebase");
+            this.tlbebase.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlbebase.Name = "tlbebase";
+            this.tlbebase.RunBool = false;
+            this.tlbebase.SelectColumn = -1;
+            this.tlbebase.SelectRow = -1;
+            // 
+            // tlbe
+            // 
+            this.tlbe.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.tlbe, "tlbe");
+            this.tlbe.ContextMenuStrip = this.contextMenuStrip1;
+            this.tlbe.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlbe.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tlbe.Name = "tlbe";
+            this.tlbe.RunBool = false;
+            this.tlbe.SelectColumn = -1;
+            this.tlbe.SelectRow = -1;
+            this.tlbe.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tlbe_CellPaint);
+            this.tlbe.Click += new System.EventHandler(this.tlbe_Click);
+            this.tlbe.Paint += new System.Windows.Forms.PaintEventHandler(this.tlbe_Paint);
+            this.tlbe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseMove);
+            this.tlbe.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseUp);
             // 
             // UserControl常规
             // 
@@ -935,6 +948,7 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.contextMenuStrip2.ResumeLayout(false);
+            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1042,5 +1056,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

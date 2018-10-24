@@ -121,7 +121,25 @@ namespace TabHeaderDemo
         {
             if (this.lstinclude.SelectedItem != null)
             {
-                this.lstavail.AddItem(this.lstinclude.list[this.lstinclude.SelectedIndex]);
+                bool mb = false;
+                for (int j = 0; j < ClsStaticStation.m_Global.mycls.allsignals.Count; j++)
+                {
+
+
+                    if (this.lstinclude.list[this.lstinclude.SelectedIndex].cName ==
+                        ClsStaticStation.m_Global.mycls.allsignals[j].cName)
+                    {
+                        mb = true;
+                    }
+
+
+
+
+                }
+                if (mb == true)
+                {
+                    this.lstavail.AddItem(this.lstinclude.list[this.lstinclude.SelectedIndex]);
+                }
                 this.lstinclude.RemoveItem(this.lstinclude.SelectedIndex);
 
                 list_metersetvalue();

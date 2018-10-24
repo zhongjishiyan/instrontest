@@ -186,14 +186,14 @@
   <data name="label9.Text" xml:space="preserve">
     <value>Location：</value>
   </data>
+  <data name="tableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>269, 696</value>
+  </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>Method Name：</value>
-  </data>
-  <data name="tableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>269, 693</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -318,6 +318,21 @@
   <data name="label13.Text" xml:space="preserve">
     <value>Advanced layout</value>
   </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 26</value>
+  </data>
+  <data name="tlbe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 74</value>
+  </data>
+  <data name="tlbe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>621, 321</value>
+  </data>
+  <data name="添加对象ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 22</value>
+  </data>
+  <data name="添加对象ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Add Screen element</value>
+  </data>
   <data name="结果1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 22</value>
   </data>
@@ -390,20 +405,8 @@
   <data name="长时数据ToolStripMenuItem.Text" xml:space="preserve">
     <value>Trend Data</value>
   </data>
-  <data name="添加对象ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 22</value>
-  </data>
-  <data name="添加对象ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Add Screen element</value>
-  </data>
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 26</value>
-  </data>
-  <data name="tlbe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 74</value>
-  </data>
-  <data name="tlbe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>621, 321</value>
+  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>621, 63</value>
   </data>
   <data name="btnsavelayout.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -495,8 +498,8 @@
   <data name="button1.Text" xml:space="preserve">
     <value>Reset</value>
   </data>
-  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>621, 63</value>
+  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 114</value>
   </data>
   <data name="删除对象ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 22</value>
@@ -528,15 +531,12 @@
   <data name="垂直减少ToolStripMenuItem.Text" xml:space="preserve">
     <value>Vertical retracting</value>
   </data>
-  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 114</value>
-  </data>
   <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABe
-        ZAMAAk1TRnQBSQFMAgEBCAEAAbgBCwG4AQsBTQEAAVsBAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAE0
+        ZAMAAk1TRnQBSQFMAgEBCAEAAdABCwHQAQsBTQEAAVsBAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAE0
         AQECAAERAQECAAEBAQABEAUAAegBkAEC/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A
         /wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A
         /wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A

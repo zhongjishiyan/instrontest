@@ -223,6 +223,8 @@ namespace TabHeaderDemo
                 m_Global.mycls.ChannelRange[i] = GlobeVal.mysys.ChannelRange[i];
                 m_Global.mycls.ChannelSampling[i] = GlobeVal.mysys.ChannelSamplemode[i];
                 m_Global.mycls.ChannelControlChannel[i] = GlobeVal.mysys.ChannelControlChannel[i];
+
+                m_Global.mycls.ChannelName[i] = GlobeVal.mysys.ChannelName[i];
             }
 
 
@@ -838,25 +840,26 @@ namespace TabHeaderDemo
 
             if (GlobeVal.mysys.safe == true)
             {
-
-                Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
-
-
-                f.result = false;
-
-                f.ShowDialog();
-
-                if (f.result == true)
+                if (GlobeVal.mysys.startupscreen == 0)
                 {
+                    Frm.Form登录 f = new TabHeaderDemo.Frm.Form登录();
+
+
+                    f.result = false;
+
+                    f.ShowDialog();
+
+                    if (f.result == true)
+                    {
+
+                    }
+                    else
+                    {
+                        Close();
+                    }
+                    f.Close();
 
                 }
-                else
-                {
-                    Close();
-                }
-                f.Close();
-
-
 
             }
 
@@ -978,6 +981,17 @@ namespace TabHeaderDemo
                 GlobeVal.userControlpretest1.SampleNextStep(true);
 
                 CComLibrary.GlobeVal.filesave.currentspenumber = 0;
+
+                if (GlobeVal.FormmainLab.UserControl轴向1 != null)
+                {
+
+                    GlobeVal.FormmainLab.UserControl轴向1.init();
+                }
+
+                if (GlobeVal.FormmainLab.UserControl刚度双轴1 != null)
+                {
+                    GlobeVal.FormmainLab.UserControl刚度双轴1.init();
+                }
 
             }
 

@@ -1725,8 +1725,16 @@ namespace TabHeaderDemo
             GlobeVal.MainStatusStrip.Items["toolstatustest"].Visible = false;
 
             GlobeVal.UserControlMain1.btnmmethod.Visible = true;
-            GlobeVal.UserControlMain1.btnmreport.Visible = true;
-            GlobeVal.UserControlMain1.btnmmanage.Visible = true;
+            if (GlobeVal.mysys.machinekind == 0)
+            {
+                GlobeVal.UserControlMain1.btnmreport.Visible = true;
+                GlobeVal.UserControlMain1.btnmmanage.Visible = true;
+            }
+            else
+            {
+                GlobeVal.UserControlMain1.btnmreport.Visible = false;
+                GlobeVal.UserControlMain1.btnmmanage.Visible = false;
+            }
             GlobeVal.UserControlMain1.btnmain.Visible = true;
             GlobeVal.dopanel.Visible = false;
             TabControl b = ((TabControl)Application.OpenForms["FormMainLab"].Controls["tabcontrol1"]);
@@ -2218,6 +2226,11 @@ namespace TabHeaderDemo
             {
                 MessageBox.Show("Data has been exported to" + xls.FileName);
             }
+
+        }
+
+        private void btnsaveas_Click(object sender, EventArgs e)
+        {
 
         }
     }

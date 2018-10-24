@@ -11,6 +11,8 @@ namespace TabHeaderDemo.Frm
 {
     public partial class FormPanelSet : Form
     {
+        public bool TowChannel;
+
         public FormPanelSet()
         {
             InitializeComponent();
@@ -41,7 +43,25 @@ namespace TabHeaderDemo.Frm
             txtdown.Text = GlobeVal.mysys.lbl_down;
             txtdest.Text = GlobeVal.mysys.lbl_start;
             txtstop.Text = GlobeVal.mysys.lbl_end;
+
+            txtup1.Text = GlobeVal.mysys.lbl_up1;
+            txtkeep1.Text = GlobeVal.mysys.lbl_stop1;
+            txtdown1.Text = GlobeVal.mysys.lbl_down1;
+            txtdest1.Text = GlobeVal.mysys.lbl_start1;
+            txtstop1.Text = GlobeVal.mysys.lbl_end1;
+
             chkcyclc.Checked = GlobeVal.mysys.chk_cyclc;
+
+
+
+            if(TowChannel ==false)
+            {
+                this.Width = 338;
+            }
+            else
+            {
+                this.Width = 620;
+            }
 
         }
 
@@ -90,6 +110,32 @@ namespace TabHeaderDemo.Frm
         private void chkcyclc_CheckedChanged(object sender, EventArgs e)
         {
             GlobeVal.mysys.chk_cyclc = chkcyclc.Checked;
+        }
+
+        private void txtup1_TextChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.lbl_up1 = txtup1.Text;
+        }
+
+        private void txtkeep1_TextChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.lbl_stop1= txtkeep1.Text;
+
+        }
+
+        private void txtdown1_TextChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.lbl_down1 = txtdown1.Text; 
+        }
+
+        private void txtdest1_TextChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.lbl_start1 = txtdest1.Text;
+        }
+
+        private void txtstop1_TextChanged(object sender, EventArgs e)
+        {
+            GlobeVal.mysys.lbl_end1 = txtstop1.Text;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace TabHeaderDemo
 
         string[] ms;
         string[] ms1;
+        string[] ms2;
         public  void Init(int sel)
         {
 
@@ -61,12 +62,10 @@ namespace TabHeaderDemo
 #endif
 
         }
-        public  UserControl系统设置()
-        {
-            InitializeComponent();
-            tabControl1.ItemSize = new Size(1, 1);
 
-             ms = new string[20];
+        public void initgrid()
+        {
+            ms = new string[20];
 
             if (GlobeVal.mysys.language == 0)
             {
@@ -102,12 +101,12 @@ namespace TabHeaderDemo
 
             grid1.BorderStyle = BorderStyle.FixedSingle;
 
-            
+
 
             grid1.ColumnsCount = 8;
             grid1.Columns[0].Width = grid1.Width / 8;
-           
-            grid1.Columns[1].Width = grid1.Width/8 ;
+
+            grid1.Columns[1].Width = grid1.Width / 8;
             grid1.Columns[2].Width = grid1.Width / 8;
             grid1.Columns[3].Width = grid1.Width / 8;
             grid1.Columns[4].Width = grid1.Width / 8;
@@ -121,7 +120,7 @@ namespace TabHeaderDemo
             grid1.Rows.Insert(0);
 
             string _temp = "";
-            if(GlobeVal.mysys.language ==0)
+            if (GlobeVal.mysys.language == 0)
             {
                 _temp = "[硬件通道名称]";
             }
@@ -132,11 +131,11 @@ namespace TabHeaderDemo
 
             SourceGrid2.Cells.Real.ColumnHeader head = new SourceGrid2.Cells.Real.ColumnHeader(_temp);
             head.EnableSort = false;
-            head.EnableEdit = false;
-           
+
+
             grid1[0, 0] = head;
 
-            if(GlobeVal.mysys.language ==0)
+            if (GlobeVal.mysys.language == 0)
             {
                 _temp = "[硬件通道量纲]";
             }
@@ -144,9 +143,9 @@ namespace TabHeaderDemo
             {
                 _temp = "[hardware channel dimension]";
             }
-             head = new SourceGrid2.Cells.Real.ColumnHeader(_temp);
+            head = new SourceGrid2.Cells.Real.ColumnHeader(_temp);
             head.EnableSort = false;
-            head.EnableEdit = false;
+
             grid1[0, 1] = head;
 
             if (GlobeVal.mysys.language == 0)
@@ -213,7 +212,7 @@ namespace TabHeaderDemo
                 _temp = "[Hardware channel acquisition mode]";
             }
 
-            
+
             head = new SourceGrid2.Cells.Real.ColumnHeader(_temp);
             head.EnableSort = false;
             grid1[0, 6] = head;
@@ -236,13 +235,13 @@ namespace TabHeaderDemo
             for (int i = 1; i <= ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
             {
 
-                if (GlobeVal.mysys.ChannelControl[i - 1]==true)
+                if (GlobeVal.mysys.ChannelControl[i - 1] == true)
                 {
                     mb = true;
                 }
             }
 
-            if (mb ==false )
+            if (mb == false)
             {
                 GlobeVal.mysys.ChannelControl[0] = true;
 
@@ -252,41 +251,45 @@ namespace TabHeaderDemo
 
 
 
-                for (int i = 1; i <= ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
+            for (int i = 1; i <= ClsStaticStation.m_Global.mycls.chsignals.Count; i++)
             {
                 grid1.Rows.Insert(i);
                 grid1[i, 0] = new SourceGrid2.Cells.Real.Cell(
-                    ClsStaticStation.m_Global.mycls.chsignals[i - 1].cName, typeof(string));
-                
+                     GlobeVal.mysys.ChannelName[i - 1], typeof(string));
+
 
                 grid1[i, 1] = new SourceGrid2.Cells.Real.ComboBox(
 
-               ClsStaticStation.m_Global.mycls.SignalsNames[ClsStaticStation.m_Global.mycls.chsignals[i - 1].cUnitKind], typeof(string),
+                //  ClsStaticStation.m_Global.mycls.SignalsNames[ClsStaticStation.m_Global.mycls.chsignals[i - 1].cUnitKind], typeof(string),
+                // ClsStaticStation.m_Global.mycls.SignalsNames, false);
+
+                ClsStaticStation.m_Global.mycls.SignalsNames[GlobeVal.mysys.ChannelDimension[i - 1]], typeof(string),
               ClsStaticStation.m_Global.mycls.SignalsNames, false);
 
+
                 grid1[i, 2] = new SourceGrid2.Cells.Real.ComboBox(
-                  ClsStaticStation.m_Global.mycls.chsignals[i - 1].cUnits[
-                  ClsStaticStation.m_Global.mycls.chsignals[i - 1].cUnitsel], typeof(string),
-                  ClsStaticStation.m_Global.mycls.chsignals[i - 1].cUnits, false);
+                      ClsStaticStation.m_Global.mycls.chsignals[i - 1].cUnits[
+                      ClsStaticStation.m_Global.mycls.chsignals[i - 1].cUnitsel], typeof(string),
+                      ClsStaticStation.m_Global.mycls.chsignals[i - 1].cUnits, false);
 
                 grid1[i, 3] = new SourceGrid2.Cells.Real.Cell(
                  ClsStaticStation.m_Global.mycls.chsignals[i - 1].SignName, typeof(string));
 
 
                 grid1[i, 4] = new SourceGrid2.Cells.Real.Cell(
-                   GlobeVal.mysys.ChannelRange[i-1], typeof(double));
+                   GlobeVal.mysys.ChannelRange[i - 1], typeof(double));
 
-              
-           
+
+
 
                 grid1[i, 5] = new SourceGrid2.Cells.Real.Cell(
                  GlobeVal.mysys.ChannelControl[i - 1], typeof(bool));
 
 
 
-                grid1[i,6] = new SourceGrid2.Cells.Real.ComboBox(
+                grid1[i, 6] = new SourceGrid2.Cells.Real.ComboBox(
 
-               ms[GlobeVal.mysys.ChannelSamplemode[i-1]], typeof(string),
+               ms[GlobeVal.mysys.ChannelSamplemode[i - 1]], typeof(string),
               ms, false);
 
 
@@ -299,6 +302,14 @@ namespace TabHeaderDemo
 
 
             }
+        }
+
+        public  UserControl系统设置()
+        {
+            InitializeComponent();
+            tabControl1.ItemSize = new Size(1, 1);
+            initgrid();
+         
         }
 
         private void cbokind_SelectionChangeCommitted(object sender, EventArgs e)
@@ -325,6 +336,27 @@ namespace TabHeaderDemo
         private void grid1_CellLostFocus(object sender, SourceGrid2.PositionCancelEventArgs e)
         {
             int k = 0;
+
+            if(e.Position.Column ==0)
+            {
+                GlobeVal.mysys.ChannelName[e.Position.Row - 1] = Convert.ToString(e.Cell.GetValue(new SourceGrid2.Position(e.Position.Row, e.Position.Column)));
+            }
+
+            if (e.Position.Column == 1)
+            {
+                k = 0;
+
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.SignalsNames_Count; i++)
+                {
+                    if(Convert.ToString(e.Cell.GetValue(new SourceGrid2.Position(e.Position.Row, e.Position.Column)))==ClsStaticStation.m_Global.mycls.SignalsNames[i])
+                    {
+                        k = i;
+                    }
+                }
+
+                GlobeVal.mysys.ChannelDimension[e.Position.Row - 1] = k;
+            }
+
             if (e.Position.Column == 4)
             {
                 GlobeVal.mysys.ChannelRange[e.Position.Row - 1] = Convert.ToDouble(e.Cell.GetValue(new SourceGrid2.Position(e.Position.Row, e.Position.Column)));
@@ -337,6 +369,7 @@ namespace TabHeaderDemo
 
             if (e.Position.Column == 6)
             {
+                k = 0;
                 for (int i = 0; i < 17; i++)
                 {
                     if (Convert.ToString(e.Cell.GetValue(new SourceGrid2.Position(e.Position.Row, e.Position.Column))) == ms[i])
@@ -372,11 +405,11 @@ namespace TabHeaderDemo
         {
             if (e.Position.Column ==0)
             {
-                e.Cancel = true;
+                e.Cancel = false ;
             }
             if (e.Position.Column == 1)
             {
-                e.Cancel = true;
+                e.Cancel = false;
             }
             if (e.Position.Column == 2)
             {

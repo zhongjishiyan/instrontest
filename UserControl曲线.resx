@@ -120,10 +120,6 @@
   <data name="&gt;&gt;tabPage12.Parent" xml:space="preserve">
     <value>tabControl2</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cboxchannelunit.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="rdbxhandzoom.Text" xml:space="preserve">
     <value>手动缩放</value>
   </data>
@@ -155,6 +151,7 @@
   <data name="&gt;&gt;tabPage13.Parent" xml:space="preserve">
     <value>tabControl2</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label40.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -176,9 +173,6 @@
   </data>
   <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label22.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="label49.Text" xml:space="preserve">
     <value>最大值：</value>
@@ -204,12 +198,6 @@
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
   </data>
-  <data name="button23.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;tlpkind1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel7</value>
-  </data>
   <data name="chkshowinvalidspe.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 18</value>
   </data>
@@ -224,12 +212,6 @@
   </data>
   <data name="tabPage13.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="&gt;&gt;numymin.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -254,9 +236,6 @@
   </data>
   <data name="&gt;&gt;label25.Parent" xml:space="preserve">
     <value>tableLayoutPanel20</value>
-  </data>
-  <data name="&gt;&gt;tabPage8.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="button8.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 22</value>
@@ -291,8 +270,8 @@
   <data name="button22.Location" type="System.Drawing.Point, System.Drawing">
     <value>290, 32</value>
   </data>
-  <data name="&gt;&gt;button36.Parent" xml:space="preserve">
-    <value>tableLayoutPanel26</value>
+  <data name="label50.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>曲线图标题：</value>
@@ -305,9 +284,6 @@
   </data>
   <data name="label14.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel19.Name" xml:space="preserve">
-    <value>tableLayoutPanel19</value>
   </data>
   <data name="&gt;&gt;button8.Parent" xml:space="preserve">
     <value>tableLayoutPanel18</value>
@@ -357,11 +333,8 @@
   <data name="&gt;&gt;label50.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;rdbyautozoom.Parent" xml:space="preserve">
-    <value>grpyscale</value>
-  </data>
-  <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="label38.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 29</value>
   </data>
   <data name="label20.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -384,6 +357,9 @@
   <data name="&gt;&gt;button34.Parent" xml:space="preserve">
     <value>tableLayoutPanel26</value>
   </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>720, 528</value>
   </data>
@@ -405,8 +381,8 @@
   <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="button14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 61</value>
+  <data name="&gt;&gt;grpyscale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblcaption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -438,8 +414,8 @@
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;xAxis2.Name" xml:space="preserve">
-    <value>xAxis2</value>
+  <data name="tableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>728, 570</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -459,8 +435,8 @@
   <data name="listBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 4</value>
   </data>
-  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="tabPage4.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -492,11 +468,8 @@
   <data name="&gt;&gt;rdbyhandzoom.Parent" xml:space="preserve">
     <value>grpyscale</value>
   </data>
-  <data name="&gt;&gt;button35.Parent" xml:space="preserve">
-    <value>tableLayoutPanel26</value>
-  </data>
-  <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
-    <value>tableLayoutPanel16</value>
+  <data name="&gt;&gt;label27.Parent" xml:space="preserve">
+    <value>tableLayoutPanel21</value>
   </data>
   <data name="button27.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -546,8 +519,8 @@
   <data name="&gt;&gt;panel6.Name" xml:space="preserve">
     <value>panel6</value>
   </data>
-  <data name="button16.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="label23.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel14.Name" xml:space="preserve">
     <value>tableLayoutPanel14</value>
@@ -564,8 +537,8 @@
   <data name="&gt;&gt;button28.Parent" xml:space="preserve">
     <value>tableLayoutPanel24</value>
   </data>
-  <data name="&gt;&gt;label48.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;rdby1handzoom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label28.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -576,6 +549,9 @@
   <data name="&gt;&gt;grpydefine.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="chkdatapoint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 102</value>
+  </data>
   <data name="chkshowinvalidspe.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -584,9 +560,6 @@
   </data>
   <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 258</value>
-  </data>
-  <data name="button6.Text" xml:space="preserve">
-    <value>编辑...</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -633,9 +606,6 @@
   <data name="&gt;&gt;label22.Parent" xml:space="preserve">
     <value>tableLayoutPanel19</value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="lbltitle2.Text" xml:space="preserve">
     <value>设置曲线-Y轴数据</value>
   </data>
@@ -666,8 +636,8 @@
   <data name="&gt;&gt;grpy1scale.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>708, 97</value>
+  <data name="tableLayoutPanel9.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanelCurve.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -678,8 +648,8 @@
   <data name="tableLayoutPanel22.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
-    <value>tableLayoutPanel17</value>
+  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="tableLayoutPanel15.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -708,8 +678,14 @@
   <data name="&gt;&gt;label28.Parent" xml:space="preserve">
     <value>grpy1define</value>
   </data>
+  <data name="rdbyautozoom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>51, 32</value>
+  </data>
   <data name="&gt;&gt;tableLayoutPanel14.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
+    <value>tableLayoutPanel16</value>
   </data>
   <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
     <value>tableLayoutPanel12</value>
@@ -719,9 +695,6 @@
   </data>
   <data name="&gt;&gt;panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tableLayoutPanel13.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
   </data>
   <data name="label22.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -746,6 +719,9 @@
   </data>
   <data name="label37.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;button14.Parent" xml:space="preserve">
+    <value>tableLayoutPanel20</value>
   </data>
   <data name="label38.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -795,8 +771,8 @@
   <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
     <value>tabControl1</value>
   </data>
-  <data name="tableLayoutPanelCurve.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;tableLayoutPanel19.Name" xml:space="preserve">
+    <value>tableLayoutPanel19</value>
   </data>
   <data name="button14.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -806,6 +782,9 @@
   </data>
   <data name="button32.Text" xml:space="preserve">
     <value>编辑...</value>
+  </data>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -876,9 +855,6 @@
   <data name="&gt;&gt;button27.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tableLayoutPanel21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 195</value>
-  </data>
   <data name="label34.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -893,9 +869,6 @@
   </data>
   <data name="&gt;&gt;cboxchannel.Name" xml:space="preserve">
     <value>cboxchannel</value>
-  </data>
-  <data name="numymin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 21</value>
   </data>
   <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -957,14 +930,14 @@
   <data name="&gt;&gt;button25.Name" xml:space="preserve">
     <value>button25</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
-  </data>
   <data name="listBox2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="button23.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;button35.Name" xml:space="preserve">
     <value>button35</value>
@@ -1026,9 +999,6 @@
   <data name="&gt;&gt;tabPage10.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage14.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="&gt;&gt;tabPage10.Name" xml:space="preserve">
     <value>tabPage10</value>
   </data>
@@ -1040,9 +1010,6 @@
   </data>
   <data name="&gt;&gt;panel4.Name" xml:space="preserve">
     <value>panel4</value>
-  </data>
-  <data name="label27.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1068,8 +1035,8 @@
   <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="grpy1define.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 231</value>
+  <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 29</value>
@@ -1101,6 +1068,9 @@
   <data name="&gt;&gt;label34.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="tableLayoutPanel24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
   <data name="&gt;&gt;label27.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -1121,9 +1091,6 @@
   </data>
   <data name="&gt;&gt;lblY轴.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grpyscale.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 26</value>
@@ -1149,11 +1116,8 @@
   <data name="&gt;&gt;button6.Name" xml:space="preserve">
     <value>button6</value>
   </data>
-  <data name="&gt;&gt;rdby1autozoom.Parent" xml:space="preserve">
-    <value>grpy1scale</value>
-  </data>
-  <data name="legend3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 151</value>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>tableLayoutPanel17</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -1230,9 +1194,6 @@
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label43.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 35</value>
-  </data>
   <data name="&gt;&gt;rdbxautozoom.Name" xml:space="preserve">
     <value>rdbxautozoom</value>
   </data>
@@ -1257,9 +1218,6 @@
   <data name="&gt;&gt;label30.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tlpkind1.RowCount" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="listBox2.ItemHeight" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
@@ -1271,9 +1229,6 @@
   </data>
   <data name="&gt;&gt;cboy1channel.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="label35.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="numy1max.Location" type="System.Drawing.Point, System.Drawing">
     <value>325, 27</value>
@@ -1350,8 +1305,8 @@
   <data name="&gt;&gt;label36.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;button3.Name" xml:space="preserve">
-    <value>button3</value>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>708, 97</value>
   </data>
   <data name="&gt;&gt;chkshowinvalidspe.Name" xml:space="preserve">
     <value>chkshowinvalidspe</value>
@@ -1368,17 +1323,14 @@
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,20" /&gt;&lt;Rows Styles="Percent,100,Absolute,19" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="cboy1channelunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 20</value>
-  </data>
   <data name="&gt;&gt;tableLayoutPanel23.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label47.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="tableLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>734, 576</value>
+  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 16</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -1386,14 +1338,14 @@
   <data name="label44.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 35</value>
   </data>
-  <data name="cboy1channel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 20</value>
-  </data>
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;tabPage6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="grpy1define.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 231</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 50</value>
@@ -1473,6 +1425,9 @@
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 30</value>
   </data>
+  <data name="tableLayoutPanel14.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="lbltitle0.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1484,12 +1439,6 @@
   </data>
   <data name="&gt;&gt;tabPage6.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="label50.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
-  </data>
-  <data name="label23.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -1563,14 +1512,14 @@
   <data name="&gt;&gt;tableLayoutPanel5.Parent" xml:space="preserve">
     <value>tabPage2</value>
   </data>
-  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
-    <value>tableLayoutPanel18</value>
-  </data>
   <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
   </data>
   <data name="&gt;&gt;panel3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label33.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="label38.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1605,9 +1554,6 @@
   <data name="&gt;&gt;button10.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="button6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
   <data name="&gt;&gt;label12.Parent" xml:space="preserve">
     <value>tableLayoutPanel17</value>
   </data>
@@ -1619,6 +1565,9 @@
   </data>
   <data name="tableLayoutPanel7.Size" type="System.Drawing.Size, System.Drawing">
     <value>714, 238</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label51.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1653,9 +1602,6 @@
   <data name="&gt;&gt;numymin.Parent" xml:space="preserve">
     <value>grpyscale</value>
   </data>
-  <data name="&gt;&gt;label46.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;label39.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
@@ -1686,14 +1632,14 @@
   <data name="label27.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="tableLayoutPanel24.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="button29.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="tableLayoutPanel26.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="button5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -1729,13 +1675,16 @@
     <value>71, 16</value>
   </data>
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbltitle1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,60" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbltitle1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,63" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label46.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 35</value>
   </data>
   <data name="tabPage8.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="&gt;&gt;cboychannel.Parent" xml:space="preserve">
+    <value>grpydefine</value>
   </data>
   <data name="label22.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1755,8 +1704,8 @@
   <data name="&gt;&gt;button6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tableLayoutPanel22.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label32" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button21" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label33" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button22" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label34" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button23" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51.17493,Percent,48.82507" /&gt;&lt;Rows Styles="Absolute,29,Absolute,28,Absolute,30,Absolute,30,Absolute,45,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="label45.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 105</value>
   </data>
   <data name="&gt;&gt;numy1max.Type" xml:space="preserve">
     <value>NationalInstruments.UI.WindowsForms.NumericEdit, NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
@@ -1833,6 +1782,9 @@
   <data name="tableLayoutPanel15.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;chkshowinvalidspe.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="&gt;&gt;cbocurve.Name" xml:space="preserve">
     <value>cbocurve</value>
   </data>
@@ -1860,6 +1812,9 @@
   <data name="label46.Text" xml:space="preserve">
     <value>符号大小:</value>
   </data>
+  <data name="&gt;&gt;xAxis2.Name" xml:space="preserve">
+    <value>xAxis2</value>
+  </data>
   <data name="button9.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -1877,9 +1832,6 @@
   </data>
   <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
-  </data>
-  <data name="&gt;&gt;label47.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label10.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1956,6 +1908,9 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="label8.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
   <data name="button36.Text" xml:space="preserve">
     <value>编辑...</value>
   </data>
@@ -1969,9 +1924,6 @@
     <value>1</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel21.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button12.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel12.ZOrder" xml:space="preserve">
@@ -2025,8 +1977,8 @@
   <data name="&gt;&gt;button11.Parent" xml:space="preserve">
     <value>tableLayoutPanel19</value>
   </data>
-  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="button8.Text" xml:space="preserve">
+    <value>编辑...</value>
   </data>
   <data name="&gt;&gt;cboy1channel.Name" xml:space="preserve">
     <value>cboy1channel</value>
@@ -2098,7 +2050,10 @@
     <value>3, 0</value>
   </data>
   <data name="tableLayoutPanel6.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbltitle2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,61" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbltitle2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,64" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel4.Parent" xml:space="preserve">
+    <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;button33.Parent" xml:space="preserve">
     <value>tableLayoutPanel26</value>
@@ -2109,8 +2064,11 @@
   <data name="&gt;&gt;button35.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="tableLayoutPanel9.RowCount" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;label43.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="label25.Text" xml:space="preserve">
     <value>坐标轴刻度反转 ：</value>
@@ -2124,8 +2082,8 @@
   <data name="&gt;&gt;label40.Parent" xml:space="preserve">
     <value>tableLayoutPanel25</value>
   </data>
-  <data name="button16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 23</value>
+  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 61</value>
   </data>
   <data name="tableLayoutPanel20.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2160,9 +2118,6 @@
   <data name="rdbxhandzoom.Location" type="System.Drawing.Point, System.Drawing">
     <value>51, 66</value>
   </data>
-  <data name="label45.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 105</value>
-  </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>tlpkind2</value>
   </data>
@@ -2186,6 +2141,9 @@
   </data>
   <data name="&gt;&gt;cboychannelunit.Name" xml:space="preserve">
     <value>cboychannelunit</value>
+  </data>
+  <data name="tableLayoutPanel19.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 29</value>
@@ -2217,8 +2175,8 @@
   <data name="&gt;&gt;label35.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 61</value>
+  <data name="label10.Text" xml:space="preserve">
+    <value>通道：</value>
   </data>
   <data name="&gt;&gt;cboy1channel.Parent" xml:space="preserve">
     <value>grpy1define</value>
@@ -2240,9 +2198,6 @@
   </data>
   <data name="&gt;&gt;tabPage14.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
     <value>tableLayoutPanel6</value>
@@ -2268,11 +2223,20 @@
   <data name="&gt;&gt;label47.Name" xml:space="preserve">
     <value>label47</value>
   </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 30</value>
+  </data>
+  <data name="tableLayoutPanel20.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="grpydefine.Size" type="System.Drawing.Size, System.Drawing">
     <value>734, 122</value>
   </data>
   <data name="&gt;&gt;legend3.Type" xml:space="preserve">
     <value>NationalInstruments.UI.WindowsForms.Legend, NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
+  </data>
+  <data name="rdby1handzoom.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>选择曲线类型</value>
@@ -2322,6 +2286,9 @@
   <data name="lblcaption.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="button9.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
   <data name="&gt;&gt;label34.Parent" xml:space="preserve">
     <value>tableLayoutPanel22</value>
   </data>
@@ -2345,9 +2312,6 @@
   </data>
   <data name="button31.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
-  </data>
-  <data name="label36.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2412,8 +2376,8 @@
   <data name="button8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;tlpkind1.Name" xml:space="preserve">
+    <value>tlpkind1</value>
   </data>
   <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 29</value>
@@ -2445,9 +2409,6 @@
   <data name="button23.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 24</value>
   </data>
-  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -2460,11 +2421,14 @@
   <data name="label16.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel24.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 29</value>
+  </data>
+  <data name="grpy1define.Size" type="System.Drawing.Size, System.Drawing">
+    <value>734, 96</value>
   </data>
   <data name="&gt;&gt;label37.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2532,9 +2496,6 @@
   <data name="button36.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 29</value>
   </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
   <data name="tableLayoutPanel25.Size" type="System.Drawing.Size, System.Drawing">
     <value>389, 195</value>
   </data>
@@ -2543,9 +2504,6 @@
   </data>
   <data name="label39.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
-  </data>
-  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="rdbyautozoom.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 16</value>
@@ -2556,17 +2514,14 @@
   <data name="button15.Text" xml:space="preserve">
     <value>编辑...</value>
   </data>
-  <data name="&gt;&gt;label46.Name" xml:space="preserve">
-    <value>label46</value>
-  </data>
   <data name="button30.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel13.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="label50.Text" xml:space="preserve">
+    <value>最小值：</value>
   </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 29</value>
@@ -2586,14 +2541,14 @@
   <data name="&gt;&gt;label32.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="numy1min.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
   <data name="&gt;&gt;tableLayoutPanel7.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
   </data>
   <data name="grpydefine.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel22.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label32" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button21" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label33" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button22" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label34" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button23" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51.17493,Percent,48.82507" /&gt;&lt;Rows Styles="Absolute,29,Absolute,28,Absolute,30,Absolute,30,Absolute,45,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="button36.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -2655,17 +2610,14 @@
   <data name="button6.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 23</value>
   </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
   <data name="tableLayoutPanel18.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="tableLayoutPanel8.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,294,Percent,100" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
   <data name="&gt;&gt;numxmin.Name" xml:space="preserve">
     <value>numxmin</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>通道：</value>
   </data>
   <data name="button4.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2679,8 +2631,8 @@
   <data name="&gt;&gt;tableLayoutPanel16.Parent" xml:space="preserve">
     <value>tableLayoutPanel11</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -2721,11 +2673,14 @@
   <data name="cboy1channel.Location" type="System.Drawing.Point, System.Drawing">
     <value>105, 26</value>
   </data>
+  <data name="button9.Text" xml:space="preserve">
+    <value>编辑...</value>
+  </data>
   <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;grpy1scale.Parent" xml:space="preserve">
-    <value>panel5</value>
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="button16.Text" xml:space="preserve">
     <value>编辑...</value>
@@ -2735,6 +2690,9 @@
   </data>
   <data name="&gt;&gt;rdbyhandzoom.Name" xml:space="preserve">
     <value>rdbyhandzoom</value>
+  </data>
+  <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 28</value>
   </data>
   <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2781,8 +2739,11 @@
   <data name="&gt;&gt;cboy1channelunit.Parent" xml:space="preserve">
     <value>grpy1define</value>
   </data>
-  <data name="cboychannelunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 20</value>
+  <data name="&gt;&gt;numxmin.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label50.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
   <data name="&gt;&gt;label33.Parent" xml:space="preserve">
     <value>tableLayoutPanel22</value>
@@ -2796,8 +2757,14 @@
   <data name="button24.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 23</value>
   </data>
+  <data name="tableLayoutPanelCurve.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;button7.Parent" xml:space="preserve">
+    <value>tableLayoutPanel18</value>
   </data>
   <data name="&gt;&gt;numymax.Type" xml:space="preserve">
     <value>NationalInstruments.UI.WindowsForms.NumericEdit, NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
@@ -2825,9 +2792,6 @@
   </data>
   <data name="button34.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
-  </data>
-  <data name="&gt;&gt;numxmin.Parent" xml:space="preserve">
-    <value>groupBox3</value>
   </data>
   <data name="tableLayoutPanel11.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -2861,6 +2825,9 @@
   </data>
   <data name="&gt;&gt;label39.Parent" xml:space="preserve">
     <value>tableLayoutPanel24</value>
+  </data>
+  <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;button16.Name" xml:space="preserve">
     <value>button16</value>
@@ -2898,9 +2865,6 @@
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tableLayoutPanel21.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label27" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button16" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51.17493,Percent,48.82507" /&gt;&lt;Rows Styles="Absolute,29,Absolute,32,Absolute,28,Absolute,35,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
   <data name="rdbxautozoom.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -2909,6 +2873,9 @@
   </data>
   <data name="&gt;&gt;numy1min.Name" xml:space="preserve">
     <value>numy1min</value>
+  </data>
+  <data name="tableLayoutPanel16.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;button26.Name" xml:space="preserve">
     <value>button26</value>
@@ -2925,9 +2892,6 @@
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;button32.Parent" xml:space="preserve">
-    <value>tableLayoutPanel26</value>
-  </data>
   <data name="&gt;&gt;tableLayoutPanel9.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -2939,9 +2903,6 @@
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>单位：</value>
-  </data>
-  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;numymax.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -2960,6 +2921,9 @@
   </data>
   <data name="&gt;&gt;label44.Parent" xml:space="preserve">
     <value>tableLayoutPanel26</value>
+  </data>
+  <data name="button22.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel25.Parent" xml:space="preserve">
     <value>tabPage13</value>
@@ -2987,9 +2951,6 @@
   </data>
   <data name="button23.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
-  </data>
-  <data name="button32.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
   </data>
   <data name="&gt;&gt;button29.Parent" xml:space="preserve">
     <value>tableLayoutPanel25</value>
@@ -3033,8 +2994,8 @@
   <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label38.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 29</value>
+  <data name="button6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="rdbyautozoom.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3042,14 +3003,20 @@
   <data name="&gt;&gt;button26.Parent" xml:space="preserve">
     <value>tableLayoutPanel23</value>
   </data>
+  <data name="label20.Text" xml:space="preserve">
+    <value>使用对数坐标  ：</value>
+  </data>
   <data name="tableLayoutPanelCurve.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 5</value>
   </data>
-  <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="label22.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="button22.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 22</value>
+  </data>
+  <data name="&gt;&gt;yAxis2.Name" xml:space="preserve">
+    <value>yAxis2</value>
   </data>
   <data name="&gt;&gt;button22.Name" xml:space="preserve">
     <value>button22</value>
@@ -3063,29 +3030,26 @@
   <data name="&gt;&gt;colorDialog1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;tabPage10.Parent" xml:space="preserve">
+    <value>tabControl2</value>
   </data>
-  <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBox1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpkind1" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,103,Absolute,24,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="button31.Text" xml:space="preserve">
+    <value>编辑...</value>
   </data>
   <data name="label33.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 29</value>
   </data>
-  <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>680, 4</value>
-  </data>
-  <data name="button8.Text" xml:space="preserve">
-    <value>编辑...</value>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
   <data name="label27.Text" xml:space="preserve">
     <value>显示或隐藏图例 ：</value>
   </data>
   <data name="numxmin.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button30.Name" xml:space="preserve">
     <value>button30</value>
@@ -3110,9 +3074,6 @@
   </data>
   <data name="button32.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel15.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
     <value>tlpkind2</value>
@@ -3153,6 +3114,9 @@
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="textBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
@@ -3171,20 +3135,17 @@
   <data name="tableLayoutPanel19.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel19.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;tableLayoutPanel25.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label50.Text" xml:space="preserve">
-    <value>最小值：</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="label31.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
+  </data>
+  <data name="&gt;&gt;tabPage6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;xyPointAnnotation2.Type" xml:space="preserve">
     <value>NationalInstruments.UI.XYPointAnnotation, NationalInstruments.UI, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
@@ -3206,6 +3167,9 @@
   </data>
   <data name="tableLayoutPanel25.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="tlpkind1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="&gt;&gt;radioButton3.Name" xml:space="preserve">
     <value>radioButton3</value>
@@ -3315,14 +3279,20 @@
   <data name="listBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;tabPage10.Parent" xml:space="preserve">
-    <value>tabControl2</value>
+  <data name="tableLayoutPanel6.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="tabPage6.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel7" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpkind2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel14" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,244,Absolute,32,Absolute,203,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="button24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>290, 32</value>
+  </data>
+  <data name="button16.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;tabPage4.Parent" xml:space="preserve">
     <value>tabControl1</value>
@@ -3360,10 +3330,10 @@
   <data name="tabPage7.Size" type="System.Drawing.Size, System.Drawing">
     <value>389, 195</value>
   </data>
-  <data name="&gt;&gt;button22.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="button16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 23</value>
   </data>
-  <data name="button27.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;button22.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
@@ -3390,6 +3360,9 @@
   <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="button14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 22</value>
+  </data>
   <data name="label8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -3405,11 +3378,17 @@
   <data name="button34.Location" type="System.Drawing.Point, System.Drawing">
     <value>290, 108</value>
   </data>
+  <data name="tabPage9.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="tableLayoutPanel10.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel11" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel13" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,20" /&gt;&lt;Rows Styles="Percent,53.72461,Percent,46.27539,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;button21.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBox1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpkind1" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,103,Absolute,24,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel16.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -3420,11 +3399,17 @@
   <data name="tableLayoutPanel22.Size" type="System.Drawing.Size, System.Drawing">
     <value>389, 195</value>
   </data>
+  <data name="&gt;&gt;tabPage12.Name" xml:space="preserve">
+    <value>tabPage12</value>
+  </data>
   <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="grpy1define.Size" type="System.Drawing.Size, System.Drawing">
-    <value>734, 96</value>
+  <data name="label35.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 29</value>
+  </data>
+  <data name="&gt;&gt;numxmin.Parent" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
   <data name="button31.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 22</value>
@@ -3450,6 +3435,9 @@
   <data name="&gt;&gt;chkdatapoint.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="&gt;&gt;button3.Name" xml:space="preserve">
+    <value>button3</value>
+  </data>
   <data name="label11.Text" xml:space="preserve">
     <value>线宽：</value>
   </data>
@@ -3459,8 +3447,8 @@
   <data name="label51.Text" xml:space="preserve">
     <value>最大值：</value>
   </data>
-  <data name="chkdatapoint.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;cbooffset.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label30.Name" xml:space="preserve">
     <value>label30</value>
@@ -3614,17 +3602,11 @@
   <data name="button8.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="tlpkind1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 106</value>
-  </data>
   <data name="grpy1define.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>UserControl曲线</value>
-  </data>
-  <data name="button31.Text" xml:space="preserve">
-    <value>编辑...</value>
   </data>
   <data name="&gt;&gt;label48.Parent" xml:space="preserve">
     <value>grpyscale</value>
@@ -3686,6 +3668,9 @@
   <data name="&gt;&gt;button27.Name" xml:space="preserve">
     <value>button27</value>
   </data>
+  <data name="button14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>290, 61</value>
+  </data>
   <data name="label31.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -3695,17 +3680,17 @@
   <data name="&gt;&gt;label36.Name" xml:space="preserve">
     <value>label36</value>
   </data>
+  <data name="&gt;&gt;listBox2.Name" xml:space="preserve">
+    <value>listBox2</value>
+  </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="radioButton3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="label34.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="chkdatapoint.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel19.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3717,7 +3702,10 @@
     <value>96, 23</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbltitle0" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,57" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbltitle0" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,60" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="cboychannelunit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 20</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 110</value>
@@ -3731,8 +3719,8 @@
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="label40.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
   <data name="button15.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -3743,14 +3731,17 @@
   <data name="label33.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="button4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
   <data name="&gt;&gt;numymin.Type" xml:space="preserve">
     <value>NationalInstruments.UI.WindowsForms.NumericEdit, NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
   </data>
   <data name="tabPage5.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;label27.Parent" xml:space="preserve">
-    <value>tableLayoutPanel21</value>
+  <data name="legend3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 151</value>
   </data>
   <data name="tableLayoutPanel12.Size" type="System.Drawing.Size, System.Drawing">
     <value>301, 293</value>
@@ -3815,6 +3806,9 @@
   <data name="tableLayoutPanel10.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;tabPage12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label24.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -3833,6 +3827,9 @@
   <data name="&gt;&gt;label14.Name" xml:space="preserve">
     <value>label14</value>
   </data>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="&gt;&gt;tableLayoutPanel10.Parent" xml:space="preserve">
     <value>tabPage4</value>
   </data>
@@ -3843,7 +3840,7 @@
     <value>编辑...</value>
   </data>
   <data name="tableLayoutPanel9.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbltitle3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel6" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,60" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbltitle3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel6" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,63" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;button33.Name" xml:space="preserve">
     <value>button33</value>
@@ -3875,6 +3872,9 @@
   <data name="tabPage7.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="tableLayoutPanelCurve.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -3892,9 +3892,6 @@
   </data>
   <data name="&gt;&gt;label38.Name" xml:space="preserve">
     <value>label38</value>
-  </data>
-  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 22</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel21.Name" xml:space="preserve">
     <value>tableLayoutPanel21</value>
@@ -4090,9 +4087,6 @@
   <data name="&gt;&gt;grpy1define.Name" xml:space="preserve">
     <value>grpy1define</value>
   </data>
-  <data name="button15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 73</value>
-  </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>284, 3</value>
   </data>
@@ -4104,6 +4098,9 @@
   </data>
   <data name="tlpkind1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label7" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtcurveaption_kind1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="numcount" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cbooffset" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="chkshowinvalidspe" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkdatapoint" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,191,Percent,100" /&gt;&lt;Rows Styles="Absolute,26,Absolute,24,Absolute,25,Absolute,24,Absolute,24,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="label24.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="label44.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -4131,6 +4128,9 @@
   </data>
   <data name="label18.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label26.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4174,8 +4174,8 @@
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
-  <data name="&gt;&gt;button5.Name" xml:space="preserve">
-    <value>button5</value>
+  <data name="&gt;&gt;numxmax.Name" xml:space="preserve">
+    <value>numxmax</value>
   </data>
   <data name="label19.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -4185,6 +4185,9 @@
   </data>
   <data name="label31.Location" type="System.Drawing.Point, System.Drawing">
     <value>262, 65</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel17.Parent" xml:space="preserve">
+    <value>tabPage5</value>
   </data>
   <data name="label48.Text" xml:space="preserve">
     <value>最小值：</value>
@@ -4204,8 +4207,8 @@
   <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="button22.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
+  <data name="cboy1channelunit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 20</value>
   </data>
   <data name="label46.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -4213,8 +4216,8 @@
   <data name="&gt;&gt;chkdynamic.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="rdbyautozoom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>51, 32</value>
+  <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -4228,8 +4231,8 @@
   <data name="&gt;&gt;tableLayoutPanel25.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;cboychannel.Parent" xml:space="preserve">
-    <value>grpydefine</value>
+  <data name="numy1min.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -4264,14 +4267,17 @@
   <data name="&gt;&gt;panel3.Name" xml:space="preserve">
     <value>panel3</value>
   </data>
+  <data name="label49.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
   <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 86</value>
   </data>
   <data name="&gt;&gt;button14.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 28</value>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>tableLayoutPanel18</value>
   </data>
   <data name="tabPage13.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -4282,8 +4288,8 @@
   <data name="scatterGraph1.Size" type="System.Drawing.Size, System.Drawing">
     <value>613, 245</value>
   </data>
-  <data name="chkdatapoint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 102</value>
+  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
   <data name="tableLayoutPanel17.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -4299,9 +4305,6 @@
   </data>
   <data name="&gt;&gt;tableLayoutPanel7.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="button28.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 3</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -4321,8 +4324,8 @@
   <data name="&gt;&gt;button24.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbooffset.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tabPage8.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="textBox2.Text" xml:space="preserve">
     <value>试样 %n</value>
@@ -4366,9 +4369,6 @@
   <data name="&gt;&gt;button34.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tableLayoutPanel6.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="&gt;&gt;button23.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -4408,8 +4408,8 @@
   <data name="label41.Text" xml:space="preserve">
     <value>显示隐藏PIP线  ：</value>
   </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 30</value>
+  <data name="cboxchannelunit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="panel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -4543,9 +4543,6 @@
   <data name="tableLayoutPanel25.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;tlpkind1.Name" xml:space="preserve">
-    <value>tlpkind1</value>
-  </data>
   <data name="tableLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -4576,9 +4573,6 @@
   <data name="label48.Location" type="System.Drawing.Point, System.Drawing">
     <value>231, 69</value>
   </data>
-  <data name="&gt;&gt;radioButton3.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
   <data name="&gt;&gt;label45.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -4600,17 +4594,14 @@
   <data name="label3.Text" xml:space="preserve">
     <value>每个曲线图的曲线数量：</value>
   </data>
-  <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 24</value>
-  </data>
   <data name="label39.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 29</value>
   </data>
   <data name="button21.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 23</value>
   </data>
-  <data name="label50.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label43.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 35</value>
   </data>
   <data name="&gt;&gt;tabPage14.Name" xml:space="preserve">
     <value>tabPage14</value>
@@ -4618,8 +4609,8 @@
   <data name="grpy1define.Text" xml:space="preserve">
     <value>Y 轴定义 </value>
   </data>
-  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;lbltitle1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4627,8 +4618,8 @@
   <data name="cbooffset.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 20</value>
   </data>
-  <data name="label33.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="cboy1channel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 20</value>
   </data>
   <data name="tableLayoutPanel22.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
@@ -4639,11 +4630,14 @@
   <data name="tableLayoutPanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="button14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 22</value>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="label36.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel13.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="chkshowinvalidspe.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 78</value>
@@ -4669,6 +4663,9 @@
   <data name="&gt;&gt;label42.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="tableLayoutPanel19.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="button9" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label20" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label21" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button10" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button11" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51.17493,Percent,48.82507" /&gt;&lt;Rows Styles="Absolute,29,Absolute,29,Absolute,28,Absolute,30,Absolute,30,Absolute,45" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
   <data name="button13.Location" type="System.Drawing.Point, System.Drawing">
     <value>290, 3</value>
   </data>
@@ -4678,8 +4675,8 @@
   <data name="tableLayoutPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="&gt;&gt;tabPage12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;grpy1scale.Parent" xml:space="preserve">
+    <value>panel5</value>
   </data>
   <data name="tabPage6.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -4702,8 +4699,8 @@
   <data name="&gt;&gt;txtcurveaption_kind1.Name" xml:space="preserve">
     <value>txtcurveaption_kind1</value>
   </data>
-  <data name="&gt;&gt;label43.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;button36.Parent" xml:space="preserve">
+    <value>tableLayoutPanel26</value>
   </data>
   <data name="tabPage5.Size" type="System.Drawing.Size, System.Drawing">
     <value>389, 195</value>
@@ -4714,17 +4711,14 @@
   <data name="&gt;&gt;label40.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;numxmin.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="numymin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 21</value>
   </data>
   <data name="&gt;&gt;label37.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="&gt;&gt;listBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chkshowinvalidspe.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
   </data>
   <data name="label12.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4747,8 +4741,8 @@
   <data name="lbltitle2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;numxmax.Name" xml:space="preserve">
-    <value>numxmax</value>
+  <data name="&gt;&gt;button12.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>通道：</value>
@@ -4756,11 +4750,11 @@
   <data name="&gt;&gt;label41.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label24.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;label48.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="button4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
+  <data name="&gt;&gt;button35.Parent" xml:space="preserve">
+    <value>tableLayoutPanel26</value>
   </data>
   <data name="tabPage12.Size" type="System.Drawing.Size, System.Drawing">
     <value>389, 195</value>
@@ -4771,8 +4765,8 @@
   <data name="groupBox3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tableLayoutPanel8.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,294,Percent,100" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;rdbxhandzoom.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4792,17 +4786,17 @@
   <data name="label42.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="rdby1handzoom.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;label46.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label50.Location" type="System.Drawing.Point, System.Drawing">
     <value>231, 69</value>
   </data>
-  <data name="&gt;&gt;button14.Parent" xml:space="preserve">
-    <value>tableLayoutPanel20</value>
+  <data name="button15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>290, 73</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="&gt;&gt;button32.Parent" xml:space="preserve">
+    <value>tableLayoutPanel26</value>
   </data>
   <data name="&gt;&gt;button11.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -4810,14 +4804,14 @@
   <data name="&gt;&gt;label49.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="tlpkind1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 106</value>
   </data>
   <data name="lbltitle1.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 10.5pt, style=Bold</value>
   </data>
-  <data name="tableLayoutPanel24.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>680, 4</value>
   </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 41</value>
@@ -4837,14 +4831,14 @@
   <data name="tableLayoutPanelCurve.Size" type="System.Drawing.Size, System.Drawing">
     <value>718, 251</value>
   </data>
-  <data name="&gt;&gt;tabPage12.Name" xml:space="preserve">
-    <value>tabPage12</value>
+  <data name="&gt;&gt;tableLayoutPanel15.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel4.Parent" xml:space="preserve">
-    <value>tabPage2</value>
+  <data name="&gt;&gt;label47.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tableLayoutPanel16.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblcaption" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel7" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,25,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -4885,8 +4879,8 @@
   <data name="button29.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="tableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>728, 570</value>
+  <data name="button28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>290, 3</value>
   </data>
   <data name="&gt;&gt;button4.Parent" xml:space="preserve">
     <value>tableLayoutPanel17</value>
@@ -5027,6 +5021,9 @@
   </data>
   <data name="&gt;&gt;tableLayoutPanel18.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="label38.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;numxmax.Type" xml:space="preserve">
     <value>NationalInstruments.UI.WindowsForms.NumericEdit, NationalInstruments.UI.WindowsForms, Version=12.0.35.318, Culture=neutral, PublicKeyToken=18cbae0f9955702a</value>
@@ -5226,8 +5223,8 @@
   <data name="&gt;&gt;tableLayoutPanel13.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button7.Parent" xml:space="preserve">
-    <value>tableLayoutPanel18</value>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;lbltitle2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -5244,8 +5241,8 @@
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>49, 70</value>
   </data>
-  <data name="button9.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
+  <data name="&gt;&gt;tlpkind1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel7</value>
   </data>
   <data name="&gt;&gt;label43.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -5259,14 +5256,14 @@
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;chkshowinvalidspe.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 24</value>
   </data>
   <data name="button12.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 23</value>
   </data>
-  <data name="&gt;&gt;listBox2.Name" xml:space="preserve">
-    <value>listBox2</value>
+  <data name="tableLayoutPanel24.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;button32.Name" xml:space="preserve">
     <value>button32</value>
@@ -5277,8 +5274,8 @@
   <data name="label28.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;yAxis2.Name" xml:space="preserve">
-    <value>yAxis2</value>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;grpy1define.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -5295,8 +5292,8 @@
   <data name="numymax.Location" type="System.Drawing.Point, System.Drawing">
     <value>325, 27</value>
   </data>
-  <data name="label35.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 29</value>
+  <data name="button32.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;button33.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -5343,14 +5340,14 @@
   <data name="label16.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;label27.Name" xml:space="preserve">
-    <value>label27</value>
-  </data>
   <data name="&gt;&gt;numymax.Parent" xml:space="preserve">
     <value>grpyscale</value>
   </data>
   <data name="label41.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
   </data>
   <data name="&gt;&gt;label49.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -5373,14 +5370,11 @@
   <data name="&gt;&gt;button2.Parent" xml:space="preserve">
     <value>tableLayoutPanel17</value>
   </data>
-  <data name="&gt;&gt;tlpkind2.Name" xml:space="preserve">
-    <value>tlpkind2</value>
-  </data>
   <data name="&gt;&gt;tabPage11.Name" xml:space="preserve">
     <value>tabPage11</value>
   </data>
-  <data name="label50.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="button6.Text" xml:space="preserve">
+    <value>编辑...</value>
   </data>
   <data name="tableLayoutPanel13.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Inset</value>
@@ -5391,14 +5385,11 @@
   <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
     <value>listBox1</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tlpkind2.Name" xml:space="preserve">
+    <value>tlpkind2</value>
   </data>
   <data name="tableLayoutPanel4.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
-  </data>
-  <data name="label39.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="label14.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -5415,8 +5406,8 @@
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="tableLayoutPanel26.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="tableLayoutPanel21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>389, 195</value>
   </data>
   <data name="tableLayoutPanel9.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -5442,8 +5433,8 @@
   <data name="&gt;&gt;grpy1define.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tableLayoutPanel19.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="button9" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label20" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label21" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button10" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button11" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51.17493,Percent,48.82507" /&gt;&lt;Rows Styles="Absolute,29,Absolute,29,Absolute,28,Absolute,30,Absolute,30,Absolute,45" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="tlpkind1.RowCount" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="label21.Text" xml:space="preserve">
     <value>X 轴标题显示 ：</value>
@@ -5454,8 +5445,8 @@
   <data name="&gt;&gt;label25.Name" xml:space="preserve">
     <value>label25</value>
   </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="tableLayoutPanel5.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -5487,8 +5478,8 @@
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 100</value>
   </data>
-  <data name="label38.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="label27.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>曲线高级特性</value>
@@ -5496,8 +5487,8 @@
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="tableLayoutPanel14.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;label46.Name" xml:space="preserve">
+    <value>label46</value>
   </data>
   <data name="button29.Text" xml:space="preserve">
     <value>编辑...</value>
@@ -5514,8 +5505,8 @@
   <data name="&gt;&gt;label40.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="button9.Text" xml:space="preserve">
-    <value>编辑...</value>
+  <data name="label50.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
   </data>
   <data name="&gt;&gt;rdbyautozoom.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -5547,8 +5538,11 @@
   <data name="tableLayoutPanel24.RowCount" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="tabPage9.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="rdbxautozoom.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkshowinvalidspe.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;grpydefine.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -5583,23 +5577,29 @@
   <data name="&gt;&gt;label20.Name" xml:space="preserve">
     <value>label20</value>
   </data>
-  <data name="tableLayoutPanel16.RowCount" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;radioButton3.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 25</value>
   </data>
+  <data name="&gt;&gt;tableLayoutPanel24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="tabPage9.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="tableLayoutPanel20.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;rdby1autozoom.Parent" xml:space="preserve">
+    <value>grpy1scale</value>
   </data>
-  <data name="tlpkind1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;rdbyautozoom.Parent" xml:space="preserve">
+    <value>grpyscale</value>
   </data>
-  <data name="textBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;tableLayoutPanel7.Name" xml:space="preserve">
+    <value>tableLayoutPanel7</value>
+  </data>
+  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>720, 99</value>
@@ -5607,11 +5607,14 @@
   <data name="label42.Text" xml:space="preserve">
     <value>颜色：</value>
   </data>
-  <data name="&gt;&gt;rdby1handzoom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label31.Parent" xml:space="preserve">
     <value>groupBox3</value>
+  </data>
+  <data name="label40.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;label21.Name" xml:space="preserve">
     <value>label21</value>
@@ -5646,8 +5649,8 @@
   <data name="tableLayoutPanel23.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="button24.Location" type="System.Drawing.Point, System.Drawing">
-    <value>290, 32</value>
+  <data name="&gt;&gt;tabPage14.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;xyPointAnnotation2.Name" xml:space="preserve">
     <value>xyPointAnnotation2</value>
@@ -5661,14 +5664,14 @@
   <data name="tableLayoutPanel21.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
+  <data name="&gt;&gt;button5.Name" xml:space="preserve">
+    <value>button5</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel11.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label34.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="label41.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -5691,8 +5694,8 @@
   <data name="&gt;&gt;button9.Parent" xml:space="preserve">
     <value>tableLayoutPanel19</value>
   </data>
-  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 16</value>
+  <data name="button27.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="lbltitle3.Size" type="System.Drawing.Size, System.Drawing">
     <value>669, 36</value>
@@ -5700,17 +5703,17 @@
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 23</value>
   </data>
-  <data name="tableLayoutPanel19.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="tableLayoutPanel21.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label27" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button16" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51.17493,Percent,48.82507" /&gt;&lt;Rows Styles="Absolute,29,Absolute,32,Absolute,28,Absolute,35,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel7.Name" xml:space="preserve">
-    <value>tableLayoutPanel7</value>
-  </data>
-  <data name="label49.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
-  </data>
-  <data name="label8.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="label39.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;label27.Name" xml:space="preserve">
+    <value>label27</value>
+  </data>
+  <data name="tableLayoutPanel10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>734, 576</value>
   </data>
   <data name="tableLayoutPanel18.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="button6" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label17" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button7" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label19" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button8" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51.17493,Percent,48.82507" /&gt;&lt;Rows Styles="Absolute,29,Absolute,29,Absolute,28,Absolute,30,Absolute,30,Absolute,45" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -5718,8 +5721,8 @@
   <data name="tableLayoutPanel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel17.Parent" xml:space="preserve">
-    <value>tabPage5</value>
+  <data name="label35.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="tableLayoutPanel11.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -5727,23 +5730,20 @@
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>tableLayoutPanel8</value>
   </data>
-  <data name="rdbxautozoom.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;tableLayoutPanel19.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="tableLayoutPanel20.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="button12" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label24" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button13" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label25" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="button14" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,51.17493,Percent,48.82507" /&gt;&lt;Rows Styles="Absolute,29,Absolute,29,Absolute,28,Absolute,30,Absolute,30,Absolute,45" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="label10.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
   <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 30</value>
   </data>
   <data name="&gt;&gt;chkdynamic.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="tabPage4.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
@@ -5757,8 +5757,8 @@
   <data name="tableLayoutPanel5.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="label20.Text" xml:space="preserve">
-    <value>使用对数坐标  ：</value>
+  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 22</value>
   </data>
   <data name="tableLayoutPanel6.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>

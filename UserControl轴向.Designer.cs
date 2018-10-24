@@ -346,8 +346,8 @@
             // 
             resources.ApplyResources(this.tableLayoutPanel11, "tableLayoutPanel11");
             this.tableLayoutPanel11.Controls.Add(this.btnstart, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.btnfindzero, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.btnend, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.btnfindzero, 1, 1);
+            this.tableLayoutPanel11.Controls.Add(this.btnend, 2, 1);
             this.tableLayoutPanel11.Controls.Add(this.btnup, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.btndown, 2, 0);
             this.tableLayoutPanel11.Controls.Add(this.btnstop, 1, 0);
@@ -416,8 +416,8 @@
             // tplcycle
             // 
             resources.ApplyResources(this.tplcycle, "tplcycle");
-            this.tplcycle.Controls.Add(this.btntestend, 0, 0);
-            this.tplcycle.Controls.Add(this.button3, 0, 0);
+            this.tplcycle.Controls.Add(this.btntestend, 2, 0);
+            this.tplcycle.Controls.Add(this.button3, 1, 0);
             this.tplcycle.Controls.Add(this.btnteststart, 0, 0);
             this.tplcycle.Name = "tplcycle";
             // 
@@ -462,6 +462,7 @@
             this.switchLink.CaptionPosition = NationalInstruments.UI.CaptionPosition.Bottom;
             resources.ApplyResources(this.switchLink, "switchLink");
             this.switchLink.Name = "switchLink";
+            this.switchLink.OnColor = System.Drawing.Color.Lime;
             this.switchLink.SwitchStyle = NationalInstruments.UI.SwitchStyle.PushButton;
             this.switchLink.UseWaitCursor = true;
             this.switchLink.StateChanged += new NationalInstruments.UI.ActionEventHandler(this.switchLink_StateChanged);
@@ -475,6 +476,7 @@
             this.switchDriver.CaptionVerticalOrientation = NationalInstruments.UI.VerticalCaptionOrientation.TopToBottom;
             resources.ApplyResources(this.switchDriver, "switchDriver");
             this.switchDriver.Name = "switchDriver";
+            this.switchDriver.OnColor = System.Drawing.Color.Lime;
             this.switchDriver.SwitchStyle = NationalInstruments.UI.SwitchStyle.PushButton;
             this.switchDriver.UseWaitCursor = true;
             this.switchDriver.StateChanged += new NationalInstruments.UI.ActionEventHandler(this.switch1_StateChanged);

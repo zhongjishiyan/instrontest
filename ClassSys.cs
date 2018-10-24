@@ -12,7 +12,35 @@ namespace TabHeaderDemo
 
 
 
-   
+    public class ComboxItem
+    {
+        private string text;
+        private int values;
+
+        public string Text
+        {
+            get { return this.text; }
+            set { this.text = value; }
+        }
+
+        public int Values
+        {
+            get { return this.values; }
+            set { this.values = value; }
+        }
+
+        public ComboxItem(string _Text, int _Values)
+        {
+            Text = _Text;
+            Values = _Values;
+        }
+
+
+        public override string ToString()
+        {
+            return Text;
+        }
+    }
 
     [Serializable]
     public class ClassSys
@@ -117,6 +145,13 @@ namespace TabHeaderDemo
         public string lbl_start = "目标开始";
         public string lbl_end = "目标结束";
 
+        public string lbl_up1 = "上升";
+        public string lbl_stop1 = "停止";
+        public string lbl_down1 = "下降";
+        public string lbl_start1 = "目标开始";
+        public string lbl_end1 = "目标结束";
+
+
         public bool chk_hlimit = false;
         public bool chk_slimit = false;
         public bool chk_alarm = false;
@@ -143,12 +178,13 @@ namespace TabHeaderDemo
             MachineName[4] = "金属恒应变控制试验机";
             MachineName[5] = "车身刚度试验台";
             MachineName[6] = "单台双通道控制器试验台";
-            MachineName[7] = "踏板机构静态测量系统";
-
-
-
-            MachineCount = 8;
           
+
+
+
+            MachineCount = 7;
+            ChannelName = new string[20];
+             
             ChannelRange = new double [20];
             ChannelControl = new bool[20];
             ChannelDimension = new int[20];
@@ -186,6 +222,8 @@ namespace TabHeaderDemo
                 RecentSampleFilename[i] = "";
                 RecentSampleFilenameKind[i] = "";
                 RecentSampleFilePath[i] = "";
+                ChannelName[i] = "";
+
 
                 ChannelRange[i] = 10;
                 ChannelControl[i] = false ;
@@ -297,9 +335,9 @@ namespace TabHeaderDemo
                     c.MachineName[4] = "金属恒应变控制试验机";
                     c.MachineName[5] = "车身刚度试验台";
                     c.MachineName[6] = "单台双通道控制器试验台";
-                    c.MachineName[7] = "踏板机构静态测量系统";
+                  
 
-                    c.MachineCount = 8;
+                    c.MachineCount = 7;
 
                     if (c.ChannelSamplemode==null)
                     {
@@ -311,8 +349,14 @@ namespace TabHeaderDemo
                         c.ChannelControlChannel = new int[20];
                     }
 
+                    if(c.ChannelName ==null)
+                    {
+                        c.ChannelName = new string[20];
+                    }
+
                     if (c.ChannelRange == null)
                     {
+
                         c.ChannelRange = new double[20];
                         c.ChannelControl = new bool[20];
                         c.ChannelDimension = new int[20];

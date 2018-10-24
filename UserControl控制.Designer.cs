@@ -79,8 +79,6 @@
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.lstavail = new TabHeaderDemo.ListExtObject(this.components);
-            this.lstinclude = new TabHeaderDemo.ListExtObject(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.btnup = new System.Windows.Forms.Button();
@@ -468,7 +466,6 @@
             this.btnnext = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.pnledit = new System.Windows.Forms.Panel();
-            this.listViewEx1 = new TabHeaderDemo.ListViewEx();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
             this.btnfirst = new System.Windows.Forms.Button();
@@ -489,7 +486,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.listViewBlock1 = new TabHeaderDemo.ListViewBlock();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel26 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -500,6 +496,10 @@
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lstavail = new TabHeaderDemo.ListExtObject(this.components);
+            this.lstinclude = new TabHeaderDemo.ListExtObject(this.components);
+            this.listViewEx1 = new TabHeaderDemo.ListViewEx();
+            this.listViewBlock1 = new TabHeaderDemo.ListViewBlock();
             this.tabControl1.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -704,7 +704,6 @@
             // 
             // tabControl1
             // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -715,29 +714,29 @@
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.tabPage20);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
             // tabPage6
             // 
-            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Controls.Add(this.groupBox11);
             this.tabPage6.Controls.Add(this.groupBox9);
             this.tabPage6.Controls.Add(this.tableLayoutPanel28);
             this.tabPage6.Controls.Add(this.tableLayoutPanel6);
+            resources.ApplyResources(this.tabPage6, "tabPage6");
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // groupBox11
             // 
-            resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Controls.Add(this.grid1);
+            resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.TabStop = false;
             // 
             // grid1
             // 
-            resources.ApplyResources(this.grid1, "grid1");
             this.grid1.AutoSizeMinHeight = 10;
             this.grid1.AutoSizeMinWidth = 10;
             this.grid1.AutoStretchColumnsToFitWidth = true;
@@ -745,6 +744,7 @@
             this.grid1.BackColor = System.Drawing.Color.LightGray;
             this.grid1.ContextMenuStyle = SourceGrid2.ContextMenuStyle.None;
             this.grid1.CustomSort = false;
+            resources.ApplyResources(this.grid1, "grid1");
             this.grid1.FocusStyle = SourceGrid2.FocusStyle.None;
             this.grid1.GridToolTipActive = true;
             this.grid1.Name = "grid1";
@@ -809,9 +809,9 @@
             // 
             // tabPage5
             // 
-            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Controls.Add(this.tableLayoutPanel16);
             this.tabPage5.Controls.Add(this.tableLayoutPanel5);
+            resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
@@ -942,8 +942,8 @@
             // 
             // panel20
             // 
-            resources.ApplyResources(this.panel20, "panel20");
             this.panel20.Controls.Add(this.label83);
+            resources.ApplyResources(this.panel20, "panel20");
             this.panel20.Name = "panel20";
             // 
             // label83
@@ -972,8 +972,8 @@
             // 
             // panel21
             // 
-            resources.ApplyResources(this.panel21, "panel21");
             this.panel21.Controls.Add(this.label94);
+            resources.ApplyResources(this.panel21, "panel21");
             this.panel21.Name = "panel21";
             // 
             // label94
@@ -1020,9 +1020,9 @@
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Controls.Add(this.panel7);
             this.tabPage1.Controls.Add(this.tableLayoutPanel3);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
@@ -1048,9 +1048,9 @@
             // 
             // panel8
             // 
-            resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Controls.Add(this.tableLayoutPanel15);
             this.panel8.Controls.Add(this.panel9);
+            resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
             // 
             // tableLayoutPanel15
@@ -1073,25 +1073,13 @@
             resources.ApplyResources(this.label14, "label14");
             this.label14.Name = "label14";
             // 
-            // lstavail
-            // 
-            resources.ApplyResources(this.lstavail, "lstavail");
-            this.lstavail.FormattingEnabled = true;
-            this.lstavail.Name = "lstavail";
-            // 
-            // lstinclude
-            // 
-            resources.ApplyResources(this.lstinclude, "lstinclude");
-            this.lstinclude.FormattingEnabled = true;
-            this.lstinclude.Name = "lstinclude";
-            // 
             // panel10
             // 
-            resources.ApplyResources(this.panel10, "panel10");
             this.panel10.Controls.Add(this.button4);
             this.panel10.Controls.Add(this.btnup);
             this.panel10.Controls.Add(this.btnremove);
             this.panel10.Controls.Add(this.btnadd);
+            resources.ApplyResources(this.panel10, "panel10");
             this.panel10.Name = "panel10";
             // 
             // button4
@@ -1184,16 +1172,16 @@
             // 
             // tableLayoutPanel12
             // 
-            resources.ApplyResources(this.tableLayoutPanel12, "tableLayoutPanel12");
             this.tableLayoutPanel12.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel12, "tableLayoutPanel12");
             this.tableLayoutPanel12.Controls.Add(this.editpreload_value, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.cboprelaod_valueunit, 1, 0);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             // 
             // editpreload_value
             // 
-            resources.ApplyResources(this.editpreload_value, "editpreload_value");
             this.editpreload_value.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.editpreload_value, "editpreload_value");
             this.editpreload_value.Name = "editpreload_value";
             this.editpreload_value.ValueChanged += new System.EventHandler(this.editpreload_value_ValueChanged);
             // 
@@ -1223,16 +1211,16 @@
             // 
             // tableLayoutPanel11
             // 
-            resources.ApplyResources(this.tableLayoutPanel11, "tableLayoutPanel11");
             this.tableLayoutPanel11.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel11, "tableLayoutPanel11");
             this.tableLayoutPanel11.Controls.Add(this.editpreload_speed, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.cbopreload_speedunit, 1, 0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             // 
             // editpreload_speed
             // 
-            resources.ApplyResources(this.editpreload_speed, "editpreload_speed");
             this.editpreload_speed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.editpreload_speed, "editpreload_speed");
             this.editpreload_speed.Name = "editpreload_speed";
             this.editpreload_speed.ValueChanged += new System.EventHandler(this.editpreload_speed_ValueChanged);
             // 
@@ -1342,16 +1330,16 @@
             // 
             // tableLayoutPanel55
             // 
-            resources.ApplyResources(this.tableLayoutPanel55, "tableLayoutPanel55");
             this.tableLayoutPanel55.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel55, "tableLayoutPanel55");
             this.tableLayoutPanel55.Controls.Add(this.numvalue4, 0, 0);
             this.tableLayoutPanel55.Controls.Add(this.cbovalueunit4, 1, 0);
             this.tableLayoutPanel55.Name = "tableLayoutPanel55";
             // 
             // numvalue4
             // 
-            resources.ApplyResources(this.numvalue4, "numvalue4");
             this.numvalue4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numvalue4, "numvalue4");
             this.numvalue4.Name = "numvalue4";
             this.numvalue4.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numvalue4_AfterChangeValue);
             // 
@@ -1381,16 +1369,16 @@
             // 
             // tableLayoutPanel56
             // 
-            resources.ApplyResources(this.tableLayoutPanel56, "tableLayoutPanel56");
             this.tableLayoutPanel56.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel56, "tableLayoutPanel56");
             this.tableLayoutPanel56.Controls.Add(this.numspeed4, 0, 0);
             this.tableLayoutPanel56.Controls.Add(this.cbospeedunit4, 1, 0);
             this.tableLayoutPanel56.Name = "tableLayoutPanel56";
             // 
             // numspeed4
             // 
-            resources.ApplyResources(this.numspeed4, "numspeed4");
             this.numspeed4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numspeed4, "numspeed4");
             this.numspeed4.Name = "numspeed4";
             this.numspeed4.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numspeed4_AfterChangeValue);
             // 
@@ -1484,16 +1472,16 @@
             // 
             // tableLayoutPanel39
             // 
-            resources.ApplyResources(this.tableLayoutPanel39, "tableLayoutPanel39");
             this.tableLayoutPanel39.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel39, "tableLayoutPanel39");
             this.tableLayoutPanel39.Controls.Add(this.numvalue3, 0, 0);
             this.tableLayoutPanel39.Controls.Add(this.cbovalueunit3, 1, 0);
             this.tableLayoutPanel39.Name = "tableLayoutPanel39";
             // 
             // numvalue3
             // 
-            resources.ApplyResources(this.numvalue3, "numvalue3");
             this.numvalue3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numvalue3, "numvalue3");
             this.numvalue3.Name = "numvalue3";
             this.numvalue3.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numvalue3_AfterChangeValue);
             // 
@@ -1523,16 +1511,16 @@
             // 
             // tableLayoutPanel40
             // 
-            resources.ApplyResources(this.tableLayoutPanel40, "tableLayoutPanel40");
             this.tableLayoutPanel40.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel40, "tableLayoutPanel40");
             this.tableLayoutPanel40.Controls.Add(this.numspeed3, 0, 0);
             this.tableLayoutPanel40.Controls.Add(this.cbospeedunit3, 1, 0);
             this.tableLayoutPanel40.Name = "tableLayoutPanel40";
             // 
             // numspeed3
             // 
-            resources.ApplyResources(this.numspeed3, "numspeed3");
             this.numspeed3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numspeed3, "numspeed3");
             this.numspeed3.Name = "numspeed3";
             this.numspeed3.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numspeed3_AfterChangeValue);
             // 
@@ -1626,16 +1614,16 @@
             // 
             // tableLayoutPanel33
             // 
-            resources.ApplyResources(this.tableLayoutPanel33, "tableLayoutPanel33");
             this.tableLayoutPanel33.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel33, "tableLayoutPanel33");
             this.tableLayoutPanel33.Controls.Add(this.numvalue2, 0, 0);
             this.tableLayoutPanel33.Controls.Add(this.cbovalueunit2, 1, 0);
             this.tableLayoutPanel33.Name = "tableLayoutPanel33";
             // 
             // numvalue2
             // 
-            resources.ApplyResources(this.numvalue2, "numvalue2");
             this.numvalue2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numvalue2, "numvalue2");
             this.numvalue2.Name = "numvalue2";
             this.numvalue2.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numvalue2_AfterChangeValue);
             // 
@@ -1665,16 +1653,16 @@
             // 
             // tableLayoutPanel34
             // 
-            resources.ApplyResources(this.tableLayoutPanel34, "tableLayoutPanel34");
             this.tableLayoutPanel34.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel34, "tableLayoutPanel34");
             this.tableLayoutPanel34.Controls.Add(this.numspeed2, 0, 0);
             this.tableLayoutPanel34.Controls.Add(this.cbospeedunit2, 1, 0);
             this.tableLayoutPanel34.Name = "tableLayoutPanel34";
             // 
             // numspeed2
             // 
-            resources.ApplyResources(this.numspeed2, "numspeed2");
             this.numspeed2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numspeed2, "numspeed2");
             this.numspeed2.Name = "numspeed2";
             this.numspeed2.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numspeed2_AfterChangeValue);
             // 
@@ -1769,16 +1757,16 @@
             // 
             // tableLayoutPanel26
             // 
-            resources.ApplyResources(this.tableLayoutPanel26, "tableLayoutPanel26");
             this.tableLayoutPanel26.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel26, "tableLayoutPanel26");
             this.tableLayoutPanel26.Controls.Add(this.numvalue1, 0, 0);
             this.tableLayoutPanel26.Controls.Add(this.cbovalueunit1, 1, 0);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             // 
             // numvalue1
             // 
-            resources.ApplyResources(this.numvalue1, "numvalue1");
             this.numvalue1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numvalue1, "numvalue1");
             this.numvalue1.Name = "numvalue1";
             this.numvalue1.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numvalue1_AfterChangeValue);
             // 
@@ -1808,16 +1796,16 @@
             // 
             // tableLayoutPanel27
             // 
-            resources.ApplyResources(this.tableLayoutPanel27, "tableLayoutPanel27");
             this.tableLayoutPanel27.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel27, "tableLayoutPanel27");
             this.tableLayoutPanel27.Controls.Add(this.numspeed1, 0, 0);
             this.tableLayoutPanel27.Controls.Add(this.cbospeedunit1, 1, 0);
             this.tableLayoutPanel27.Name = "tableLayoutPanel27";
             // 
             // numspeed1
             // 
-            resources.ApplyResources(this.numspeed1, "numspeed1");
             this.numspeed1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numspeed1, "numspeed1");
             this.numspeed1.Name = "numspeed1";
             this.numspeed1.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numspeed1_AfterChangeValue);
             // 
@@ -1863,9 +1851,9 @@
             // 
             // tabPage3
             // 
-            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Controls.Add(this.tableLayoutPanel49);
             this.tabPage3.Controls.Add(this.tableLayoutPanel2);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
@@ -1879,8 +1867,8 @@
             // 
             // groupBox6
             // 
-            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Controls.Add(this.tableLayoutPanel52);
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
             // 
@@ -1955,8 +1943,8 @@
             // 
             // groupBox7
             // 
-            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Controls.Add(this.tableLayoutPanel54);
+            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
             // 
@@ -1981,8 +1969,8 @@
             // 
             // groupBox5
             // 
-            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Controls.Add(this.tableLayoutPanel50);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
@@ -2076,9 +2064,9 @@
             // 
             // tabPage4
             // 
-            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Controls.Add(this.tableLayoutPanel41);
             this.tabPage4.Controls.Add(this.tableLayoutPanel4);
+            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
@@ -2093,25 +2081,25 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.groupBox8);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             this.groupBox1.UseCompatibleTextRendering = true;
             // 
             // groupBox8
             // 
-            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Controls.Add(this.cbosamplemode);
             this.groupBox8.Controls.Add(this.label99);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.TabStop = false;
             // 
             // cbosamplemode
             // 
-            resources.ApplyResources(this.cbosamplemode, "cbosamplemode");
             this.cbosamplemode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbosamplemode.FormattingEnabled = true;
+            resources.ApplyResources(this.cbosamplemode, "cbosamplemode");
             this.cbosamplemode.Name = "cbosamplemode";
             this.cbosamplemode.SelectionChangeCommitted += new System.EventHandler(this.cbosamplemode_SelectionChangeCommitted);
             // 
@@ -2122,8 +2110,8 @@
             // 
             // grpcriteria1
             // 
-            resources.ApplyResources(this.grpcriteria1, "grpcriteria1");
             this.grpcriteria1.Controls.Add(this.tableLayoutPanel43);
+            resources.ApplyResources(this.grpcriteria1, "grpcriteria1");
             this.grpcriteria1.Name = "grpcriteria1";
             this.grpcriteria1.TabStop = false;
             // 
@@ -2184,8 +2172,8 @@
             // 
             // grpcriteria2
             // 
-            resources.ApplyResources(this.grpcriteria2, "grpcriteria2");
             this.grpcriteria2.Controls.Add(this.tableLayoutPanel45);
+            resources.ApplyResources(this.grpcriteria2, "grpcriteria2");
             this.grpcriteria2.Name = "grpcriteria2";
             this.grpcriteria2.TabStop = false;
             // 
@@ -2245,8 +2233,8 @@
             // 
             // grpcriteria3
             // 
-            resources.ApplyResources(this.grpcriteria3, "grpcriteria3");
             this.grpcriteria3.Controls.Add(this.tableLayoutPanel47);
+            resources.ApplyResources(this.grpcriteria3, "grpcriteria3");
             this.grpcriteria3.Name = "grpcriteria3";
             this.grpcriteria3.TabStop = false;
             // 
@@ -2324,9 +2312,9 @@
             // 
             // tabPage7
             // 
-            resources.ApplyResources(this.tabPage7, "tabPage7");
             this.tabPage7.Controls.Add(this.tableLayoutPanel57);
             this.tabPage7.Controls.Add(this.tableLayoutPanel29);
+            resources.ApplyResources(this.tabPage7, "tabPage7");
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
@@ -2339,7 +2327,6 @@
             // 
             // grid2
             // 
-            resources.ApplyResources(this.grid2, "grid2");
             this.grid2.AutoSizeMinHeight = 10;
             this.grid2.AutoSizeMinWidth = 10;
             this.grid2.AutoStretchColumnsToFitWidth = true;
@@ -2347,6 +2334,7 @@
             this.grid2.BackColor = System.Drawing.Color.LightGray;
             this.grid2.ContextMenuStyle = SourceGrid2.ContextMenuStyle.None;
             this.grid2.CustomSort = false;
+            resources.ApplyResources(this.grid2, "grid2");
             this.grid2.FocusStyle = SourceGrid2.FocusStyle.None;
             this.grid2.GridToolTipActive = true;
             this.grid2.Name = "grid2";
@@ -2363,7 +2351,6 @@
             // 
             // toolStrip1
             // 
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
             this.tscbo,
@@ -2374,67 +2361,68 @@
             this.tsbtninsert,
             this.tsbtndel,
             this.tsbtnsave});
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
             // 
             // toolStripLabel1
             // 
-            resources.ApplyResources(this.toolStripLabel1, "toolStripLabel1");
             this.toolStripLabel1.Name = "toolStripLabel1";
+            resources.ApplyResources(this.toolStripLabel1, "toolStripLabel1");
             // 
             // tscbo
             // 
-            resources.ApplyResources(this.tscbo, "tscbo");
             this.tscbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tscbo.Name = "tscbo";
+            resources.ApplyResources(this.tscbo, "tscbo");
             this.tscbo.SelectedIndexChanged += new System.EventHandler(this.tscbo_SelectedIndexChanged);
             this.tscbo.Click += new System.EventHandler(this.tscbo_Click);
             // 
             // tsbtnnew
             // 
-            resources.ApplyResources(this.tsbtnnew, "tsbtnnew");
             this.tsbtnnew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsbtnnew, "tsbtnnew");
             this.tsbtnnew.Name = "tsbtnnew";
             this.tsbtnnew.Click += new System.EventHandler(this.tsbtnnew_Click);
             // 
             // tsbtnkill
             // 
-            resources.ApplyResources(this.tsbtnkill, "tsbtnkill");
             this.tsbtnkill.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsbtnkill, "tsbtnkill");
             this.tsbtnkill.Name = "tsbtnkill";
             this.tsbtnkill.Click += new System.EventHandler(this.tsbtnkill_Click);
             // 
             // tsbtnrename
             // 
-            resources.ApplyResources(this.tsbtnrename, "tsbtnrename");
             this.tsbtnrename.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsbtnrename, "tsbtnrename");
             this.tsbtnrename.Name = "tsbtnrename";
             this.tsbtnrename.Click += new System.EventHandler(this.tsbtnrename_Click);
             // 
             // tsbtnadd
             // 
-            resources.ApplyResources(this.tsbtnadd, "tsbtnadd");
             this.tsbtnadd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsbtnadd, "tsbtnadd");
             this.tsbtnadd.Name = "tsbtnadd";
             this.tsbtnadd.Click += new System.EventHandler(this.tsbtnadd_Click);
             // 
             // tsbtninsert
             // 
-            resources.ApplyResources(this.tsbtninsert, "tsbtninsert");
             this.tsbtninsert.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsbtninsert, "tsbtninsert");
             this.tsbtninsert.Name = "tsbtninsert";
             this.tsbtninsert.Click += new System.EventHandler(this.tsbtninsert_Click);
             // 
             // tsbtndel
             // 
-            resources.ApplyResources(this.tsbtndel, "tsbtndel");
             this.tsbtndel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsbtndel, "tsbtndel");
             this.tsbtndel.Name = "tsbtndel";
             this.tsbtndel.Click += new System.EventHandler(this.tsbtndel_Click);
             // 
             // tsbtnsave
             // 
-            resources.ApplyResources(this.tsbtnsave, "tsbtnsave");
             this.tsbtnsave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsbtnsave, "tsbtnsave");
             this.tsbtnsave.Name = "tsbtnsave";
             this.tsbtnsave.Click += new System.EventHandler(this.tsbtnsave_Click);
             // 
@@ -2458,9 +2446,9 @@
             // 
             // tabPage8
             // 
-            resources.ApplyResources(this.tabPage8, "tabPage8");
             this.tabPage8.Controls.Add(this.label58);
             this.tabPage8.Controls.Add(this.tableLayoutPanel17);
+            resources.ApplyResources(this.tabPage8, "tabPage8");
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
@@ -2489,10 +2477,10 @@
             // 
             // tabPage9
             // 
-            resources.ApplyResources(this.tabPage9, "tabPage9");
             this.tabPage9.Controls.Add(this.tableLayoutPanel35);
             this.tabPage9.Controls.Add(this.tlpscroll);
             this.tabPage9.Controls.Add(this.tableLayoutPanel58);
+            resources.ApplyResources(this.tabPage9, "tabPage9");
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
@@ -2505,22 +2493,22 @@
             // 
             // tabControl2
             // 
-            resources.ApplyResources(this.tabControl2, "tabControl2");
             this.tabControl2.Controls.Add(this.tabPage10);
             this.tabControl2.Controls.Add(this.tabPage11);
             this.tabControl2.Controls.Add(this.tabPage12);
             this.tabControl2.Controls.Add(this.tabPage21);
             this.tabControl2.Controls.Add(this.tabPage22);
+            resources.ApplyResources(this.tabControl2, "tabControl2");
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             // 
             // tabPage10
             // 
-            resources.ApplyResources(this.tabPage10, "tabPage10");
             this.tabPage10.Controls.Add(this.panel29);
             this.tabPage10.Controls.Add(this.panel17);
             this.tabPage10.Controls.Add(this.tabControl4);
             this.tabPage10.Controls.Add(this.toolStripWave);
+            resources.ApplyResources(this.tabPage10, "tabPage10");
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
@@ -2532,21 +2520,21 @@
             // 
             // tabControl3
             // 
-            resources.ApplyResources(this.tabControl3, "tabControl3");
             this.tabControl3.Controls.Add(this.tabPage13);
             this.tabControl3.Controls.Add(this.tabPage14);
             this.tabControl3.Controls.Add(this.tabPage15);
             this.tabControl3.Controls.Add(this.tabPage16);
             this.tabControl3.Controls.Add(this.tabPage17);
             this.tabControl3.Controls.Add(this.tabPage18);
+            resources.ApplyResources(this.tabControl3, "tabControl3");
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
             // 
             // tabPage13
             // 
-            resources.ApplyResources(this.tabPage13, "tabPage13");
             this.tabPage13.BackColor = System.Drawing.Color.White;
             this.tabPage13.Controls.Add(this.panel18);
+            resources.ApplyResources(this.tabPage13, "tabPage13");
             this.tabPage13.Name = "tabPage13";
             // 
             // panel18
@@ -2571,8 +2559,8 @@
             // 
             // cbodestmode
             // 
-            resources.ApplyResources(this.cbodestmode, "cbodestmode");
             this.cbodestmode.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.cbodestmode, "cbodestmode");
             this.cbodestmode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbodestmode.FormattingEnabled = true;
             this.cbodestmode.Name = "cbodestmode";
@@ -2585,8 +2573,8 @@
             // 
             // cbodestcontrol
             // 
-            resources.ApplyResources(this.cbodestcontrol, "cbodestcontrol");
             this.cbodestcontrol.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.cbodestcontrol, "cbodestcontrol");
             this.cbodestcontrol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbodestcontrol.FormattingEnabled = true;
             this.cbodestcontrol.Name = "cbodestcontrol";
@@ -2594,16 +2582,17 @@
             // 
             // tableLayoutPanel61
             // 
-            resources.ApplyResources(this.tableLayoutPanel61, "tableLayoutPanel61");
             this.tableLayoutPanel61.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel61, "tableLayoutPanel61");
             this.tableLayoutPanel61.Controls.Add(this.numdest, 0, 0);
             this.tableLayoutPanel61.Controls.Add(this.cbodestunit, 1, 0);
             this.tableLayoutPanel61.Name = "tableLayoutPanel61";
             // 
             // numdest
             // 
-            resources.ApplyResources(this.numdest, "numdest");
             this.numdest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numdest, "numdest");
+            this.numdest.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numdest.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numdest.Name = "numdest";
             this.numdest.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numdest_AfterChangeValue);
@@ -2623,16 +2612,17 @@
             // 
             // tableLayoutPanel60
             // 
-            resources.ApplyResources(this.tableLayoutPanel60, "tableLayoutPanel60");
             this.tableLayoutPanel60.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel60, "tableLayoutPanel60");
             this.tableLayoutPanel60.Controls.Add(this.numspeed, 0, 0);
             this.tableLayoutPanel60.Controls.Add(this.cbospeedunit, 1, 0);
             this.tableLayoutPanel60.Name = "tableLayoutPanel60";
             // 
             // numspeed
             // 
-            resources.ApplyResources(this.numspeed, "numspeed");
             this.numspeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numspeed, "numspeed");
+            this.numspeed.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numspeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numspeed.Name = "numspeed";
             this.numspeed.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numspeed_AfterChangeValue);
@@ -2657,9 +2647,9 @@
             // 
             // tabPage14
             // 
-            resources.ApplyResources(this.tabPage14, "tabPage14");
             this.tabPage14.BackColor = System.Drawing.Color.White;
             this.tabPage14.Controls.Add(this.tableLayoutPanel62);
+            resources.ApplyResources(this.tabPage14, "tabPage14");
             this.tabPage14.Name = "tabPage14";
             // 
             // tableLayoutPanel62
@@ -2673,16 +2663,17 @@
             // 
             // tableLayoutPanel63
             // 
-            resources.ApplyResources(this.tableLayoutPanel63, "tableLayoutPanel63");
             this.tableLayoutPanel63.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel63, "tableLayoutPanel63");
             this.tableLayoutPanel63.Controls.Add(this.numericEdit4, 0, 0);
             this.tableLayoutPanel63.Controls.Add(this.cbokeepdestunit, 1, 0);
             this.tableLayoutPanel63.Name = "tableLayoutPanel63";
             // 
             // numericEdit4
             // 
-            resources.ApplyResources(this.numericEdit4, "numericEdit4");
             this.numericEdit4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numericEdit4, "numericEdit4");
+            this.numericEdit4.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numericEdit4.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numericEdit4.Name = "numericEdit4";
             // 
@@ -2699,16 +2690,17 @@
             // 
             // tableLayoutPanel64
             // 
-            resources.ApplyResources(this.tableLayoutPanel64, "tableLayoutPanel64");
             this.tableLayoutPanel64.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel64, "tableLayoutPanel64");
             this.tableLayoutPanel64.Controls.Add(this.numkeeptime, 0, 0);
             this.tableLayoutPanel64.Controls.Add(this.cbokeeptimeunit, 1, 0);
             this.tableLayoutPanel64.Name = "tableLayoutPanel64";
             // 
             // numkeeptime
             // 
-            resources.ApplyResources(this.numkeeptime, "numkeeptime");
             this.numkeeptime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numkeeptime, "numkeeptime");
+            this.numkeeptime.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numkeeptime.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numkeeptime.Name = "numkeeptime";
             this.numkeeptime.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numkeeptime_AfterChangeValue);
@@ -2727,9 +2719,9 @@
             // 
             // tabPage15
             // 
-            resources.ApplyResources(this.tabPage15, "tabPage15");
             this.tabPage15.BackColor = System.Drawing.Color.White;
             this.tabPage15.Controls.Add(this.tableLayoutPanel65);
+            resources.ApplyResources(this.tabPage15, "tabPage15");
             this.tabPage15.Name = "tabPage15";
             // 
             // tableLayoutPanel65
@@ -2757,16 +2749,16 @@
             // 
             // tableLayoutPanel89
             // 
-            resources.ApplyResources(this.tableLayoutPanel89, "tableLayoutPanel89");
             this.tableLayoutPanel89.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel89, "tableLayoutPanel89");
             this.tableLayoutPanel89.Controls.Add(this.numtrispeeddown, 0, 0);
             this.tableLayoutPanel89.Controls.Add(this.cbotrispeeddownunit, 1, 0);
             this.tableLayoutPanel89.Name = "tableLayoutPanel89";
             // 
             // numtrispeeddown
             // 
-            resources.ApplyResources(this.numtrispeeddown, "numtrispeeddown");
             this.numtrispeeddown.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numtrispeeddown, "numtrispeeddown");
             this.numtrispeeddown.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numtrispeeddown.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numtrispeeddown.Name = "numtrispeeddown";
@@ -2799,16 +2791,16 @@
             // 
             // tableLayoutPanel68
             // 
-            resources.ApplyResources(this.tableLayoutPanel68, "tableLayoutPanel68");
             this.tableLayoutPanel68.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel68, "tableLayoutPanel68");
             this.tableLayoutPanel68.Controls.Add(this.numtrimin, 0, 0);
             this.tableLayoutPanel68.Controls.Add(this.txttriminunit, 1, 0);
             this.tableLayoutPanel68.Name = "tableLayoutPanel68";
             // 
             // numtrimin
             // 
-            resources.ApplyResources(this.numtrimin, "numtrimin");
             this.numtrimin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numtrimin, "numtrimin");
             this.numtrimin.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numtrimin.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numtrimin.Name = "numtrimin";
@@ -2829,16 +2821,16 @@
             // 
             // tableLayoutPanel66
             // 
-            resources.ApplyResources(this.tableLayoutPanel66, "tableLayoutPanel66");
             this.tableLayoutPanel66.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel66, "tableLayoutPanel66");
             this.tableLayoutPanel66.Controls.Add(this.numtrimax, 0, 0);
             this.tableLayoutPanel66.Controls.Add(this.txttrimaxunit, 1, 0);
             this.tableLayoutPanel66.Name = "tableLayoutPanel66";
             // 
             // numtrimax
             // 
-            resources.ApplyResources(this.numtrimax, "numtrimax");
             this.numtrimax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numtrimax, "numtrimax");
             this.numtrimax.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numtrimax.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numtrimax.Name = "numtrimax";
@@ -2852,16 +2844,16 @@
             // 
             // tableLayoutPanel67
             // 
-            resources.ApplyResources(this.tableLayoutPanel67, "tableLayoutPanel67");
             this.tableLayoutPanel67.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel67, "tableLayoutPanel67");
             this.tableLayoutPanel67.Controls.Add(this.numtrispeed, 0, 0);
             this.tableLayoutPanel67.Controls.Add(this.cbotrispeedunit, 1, 0);
             this.tableLayoutPanel67.Name = "tableLayoutPanel67";
             // 
             // numtrispeed
             // 
-            resources.ApplyResources(this.numtrispeed, "numtrispeed");
             this.numtrispeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numtrispeed, "numtrispeed");
             this.numtrispeed.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numtrispeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numtrispeed.Name = "numtrispeed";
@@ -2933,9 +2925,9 @@
             // 
             // tabPage16
             // 
-            resources.ApplyResources(this.tabPage16, "tabPage16");
             this.tabPage16.BackColor = System.Drawing.Color.White;
             this.tabPage16.Controls.Add(this.tableLayoutPanel70);
+            resources.ApplyResources(this.tabPage16, "tabPage16");
             this.tabPage16.Name = "tabPage16";
             // 
             // tableLayoutPanel70
@@ -2973,47 +2965,49 @@
             // 
             // tableLayoutPanel82
             // 
-            resources.ApplyResources(this.tableLayoutPanel82, "tableLayoutPanel82");
             this.tableLayoutPanel82.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel82, "tableLayoutPanel82");
             this.tableLayoutPanel82.Controls.Add(this.numfreq, 0, 0);
             this.tableLayoutPanel82.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel82.Name = "tableLayoutPanel82";
             // 
             // numfreq
             // 
-            resources.ApplyResources(this.numfreq, "numfreq");
             this.numfreq.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numfreq, "numfreq");
+            this.numfreq.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numfreq.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numfreq.Name = "numfreq";
             this.numfreq.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numfreq_AfterChangeValue);
             // 
             // textBox1
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             // 
             // tableLayoutPanel71
             // 
-            resources.ApplyResources(this.tableLayoutPanel71, "tableLayoutPanel71");
             this.tableLayoutPanel71.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel71, "tableLayoutPanel71");
             this.tableLayoutPanel71.Controls.Add(this.numsinmin, 0, 0);
             this.tableLayoutPanel71.Controls.Add(this.txtsinminunit, 1, 0);
             this.tableLayoutPanel71.Name = "tableLayoutPanel71";
             // 
             // numsinmin
             // 
-            resources.ApplyResources(this.numsinmin, "numsinmin");
             this.numsinmin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numsinmin, "numsinmin");
+            this.numsinmin.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numsinmin.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numsinmin.Name = "numsinmin";
             this.numsinmin.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numsinmin_AfterChangeValue);
             // 
             // txtsinminunit
             // 
-            resources.ApplyResources(this.txtsinminunit, "txtsinminunit");
             this.txtsinminunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtsinminunit, "txtsinminunit");
             this.txtsinminunit.Name = "txtsinminunit";
             this.txtsinminunit.ReadOnly = true;
             // 
@@ -3025,39 +3019,41 @@
             // 
             // tableLayoutPanel72
             // 
-            resources.ApplyResources(this.tableLayoutPanel72, "tableLayoutPanel72");
             this.tableLayoutPanel72.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel72, "tableLayoutPanel72");
             this.tableLayoutPanel72.Controls.Add(this.numsinmax, 0, 0);
             this.tableLayoutPanel72.Controls.Add(this.txtsinmaxunit, 1, 0);
             this.tableLayoutPanel72.Name = "tableLayoutPanel72";
             // 
             // numsinmax
             // 
-            resources.ApplyResources(this.numsinmax, "numsinmax");
             this.numsinmax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numsinmax, "numsinmax");
+            this.numsinmax.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numsinmax.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numsinmax.Name = "numsinmax";
             this.numsinmax.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numsinmax_AfterChangeValue);
             // 
             // txtsinmaxunit
             // 
-            resources.ApplyResources(this.txtsinmaxunit, "txtsinmaxunit");
             this.txtsinmaxunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtsinmaxunit, "txtsinmaxunit");
             this.txtsinmaxunit.Name = "txtsinmaxunit";
             this.txtsinmaxunit.ReadOnly = true;
             // 
             // tableLayoutPanel73
             // 
-            resources.ApplyResources(this.tableLayoutPanel73, "tableLayoutPanel73");
             this.tableLayoutPanel73.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel73, "tableLayoutPanel73");
             this.tableLayoutPanel73.Controls.Add(this.numsinspeed, 0, 0);
             this.tableLayoutPanel73.Controls.Add(this.cbosinspeedunit, 1, 0);
             this.tableLayoutPanel73.Name = "tableLayoutPanel73";
             // 
             // numsinspeed
             // 
-            resources.ApplyResources(this.numsinspeed, "numsinspeed");
             this.numsinspeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numsinspeed, "numsinspeed");
+            this.numsinspeed.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
             this.numsinspeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numsinspeed.Name = "numsinspeed";
             this.numsinspeed.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numsinspeed_AfterChangeValue);
@@ -3122,9 +3118,9 @@
             // 
             // tabPage17
             // 
-            resources.ApplyResources(this.tabPage17, "tabPage17");
             this.tabPage17.BackColor = System.Drawing.Color.White;
             this.tabPage17.Controls.Add(this.tableLayoutPanel74);
+            resources.ApplyResources(this.tabPage17, "tabPage17");
             this.tabPage17.Name = "tabPage17";
             // 
             // tableLayoutPanel74
@@ -3152,62 +3148,62 @@
             // 
             // tableLayoutPanel75
             // 
-            resources.ApplyResources(this.tableLayoutPanel75, "tableLayoutPanel75");
             this.tableLayoutPanel75.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel75, "tableLayoutPanel75");
             this.tableLayoutPanel75.Controls.Add(this.numrectdowndest, 0, 0);
             this.tableLayoutPanel75.Controls.Add(this.txtrectdowndestunit, 1, 0);
             this.tableLayoutPanel75.Name = "tableLayoutPanel75";
             // 
             // numrectdowndest
             // 
-            resources.ApplyResources(this.numrectdowndest, "numrectdowndest");
             this.numrectdowndest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numrectdowndest, "numrectdowndest");
             this.numrectdowndest.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectdowndest.Name = "numrectdowndest";
             this.numrectdowndest.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectdowndest_AfterChangeValue);
             // 
             // txtrectdowndestunit
             // 
-            resources.ApplyResources(this.txtrectdowndestunit, "txtrectdowndestunit");
             this.txtrectdowndestunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtrectdowndestunit, "txtrectdowndestunit");
             this.txtrectdowndestunit.Name = "txtrectdowndestunit";
             this.txtrectdowndestunit.ReadOnly = true;
             // 
             // tableLayoutPanel76
             // 
-            resources.ApplyResources(this.tableLayoutPanel76, "tableLayoutPanel76");
             this.tableLayoutPanel76.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel76, "tableLayoutPanel76");
             this.tableLayoutPanel76.Controls.Add(this.numrectupdest, 0, 0);
             this.tableLayoutPanel76.Controls.Add(this.txtrectudestunit, 1, 0);
             this.tableLayoutPanel76.Name = "tableLayoutPanel76";
             // 
             // numrectupdest
             // 
-            resources.ApplyResources(this.numrectupdest, "numrectupdest");
             this.numrectupdest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numrectupdest, "numrectupdest");
             this.numrectupdest.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectupdest.Name = "numrectupdest";
             this.numrectupdest.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectupdest_AfterChangeValue);
             // 
             // txtrectudestunit
             // 
-            resources.ApplyResources(this.txtrectudestunit, "txtrectudestunit");
             this.txtrectudestunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtrectudestunit, "txtrectudestunit");
             this.txtrectudestunit.Name = "txtrectudestunit";
             this.txtrectudestunit.ReadOnly = true;
             // 
             // tableLayoutPanel77
             // 
-            resources.ApplyResources(this.tableLayoutPanel77, "tableLayoutPanel77");
             this.tableLayoutPanel77.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel77, "tableLayoutPanel77");
             this.tableLayoutPanel77.Controls.Add(this.numrectspeed, 0, 0);
             this.tableLayoutPanel77.Controls.Add(this.cborectspeedunit, 1, 0);
             this.tableLayoutPanel77.Name = "tableLayoutPanel77";
             // 
             // numrectspeed
             // 
-            resources.ApplyResources(this.numrectspeed, "numrectspeed");
             this.numrectspeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numrectspeed, "numrectspeed");
             this.numrectspeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectspeed.Name = "numrectspeed";
             this.numrectspeed.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectspeed_AfterChangeValue);
@@ -3277,16 +3273,16 @@
             // 
             // numrectupspeed
             // 
-            resources.ApplyResources(this.numrectupspeed, "numrectupspeed");
             this.numrectupspeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numrectupspeed, "numrectupspeed");
             this.numrectupspeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectupspeed.Name = "numrectupspeed";
             this.numrectupspeed.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectupspeed_AfterChangeValue);
             // 
             // txtrectupspeedunit
             // 
-            resources.ApplyResources(this.txtrectupspeedunit, "txtrectupspeedunit");
             this.txtrectupspeedunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtrectupspeedunit, "txtrectupspeedunit");
             this.txtrectupspeedunit.Name = "txtrectupspeedunit";
             this.txtrectupspeedunit.ReadOnly = true;
             // 
@@ -3299,16 +3295,16 @@
             // 
             // numrectdownspeed
             // 
-            resources.ApplyResources(this.numrectdownspeed, "numrectdownspeed");
             this.numrectdownspeed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numrectdownspeed, "numrectdownspeed");
             this.numrectdownspeed.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectdownspeed.Name = "numrectdownspeed";
             this.numrectdownspeed.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectdownspeed_AfterChangeValue);
             // 
             // txtrectdownspeedunit
             // 
-            resources.ApplyResources(this.txtrectdownspeedunit, "txtrectdownspeedunit");
             this.txtrectdownspeedunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtrectdownspeedunit, "txtrectdownspeedunit");
             this.txtrectdownspeedunit.Name = "txtrectdownspeedunit";
             this.txtrectdownspeedunit.ReadOnly = true;
             // 
@@ -3326,16 +3322,16 @@
             // 
             // numrectupkeeptime
             // 
-            resources.ApplyResources(this.numrectupkeeptime, "numrectupkeeptime");
             this.numrectupkeeptime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numrectupkeeptime, "numrectupkeeptime");
             this.numrectupkeeptime.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectupkeeptime.Name = "numrectupkeeptime";
             this.numrectupkeeptime.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectupkeeptime_AfterChangeValue);
             // 
             // txtrectupkeeptimeunit
             // 
-            resources.ApplyResources(this.txtrectupkeeptimeunit, "txtrectupkeeptimeunit");
             this.txtrectupkeeptimeunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtrectupkeeptimeunit, "txtrectupkeeptimeunit");
             this.txtrectupkeeptimeunit.Name = "txtrectupkeeptimeunit";
             this.txtrectupkeeptimeunit.ReadOnly = true;
             // 
@@ -3353,23 +3349,23 @@
             // 
             // numrectdownkeeptime
             // 
-            resources.ApplyResources(this.numrectdownkeeptime, "numrectdownkeeptime");
             this.numrectdownkeeptime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.numrectdownkeeptime, "numrectdownkeeptime");
             this.numrectdownkeeptime.InteractionMode = NationalInstruments.UI.NumericEditInteractionModes.Text;
             this.numrectdownkeeptime.Name = "numrectdownkeeptime";
             this.numrectdownkeeptime.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numrectdownkeeptime_AfterChangeValue);
             // 
             // txtrectdownkeeptimeunit
             // 
-            resources.ApplyResources(this.txtrectdownkeeptimeunit, "txtrectdownkeeptimeunit");
             this.txtrectdownkeeptimeunit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txtrectdownkeeptimeunit, "txtrectdownkeeptimeunit");
             this.txtrectdownkeeptimeunit.Name = "txtrectdownkeeptimeunit";
             this.txtrectdownkeeptimeunit.ReadOnly = true;
             // 
             // tabPage18
             // 
-            resources.ApplyResources(this.tabPage18, "tabPage18");
             this.tabPage18.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tabPage18, "tabPage18");
             this.tabPage18.Name = "tabPage18";
             // 
             // panel17
@@ -3386,15 +3382,15 @@
             // 
             // tabPage19
             // 
-            resources.ApplyResources(this.tabPage19, "tabPage19");
             this.tabPage19.BackColor = System.Drawing.Color.White;
             this.tabPage19.Controls.Add(this.tableLayoutPanel20);
+            resources.ApplyResources(this.tabPage19, "tabPage19");
             this.tabPage19.Name = "tabPage19";
             // 
             // tableLayoutPanel20
             // 
-            resources.ApplyResources(this.tableLayoutPanel20, "tableLayoutPanel20");
             this.tableLayoutPanel20.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.tableLayoutPanel20, "tableLayoutPanel20");
             this.tableLayoutPanel20.Controls.Add(this.lblcontrolmode, 0, 1);
             this.tableLayoutPanel20.Controls.Add(this.lblstep, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.txtstep, 1, 0);
@@ -3419,8 +3415,8 @@
             // 
             // cbocontrol
             // 
-            resources.ApplyResources(this.cbocontrol, "cbocontrol");
             this.cbocontrol.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.cbocontrol, "cbocontrol");
             this.cbocontrol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbocontrol.FormattingEnabled = true;
             this.cbocontrol.Name = "cbocontrol";
@@ -3442,59 +3438,59 @@
             // 
             // tbtnramp
             // 
-            resources.ApplyResources(this.tbtnramp, "tbtnramp");
             this.tbtnramp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tbtnramp, "tbtnramp");
             this.tbtnramp.Name = "tbtnramp";
             this.tbtnramp.Click += new System.EventHandler(this.tbtnramp_Click);
             // 
             // tbtnkeep
             // 
-            resources.ApplyResources(this.tbtnkeep, "tbtnkeep");
             this.tbtnkeep.BackColor = System.Drawing.Color.Transparent;
             this.tbtnkeep.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tbtnkeep, "tbtnkeep");
             this.tbtnkeep.Name = "tbtnkeep";
             this.tbtnkeep.Click += new System.EventHandler(this.tbtnkeep_Click);
             // 
             // toolStripButton3
             // 
-            resources.ApplyResources(this.toolStripButton3, "toolStripButton3");
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton3, "toolStripButton3");
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton7
             // 
-            resources.ApplyResources(this.toolStripButton7, "toolStripButton7");
             this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton7, "toolStripButton7");
             this.toolStripButton7.Name = "toolStripButton7";
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
             // toolStripButton8
             // 
-            resources.ApplyResources(this.toolStripButton8, "toolStripButton8");
             this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton8, "toolStripButton8");
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
             // toolStripButton9
             // 
-            resources.ApplyResources(this.toolStripButton9, "toolStripButton9");
             this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton9, "toolStripButton9");
             this.toolStripButton9.Name = "toolStripButton9";
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // tabPage11
             // 
-            resources.ApplyResources(this.tabPage11, "tabPage11");
             this.tabPage11.Controls.Add(this.groupBox10);
+            resources.ApplyResources(this.tabPage11, "tabPage11");
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
             // groupBox10
             // 
-            resources.ApplyResources(this.groupBox10, "groupBox10");
             this.groupBox10.Controls.Add(this.tableLayoutPanel69);
             this.groupBox10.Controls.Add(this.chkjump);
+            resources.ApplyResources(this.groupBox10, "groupBox10");
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.TabStop = false;
             // 
@@ -3557,16 +3553,15 @@
             // 
             // tabPage12
             // 
-            resources.ApplyResources(this.tabPage12, "tabPage12");
             this.tabPage12.Controls.Add(this.grid3);
             this.tabPage12.Controls.Add(this.cbomethod);
             this.tabPage12.Controls.Add(this.label79);
+            resources.ApplyResources(this.tabPage12, "tabPage12");
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
             // grid3
             // 
-            resources.ApplyResources(this.grid3, "grid3");
             this.grid3.AutoSizeMinHeight = 10;
             this.grid3.AutoSizeMinWidth = 10;
             this.grid3.AutoStretchColumnsToFitWidth = true;
@@ -3576,6 +3571,7 @@
             this.grid3.CustomSort = false;
             this.grid3.FocusStyle = SourceGrid2.FocusStyle.None;
             this.grid3.GridToolTipActive = true;
+            resources.ApplyResources(this.grid3, "grid3");
             this.grid3.Name = "grid3";
             this.grid3.SpecialKeys = ((SourceGrid2.GridSpecialKeys)(((((((((SourceGrid2.GridSpecialKeys.Ctrl_C | SourceGrid2.GridSpecialKeys.Ctrl_V) 
             | SourceGrid2.GridSpecialKeys.Ctrl_X) 
@@ -3590,12 +3586,12 @@
             // 
             // cbomethod
             // 
-            resources.ApplyResources(this.cbomethod, "cbomethod");
             this.cbomethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbomethod.FormattingEnabled = true;
             this.cbomethod.Items.AddRange(new object[] {
             resources.GetString("cbomethod.Items"),
             resources.GetString("cbomethod.Items1")});
+            resources.ApplyResources(this.cbomethod, "cbomethod");
             this.cbomethod.Name = "cbomethod";
             this.cbomethod.SelectedIndexChanged += new System.EventHandler(this.cbomethod_SelectedIndexChanged);
             this.cbomethod.SelectionChangeCommitted += new System.EventHandler(this.cbomethod_SelectionChangeCommitted);
@@ -3607,8 +3603,8 @@
             // 
             // tabPage21
             // 
-            resources.ApplyResources(this.tabPage21, "tabPage21");
             this.tabPage21.Controls.Add(this.tableLayoutPanel42);
+            resources.ApplyResources(this.tabPage21, "tabPage21");
             this.tabPage21.Name = "tabPage21";
             this.tabPage21.UseVisualStyleBackColor = true;
             // 
@@ -3649,7 +3645,6 @@
             // 
             // dgridsavetrack
             // 
-            resources.ApplyResources(this.dgridsavetrack, "dgridsavetrack");
             this.dgridsavetrack.AllowUserToAddRows = false;
             this.dgridsavetrack.AllowUserToDeleteRows = false;
             this.dgridsavetrack.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -3658,6 +3653,7 @@
             this.Column1,
             this.Column2,
             this.Column3});
+            resources.ApplyResources(this.dgridsavetrack, "dgridsavetrack");
             this.dgridsavetrack.Name = "dgridsavetrack";
             this.dgridsavetrack.RowTemplate.Height = 23;
             this.dgridsavetrack.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridsavetrack_CellValueChanged);
@@ -3680,9 +3676,9 @@
             // 
             // panel27
             // 
-            resources.ApplyResources(this.panel27, "panel27");
             this.panel27.Controls.Add(this.button6);
             this.panel27.Controls.Add(this.label51);
+            resources.ApplyResources(this.panel27, "panel27");
             this.panel27.Name = "panel27";
             // 
             // button6
@@ -3699,8 +3695,8 @@
             // 
             // tabPage22
             // 
-            resources.ApplyResources(this.tabPage22, "tabPage22");
             this.tabPage22.Controls.Add(this.tableLayoutPanel86);
+            resources.ApplyResources(this.tabPage22, "tabPage22");
             this.tabPage22.Name = "tabPage22";
             this.tabPage22.UseVisualStyleBackColor = true;
             // 
@@ -3715,7 +3711,6 @@
             // 
             // dgridsavepeaktrend
             // 
-            resources.ApplyResources(this.dgridsavepeaktrend, "dgridsavepeaktrend");
             this.dgridsavepeaktrend.AllowUserToAddRows = false;
             this.dgridsavepeaktrend.AllowUserToDeleteRows = false;
             this.dgridsavepeaktrend.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -3724,6 +3719,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
+            resources.ApplyResources(this.dgridsavepeaktrend, "dgridsavepeaktrend");
             this.dgridsavepeaktrend.Name = "dgridsavepeaktrend";
             this.dgridsavepeaktrend.RowTemplate.Height = 23;
             this.dgridsavepeaktrend.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridsavepeaktrend_CellValueChanged);
@@ -3746,9 +3742,9 @@
             // 
             // panel28
             // 
-            resources.ApplyResources(this.panel28, "panel28");
             this.panel28.Controls.Add(this.button7);
             this.panel28.Controls.Add(this.label96);
+            resources.ApplyResources(this.panel28, "panel28");
             this.panel28.Name = "panel28";
             // 
             // button7
@@ -3791,13 +3787,12 @@
             // 
             // panel19
             // 
-            resources.ApplyResources(this.panel19, "panel19");
             this.panel19.Controls.Add(this.toolStrip2);
+            resources.ApplyResources(this.panel19, "panel19");
             this.panel19.Name = "panel19";
             // 
             // toolStrip2
             // 
-            resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel2,
             this.tscbos,
@@ -3805,44 +3800,45 @@
             this.tsdels,
             this.tssaves,
             this.tsreset});
+            resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.Name = "toolStrip2";
             // 
             // toolStripLabel2
             // 
-            resources.ApplyResources(this.toolStripLabel2, "toolStripLabel2");
             this.toolStripLabel2.Name = "toolStripLabel2";
+            resources.ApplyResources(this.toolStripLabel2, "toolStripLabel2");
             // 
             // tscbos
             // 
-            resources.ApplyResources(this.tscbos, "tscbos");
             this.tscbos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tscbos.Name = "tscbos";
+            resources.ApplyResources(this.tscbos, "tscbos");
             this.tscbos.SelectedIndexChanged += new System.EventHandler(this.tscbos_SelectedIndexChanged);
             // 
             // tsopens
             // 
-            resources.ApplyResources(this.tsopens, "tsopens");
             this.tsopens.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsopens, "tsopens");
             this.tsopens.Name = "tsopens";
             this.tsopens.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // tsdels
             // 
-            resources.ApplyResources(this.tsdels, "tsdels");
             this.tsdels.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsdels, "tsdels");
             this.tsdels.Name = "tsdels";
             // 
             // tssaves
             // 
-            resources.ApplyResources(this.tssaves, "tssaves");
             this.tssaves.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tssaves, "tssaves");
             this.tssaves.Name = "tssaves";
             this.tssaves.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // tsreset
             // 
-            resources.ApplyResources(this.tsreset, "tsreset");
             this.tsreset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsreset, "tsreset");
             this.tsreset.Name = "tsreset";
             this.tsreset.Click += new System.EventHandler(this.tsreset_Click);
             // 
@@ -3856,17 +3852,17 @@
             // 
             // panel13
             // 
-            resources.ApplyResources(this.panel13, "panel13");
             this.panel13.Controls.Add(this.btnlast);
             this.panel13.Controls.Add(this.btnnext);
+            resources.ApplyResources(this.panel13, "panel13");
             this.panel13.Name = "panel13";
             // 
             // btnlast
             // 
-            resources.ApplyResources(this.btnlast, "btnlast");
             this.btnlast.BackColor = System.Drawing.Color.Transparent;
             this.btnlast.FlatAppearance.BorderSize = 0;
             this.btnlast.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.btnlast, "btnlast");
             this.btnlast.Name = "btnlast";
             this.btnlast.UseMnemonic = false;
             this.btnlast.UseVisualStyleBackColor = false;
@@ -3874,10 +3870,10 @@
             // 
             // btnnext
             // 
-            resources.ApplyResources(this.btnnext, "btnnext");
             this.btnnext.BackColor = System.Drawing.Color.Transparent;
             this.btnnext.FlatAppearance.BorderSize = 0;
             this.btnnext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.btnnext, "btnnext");
             this.btnnext.Name = "btnnext";
             this.btnnext.UseMnemonic = false;
             this.btnnext.UseVisualStyleBackColor = false;
@@ -3885,8 +3881,8 @@
             // 
             // panel14
             // 
-            resources.ApplyResources(this.panel14, "panel14");
             this.panel14.Controls.Add(this.pnledit);
+            resources.ApplyResources(this.panel14, "panel14");
             this.panel14.Name = "panel14";
             // 
             // pnledit
@@ -3894,22 +3890,6 @@
             resources.ApplyResources(this.pnledit, "pnledit");
             this.pnledit.Controls.Add(this.listViewEx1);
             this.pnledit.Name = "pnledit";
-            // 
-            // listViewEx1
-            // 
-            resources.ApplyResources(this.listViewEx1, "listViewEx1");
-            this.listViewEx1.AllowColumnReorder = true;
-            this.listViewEx1.AutoArrange = false;
-            this.listViewEx1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewEx1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listViewEx1.HideSelection = false;
-            this.listViewEx1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewEx1.Items")))});
-            this.listViewEx1.Name = "listViewEx1";
-            this.listViewEx1.Scrollable = false;
-            this.listViewEx1.SmallImageList = this.imageList1;
-            this.listViewEx1.UseCompatibleStateImageBehavior = false;
-            this.listViewEx1.View = System.Windows.Forms.View.Details;
             // 
             // imageList1
             // 
@@ -3919,17 +3899,17 @@
             // 
             // panel15
             // 
-            resources.ApplyResources(this.panel15, "panel15");
             this.panel15.Controls.Add(this.btnfirst);
             this.panel15.Controls.Add(this.btnpre);
+            resources.ApplyResources(this.panel15, "panel15");
             this.panel15.Name = "panel15";
             // 
             // btnfirst
             // 
-            resources.ApplyResources(this.btnfirst, "btnfirst");
             this.btnfirst.BackColor = System.Drawing.Color.Transparent;
             this.btnfirst.FlatAppearance.BorderSize = 0;
             this.btnfirst.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.btnfirst, "btnfirst");
             this.btnfirst.Name = "btnfirst";
             this.btnfirst.UseMnemonic = false;
             this.btnfirst.UseVisualStyleBackColor = false;
@@ -3937,10 +3917,10 @@
             // 
             // btnpre
             // 
-            resources.ApplyResources(this.btnpre, "btnpre");
             this.btnpre.BackColor = System.Drawing.Color.Transparent;
             this.btnpre.FlatAppearance.BorderSize = 0;
             this.btnpre.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.btnpre, "btnpre");
             this.btnpre.Name = "btnpre";
             this.btnpre.UseMnemonic = false;
             this.btnpre.UseVisualStyleBackColor = false;
@@ -3954,10 +3934,10 @@
             // 
             // panel16
             // 
-            resources.ApplyResources(this.panel16, "panel16");
             this.panel16.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel16.Controls.Add(this.label59);
+            resources.ApplyResources(this.panel16, "panel16");
             this.panel16.Name = "panel16";
             // 
             // label59
@@ -3968,10 +3948,10 @@
             // 
             // tabPage20
             // 
-            resources.ApplyResources(this.tabPage20, "tabPage20");
             this.tabPage20.Controls.Add(this.toolStrip3);
             this.tabPage20.Controls.Add(this.tlpblock);
             this.tabPage20.Controls.Add(this.tableLayoutPanel85);
+            resources.ApplyResources(this.tabPage20, "tabPage20");
             this.tabPage20.Name = "tabPage20";
             this.tabPage20.UseVisualStyleBackColor = true;
             // 
@@ -3988,32 +3968,32 @@
             // 
             // toolStripLabel3
             // 
-            resources.ApplyResources(this.toolStripLabel3, "toolStripLabel3");
             this.toolStripLabel3.Name = "toolStripLabel3";
+            resources.ApplyResources(this.toolStripLabel3, "toolStripLabel3");
             // 
             // toolStripComboBox1
             // 
-            resources.ApplyResources(this.toolStripComboBox1, "toolStripComboBox1");
             this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toolStripComboBox1.Name = "toolStripComboBox1";
+            resources.ApplyResources(this.toolStripComboBox1, "toolStripComboBox1");
             // 
             // toolStripButton1
             // 
-            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton2
             // 
-            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
             this.toolStripButton2.Name = "toolStripButton2";
             // 
             // toolStripButton4
             // 
-            resources.ApplyResources(this.toolStripButton4, "toolStripButton4");
             this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton4, "toolStripButton4");
             this.toolStripButton4.Name = "toolStripButton4";
             // 
             // tlpblock
@@ -4026,35 +4006,35 @@
             // 
             // panel23
             // 
-            resources.ApplyResources(this.panel23, "panel23");
             this.panel23.Controls.Add(this.button1);
             this.panel23.Controls.Add(this.button2);
+            resources.ApplyResources(this.panel23, "panel23");
             this.panel23.Name = "panel23";
             // 
             // button1
             // 
-            resources.ApplyResources(this.button1, "button1");
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
             this.button1.UseMnemonic = false;
             this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            resources.ApplyResources(this.button2, "button2");
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
             this.button2.UseMnemonic = false;
             this.button2.UseVisualStyleBackColor = false;
             // 
             // panel24
             // 
-            resources.ApplyResources(this.panel24, "panel24");
             this.panel24.Controls.Add(this.panel25);
+            resources.ApplyResources(this.panel24, "panel24");
             this.panel24.Name = "panel24";
             // 
             // panel25
@@ -4062,22 +4042,6 @@
             resources.ApplyResources(this.panel25, "panel25");
             this.panel25.Controls.Add(this.listViewBlock1);
             this.panel25.Name = "panel25";
-            // 
-            // listViewBlock1
-            // 
-            resources.ApplyResources(this.listViewBlock1, "listViewBlock1");
-            this.listViewBlock1.AllowColumnReorder = true;
-            this.listViewBlock1.AutoArrange = false;
-            this.listViewBlock1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewBlock1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listViewBlock1.HideSelection = false;
-            this.listViewBlock1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewBlock1.Items")))});
-            this.listViewBlock1.Name = "listViewBlock1";
-            this.listViewBlock1.Scrollable = false;
-            this.listViewBlock1.SmallImageList = this.imageList2;
-            this.listViewBlock1.UseCompatibleStateImageBehavior = false;
-            this.listViewBlock1.View = System.Windows.Forms.View.Details;
             // 
             // imageList2
             // 
@@ -4087,27 +4051,27 @@
             // 
             // panel26
             // 
-            resources.ApplyResources(this.panel26, "panel26");
             this.panel26.Controls.Add(this.button3);
             this.panel26.Controls.Add(this.button5);
+            resources.ApplyResources(this.panel26, "panel26");
             this.panel26.Name = "panel26";
             // 
             // button3
             // 
-            resources.ApplyResources(this.button3, "button3");
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
             this.button3.UseMnemonic = false;
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
-            resources.ApplyResources(this.button5, "button5");
             this.button5.BackColor = System.Drawing.Color.Transparent;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            resources.ApplyResources(this.button5, "button5");
             this.button5.Name = "button5";
             this.button5.UseMnemonic = false;
             this.button5.UseVisualStyleBackColor = false;
@@ -4120,10 +4084,10 @@
             // 
             // panel22
             // 
-            resources.ApplyResources(this.panel22, "panel22");
             this.panel22.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel22.Controls.Add(this.label68);
+            resources.ApplyResources(this.panel22, "panel22");
             this.panel22.Name = "panel22";
             // 
             // label68
@@ -4147,6 +4111,50 @@
             // 
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
+            // 
+            // lstavail
+            // 
+            resources.ApplyResources(this.lstavail, "lstavail");
+            this.lstavail.FormattingEnabled = true;
+            this.lstavail.Name = "lstavail";
+            // 
+            // lstinclude
+            // 
+            resources.ApplyResources(this.lstinclude, "lstinclude");
+            this.lstinclude.FormattingEnabled = true;
+            this.lstinclude.Name = "lstinclude";
+            // 
+            // listViewEx1
+            // 
+            this.listViewEx1.AllowColumnReorder = true;
+            this.listViewEx1.AutoArrange = false;
+            this.listViewEx1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.listViewEx1, "listViewEx1");
+            this.listViewEx1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listViewEx1.HideSelection = false;
+            this.listViewEx1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewEx1.Items")))});
+            this.listViewEx1.Name = "listViewEx1";
+            this.listViewEx1.Scrollable = false;
+            this.listViewEx1.SmallImageList = this.imageList1;
+            this.listViewEx1.UseCompatibleStateImageBehavior = false;
+            this.listViewEx1.View = System.Windows.Forms.View.Details;
+            // 
+            // listViewBlock1
+            // 
+            this.listViewBlock1.AllowColumnReorder = true;
+            this.listViewBlock1.AutoArrange = false;
+            this.listViewBlock1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.listViewBlock1, "listViewBlock1");
+            this.listViewBlock1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listViewBlock1.HideSelection = false;
+            this.listViewBlock1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewBlock1.Items")))});
+            this.listViewBlock1.Name = "listViewBlock1";
+            this.listViewBlock1.Scrollable = false;
+            this.listViewBlock1.SmallImageList = this.imageList2;
+            this.listViewBlock1.UseCompatibleStateImageBehavior = false;
+            this.listViewBlock1.View = System.Windows.Forms.View.Details;
             // 
             // UserControl控制
             // 

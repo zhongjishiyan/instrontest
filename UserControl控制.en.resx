@@ -144,7 +144,7 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 36</value>
+    <value>582, 36</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Set the parameters for Starting a test</value>
@@ -291,7 +291,7 @@
 </value>
   </data>
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>595, 4</value>
+    <value>593, 4</value>
   </data>
   <data name="label23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -483,7 +483,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>585, 36</value>
+    <value>583, 36</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Set the  parameters for tensile strain</value>
@@ -715,7 +715,7 @@
 </value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>596, 4</value>
+    <value>594, 4</value>
   </data>
   <data name="cboautozero.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -812,7 +812,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>581, 36</value>
+    <value>579, 36</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Set the pre-test  parameters for the test</value>
@@ -954,7 +954,7 @@
 </value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>592, 4</value>
+    <value>590, 4</value>
   </data>
   <data name="chkline4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1132,7 +1132,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>585, 36</value>
+    <value>583, 36</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Set the Control parameters  for the test</value>
@@ -1276,7 +1276,7 @@
 </value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>596, 4</value>
+    <value>594, 4</value>
   </data>
   <data name="label48.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1348,7 +1348,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>589, 36</value>
+    <value>587, 36</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Set the parameters  for ending the test</value>
@@ -1475,7 +1475,7 @@
 </value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>600, 4</value>
+    <value>598, 4</value>
   </data>
   <data name="label99.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1565,7 +1565,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>588, 36</value>
+    <value>586, 36</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Set the data capture parameters for the test</value>
@@ -1728,7 +1728,7 @@
 </value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>599, 4</value>
+    <value>597, 4</value>
   </data>
   <data name="toolStripLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 31</value>
@@ -1821,7 +1821,7 @@
     <value>NoControl</value>
   </data>
   <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>587, 36</value>
+    <value>585, 36</value>
   </data>
   <data name="label30.Text" xml:space="preserve">
     <value>Set the Control parameters for the Intermediate test </value>
@@ -1965,7 +1965,7 @@
 </value>
   </data>
   <data name="panel11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>598, 4</value>
+    <value>596, 4</value>
   </data>
   <data name="label58.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1986,7 +1986,7 @@
     <value>NoControl</value>
   </data>
   <data name="label52.Size" type="System.Drawing.Size, System.Drawing">
-    <value>591, 36</value>
+    <value>589, 36</value>
   </data>
   <data name="label52.Text" xml:space="preserve">
     <value>Set the Control parameters for the Simple test </value>
@@ -2130,7 +2130,7 @@
 </value>
   </data>
   <data name="panel12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>602, 4</value>
+    <value>600, 4</value>
   </data>
   <data name="label100.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2262,22 +2262,22 @@
     <value>Freq:</value>
   </data>
   <data name="txtrectdowndestunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-429, 4</value>
+    <value>-431, 4</value>
   </data>
   <data name="txtrectdowndestunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>779, 14</value>
+    <value>781, 14</value>
   </data>
   <data name="txtrectudestunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-427, 4</value>
-  </data>
-  <data name="txtrectudestunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>777, 14</value>
-  </data>
-  <data name="cborectspeedunit.Location" type="System.Drawing.Point, System.Drawing">
     <value>-429, 4</value>
   </data>
+  <data name="txtrectudestunit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>779, 14</value>
+  </data>
+  <data name="cborectspeedunit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-431, 4</value>
+  </data>
   <data name="cborectspeedunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>779, 20</value>
+    <value>781, 20</value>
   </data>
   <data name="label84.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2322,16 +2322,16 @@
     <value>Rate:</value>
   </data>
   <data name="txtrectupspeedunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-426, 4</value>
+    <value>-428, 4</value>
   </data>
   <data name="txtrectupspeedunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 14</value>
+    <value>778, 14</value>
   </data>
   <data name="txtrectdownspeedunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-426, 4</value>
+    <value>-428, 4</value>
   </data>
   <data name="txtrectdownspeedunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 14</value>
+    <value>778, 14</value>
   </data>
   <data name="label92.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2343,10 +2343,10 @@
     <value>Rising Keep time:</value>
   </data>
   <data name="txtrectupkeeptimeunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-426, 4</value>
+    <value>-428, 4</value>
   </data>
   <data name="txtrectupkeeptimeunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 14</value>
+    <value>778, 14</value>
   </data>
   <data name="label93.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2358,10 +2358,10 @@
     <value>Descending keep time:</value>
   </data>
   <data name="txtrectdownkeeptimeunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-426, 4</value>
+    <value>-428, 4</value>
   </data>
   <data name="txtrectdownkeeptimeunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>776, 14</value>
+    <value>778, 14</value>
   </data>
   <data name="lblcontrolmode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2371,6 +2371,9 @@
   </data>
   <data name="lblstep.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblstep.Text" xml:space="preserve">
+    <value>Step name：</value>
   </data>
   <data name="tbtnramp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2741,10 +2744,10 @@
     <value>NoControl</value>
   </data>
   <data name="panel13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>611, 5</value>
+    <value>607, 5</value>
   </data>
   <data name="panel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 172</value>
+    <value>48, 172</value>
   </data>
   <data name="listViewEx1.Items" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -2767,10 +2770,10 @@
     <value>467, 172</value>
   </data>
   <data name="pnledit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>551, 172</value>
+    <value>547, 172</value>
   </data>
   <data name="panel14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>551, 172</value>
+    <value>547, 172</value>
   </data>
   <data name="btnfirst.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2928,10 +2931,10 @@
     <value>NoControl</value>
   </data>
   <data name="panel23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>545, 5</value>
+    <value>541, 5</value>
   </data>
   <data name="panel23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 221</value>
+    <value>114, 221</value>
   </data>
   <data name="listViewBlock1.Items" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -2951,10 +2954,10 @@
 </value>
   </data>
   <data name="panel25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>485, 221</value>
+    <value>481, 221</value>
   </data>
   <data name="panel24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>485, 221</value>
+    <value>481, 221</value>
   </data>
   <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

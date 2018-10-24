@@ -10,6 +10,7 @@ using System.IO;
 using ClsStaticStation;
 namespace TabHeaderDemo
 {
+  
     public partial class UserControl控制 : UserControl
     {
         public UserControlMethod musercontrolmethod;
@@ -314,10 +315,72 @@ namespace TabHeaderDemo
                 }
 
                 f.lblname.Text = ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].cName + _temp;
-                f.lblUnit.Text = ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[0];
+              
+                f.cbounit.Items.Clear();
+                for (int i = 0; i < ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnitCount;i++)
+                {
+                    if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnitKind ==2)
+                    {
+                        if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i] == "mm/s")
+                        {
+
+                            f.cbounit.Items.Add(new ComboxItem(ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i]
+                                , i));
+                        }
+                        if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i] == "mm/min")
+                        {
+
+                            f.cbounit.Items.Add(new ComboxItem(ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i]
+                                , i));
+                        }
 
 
+                    }
+                    if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnitKind == 3)
+                    {
+                        if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i] == "N/s")
+                        {
 
+                            f.cbounit.Items.Add(new ComboxItem(ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i]
+                                , i));
+                        }
+                        if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i] == "N/min")
+                        {
+
+                            f.cbounit.Items.Add(new ComboxItem(ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i]
+                                , i));
+                        }
+                        if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i] == "kN/s")
+                        {
+
+                            f.cbounit.Items.Add(new ComboxItem(ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i]
+                                , i));
+                        }
+                        if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i] == "kN/min")
+                        {
+
+                            f.cbounit.Items.Add(new ComboxItem(ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.cUnits[i]
+                                , i));
+                        }
+
+                    }
+
+                }
+                bool ma = false; 
+                for (int i = 0; i < f.cbounit.Items.Count ; i++)
+                {
+                    if((f.cbounit.Items[i] as ComboxItem).Values == sf.mseglist[e.Position.Row - 1].speedunit )
+                    {
+                        f.cbounit.SelectedIndex = i;
+                        ma = true;
+                     }
+                }
+
+                if(ma==false)
+                {
+                    f.cbounit.SelectedIndex = 0;
+                }
+                   
                 if (ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].cUnitKind == 1)
                 {
                     if (GlobeVal.mysys.machinekind == 0)
@@ -335,7 +398,8 @@ namespace TabHeaderDemo
                     f.panel1.Visible = false;
                 }
 
-                f.numericEdit1.Value = sf.mseglist[e.Position.Row - 1].speed;
+                f.numericEdit1.Value = Convert.ToDouble( ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.GetValueFromUnit( sf.mseglist[e.Position.Row - 1].speed,
+                    sf.mseglist[e.Position.Row -1].speedunit));
 
                 if (GlobeVal.mysys.language == 0)
                 {
@@ -350,8 +414,10 @@ namespace TabHeaderDemo
                 f.ShowDialog();
                 if (f.result == true)
                 {
-                    sf.mseglist[e.Position.Row - 1].speed = f.numericEdit1.Value;
-
+                    sf.mseglist[e.Position.Row - 1].speedunit = (f.cbounit.Items[f.cbounit.SelectedIndex] as ComboxItem).Values ;
+                    sf.mseglist[e.Position.Row - 1].speed = Convert.ToDouble(ClsStaticStation.m_Global.mycls.hardsignals[sf.mseglist[e.Position.Row - 1].controlmode].speedSignal.GetOriValue(f.numericEdit1.Value,
+                    sf.mseglist[e.Position.Row - 1].speedunit));
+                    
 
                     grid2[e.Position.Row, e.Position.Column].Value = sf.mseglist[e.Position.Row - 1].speedconvert();
 
@@ -403,9 +469,9 @@ namespace TabHeaderDemo
                 f.cbomode.Items.Clear();
                 if (GlobeVal.mysys.language == 0)
                 {
-                    f.cbomode.Items.Add("切换");
-                    f.cbomode.Items.Add("不切换");
-                    f.cbomode.Items.Add("跟随");
+                    f.cbomode.Items.Add("切换为目标控制方式");
+                    f.cbomode.Items.Add("保持现有控制方式");
+                   // f.cbomode.Items.Add("用当前控制模式跟随目标值");
                 }
                 else
                 {
@@ -711,14 +777,14 @@ namespace TabHeaderDemo
 
             grid2.ColumnsCount = 7;
             grid2.Columns[0].Width = 50;
-            grid2.Columns[1].Width = grid2.Width / 7;
-            grid2.Columns[2].Width = grid2.Width / 7;
-            grid2.Columns[3].Width = grid2.Width / 7;
-            grid2.Columns[4].Width = grid2.Width / 7;
-            grid2.Columns[5].Width = grid2.Width / 7;
-            grid2.Columns[6].Width = grid2.Width / 7;
+            grid2.Columns[1].Width = (grid2.Width-50) / 6;
+            grid2.Columns[2].Width = (grid2.Width-50) / 6;
+            grid2.Columns[3].Width = (grid2.Width-50) / 6;
+            grid2.Columns[4].Width = (grid2.Width-50) / 6;
+            grid2.Columns[5].Width = (grid2.Width-50) / 6;
+            grid2.Columns[6].Width = (grid2.Width-50) / 6;
             grid2.CustomSort = false;
-            grid2.Columns[1].AutoSizeMode = SourceGrid2.AutoSizeMode.EnableStretch;
+         
             grid2.FixedRows = 1;
             grid2.Rows.Insert(0);
             grid2.Rows[0].Height = 25;
@@ -739,7 +805,7 @@ namespace TabHeaderDemo
             if (GlobeVal.mysys.language == 0)
             {
 
-                head = new SourceGrid2.Cells.Real.ColumnHeader("控制模式");
+                head = new SourceGrid2.Cells.Real.ColumnHeader("控制通道");
             }
             else
             {
@@ -1632,9 +1698,9 @@ namespace TabHeaderDemo
                     tsbtnnew.Enabled = false;
                     tsbtnkill.Enabled = false;
                     tsbtnrename.Enabled = false;
-                    tsbtnadd.Enabled = false;
-                    tsbtninsert.Enabled = false;
-                    tsbtndel.Enabled = false;
+                    tsbtnadd.Enabled = true;
+                    tsbtninsert.Enabled = true;
+                    tsbtndel.Enabled = true;
                 }
                 else
                 {

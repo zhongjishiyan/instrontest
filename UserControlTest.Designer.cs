@@ -42,19 +42,40 @@
             this.tableLayoutPanelTop = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btneafter = new TabHeaderDemo.ButtonEx(this.components);
+            this.btnebefore = new TabHeaderDemo.ButtonEx(this.components);
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnstep2 = new TabHeaderDemo.ButtonExNew(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnstep7 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnstep6 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnstep5 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnstep4 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnstep3 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnstep1 = new TabHeaderDemo.ButtonExNew(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnStart = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnend = new TabHeaderDemo.ButtonExNew(this.components);
+            this.buttonEx14 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.button8 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnfinish = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnsave = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnsaveas = new TabHeaderDemo.ButtonExNew(this.components);
+            this.btnprint = new TabHeaderDemo.ButtonExNew(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
             this.paneltest = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button21 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.button6 = new TabHeaderDemo.ButtonExNew(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonEx1 = new TabHeaderDemo.ButtonExNew(this.components);
+            this.buttonEx2 = new TabHeaderDemo.ButtonExNew(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.imageList4 = new System.Windows.Forms.ImageList(this.components);
@@ -64,27 +85,6 @@
             this.重新计算当前试样ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重新计算全部试样ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.原始数据导出为ExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btneafter = new TabHeaderDemo.ButtonEx(this.components);
-            this.btnebefore = new TabHeaderDemo.ButtonEx(this.components);
-            this.btnstep2 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnstep7 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnstep6 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnstep5 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnstep4 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnstep3 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnstep1 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnStart = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnend = new TabHeaderDemo.ButtonExNew(this.components);
-            this.buttonEx14 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.button8 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnfinish = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnsave = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnsaveas = new TabHeaderDemo.ButtonExNew(this.components);
-            this.btnprint = new TabHeaderDemo.ButtonExNew(this.components);
-            this.button21 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.button6 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.buttonEx1 = new TabHeaderDemo.ButtonExNew(this.components);
-            this.buttonEx2 = new TabHeaderDemo.ButtonExNew(this.components);
             this.button7 = new TabHeaderDemo.ButtonExNew(this.components);
             this.buttonEx3 = new TabHeaderDemo.ButtonExNew(this.components);
             this.splitContainer1.Panel1.SuspendLayout();
@@ -205,184 +205,6 @@
             this.panel1.Controls.Add(this.btnebefore);
             this.panel1.Name = "panel1";
             // 
-            // tableLayoutPanel4
-            // 
-            resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
-            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(225)))), ((int)(((byte)(208)))));
-            this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            // 
-            // panel2
-            // 
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Name = "panel2";
-            // 
-            // panel4
-            // 
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.Controls.Add(this.btnstep2);
-            this.panel4.Controls.Add(this.btnstep7);
-            this.panel4.Controls.Add(this.btnstep6);
-            this.panel4.Controls.Add(this.btnstep5);
-            this.panel4.Controls.Add(this.btnstep4);
-            this.panel4.Controls.Add(this.btnstep3);
-            this.panel4.Controls.Add(this.btnstep1);
-            this.panel4.Name = "panel4";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "开始前2.ico");
-            this.imageList1.Images.SetKeyName(1, "开始前3.ico");
-            this.imageList1.Images.SetKeyName(2, "开始前4.ico");
-            this.imageList1.Images.SetKeyName(3, "试样试验前1.ico");
-            this.imageList1.Images.SetKeyName(4, "试样试验前2.ico");
-            this.imageList1.Images.SetKeyName(5, "试样试验前3.ico");
-            this.imageList1.Images.SetKeyName(6, "试验前1.ico");
-            this.imageList1.Images.SetKeyName(7, "试验前2.ico");
-            this.imageList1.Images.SetKeyName(8, "试验前3.ico");
-            this.imageList1.Images.SetKeyName(9, "计算前1.ico");
-            this.imageList1.Images.SetKeyName(10, "计算前2.ico");
-            this.imageList1.Images.SetKeyName(11, "计算前3.ico");
-            this.imageList1.Images.SetKeyName(12, "结束时1.ico");
-            this.imageList1.Images.SetKeyName(13, "结束时2.ico");
-            this.imageList1.Images.SetKeyName(14, "结束时3.ico");
-            this.imageList1.Images.SetKeyName(15, "保存2.ico");
-            this.imageList1.Images.SetKeyName(16, "保存2.ico");
-            this.imageList1.Images.SetKeyName(17, "保存1.ico");
-            this.imageList1.Images.SetKeyName(18, "试样试验后1.ico");
-            this.imageList1.Images.SetKeyName(19, "试样试验后2.ico");
-            this.imageList1.Images.SetKeyName(20, "试样试验后3.ico");
-            this.imageList1.Images.SetKeyName(21, "试验前4.ico");
-            this.imageList1.Images.SetKeyName(22, "计算前4.ico");
-            // 
-            // panel5
-            // 
-            resources.ApplyResources(this.panel5, "panel5");
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Name = "panel5";
-            // 
-            // panel7
-            // 
-            resources.ApplyResources(this.panel7, "panel7");
-            this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.Controls.Add(this.tableLayoutPanel9);
-            this.panel7.Name = "panel7";
-            // 
-            // tableLayoutPanel9
-            // 
-            resources.ApplyResources(this.tableLayoutPanel9, "tableLayoutPanel9");
-            this.tableLayoutPanel9.Controls.Add(this.btnStart, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.btnend, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.buttonEx14, 0, 2);
-            this.tableLayoutPanel9.Controls.Add(this.button8, 0, 3);
-            this.tableLayoutPanel9.Controls.Add(this.btnfinish, 0, 4);
-            this.tableLayoutPanel9.Controls.Add(this.btnsave, 0, 5);
-            this.tableLayoutPanel9.Controls.Add(this.btnsaveas, 0, 6);
-            this.tableLayoutPanel9.Controls.Add(this.btnprint, 0, 7);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel9_Paint);
-            // 
-            // panel8
-            // 
-            resources.ApplyResources(this.panel8, "panel8");
-            this.panel8.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel8.Controls.Add(this.paneltest);
-            this.panel8.Name = "panel8";
-            // 
-            // paneltest
-            // 
-            resources.ApplyResources(this.paneltest, "paneltest");
-            this.paneltest.Controls.Add(this.splitContainer1);
-            this.paneltest.Name = "paneltest";
-            // 
-            // panel3
-            // 
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Name = "panel3";
-            // 
-            // tableLayoutPanel2
-            // 
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.Controls.Add(this.button21, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button6, 0, 1);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            // 
-            // panel6
-            // 
-            resources.ApplyResources(this.panel6, "panel6");
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Name = "panel6";
-            // 
-            // tableLayoutPanel8
-            // 
-            resources.ApplyResources(this.tableLayoutPanel8, "tableLayoutPanel8");
-            this.tableLayoutPanel8.Controls.Add(this.buttonEx1, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.buttonEx2, 0, 1);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            // 
-            // imageList3
-            // 
-            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
-            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList3.Images.SetKeyName(0, "3.ico");
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "Selector_Status_Ready_For_Test.ico");
-            this.imageList2.Images.SetKeyName(1, "Selector_Status_Tested.ico");
-            this.imageList2.Images.SetKeyName(2, "Selector_Status_Tested_Rejected.ico");
-            this.imageList2.Images.SetKeyName(3, "Selector_Status_Tested.bmp");
-            this.imageList2.Images.SetKeyName(4, "Selector_Status_Testing.ico");
-            // 
-            // imageList4
-            // 
-            this.imageList4.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList4.ImageStream")));
-            this.imageList4.TransparentColor = System.Drawing.Color.White;
-            this.imageList4.Images.SetKeyName(0, "50.ico");
-            this.imageList4.Images.SetKeyName(1, "50-1.ico");
-            this.imageList4.Images.SetKeyName(2, "r2-2.ico");
-            this.imageList4.Images.SetKeyName(3, "r2.ico");
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timermain
-            // 
-            this.timermain.Tick += new System.EventHandler(this.timermain_Tick);
-            // 
-            // contextMenuStrip1
-            // 
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.重新计算当前试样ToolStripMenuItem,
-            this.重新计算全部试样ToolStripMenuItem,
-            this.原始数据导出为ExcelToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            // 
-            // 重新计算当前试样ToolStripMenuItem
-            // 
-            resources.ApplyResources(this.重新计算当前试样ToolStripMenuItem, "重新计算当前试样ToolStripMenuItem");
-            this.重新计算当前试样ToolStripMenuItem.Name = "重新计算当前试样ToolStripMenuItem";
-            this.重新计算当前试样ToolStripMenuItem.Click += new System.EventHandler(this.重新计算当前试样ToolStripMenuItem_Click);
-            // 
-            // 重新计算全部试样ToolStripMenuItem
-            // 
-            resources.ApplyResources(this.重新计算全部试样ToolStripMenuItem, "重新计算全部试样ToolStripMenuItem");
-            this.重新计算全部试样ToolStripMenuItem.Name = "重新计算全部试样ToolStripMenuItem";
-            // 
-            // 原始数据导出为ExcelToolStripMenuItem
-            // 
-            resources.ApplyResources(this.原始数据导出为ExcelToolStripMenuItem, "原始数据导出为ExcelToolStripMenuItem");
-            this.原始数据导出为ExcelToolStripMenuItem.Name = "原始数据导出为ExcelToolStripMenuItem";
-            this.原始数据导出为ExcelToolStripMenuItem.Click += new System.EventHandler(this.试验数据导出为ExcelToolStripMenuItem_Click);
-            // 
             // btneafter
             // 
             resources.ApplyResources(this.btneafter, "btneafter");
@@ -413,6 +235,31 @@
             this.btnebefore.UseVisualStyleBackColor = false;
             this.btnebefore.Click += new System.EventHandler(this.btnebefore_Click);
             // 
+            // tableLayoutPanel4
+            // 
+            resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(225)))), ((int)(((byte)(208)))));
+            this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Name = "panel2";
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Controls.Add(this.btnstep2);
+            this.panel4.Controls.Add(this.btnstep7);
+            this.panel4.Controls.Add(this.btnstep6);
+            this.panel4.Controls.Add(this.btnstep5);
+            this.panel4.Controls.Add(this.btnstep4);
+            this.panel4.Controls.Add(this.btnstep3);
+            this.panel4.Controls.Add(this.btnstep1);
+            this.panel4.Name = "panel4";
+            // 
             // btnstep2
             // 
             resources.ApplyResources(this.btnstep2, "btnstep2");
@@ -425,6 +272,34 @@
             this.btnstep2.Name = "btnstep2";
             this.btnstep2.UseMnemonic = false;
             this.btnstep2.UseVisualStyleBackColor = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "开始前2.ico");
+            this.imageList1.Images.SetKeyName(1, "开始前3.ico");
+            this.imageList1.Images.SetKeyName(2, "开始前4.ico");
+            this.imageList1.Images.SetKeyName(3, "试样试验前1.ico");
+            this.imageList1.Images.SetKeyName(4, "试样试验前2.ico");
+            this.imageList1.Images.SetKeyName(5, "试样试验前3.ico");
+            this.imageList1.Images.SetKeyName(6, "试验前1.ico");
+            this.imageList1.Images.SetKeyName(7, "试验前2.ico");
+            this.imageList1.Images.SetKeyName(8, "试验前3.ico");
+            this.imageList1.Images.SetKeyName(9, "计算前1.ico");
+            this.imageList1.Images.SetKeyName(10, "计算前2.ico");
+            this.imageList1.Images.SetKeyName(11, "计算前3.ico");
+            this.imageList1.Images.SetKeyName(12, "结束时1.ico");
+            this.imageList1.Images.SetKeyName(13, "结束时2.ico");
+            this.imageList1.Images.SetKeyName(14, "结束时3.ico");
+            this.imageList1.Images.SetKeyName(15, "保存2.ico");
+            this.imageList1.Images.SetKeyName(16, "保存2.ico");
+            this.imageList1.Images.SetKeyName(17, "保存1.ico");
+            this.imageList1.Images.SetKeyName(18, "试样试验后1.ico");
+            this.imageList1.Images.SetKeyName(19, "试样试验后2.ico");
+            this.imageList1.Images.SetKeyName(20, "试样试验后3.ico");
+            this.imageList1.Images.SetKeyName(21, "试验前4.ico");
+            this.imageList1.Images.SetKeyName(22, "计算前4.ico");
             // 
             // btnstep7
             // 
@@ -503,6 +378,33 @@
             this.btnstep1.Name = "btnstep1";
             this.btnstep1.UseMnemonic = false;
             this.btnstep1.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Name = "panel5";
+            // 
+            // panel7
+            // 
+            resources.ApplyResources(this.panel7, "panel7");
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.Controls.Add(this.tableLayoutPanel9);
+            this.panel7.Name = "panel7";
+            // 
+            // tableLayoutPanel9
+            // 
+            resources.ApplyResources(this.tableLayoutPanel9, "tableLayoutPanel9");
+            this.tableLayoutPanel9.Controls.Add(this.btnStart, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.btnend, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.buttonEx14, 0, 2);
+            this.tableLayoutPanel9.Controls.Add(this.button8, 0, 3);
+            this.tableLayoutPanel9.Controls.Add(this.btnfinish, 0, 4);
+            this.tableLayoutPanel9.Controls.Add(this.btnsave, 0, 5);
+            this.tableLayoutPanel9.Controls.Add(this.btnsaveas, 0, 6);
+            this.tableLayoutPanel9.Controls.Add(this.btnprint, 0, 7);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel9_Paint);
             // 
             // btnStart
             // 
@@ -592,6 +494,7 @@
             this.btnsaveas.Name = "btnsaveas";
             this.btnsaveas.UseMnemonic = false;
             this.btnsaveas.UseVisualStyleBackColor = false;
+            this.btnsaveas.Click += new System.EventHandler(this.btnsaveas_Click);
             // 
             // btnprint
             // 
@@ -605,6 +508,32 @@
             this.btnprint.UseMnemonic = false;
             this.btnprint.UseVisualStyleBackColor = false;
             this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
+            // 
+            // panel8
+            // 
+            resources.ApplyResources(this.panel8, "panel8");
+            this.panel8.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel8.Controls.Add(this.paneltest);
+            this.panel8.Name = "panel8";
+            // 
+            // paneltest
+            // 
+            resources.ApplyResources(this.paneltest, "paneltest");
+            this.paneltest.Controls.Add(this.splitContainer1);
+            this.paneltest.Name = "paneltest";
+            // 
+            // panel3
+            // 
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Name = "panel3";
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.Controls.Add(this.button21, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button6, 0, 1);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             // 
             // button21
             // 
@@ -630,6 +559,19 @@
             this.button6.UseMnemonic = false;
             this.button6.UseVisualStyleBackColor = false;
             // 
+            // panel6
+            // 
+            resources.ApplyResources(this.panel6, "panel6");
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.Name = "panel6";
+            // 
+            // tableLayoutPanel8
+            // 
+            resources.ApplyResources(this.tableLayoutPanel8, "tableLayoutPanel8");
+            this.tableLayoutPanel8.Controls.Add(this.buttonEx1, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.buttonEx2, 0, 1);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            // 
             // buttonEx1
             // 
             resources.ApplyResources(this.buttonEx1, "buttonEx1");
@@ -653,6 +595,65 @@
             this.buttonEx2.Name = "buttonEx2";
             this.buttonEx2.UseMnemonic = false;
             this.buttonEx2.UseVisualStyleBackColor = false;
+            // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "3.ico");
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "Selector_Status_Ready_For_Test.ico");
+            this.imageList2.Images.SetKeyName(1, "Selector_Status_Tested.ico");
+            this.imageList2.Images.SetKeyName(2, "Selector_Status_Tested_Rejected.ico");
+            this.imageList2.Images.SetKeyName(3, "Selector_Status_Tested.bmp");
+            this.imageList2.Images.SetKeyName(4, "Selector_Status_Testing.ico");
+            // 
+            // imageList4
+            // 
+            this.imageList4.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList4.ImageStream")));
+            this.imageList4.TransparentColor = System.Drawing.Color.White;
+            this.imageList4.Images.SetKeyName(0, "50.ico");
+            this.imageList4.Images.SetKeyName(1, "50-1.ico");
+            this.imageList4.Images.SetKeyName(2, "r2-2.ico");
+            this.imageList4.Images.SetKeyName(3, "r2.ico");
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timermain
+            // 
+            this.timermain.Tick += new System.EventHandler(this.timermain_Tick);
+            // 
+            // contextMenuStrip1
+            // 
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.重新计算当前试样ToolStripMenuItem,
+            this.重新计算全部试样ToolStripMenuItem,
+            this.原始数据导出为ExcelToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            // 
+            // 重新计算当前试样ToolStripMenuItem
+            // 
+            resources.ApplyResources(this.重新计算当前试样ToolStripMenuItem, "重新计算当前试样ToolStripMenuItem");
+            this.重新计算当前试样ToolStripMenuItem.Name = "重新计算当前试样ToolStripMenuItem";
+            this.重新计算当前试样ToolStripMenuItem.Click += new System.EventHandler(this.重新计算当前试样ToolStripMenuItem_Click);
+            // 
+            // 重新计算全部试样ToolStripMenuItem
+            // 
+            resources.ApplyResources(this.重新计算全部试样ToolStripMenuItem, "重新计算全部试样ToolStripMenuItem");
+            this.重新计算全部试样ToolStripMenuItem.Name = "重新计算全部试样ToolStripMenuItem";
+            // 
+            // 原始数据导出为ExcelToolStripMenuItem
+            // 
+            resources.ApplyResources(this.原始数据导出为ExcelToolStripMenuItem, "原始数据导出为ExcelToolStripMenuItem");
+            this.原始数据导出为ExcelToolStripMenuItem.Name = "原始数据导出为ExcelToolStripMenuItem";
+            this.原始数据导出为ExcelToolStripMenuItem.Click += new System.EventHandler(this.试验数据导出为ExcelToolStripMenuItem_Click);
             // 
             // button7
             // 

@@ -38,8 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.numericEdit2 = new NationalInstruments.UI.WindowsForms.NumericEdit();
             this.lblname = new System.Windows.Forms.Label();
-            this.lblUnit = new System.Windows.Forms.Label();
             this.numericEdit1 = new NationalInstruments.UI.WindowsForms.NumericEdit();
+            this.cbounit = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit2)).BeginInit();
@@ -74,9 +74,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbounit);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.lblname);
-            this.groupBox1.Controls.Add(this.lblUnit);
             this.groupBox1.Controls.Add(this.numericEdit1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -119,9 +119,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(241, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 12);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 5;
-            this.label3.Text = "MPa/s";
+            this.label3.Text = "MPa";
             // 
             // numericEdit2
             // 
@@ -144,15 +144,6 @@
             this.lblname.TabIndex = 4;
             this.lblname.Text = "速度：";
             // 
-            // lblUnit
-            // 
-            this.lblUnit.AutoSize = true;
-            this.lblUnit.Location = new System.Drawing.Point(326, 25);
-            this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(29, 12);
-            this.lblUnit.TabIndex = 3;
-            this.lblUnit.Text = "kN/s";
-            // 
             // numericEdit1
             // 
             this.numericEdit1.FormatMode = NationalInstruments.UI.NumericFormatMode.CreateSimpleDoubleMode(3);
@@ -162,6 +153,15 @@
             this.numericEdit1.Size = new System.Drawing.Size(112, 21);
             this.numericEdit1.TabIndex = 1;
             this.numericEdit1.AfterChangeValue += new NationalInstruments.UI.AfterChangeNumericValueEventHandler(this.numericEdit1_AfterChangeValue);
+            // 
+            // cbounit
+            // 
+            this.cbounit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbounit.FormattingEnabled = true;
+            this.cbounit.Location = new System.Drawing.Point(327, 21);
+            this.cbounit.Name = "cbounit";
+            this.cbounit.Size = new System.Drawing.Size(99, 20);
+            this.cbounit.TabIndex = 19;
             // 
             // Form标准控制参数
             // 
@@ -191,7 +191,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.Label lblUnit;
         public NationalInstruments.UI.WindowsForms.NumericEdit numericEdit1;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
@@ -199,5 +198,6 @@
         public NationalInstruments.UI.WindowsForms.NumericEdit numericEdit2;
         public System.Windows.Forms.Label lblname;
         private System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.ComboBox cbounit;
     }
 }

@@ -227,6 +227,7 @@ namespace TabHeaderDemo
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl系统选项1.Dock = DockStyle.Fill;
+               
                 panelback.Controls.Add(UserControl系统选项1);
                 panelback.Visible = true;
             }
@@ -243,10 +244,13 @@ namespace TabHeaderDemo
 
             if (t ==_temp )
             {
+               
+                UserControl系统设置1.initgrid();
                 UserControl系统设置1.Init(0);
                 panelback.Visible = false;
                 panelback.Controls.Clear();
                 UserControl系统设置1.Dock = DockStyle.Fill;
+                
                 panelback.Controls.Add(UserControl系统设置1);
                 panelback.Visible = true;
             }

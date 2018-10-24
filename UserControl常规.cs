@@ -1537,5 +1537,16 @@ namespace TabHeaderDemo
                 OpenRecentMethod();
             }
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            for (int i = 0; i < 20; i++)
+            {
+                GlobeVal.mysys.RecentFilename[i] = "";
+                GlobeVal.mysys.RecentFilenameKind[i] = "";
+
+            }
+        }
     }
 }

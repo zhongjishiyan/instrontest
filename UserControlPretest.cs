@@ -425,10 +425,16 @@ namespace TabHeaderDemo
 
             GlobeVal.UserControlMain1.btnmmethod.Visible = true;
 
-            
-            GlobeVal.UserControlMain1.btnmreport.Visible = true;
-            GlobeVal.UserControlMain1.btnmmanage.Visible = true;
-
+            if (GlobeVal.mysys.machinekind == 0)
+            {
+                GlobeVal.UserControlMain1.btnmreport.Visible = true;
+                GlobeVal.UserControlMain1.btnmmanage.Visible = true;
+            }
+            else
+            {
+                GlobeVal.UserControlMain1.btnmreport.Visible = false ;
+                GlobeVal.UserControlMain1.btnmmanage.Visible = false ;
+            }
 
             if (GlobeVal.userControlpretest1.gfilename.Trim() == "")
             {
