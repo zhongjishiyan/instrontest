@@ -335,7 +335,7 @@ namespace TabHeaderDemo
             GlobeVal.FormmainLab.InitMeter();
             GlobeVal.FormmainLab.InitKey();
 
-            GlobeVal.myarm.connected = true;
+            //GlobeVal.myarm.Connected()= true;
 
                 mybinfile = mybinfile.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ" + "\\sys\\东光.参数");
                 Init();

@@ -198,7 +198,7 @@ namespace TabHeaderDemo
             btnebefore.Enabled = false;
             btneafter.Enabled = true;
         }
-     
+
 
         private void drawFigure(PaintEventArgs e, PointF[] points)
         {
@@ -509,7 +509,7 @@ namespace TabHeaderDemo
                     {
                         _temp = "Graph 1";
                     }
-                    if (f.ItemName[k] ==_temp )
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlGraph ug = new UserControlGraph();
                         ug.Visible = true;
@@ -525,7 +525,7 @@ namespace TabHeaderDemo
 
                     }
                     _temp = "";
-                    if(GlobeVal.mysys.language ==0)
+                    if (GlobeVal.mysys.language == 0)
                     {
                         _temp = "曲线图2";
                     }
@@ -533,7 +533,7 @@ namespace TabHeaderDemo
                     {
                         _temp = "Graph 2";
                     }
-                    if (f.ItemName[k] ==_temp)
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlGraph ug = new UserControlGraph();
                         ug.Visible = true;
@@ -557,7 +557,7 @@ namespace TabHeaderDemo
                     {
                         _temp = "Result 1";
                     }
-                    if (f.ItemName[k] ==_temp )
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlResult ug = new UserControlResult();
 
@@ -585,7 +585,7 @@ namespace TabHeaderDemo
                     {
                         _temp = "Result 2";
                     }
-                    if (f.ItemName[k] == _temp )
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlResult ug = new UserControlResult();
 
@@ -602,7 +602,7 @@ namespace TabHeaderDemo
 
                     }
                     _temp = "";
-                    if (GlobeVal.mysys.language ==0)
+                    if (GlobeVal.mysys.language == 0)
                     {
                         _temp = "原始数据";
                     }
@@ -610,7 +610,7 @@ namespace TabHeaderDemo
                     {
                         _temp = "Raw data";
                     }
-                    if (f.ItemName[k] ==_temp )
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlRawdata ug = new UserControlRawdata();
                         ug.Visible = true;
@@ -628,7 +628,7 @@ namespace TabHeaderDemo
                     }
 
                     _temp = "";
-                    if (GlobeVal.mysys.language ==0)
+                    if (GlobeVal.mysys.language == 0)
                     {
                         _temp = "试样输入";
                     }
@@ -636,7 +636,7 @@ namespace TabHeaderDemo
                     {
                         _temp = "Specimen Input";
                     }
-                    if (f.ItemName[k] ==_temp)
+                    if (f.ItemName[k] == _temp)
                     {
                         UserControlSpe ug = new UserControlSpe();
 
@@ -655,7 +655,7 @@ namespace TabHeaderDemo
                     }
 
                     _temp = "";
-                    if (GlobeVal.mysys.language ==0)
+                    if (GlobeVal.mysys.language == 0)
                     {
                         _temp = "仪表1";
                     }
@@ -682,8 +682,8 @@ namespace TabHeaderDemo
 
 
                     _temp = "";
-                     
-                    if (GlobeVal.mysys.language ==0)
+
+                    if (GlobeVal.mysys.language == 0)
                     {
                         _temp = "仪表2";
                     }
@@ -712,7 +712,7 @@ namespace TabHeaderDemo
 
 
                     _temp = "";
-                    if (GlobeVal.mysys.language ==0)
+                    if (GlobeVal.mysys.language == 0)
                     {
                         _temp = "摄像";
                     }
@@ -744,7 +744,7 @@ namespace TabHeaderDemo
                     }
 
                     _temp = "";
-                    if (GlobeVal.mysys.language ==0)
+                    if (GlobeVal.mysys.language == 0)
                     {
                         _temp = "过程提示";
                     }
@@ -781,7 +781,7 @@ namespace TabHeaderDemo
                         _temp = "State prompting";
                     }
 
-                    
+
                     if (f.ItemName[k] == _temp)
                     {
                         UserControlStatus ug = new UserControlStatus();
@@ -802,7 +802,7 @@ namespace TabHeaderDemo
                     }
 
                     _temp = "";
-                    if (GlobeVal.mysys.language ==0)
+                    if (GlobeVal.mysys.language == 0)
                     {
                         _temp = "峰值趋势数据";
                     }
@@ -889,7 +889,7 @@ namespace TabHeaderDemo
 
             if (mstepi == 1)
             {
-                if (GlobeVal.mysys.language ==0)
+                if (GlobeVal.mysys.language == 0)
                 {
                     _temp = "试样" + (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString() + ", 共" + CComLibrary.GlobeVal.filesave.mspecount.ToString();
                 }
@@ -1238,7 +1238,7 @@ namespace TabHeaderDemo
         {
 
 
-            if (GlobeVal.myarm.connected == false)
+            if (GlobeVal.myarm.Connected() == false)
             {
                 if (GlobeVal.mysys.language == 0)
                 {
@@ -1264,7 +1264,7 @@ namespace TabHeaderDemo
 
             if (CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["SpeStatus"] is DBNull)
             {
-
+                CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["SpeStatus"] = CComLibrary.TestStatus.Untested;
             }
             else
             {
@@ -1300,21 +1300,21 @@ namespace TabHeaderDemo
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem.Count; i++)
             {
 
-               mb= CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].checkzero();
+                mb = CComLibrary.GlobeVal.filesave.mFreeFormPromptsItem[i].checkzero();
 
-                if(mb==true)
+                if (mb == true)
                 {
 
 
                     return;
 
-                   
+
                 }
             }
 
-           
 
-                if (CComLibrary.GlobeVal.filesave.mwizard == true)
+
+            if (CComLibrary.GlobeVal.filesave.mwizard == true)
             {
                 if (btneafter.Enabled == false)
                 {
@@ -1409,7 +1409,7 @@ namespace TabHeaderDemo
 
             if (GlobeVal.UserControlGraph1 != null)
             {
-              if  (GlobeVal.UserControlGraph1.startrun()==false)
+                if (GlobeVal.UserControlGraph1.startrun() == false)
                 {
                     btnStart.Enabled = true;
                     btnStart.BackgroundImage = imageList4.Images[0];
@@ -1455,8 +1455,8 @@ namespace TabHeaderDemo
 
             if (GlobeVal.UserControlGraph2 != null)
             {
-              
-              if (  GlobeVal.UserControlGraph2.startrun()==false)
+
+                if (GlobeVal.UserControlGraph2.startrun() == false)
                 {
                     btnStart.Enabled = true;
                     btnStart.BackgroundImage = imageList4.Images[0];
@@ -1506,11 +1506,11 @@ namespace TabHeaderDemo
             GlobeVal.UserControlMain1.btnmain.Visible = false;
 
 
-            if (GlobeVal.mysys.language ==0)
+            if (GlobeVal.mysys.language == 0)
             {
                 GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "状态：运行";
             }
-           
+
             else
             {
                 GlobeVal.MainStatusStrip.Items["tslblstate"].Text = "Status: run";
@@ -1532,9 +1532,7 @@ namespace TabHeaderDemo
 
             string mspefiledat;
 
-            CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["SpeStatus"] = CComLibrary.TestStatus.tested;
-
-            CComLibrary.GlobeVal.filesave.lasttestdatatime = System.DateTime.Now.ToString();
+           
 
             if (GlobeVal.UserControlSpe1 != null)
             {
@@ -1582,8 +1580,7 @@ namespace TabHeaderDemo
             GlobeVal.myarm.endtest();
 
 
-
-
+        
 
 
             if (CComLibrary.GlobeVal.filesave.mwizard == true)
@@ -1617,12 +1614,12 @@ namespace TabHeaderDemo
                 {
 
                     mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
-           (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
+                       (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
                     CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1.scatterGraph1;
 
                     CComLibrary.GlobeVal.m_listline.Clear();
                     CComLibrary.GlobeVal.mscattergraph.Annotations.Clear();
-                  
+
                     CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
                     if (CComLibrary.GlobeVal.filesave.UseDatabase == true)
                     {
@@ -1648,7 +1645,14 @@ namespace TabHeaderDemo
                 {
 
                 }
+                //必需放在这赋值
+                CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["SpeStatus"] = CComLibrary.TestStatus.tested;
+
+                CComLibrary.GlobeVal.filesave.lasttestdatatime = System.DateTime.Now.ToString();
+
+
                 FreeFormRefresh(true, false);
+     
 
                 if (GlobeVal.myarm.duanliebaohu == true)
                 {
@@ -1972,7 +1976,7 @@ namespace TabHeaderDemo
             {
                 if (GlobeVal.mysys.language == 0)
                 {
-                    
+
                     MessageBox.Show("试验完成后才能计算");
                 }
 

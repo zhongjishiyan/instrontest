@@ -97,6 +97,8 @@ namespace ClsStaticStation
         public UInt16 ctrl_upper_sft_s;
         public UInt16 ctrl_upper_sft_f;
         public UInt16 ctrl_upper_sft_e;
+        
+
 
 
     }

@@ -104,6 +104,24 @@ namespace ClsStaticStation
 
         private int m_returnstep;//返回步骤
         private int m_returncount;//返回次数
+
+
+        public bool fDriverOn = false;
+
+        public override  bool DriverOn()
+        {
+            return fDriverOn;
+        }
+
+        private bool fConnected = false;
+
+        public override bool Connected()//
+        {
+            return fConnected;
+
+
+        }
+
         private List<demodata> mdemodata = new List<demodata>();
 
         public override void findzero(double speed)
@@ -127,8 +145,14 @@ namespace ClsStaticStation
 
         public override void DriveOn()
         {
-
-            myedc.Move.On();
+            if (mdemo == true)
+            {
+                fDriverOn = true;
+            }
+            else
+            {
+                myedc.Move.On();
+            }
         }
         public override void DriveOff()
         {
@@ -350,31 +374,7 @@ namespace ClsStaticStation
 
 
                 }
-                if (m_Global.mycls.datalist[j].SignName == "ambient pressure Ch Disp")
-                {
-
-                    b.data[m_Global.mycls.datalist[j].EdcId] = pos1;
-
-
-                    if (pos > m_Global.mycls.datalist[j].bvaluemax)
-                    {
-                        m_Global.mycls.datalist[j].bvaluemax = pos1;
-                    }
-                    if (pos < m_Global.mycls.datalist[j].bvaluemin)
-                    {
-                        m_Global.mycls.datalist[j].bvaluemin = pos1;
-                    }
-                    if (pos > m_Global.mycls.datalist[j].rvaluemax)
-                    {
-                        m_Global.mycls.datalist[j].rvaluemax = pos1;
-                    }
-                    if (pos < m_Global.mycls.datalist[j].rvaluemin)
-                    {
-                        m_Global.mycls.datalist[j].rvaluemin = pos1;
-                    }
-
-
-                }
+               
                 if (m_Global.mycls.datalist[j].SignName == "Ch Disp")
                 {
 
@@ -533,33 +533,7 @@ namespace ClsStaticStation
 
                 }
 
-                if (m_Global.mycls.datalist[j].SignName == "ambient pressure Ch Load")
-                {
-
-                    b.data[m_Global.mycls.datalist[j].EdcId] = load1;
-
-
-                    if (load > m_Global.mycls.datalist[j].bvaluemax)
-                    {
-
-                        m_Global.mycls.datalist[j].bvaluemax = load1;
-                    }
-                    if (load < m_Global.mycls.datalist[j].bvaluemin)
-                    {
-                        m_Global.mycls.datalist[j].bvaluemin = load1;
-                    }
-
-                    if (load > m_Global.mycls.datalist[j].rvaluemax)
-                    {
-
-                        m_Global.mycls.datalist[j].rvaluemax = load1;
-                    }
-                    if (load < m_Global.mycls.datalist[j].rvaluemin)
-                    {
-                        m_Global.mycls.datalist[j].rvaluemin = load1;
-                    }
-
-                }
+              
 
                 if (m_Global.mycls.datalist[j].SignName == "Ch Load")
                 {
@@ -650,11 +624,7 @@ namespace ClsStaticStation
                 }
 
 
-                if (m_Global.mycls.datalist[j].SignName == "Ch Dynamic Stiffness")
-                {
-
-
-                }
+            
 
 
 
@@ -718,11 +688,7 @@ namespace ClsStaticStation
                     m_Global.mycls.allsignals[j].cvalue = time;
                 }
 
-                if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Disp")
-                {
-                    m_Global.mycls.allsignals[j].cvalue = pos1;
-
-                }
+              
 
                 if (m_Global.mycls.allsignals[j].SignName == "Ch Disp")
                 {
@@ -733,11 +699,7 @@ namespace ClsStaticStation
 
                 }
 
-                if (m_Global.mycls.allsignals[j].SignName == "ambient pressure Ch Load")
-                {
-                    m_Global.mycls.allsignals[j].cvalue = load1;
-
-                }
+              
 
                 if (m_Global.mycls.allsignals[j].SignName == "Ch Load")
                 {
@@ -2971,6 +2933,9 @@ namespace ClsStaticStation
                                     m_Global.mycls.chsignals[m].bvaluemax = m_Global.mycls.chsignals[m].fullminbase;
                                     m_Global.mycls.chsignals[m].bvaluemin = m_Global.mycls.chsignals[m].fullmaxbase;
 
+
+          
+
                                 }
 
                                 oldcount = Convert.ToInt32(count);
@@ -2979,7 +2944,74 @@ namespace ClsStaticStation
 
                         }
 
-                       
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Max")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
+                                {
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemax;
+                                }
+                            }
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Disp Min")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
+                                {
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemin;
+                                }
+                            }
+                        }
+
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Max")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Load")
+                                {
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemax;
+                                }
+                            }
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Load Min")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Load")
+                                {
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemin;
+                                }
+                            }
+                        }
+
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Ext Max")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Ext")
+                                {
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemax;
+                                }
+                            }
+                        }
+
+                        if (m_Global.mycls.datalist[j].SignName == "Ch Ext Min")
+                        {
+                            for (int m = 0; m < m_Global.mycls.chsignals.Count; m++)
+                            {
+                                if (m_Global.mycls.chsignals[m].SignName == "Ch Ext")
+                                {
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemin;
+                                }
+                            }
+                        }
+
 
 
                         /*
@@ -3007,8 +3039,9 @@ namespace ClsStaticStation
         public override void Init(int handle)
         {
 
-            OpenConnection();
-
+            
+                OpenConnection();
+            
 
         }
 
@@ -3021,13 +3054,18 @@ namespace ClsStaticStation
                 myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0, 0, 0, 0, 0, 0);
                 //myedc = new XLDOPE.Edc(XLDOPE.OpenBy.DeviceId, 0);
 
-                connected = myedc.IsConnected();
+                fConnected   = myedc.IsConnected();
 
             }
             catch (System.BadImageFormatException)
             {
-                connected = false;
+                fConnected  = false;
 
+            }
+
+            if(mdemo ==true)
+            {
+                fConnected = true;
             }
 
 #if DSP_ONDATABLOCK
@@ -3063,8 +3101,10 @@ namespace ClsStaticStation
 
 
             // Select machine setup and initialize
-            myedc.Setup.SelSetup(XLDOPE.SETUP_NUMBER.SETUP_1, userScale, ref tan, ref tan);
 
+           
+            myedc.Setup.SelSetup(XLDOPE.SETUP_NUMBER.SETUP_1, userScale, ref tan, ref tan);
+            
             DataTransmissionRate = 0.001;
           //  myedc.Data.SetDataTransmissionRate(base.DataTransmissionRate);
 

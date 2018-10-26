@@ -291,7 +291,7 @@ namespace TabHeaderDemo
             GlobeVal.FormmainLab.InitMeter();
             GlobeVal.FormmainLab.InitKey();
 
-            if (GlobeVal.myarm.connected ==true)
+            if (GlobeVal.myarm.Connected() ==true)
                 {
                     WaitFormService.CloseWaitForm();
                 }
@@ -311,7 +311,7 @@ namespace TabHeaderDemo
                 }
 
 
-             GlobeVal.myarm.connected = true;
+           //  GlobeVal.myarm.Connected  = true;
             }
         }
 

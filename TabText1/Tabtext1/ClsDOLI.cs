@@ -100,6 +100,8 @@ namespace ClsStaticStation
         public double mtime;
 
         public double mwave;
+
+        public bool m_EmergencyStop;
     }
 
     public class DoPeEvent
@@ -108,8 +110,8 @@ namespace ClsStaticStation
         public Edc myedc;
         public short MyTan;
 
-      
-       
+
+
         public List<MDataInfo> mdatalist;
 
         RawDataStruct b = new RawDataStruct();
@@ -134,7 +136,7 @@ namespace ClsStaticStation
         ///----------------------------------------------------------------------
         private void Display(string Text)
         {
-           // MessageBox.Show(Text);
+            // MessageBox.Show(Text);
 
 
         }
@@ -230,72 +232,75 @@ namespace ClsStaticStation
             return 0;
         }
 #else
-    private Int32 LastTime = Environment.TickCount;
-    public  int OnData(ref DoPE.OnData Data, object Parameter)
-    {
-      
-        long a=0;
-        long c = 0;
-        
+        private Int32 LastTime = Environment.TickCount;
+        public int OnData(ref DoPE.OnData Data, object Parameter)
+        {
 
-        MDataInfo ma;
-
-      if (Data.DoPError == DoPE.ERR.NOERROR)
-      {
-        DoPE.Data Sample = Data.Data;
+            int mEmergencyStop = 0;
 
 
-       
 
-      //  AccurateTimer.QueryPerformanceCounter(ref a);
-      //  AccurateTimer.QueryPerformanceFrequency(ref c);
-      //  double Time = a / (double)c;
+            MDataInfo ma;
 
-        b.hardlimitlow = Sample.LowerLimits;
-        b.hardlimitup = Sample.UpperLimits;
-        b.softlimitlow = Sample.LowerSft;
-        b.softlimitup = Sample.UpperSft;
-        b.ctrlstate1 = Sample.CtrlState1;
-        b.ctrlstate2 = Sample.CtrlState2;
-
-        b.ctrl_state_s = (ushort)((Sample.CtrlState1) & 1);
-        b.ctrl_state_f = (ushort)((Sample.CtrlState1 >> 1) & 1);
-        b.ctrl_state_e = (ushort)((Sample.CtrlState1 >> 2) & 1);
-
-        b.ctrl_halt = (ushort)((Sample.CtrlState1 >> 4) & 1);
-        b.ctrl_down = (ushort)((Sample.CtrlState1 >> 5) & 1);
-        b.ctrl_up = (ushort)((Sample.CtrlState1 >> 6) & 1);
-
-        b.ctrl_move = (ushort)((Sample.CtrlState1 >> 7) & 1);
-        b.ctrl_ready = (ushort)((Sample.CtrlState1 >> 8) & 1);
-        b.ctrl_soft_set = (ushort)((Sample.CtrlState1 >> 11) & 1);
-
-        b.ctrl_lower_sft_s = (ushort)((Sample.CtrlState2 >> 0) & 1);
-        b.ctrl_lower_sft_f = (ushort)((Sample.CtrlState2 >> 1) & 1);
-        b.ctrl_lower_sft_e = (ushort)((Sample.CtrlState2 >> 2) & 1);
-
-        b.ctrl_upper_sft_s = (ushort)((Sample.CtrlState2 >> 4) & 1);
-        b.ctrl_upper_sft_f = (ushort)((Sample.CtrlState2 >> 5) & 1);
-        b.ctrl_upper_sft_e = (ushort)((Sample.CtrlState2 >> 6) & 1);
+            if (Data.DoPError == DoPE.ERR.NOERROR)
+            {
+                DoPE.Data Sample = Data.Data;
 
 
-     
-      
-        ma = new MDataInfo();
-        ma.Id = 0;
-        ma.mydatainfo = Sample;
-        ma.mtime =Sample.Time;
-        ma.mwave = m_Global.mwave;
-        mdatalist.Add(ma);
-       
 
 
-       
+                //  AccurateTimer.QueryPerformanceCounter(ref a);
+                //  AccurateTimer.QueryPerformanceFrequency(ref c);
+                //  double Time = a / (double)c;
 
-       
-      }
-      return 0;
-    }
+                b.hardlimitlow = Sample.LowerLimits;
+                b.hardlimitup = Sample.UpperLimits;
+                b.softlimitlow = Sample.LowerSft;
+                b.softlimitup = Sample.UpperSft;
+                b.ctrlstate1 = Sample.CtrlState1;
+                b.ctrlstate2 = Sample.CtrlState2;
+
+                b.ctrl_state_s = (ushort)((Sample.CtrlState1) & 1);
+                b.ctrl_state_f = (ushort)((Sample.CtrlState1 >> 1) & 1);
+                b.ctrl_state_e = (ushort)((Sample.CtrlState1 >> 2) & 1);
+
+                b.ctrl_halt = (ushort)((Sample.CtrlState1 >> 4) & 1);
+                b.ctrl_down = (ushort)((Sample.CtrlState1 >> 5) & 1);
+                b.ctrl_up = (ushort)((Sample.CtrlState1 >> 6) & 1);
+
+                b.ctrl_move = (ushort)((Sample.CtrlState1 >> 7) & 1);
+                b.ctrl_ready = (ushort)((Sample.CtrlState1 >> 8) & 1);
+                b.ctrl_soft_set = (ushort)((Sample.CtrlState1 >> 11) & 1);
+
+                b.ctrl_lower_sft_s = (ushort)((Sample.CtrlState2 >> 0) & 1);
+                b.ctrl_lower_sft_f = (ushort)((Sample.CtrlState2 >> 1) & 1);
+                b.ctrl_lower_sft_e = (ushort)((Sample.CtrlState2 >> 2) & 1);
+
+                b.ctrl_upper_sft_s = (ushort)((Sample.CtrlState2 >> 4) & 1);
+                b.ctrl_upper_sft_f = (ushort)((Sample.CtrlState2 >> 5) & 1);
+                b.ctrl_upper_sft_e = (ushort)((Sample.CtrlState2 >> 6) & 1);
+
+                mEmergencyStop = (Sample.InSignals >> 0) & 1;
+
+
+                ma = new MDataInfo();
+                ma.Id = 0;
+                ma.mydatainfo = Sample;
+                ma.mtime = Sample.Time;
+                ma.mwave = m_Global.mwave;
+                if (mEmergencyStop == 1)
+                {
+                    ma.m_EmergencyStop = true;
+                }
+                else
+                {
+                    ma.m_EmergencyStop = false;
+                }
+                mdatalist.Add(ma);
+
+            }
+            return 0;
+        }
 #endif
 
         public int OnCommandError(ref DoPE.OnCommandError CommandError, object Parameter)
@@ -439,17 +444,17 @@ namespace ClsStaticStation
 
     public class CDOLI : ClsBaseControl
     {
-    
+
 
         Mutex mt = new Mutex();//创建一个同步基元
-       
+
 
         private double mstarttickcount;
 
 
         bool mstartcontrol = false;
 
-        double  mstartcontroltime = 0;
+        double mstartcontroltime = 0;
 
         double mstartcontrolpos = 0;
 
@@ -476,16 +481,19 @@ namespace ClsStaticStation
 
         private int[] fcontrolmode;
 
+        public bool fDriverOn = false;
+
+        public override bool DriverOn()
+        {
+            return fDriverOn;
+        }
 
         private bool fConnected = false;
-        public bool Connected//
+        public override  bool Connected()//
         {
-            get { return fConnected; }
+            return fConnected; 
 
-            set
-            {
-                fConnected = value;
-            }
+           
         }
 
 
@@ -508,7 +516,15 @@ namespace ClsStaticStation
         public override void cleartime()
         {
             base.cleartime();
-            MyEdc[DeviceNum].Data.SetTime(DoPE.SETTIME_MODE.IMMEDIATE , 0);
+
+            if (mdemo == true)
+            {
+
+            }
+            else
+            {
+                MyEdc[DeviceNum].Data.SetTime(DoPE.SETTIME_MODE.IMMEDIATE, 0);
+            }
             if (mdemo == false)
             {
                 bool b = false;
@@ -552,9 +568,9 @@ namespace ClsStaticStation
 
         public override void Exit()
         {
-           // uhat.Stop();
+            // uhat.Stop();
         }
-        public override  void btnzeroall()
+        public override void btnzeroall()
         {
 
         }
@@ -565,15 +581,22 @@ namespace ClsStaticStation
         }
         public override void DriveOn()
         {
-            try
-            {
-
-                DoPE.ERR error = MyEdc[DeviceNum].Move.On();
-                DisplayError(error, "On");
+         if (mdemo == true)
+           {
+                fDriverOn = true;
             }
-            catch (NullReferenceException)
+            else
             {
-                Display(CommandFailedString);
+                try
+                {
+
+                    DoPE.ERR error = MyEdc[DeviceNum].Move.On();
+                    DisplayError(error, "On");
+                }
+                catch (NullReferenceException)
+                {
+                    Display(CommandFailedString);
+                }
             }
         }
 
@@ -640,7 +663,7 @@ namespace ClsStaticStation
 
             mstartcontrol = true;
 
-         
+
 
 
         }
@@ -784,6 +807,8 @@ namespace ClsStaticStation
                 else
                 {
                     Display("Device" + CDeviceID.ToString() + " " + "SelectSetup : OK !\n");
+
+                    fConnected = true;
                     //mtimer.Interval = 10;
                     //mtimer.Enabled = true;
 
@@ -803,12 +828,15 @@ namespace ClsStaticStation
                 // error return codes.
                 Display(string.Format("{0}\n", ex));
                 fConnected = false;
-                
-                return;
+
+               // return;
             }
 
-            fConnected = true;
 
+            if (mdemo == true)
+            {
+                fConnected = true;
+            }
             Cursor.Current = Cursors.Default;
 
 
@@ -868,7 +896,7 @@ namespace ClsStaticStation
         private double load;
         private double ext;
         private double cmd;
-       
+
         private double time;
         private double moritime;
         private double count;
@@ -904,9 +932,9 @@ namespace ClsStaticStation
 
 
 
-       
 
-       
+
+
 
         private double m_keeptime;//保持时间
 
@@ -955,7 +983,7 @@ namespace ClsStaticStation
             else
             {
 
-               
+
             }
 
             return m_Global.m_runstate;
@@ -983,7 +1011,7 @@ namespace ClsStaticStation
 
             return Convert.ToInt16(t);
         }
-       
+
         public CDOLI()
         {
             int i;
@@ -1026,6 +1054,7 @@ namespace ClsStaticStation
             mtimer.Interval = 50;
             mtimer.Enabled = true;
             mtimer.Start();
+
             /*
              uhat = new UltraHighAccurateTimer.UltraHighAccurateTimer();
              uhat.Interval = 10;  //定时间隔1毫秒
@@ -1035,17 +1064,17 @@ namespace ClsStaticStation
         }
         private void uhat_Tick(object sender)
         {
-            
+
             if (mstartcontrol == true)
             {
 
-                MyEdc[DeviceNum].Data.CurrentData(ref mcurrentdata);
-              
-                m_Global.mwave   = mstartcontrolpos  +5*Math.Sin((mcurrentdata.Time - mstartcontroltime)* 0.3);
+               // MyEdc[DeviceNum].Data.CurrentData(ref mcurrentdata);
 
-              //  MyEdc[DeviceNum].Move.Pos(DoPE.CTRL.POS, 10, m_Global.mwave, ref Myevent[DeviceNum].MyTan);
+               // m_Global.mwave = mstartcontrolpos + 5 * Math.Sin((mcurrentdata.Time - mstartcontroltime) * 0.3);
 
-               
+                //  MyEdc[DeviceNum].Move.Pos(DoPE.CTRL.POS, 10, m_Global.mwave, ref Myevent[DeviceNum].MyTan);
+
+
 
                 /*
                 if (mcurrentdata.Sensor[0]<m_Global.mwave)
@@ -1175,13 +1204,13 @@ namespace ClsStaticStation
             b.data = new double[24];
             if (mdemotesting == false)
             {
-               
+
                 load = r.NextDouble();
                 pos = r.NextDouble();
                 ext = r.NextDouble();
-                time = (System.Environment.TickCount-mstarttickcount) / 1000;
-               
-                
+                time = (System.Environment.TickCount - mstarttickcount) / 1000;
+
+
                 count = 0;
                 load1 = r.NextDouble();
                 pos1 = r.NextDouble();
@@ -1189,11 +1218,11 @@ namespace ClsStaticStation
             }
             else
             {
-                
+
                 load = r.NextDouble();
                 pos = r.NextDouble();
                 ext = r.NextDouble();
-                time = (System.Environment.TickCount-mstarttickcount) / 1000;
+                time = (System.Environment.TickCount - mstarttickcount) / 1000;
                 cmd = 0;
                 count = 0;
                 load1 = r.NextDouble();
@@ -1458,9 +1487,9 @@ namespace ClsStaticStation
 
                 }
 
-               
 
-               
+
+
 
 
                 if (m_Global.mycls.datalist[j].SignName == "Ch Count")
@@ -1650,12 +1679,24 @@ namespace ClsStaticStation
                         //load = GGMsg.mwave;
                         ext = GGMsg.mydatainfo.Sensor[(int)DoPE.SENSOR.SENSOR_E];
 
-                        ClsStaticStation.m_Global.msensor4= GGMsg.mydatainfo.Sensor[(int)DoPE.SENSOR.SENSOR_4];
+                        ClsStaticStation.m_Global.msensor4 = GGMsg.mydatainfo.Sensor[(int)DoPE.SENSOR.SENSOR_4];
                         ClsStaticStation.m_Global.msensor5 = GGMsg.mydatainfo.Sensor[(int)DoPE.SENSOR.SENSOR_5];
                         ClsStaticStation.m_Global.msensor6 = GGMsg.mydatainfo.Sensor[(int)DoPE.SENSOR.SENSOR_6];
                         ClsStaticStation.m_Global.msensor7 = GGMsg.mydatainfo.Sensor[(int)DoPE.SENSOR.SENSOR_7];
                         ClsStaticStation.m_Global.msensor8 = GGMsg.mydatainfo.Sensor[(int)DoPE.SENSOR.SENSOR_8];
 
+                        int t= GGMsg.mydatainfo.InSignals & 16;
+
+                        if(t==16)
+                        {
+                            fDriverOn = false;
+                        }
+                        else
+                        {
+                            fDriverOn = true;
+                        }
+
+                        m_EmergencyStop = GGMsg.m_EmergencyStop;
 
                         cmd = GGMsg.mydatainfo.Test1;
 
@@ -1702,8 +1743,6 @@ namespace ClsStaticStation
 
 
                     if (ma >= 10)
-
-                    //if (time - mspeed_time0 >= 0.01)
                     {
 
 
@@ -1933,7 +1972,7 @@ namespace ClsStaticStation
 
                         }
 
-                       
+
 
 
                         if (m_Global.mycls.datalist[j].SignName == "Ch Count")
@@ -2016,7 +2055,7 @@ namespace ClsStaticStation
 
                         }
 
-                        
+
 
 
                     }
@@ -2036,7 +2075,7 @@ namespace ClsStaticStation
                         {
                             m_Global.mycls.allsignals[j].cvalue = time;
                         }
-                       
+
 
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Disp")
                         {
@@ -2059,7 +2098,7 @@ namespace ClsStaticStation
                             }
 
                         }
-                      
+
                         if (m_Global.mycls.allsignals[j].SignName == "Ch Load")
                         {
                             m_Global.mycls.allsignals[j].cvalue = load;
@@ -2129,7 +2168,7 @@ namespace ClsStaticStation
 
                         }
 
-                       
+
 
 
                         if (m_Global.mycls.datalist[j].SignName == "Ch Disp Max")
@@ -2138,7 +2177,7 @@ namespace ClsStaticStation
                             {
                                 if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
                                 {
-                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemax;
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemax;
                                 }
                             }
                         }
@@ -2149,7 +2188,7 @@ namespace ClsStaticStation
                             {
                                 if (m_Global.mycls.chsignals[m].SignName == "Ch Disp")
                                 {
-                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemin;
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemin;
                                 }
                             }
                         }
@@ -2161,7 +2200,7 @@ namespace ClsStaticStation
                             {
                                 if (m_Global.mycls.chsignals[m].SignName == "Ch Load")
                                 {
-                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemax;
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemax;
                                 }
                             }
                         }
@@ -2172,7 +2211,7 @@ namespace ClsStaticStation
                             {
                                 if (m_Global.mycls.chsignals[m].SignName == "Ch Load")
                                 {
-                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemin;
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemin;
                                 }
                             }
                         }
@@ -2184,7 +2223,7 @@ namespace ClsStaticStation
                             {
                                 if (m_Global.mycls.chsignals[m].SignName == "Ch Ext")
                                 {
-                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemax;
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemax;
                                 }
                             }
                         }
@@ -2195,7 +2234,7 @@ namespace ClsStaticStation
                             {
                                 if (m_Global.mycls.chsignals[m].SignName == "Ch Ext")
                                 {
-                                    b.data[m_Global.mycls.datalist[j].EdcId] = m_Global.mycls.chsignals[m].cvaluemin;
+                                    m_Global.mycls.allsignals[j].cvalue = m_Global.mycls.chsignals[m].cvaluemin;
                                 }
                             }
                         }
@@ -2347,13 +2386,13 @@ namespace ClsStaticStation
 
             mtestrun = true;
 
-             if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)//简单试验
+            if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 2)//简单试验
             {
                 mrunlist = new List<CComLibrary.CmdSeg>();
                 mrunlist.Clear();
                 startcontrol();
             }
-             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 0) //一般试验
             {
 
 
@@ -2409,7 +2448,7 @@ namespace ClsStaticStation
                 segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].destorigin(),
                     Convert.ToInt16(mrunlist[mcurseg].controlmode),
                      Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0,mrunlist[mcurseg].destmode);
+                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0, mrunlist[mcurseg].destmode);
 
 
 
@@ -2417,7 +2456,7 @@ namespace ClsStaticStation
 
 
             }
-             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3) //高级试验
+            else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 3) //高级试验
             {
                 CComLibrary.SequenceFile sqf = new CComLibrary.SequenceFile();
                 sqf = sqf.DeSerializeNow(System.Windows.Forms.Application.StartupPath + "\\AppleLabJ\\sequence\\" + CComLibrary.GlobeVal.filesave.SequenceName);
@@ -2483,7 +2522,7 @@ namespace ClsStaticStation
                     if (sqf.mSequencelist[i].wavekind == 2) //循环波
                     {
                         n.keeptime = sqf.mSequencelist[i].keeptime;
-                       
+
                         n.mseq = sqf.mSequencelist[i];
                         n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
 
@@ -2508,10 +2547,10 @@ namespace ClsStaticStation
                     if (sqf.mSequencelist[i].wavekind == 3) //正弦波
                     {
                         n.keeptime = sqf.mSequencelist[i].keeptime;
-                     
+
                         n.mseq = sqf.mSequencelist[i];
                         n.mseq.wavekind = sqf.mSequencelist[i].wavekind;
-                        n.mseq.stepname  = sqf.mSequencelist[i].stepname ;
+                        n.mseq.stepname = sqf.mSequencelist[i].stepname;
                         n.cmd = 0;
 
                         n.action = 0; //始终保持异步控制
@@ -2595,7 +2634,7 @@ namespace ClsStaticStation
                    Convert.ToInt16(mrunlist[ii].controlmode),
                     Convert.ToInt16(mrunlist[ii].destcontrolmode),
                    k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
 
                         mcurseg = ii;
                     }
@@ -2624,7 +2663,7 @@ namespace ClsStaticStation
 
             }
             else if (CComLibrary.GlobeVal.filesave.mcontrolprocess == 1) //中级试验
-           
+
             {
 
 
@@ -2653,7 +2692,7 @@ namespace ClsStaticStation
                     n.keeptime = sf.mseglist[i].keeptime;
                     n.cmd = sf.mseglist[i].cmd;
                     n.action = sf.mseglist[i].action;
-                    
+
                     if (sf.mseglist[i].cyclicrun == true)
                     {
                         n.returncount = sf.mseglist[i].cycliccount;
@@ -2726,7 +2765,7 @@ namespace ClsStaticStation
                            Convert.ToInt16(mrunlist[ii].controlmode),
                              Convert.ToInt16(mrunlist[ii].destcontrolmode),
                             k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
 
                         mcurseg = ii;
                     }
@@ -2739,7 +2778,7 @@ namespace ClsStaticStation
                        Convert.ToInt16(mrunlist[ii].controlmode),
                         Convert.ToInt16(mrunlist[ii].destcontrolmode),
                        k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                       mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                       mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
 
                             mcurseg = ii;
                         }
@@ -2759,14 +2798,14 @@ namespace ClsStaticStation
 
             }
 
-           
+
 
             mrunstarttime = System.Environment.TickCount / 1000;
 
 
         }
 
-        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action,int destmode)
+        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action, int destmode)
         {
             bool b = false;
             short m;
@@ -2815,7 +2854,7 @@ namespace ClsStaticStation
                         double m_dest2 = mrunlist[mcurseg].mseq.mtrimin;
 
 
-                        MyEdc[DeviceNum].Move.Cycle((DoPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed, m_dest1, 0, m_speed, m_dest2, 0, Convert.ToInt32( mrunlist[mcurseg].mseq.mcount- mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_dest2, ref tan);
+                        MyEdc[DeviceNum].Move.Cycle((DoPE.CTRL)mrunlist[mcurseg].mseq.controlmode, m_speed, m_dest1, 0, m_speed, m_dest2, 0, Convert.ToInt32(mrunlist[mcurseg].mseq.mcount - mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_dest2, ref tan);
                     }
 
 
@@ -2841,9 +2880,9 @@ namespace ClsStaticStation
                         }
 
 
-                        MyEdc[DeviceNum].Move.DynCycles(DoPE.DYN_WAVEFORM.COSINE,false, (DoPE.DYN_PEAKCTRL)0, (DoPE.CTRL)mrunlist[mcurseg].mseq.controlmode, false, m_speed, m_offset, m_amp,0,0,
-                            mrunlist[mcurseg].mseq.msinfreq, Convert.ToInt32( mrunlist[mcurseg].mseq.mcount- mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_offset,DoPE.DYN_SWEEP.OFF,0,0,0,DoPE.DYN_SWEEP.OFF,0,0,0,DoPE.DYN_SWEEP.OFF,0,0,0,
-                            DoPE.DYN_SUPERPOS.OFF,0,0,DoPE.DYN_BIMODAL.CTRL_OFF,DoPE.SENSOR.SENSOR_S,0,0,0, ref tan);
+                        MyEdc[DeviceNum].Move.DynCycles(DoPE.DYN_WAVEFORM.COSINE, false, (DoPE.DYN_PEAKCTRL)0, (DoPE.CTRL)mrunlist[mcurseg].mseq.controlmode, false, m_speed, m_offset, m_amp, 0, 0,
+                            mrunlist[mcurseg].mseq.msinfreq, Convert.ToInt32(mrunlist[mcurseg].mseq.mcount - mrunlist[mcurseg].mseq.mfinishedcount), m_speed, m_offset, DoPE.DYN_SWEEP.OFF, 0, 0, 0, DoPE.DYN_SWEEP.OFF, 0, 0, 0, DoPE.DYN_SWEEP.OFF, 0, 0, 0,
+                            DoPE.DYN_SUPERPOS.OFF, 0, 0, DoPE.DYN_BIMODAL.CTRL_OFF, DoPE.SENSOR.SENSOR_S, 0, 0, 0, ref tan);
                     }
 
 
@@ -2934,7 +2973,7 @@ namespace ClsStaticStation
                         {
                             current_returncount = current_returncount + 1;
                             mrunlist[mcurseg].mseq.finishedloopcount = current_returncount;
-                      
+
 
                             if (current_returncount >= m_returncount)
                             {
@@ -2975,7 +3014,7 @@ namespace ClsStaticStation
                                        Convert.ToInt16(mrunlist[ii].controlmode),
                                          Convert.ToInt16(mrunlist[ii].destcontrolmode),
                                         k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
                                 }
                                 else
                                 {
@@ -2985,7 +3024,7 @@ namespace ClsStaticStation
                                    Convert.ToInt16(mrunlist[ii].controlmode),
                                     Convert.ToInt16(mrunlist[ii].destcontrolmode),
                                    k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action,mrunlist[ii].destmode);
+                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
 
                                         mcurseg = ii;
                                     }
@@ -3017,8 +3056,9 @@ namespace ClsStaticStation
         public override void Init(int handle)
         {
 
-
-            ConnectToEdc(0);
+           
+                ConnectToEdc(0);
+            
 
 
         }
@@ -3040,25 +3080,25 @@ namespace ClsStaticStation
 
         }
 
-        public override  void btnzero(Button b)
+        public override void btnzero(Button b)
         {
             if (b.Text == "位移")
             {
 
-                
+
                 MyEdc[DeviceNum].Tare.SetTare(DoPE.SENSOR.SENSOR_S, pos);
 
             }
 
             if (b.Text == "力")
             {
-                MyEdc[DeviceNum].Tare.SetTare(DoPE.SENSOR.SENSOR_F, load );
+                MyEdc[DeviceNum].Tare.SetTare(DoPE.SENSOR.SENSOR_F, load);
 
             }
 
             if (b.Text == "变形")
             {
-                MyEdc[DeviceNum].Tare.SetTare(DoPE.SENSOR.SENSOR_E, ext );
+                MyEdc[DeviceNum].Tare.SetTare(DoPE.SENSOR.SENSOR_E, ext);
             }
 
             if (b.Text == "围压位移")

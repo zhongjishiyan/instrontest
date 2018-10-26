@@ -223,7 +223,6 @@ namespace TabHeaderDemo
                 m_Global.mycls.ChannelRange[i] = GlobeVal.mysys.ChannelRange[i];
                 m_Global.mycls.ChannelSampling[i] = GlobeVal.mysys.ChannelSamplemode[i];
                 m_Global.mycls.ChannelControlChannel[i] = GlobeVal.mysys.ChannelControlChannel[i];
-
                 m_Global.mycls.ChannelName[i] = GlobeVal.mysys.ChannelName[i];
             }
 
@@ -995,7 +994,9 @@ namespace TabHeaderDemo
 
             }
 
-
+            tslblEmergencyStop.Visible = false;
+            tslbllimit.Visible = false;
+            tslblstate.Visible = false;
 
 
 
@@ -1097,8 +1098,18 @@ namespace TabHeaderDemo
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-
-
+            if((GlobeVal.myarm.Connected()==true) && (tslblEmergencyStop.Visible ==false))
+            {
+                tslblEmergencyStop.Visible = true;
+                tslbllimit.Visible = true;
+                tslblstate.Visible = true;
+            }
+            if((GlobeVal.myarm.Connected()==false)&& (tslblEmergencyStop.Visible ==true))
+            {
+                tslblEmergencyStop.Visible = false;
+                tslbllimit.Visible = false;
+                tslblstate.Visible = false;
+            }
 
             if ((GlobeVal.myarm.getlimit(0) == true) || (GlobeVal.myarm.getlimit(0) == true))
             {

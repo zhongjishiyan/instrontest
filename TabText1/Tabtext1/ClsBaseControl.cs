@@ -20,7 +20,9 @@ namespace ClsStaticStation
         public double DataTransmissionRate = 0.001;
 
         public UInt32  debug;
-        public Boolean connected = false;//判断是否联机
+
+
+      
         public Boolean mtestrun = false; //程序执行完成判断
         public Boolean mprotect = false; //保护 
 
@@ -45,8 +47,16 @@ namespace ClsStaticStation
 
         public long count = 0;//试验次数
 
+        public virtual bool Connected()
+        {
+            return false;
+        }
 
-        
+
+        public virtual bool DriverOn()
+        {
+            return false; 
+        }
 
         public string mtishi = "";
 

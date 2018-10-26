@@ -164,7 +164,7 @@
     <value>宋体, 12pt, style=Bold</value>
   </data>
   <data name="lbltitle0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>659, 36</value>
+    <value>658, 36</value>
   </data>
   <data name="panel4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -299,7 +299,7 @@
 </value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>670, 4</value>
+    <value>669, 4</value>
   </data>
   <data name="numxmin.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 23</value>
@@ -371,7 +371,7 @@
     <value>宋体, 12pt, style=Bold</value>
   </data>
   <data name="lbltitle1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>656, 36</value>
+    <value>655, 36</value>
   </data>
   <data name="panel2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -514,7 +514,7 @@
 </value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>667, 4</value>
+    <value>666, 4</value>
   </data>
   <data name="label50.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 12</value>
@@ -646,7 +646,7 @@
     <value>宋体, 12pt, style=Bold</value>
   </data>
   <data name="lbltitle2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>661, 36</value>
+    <value>660, 36</value>
   </data>
   <data name="panel3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -789,7 +789,7 @@
 </value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>672, 4</value>
+    <value>671, 4</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Advanced graph styles：</value>
@@ -996,7 +996,7 @@
     <value>宋体, 12pt, style=Bold</value>
   </data>
   <data name="lbltitle3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>662, 36</value>
+    <value>661, 36</value>
   </data>
   <data name="panel6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1088,6 +1088,6 @@
 </value>
   </data>
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>673, 4</value>
+    <value>672, 4</value>
   </data>
 </root>

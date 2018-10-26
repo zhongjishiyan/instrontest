@@ -4298,9 +4298,11 @@ namespace CComLibrary
             dc.AutoIncrement = true;//自动增加
             dc.AutoIncrementSeed = 1;//起始为1
             dc.AutoIncrementStep = 1;//步长为1
-            dc.AllowDBNull = true;//
+            dc.AllowDBNull = true  ;//
 
             dc = dt.Columns.Add("SpeStatus",typeof(CComLibrary.TestStatus));
+
+
             /*
             for (int i = 0; i < CComLibrary.GlobeVal.filesave.mpromptslist.Count; i++)
             {
@@ -8093,6 +8095,10 @@ namespace CComLibrary
                         peakv[peak] = i;
                         peakb = true;
                         peak = peak + 1;
+                        if(peak>=999)
+                        {
+                            peak = 999;
+                        }
 
                     }
 
@@ -8231,6 +8237,10 @@ namespace CComLibrary
                     peakv[peak] = i;
                     peakb = true;
                     peak = peak + 1;
+                    if(peak >=999)
+                    {
+                        peak = 999;
+                    }
 
                 }
 

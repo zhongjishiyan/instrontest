@@ -249,7 +249,7 @@ namespace TabHeaderDemo
             GlobeVal.FormmainLab.InitKey();
 
 
-                if (GlobeVal.myarm.connected == false)
+                if (GlobeVal.myarm.Connected()== false)
                 {
                     this.switchLink.Value = false;
                 }

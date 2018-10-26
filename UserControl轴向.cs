@@ -122,6 +122,13 @@ namespace TabHeaderDemo
             if (switchDriver.Value == true)
             {
                 GlobeVal.myarm.DriveOn();
+
+                DelayS(1);
+
+                if(GlobeVal.myarm.DriverOn() ==false )
+                {
+                    switchDriver.Value = false;
+                } 
             }
 
             else
@@ -266,7 +273,7 @@ namespace TabHeaderDemo
                 GlobeVal.FormmainLab.InitMeter();
                 GlobeVal.FormmainLab.InitKey();
 
-                if (GlobeVal.myarm.connected == true)
+                if (GlobeVal.myarm.Connected() == true)
                 {
                     WaitFormService.CloseWaitForm();
                 }
@@ -275,18 +282,22 @@ namespace TabHeaderDemo
 
                     WaitFormService.CloseWaitForm();
 
-                    GlobeVal.FormmainLab.BringToFront();
+                   // GlobeVal.FormmainLab.BringToFront();
 
                     ThreadStart ts = delegate { MessageBox.Show("联机失败"); };
                     this.BeginInvoke(ts);
 
                     //  MessageBox.Show("联机失败");
 
-                    GlobeVal.FormmainLab.BringToFront();
+                    //  GlobeVal.FormmainLab.BringToFront();
+
+                    switchLink.Value = false;
+
+
                 }
 
 
-                GlobeVal.myarm.connected = true;
+                //GlobeVal.myarm.connected = true;
             }
         }
 

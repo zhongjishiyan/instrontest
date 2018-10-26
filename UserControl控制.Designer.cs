@@ -79,6 +79,8 @@
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.lstavail = new TabHeaderDemo.ListExtObject(this.components);
+            this.lstinclude = new TabHeaderDemo.ListExtObject(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.btnup = new System.Windows.Forms.Button();
@@ -466,6 +468,7 @@
             this.btnnext = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.pnledit = new System.Windows.Forms.Panel();
+            this.listViewEx1 = new TabHeaderDemo.ListViewEx();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
             this.btnfirst = new System.Windows.Forms.Button();
@@ -486,6 +489,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.listViewBlock1 = new TabHeaderDemo.ListViewBlock();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel26 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -496,10 +500,6 @@
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lstavail = new TabHeaderDemo.ListExtObject(this.components);
-            this.lstinclude = new TabHeaderDemo.ListExtObject(this.components);
-            this.listViewEx1 = new TabHeaderDemo.ListViewEx();
-            this.listViewBlock1 = new TabHeaderDemo.ListViewBlock();
             this.tabControl1.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -1072,6 +1072,18 @@
             // 
             resources.ApplyResources(this.label14, "label14");
             this.label14.Name = "label14";
+            // 
+            // lstavail
+            // 
+            resources.ApplyResources(this.lstavail, "lstavail");
+            this.lstavail.FormattingEnabled = true;
+            this.lstavail.Name = "lstavail";
+            // 
+            // lstinclude
+            // 
+            resources.ApplyResources(this.lstinclude, "lstinclude");
+            this.lstinclude.FormattingEnabled = true;
+            this.lstinclude.Name = "lstinclude";
             // 
             // panel10
             // 
@@ -3891,6 +3903,22 @@
             this.pnledit.Controls.Add(this.listViewEx1);
             this.pnledit.Name = "pnledit";
             // 
+            // listViewEx1
+            // 
+            this.listViewEx1.AllowColumnReorder = true;
+            this.listViewEx1.AutoArrange = false;
+            this.listViewEx1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.listViewEx1, "listViewEx1");
+            this.listViewEx1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listViewEx1.HideSelection = false;
+            this.listViewEx1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewEx1.Items")))});
+            this.listViewEx1.Name = "listViewEx1";
+            this.listViewEx1.Scrollable = false;
+            this.listViewEx1.SmallImageList = this.imageList1;
+            this.listViewEx1.UseCompatibleStateImageBehavior = false;
+            this.listViewEx1.View = System.Windows.Forms.View.Details;
+            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -4043,6 +4071,22 @@
             this.panel25.Controls.Add(this.listViewBlock1);
             this.panel25.Name = "panel25";
             // 
+            // listViewBlock1
+            // 
+            this.listViewBlock1.AllowColumnReorder = true;
+            this.listViewBlock1.AutoArrange = false;
+            this.listViewBlock1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.listViewBlock1, "listViewBlock1");
+            this.listViewBlock1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listViewBlock1.HideSelection = false;
+            this.listViewBlock1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewBlock1.Items")))});
+            this.listViewBlock1.Name = "listViewBlock1";
+            this.listViewBlock1.Scrollable = false;
+            this.listViewBlock1.SmallImageList = this.imageList2;
+            this.listViewBlock1.UseCompatibleStateImageBehavior = false;
+            this.listViewBlock1.View = System.Windows.Forms.View.Details;
+            // 
             // imageList2
             // 
             this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -4111,50 +4155,6 @@
             // 
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
-            // 
-            // lstavail
-            // 
-            resources.ApplyResources(this.lstavail, "lstavail");
-            this.lstavail.FormattingEnabled = true;
-            this.lstavail.Name = "lstavail";
-            // 
-            // lstinclude
-            // 
-            resources.ApplyResources(this.lstinclude, "lstinclude");
-            this.lstinclude.FormattingEnabled = true;
-            this.lstinclude.Name = "lstinclude";
-            // 
-            // listViewEx1
-            // 
-            this.listViewEx1.AllowColumnReorder = true;
-            this.listViewEx1.AutoArrange = false;
-            this.listViewEx1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.listViewEx1, "listViewEx1");
-            this.listViewEx1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listViewEx1.HideSelection = false;
-            this.listViewEx1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewEx1.Items")))});
-            this.listViewEx1.Name = "listViewEx1";
-            this.listViewEx1.Scrollable = false;
-            this.listViewEx1.SmallImageList = this.imageList1;
-            this.listViewEx1.UseCompatibleStateImageBehavior = false;
-            this.listViewEx1.View = System.Windows.Forms.View.Details;
-            // 
-            // listViewBlock1
-            // 
-            this.listViewBlock1.AllowColumnReorder = true;
-            this.listViewBlock1.AutoArrange = false;
-            this.listViewBlock1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.listViewBlock1, "listViewBlock1");
-            this.listViewBlock1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listViewBlock1.HideSelection = false;
-            this.listViewBlock1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewBlock1.Items")))});
-            this.listViewBlock1.Name = "listViewBlock1";
-            this.listViewBlock1.Scrollable = false;
-            this.listViewBlock1.SmallImageList = this.imageList2;
-            this.listViewBlock1.UseCompatibleStateImageBehavior = false;
-            this.listViewBlock1.View = System.Windows.Forms.View.Details;
             // 
             // UserControl控制
             // 

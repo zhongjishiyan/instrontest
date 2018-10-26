@@ -245,7 +245,7 @@ namespace TabHeaderDemo
             GlobeVal.FormmainLab.InitMeter();
             GlobeVal.FormmainLab.InitKey();
 
-            GlobeVal.myarm.connected = true;
+          //  GlobeVal.myarm.Connected() = true;
             }
         }
 

@@ -161,6 +161,15 @@ namespace ClsStaticStation
 
         public int rrr = 0;
         public int www = 0;
+
+        private bool fConnected = false;
+        public override bool Connected()//
+        {
+            return fConnected;
+
+
+        }
+
         public override void setrunstate(int m)
         {
             m_runstate = m;
@@ -1803,7 +1812,7 @@ namespace ClsStaticStation
         {
             short k;
 
-            if (connected == false)
+            if (fConnected == false)
             {
                 return;
             }
@@ -1857,7 +1866,7 @@ namespace ClsStaticStation
                 if (r == 1)
                 {
 
-                    connected = true;
+                    fConnected  = true;
                 }
 
                 else
@@ -1867,14 +1876,14 @@ namespace ClsStaticStation
 
                      MessageBox.Show("电机链接  串口" + mcom_control.ToString() + "不存在");
 
-                    connected = true;
+                    fConnected  = true;
                 }
 
             }
 
             else
             {
-                connected = false;
+                fConnected  = false;
 
                 MessageBox.Show("扭矩传感器链接  串口"+mSerialPort.PortName+"不存在");
             }

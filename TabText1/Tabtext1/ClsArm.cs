@@ -139,7 +139,13 @@ namespace ClsStaticStation
 
 
 
+        private bool fConnected = false;
+        public override bool Connected()//
+        {
+            return fConnected;
 
+
+        }
 
 
 
@@ -2515,7 +2521,7 @@ namespace ClsStaticStation
 
 
 
-            connected = true;
+            fConnected = true;
             //a9500.ARM_DEC_SetCtlerStyle((short)DeviceNum, (short)0); //蠕变方式 2017.05.02
 
 
