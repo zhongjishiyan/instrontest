@@ -49,6 +49,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.grid1 = new SourceGrid2.Grid();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -85,6 +87,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlbebase = new TabHeaderDemo.TableLayoutPanelExT();
             this.panel10 = new System.Windows.Forms.Panel();
             this.txtlay = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -96,6 +99,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlbe = new TabHeaderDemo.TableLayoutPanelExT();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加对象ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.结果1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,10 +133,6 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tlbebase = new TabHeaderDemo.TableLayoutPanelExT();
-            this.tlbe = new TabHeaderDemo.TableLayoutPanelExT();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -142,6 +142,7 @@
             this.panel11.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -165,7 +166,6 @@
             this.contextMenuStrip1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
-            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -309,6 +309,20 @@
             // columnHeader3
             // 
             resources.ApplyResources(this.columnHeader3, "columnHeader3");
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip3.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip3, "contextMenuStrip3");
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // tabPage6
             // 
@@ -562,6 +576,16 @@
             this.tableLayoutPanel11.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             // 
+            // tlbebase
+            // 
+            this.tlbebase.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.tlbebase, "tlbebase");
+            this.tlbebase.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlbebase.Name = "tlbebase";
+            this.tlbebase.RunBool = false;
+            this.tlbebase.SelectColumn = -1;
+            this.tlbebase.SelectRow = -1;
+            // 
             // panel10
             // 
             this.panel10.Controls.Add(this.txtlay);
@@ -633,6 +657,23 @@
             this.tableLayoutPanel9.Controls.Add(this.tlbe, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            // 
+            // tlbe
+            // 
+            this.tlbe.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.tlbe, "tlbe");
+            this.tlbe.ContextMenuStrip = this.contextMenuStrip1;
+            this.tlbe.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlbe.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tlbe.Name = "tlbe";
+            this.tlbe.RunBool = false;
+            this.tlbe.SelectColumn = -1;
+            this.tlbe.SelectRow = -1;
+            this.tlbe.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tlbe_CellPaint);
+            this.tlbe.Click += new System.EventHandler(this.tlbe_Click);
+            this.tlbe.Paint += new System.Windows.Forms.PaintEventHandler(this.tlbe_Paint);
+            this.tlbe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseMove);
+            this.tlbe.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseUp);
             // 
             // contextMenuStrip1
             // 
@@ -859,47 +900,6 @@
             this.imageList1.Images.SetKeyName(6, "进程layout1.bmp");
             this.imageList1.Images.SetKeyName(7, "状态layout1.bmp");
             // 
-            // contextMenuStrip3
-            // 
-            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip3.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.contextMenuStrip3, "contextMenuStrip3");
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // tlbebase
-            // 
-            this.tlbebase.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            resources.ApplyResources(this.tlbebase, "tlbebase");
-            this.tlbebase.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tlbebase.Name = "tlbebase";
-            this.tlbebase.RunBool = false;
-            this.tlbebase.SelectColumn = -1;
-            this.tlbebase.SelectRow = -1;
-            // 
-            // tlbe
-            // 
-            this.tlbe.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            resources.ApplyResources(this.tlbe, "tlbe");
-            this.tlbe.ContextMenuStrip = this.contextMenuStrip1;
-            this.tlbe.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tlbe.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tlbe.Name = "tlbe";
-            this.tlbe.RunBool = false;
-            this.tlbe.SelectColumn = -1;
-            this.tlbe.SelectRow = -1;
-            this.tlbe.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tlbe_CellPaint);
-            this.tlbe.Click += new System.EventHandler(this.tlbe_Click);
-            this.tlbe.Paint += new System.Windows.Forms.PaintEventHandler(this.tlbe_Paint);
-            this.tlbe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseMove);
-            this.tlbe.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tlbe_MouseUp);
-            // 
             // UserControl常规
             // 
             resources.ApplyResources(this, "$this");
@@ -917,6 +917,7 @@
             this.panel11.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.contextMenuStrip3.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -948,7 +949,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.contextMenuStrip2.ResumeLayout(false);
-            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

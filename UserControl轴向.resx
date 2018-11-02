@@ -138,7 +138,7 @@
     <value>ledalarm</value>
   </data>
   <data name="&gt;&gt;ledalarm.Type" xml:space="preserve">
-    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6873.19056, Culture=neutral, PublicKeyToken=null</value>
+    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6873.27176, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ledalarm.Parent" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -229,7 +229,7 @@
     <value>ledslimit</value>
   </data>
   <data name="&gt;&gt;ledslimit.Type" xml:space="preserve">
-    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6873.19056, Culture=neutral, PublicKeyToken=null</value>
+    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6873.27176, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ledslimit.Parent" xml:space="preserve">
     <value>tableLayoutPanel3</value>
@@ -319,7 +319,7 @@
     <value>ledhlimit</value>
   </data>
   <data name="&gt;&gt;ledhlimit.Type" xml:space="preserve">
-    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6873.19056, Culture=neutral, PublicKeyToken=null</value>
+    <value>LBSoft.IndustrialCtrls.Leds.LBLed, AppleLabJ, Version=1.2.6873.27176, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ledhlimit.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -2351,7 +2351,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABc
-        YAAAAk1TRnQBSQFMAwEBAAFQAQ4BUAEOAakBAAEdAQAE/wEZAQAI/wFCAU0BNgcAATYDAAEoAwABpAEC
+        YAAAAk1TRnQBSQFMAwEBAAFYAQ4BWAEOAakBAAEdAQAE/wEZAQAI/wFCAU0BNgcAATYDAAEoAwABpAEC
         AgABHQMAAQEBAAEYBQABvAHlEgAB0gGcATAB0gGbAS4B0gGbAS4B0wGbAS4B3AGkAS8B6gGyATUB8AG4
         AUkB8AG4AUsB8AG6AU8B6gG5AVAB5QG0AUgB3gGpAToB2gGfASwBzgGVASIBywGQASABwAGJAR4BtQGD
         AR4BsQGAAR4BqgF6AR4BpQF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2AR4BpAF2

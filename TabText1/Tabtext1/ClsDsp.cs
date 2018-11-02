@@ -1921,6 +1921,11 @@ namespace ClsStaticStation
         private int Eh_OnPosMsgHdlr(ref XLDOPE.OnPosMsg OnPosMsg, object Parameter)
         {
             // OnPosMsg.Reached
+
+            if(OnPosMsg.Reached ==true)
+            {
+
+            }
             m_runstate = 0;
 
             return 0;

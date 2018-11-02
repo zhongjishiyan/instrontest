@@ -1529,6 +1529,10 @@ namespace TabHeaderDemo
         {
 
             timer1.Enabled = false;
+            //必需放在这赋值
+            CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["SpeStatus"] = CComLibrary.TestStatus.tested;
+
+            CComLibrary.GlobeVal.filesave.lasttestdatatime = System.DateTime.Now.ToString();
 
             string mspefiledat;
 
@@ -1613,6 +1617,9 @@ namespace TabHeaderDemo
 
                 {
 
+               
+
+
                     mspefiledat = GlobeVal.mysys.SamplePath + "\\" + GlobeVal.mysys.SampleFile + "-" +
                        (CComLibrary.GlobeVal.filesave.currentspenumber + 1).ToString().Trim() + ".txt";
                     CComLibrary.GlobeVal.mscattergraph = GlobeVal.UserControlGraph1.userGraph1.scatterGraph1;
@@ -1621,6 +1628,9 @@ namespace TabHeaderDemo
                     CComLibrary.GlobeVal.mscattergraph.Annotations.Clear();
 
                     CComLibrary.GlobeVal.filesave.calc(mspefiledat);//计算数据
+
+                 
+
                     if (CComLibrary.GlobeVal.filesave.UseDatabase == true)
                     {
                         if (System.IO.Directory.Exists(Application.StartupPath + "\\mdb\\") == true)
@@ -1629,7 +1639,7 @@ namespace TabHeaderDemo
                         }
                         CComLibrary.GlobeVal.filesave.samplename = System.IO.Path.GetFileNameWithoutExtension(GlobeVal.spefilename);
                         CComLibrary.GlobeVal.filesave.Init_databaselist(true, CComLibrary.GlobeVal.filesave.currentspenumber);
-
+                     
                         if (System.IO.File.Exists(Application.StartupPath + "\\mdb\\" + CComLibrary.GlobeVal.filesave.methodname + ".mdb") == false)
                         {
                             GlobeVal.NewDatabase();
@@ -1645,11 +1655,7 @@ namespace TabHeaderDemo
                 {
 
                 }
-                //必需放在这赋值
-                CComLibrary.GlobeVal.filesave.dt.Rows[CComLibrary.GlobeVal.filesave.currentspenumber]["SpeStatus"] = CComLibrary.TestStatus.tested;
-
-                CComLibrary.GlobeVal.filesave.lasttestdatatime = System.DateTime.Now.ToString();
-
+              
 
                 FreeFormRefresh(true, false);
      

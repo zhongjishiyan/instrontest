@@ -619,7 +619,8 @@ namespace ClsStaticStation
         {
             try
             {
-                DoPE.ERR error = MyEdc[DeviceNum].Move.FDPoti(DoPE.CTRL.POS, speed / 60, DoPE.SENSOR.SENSOR_DP, 3, DoPE.EXT.SPEED_UP, 2, ref Myevent[DeviceNum].MyTan);
+
+                DoPE.ERR error = MyEdc[DeviceNum].Move.FDPoti((DoPE.CTRL) ctrlmode  , speed / 60, DoPE.SENSOR.SENSOR_DP, 3, DoPE.EXT.SPEED_UP, 2, ref Myevent[DeviceNum].MyTan);
                 DisplayError(error, "FDPoti");
             }
             catch (NullReferenceException)
@@ -631,7 +632,7 @@ namespace ClsStaticStation
         {
             try
             {
-                DoPE.ERR error = MyEdc[DeviceNum].Move.FDPoti(DoPE.CTRL.POS, speed / 60, DoPE.SENSOR.SENSOR_DP, 3, DoPE.EXT.SPEED_DOWN, 2, ref Myevent[DeviceNum].MyTan);
+                DoPE.ERR error = MyEdc[DeviceNum].Move.FDPoti((DoPE.CTRL)ctrlmode, speed / 60, DoPE.SENSOR.SENSOR_DP, 3, DoPE.EXT.SPEED_DOWN, 2, ref Myevent[DeviceNum].MyTan);
                 DisplayError(error, "FDPoti");
             }
             catch (NullReferenceException)
@@ -644,7 +645,7 @@ namespace ClsStaticStation
         {
             try
             {
-                DoPE.ERR error = MyEdc[DeviceNum].Move.Halt(DoPE.CTRL.POS, ref Myevent[DeviceNum].MyTan);
+                DoPE.ERR error = MyEdc[DeviceNum].Move.Halt((DoPE.CTRL)ctrlmode, ref Myevent[DeviceNum].MyTan);
                 DisplayError(error, "Halt");
             }
             catch (NullReferenceException)
@@ -1008,7 +1009,26 @@ namespace ClsStaticStation
             {
                 t = DoPE.CTRL.EXTENSION;
             }
-
+            if(ctrl ==4) //Sensor3
+            {
+                t = DoPE.CTRL.SENSOR_3; 
+            }
+            if (ctrl == 5) //Sensor4
+            {
+                t = DoPE.CTRL.SENSOR_4;
+            }
+            if (ctrl == 6) //Sensor5
+            {
+                t = DoPE.CTRL.SENSOR_5;
+            }
+            if (ctrl == 7) //Sensor6
+            {
+                t = DoPE.CTRL.SENSOR_6;
+            }
+            if (ctrl == 8) //Sensor7
+            {
+                t = DoPE.CTRL.SENSOR_7;
+            }
             return Convert.ToInt16(t);
         }
 

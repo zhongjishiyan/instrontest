@@ -4964,8 +4964,15 @@ namespace CComLibrary
                         mdatabaseitemlist[j].Name = mdatabaseitemlist[j].LName[1];
                     }
                 }
-                this.InitTable();
 
+                if (calced == true)
+                {
+
+                }
+                else
+                {
+                   // this.InitTable();
+                }
                 for (int i = 0; i < this.mFreeFormPromptsItem.Count; i++)
                 {
 
