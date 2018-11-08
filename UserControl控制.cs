@@ -204,10 +204,14 @@ namespace TabHeaderDemo
 
             grid2.Rows.Insert(i);
 
+            grid2[i,0]= new SourceGrid2.Cells.Real.Button(
+                   typeof(string));
+            grid2[i, 0].Value  = i.ToString();
 
-
-            grid2[i, 0] = new SourceGrid2.Cells.Real.Cell(
-                   i.ToString(), typeof(string));
+            SourceGrid2.VisualModels.Common l_ModelImage = new SourceGrid2.VisualModels.Common(false);
+            l_ModelImage.Image = imageList2.Images[2];
+            
+            grid2[i, 0].VisualModel = l_ModelImage;
 
 
             grid2[i, 1] = new SourceGrid2.Cells.Real.ComboBox(sf.cmdstring[sf.mseglist[i - 1].cmd]
@@ -292,7 +296,9 @@ namespace TabHeaderDemo
             grid2[i, 5].Behaviors.Add(textclick);
             grid2[i, 6] = new SourceGrid2.Cells.Real.Cell(
                                 sf.mseglist[i - 1].explain, typeof(string));
-        }
+
+            
+         }
 
         void textclick_DoubleClick(object sender, SourceGrid2.PositionEventArgs e)
         {
@@ -800,7 +806,9 @@ namespace TabHeaderDemo
                 head = new SourceGrid2.Cells.Real.ColumnHeader("Step");
             }
             head.EnableSort = false;
+            
             grid2[0, 0] = head;
+            
 
             if (GlobeVal.mysys.language == 0)
             {
@@ -4233,6 +4241,82 @@ namespace TabHeaderDemo
         private void cbotrispeeddownunit_SelectionChangeCommitted(object sender, EventArgs e)
         {
             getselect().msequence.mtriratedownunit = cbotrispeeddownunit.SelectedIndex;
+        }
+
+        private void grid2_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void tsbtncheck_Click(object sender, EventArgs e)
+        {
+            bool fb = false;
+
+            for (int i = 0; i < sf.mseglist.Count; i++)
+            {
+                if (sf.mseglist[i].cyclicrun == true)
+                {
+                    for (int j = sf.mseglist[i].returnstep; j < i; j++)
+                    {
+                        if (sf.mseglist[j].cyclicrun == true)
+                        {
+                            fb = true;
+                        }
+                    }
+
+                }
+            }
+
+            if (fb == true)
+            {
+                if (GlobeVal.mysys.language == 0)
+                {
+                    MessageBox.Show("错误，循环中包括子循环");
+                }
+                else
+                {
+                    MessageBox.Show("Error, including sub loop in the loop.");
+                }
+                return;
+            }
+           
+            //检查同步控制是否连续
+            for (int i = 0; i < sf.mseglist.Count-1; i++)
+            {
+                if (sf.mseglist[i].action  == 1)
+                {
+                    fb = false;
+                    if (sf.mseglist[i+1].action ==1)
+                    {
+                        fb = true;
+                        if(GlobeVal.mysys.ChannelControlChannel[sf.mseglist[i+1].controlmode]== GlobeVal.mysys.ChannelControlChannel[sf.mseglist[i].controlmode])
+                        {
+                            MessageBox.Show("错误,同步控制时控制方式应为不同硬件控制通道");
+                            break;
+                        }
+                        if (GlobeVal.mysys.ChannelControlChannel[sf.mseglist[i + 1].destcontrolmode] == GlobeVal.mysys.ChannelControlChannel[sf.mseglist[i].destcontrolmode])
+                        {
+                            MessageBox.Show("错误,同步控制时目标控制方式应为不同硬件控制通道");
+                            break;
+                        }
+
+                        i = i +1;
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("错误,同步控制应该成对配置");
+                        break;
+                    }
+                   
+
+                }
+            }
+            
+            
+
+
         }
     }
 }

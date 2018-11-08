@@ -1824,8 +1824,17 @@ namespace TabHeaderDemo
                 }
                 else
                 {
-                    GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "Advanced test：Step" + (GlobeVal.myarm.mcurseg + 1).ToString();
+                    if (GlobeVal.mysys.language == 0)
+                    {
+                        GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "高级测控：步骤" + (GlobeVal.myarm.mcurseg + 1).ToString();
 
+                     
+                    }
+                    else
+                    {
+                         GlobeVal.MainStatusStrip.Items["toolstatustest"].Text = "Advanced test：Step" + (GlobeVal.myarm.mcurseg + 1).ToString();
+
+                    }
                 }
 
 

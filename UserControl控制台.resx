@@ -231,9 +231,6 @@
   <data name="&gt;&gt;tableLayoutPanel5.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="listavail.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lstavail" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel1" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel7" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Absolute,51,Percent,50" /&gt;&lt;Rows Styles="Absolute,21,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
@@ -264,6 +261,9 @@
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
+  <data name="tableLayoutPanel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="tableLayoutPanel10.Location" type="System.Drawing.Point, System.Drawing">
     <value>351, 24</value>
   </data>
@@ -279,8 +279,8 @@
   <data name="txtprecise.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
@@ -305,9 +305,6 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>可用显示表头</value>
-  </data>
-  <data name="lstinclude.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
   </data>
   <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -475,6 +472,9 @@
   <data name="tableLayoutPanel8.Size" type="System.Drawing.Size, System.Drawing">
     <value>286, 121</value>
   </data>
+  <data name="tableLayoutPanel11.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
+    <value>Single</value>
+  </data>
   <data name="btnremovemeter.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 26</value>
   </data>
@@ -504,6 +504,9 @@
   </data>
   <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
+  </data>
+  <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="tableLayoutPanel7.Location" type="System.Drawing.Point, System.Drawing">
     <value>351, 24</value>
@@ -731,7 +734,7 @@
     <value>101, 53</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,97" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,99" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -741,6 +744,109 @@
   </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="panel2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk36FgAAAAAAADYAAAAoAAAALwAAAB8AAAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDY6OkA2urrANjn6QDY6OkA2OjqANjp6gDY6OsA2OjrANjo
+        6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo
+        6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo6wDY6OsA2OfqANno6wDX5+kA2OfqANjo6wDW5+kA2unqANbo
+        6ADZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDY6OkA2+rrANjl5wDc6OoA3OfpANno
+        6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno
+        6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2OjoANrq6gDa6uoA1+fnAN3s
+        7QDZ5ucA0+bmANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANfm5wCCj5EAbnR2AG90
+        dgBvdHYAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10
+        dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AGx0dABtdXUAbHV1AG11
+        dQBsdHQAUlpaAIaQkQDZ6usA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ5+gAvsvNAHN/
+        gQDc6OoA2ufpANvo6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp
+        6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2OnpANrr
+        6wDX5+cA1+joANrq6gCfr68AiZGSANLj5ADZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqALTB
+        wwBVX2EA0t7fANro6QDY6eoA1+nqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo
+        6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo
+        6gDY6OoA2OjqANnp6wDZ6esA2OfqAKOztQCIjpAA2urrANno6gDZ6OoA2ejqANro6gDY6eoA1OXmANno
+        6gDf6esAaXR2ANjn6QDZ6eoA2ejpANjo6QDY6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANTo5ADa6e0A0ufqANXl7gDX5+kA2uzkAMLCtACxmoAApIBXAJpzPQCig1MAtp+AAMjD
+        sADc698A2ujoANrp6gDX5esA3+noANzo6wDX6O0ApbKuAIaQkQDY6ekA2ejqANno6gDZ6OoA2ejpANjo
+        6QDZ6eoA1OPkAFtmaACntLYA2urrANjn6QDX5+gA2enqANjo6QDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2untANbo6ADf5+sA2+XiAL27qAC6rJkAxb+vAM/UygDU4N0A2efrANPf
+        4ADN1csAw7+vALiplgC+uqwA0+XiANTm6gDX5u0A3uzkANbm6wCms7UAhpCRANjp6QDZ6OoA2ejqANno
+        6gDZ6OoA2ejpAN3r7QCAjo8Ao6+xANzp6wDc7O0A2enqANrp6wDY6OkA3OvsANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDS5+kA3+frANfm5AC3sJ4A0M67AN3k6ADY5ukA0+rqANXp
+        6QDf6+wA3ufpANrl5ADX6OcA1e7yAMfLvgDEr5cA2fDxANnn6wDY5ucA1OrnAKywvQCGkJEA2OnpANno
+        6gDZ6OoA2ejqANjo6QDa6OoAsL2/AHyJiwDa6OoA2ejpANjn6ADZ6eoA2OfoANrp6wDY5+gA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANXl7QDb5eIAt7CeAMXDtADX5+kA1efnANnp
+        6gDa6OkA2efpANfo6QDV6ekA1ufpANno7ADZ5eYA3efnAL/BtAC5sJwA2+XiANTl6gDX6egAqbC0AIaQ
+        kQDY6ekA2ejqANno6gDZ6OoA2OjpAJypqwBteHoA2ebnANno6gDY6OkA2OfpANno6gDZ6OkA2ejpANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA1+fpAL26qADQzboA1+fpANjp
+        6ADY6uoA2OjpANjn6QDa6eoA1+boANro6gDa6esA1+jqANnq6wDX6uoA2OjoAMzJugDBuaoA1+fpANzo
+        6QCfsbEAhpCRANjp6QDX5+gA2unqANno6QDa5+gAZ3R2ANvp6gDX5+kA2OnqANjo6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDa7OQAuqyZAN7k
+        6ADV6OcA2erqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDb5+sA1+bjALWv
+        lwDr6uMA0+bsAKOzsgCGkJEA2OnpANfn6ADa6esA2unqAKKvsQCirrAA2ObnANrq6wDU5eYA2enrANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqAMnS
+        xgDBtqYA3OfqANrr6wDX5+gA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANrn
+        6wDZ6ucAvLiiANTRxwDW6O4ApLKyAIaQkQDY6ekA2unqANno6gDM2tsAand5ANrn6QDa6OoA2OjpANnp
+        6gDY6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoAtqeRAMzOwgDT5+kA2ujoANjo6QDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2OfqANns6QDKzr8AtaeSANfm6gCnsrMAhpCRANjp6QDY5+gA1uTmACAtLwDF09QA2OfoANzr
+        7ADZ6OoA1+foANrq6wDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gCqiGMA0dzXANPq6gDa6OoA2unqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDY5+oA1uvoANPe1wCiiGQA2+jrAKWwsQCGkJEA2OnpANrn6QB9i4wArru9ANno
+        6QDY6eoA2OfpANnp6gDZ6eoA2OjpANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqAJx2QwDX5ugA2urrANjn6QDY5+kA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANrn6gDW6OYA1+bnAJp3RgDZ5+gApbO0AIaQkQDY6ekA2ufpAGd0
+        dgDf7O0A2+nrANjp6gDY6OkA2OjpANnp6gDZ6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoApYBFANPh5wDf5ugA1ujpANnp6wDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ufqANvr6ADR4ugApX1FANrq6gCgsLEAhpCRANjp
+        6QDb6usAmaaoAHF8fgDZ5+gA2OjpANnp6gDZ6OkA2OfpANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gCrk3AA0NnSANzn6ADV6OkA2+jqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6eYA1ePzANTY0gCsk20A1enrAKaz
+        rwCGkJEA2OnpANjm6ADc6uwAj52fAImYmgDa6esA2OfoANno6QDb6usA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqAMK2oADGx7kA2+jmANno
+        7QDY6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANfp7ADY6OgAzMe3ALq0
+        owDZ6eoAo7OxAIaQkQDY6ekA2ejpANnn6QDa6OkAe4mKAMbU1QDb6esA2OfoANvq7ADY5+kA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA1N3PALyw
+        nQDU6+0A2ebpANjp6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA1ufqANnr
+        6QC+sZsAy93XANrn6gCms7QAhpCRANjp6QDW5ecA2unqANno6QDX5OUAanZ4ANbk5gDb6esA1OTmANnp
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDd7egAt6ybANHj3gDf6ekA1+rrANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDf6+oAz9/aALWumwDd6ugA2ensAKWxswCGkJEA2OnpANvq6wDY6OkA2OnqANro6QCWoaMAd4SGANfm
+        6ADW5ucA2OjqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANjl7QDM1csAuaOHANDe3gDZ6OgA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANTe3ACtpI0Az9PMANro6QDW6OgApbC2AIaQkQDY6ekA2ejqANno6gDZ6OoA2unqANrm
+        6ACOmJoAj5udAN3t7gDV5+cA2errANjp6gDY6OkA2urrANjn6ADZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA3e7jANTp6gDSyr4AuKyRANfp6gDd5+0A2ubrANfm6wDZ5+sA3ObrAN7p
+        5gDV5eMA0+ntANTk5QDj6uUArKecANDOwwDb6egA1eTrANnm6gCjtLEAhpCRANjp6QDZ6OoA2ejqANno
+        6gDX5+kA2unqANzo6gB7h4gAtsTFANjo6QDZ6usA2OjpANfn6ADX5+gA2unrANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDX5+sA1+buANbs7gDIyboAvLKgAMbUzgDY6OMA1+rmANbq
+        6ADV6OYA1+ftANnp8ADY5uUAz9fLALazoQDLyrwA2+njANTp6ADY6e0A2+fqAKSysgCGkJEA2OnpANno
+        6gDZ6OoA2ejqANfo6QDW5+cA3eztANPf4QAcJykAyNXWANno6QDY5+kA2enqANnp6gDc7e4A2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqAOTo5ADT5+oA3OfpAN3o6wDU180AtJ11AKua
+        eQDIwa0A1dnTANro7QDO1dcAysKsALabdgCumYAAzNjTANbn6wDX6usA1unpANfn5wDZ5+oAo7G1AIaQ
+        kQDY6ekA2ejqANno6gDZ6OoA2OjqANfo6QDY6OkA3ersAL/LzQBuenwA2ObnANnn6QDa6esA2enqANfn
+        6ADZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA3OnsAN7t5QDX5ugA1ObrANfo
+        6gDq6uMAyMGzAK2cgQCcgFYAm3ZCAKeEUgC0mXsAwsK3ANbn5ADg6OcA2ufrAN7q7wDc6OoA2ujoANnp
+        6gChsLQAhpCRANjp6QDZ6OoA2ejqANno6gDZ6OoA2OjqANbn6ADZ6eoA2efoAIuXmQCVoqQA2+jqANfm
+        6ADY6OkA2OnqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDV6O0A1ebrANPq
+        5wDW6egA2ujpANPm7ADX6OwA2ObqANro6gDY5+gA1+jqANfp6wDb5+oA3OfqANnp6gDY5+gA3ujrAN3n
+        6QDX6OkA1ufoAKeytACGkJEA2OnpANno6gDZ6OoA2ejqANrn6QDb6esA1+nqANTn6ADY6OkA3OnrAFdj
+        ZQCpt7gA2+rrANjo6QDX6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANvq
+        5QDb6usA4efzAN3n6gDV6OgA2urpANzp6QDe6OkA3OjpANvq7ADX6OYA1urnANXp6ADZ6usA1ebpANfq
+        6gDX6ecA1+jrANDn6QDY6usArbGyAIaQkQDY6ekA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejpAGt5ewCvu70Arrm7AK+5uwCtursArbq7AK26uwCtursArbq7AK26uwCtursArbq7AK26
+        uwCtursArbq7AK26uwCtursArbq7AK26uwCtursArbq7AK26uwCtursArbq7AK26uwCtursArbq7AK26
+        uwCtursArbq7AK67vACsuroArbq6AK26uwCSn58AhJCRANzo6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6QDb6OkAytjZAFNgYQBSX2EATlxdAFddXwBXXV8AV11fAFddXwBXXV8AV11fAFdd
+        XwBXXV8AV11fAFddXwBXXV8AV11fAFddXwBXXV8AV11fAFddXwBXXV8AV11fAFddXwBXXV8AV11fAFdd
+        XwBXXV8AV11fAFddXwBWXF4AWV9hAFddXwBaYGIAVVtdAFthZACms7QA2ujpANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANjo6QDZ6OkA2ObnANvo6gDb6OoA2OnqANjp6gDY6eoA2OnqANjp
+        6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp
+        6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp6gDW5+gA1+jpANbn6ADZ6usA1ufoANno6ADa6eoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6eoA1OTlANrq7ADc7O0A1uXnANzs7QDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
+        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2OfpANrp6wDb6esA2ujqANfl5wDZ6OoA2erqANnq
+        6gA=
+</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>设置控制台-按键</value>
@@ -818,7 +924,7 @@
     <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;listavail.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6877.17981, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6883.16930, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -833,7 +939,7 @@
     <value>0</value>
   </data>
   <data name="&gt;&gt;lstavail.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6877.17981, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6883.16930, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -937,6 +1043,9 @@
   </data>
   <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btnremovekey.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1071,9 +1180,6 @@
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>654, 453</value>
-  </data>
   <data name="&gt;&gt;txtprecise.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -1127,7 +1233,7 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,113" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,115" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="radioButton2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1156,8 +1262,8 @@
   <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
     <value>tableLayoutPanel11</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1189,108 +1295,8 @@
   <data name="&gt;&gt;tableLayoutPanel4.Parent" xml:space="preserve">
     <value>tabPage2</value>
   </data>
-  <data name="panel2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk36FgAAAAAAADYAAAAoAAAALwAAAB8AAAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDY6OkA2urrANjn6QDY6OkA2OjqANjp6gDY6OsA2OjrANjo
-        6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo
-        6wDY6OsA2OjrANjo6wDY6OsA2OjrANjo6wDY6OsA2OfqANno6wDX5+kA2OfqANjo6wDW5+kA2unqANbo
-        6ADZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDY6OkA2+rrANjl5wDc6OoA3OfpANno
-        6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno
-        6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2ejpANno6QDZ6OkA2OjoANrq6gDa6uoA1+fnAN3s
-        7QDZ5ucA0+bmANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANfm5wCCj5EAbnR2AG90
-        dgBvdHYAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10
-        dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AG10dQBtdHUAbXR1AGx0dABtdXUAbHV1AG11
-        dQBsdHQAUlpaAIaQkQDZ6usA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ5+gAvsvNAHN/
-        gQDc6OoA2ufpANvo6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp
-        6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2enqANnp6gDZ6eoA2OnpANrr
-        6wDX5+cA1+joANrq6gCfr68AiZGSANLj5ADZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqALTB
-        wwBVX2EA0t7fANro6QDY6eoA1+nqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo
-        6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo6gDY6OoA2OjqANjo
-        6gDY6OoA2OjqANnp6wDZ6esA2OfqAKOztQCIjpAA2urrANno6gDZ6OoA2ejqANro6gDY6eoA1OXmANno
-        6gDf6esAaXR2ANjn6QDZ6eoA2ejpANjo6QDY6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANTo5ADa6e0A0ufqANXl7gDX5+kA2uzkAMLCtACxmoAApIBXAJpzPQCig1MAtp+AAMjD
-        sADc698A2ujoANrp6gDX5esA3+noANzo6wDX6O0ApbKuAIaQkQDY6ekA2ejqANno6gDZ6OoA2ejpANjo
-        6QDZ6eoA1OPkAFtmaACntLYA2urrANjn6QDX5+gA2enqANjo6QDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2untANbo6ADf5+sA2+XiAL27qAC6rJkAxb+vAM/UygDU4N0A2efrANPf
-        4ADN1csAw7+vALiplgC+uqwA0+XiANTm6gDX5u0A3uzkANbm6wCms7UAhpCRANjp6QDZ6OoA2ejqANno
-        6gDZ6OoA2ejpAN3r7QCAjo8Ao6+xANzp6wDc7O0A2enqANrp6wDY6OkA3OvsANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDS5+kA3+frANfm5AC3sJ4A0M67AN3k6ADY5ukA0+rqANXp
-        6QDf6+wA3ufpANrl5ADX6OcA1e7yAMfLvgDEr5cA2fDxANnn6wDY5ucA1OrnAKywvQCGkJEA2OnpANno
-        6gDZ6OoA2ejqANjo6QDa6OoAsL2/AHyJiwDa6OoA2ejpANjn6ADZ6eoA2OfoANrp6wDY5+gA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANXl7QDb5eIAt7CeAMXDtADX5+kA1efnANnp
-        6gDa6OkA2efpANfo6QDV6ekA1ufpANno7ADZ5eYA3efnAL/BtAC5sJwA2+XiANTl6gDX6egAqbC0AIaQ
-        kQDY6ekA2ejqANno6gDZ6OoA2OjpAJypqwBteHoA2ebnANno6gDY6OkA2OfpANno6gDZ6OkA2ejpANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA1+fpAL26qADQzboA1+fpANjp
-        6ADY6uoA2OjpANjn6QDa6eoA1+boANro6gDa6esA1+jqANnq6wDX6uoA2OjoAMzJugDBuaoA1+fpANzo
-        6QCfsbEAhpCRANjp6QDX5+gA2unqANno6QDa5+gAZ3R2ANvp6gDX5+kA2OnqANjo6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDa7OQAuqyZAN7k
-        6ADV6OcA2erqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDb5+sA1+bjALWv
-        lwDr6uMA0+bsAKOzsgCGkJEA2OnpANfn6ADa6esA2unqAKKvsQCirrAA2ObnANrq6wDU5eYA2enrANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqAMnS
-        xgDBtqYA3OfqANrr6wDX5+gA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANrn
-        6wDZ6ucAvLiiANTRxwDW6O4ApLKyAIaQkQDY6ekA2unqANno6gDM2tsAand5ANrn6QDa6OoA2OjpANnp
-        6gDY6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoAtqeRAMzOwgDT5+kA2ujoANjo6QDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2OfqANns6QDKzr8AtaeSANfm6gCnsrMAhpCRANjp6QDY5+gA1uTmACAtLwDF09QA2OfoANzr
-        7ADZ6OoA1+foANrq6wDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gCqiGMA0dzXANPq6gDa6OoA2unqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDY5+oA1uvoANPe1wCiiGQA2+jrAKWwsQCGkJEA2OnpANrn6QB9i4wArru9ANno
-        6QDY6eoA2OfpANnp6gDZ6eoA2OjpANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqAJx2QwDX5ugA2urrANjn6QDY5+kA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANrn6gDW6OYA1+bnAJp3RgDZ5+gApbO0AIaQkQDY6ekA2ufpAGd0
-        dgDf7O0A2+nrANjp6gDY6OkA2OjpANnp6gDZ6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoApYBFANPh5wDf5ugA1ujpANnp6wDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ufqANvr6ADR4ugApX1FANrq6gCgsLEAhpCRANjp
-        6QDb6usAmaaoAHF8fgDZ5+gA2OjpANnp6gDZ6OkA2OfpANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gCrk3AA0NnSANzn6ADV6OkA2+jqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6eYA1ePzANTY0gCsk20A1enrAKaz
-        rwCGkJEA2OnpANjm6ADc6uwAj52fAImYmgDa6esA2OfoANno6QDb6usA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqAMK2oADGx7kA2+jmANno
-        7QDY6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANfp7ADY6OgAzMe3ALq0
-        owDZ6eoAo7OxAIaQkQDY6ekA2ejpANnn6QDa6OkAe4mKAMbU1QDb6esA2OfoANvq7ADY5+kA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA1N3PALyw
-        nQDU6+0A2ebpANjp6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA1ufqANnr
-        6QC+sZsAy93XANrn6gCms7QAhpCRANjp6QDW5ecA2unqANno6QDX5OUAanZ4ANbk5gDb6esA1OTmANnp
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDd7egAt6ybANHj3gDf6ekA1+rrANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDf6+oAz9/aALWumwDd6ugA2ensAKWxswCGkJEA2OnpANvq6wDY6OkA2OnqANro6QCWoaMAd4SGANfm
-        6ADW5ucA2OjqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANjl7QDM1csAuaOHANDe3gDZ6OgA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANTe3ACtpI0Az9PMANro6QDW6OgApbC2AIaQkQDY6ekA2ejqANno6gDZ6OoA2unqANrm
-        6ACOmJoAj5udAN3t7gDV5+cA2errANjp6gDY6OkA2urrANjn6ADZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA3e7jANTp6gDSyr4AuKyRANfp6gDd5+0A2ubrANfm6wDZ5+sA3ObrAN7p
-        5gDV5eMA0+ntANTk5QDj6uUArKecANDOwwDb6egA1eTrANnm6gCjtLEAhpCRANjp6QDZ6OoA2ejqANno
-        6gDX5+kA2unqANzo6gB7h4gAtsTFANjo6QDZ6usA2OjpANfn6ADX5+gA2unrANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDX5+sA1+buANbs7gDIyboAvLKgAMbUzgDY6OMA1+rmANbq
-        6ADV6OYA1+ftANnp8ADY5uUAz9fLALazoQDLyrwA2+njANTp6ADY6e0A2+fqAKSysgCGkJEA2OnpANno
-        6gDZ6OoA2ejqANfo6QDW5+cA3eztANPf4QAcJykAyNXWANno6QDY5+kA2enqANnp6gDc7e4A2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqAOTo5ADT5+oA3OfpAN3o6wDU180AtJ11AKua
-        eQDIwa0A1dnTANro7QDO1dcAysKsALabdgCumYAAzNjTANbn6wDX6usA1unpANfn5wDZ5+oAo7G1AIaQ
-        kQDY6ekA2ejqANno6gDZ6OoA2OjqANfo6QDY6OkA3ersAL/LzQBuenwA2ObnANnn6QDa6esA2enqANfn
-        6ADZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA3OnsAN7t5QDX5ugA1ObrANfo
-        6gDq6uMAyMGzAK2cgQCcgFYAm3ZCAKeEUgC0mXsAwsK3ANbn5ADg6OcA2ufrAN7q7wDc6OoA2ujoANnp
-        6gChsLQAhpCRANjp6QDZ6OoA2ejqANno6gDZ6OoA2OjqANbn6ADZ6eoA2efoAIuXmQCVoqQA2+jqANfm
-        6ADY6OkA2OnqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDV6O0A1ebrANPq
-        5wDW6egA2ujpANPm7ADX6OwA2ObqANro6gDY5+gA1+jqANfp6wDb5+oA3OfqANnp6gDY5+gA3ujrAN3n
-        6QDX6OkA1ufoAKeytACGkJEA2OnpANno6gDZ6OoA2ejqANrn6QDb6esA1+nqANTn6ADY6OkA3OnrAFdj
-        ZQCpt7gA2+rrANjo6QDX6OkA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANvq
-        5QDb6usA4efzAN3n6gDV6OgA2urpANzp6QDe6OkA3OjpANvq7ADX6OYA1urnANXp6ADZ6usA1ebpANfq
-        6gDX6ecA1+jrANDn6QDY6usArbGyAIaQkQDY6ekA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejpAGt5ewCvu70Arrm7AK+5uwCtursArbq7AK26uwCtursArbq7AK26uwCtursArbq7AK26
-        uwCtursArbq7AK26uwCtursArbq7AK26uwCtursArbq7AK26uwCtursArbq7AK26uwCtursArbq7AK26
-        uwCtursArbq7AK67vACsuroArbq6AK26uwCSn58AhJCRANzo6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6QDb6OkAytjZAFNgYQBSX2EATlxdAFddXwBXXV8AV11fAFddXwBXXV8AV11fAFdd
-        XwBXXV8AV11fAFddXwBXXV8AV11fAFddXwBXXV8AV11fAFddXwBXXV8AV11fAFddXwBXXV8AV11fAFdd
-        XwBXXV8AV11fAFddXwBWXF4AWV9hAFddXwBaYGIAVVtdAFthZACms7QA2ujpANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANjo6QDZ6OkA2ObnANvo6gDb6OoA2OnqANjp6gDY6eoA2OnqANjp
-        6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp
-        6gDY6eoA2OnqANjp6gDY6eoA2OnqANjp6gDW5+gA1+jpANbn6ADZ6usA1ufoANno6ADa6eoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6eoA1OTlANrq7ADc7O0A1uXnANzs7QDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno
-        6gDZ6OoA2ejqANno6gDZ6OoA2ejqANno6gDZ6OoA2OfpANrp6wDb6esA2ujqANfl5wDZ6OoA2erqANnq
-        6gA=
-</value>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1301,8 +1307,8 @@
   <data name="label7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="label8.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="lstinclude.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 1</value>
@@ -1431,9 +1437,6 @@
   <data name="tableLayoutPanel12.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>652, 83</value>
-  </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
   </data>
@@ -1489,8 +1492,8 @@
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 1</value>
   </data>
-  <data name="tableLayoutPanel11.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
-    <value>Single</value>
+  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>652, 83</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1554,9 +1557,6 @@
   </data>
   <data name="btnremovemeter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="label8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
   </data>
   <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1709,8 +1709,8 @@
   <data name="label3.Text" xml:space="preserve">
     <value>选中显示表头(最多4个)</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
@@ -1766,8 +1766,8 @@
   <data name="&gt;&gt;panel7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>654, 38</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1875,7 +1875,7 @@
     <value>3</value>
   </data>
   <data name="&gt;&gt;listinclude.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6877.17981, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6883.16930, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="txtprecise.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -1892,8 +1892,8 @@
   <data name="&gt;&gt;btnupmeter.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>654, 38</value>
+  <data name="listavail.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;btnaddkey.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -1934,14 +1934,14 @@
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>300, 24</value>
   </data>
-  <data name="tableLayoutPanel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>654, 453</value>
   </data>
   <data name="tableLayoutPanel12.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;lstinclude.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6877.17981, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6883.16930, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
     <value>652, 211</value>

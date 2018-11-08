@@ -148,6 +148,13 @@ namespace TabHeaderDemo
             if (switchDriver.Value == true)
             {
                 GlobeVal.myarm.DriveOn();
+
+                DelayS(1);
+
+                if (GlobeVal.myarm.DriverOn() == false)
+                {
+                    switchDriver.Value = false;
+                }
             }
 
             else
@@ -155,6 +162,7 @@ namespace TabHeaderDemo
 
                 GlobeVal.myarm.DriveOff();
             }
+
 
         }
 

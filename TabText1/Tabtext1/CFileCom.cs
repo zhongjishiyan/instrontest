@@ -2665,7 +2665,7 @@ namespace CComLibrary
         public int currentcount = 1;
         public int destmode = 0;//控制模式
 
-
+        public short  tan = 0;
 
 
 

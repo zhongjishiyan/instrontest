@@ -316,7 +316,7 @@
     <value>4, 1</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 36</value>
+    <value>567, 36</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -484,7 +484,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>583, 4</value>
+    <value>578, 4</value>
   </data>
   <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 30</value>
@@ -532,7 +532,7 @@
     <value>3</value>
   </data>
   <data name="tableLayoutPanel6.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label6" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel6" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,79" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label6" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel6" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,84" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage6.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -1363,7 +1363,7 @@
     <value>4, 1</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 36</value>
+    <value>568, 36</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1616,7 +1616,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>584, 4</value>
+    <value>579, 4</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 30</value>
@@ -1664,7 +1664,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label5" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,78" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label5" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel5" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,83" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage5.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -1823,7 +1823,7 @@
     <value>lstavail</value>
   </data>
   <data name="&gt;&gt;lstavail.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6877.17981, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6886.20871, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lstavail.Parent" xml:space="preserve">
     <value>tableLayoutPanel15</value>
@@ -1850,7 +1850,7 @@
     <value>lstinclude</value>
   </data>
   <data name="&gt;&gt;lstinclude.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6877.17981, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListExtObject, AppleLabJ, Version=1.2.6886.20871, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lstinclude.Parent" xml:space="preserve">
     <value>tableLayoutPanel15</value>
@@ -2694,7 +2694,7 @@
     <value>4, 1</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 36</value>
+    <value>564, 36</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2857,7 +2857,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>580, 4</value>
+    <value>575, 4</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 30</value>
@@ -2905,7 +2905,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,76" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,81" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -5413,7 +5413,7 @@
     <value>4, 1</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 36</value>
+    <value>568, 36</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -5578,7 +5578,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>584, 4</value>
+    <value>579, 4</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 30</value>
@@ -5626,7 +5626,7 @@
     <value>4</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,72" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,77" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -6466,7 +6466,7 @@
     <value>4, 1</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>577, 36</value>
+    <value>572, 36</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -6614,7 +6614,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>588, 4</value>
+    <value>583, 4</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 30</value>
@@ -6662,7 +6662,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,74" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,79" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -7637,7 +7637,7 @@
     <value>4, 1</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>576, 36</value>
+    <value>571, 36</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -7821,7 +7821,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 4</value>
+    <value>582, 4</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 30</value>
@@ -7869,7 +7869,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,75" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,80" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage4.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -7926,13 +7926,13 @@
     <value>127, 17</value>
   </metadata>
   <data name="toolStripLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 31</value>
+    <value>56, 33</value>
   </data>
   <data name="toolStripLabel1.Text" xml:space="preserve">
     <value>控制程序</value>
   </data>
   <data name="tscbo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 34</value>
+    <value>200, 36</value>
   </data>
   <data name="tsbtnnew.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -7946,7 +7946,7 @@
     <value>Magenta</value>
   </data>
   <data name="tsbtnnew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 31</value>
+    <value>23, 33</value>
   </data>
   <data name="tsbtnnew.Text" xml:space="preserve">
     <value>新建程序</value>
@@ -7965,7 +7965,7 @@
     <value>Magenta</value>
   </data>
   <data name="tsbtnkill.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 31</value>
+    <value>25, 33</value>
   </data>
   <data name="tsbtnkill.Text" xml:space="preserve">
     <value>删除程序</value>
@@ -7985,7 +7985,7 @@
     <value>Magenta</value>
   </data>
   <data name="tsbtnrename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 31</value>
+    <value>32, 33</value>
   </data>
   <data name="tsbtnrename.Text" xml:space="preserve">
     <value>重命名</value>
@@ -8005,7 +8005,7 @@
     <value>Magenta</value>
   </data>
   <data name="tsbtnadd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 31</value>
+    <value>33, 33</value>
   </data>
   <data name="tsbtnadd.Text" xml:space="preserve">
     <value>添加步骤</value>
@@ -8026,7 +8026,7 @@
     <value>Magenta</value>
   </data>
   <data name="tsbtninsert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 31</value>
+    <value>34, 33</value>
   </data>
   <data name="tsbtninsert.Text" xml:space="preserve">
     <value>插入步骤</value>
@@ -8047,7 +8047,7 @@
     <value>Magenta</value>
   </data>
   <data name="tsbtndel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 31</value>
+    <value>32, 33</value>
   </data>
   <data name="tsbtndel.Text" xml:space="preserve">
     <value>移除步骤</value>
@@ -8064,16 +8064,37 @@
     <value>Magenta</value>
   </data>
   <data name="tsbtnsave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 31</value>
+    <value>23, 33</value>
   </data>
   <data name="tsbtnsave.Text" xml:space="preserve">
     <value>保存程序</value>
+  </data>
+  <data name="tsbtncheck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVFhH7Y9bDoAgDAQ5ujdHl6QElVIeS/yw2xiioTtj
+        iB/HBVzABbYKhGDXbxMQuCWxRSDDZRoSdIEXHHNcjyJBFRiFIzSBGThCEZiFI+YN8w8W4EjzVi5Xylbh
+        iHqzLE/no5QBR6q3a+XpXb6T4Ii6gbJUWox8T2c5k3CkuaVKlLMAR8zNmkSeRTjStV2VIMCR7oabBAmO
+        DLVkCRIcGW5iwhFu20RcwAX+LhDjCVkd3nB/6h3AAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="tsbtncheck.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="tsbtncheck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tsbtncheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 33</value>
+  </data>
+  <data name="tsbtncheck.Text" xml:space="preserve">
+    <value>检查</value>
   </data>
   <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 2</value>
   </data>
   <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>656, 34</value>
+    <value>656, 36</value>
   </data>
   <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -8145,7 +8166,7 @@
     <value>4, 1</value>
   </data>
   <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>575, 36</value>
+    <value>570, 36</value>
   </data>
   <data name="label30.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -8310,7 +8331,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>586, 4</value>
+    <value>581, 4</value>
   </data>
   <data name="panel11.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 30</value>
@@ -8358,7 +8379,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel29.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label30" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel11" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,76" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label30" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel11" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,81" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage7.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -8433,7 +8454,7 @@
     <value>4, 1</value>
   </data>
   <data name="label52.Size" type="System.Drawing.Size, System.Drawing">
-    <value>579, 36</value>
+    <value>574, 36</value>
   </data>
   <data name="label52.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -8598,7 +8619,7 @@
     <value>Stretch</value>
   </data>
   <data name="panel12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>590, 4</value>
+    <value>585, 4</value>
   </data>
   <data name="panel12.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 30</value>
@@ -8646,7 +8667,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel17.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label52" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel12" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,72" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label52" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel12" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,77" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPage8.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -11097,10 +11118,10 @@
     <value>Fill</value>
   </data>
   <data name="txtrectdowndestunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-441, 4</value>
+    <value>-446, 4</value>
   </data>
   <data name="txtrectdowndestunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>791, 14</value>
+    <value>796, 14</value>
   </data>
   <data name="txtrectdowndestunit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -11145,7 +11166,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel75.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectdowndest" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectdowndestunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,797" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectdowndest" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectdowndestunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,802" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel76.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
@@ -11181,10 +11202,10 @@
     <value>Fill</value>
   </data>
   <data name="txtrectudestunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-439, 4</value>
+    <value>-444, 4</value>
   </data>
   <data name="txtrectudestunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>789, 14</value>
+    <value>794, 14</value>
   </data>
   <data name="txtrectudestunit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -11229,7 +11250,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel76.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectupdest" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectudestunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,795" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectupdest" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectudestunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,800" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel77.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
@@ -11268,10 +11289,10 @@
     <value>Flat</value>
   </data>
   <data name="cborectspeedunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-441, 4</value>
+    <value>-446, 4</value>
   </data>
   <data name="cborectspeedunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>791, 20</value>
+    <value>796, 20</value>
   </data>
   <data name="cborectspeedunit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -11316,7 +11337,7 @@
     <value>2</value>
   </data>
   <data name="tableLayoutPanel77.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectspeed" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cborectspeedunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,797" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectspeed" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cborectspeedunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,802" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label84.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11649,10 +11670,10 @@
     <value>Fill</value>
   </data>
   <data name="txtrectupspeedunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-438, 4</value>
+    <value>-443, 4</value>
   </data>
   <data name="txtrectupspeedunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>788, 14</value>
+    <value>793, 14</value>
   </data>
   <data name="txtrectupspeedunit.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -11697,7 +11718,7 @@
     <value>12</value>
   </data>
   <data name="tableLayoutPanel78.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectupspeed" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectupspeedunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,794" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectupspeed" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectupspeedunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,799" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel79.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
@@ -11733,10 +11754,10 @@
     <value>Fill</value>
   </data>
   <data name="txtrectdownspeedunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-438, 4</value>
+    <value>-443, 4</value>
   </data>
   <data name="txtrectdownspeedunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>788, 14</value>
+    <value>793, 14</value>
   </data>
   <data name="txtrectdownspeedunit.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -11781,7 +11802,7 @@
     <value>13</value>
   </data>
   <data name="tableLayoutPanel79.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectdownspeed" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectdownspeedunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,794" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectdownspeed" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectdownspeedunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,799" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label92.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11853,10 +11874,10 @@
     <value>Fill</value>
   </data>
   <data name="txtrectupkeeptimeunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-438, 4</value>
+    <value>-443, 4</value>
   </data>
   <data name="txtrectupkeeptimeunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>788, 14</value>
+    <value>793, 14</value>
   </data>
   <data name="txtrectupkeeptimeunit.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -11901,7 +11922,7 @@
     <value>15</value>
   </data>
   <data name="tableLayoutPanel80.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectupkeeptime" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectupkeeptimeunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,794" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectupkeeptime" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectupkeeptimeunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,799" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label93.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -11973,10 +11994,10 @@
     <value>Fill</value>
   </data>
   <data name="txtrectdownkeeptimeunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-438, 4</value>
+    <value>-443, 4</value>
   </data>
   <data name="txtrectdownkeeptimeunit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>788, 14</value>
+    <value>793, 14</value>
   </data>
   <data name="txtrectdownkeeptimeunit.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -12021,7 +12042,7 @@
     <value>17</value>
   </data>
   <data name="tableLayoutPanel81.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectdownkeeptime" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectdownkeeptimeunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,794" /&gt;&lt;Rows Styles="Percent,100,Absolute,22" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="numrectdownkeeptime" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtrectdownkeeptimeunit" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,799" /&gt;&lt;Rows Styles="Percent,100,Absolute,22" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel74.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -13976,10 +13997,10 @@
     <value>Fill</value>
   </data>
   <data name="panel13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 5</value>
+    <value>577, 5</value>
   </data>
   <data name="panel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 172</value>
+    <value>78, 172</value>
   </data>
   <data name="panel13.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -14038,7 +14059,7 @@
     <value>listViewEx1</value>
   </data>
   <data name="&gt;&gt;listViewEx1.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListViewEx, AppleLabJ, Version=1.2.6877.17981, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListViewEx, AppleLabJ, Version=1.2.6886.20871, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewEx1.Parent" xml:space="preserve">
     <value>pnledit</value>
@@ -14053,7 +14074,7 @@
     <value>0, 0</value>
   </data>
   <data name="pnledit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>527, 172</value>
+    <value>517, 172</value>
   </data>
   <data name="pnledit.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -14077,7 +14098,7 @@
     <value>52, 5</value>
   </data>
   <data name="panel14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>527, 172</value>
+    <value>517, 172</value>
   </data>
   <data name="panel14.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -14251,7 +14272,7 @@
     <value>1</value>
   </data>
   <data name="tlpscroll.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel13" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="panel14" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel15" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,45,Percent,100,Absolute,74" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel13" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="panel14" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel15" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,45,Percent,100,Absolute,84" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel58.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
@@ -14571,10 +14592,10 @@
     <value>Fill</value>
   </data>
   <data name="panel23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>521, 5</value>
+    <value>511, 5</value>
   </data>
   <data name="panel23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 221</value>
+    <value>144, 221</value>
   </data>
   <data name="panel23.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -14618,13 +14639,56 @@
     <value>0, 0</value>
   </data>
   <data name="listViewBlock1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>456, 221</value>
+    <value>456, 204</value>
   </data>
   <metadata name="imageList2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>708, 17</value>
   </metadata>
-  <data name="imageList2.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>16, 200</value>
+  <data name="imageList2.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAA
+        CQAAAk1TRnQBSQFMAgEBAwEAASgBAAEoAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wEAIP8IAAH+FwAg/wcA
+        Af4B/wH+FgAT/wH0AQ4G/wH0AfkBAAL/BgAB/gP/Af4VAAb/AQAN/wH5Bv8BAAH5AQAC/wUAAf4B/wMA
+        Af8B/hQABf8BDgH6AQ4L/wH0Af8BAAT/AfQB+QEOA/8EAAH+A/8BAAEHAv8B/hMABP8BAAP6AQAL/wEA
+        AfkBAAP/AvkE/wMAAf4C/wHsAf8BAAEHAQAC/wH+EgAD/wEOAvoBDgL6AQ4L/wH0AfkBDgH/AQ4B+QEO
+        BP8EAAH+Af8BAAEDAfsBAwEAAf8B/hMAA/8BAAH6AQAB/wEAAvoBAAz/AfkBAAH5Bv8FAAH+AQMD+wED
+        Af4UAAT/AQ4D/wEOAvoBDgr/AfQD+QH0Bf8FAAEDAvsBAAL7AQMUAAn/AQAC+gEACf8BAAP5AQAF/wQA
+        AQMH+xQACv8BDgL6AQ4H/wEOAfkB8wH0AfMB+QEOAfQD/wQAAQMB+wL/AQAD+xQAC/8CAAf/AQAB+QT/
+        AQAC+QP/BAABAwP/AQAD+xQAE/8B9AH5AQ4B9AT/AQ4B8wEAAv8FAAH7Av8BAAP7FAAT/wIAC/8GAAX7
+        FQAg/wcAAwMWACD/IAABQgFNAT4HAAE+AwABKAMAAUADAAEQAwABAQEAAQEFAAGAFwAD/wUAAf8BfwYA
+        Af4BPwYAAfwBHwYAAfgBDwYAAfABBwYAAeABAwYAAfABBwYAAfgBDwYAAfgBDwYAAfABBwYAAfABBwYA
+        AfABBwYAAfgBDwYAAfwBHwYAAf4BPwYAAv8CAAs=
+</value>
   </data>
   <data name="listViewBlock1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -14633,7 +14697,7 @@
     <value>listViewBlock1</value>
   </data>
   <data name="&gt;&gt;listViewBlock1.Type" xml:space="preserve">
-    <value>TabHeaderDemo.ListViewBlock, AppleLabJ, Version=1.2.6877.17981, Culture=neutral, PublicKeyToken=null</value>
+    <value>TabHeaderDemo.ListViewBlock, AppleLabJ, Version=1.2.6886.20871, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewBlock1.Parent" xml:space="preserve">
     <value>panel25</value>
@@ -14648,7 +14712,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>461, 221</value>
+    <value>451, 221</value>
   </data>
   <data name="panel25.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -14672,7 +14736,7 @@
     <value>52, 5</value>
   </data>
   <data name="panel24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>461, 221</value>
+    <value>451, 221</value>
   </data>
   <data name="panel24.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -14846,7 +14910,7 @@
     <value>1</value>
   </data>
   <data name="tlpblock.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel23" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="panel24" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel26" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,45,Percent,100,Absolute,140" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel23" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="panel24" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panel26" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,45,Percent,100,Absolute,150" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel85.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
@@ -15137,6 +15201,12 @@
     <value>tsbtnsave</value>
   </data>
   <data name="&gt;&gt;tsbtnsave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbtncheck.Name" xml:space="preserve">
+    <value>tsbtncheck</value>
+  </data>
+  <data name="&gt;&gt;tsbtncheck.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tbtnramp.Name" xml:space="preserve">

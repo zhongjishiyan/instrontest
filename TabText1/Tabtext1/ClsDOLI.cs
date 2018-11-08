@@ -2468,7 +2468,7 @@ namespace ClsStaticStation
                 segstep(mrunlist[mcurseg].cmd, mrunlist[mcurseg].destorigin(),
                     Convert.ToInt16(mrunlist[mcurseg].controlmode),
                      Convert.ToInt16(mrunlist[mcurseg].destcontrolmode),
-                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0, mrunlist[mcurseg].destmode);
+                    k, Convert.ToSingle(mrunlist[mcurseg].speedorigin()), 0, 0, 0, 0, mrunlist[mcurseg].destmode,ref mrunlist[mcurseg].tan );
 
 
 
@@ -2654,7 +2654,7 @@ namespace ClsStaticStation
                    Convert.ToInt16(mrunlist[ii].controlmode),
                     Convert.ToInt16(mrunlist[ii].destcontrolmode),
                    k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
+                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode,ref  mrunlist[ii].tan );
 
                         mcurseg = ii;
                     }
@@ -2785,7 +2785,7 @@ namespace ClsStaticStation
                            Convert.ToInt16(mrunlist[ii].controlmode),
                              Convert.ToInt16(mrunlist[ii].destcontrolmode),
                             k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
+                          mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode,ref mrunlist[ii].tan );
 
                         mcurseg = ii;
                     }
@@ -2798,7 +2798,7 @@ namespace ClsStaticStation
                        Convert.ToInt16(mrunlist[ii].controlmode),
                         Convert.ToInt16(mrunlist[ii].destcontrolmode),
                        k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                       mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
+                       mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode,ref mrunlist[ii].tan );
 
                             mcurseg = ii;
                         }
@@ -2825,7 +2825,7 @@ namespace ClsStaticStation
 
         }
 
-        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action, int destmode)
+        public override void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount, int action, int destmode,ref short tan)
         {
             bool b = false;
             short m;
@@ -2833,7 +2833,7 @@ namespace ClsStaticStation
             m_keepstart = false;
             keepingstate = false;
 
-            short tan = 0;
+          
 
             m_returncount = returncount;
             m_returnstep = reurnstep;
@@ -3034,7 +3034,7 @@ namespace ClsStaticStation
                                        Convert.ToInt16(mrunlist[ii].controlmode),
                                          Convert.ToInt16(mrunlist[ii].destcontrolmode),
                                         k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
+                                      mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode,ref mrunlist[ii].tan);
                                 }
                                 else
                                 {
@@ -3044,7 +3044,7 @@ namespace ClsStaticStation
                                    Convert.ToInt16(mrunlist[ii].controlmode),
                                     Convert.ToInt16(mrunlist[ii].destcontrolmode),
                                    k, Convert.ToSingle(mrunlist[ii].speedorigin()),
-                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode);
+                                   mrunlist[ii].keeptime, mrunlist[ii].returnstep, mrunlist[ii].returncount, mrunlist[ii].action, mrunlist[ii].destmode,ref mrunlist[ii].tan );
 
                                         mcurseg = ii;
                                     }

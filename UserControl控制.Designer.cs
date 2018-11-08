@@ -271,6 +271,7 @@
             this.tsbtninsert = new System.Windows.Forms.ToolStripButton();
             this.tsbtndel = new System.Windows.Forms.ToolStripButton();
             this.tsbtnsave = new System.Windows.Forms.ToolStripButton();
+            this.tsbtncheck = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
             this.label30 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -2360,6 +2361,7 @@
             | SourceGrid2.GridSpecialKeys.Escape)));
             this.grid2.CellGotFocus += new SourceGrid2.PositionCancelEventHandler(this.grid2_CellGotFocus);
             this.grid2.SettingCell += new SourceGrid2.PositionEventHandler(this.grid2_SettingCell);
+            this.grid2.Paint += new System.Windows.Forms.PaintEventHandler(this.grid2_Paint);
             // 
             // toolStrip1
             // 
@@ -2372,7 +2374,8 @@
             this.tsbtnadd,
             this.tsbtninsert,
             this.tsbtndel,
-            this.tsbtnsave});
+            this.tsbtnsave,
+            this.tsbtncheck});
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
             // 
@@ -2437,6 +2440,13 @@
             resources.ApplyResources(this.tsbtnsave, "tsbtnsave");
             this.tsbtnsave.Name = "tsbtnsave";
             this.tsbtnsave.Click += new System.EventHandler(this.tsbtnsave_Click);
+            // 
+            // tsbtncheck
+            // 
+            this.tsbtncheck.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.tsbtncheck, "tsbtncheck");
+            this.tsbtncheck.Name = "tsbtncheck";
+            this.tsbtncheck.Click += new System.EventHandler(this.tsbtncheck_Click);
             // 
             // tableLayoutPanel29
             // 
@@ -4089,9 +4099,11 @@
             // 
             // imageList2
             // 
-            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            resources.ApplyResources(this.imageList2, "imageList2");
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "101.ico");
+            this.imageList2.Images.SetKeyName(1, "102.ico");
+            this.imageList2.Images.SetKeyName(2, "251.ico");
             // 
             // panel26
             // 
@@ -4893,5 +4905,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.ToolStripButton tsbtncheck;
     }
 }

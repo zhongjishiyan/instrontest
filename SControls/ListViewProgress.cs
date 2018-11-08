@@ -14,6 +14,8 @@ namespace TabHeaderDemo.SControls
 
         public int curstep = 1;
 
+        
+
         #region Windows API
 
         /*
@@ -239,6 +241,8 @@ namespace TabHeaderDemo.SControls
 
             Rectangle r = e.Bounds;
             Graphics g = e.Graphics;
+
+            Pen p;
             int paddingLeft = 1;
 
             if (e.ItemIndex  ==2)
@@ -259,19 +263,62 @@ namespace TabHeaderDemo.SControls
 
                 if (!string.IsNullOrEmpty(e.SubItem.Text))
                 {
-
-                    if (e.ColumnIndex == curstep)
+                    if ((curstep-1 > 0) && (curstep-1 < CComLibrary.GlobeVal.filesave.mseglist.Count))
                     {
-                        Rectangle r1 = getsubitemrect(e.ItemIndex, e.ColumnIndex);
-                        r1 = new Rectangle(r1.X + 1, r1.Y + 1, r1.Width - 1, r1.Height - 1);
-                        e.Graphics.FillRectangle(Brushes.LightBlue, r1);
-                    }
+                        if (CComLibrary.GlobeVal.filesave.mseglist[curstep-1].action == 1)
+                        {
+                            if (e.ColumnIndex == curstep)
+                            {
+                                Rectangle r1 = getsubitemrect(e.ItemIndex, e.ColumnIndex);
+                                Rectangle r0 = getsubitemrect(e.ItemIndex, e.ColumnIndex - 1);
+                                r1 = new Rectangle(r0.X + 1, r0.Y + 1, r1.Width - 1 + r0.Width, r1.Height - 1);
+                                e.Graphics.FillRectangle(Brushes.LightBlue, r1);
 
-                    Pen p = new Pen(Brushes.LightGray, 2);
+                                p = new Pen(Brushes.LightGray, 2);
+
+                                e.Graphics.DrawRectangle(p, getsubitemrect(e.ItemIndex, e.ColumnIndex - 1));
+
+                                string t;
+                                if (GlobeVal.mysys.language == 0)
+                                {
+                                    t = "步骤" + (curstep - 1).ToString();
+                                }
+                                else
+                                {
+                                   t = "Step" + (curstep - 1).ToString();
+                                }
+                                this.DrawText(e, g, r0, paddingLeft,t);
+                                p.Dispose();
+                               
+                            }
+
+                         
+                        }
+
+                        else
+                        {
+                            if (e.ColumnIndex == curstep)
+                            {
+                                Rectangle r1 = getsubitemrect(e.ItemIndex, e.ColumnIndex);
+                                r1 = new Rectangle(r1.X + 1, r1.Y + 1, r1.Width - 1, r1.Height - 1);
+                                e.Graphics.FillRectangle(Brushes.LightBlue, r1);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (e.ColumnIndex == curstep)
+                        {
+                            Rectangle r1 = getsubitemrect(e.ItemIndex, e.ColumnIndex);
+                            r1 = new Rectangle(r1.X + 1, r1.Y + 1, r1.Width - 1, r1.Height - 1);
+                            e.Graphics.FillRectangle(Brushes.LightBlue, r1);
+                        }
+                    }
+                    p = new Pen(Brushes.LightGray, 2);
 
                     e.Graphics.DrawRectangle(p, getsubitemrect(e.ItemIndex, e.ColumnIndex));
                     this.DrawText(e, g, r, paddingLeft);
-
+                    p.Dispose();
 
 
                 }
@@ -284,12 +331,12 @@ namespace TabHeaderDemo.SControls
                 {
 
                    
-                    Pen p = new Pen(Brushes.LightGray, 2);
+                    p = new Pen(Brushes.LightGray, 2);
 
                    // e.Graphics.DrawRectangle(p, getsubitemrect(e.ItemIndex, e.ColumnIndex));
                     this.DrawText(e, g, r, paddingLeft);
 
-
+                    p.Dispose();
 
                 }
             }
@@ -337,10 +384,25 @@ namespace TabHeaderDemo.SControls
             g.DrawImage(image, imageBounds);
             return imageBounds.Size;
         }
+        private void DrawText(DrawListViewSubItemEventArgs e, Graphics g, Rectangle r, int paddingLeft,string t)
+        {
+            TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
 
+            r.X += 5 + paddingLeft;//重绘图标时，文本右移
+            TextRenderer.DrawText(
+                g,
+                t,
+                e.SubItem.Font,
+                r,
+                e.SubItem.ForeColor,
+                flags);
+        }
         /// <summary>
         /// 重绘文本
         /// </summary>
+        /// 
+
+
         private void DrawText(DrawListViewSubItemEventArgs e, Graphics g, Rectangle r, int paddingLeft)
         {
             TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;

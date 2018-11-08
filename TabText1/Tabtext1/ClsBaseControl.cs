@@ -30,6 +30,8 @@ namespace ClsStaticStation
         public Boolean mdemo = false;
         public int mcurseg = 0;
 
+        
+
         public XLDOPE.Edc myedc;
 
         public double keepingtime;//显示保持时间
@@ -158,7 +160,7 @@ namespace ClsStaticStation
         {
         }
 
-        public  virtual  void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount,int action,int destmode)
+        public  virtual  void segstep(int cmd, double dest, short firstctl, short destctl, short destkeepstyle, float speed, double keeptime, int reurnstep, int returncount,int action,int destmode,ref short tan)
         {
         }
 
